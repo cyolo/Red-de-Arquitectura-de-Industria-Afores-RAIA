@@ -4,8 +4,7 @@ import { ArrowRight, BookOpen, Layers, Network, ShieldCheck, HelpCircle, History
 import * as Icons from "lucide-react";
 
 import { getPortalModules, getPortalReleases, getArchitectureMetrics } from "../domain/repositories/portalRepository";
-import { getBusinessAreas, getBusinessDomains, getServiceDomains } from "../domain/repositories/landscapeRepository";
-import GlobalSearch, { SearchItem } from "../components/portal/GlobalSearch";
+import GlobalSearchTrigger from "../components/portal/GlobalSearchTrigger";
 
 export const metadata = {
   title: "RAIA Architecture Overview Portal",
@@ -16,46 +15,6 @@ export default function HomePage() {
   const modules = getPortalModules();
   const releases = getPortalReleases();
   const metrics = getArchitectureMetrics();
-
-  const areas = getBusinessAreas();
-  const domains = getBusinessDomains();
-  const serviceDomains = getServiceDomains();
-
-  // Build the search corpus dynamically
-  const searchCorpus: SearchItem[] = [
-    // 1. Modules
-    ...modules.map((m) => ({
-      id: m.id,
-      name: m.name,
-      type: "Módulo" as const,
-      route: m.route,
-      description: m.description,
-    })),
-    // 2. Business Areas
-    ...areas.map((ba) => ({
-      id: ba.id,
-      name: ba.nameEs,
-      type: "Área de Negocio" as const,
-      route: `/service-landscape/value-chain?area=${ba.id}`,
-      description: ba.description,
-    })),
-    // 3. Business Domains
-    ...domains.map((bd) => ({
-      id: bd.id,
-      name: bd.nameEs,
-      type: "Dominio de Negocio" as const,
-      route: `/service-landscape/value-chain?area=${bd.businessAreaId}&domain=${bd.id}`,
-      description: bd.description,
-    })),
-    // 4. Service Domains
-    ...serviceDomains.map((sd) => ({
-      id: sd.id,
-      name: sd.nameEs,
-      type: "Service Domain" as const,
-      route: `/service-domains/${sd.slug}`,
-      description: sd.purpose,
-    })),
-  ];
 
   // Group modules by category
   const categories = [
@@ -165,7 +124,7 @@ export default function HomePage() {
 
             {/* Global Search Component */}
             <div className="pt-4 border-t border-slate-800/60 max-w-md">
-              <GlobalSearch />
+              <GlobalSearchTrigger />
             </div>
           </div>
         </div>
@@ -234,11 +193,16 @@ export default function HomePage() {
                     <Link
                       key={mod.id}
                       href={mod.route}
-                      className="bg-white rounded-2xl border border-slate-200 shadow-xs p-5 hover:border-slate-300 hover:shadow-md transition-all flex flex-col justify-between group h-64 text-left"
+                      className="bg-white rounded-2xl border border-slate-200 shadow-xs p-5 hover:border-slate-300 hover:shadow-md transition-all flex flex-col justify-between group h-auto text-left"
                     >
                       <div className="space-y-4">
-                        <div className="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
-                          <Icon size={20} />
+                        <div className="flex items-center justify-between">
+                          <div className="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
+                            <Icon size={20} />
+                          </div>
+                          <span className="text-[9px] font-extrabold text-slate-400 bg-slate-50 px-2 py-0.5 rounded border border-slate-200/60">
+                            v{mod.version || "0.1.0"}
+                          </span>
                         </div>
                         <div>
                           <h3 className="text-sm font-extrabold text-slate-800 leading-tight">
@@ -247,13 +211,41 @@ export default function HomePage() {
                           <span className="text-[9px] font-extrabold text-slate-400 tracking-wider uppercase block mt-0.5">
                             {mod.id}
                           </span>
-                          <p className="text-xs text-slate-500 mt-2 leading-relaxed line-clamp-3">
+                          <p className="text-xs text-slate-500 mt-2 leading-relaxed line-clamp-2">
                             {mod.description}
                           </p>
+
+                          {/* Metadata Fields for P1-10 */}
+                          <div className="mt-4 pt-3 border-t border-slate-100/80 space-y-1.5 text-[10px] text-slate-500 font-medium">
+                            {mod.ownerRole && (
+                              <div className="flex justify-between">
+                                <span className="text-slate-400">Owner:</span>
+                                <span className="font-semibold text-slate-700">{mod.ownerRole}</span>
+                              </div>
+                            )}
+                            {mod.validationStatus && (
+                              <div className="flex justify-between">
+                                <span className="text-slate-400">Estado Valid.:</span>
+                                <span className="font-semibold text-amber-700 bg-amber-50 border border-amber-100/60 px-1.5 py-0.5 rounded">{mod.validationStatus}</span>
+                              </div>
+                            )}
+                            {mod.dependencies && mod.dependencies.length > 0 && (
+                              <div className="flex flex-col gap-0.5">
+                                <span className="text-slate-400">Dependencias:</span>
+                                <span className="font-semibold text-slate-600 truncate">{mod.dependencies.join(", ")}</span>
+                              </div>
+                            )}
+                            {mod.roadmap && mod.roadmap.length > 0 && (
+                              <div className="flex flex-col gap-0.5">
+                                <span className="text-slate-400">Roadmap:</span>
+                                <span className="font-semibold text-slate-600 line-clamp-1 truncate">{mod.roadmap.join(" → ")}</span>
+                              </div>
+                            )}
+                          </div>
                         </div>
                       </div>
 
-                      <div className="border-t border-slate-100 pt-4 flex items-center justify-between mt-auto">
+                      <div className="border-t border-slate-100 pt-4 flex items-center justify-between mt-4">
                         {renderStatusBadge(mod.status)}
                         <span className="text-[10px] font-bold text-raia-blue-inst flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
                           Explorar

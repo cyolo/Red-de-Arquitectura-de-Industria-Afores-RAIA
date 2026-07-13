@@ -16,8 +16,8 @@ export default async function DashboardPage() {
   const validatedOrActive = (metrics.byStatus.active || 0) + (metrics.byStatus.validated || 0);
   const validationCoverage = totalDomains > 0 ? Math.round((validatedOrActive / totalDomains) * 100) : 0;
 
-  // Let's compute a mock field completeness average for a realistic progress bar
-  const fieldCompleteness = 87; 
+  // Calculate completeness percentage based on actual repository attributes
+  const fieldCompleteness = metrics.fieldCompleteness;
 
   const primaryStats = [
     { label: "Áreas de Negocio", value: metrics.businessAreas, color: "text-blue-600 border-blue-100 bg-blue-50/50" },

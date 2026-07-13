@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Network, Menu, X, ChevronDown, Layers, Compass, BookOpen, BarChart3, History, Users, ArrowUpRight } from "lucide-react";
-import GlobalSearch from "../portal/GlobalSearch";
+import GlobalSearchTrigger from "../portal/GlobalSearchTrigger";
 
 export default function Header() {
   const pathname = usePathname();
@@ -58,7 +58,7 @@ export default function Header() {
         {/* Global Search Component */}
         <div className="flex-1 max-w-xs hidden md:block">
           <React.Suspense fallback={<div className="h-8 bg-slate-800 animate-pulse rounded border border-slate-700 w-full" />}>
-            <GlobalSearch />
+            <GlobalSearchTrigger />
           </React.Suspense>
         </div>
 
@@ -121,7 +121,7 @@ export default function Header() {
         {/* Mobile Actions: Menu and Search */}
         <div className="flex items-center gap-2 md:hidden">
           <React.Suspense fallback={<div className="w-8 h-8 bg-slate-800 animate-pulse rounded" />}>
-            <GlobalSearch />
+            <GlobalSearchTrigger />
           </React.Suspense>
 
           <button

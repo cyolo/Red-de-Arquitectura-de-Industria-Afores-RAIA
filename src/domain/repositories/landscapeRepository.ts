@@ -2,10 +2,10 @@ import { BusinessArea, BusinessDomain, ServiceDomain, LandscapeRelation, Busines
 import { z } from "zod";
 import { LandscapeDataSchema, LandscapeRelationSchema, RegulationReferenceSchema, BusinessScenarioSchema } from "../schemas";
 
-import raiaData from "../../data/raia-v14.0.json";
-import relationsData from "../../data/relations-v14.0.json";
-import regulationsData from "../../data/regulations-v14.0.json";
-import scenariosData from "../../data/scenarios-v14.0.json";
+import raiaData from "../../data/raia-landscape-0.1.0.json";
+import relationsData from "../../data/relations-0.1.0.json";
+import regulationsData from "../../data/regulations-0.1.0.json";
+import scenariosData from "../../data/scenarios-0.1.0.json";
 
 // Validate all static data files upon loading
 const validatedLandscape = LandscapeDataSchema.parse(raiaData);

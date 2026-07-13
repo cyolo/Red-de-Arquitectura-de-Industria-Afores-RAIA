@@ -1,0 +1,39 @@
+# LICENCIA Y GOBIERNO DE PROPIEDAD INTELECTUAL - RAIA
+
+Este repositorio contiene activos de diferente naturaleza. Para promover la colaboración abierta y neutral en la industria previsional mexicana, se definen los siguientes términos de licencia:
+
+## 1. Código Fuente (Software)
+Todo el código de software del portal, scripts de validación, herramientas de procesamiento y utilidades se distribuye bajo la licencia **MIT**:
+
+Copyright (c) 2026 RAIA Maintainers
+
+Por la presente se concede permiso, sin cargo alguno, a cualquier persona que obtenga una copia de este software y de los archivos de documentación asociados (el "Software"), para tratar el Software sin restricción, incluidos, entre otros, los derechos de uso, copia, modificación, fusión, publicación, distribución, sublicenciamiento y/o venta de copias del Software, sujeto a las siguientes condiciones:
+
+El aviso de copyright anterior y este aviso de permiso se incluirán en todas las copias o partes sustanciales del Software.
+
+EL SOFTWARE SE PROPORCIONA "TAL CUAL", SIN GARANTÍA DE NINGÚN TIPO, EXPRESA O IMPLÍCITA, INCLUIDAS, ENTRE OTRAS, LAS GARANTÍAS DE COMERCIABILIDAD, ADECUACIÓN PARA UN PROPÓSITO PARTICULAR Y NO INFRACCIÓN. EN NINGÚN CASO LOS AUTORES O TITULARES DEL COPYRIGHT SERÁN RESPONSABLES DE NINGUNA RECLAMACIÓN, DAÑO U OTRA RESPONSABILIDAD, YA SEA EN UNA ACCIÓN DE CONTRATO, AGRAVIO O DE OTRO MODO, QUE SURJA DE, FUERA DE O EN CONEXIÓN CON EL SOFTWARE O EL USO U OTROS TRATOS EN EL SOFTWARE.
+
+---
+
+## 2. Modelos, Fichas y Documentación (Activos de Arquitectura)
+Todos los diagramas, especificaciones conceptuales, fichas técnicas de Service Domains, esquemas de bases de datos JSON, archivos de metamodelo y textos de documentación se distribuyen bajo la licencia **Creative Commons Attribution 4.0 International (CC BY 4.0)**:
+
+Usted es libre de:
+* **Compartir** — copiar y redistribuir el material en cualquier medio o formato.
+* **Adaptar** — remezclar, transformar y construir a partir del material para cualquier propósito, incluso comercialmente.
+
+Bajo los siguientes términos:
+* **Atribución** — Debe dar crédito de manera adecuada, brindar un enlace a la licencia, e indicar si se han realizado cambios. Puede hacerlo en cualquier forma razonable, pero no de forma tal que sugiera que el licenciante lo respalda a usted o al uso que usted hace del material.
+
+Texto completo de la licencia: https://creativecommons.org/licenses/by/4.0/legalcode.es
+
+---
+
+## 3. Marcas, Logotipo e Identidad Visual
+Los nombres "Red de Arquitectura de Industria Afores", "RAIA", "Motor Diamante", "Estándar Radón", sus logotipos oficiales e identidad de marca están **reservados** y no forman parte de las licencias libres anteriores. Su uso con fines comerciales ajenos a la representación del estándar requiere autorización previa y por escrito.
+
+---
+
+## 4. Independencia y Neutralidad
+* **Independencia de BIAN:** RAIA es un estándar propuesto e independiente. Las referencias a la Banking Industry Architecture Network (BIAN) o su versión 14.0 se realizan exclusivamente como un baseline conceptual de inspiración. BIAN no patrocina, valida ni tiene relación formal con RAIA.
+* **Límite de Responsabilidad Normativa:** RAIA no es un estándar oficial emitido por las autoridades gubernamentales mexicanas. Su contenido no exime a los participantes de cumplir formalmente con las circulares de la CONSAR, regulaciones del IMSS, ISSSTE, ni disposiciones de la Empresa Operadora de la Base de Datos Nacional SAR.

@@ -3,7 +3,7 @@
     "version": "0.1.0",
     "name": "Versión Inicial RAIA",
     "releaseDate": "2026-07-12",
-    "status": "published",
+    "status": "draft",
     "regulatoryBaselineDate": "2026-07-12",
     "bianReferenceBaseline": "Service Landscape 14.0",
     "summary": "Establecimiento inicial de la Red de Arquitectura de Industria Afores (RAIA), incluyendo la definición de la jerarquía de tres niveles y el catálogo inicial de 11 Áreas de Negocio, 34 Dominios de Negocio y 273 Service Domains del Sistema de Ahorro para el Retiro.",

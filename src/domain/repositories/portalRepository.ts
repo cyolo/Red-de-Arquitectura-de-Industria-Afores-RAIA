@@ -55,7 +55,7 @@ export const getArchitectureMetrics = () => {
       if (bo.name) boNames.add(bo.name.toLowerCase().trim());
     });
   });
-  const businessObjectsCount = boNames.size || 24;
+  const businessObjectsCount = boNames.size;
 
   // by status
   const byStatus: Record<string, number> = {
@@ -100,6 +100,24 @@ export const getArchitectureMetrics = () => {
   // domains pending validation (status not validated and not active)
   const domainsPendingValidation = sds.filter((sd: any) => sd.status !== "validated" && sd.status !== "active").length;
 
+  // Real field completeness calculation (P0-02)
+  const optionalFields = ["aliases", "regulations", "controls", "evidences", "nfrs", "kpis", "upstreamServiceDomainIds", "downstreamServiceDomainIds"];
+  let totalOptionalChecked = 0;
+  let filledOptionalFields = 0;
+
+  sds.forEach((sd: any) => {
+    optionalFields.forEach((field) => {
+      totalOptionalChecked++;
+      if (sd[field] && Array.isArray(sd[field]) && sd[field].length > 0) {
+        filledOptionalFields++;
+      } else if (sd[field] && typeof sd[field] === "string" && sd[field].trim() !== "") {
+        filledOptionalFields++;
+      }
+    });
+  });
+
+  const fieldCompleteness = totalOptionalChecked > 0 ? Math.round((filledOptionalFields / totalOptionalChecked) * 100) : 0;
+
   return {
     businessAreas: areas.length,
     businessDomains: domains.length,
@@ -114,7 +132,8 @@ export const getArchitectureMetrics = () => {
     domainsWithoutRegulation,
     domainsWithoutRelations,
     domainsPendingValidation,
-    lastUpdatedAt: "2026-07-12",
+    fieldCompleteness,
+    lastUpdatedAt: validatedReleases[0]?.releaseDate || "2026-07-12",
   };
 };
 

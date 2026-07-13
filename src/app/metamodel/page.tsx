@@ -18,11 +18,11 @@ export default function MetamodelPage() {
     { name: "Service Operation", definition: "Operación lógica asociada a un Service Domain (initiate, register, retrieve, etc.) independiente de tecnologías." },
     { name: "Control Record", definition: "Concepto lógico que define el ciclo de vida, estados y transiciones del objeto de negocio enfocado." },
     { name: "Business Object", definition: "Modelo de información canónico que representa una entidad de datos real de la industria (ej. Trabajador)." },
-    { name: "Business Event", definition: "Mensaje de negocio asíncrono que un Service Domain produce o consume ante un cambio de estado." },
+    { name: "Business Event", definition: "Hecho de negocio significativo en el ciclo de vida de un Service Domain que puede representarse mediante evento, API, mensaje, archivo, lote o interacción manual." },
     { name: "Business Scenario", definition: "Secuencia ordenada de interacciones entre Service Domains para materializar un trámite o proceso del SAR." },
     { name: "Actor", definition: "Participante o rol del ecosistema (Afore, Trabajador, CONSAR, Empresa Operadora) con responsabilidades asignadas." },
     { name: "Regulation", definition: "Disposición legal o circular aplicable que norma una capacidad u obligación previsional." },
-    { name: "Control", definition: "Mitigación de seguridad preventiva, detectiva o correctiva mapeada a operaciones del Service Domain." },
+    { name: "Control", definition: "Mecanismo de mitigación y aseguramiento (regulatorio, operativo, financiero, de inversión, privacidad, seguridad, datos, continuidad o auditoría) mapeado a operaciones del Service Domain." },
     { name: "Evidence", definition: "Registro de auditoría, acuse firmado digitalmente o bitácora que comprueba la ejecución de un control." },
     { name: "KPI", definition: "Métrica de calidad o desempeño que mide la efectividad operativa de las operaciones del dominio." },
   ];
@@ -88,7 +88,7 @@ export default function MetamodelPage() {
                   { name: "Business Event", detail: "produces, consumes" },
                   { name: "Business Object", detail: "Focus & reference objects" },
                   { name: "Regulation", detail: "Leyes y circulares de CONSAR" },
-                  { name: "Control", detail: "Controles de seguridad" },
+                  { name: "Control", detail: "Controles reguladores y operativos" },
                   { name: "Evidence", detail: "Bitácoras, acuses y firmas" },
                   { name: "KPI", detail: "Métricas de desempeño" },
                   { name: "Control Record", detail: "Ciclo de vida lógico" }

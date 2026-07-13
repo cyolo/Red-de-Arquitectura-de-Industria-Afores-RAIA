@@ -26,10 +26,10 @@ function test(name, fn) {
 console.log("Running RAIA test suite...\n");
 
 // Load seed data for testing
-const raia = loadJson("raia-v14.0.json");
-const relations = loadJson("relations-v14.0.json");
-const regulations = loadJson("regulations-v14.0.json");
-const scenarios = loadJson("scenarios-v14.0.json");
+const raia = loadJson("raia-landscape-0.1.0.json");
+const relations = loadJson("relations-0.1.0.json");
+const regulations = loadJson("regulations-0.1.0.json");
+const scenarios = loadJson("scenarios-0.1.0.json");
 const { businessAreas, businessDomains, serviceDomains } = raia;
 
 // 1. Validation of schemas & format
@@ -102,8 +102,8 @@ test("Filter matches simulation", () => {
     });
   };
 
-  const activeRes = filterMock({ status: "active" });
-  if (activeRes.length === 0) throw new Error("Filter by status 'active' returned empty results");
+  const activeRes = filterMock({ status: "proposed" });
+  if (activeRes.length === 0) throw new Error("Filter by status 'proposed' returned empty results");
   
   const areaRes = filterMock({ area: "RAIA-BA-004" });
   areaRes.forEach(sd => {

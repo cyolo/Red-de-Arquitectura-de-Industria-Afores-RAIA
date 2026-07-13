@@ -18,8 +18,8 @@
         "gobierno y dirección del sar",
         "area"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12"
     },
@@ -41,8 +41,8 @@
         "riesgo, cumplimiento y supervisión",
         "area"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12"
     },
@@ -64,8 +64,8 @@
         "identidad, partes y expediente",
         "area"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12"
     },
@@ -87,8 +87,8 @@
         "afiliación y cuenta individual",
         "area"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12"
     },
@@ -110,8 +110,8 @@
         "recaudación y aportaciones",
         "area"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12"
     },
@@ -133,8 +133,8 @@
         "inversión y siefore",
         "area"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12"
     },
@@ -157,8 +157,8 @@
         "retiros, prestaciones y pensiones",
         "area"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12"
     },
@@ -180,8 +180,8 @@
         "servicio, canales y experiencia",
         "area"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12"
     },
@@ -203,8 +203,8 @@
         "servicios compartidos de industria",
         "area"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12"
     },
@@ -226,8 +226,8 @@
         "capacidades empresariales y tecnología",
         "area"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12"
     },
@@ -249,8 +249,8 @@
         "evolución, arquitectura, innovación y conocimiento",
         "area"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12"
     }
@@ -282,8 +282,8 @@
         "estrategia y política del sar",
         "dominio"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12",
       "description": "Agrupación de servicios para la gestión de Estrategia y Política del SAR.",
@@ -315,8 +315,8 @@
         "regulación y autorizaciones",
         "dominio"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12",
       "description": "Agrupación de servicios para la gestión de Regulación y Autorizaciones.",
@@ -348,8 +348,8 @@
         "gobierno y desempeño",
         "dominio"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12",
       "description": "Agrupación de servicios para la gestión de Gobierno y Desempeño.",
@@ -382,8 +382,8 @@
         "supervisión y control regulatorio",
         "dominio"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12",
       "description": "Agrupación de servicios para la gestión de Supervisión y Control Regulatorio.",
@@ -416,8 +416,8 @@
         "riesgo y cumplimiento",
         "dominio"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12",
       "description": "Agrupación de servicios para la gestión de Riesgo y Cumplimiento.",
@@ -450,8 +450,8 @@
         "resiliencia y aseguramiento",
         "dominio"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12",
       "description": "Agrupación de servicios para la gestión de Resiliencia y Aseguramiento.",
@@ -484,8 +484,8 @@
         "datos de personas y organizaciones",
         "dominio"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12",
       "description": "Agrupación de servicios para la gestión de Datos de Personas y Organizaciones.",
@@ -519,8 +519,8 @@
         "identidad, autenticación y consentimiento",
         "dominio"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12",
       "description": "Agrupación de servicios para la gestión de Identidad, Autenticación y Consentimiento.",
@@ -553,8 +553,8 @@
         "expediente y evidencia",
         "dominio"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12",
       "description": "Agrupación de servicios para la gestión de Expediente y Evidencia.",
@@ -587,8 +587,8 @@
         "incorporación y afiliación",
         "dominio"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12",
       "description": "Agrupación de servicios para la gestión de Incorporación y Afiliación.",
@@ -622,8 +622,8 @@
         "traspaso y regularización",
         "dominio"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12",
       "description": "Agrupación de servicios para la gestión de Traspaso y Regularización.",
@@ -661,8 +661,8 @@
         "administración de cuenta individual",
         "dominio"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12",
       "description": "Agrupación de servicios para la gestión de Administración de Cuenta Individual.",
@@ -695,8 +695,8 @@
         "recaudación obligatoria",
         "dominio"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12",
       "description": "Agrupación de servicios para la gestión de Recaudación Obligatoria.",
@@ -729,8 +729,8 @@
         "ahorro voluntario",
         "dominio"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12",
       "description": "Agrupación de servicios para la gestión de Ahorro Voluntario.",
@@ -763,8 +763,8 @@
         "individualización y conciliación",
         "dominio"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12",
       "description": "Agrupación de servicios para la gestión de Individualización y Conciliación.",
@@ -797,8 +797,8 @@
         "diseño y asignación de fondos",
         "dominio"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12",
       "description": "Agrupación de servicios para la gestión de Diseño y Asignación de Fondos.",
@@ -833,8 +833,8 @@
         "operación de inversiones",
         "dominio"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12",
       "description": "Agrupación de servicios para la gestión de Operación de Inversiones.",
@@ -869,8 +869,8 @@
         "valuación, riesgo y desempeño",
         "dominio"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12",
       "description": "Agrupación de servicios para la gestión de Valuación, Riesgo y Desempeño.",
@@ -902,8 +902,8 @@
         "retiros, parciales",
         "dominio"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12",
       "description": "Agrupación de servicios para la gestión de Retiros, Parciales.",
@@ -938,8 +938,8 @@
         "pensión y disposición total",
         "dominio"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12",
       "description": "Agrupación de servicios para la gestión de Pensión y Disposición Total.",
@@ -971,8 +971,8 @@
         "fallecimiento y beneficiarios",
         "dominio"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12",
       "description": "Agrupación de servicios para la gestión de Fallecimiento y Beneficiarios.",
@@ -1004,8 +1004,8 @@
         "fondo de pensiones para el bienestar",
         "dominio"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12",
       "description": "Agrupación de servicios para la gestión de Fondo de Pensiones para el Bienestar.",
@@ -1041,8 +1041,8 @@
         "omnicanalidad",
         "dominio"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12",
       "description": "Agrupación de servicios para la gestión de Omnicanalidad.",
@@ -1077,8 +1077,8 @@
         "solicitudes, casos y reclamaciones",
         "dominio"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12",
       "description": "Agrupación de servicios para la gestión de Solicitudes, Casos y Reclamaciones.",
@@ -1113,8 +1113,8 @@
         "educación y comercialización",
         "dominio"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12",
       "description": "Agrupación de servicios para la gestión de Educación y Comercialización.",
@@ -1148,8 +1148,8 @@
         "bdnsar y registros maestros",
         "dominio"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12",
       "description": "Agrupación de servicios para la gestión de BDNSAR y Registros Maestros.",
@@ -1184,8 +1184,8 @@
         "orquestación e intercambio",
         "dominio"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12",
       "description": "Agrupación de servicios para la gestión de Orquestación e Intercambio.",
@@ -1220,8 +1220,8 @@
         "integración con ecosistema externo",
         "dominio"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12",
       "description": "Agrupación de servicios para la gestión de Integración con Ecosistema Externo.",
@@ -1256,8 +1256,8 @@
         "datos, seguridad y privacidad",
         "dominio"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12",
       "description": "Agrupación de servicios para la gestión de Datos, Seguridad y Privacidad.",
@@ -1295,8 +1295,8 @@
         "tecnología y operación",
         "dominio"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12",
       "description": "Agrupación de servicios para la gestión de Tecnología y Operación.",
@@ -1333,8 +1333,8 @@
         "capacidades corporativas",
         "dominio"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12",
       "description": "Agrupación de servicios para la gestión de Capacidades Corporativas.",
@@ -1368,8 +1368,8 @@
         "arquitectura y estándares",
         "dominio"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12",
       "description": "Agrupación de servicios para la gestión de Arquitectura y Estándares.",
@@ -1404,8 +1404,8 @@
         "analítica, modelos e inteligencia artificial",
         "dominio"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12",
       "description": "Agrupación de servicios para la gestión de Analítica, Modelos e Inteligencia Artificial.",
@@ -1440,8 +1440,8 @@
         "innovación y gestión del cambio",
         "dominio"
       ],
-      "version": "14.0.0",
-      "status": "active",
+      "version": "0.1.0",
+      "status": "proposed",
       "createdAt": "2026-07-12",
       "updatedAt": "2026-07-12",
       "description": "Agrupación de servicios para la gestión de Innovación y Gestión del Cambio.",
@@ -1527,7 +1527,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -1563,9 +1563,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "política del sistema de ahorro para el retiro",
         "referencia"
@@ -1653,7 +1653,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -1689,9 +1689,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "estrategia de industria",
         "referencia"
@@ -1779,7 +1779,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -1815,9 +1815,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "planeación sectorial",
         "referencia"
@@ -1905,7 +1905,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -1941,9 +1941,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de capacidades de industria",
         "referencia"
@@ -2031,7 +2031,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -2067,9 +2067,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión del modelo operativo",
         "referencia"
@@ -2157,7 +2157,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -2193,9 +2193,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de resultados del sar",
         "referencia"
@@ -2283,7 +2283,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -2319,9 +2319,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión del marco regulatorio",
         "referencia"
@@ -2409,7 +2409,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -2445,9 +2445,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión del cambio regulatorio",
         "referencia"
@@ -2535,7 +2535,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -2571,9 +2571,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "autorización de participantes",
         "referencia"
@@ -2661,7 +2661,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -2697,9 +2697,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "autorización de afore y siefore",
         "referencia"
@@ -2787,7 +2787,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -2823,9 +2823,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión regulatoria de comisiones",
         "referencia"
@@ -2913,7 +2913,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -2949,9 +2949,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de criterios y consultas normativas",
         "referencia"
@@ -3039,7 +3039,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -3075,9 +3075,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gobierno corporativo",
         "referencia"
@@ -3165,7 +3165,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -3201,9 +3201,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de portafolio de industria",
         "referencia"
@@ -3291,7 +3291,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -3327,9 +3327,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de beneficios",
         "referencia"
@@ -3417,7 +3417,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -3453,9 +3453,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "métricas del sistema",
         "referencia"
@@ -3543,7 +3543,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -3579,9 +3579,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "transparencia sectorial",
         "referencia"
@@ -3669,7 +3669,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -3705,9 +3705,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de stakeholders del sar",
         "referencia"
@@ -3795,7 +3795,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -3834,9 +3834,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "supervisión regulatoria",
         "referencia"
@@ -3928,7 +3928,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -3964,9 +3964,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "inspección regulatoria",
         "referencia"
@@ -4054,7 +4054,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -4092,9 +4092,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "información regulatoria",
         "referencia"
@@ -4184,7 +4184,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -4222,9 +4222,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "atención de requerimientos regulatorios",
         "referencia"
@@ -4314,7 +4314,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -4350,9 +4350,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "programas correctivos",
         "referencia"
@@ -4440,7 +4440,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -4476,9 +4476,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de sanciones",
         "referencia"
@@ -4566,7 +4566,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -4602,9 +4602,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "seguimiento de hallazgos",
         "referencia"
@@ -4692,7 +4692,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -4728,9 +4728,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de riesgo empresarial",
         "referencia"
@@ -4818,7 +4818,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -4854,9 +4854,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de riesgo operacional",
         "referencia"
@@ -4944,7 +4944,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -4980,9 +4980,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "cumplimiento normativo",
         "referencia"
@@ -5070,7 +5070,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -5106,9 +5106,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "prevención de lavado de dinero y financiamiento al terrorismo",
         "referencia"
@@ -5196,7 +5196,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -5232,9 +5232,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "prevención y gestión de fraude",
         "referencia"
@@ -5322,7 +5322,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -5358,9 +5358,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de riesgo de terceros",
         "referencia"
@@ -5448,7 +5448,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -5484,9 +5484,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de conflictos de interés",
         "referencia"
@@ -5574,7 +5574,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -5610,9 +5610,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "continuidad de negocio",
         "referencia"
@@ -5700,7 +5700,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -5736,9 +5736,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "recuperación ante desastres",
         "referencia"
@@ -5826,7 +5826,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -5862,9 +5862,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "ciberseguridad",
         "referencia"
@@ -5952,7 +5952,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -5988,9 +5988,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "seguridad de la información",
         "referencia"
@@ -6078,7 +6078,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -6114,9 +6114,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "auditoría interna",
         "referencia"
@@ -6204,7 +6204,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -6240,9 +6240,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de incidentes mayores",
         "referencia"
@@ -6330,7 +6330,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -6366,9 +6366,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "pruebas de resiliencia operacional",
         "referencia"
@@ -6456,7 +6456,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -6495,9 +6495,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "datos del trabajador",
         "referencia"
@@ -6589,7 +6589,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -6627,9 +6627,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "datos de beneficiarios",
         "referencia"
@@ -6719,7 +6719,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -6758,9 +6758,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "datos del patrón",
         "referencia"
@@ -6852,7 +6852,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -6888,9 +6888,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "datos de dependencias públicas",
         "referencia"
@@ -6978,7 +6978,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -7014,9 +7014,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "directorio de participantes del sar",
         "referencia"
@@ -7104,7 +7104,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -7140,9 +7140,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de contacto y domicilio",
         "referencia"
@@ -7230,7 +7230,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -7266,9 +7266,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de relaciones entre partes",
         "referencia"
@@ -7356,7 +7356,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -7396,9 +7396,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "resolución de identidad",
         "referencia"
@@ -7491,7 +7491,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -7527,9 +7527,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de curp, nss y rfc",
         "referencia"
@@ -7617,7 +7617,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -7657,9 +7657,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "identidad biométrica",
         "referencia"
@@ -7752,7 +7752,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -7788,9 +7788,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "autenticación del trabajador",
         "referencia"
@@ -7878,7 +7878,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -7914,9 +7914,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de derechos de acceso",
         "referencia"
@@ -8004,7 +8004,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -8040,9 +8040,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de consentimiento",
         "referencia"
@@ -8130,7 +8130,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -8166,9 +8166,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "prueba de vida",
         "referencia"
@@ -8256,7 +8256,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -8292,9 +8292,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de representación legal",
         "referencia"
@@ -8382,7 +8382,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -8422,9 +8422,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "expediente electrónico",
         "referencia"
@@ -8517,7 +8517,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -8553,9 +8553,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión documental",
         "referencia"
@@ -8643,7 +8643,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -8679,9 +8679,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "evidencia digital",
         "referencia"
@@ -8769,7 +8769,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -8808,9 +8808,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "firma electrónica y no repudio",
         "referencia"
@@ -8902,7 +8902,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -8938,9 +8938,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "conservación de registros",
         "referencia"
@@ -9028,7 +9028,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -9067,9 +9067,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "corrección de datos",
         "referencia"
@@ -9161,7 +9161,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -9197,9 +9197,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "trazabilidad y bitácora de auditoría",
         "referencia"
@@ -9287,7 +9287,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -9323,9 +9323,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "localización de cuenta",
         "referencia"
@@ -9413,7 +9413,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -9453,9 +9453,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "registro en afore",
         "referencia"
@@ -9548,7 +9548,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -9584,9 +9584,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "asignación de cuenta",
         "referencia"
@@ -9674,7 +9674,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -9710,9 +9710,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "reasignación de cuenta",
         "referencia"
@@ -9800,7 +9800,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -9836,9 +9836,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "recertificación de cuenta",
         "referencia"
@@ -9926,7 +9926,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -9962,9 +9962,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "activación de cuenta",
         "referencia"
@@ -10052,7 +10052,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -10088,9 +10088,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de afiliación",
         "referencia"
@@ -10223,7 +10223,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         },
         {
           "id": "RAIA-REG-CUO",
@@ -10308,8 +10308,8 @@
       "valueStreams": [
         "Administrar el ciclo de vida de la cuenta individual"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
+      "maturity": "conceptual",
+      "version": "0.1.0",
       "status": "proposed",
       "tags": [
         "cuenta individual",
@@ -10408,7 +10408,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -10444,9 +10444,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "cancelación de traspaso",
         "referencia"
@@ -10534,7 +10534,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -10570,9 +10570,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "unificación de cuentas",
         "referencia"
@@ -10660,7 +10660,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -10696,9 +10696,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "separación de cuentas",
         "referencia"
@@ -10786,7 +10786,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -10822,9 +10822,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "inactivación de cuenta",
         "referencia"
@@ -10912,7 +10912,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -10948,9 +10948,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "registro de fallecimiento",
         "referencia"
@@ -11038,7 +11038,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -11077,9 +11077,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "recuperación de cuenta",
         "referencia"
@@ -11171,7 +11171,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -11210,9 +11210,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "regularización de cuenta",
         "referencia"
@@ -11304,7 +11304,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -11343,9 +11343,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "libro mayor de cuenta individual",
         "referencia"
@@ -11436,7 +11436,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -11472,9 +11472,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "administración de subcuentas",
         "referencia"
@@ -11562,7 +11562,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -11598,9 +11598,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de saldos",
         "referencia"
@@ -11688,7 +11688,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -11727,9 +11727,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "registro de movimientos",
         "referencia"
@@ -11821,7 +11821,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -11860,9 +11860,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "asignación de acciones",
         "referencia"
@@ -11954,7 +11954,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -11992,9 +11992,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "asignación de rendimientos",
         "referencia"
@@ -12084,7 +12084,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -12120,9 +12120,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "cálculo y aplicación de comisiones",
         "referencia"
@@ -12210,7 +12210,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -12249,9 +12249,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "ajustes de cuenta",
         "referencia"
@@ -12343,7 +12343,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -12381,9 +12381,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "estado de cuenta",
         "referencia"
@@ -12473,7 +12473,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -12509,9 +12509,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "historial transaccional",
         "referencia"
@@ -12599,7 +12599,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -12635,9 +12635,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "recursos sar legacy",
         "referencia"
@@ -12725,7 +12725,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -12761,9 +12761,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "conciliación de cuenta individual",
         "referencia"
@@ -12851,7 +12851,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -12889,9 +12889,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "determinación de aportaciones",
         "referencia"
@@ -12981,7 +12981,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -13021,9 +13021,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "recaudación de aportaciones patronales",
         "referencia"
@@ -13116,7 +13116,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -13152,9 +13152,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "recaudación de aportaciones gubernamentales",
         "referencia"
@@ -13242,7 +13242,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -13278,9 +13278,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "registro de aportaciones de vivienda",
         "referencia"
@@ -13368,7 +13368,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -13404,9 +13404,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "cuota social",
         "referencia"
@@ -13494,7 +13494,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -13530,9 +13530,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de aportaciones omitidas",
         "referencia"
@@ -13620,7 +13620,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -13656,9 +13656,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de morosidad de aportaciones",
         "referencia"
@@ -13746,7 +13746,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -13782,9 +13782,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "aportaciones voluntarias",
         "referencia"
@@ -13872,7 +13872,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -13908,9 +13908,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "aportaciones complementarias",
         "referencia"
@@ -13998,7 +13998,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -14034,9 +14034,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "ahorro de largo plazo",
         "referencia"
@@ -14124,7 +14124,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -14160,9 +14160,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "ahorro solidario",
         "referencia"
@@ -14250,7 +14250,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -14286,9 +14286,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "aportaciones de trabajadores independientes",
         "referencia"
@@ -14376,7 +14376,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -14412,9 +14412,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "aportaciones voluntarias vía nómina",
         "referencia"
@@ -14502,7 +14502,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -14538,9 +14538,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "domiciliación de ahorro voluntario",
         "referencia"
@@ -14628,7 +14628,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -14667,9 +14667,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "individualización de aportaciones",
         "referencia"
@@ -14761,7 +14761,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -14797,9 +14797,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "resolución de pagos no identificados",
         "referencia"
@@ -14887,7 +14887,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -14926,9 +14926,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "conciliación de recaudación",
         "referencia"
@@ -15020,7 +15020,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -15056,9 +15056,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "corrección de aportaciones",
         "referencia"
@@ -15146,7 +15146,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -15182,9 +15182,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "transferencia de aportaciones",
         "referencia"
@@ -15272,7 +15272,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -15308,9 +15308,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "devolución de aportaciones",
         "referencia"
@@ -15398,7 +15398,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -15434,9 +15434,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "aclaración de diferencias de recaudación",
         "referencia"
@@ -15524,7 +15524,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -15562,9 +15562,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "asignación a siefore generacional",
         "referencia"
@@ -15654,7 +15654,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -15692,9 +15692,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "estrategia de inversión",
         "referencia"
@@ -15784,7 +15784,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -15823,9 +15823,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "construcción de portafolio",
         "referencia"
@@ -15917,7 +15917,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -15953,9 +15953,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de mandatos de inversión",
         "referencia"
@@ -16043,7 +16043,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -16079,9 +16079,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de benchmark",
         "referencia"
@@ -16169,7 +16169,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -16205,9 +16205,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de clases de activos",
         "referencia"
@@ -16295,7 +16295,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -16331,9 +16331,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "diseño de portafolio objetivo",
         "referencia"
@@ -16421,7 +16421,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -16460,9 +16460,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "ejecución de operaciones",
         "referencia"
@@ -16554,7 +16554,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -16590,9 +16590,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "custodia de valores",
         "referencia"
@@ -16680,7 +16680,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -16719,9 +16719,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "liquidación de operaciones",
         "referencia"
@@ -16813,7 +16813,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -16849,9 +16849,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "acciones corporativas",
         "referencia"
@@ -16939,7 +16939,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -16975,9 +16975,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "administración de derivados",
         "referencia"
@@ -17065,7 +17065,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -17101,9 +17101,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de liquidez",
         "referencia"
@@ -17191,7 +17191,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -17227,9 +17227,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "préstamo de valores",
         "referencia"
@@ -17317,7 +17317,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -17353,9 +17353,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de contrapartes",
         "referencia"
@@ -17443,7 +17443,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -17479,9 +17479,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de instrucciones de inversión",
         "referencia"
@@ -17569,7 +17569,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -17605,9 +17605,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "valuación de instrumentos",
         "referencia"
@@ -17695,7 +17695,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -17734,9 +17734,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "valuación de portafolio",
         "referencia"
@@ -17828,7 +17828,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -17864,9 +17864,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "riesgo de inversión",
         "referencia"
@@ -17954,7 +17954,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -17990,9 +17990,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "cumplimiento del régimen de inversión",
         "referencia"
@@ -18080,7 +18080,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -18116,9 +18116,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "medición de desempeño",
         "referencia"
@@ -18206,7 +18206,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -18242,9 +18242,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de límites y exposición",
         "referencia"
@@ -18332,7 +18332,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -18368,9 +18368,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "riesgo de mercado",
         "referencia"
@@ -18458,7 +18458,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -18494,9 +18494,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "riesgo de crédito de inversiones",
         "referencia"
@@ -18584,7 +18584,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -18620,9 +18620,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "atribución de rendimientos",
         "referencia"
@@ -18710,7 +18710,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -18746,9 +18746,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "retiro de ahorro voluntario",
         "referencia"
@@ -18836,7 +18836,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -18875,9 +18875,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "retiro parcial por desempleo",
         "referencia"
@@ -18969,7 +18969,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -19005,9 +19005,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "ayuda para gastos de matrimonio",
         "referencia"
@@ -19095,7 +19095,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -19131,9 +19131,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "retiros parciales especiales",
         "referencia"
@@ -19221,7 +19221,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -19259,9 +19259,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "validación de elegibilidad de retiro",
         "referencia"
@@ -19351,7 +19351,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -19387,9 +19387,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "reintegro de semanas o recursos",
         "referencia"
@@ -19477,7 +19477,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -19515,9 +19515,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "coordinación de elegibilidad pensionaria",
         "referencia"
@@ -19607,7 +19607,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -19647,9 +19647,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "elección de régimen pensionario",
         "referencia"
@@ -19742,7 +19742,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -19781,9 +19781,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "resolución de pensión",
         "referencia"
@@ -19875,7 +19875,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -19913,9 +19913,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "retiro programado",
         "referencia"
@@ -20005,7 +20005,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -20043,9 +20043,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "transferencia a renta vitalicia",
         "referencia"
@@ -20135,7 +20135,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -20171,9 +20171,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "pensión garantizada",
         "referencia"
@@ -20261,7 +20261,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -20300,9 +20300,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "disposición total de recursos",
         "referencia"
@@ -20394,7 +20394,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -20430,9 +20430,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "recuperación de recursos de vivienda",
         "referencia"
@@ -20520,7 +20520,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -20556,9 +20556,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "seguimiento de pago pensionario",
         "referencia"
@@ -20646,7 +20646,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -20684,9 +20684,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "notificación de fallecimiento",
         "referencia"
@@ -20776,7 +20776,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -20815,9 +20815,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "validación de beneficiarios",
         "referencia"
@@ -20909,7 +20909,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -20948,9 +20948,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "prestaciones de sobrevivencia",
         "referencia"
@@ -21042,7 +21042,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -21080,9 +21080,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "distribución de recursos a beneficiarios",
         "referencia"
@@ -21172,7 +21172,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -21208,9 +21208,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de recursos no reclamados",
         "referencia"
@@ -21298,7 +21298,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -21334,9 +21334,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "resolución de derechos de beneficiarios",
         "referencia"
@@ -21424,7 +21424,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -21460,9 +21460,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "identificación de cuentas elegibles",
         "referencia"
@@ -21550,7 +21550,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -21586,9 +21586,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "transferencia de recursos al fondo",
         "referencia"
@@ -21676,7 +21676,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -21712,9 +21712,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "coordinación de complemento pensionario",
         "referencia"
@@ -21802,7 +21802,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -21838,9 +21838,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "reintegro de recursos",
         "referencia"
@@ -21928,7 +21928,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -21964,9 +21964,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "trazabilidad de derechos",
         "referencia"
@@ -22054,7 +22054,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -22090,9 +22090,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "conciliación con el fondo",
         "referencia"
@@ -22180,7 +22180,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -22216,9 +22216,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "atención omnicanal",
         "referencia"
@@ -22306,7 +22306,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -22342,9 +22342,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "autoservicio digital",
         "referencia"
@@ -22432,7 +22432,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -22468,9 +22468,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "aplicación móvil",
         "referencia"
@@ -22558,7 +22558,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -22594,9 +22594,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "portal web",
         "referencia"
@@ -22684,7 +22684,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -22720,9 +22720,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "centro de contacto",
         "referencia"
@@ -22810,7 +22810,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -22846,9 +22846,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "atención en sucursal",
         "referencia"
@@ -22936,7 +22936,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -22972,9 +22972,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "correspondencia",
         "referencia"
@@ -23062,7 +23062,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -23098,9 +23098,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "notificaciones",
         "referencia"
@@ -23188,7 +23188,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -23224,9 +23224,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de acceso a canales",
         "referencia"
@@ -23314,7 +23314,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -23350,9 +23350,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "historial de interacciones",
         "referencia"
@@ -23440,7 +23440,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -23476,9 +23476,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de solicitudes de servicio",
         "referencia"
@@ -23566,7 +23566,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -23602,9 +23602,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de casos",
         "referencia"
@@ -23692,7 +23692,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -23728,9 +23728,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de aclaraciones",
         "referencia"
@@ -23818,7 +23818,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -23854,9 +23854,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de quejas",
         "referencia"
@@ -23944,7 +23944,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -23980,9 +23980,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "coordinación con une",
         "referencia"
@@ -24070,7 +24070,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -24106,9 +24106,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "interacción con condusef",
         "referencia"
@@ -24196,7 +24196,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -24232,9 +24232,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de niveles de servicio",
         "referencia"
@@ -24322,7 +24322,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -24358,9 +24358,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "análisis de causa raíz",
         "referencia"
@@ -24448,7 +24448,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -24484,9 +24484,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "seguimiento de compromisos",
         "referencia"
@@ -24574,7 +24574,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -24610,9 +24610,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "educación financiera y previsional",
         "referencia"
@@ -24700,7 +24700,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -24736,9 +24736,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gobierno de publicidad",
         "referencia"
@@ -24826,7 +24826,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -24862,9 +24862,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de asesores previsionales",
         "referencia"
@@ -24952,7 +24952,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -24988,9 +24988,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de campañas",
         "referencia"
@@ -25078,7 +25078,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -25114,9 +25114,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de prospectos",
         "referencia"
@@ -25204,7 +25204,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -25240,9 +25240,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "conocimiento del trabajador",
         "referencia"
@@ -25330,7 +25330,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -25366,9 +25366,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "medición de satisfacción",
         "referencia"
@@ -25456,7 +25456,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -25492,9 +25492,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de retroalimentación",
         "referencia"
@@ -25582,7 +25582,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -25618,9 +25618,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "comparación de servicios y rendimientos",
         "referencia"
@@ -25708,7 +25708,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -25744,9 +25744,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "base de datos nacional sar",
         "referencia"
@@ -25834,7 +25834,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -25870,9 +25870,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "registro maestro de cuentas",
         "referencia"
@@ -25960,7 +25960,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -25996,9 +25996,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "registro maestro de trabajadores",
         "referencia"
@@ -26086,7 +26086,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -26122,9 +26122,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "registro maestro de participantes",
         "referencia"
@@ -26212,7 +26212,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -26248,9 +26248,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "datos de referencia de industria",
         "referencia"
@@ -26338,7 +26338,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -26374,9 +26374,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "calidad de datos de industria",
         "referencia"
@@ -26464,7 +26464,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -26500,9 +26500,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "calendario operativo",
         "referencia"
@@ -26590,7 +26590,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -26626,9 +26626,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "catálogos de industria",
         "referencia"
@@ -26716,7 +26716,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -26752,9 +26752,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "orquestación central de procesos",
         "referencia"
@@ -26842,7 +26842,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -26878,9 +26878,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "intercambio de información regulatoria",
         "referencia"
@@ -26968,7 +26968,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -27004,9 +27004,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "coordinación de transferencias de recursos",
         "referencia"
@@ -27094,7 +27094,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -27130,9 +27130,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "compensación entre participantes",
         "referencia"
@@ -27220,7 +27220,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -27256,9 +27256,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "hub de eventos y notificaciones",
         "referencia"
@@ -27346,7 +27346,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -27382,9 +27382,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "validación de identidad de industria",
         "referencia"
@@ -27472,7 +27472,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -27508,9 +27508,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "validación biométrica de industria",
         "referencia"
@@ -27598,7 +27598,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -27634,9 +27634,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de folios y acuses",
         "referencia"
@@ -27724,7 +27724,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -27760,9 +27760,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "monitoreo de procesos de industria",
         "referencia"
@@ -27850,7 +27850,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -27886,9 +27886,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "integración con imss",
         "referencia"
@@ -27976,7 +27976,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -28012,9 +28012,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "integración con issste",
         "referencia"
@@ -28102,7 +28102,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -28138,9 +28138,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "integración con infonavit",
         "referencia"
@@ -28228,7 +28228,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -28264,9 +28264,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "integración con fovissste",
         "referencia"
@@ -28354,7 +28354,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -28390,9 +28390,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "integración con instituciones bancarias",
         "referencia"
@@ -28480,7 +28480,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -28516,9 +28516,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "integración con aseguradoras",
         "referencia"
@@ -28606,7 +28606,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -28642,9 +28642,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "integración con custodios y mercados",
         "referencia"
@@ -28732,7 +28732,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -28768,9 +28768,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "integración con autoridades fiscales",
         "referencia"
@@ -28858,7 +28858,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -28894,9 +28894,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "integración con entidades recaudadoras",
         "referencia"
@@ -28984,7 +28984,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -29020,9 +29020,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gobierno de datos",
         "referencia"
@@ -29110,7 +29110,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -29146,9 +29146,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "metadatos y linaje",
         "referencia"
@@ -29236,7 +29236,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -29272,9 +29272,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "calidad de datos empresarial",
         "referencia"
@@ -29362,7 +29362,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -29398,9 +29398,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "privacidad y protección de datos",
         "referencia"
@@ -29488,7 +29488,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -29524,9 +29524,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de identidades y accesos",
         "referencia"
@@ -29614,7 +29614,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -29650,9 +29650,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "criptografía y gestión de secretos",
         "referencia"
@@ -29740,7 +29740,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -29776,9 +29776,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "inteligencia de amenazas",
         "referencia"
@@ -29866,7 +29866,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -29902,9 +29902,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "desarrollo seguro",
         "referencia"
@@ -29992,7 +29992,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -30028,9 +30028,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de vulnerabilidades",
         "referencia"
@@ -30118,7 +30118,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -30154,9 +30154,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "operaciones de tecnología",
         "referencia"
@@ -30244,7 +30244,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -30280,9 +30280,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "ingeniería de plataformas",
         "referencia"
@@ -30370,7 +30370,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -30406,9 +30406,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de apis",
         "referencia"
@@ -30496,7 +30496,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -30532,9 +30532,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "plataforma de eventos",
         "referencia"
@@ -30622,7 +30622,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -30658,9 +30658,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "plataforma de integración",
         "referencia"
@@ -30748,7 +30748,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -30784,9 +30784,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "observabilidad",
         "referencia"
@@ -30874,7 +30874,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -30910,9 +30910,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de servicios de ti",
         "referencia"
@@ -31000,7 +31000,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -31036,9 +31036,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de configuración",
         "referencia"
@@ -31126,7 +31126,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -31162,9 +31162,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de capacidad",
         "referencia"
@@ -31252,7 +31252,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -31288,9 +31288,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de ambientes",
         "referencia"
@@ -31378,7 +31378,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -31414,9 +31414,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "automatización y ci/cd",
         "referencia"
@@ -31504,7 +31504,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -31540,9 +31540,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "recuperación tecnológica",
         "referencia"
@@ -31630,7 +31630,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -31666,9 +31666,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "contabilidad financiera",
         "referencia"
@@ -31756,7 +31756,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -31792,9 +31792,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión financiera de tecnología",
         "referencia"
@@ -31882,7 +31882,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -31918,9 +31918,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "compras",
         "referencia"
@@ -32008,7 +32008,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -32044,9 +32044,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de proveedores",
         "referencia"
@@ -32134,7 +32134,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -32170,9 +32170,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de capital humano",
         "referencia"
@@ -32260,7 +32260,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -32296,9 +32296,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "servicios jurídicos",
         "referencia"
@@ -32386,7 +32386,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -32422,9 +32422,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de registros",
         "referencia"
@@ -32512,7 +32512,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -32548,9 +32548,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "arquitectura empresarial",
         "referencia"
@@ -32638,7 +32638,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -32674,9 +32674,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de portafolio empresarial",
         "referencia"
@@ -32764,7 +32764,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -32800,9 +32800,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de contratos",
         "referencia"
@@ -32890,7 +32890,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -32926,9 +32926,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "estrategia de salida de proveedores",
         "referencia"
@@ -33016,7 +33016,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -33052,9 +33052,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gobierno de arquitectura empresarial",
         "referencia"
@@ -33142,7 +33142,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -33178,9 +33178,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "estándares y lineamientos",
         "referencia"
@@ -33268,7 +33268,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -33304,9 +33304,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "catálogo de patrones",
         "referencia"
@@ -33394,7 +33394,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -33430,9 +33430,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "autoridad de diseño de soluciones",
         "referencia"
@@ -33520,7 +33520,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -33556,9 +33556,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "radar tecnológico",
         "referencia"
@@ -33646,7 +33646,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -33682,9 +33682,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de deuda técnica",
         "referencia"
@@ -33772,7 +33772,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -33808,9 +33808,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de excepciones arquitectónicas",
         "referencia"
@@ -33898,7 +33898,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -33934,9 +33934,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "arquitecturas de referencia",
         "referencia"
@@ -34024,7 +34024,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -34060,9 +34060,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "analítica regulatoria",
         "referencia"
@@ -34150,7 +34150,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -34186,9 +34186,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "modelos actuariales",
         "referencia"
@@ -34276,7 +34276,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -34312,9 +34312,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "modelos de inversión",
         "referencia"
@@ -34402,7 +34402,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -34438,9 +34438,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "modelos de comportamiento del trabajador",
         "referencia"
@@ -34528,7 +34528,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -34564,9 +34564,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "modelos de fraude",
         "referencia"
@@ -34654,7 +34654,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -34690,9 +34690,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gobierno de inteligencia artificial",
         "referencia"
@@ -34780,7 +34780,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -34816,9 +34816,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "plataforma de ciencia de datos",
         "referencia"
@@ -34906,7 +34906,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -34942,9 +34942,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión del ciclo de vida de modelos",
         "referencia"
@@ -35032,7 +35032,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -35068,9 +35068,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "monitoreo de modelos",
         "referencia"
@@ -35158,7 +35158,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -35194,9 +35194,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "diseño de servicios",
         "referencia"
@@ -35284,7 +35284,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -35320,9 +35320,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "portafolio de innovación",
         "referencia"
@@ -35410,7 +35410,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -35446,9 +35446,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "investigación de industria",
         "referencia"
@@ -35536,7 +35536,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -35572,9 +35572,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "sandbox regulatorio",
         "referencia"
@@ -35662,7 +35662,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -35698,9 +35698,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión del conocimiento",
         "referencia"
@@ -35788,7 +35788,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -35824,9 +35824,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión del cambio y adopción",
         "referencia"
@@ -35914,7 +35914,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -35950,9 +35950,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "capacitación y certificación",
         "referencia"
@@ -36040,7 +36040,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -36076,9 +36076,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "mejora continua",
         "referencia"
@@ -36166,7 +36166,7 @@
           "name": "Ley de los Sistemas de Ahorro para el Retiro",
           "authority": "Congreso de la Unión",
           "mandatory": true,
-          "validationStatus": "official"
+          "validationStatus": "pending-validation"
         }
       ],
       "controls": [
@@ -36202,9 +36202,9 @@
       "valueStreams": [
         "Administración del Retiro"
       ],
-      "maturity": "defined",
-      "version": "14.0.0",
-      "status": "active",
+      "maturity": "conceptual",
+      "version": "0.1.0",
+      "status": "proposed",
       "tags": [
         "gestión de comunidad raia",
         "referencia"

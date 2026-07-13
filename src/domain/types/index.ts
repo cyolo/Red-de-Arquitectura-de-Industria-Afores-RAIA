@@ -229,6 +229,10 @@ export interface PortalModule {
   artifactType?: string;
   countSource?: string;
   dependencies?: string[];
+  ownerRole?: string;
+  validationStatus?: string;
+  roadmap?: string[];
+  lastReviewedAt?: string;
   tags: string[];
   createdAt: string;
   updatedAt: string;
