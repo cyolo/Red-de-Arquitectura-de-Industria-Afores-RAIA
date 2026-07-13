@@ -13,8 +13,9 @@
     "validate:scenarios": "node scripts/validateScenarios.js",
     "validate:routes": "node scripts/validateRoutes.js",
     "test": "node scripts/runTests.js",
-    "prebuild": "npm run validate:data && npm run validate:portal && npm run validate:scenarios && npm run validate:routes && npm run validate:sequence-diagrams && npm run typecheck && npm run test",
-    "validate:sequence-diagrams": "node scripts/validateSequenceDiagrams.js"
+    "prebuild": "npm run validate:data && npm run validate:portal && npm run validate:scenarios && npm run validate:routes && npm run validate:sequence-diagrams && npm run validate:scenario-narratives && npm run typecheck && npm run test",
+    "validate:sequence-diagrams": "node scripts/validateSequenceDiagrams.js",
+    "validate:scenario-narratives": "node scripts/validateScenarioNarratives.js"
   },
   "dependencies": {
     "@xyflow/react": "^12.11.2",

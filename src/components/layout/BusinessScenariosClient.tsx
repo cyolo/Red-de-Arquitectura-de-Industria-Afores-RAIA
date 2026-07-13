@@ -7,12 +7,15 @@ import { getScenarios, getServiceDomains } from "../../domain/repositories/lands
 import { BusinessScenario, ServiceDomain } from "../../domain/types";
 import RaiaSequenceDiagram, { DetailedSequence } from "../../features/business-scenarios/sequence-diagram/components/RaiaSequenceDiagram";
 import sequenceBundle from "../../data/business-scenarios/scenario-sequences.json";
+import { useScenarioNarrative } from "../../features/business-scenarios/narrative/hooks/useScenarioNarrative";
+import ScenarioArchitectureNarrativeComponent from "../../features/business-scenarios/narrative/components/ScenarioArchitectureNarrative";
 
 export default function BusinessScenariosClient() {
   const [scenarios, setScenarios] = useState<BusinessScenario[]>([]);
   const [serviceDomains, setServiceDomains] = useState<ServiceDomain[]>([]);
   const [selectedScenarioId, setSelectedScenarioId] = useState<string>("");
   const [activeStep, setActiveStep] = useState<number>(1);
+  const { narrative, loading: narrativeLoading } = useScenarioNarrative(selectedScenarioId);
 
   useEffect(() => {
     try {
@@ -211,42 +214,24 @@ export default function BusinessScenariosClient() {
                   </div>
                 )}
               </div>
-
-              {/* Detailed active step documentation */}
-              {activeStepDetail && (
-                <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 space-y-4">
-                  <div className="flex items-center justify-between border-b border-slate-200/60 pb-3">
-                    <div className="flex items-center gap-2">
-                      <span className="w-5 h-5 rounded-full bg-slate-950 text-white text-[10px] font-bold flex items-center justify-center">
-                        {activeStep}
-                      </span>
-                      <span className="text-xs font-extrabold text-slate-800 uppercase tracking-wider">
-                        Detalle Técnico del Flujo
-                      </span>
-                    </div>
-                    <span className="text-[10px] font-bold text-slate-400">
-                      Evento: {(activeStepDetail as any).label || (activeStepDetail as any).eventName}
-                    </span>
+              {/* Narrative Integration */}
+              <div className="mt-12">
+                {narrativeLoading ? (
+                  <div className="animate-pulse space-y-4">
+                    <div className="h-8 bg-slate-200 rounded w-1/3 mx-auto mb-8"></div>
+                    <div className="h-4 bg-slate-200 rounded w-3/4"></div>
+                    <div className="h-4 bg-slate-200 rounded w-full"></div>
+                    <div className="h-4 bg-slate-200 rounded w-5/6"></div>
                   </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-1">
-                      <span className="text-[9px] font-extrabold text-slate-400 uppercase block">Origen</span>
-                      <span className="text-[10px] text-slate-800 block font-bold">{(activeStepDetail as any).sourceParticipantInstanceId || (activeStepDetail as any).sourceId}</span>
-                    </div>
-
-                    <div className="space-y-1">
-                      <span className="text-[9px] font-extrabold text-slate-400 uppercase block">Destino</span>
-                      <span className="text-[10px] text-slate-800 block font-bold">{(activeStepDetail as any).targetParticipantInstanceId || (activeStepDetail as any).targetId}</span>
-                    </div>
-                  </div>
-
-                  <p className="text-xs text-slate-600 leading-relaxed pt-2 border-t border-slate-200/60">
-                    <span className="font-bold text-slate-800 block mb-1">Descripción:</span>
-                    {activeStepDetail.description}
-                  </p>
-                </div>
-              )}
+                ) : (
+                  narrative && (
+                    <ScenarioArchitectureNarrativeComponent 
+                      narrative={narrative as any} 
+                      activeSequenceId={activeStep} 
+                    />
+                  )
+                )}
+              </div>
             </div>
           </div>
         )}

@@ -1,0 +1,643 @@
+{
+  "scenarioId": "RAIA-BS-0007",
+  "version": "0.2.0",
+  "executiveSummary": "El escenario reconstruye el origen de movimientos para separar cuentas de distintos regímenes incorrectamente unificadas.",
+  "structuralNarrative": "Interacción entre el trabajador, Resolución de Identidad, IMSS, ISSSTE, Separación de Cuentas, Administración de Subcuentas, Conciliación y Libro Mayor.",
+  "behavioralNarrative": "Se recupera el historial de la cuenta y se consulta a los institutos. Los movimientos se clasifican por persona, régimen, periodo y subcuenta. Se crean o actualizan los registros resultantes y se distribuyen los recursos.",
+  "structureBehaviorBridge": "La separación requiere reconstruir el origen de los movimientos antes de modificar saldos, por lo que la evidencia histórica es parte esencial del comportamiento.",
+  "decisionNarrative": "Separación procedente; registros correctamente integrados; diferencia entre institutos; evidencia insuficiente; revisión especializada.",
+  "exceptionNarrative": "En caso de falla técnica o rechazo de negocio, la operación se revierte (rollback) y se informa al iniciador para no mantener saldos en tránsito colgados.",
+  "controlNarrative": "Se aplican validaciones preventivas de identidad y saldo, y controles detectivos durante la fase de conciliación contable.",
+  "evidenceNarrative": "Se conservan bitácoras de aplicación, sellos de tiempo de recepción y los identificadores de trazabilidad en el Libro Mayor.",
+  "outcomeNarrative": "El resultado es un cambio de estado en el registro maestro garantizando la atomicidad, durabilidad y consistencia de los datos.",
+  "architectureInsights": [
+    "Diseño asíncrono en integraciones con terceros.",
+    "Segregación estricta entre capa de negocio y registro de saldos."
+  ],
+  "assumptions": [
+    "Disponibilidad de BDNSAR",
+    "Conformidad con manuales operativos CONSAR"
+  ],
+  "validationNotes": [
+    "Requiere revisión de cumplimiento normativo."
+  ],
+  "status": "proposed",
+  "regulatoryValidationStatus": "pending",
+  "createdAt": "2026-07-13T07:22:16.251Z",
+  "updatedAt": "2026-07-13T07:22:16.251Z",
+  "participantNarratives": [
+    {
+      "participantInstanceId": "p-trabajador",
+      "participantName": "Trabajador",
+      "structuralRole": "Service Domain coordinador / ejecutor",
+      "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
+      "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
+      "receivesFrom": [
+        "Notificaciones"
+      ],
+      "sendsTo": [
+        "Gestión de Solicitudes"
+      ],
+      "businessObjectsManaged": [
+        "Registro de Operación",
+        "Parámetro Validado"
+      ],
+      "controlsApplied": [
+        "Validación de entrada",
+        "Rechazo por formato inválido"
+      ]
+    },
+    {
+      "participantInstanceId": "p-gesti-n-de-soli",
+      "participantName": "Gestión de Solicitudes",
+      "structuralRole": "Service Domain coordinador / ejecutor",
+      "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
+      "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
+      "receivesFrom": [
+        "Trabajador"
+      ],
+      "sendsTo": [
+        "Resolución de Identidad",
+        "Separación de Cuentas"
+      ],
+      "businessObjectsManaged": [
+        "Registro de Operación",
+        "Parámetro Validado"
+      ],
+      "controlsApplied": [
+        "Validación de entrada",
+        "Rechazo por formato inválido"
+      ]
+    },
+    {
+      "participantInstanceId": "p-resoluci-n-de-i",
+      "participantName": "Resolución de Identidad",
+      "structuralRole": "Service Domain coordinador / ejecutor",
+      "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
+      "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
+      "receivesFrom": [
+        "Gestión de Solicitudes"
+      ],
+      "sendsTo": [],
+      "businessObjectsManaged": [
+        "Registro de Operación",
+        "Parámetro Validado"
+      ],
+      "controlsApplied": [
+        "Validación de entrada",
+        "Rechazo por formato inválido"
+      ]
+    },
+    {
+      "participantInstanceId": "p-separaci-n-de-c",
+      "participantName": "Separación de Cuentas",
+      "structuralRole": "Service Domain coordinador / ejecutor",
+      "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
+      "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
+      "receivesFrom": [
+        "Gestión de Solicitudes"
+      ],
+      "sendsTo": [],
+      "businessObjectsManaged": [
+        "Registro de Operación",
+        "Parámetro Validado"
+      ],
+      "controlsApplied": [
+        "Validación de entrada",
+        "Rechazo por formato inválido"
+      ]
+    },
+    {
+      "participantInstanceId": "p-imss",
+      "participantName": "IMSS",
+      "structuralRole": "Service Domain coordinador / ejecutor",
+      "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
+      "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
+      "receivesFrom": [
+        "separaci n"
+      ],
+      "sendsTo": [
+        "separaci n"
+      ],
+      "businessObjectsManaged": [
+        "Registro de Operación",
+        "Parámetro Validado"
+      ],
+      "controlsApplied": [
+        "Validación de entrada",
+        "Rechazo por formato inválido"
+      ]
+    },
+    {
+      "participantInstanceId": "p-issste",
+      "participantName": "ISSSTE",
+      "structuralRole": "Service Domain coordinador / ejecutor",
+      "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
+      "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
+      "receivesFrom": [
+        "separaci n"
+      ],
+      "sendsTo": [
+        "separaci n"
+      ],
+      "businessObjectsManaged": [
+        "Registro de Operación",
+        "Parámetro Validado"
+      ],
+      "controlsApplied": [
+        "Validación de entrada",
+        "Rechazo por formato inválido"
+      ]
+    },
+    {
+      "participantInstanceId": "p-bdnsar",
+      "participantName": "BDNSAR",
+      "structuralRole": "Service Domain coordinador / ejecutor",
+      "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
+      "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
+      "receivesFrom": [
+        "separaci n"
+      ],
+      "sendsTo": [],
+      "businessObjectsManaged": [
+        "Registro de Operación",
+        "Parámetro Validado"
+      ],
+      "controlsApplied": [
+        "Validación de entrada",
+        "Rechazo por formato inválido"
+      ]
+    },
+    {
+      "participantInstanceId": "p-administraci-n-",
+      "participantName": "Administración de Subcuentas",
+      "structuralRole": "Service Domain coordinador / ejecutor",
+      "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
+      "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
+      "receivesFrom": [
+        "separaci n"
+      ],
+      "sendsTo": [
+        "conciliaci n"
+      ],
+      "businessObjectsManaged": [
+        "Registro de Operación",
+        "Parámetro Validado"
+      ],
+      "controlsApplied": [
+        "Validación de entrada",
+        "Rechazo por formato inválido"
+      ]
+    },
+    {
+      "participantInstanceId": "p-conciliaci-n-de",
+      "participantName": "Conciliación de Cuenta",
+      "structuralRole": "Service Domain coordinador / ejecutor",
+      "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
+      "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
+      "receivesFrom": [],
+      "sendsTo": [],
+      "businessObjectsManaged": [
+        "Registro de Operación",
+        "Parámetro Validado"
+      ],
+      "controlsApplied": [
+        "Validación de entrada",
+        "Rechazo por formato inválido"
+      ]
+    },
+    {
+      "participantInstanceId": "p-libro-mayor",
+      "participantName": "Libro Mayor",
+      "structuralRole": "Service Domain coordinador / ejecutor",
+      "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
+      "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
+      "receivesFrom": [
+        "separaci n"
+      ],
+      "sendsTo": [],
+      "businessObjectsManaged": [
+        "Registro de Operación",
+        "Parámetro Validado"
+      ],
+      "controlsApplied": [
+        "Validación de entrada",
+        "Rechazo por formato inválido"
+      ]
+    },
+    {
+      "participantInstanceId": "p-notificaciones",
+      "participantName": "Notificaciones",
+      "structuralRole": "Service Domain coordinador / ejecutor",
+      "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
+      "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
+      "receivesFrom": [
+        "separaci n"
+      ],
+      "sendsTo": [
+        "Trabajador"
+      ],
+      "businessObjectsManaged": [
+        "Registro de Operación",
+        "Parámetro Validado"
+      ],
+      "controlsApplied": [
+        "Validación de entrada",
+        "Rechazo por formato inválido"
+      ]
+    },
+    {
+      "participantInstanceId": "p-separaci-n",
+      "participantName": "separaci n",
+      "structuralRole": "Service Domain coordinador / ejecutor",
+      "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
+      "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
+      "receivesFrom": [
+        "IMSS",
+        "ISSSTE",
+        "conciliaci n"
+      ],
+      "sendsTo": [
+        "BDNSAR",
+        "IMSS",
+        "ISSSTE",
+        "Administración de Subcuentas",
+        "Libro Mayor",
+        "Notificaciones"
+      ],
+      "businessObjectsManaged": [
+        "Registro de Operación",
+        "Parámetro Validado"
+      ],
+      "controlsApplied": [
+        "Validación de entrada",
+        "Rechazo por formato inválido"
+      ]
+    },
+    {
+      "participantInstanceId": "p-conciliaci-n",
+      "participantName": "conciliaci n",
+      "structuralRole": "Service Domain coordinador / ejecutor",
+      "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
+      "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
+      "receivesFrom": [
+        "Administración de Subcuentas"
+      ],
+      "sendsTo": [
+        "separaci n"
+      ],
+      "businessObjectsManaged": [
+        "Registro de Operación",
+        "Parámetro Validado"
+      ],
+      "controlsApplied": [
+        "Validación de entrada",
+        "Rechazo por formato inválido"
+      ]
+    }
+  ],
+  "phaseNarratives": [
+    {
+      "id": "phase-1",
+      "name": "Fase 1 — Inicio y registro",
+      "order": 1,
+      "startSequence": 1,
+      "endSequence": 7,
+      "structuralContext": "Estructuras involucradas en la captura y validación primaria.",
+      "behavioralDescription": "Se ejecutan las validaciones iniciales y se captura el intent de negocio.",
+      "result": "Contexto validado",
+      "participantInstanceIds": [
+        "p-trabajador",
+        "p-gesti-n-de-soli",
+        "p-resoluci-n-de-i"
+      ],
+      "messageIds": [
+        "RAIA-BS-0007-MSG-01",
+        "RAIA-BS-0007-MSG-02",
+        "RAIA-BS-0007-MSG-03",
+        "RAIA-BS-0007-MSG-04",
+        "RAIA-BS-0007-MSG-05",
+        "RAIA-BS-0007-MSG-06",
+        "RAIA-BS-0007-MSG-07"
+      ]
+    },
+    {
+      "id": "phase-2",
+      "name": "Fase 2 — Ejecución y cierre",
+      "order": 2,
+      "startSequence": 8,
+      "endSequence": 15,
+      "structuralContext": "Estructuras encargadas de asentar la resolución financiera y operativa.",
+      "behavioralDescription": "Se consolida el estado final en libros mayores y registros maestros.",
+      "result": "Transacción liquidada y notificada",
+      "participantInstanceIds": [
+        "p-trabajador",
+        "p-gesti-n-de-soli",
+        "p-resoluci-n-de-i",
+        "p-separaci-n-de-c",
+        "p-imss",
+        "p-issste",
+        "p-bdnsar",
+        "p-administraci-n-",
+        "p-conciliaci-n-de",
+        "p-libro-mayor",
+        "p-notificaciones",
+        "p-separaci-n",
+        "p-conciliaci-n"
+      ],
+      "messageIds": [
+        "RAIA-BS-0007-MSG-08",
+        "RAIA-BS-0007-MSG-09",
+        "RAIA-BS-0007-MSG-10",
+        "RAIA-BS-0007-MSG-11",
+        "RAIA-BS-0007-MSG-12",
+        "RAIA-BS-0007-MSG-13",
+        "RAIA-BS-0007-MSG-14",
+        "RAIA-BS-0007-MSG-15"
+      ]
+    }
+  ],
+  "stepNarratives": [
+    {
+      "scenarioStepId": "RAIA-BS-0007-STEP-01",
+      "messageId": "RAIA-BS-0007-MSG-01",
+      "sequence": 1,
+      "title": "Solicitar separación.",
+      "structuralContext": "Interacción entre la responsabilidad emisora y la responsabilidad que recibe el comando de negocio.",
+      "behavior": "p-trabajador emite Solicitar separación. a p-gesti-n-de-soli.",
+      "businessMeaning": "Permite cambiar el estado de la operación hacia la siguiente fase de consolidación.",
+      "input": [
+        "Contexto de operación",
+        "Datos de identificación"
+      ],
+      "output": [
+        "Confirmación de recepción",
+        "Resultado de validación"
+      ],
+      "controlExplanation": "Validación de formato e integridad de origen antes del envío.",
+      "exceptionExplanation": "Si la conexión falla, se genera bitácora de excepción."
+    },
+    {
+      "scenarioStepId": "RAIA-BS-0007-STEP-02",
+      "messageId": "RAIA-BS-0007-MSG-02",
+      "sequence": 2,
+      "title": "Validar identidad.",
+      "structuralContext": "Interacción entre la responsabilidad emisora y la responsabilidad que recibe el comando de negocio.",
+      "behavior": "p-gesti-n-de-soli emite Validar identidad. a p-resoluci-n-de-i.",
+      "businessMeaning": "Permite cambiar el estado de la operación hacia la siguiente fase de consolidación.",
+      "input": [
+        "Contexto de operación",
+        "Datos de identificación"
+      ],
+      "output": [
+        "Confirmación de recepción",
+        "Resultado de validación"
+      ],
+      "controlExplanation": "Validación de formato e integridad de origen antes del envío.",
+      "exceptionExplanation": "Si la conexión falla, se genera bitácora de excepción."
+    },
+    {
+      "scenarioStepId": "RAIA-BS-0007-STEP-03",
+      "messageId": "RAIA-BS-0007-MSG-03",
+      "sequence": 3,
+      "title": "Registrar solicitud.",
+      "structuralContext": "Interacción entre la responsabilidad emisora y la responsabilidad que recibe el comando de negocio.",
+      "behavior": "p-gesti-n-de-soli emite Registrar solicitud. a p-separaci-n-de-c.",
+      "businessMeaning": "Permite cambiar el estado de la operación hacia la siguiente fase de consolidación.",
+      "input": [
+        "Contexto de operación",
+        "Datos de identificación"
+      ],
+      "output": [
+        "Confirmación de recepción",
+        "Resultado de validación"
+      ],
+      "controlExplanation": "Validación de formato e integridad de origen antes del envío.",
+      "exceptionExplanation": "Si la conexión falla, se genera bitácora de excepción."
+    },
+    {
+      "scenarioStepId": "RAIA-BS-0007-STEP-04",
+      "messageId": "RAIA-BS-0007-MSG-04",
+      "sequence": 4,
+      "title": "Recuperar historial.",
+      "structuralContext": "Interacción entre la responsabilidad emisora y la responsabilidad que recibe el comando de negocio.",
+      "behavior": "p-separaci-n emite Recuperar historial. a p-bdnsar.",
+      "businessMeaning": "Permite cambiar el estado de la operación hacia la siguiente fase de consolidación.",
+      "input": [
+        "Contexto de operación",
+        "Datos de identificación"
+      ],
+      "output": [
+        "Confirmación de recepción",
+        "Resultado de validación"
+      ],
+      "controlExplanation": "Validación de formato e integridad de origen antes del envío.",
+      "exceptionExplanation": "Si la conexión falla, se genera bitácora de excepción."
+    },
+    {
+      "scenarioStepId": "RAIA-BS-0007-STEP-05",
+      "messageId": "RAIA-BS-0007-MSG-05",
+      "sequence": 5,
+      "title": "Consultar cotizaciones.",
+      "structuralContext": "Interacción entre la responsabilidad emisora y la responsabilidad que recibe el comando de negocio.",
+      "behavior": "p-separaci-n emite Consultar cotizaciones. a p-imss.",
+      "businessMeaning": "Permite cambiar el estado de la operación hacia la siguiente fase de consolidación.",
+      "input": [
+        "Contexto de operación",
+        "Datos de identificación"
+      ],
+      "output": [
+        "Confirmación de recepción",
+        "Resultado de validación"
+      ],
+      "controlExplanation": "Validación de formato e integridad de origen antes del envío.",
+      "exceptionExplanation": "Si la conexión falla, se genera bitácora de excepción."
+    },
+    {
+      "scenarioStepId": "RAIA-BS-0007-STEP-06",
+      "messageId": "RAIA-BS-0007-MSG-06",
+      "sequence": 6,
+      "title": "Consultar cotizaciones.",
+      "structuralContext": "Interacción entre la responsabilidad emisora y la responsabilidad que recibe el comando de negocio.",
+      "behavior": "p-separaci-n emite Consultar cotizaciones. a p-issste.",
+      "businessMeaning": "Permite cambiar el estado de la operación hacia la siguiente fase de consolidación.",
+      "input": [
+        "Contexto de operación",
+        "Datos de identificación"
+      ],
+      "output": [
+        "Confirmación de recepción",
+        "Resultado de validación"
+      ],
+      "controlExplanation": "Validación de formato e integridad de origen antes del envío.",
+      "exceptionExplanation": "Si la conexión falla, se genera bitácora de excepción."
+    },
+    {
+      "scenarioStepId": "RAIA-BS-0007-STEP-07",
+      "messageId": "RAIA-BS-0007-MSG-07",
+      "sequence": 7,
+      "title": "Entregar información.",
+      "structuralContext": "Interacción entre la responsabilidad emisora y la responsabilidad que recibe el comando de negocio.",
+      "behavior": "p-imss emite Entregar información. a p-separaci-n.",
+      "businessMeaning": "Permite cambiar el estado de la operación hacia la siguiente fase de consolidación.",
+      "input": [
+        "Contexto de operación",
+        "Datos de identificación"
+      ],
+      "output": [
+        "Confirmación de recepción",
+        "Resultado de validación"
+      ],
+      "evidenceExplanation": "Acuse de recibo de la instrucción."
+    },
+    {
+      "scenarioStepId": "RAIA-BS-0007-STEP-08",
+      "messageId": "RAIA-BS-0007-MSG-08",
+      "sequence": 8,
+      "title": "Entregar información.",
+      "structuralContext": "Interacción entre la responsabilidad emisora y la responsabilidad que recibe el comando de negocio.",
+      "behavior": "p-issste emite Entregar información. a p-separaci-n.",
+      "businessMeaning": "Permite cambiar el estado de la operación hacia la siguiente fase de consolidación.",
+      "input": [
+        "Contexto de operación",
+        "Datos de identificación"
+      ],
+      "output": [
+        "Confirmación de recepción",
+        "Resultado de validación"
+      ],
+      "evidenceExplanation": "Acuse de recibo de la instrucción."
+    },
+    {
+      "scenarioStepId": "RAIA-BS-0007-STEP-09",
+      "messageId": "RAIA-BS-0007-MSG-09",
+      "sequence": 9,
+      "title": "Clasificar recursos.",
+      "structuralContext": "Interacción entre la responsabilidad emisora y la responsabilidad que recibe el comando de negocio.",
+      "behavior": "p-separaci-n emite Clasificar recursos. a p-administraci-n-.",
+      "businessMeaning": "Permite cambiar el estado de la operación hacia la siguiente fase de consolidación.",
+      "input": [
+        "Contexto de operación",
+        "Datos de identificación"
+      ],
+      "output": [
+        "Confirmación de recepción",
+        "Resultado de validación"
+      ],
+      "controlExplanation": "Validación de formato e integridad de origen antes del envío.",
+      "exceptionExplanation": "Si la conexión falla, se genera bitácora de excepción."
+    },
+    {
+      "scenarioStepId": "RAIA-BS-0007-STEP-10",
+      "messageId": "RAIA-BS-0007-MSG-10",
+      "sequence": 10,
+      "title": "Conciliar distribución.",
+      "structuralContext": "Interacción entre la responsabilidad emisora y la responsabilidad que recibe el comando de negocio.",
+      "behavior": "p-administraci-n- emite Conciliar distribución. a p-conciliaci-n.",
+      "businessMeaning": "Permite cambiar el estado de la operación hacia la siguiente fase de consolidación.",
+      "input": [
+        "Contexto de operación",
+        "Datos de identificación"
+      ],
+      "output": [
+        "Confirmación de recepción",
+        "Resultado de validación"
+      ],
+      "controlExplanation": "Validación de formato e integridad de origen antes del envío.",
+      "exceptionExplanation": "Si la conexión falla, se genera bitácora de excepción."
+    },
+    {
+      "scenarioStepId": "RAIA-BS-0007-STEP-11",
+      "messageId": "RAIA-BS-0007-MSG-11",
+      "sequence": 11,
+      "title": "Confirmar propuesta.",
+      "structuralContext": "Interacción entre la responsabilidad emisora y la responsabilidad que recibe el comando de negocio.",
+      "behavior": "p-conciliaci-n emite Confirmar propuesta. a p-separaci-n.",
+      "businessMeaning": "Permite cambiar el estado de la operación hacia la siguiente fase de consolidación.",
+      "input": [
+        "Contexto de operación",
+        "Datos de identificación"
+      ],
+      "output": [
+        "Confirmación de recepción",
+        "Resultado de validación"
+      ],
+      "evidenceExplanation": "Acuse de recibo de la instrucción."
+    },
+    {
+      "scenarioStepId": "RAIA-BS-0007-STEP-12",
+      "messageId": "RAIA-BS-0007-MSG-12",
+      "sequence": 12,
+      "title": "Registrar cuentas resultantes.",
+      "structuralContext": "Interacción entre la responsabilidad emisora y la responsabilidad que recibe el comando de negocio.",
+      "behavior": "p-separaci-n emite Registrar cuentas resultantes. a p-libro-mayor.",
+      "businessMeaning": "Permite cambiar el estado de la operación hacia la siguiente fase de consolidación.",
+      "input": [
+        "Contexto de operación",
+        "Datos de identificación"
+      ],
+      "output": [
+        "Confirmación de recepción",
+        "Resultado de validación"
+      ],
+      "controlExplanation": "Validación de formato e integridad de origen antes del envío.",
+      "exceptionExplanation": "Si la conexión falla, se genera bitácora de excepción."
+    },
+    {
+      "scenarioStepId": "RAIA-BS-0007-STEP-13",
+      "messageId": "RAIA-BS-0007-MSG-13",
+      "sequence": 13,
+      "title": "Actualizar registros.",
+      "structuralContext": "Interacción entre la responsabilidad emisora y la responsabilidad que recibe el comando de negocio.",
+      "behavior": "p-separaci-n emite Actualizar registros. a p-bdnsar.",
+      "businessMeaning": "Permite cambiar el estado de la operación hacia la siguiente fase de consolidación.",
+      "input": [
+        "Contexto de operación",
+        "Datos de identificación"
+      ],
+      "output": [
+        "Confirmación de recepción",
+        "Resultado de validación"
+      ],
+      "controlExplanation": "Validación de formato e integridad de origen antes del envío.",
+      "exceptionExplanation": "Si la conexión falla, se genera bitácora de excepción."
+    },
+    {
+      "scenarioStepId": "RAIA-BS-0007-STEP-14",
+      "messageId": "RAIA-BS-0007-MSG-14",
+      "sequence": 14,
+      "title": "Comunicar resolución.",
+      "structuralContext": "Interacción entre la responsabilidad emisora y la responsabilidad que recibe el comando de negocio.",
+      "behavior": "p-separaci-n emite Comunicar resolución. a p-notificaciones.",
+      "businessMeaning": "Permite cambiar el estado de la operación hacia la siguiente fase de consolidación.",
+      "input": [
+        "Contexto de operación",
+        "Datos de identificación"
+      ],
+      "output": [
+        "Confirmación de recepción",
+        "Resultado de validación"
+      ],
+      "controlExplanation": "Validación de formato e integridad de origen antes del envío.",
+      "exceptionExplanation": "Si la conexión falla, se genera bitácora de excepción."
+    },
+    {
+      "scenarioStepId": "RAIA-BS-0007-STEP-15",
+      "messageId": "RAIA-BS-0007-MSG-15",
+      "sequence": 15,
+      "title": "Informar separación.",
+      "structuralContext": "Interacción entre la responsabilidad emisora y la responsabilidad que recibe el comando de negocio.",
+      "behavior": "p-notificaciones emite Informar separación. a p-trabajador.",
+      "businessMeaning": "Permite cambiar el estado de la operación hacia la siguiente fase de consolidación.",
+      "input": [
+        "Contexto de operación",
+        "Datos de identificación"
+      ],
+      "output": [
+        "Confirmación de recepción",
+        "Resultado de validación"
+      ],
+      "evidenceExplanation": "Acuse de recibo de la instrucción."
+    }
+  ]
+}
