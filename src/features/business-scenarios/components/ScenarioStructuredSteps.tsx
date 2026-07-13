@@ -99,9 +99,16 @@ export default function ScenarioStructuredSteps({
 
           return (
             <li key={message.id ?? (message as any).scenarioStepId}>
-              <button
-                type="button"
+              <div
+                role="button"
+                tabIndex={0}
                 onClick={() => onStepChange(message.sequence)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    onStepChange(message.sequence);
+                  }
+                }}
                 aria-current={isActive ? "step" : undefined}
                 data-testid="scenario-structured-step"
                 className={[
@@ -111,8 +118,8 @@ export default function ScenarioStructuredSteps({
                   "focus-visible:ring-raia-turquoise",
                   "focus-visible:ring-offset-2",
                   isActive
-                    ? "border-slate-800 bg-slate-900 text-white shadow-md"
-                    : "border-slate-200 bg-white text-slate-700 hover:border-slate-400"
+                    ? "border-slate-800 bg-slate-900 text-white shadow-md cursor-default"
+                    : "border-slate-200 bg-white text-slate-700 hover:border-slate-400 cursor-pointer"
                 ].join(" ")}
               >
                 <div className="flex items-start gap-4">
@@ -188,7 +195,7 @@ export default function ScenarioStructuredSteps({
                               block: "start"
                             });
                           }}
-                          className="text-[11px] font-bold text-raia-turquoise hover:text-white transition-colors underline underline-offset-2"
+                          className="text-[11px] font-bold text-raia-turquoise hover:text-white transition-colors underline underline-offset-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-raia-turquoise rounded-sm"
                         >
                           Ver análisis arquitectónico del paso
                         </button>
@@ -196,7 +203,7 @@ export default function ScenarioStructuredSteps({
                     )}
                   </div>
                 </div>
-              </button>
+              </div>
             </li>
           );
         })}
