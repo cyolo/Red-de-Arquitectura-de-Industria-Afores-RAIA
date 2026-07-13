@@ -200,8 +200,16 @@ export default function BusinessScenariosClient() {
                 )}
               </div>
 
+              {/* Structured Steps & Analysis Workspace */}
+              <ScenarioStepsWorkspace
+                sequence={detailedSequence}
+                stepNarratives={(narrative?.stepNarratives ?? []) as ScenarioStepNarrative[]}
+                activeStep={activeStep}
+                onStepChange={setActiveStep}
+              />
+
               {/* Narrative Context (General Architecture only) */}
-              <div className="mt-12" data-testid="scenario-architecture-narrative">
+              <div className="mt-16" data-testid="scenario-architecture-narrative">
                 {narrativeLoading ? (
                   <div className="animate-pulse space-y-4">
                     <div className="h-8 bg-slate-200 rounded w-1/3 mx-auto mb-8"></div>
@@ -217,14 +225,6 @@ export default function BusinessScenariosClient() {
                   )
                 )}
               </div>
-
-              {/* Structured Steps & Analysis Workspace */}
-              <ScenarioStepsWorkspace
-                sequence={detailedSequence}
-                stepNarratives={(narrative?.stepNarratives ?? []) as ScenarioStepNarrative[]}
-                activeStep={activeStep}
-                onStepChange={setActiveStep}
-              />
             </div>
           </div>
         )}
