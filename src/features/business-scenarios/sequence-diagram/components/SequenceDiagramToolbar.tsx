@@ -27,7 +27,7 @@ export function SequenceDiagramToolbar({
   
   return (
     <div 
-      className="absolute top-4 right-4 z-10 flex gap-1.5 p-1.5 bg-white/90 backdrop-blur-md rounded-xl border border-slate-200 shadow-sm"
+      className="absolute top-4 right-4 z-20 flex gap-1.5 p-1.5 bg-white/90 backdrop-blur-md rounded-xl border border-slate-200 shadow-sm"
       role="toolbar" 
       aria-label="Controles del diagrama de secuencia"
     >
