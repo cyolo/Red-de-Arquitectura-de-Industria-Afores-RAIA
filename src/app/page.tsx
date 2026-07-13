@@ -29,7 +29,7 @@ export default function HomePage() {
               Red de Arquitectura de Industria Afores &bull; Versión V14.0
             </p>
             <p className="text-slate-300 text-sm md:text-base mt-4 leading-relaxed">
-              El mapa oficial de capacidades, dominios de negocio y Service Domains de la industria mexicana de ahorro para el retiro. Diseñado para estandarizar las integraciones tecnológicas y el gobierno de arquitectura del Sistema de Ahorro para el Retiro (SAR).
+              Arquitectura de referencia propuesta para modelar las capacidades, dominios e interacciones de la industria mexicana de ahorro para el retiro. Diseñada para estandarizar las integraciones tecnológicas y el gobierno de arquitectura del Sistema de Ahorro para el Retiro (SAR).
             </p>
             
             <div className="flex flex-wrap gap-4 mt-8">
@@ -103,7 +103,7 @@ export default function HomePage() {
                 Alineación Regulatoria y Operativa
               </h3>
               <p className="text-xs text-slate-500 mt-2 leading-relaxed">
-                Cada Service Domain vincula sus capacidades funcionales directas con regulaciones del SAR (CONSAR, Procesar, Ley del SAR) y controles de arquitectura de seguridad, garantizando una trazabilidad regulatoria de extremo a extremo.
+                Cada Service Domain vincula sus capacidades funcionales directas con regulaciones aplicables del SAR (Comisión Nacional del Sistema de Ahorro para el Retiro, Empresa Operadora de la Base de Datos Nacional SAR, Ley de los Sistemas de Ahorro para el Retiro) y controles de arquitectura de seguridad, garantizando una trazabilidad regulatoria de extremo a extremo.
               </p>
             </div>
           </div>

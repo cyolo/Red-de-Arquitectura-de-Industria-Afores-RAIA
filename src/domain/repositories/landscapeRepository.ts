@@ -1,32 +1,40 @@
 import { BusinessArea, BusinessDomain, ServiceDomain, LandscapeRelation, BusinessScenario, RegulationReference } from "../types";
+import { z } from "zod";
+import { LandscapeDataSchema, LandscapeRelationSchema, RegulationReferenceSchema, BusinessScenarioSchema } from "../schemas";
 
 import raiaData from "../../data/raia-v14.0.json";
 import relationsData from "../../data/relations-v14.0.json";
 import regulationsData from "../../data/regulations-v14.0.json";
 import scenariosData from "../../data/scenarios-v14.0.json";
 
+// Validate all static data files upon loading
+const validatedLandscape = LandscapeDataSchema.parse(raiaData);
+const validatedRelations = z.array(LandscapeRelationSchema).parse(relationsData);
+const validatedRegulations = z.array(RegulationReferenceSchema).parse(regulationsData);
+const validatedScenarios = z.array(BusinessScenarioSchema).parse(scenariosData);
+
 export const getBusinessAreas = (): BusinessArea[] => {
-  return raiaData.businessAreas as unknown as BusinessArea[];
+  return validatedLandscape.businessAreas as unknown as BusinessArea[];
 };
 
 export const getBusinessDomains = (): BusinessDomain[] => {
-  return raiaData.businessDomains as unknown as BusinessDomain[];
+  return validatedLandscape.businessDomains as unknown as BusinessDomain[];
 };
 
 export const getServiceDomains = (): ServiceDomain[] => {
-  return raiaData.serviceDomains as unknown as ServiceDomain[];
+  return validatedLandscape.serviceDomains as unknown as ServiceDomain[];
 };
 
 export const getRelations = (): LandscapeRelation[] => {
-  return relationsData as LandscapeRelation[];
+  return validatedRelations as unknown as LandscapeRelation[];
 };
 
 export const getRegulations = (): RegulationReference[] => {
-  return regulationsData as unknown as RegulationReference[];
+  return validatedRegulations as unknown as RegulationReference[];
 };
 
 export const getScenarios = (): BusinessScenario[] => {
-  return scenariosData as unknown as BusinessScenario[];
+  return validatedScenarios as unknown as BusinessScenario[];
 };
 
 export const getServiceDomainById = (id: string): ServiceDomain | undefined => {

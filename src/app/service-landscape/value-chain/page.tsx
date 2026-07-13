@@ -17,6 +17,45 @@ function ValueChainContent() {
   const searchQuery = useLandscapeStore((state) => state.searchQuery);
   const selectedId = useLandscapeStore((state) => state.selectedId);
   const setSelectedId = useLandscapeStore((state) => state.setSelectedId);
+  const setFilters = useLandscapeStore((state) => state.setFilters);
+  const setSearchQuery = useLandscapeStore((state) => state.setSearchQuery);
+
+  const isInitializedRef = React.useRef(false);
+
+  // 1. Sync from URL on mount
+  React.useEffect(() => {
+    if (!isInitializedRef.current) {
+      const selected = searchParams.get("selected") || null;
+      const area = searchParams.get("area") || undefined;
+      const domain = searchParams.get("domain") || undefined;
+      const actor = searchParams.get("actor") || undefined;
+      const status = searchParams.get("status") || undefined;
+      const maturity = searchParams.get("maturity") || undefined;
+      const search = searchParams.get("search") || "";
+
+      if (selected) setSelectedId(selected);
+      setFilters({ area, domain, actor, status, maturity });
+      if (search) setSearchQuery(search);
+
+      isInitializedRef.current = true;
+    }
+  }, [searchParams, setSelectedId, setFilters, setSearchQuery]);
+
+  // 2. Sync to URL on state change
+  React.useEffect(() => {
+    if (!isInitializedRef.current) return;
+    const params = new URLSearchParams();
+    if (selectedId) params.set("selected", selectedId);
+    if (activeFilters.area) params.set("area", activeFilters.area);
+    if (activeFilters.domain) params.set("domain", activeFilters.domain);
+    if (activeFilters.actor) params.set("actor", activeFilters.actor);
+    if (activeFilters.status) params.set("status", activeFilters.status);
+    if (activeFilters.maturity) params.set("maturity", activeFilters.maturity);
+    if (searchQuery) params.set("search", searchQuery);
+
+    const newUrl = `/service-landscape/value-chain?${params.toString()}`;
+    router.replace(newUrl);
+  }, [selectedId, activeFilters, searchQuery, router]);
 
   // Load static data
   const areas = useMemo(() => getBusinessAreas(), []);
@@ -62,9 +101,6 @@ function ValueChainContent() {
 
   const handleSelectServiceDomain = (id: string) => {
     setSelectedId(id);
-    const params = new URLSearchParams(searchParams.toString());
-    params.set("selected", id);
-    router.push(`/service-landscape/value-chain?${params.toString()}`);
   };
 
   // Helper to render a single Business Area
