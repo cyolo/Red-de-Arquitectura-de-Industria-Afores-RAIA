@@ -7,99 +7,93 @@
   "regulatoryValidationStatus": "pending",
   "participants": [
     {
-      "instanceId": "p-trabajador",
-      "participantType": "service-domain",
+      "instanceId": "actor-worker",
+      "participantType": "actor",
       "label": "Trabajador",
       "order": 1
     },
     {
-      "instanceId": "p-gesti-n-de-soli",
+      "instanceId": "sd-gestion-de-solicitud",
       "participantType": "service-domain",
       "label": "Gestión de Solicitudes",
       "order": 2
     },
     {
-      "instanceId": "p-resoluci-n-de-i",
+      "instanceId": "sd-resolucion-de-identi",
       "participantType": "service-domain",
       "label": "Resolución de Identidad",
       "order": 3
     },
     {
-      "instanceId": "p-gesti-n-de-iden",
+      "instanceId": "sd-gestion-de-identidad",
       "participantType": "service-domain",
-      "label": "Gestión de Identificadores",
+      "label": "Gestión de Identidadtificadores",
       "order": 4
     },
     {
-      "instanceId": "p-bdnsar",
-      "participantType": "service-domain",
+      "instanceId": "registry-bdnsar",
+      "participantType": "information-asset",
       "label": "BDNSAR",
       "order": 5
     },
     {
-      "instanceId": "p-unificaci-n-de-",
+      "instanceId": "sd-unificacion-de-cuent",
       "participantType": "service-domain",
       "label": "Unificación de Cuentas",
       "order": 6
     },
     {
-      "instanceId": "p-imss",
-      "participantType": "service-domain",
+      "instanceId": "institute-imss",
+      "participantType": "social-security-institute",
       "label": "IMSS",
       "order": 7
     },
     {
-      "instanceId": "p-issste",
-      "participantType": "service-domain",
+      "instanceId": "institute-issste",
+      "participantType": "social-security-institute",
       "label": "ISSSTE",
       "order": 8
     },
     {
-      "instanceId": "p-afore-involucra",
-      "participantType": "service-domain",
+      "instanceId": "org-afore",
+      "participantType": "organization",
       "label": "AFORE involucradas",
       "order": 9
     },
     {
-      "instanceId": "p-conciliaci-n-de",
+      "instanceId": "sd-conciliacion-de-cuen",
       "participantType": "service-domain",
       "label": "Conciliación de Cuenta",
       "order": 10
     },
     {
-      "instanceId": "p-libro-mayor",
+      "instanceId": "sd-libro-mayor",
       "participantType": "service-domain",
       "label": "Libro Mayor",
       "order": 11
     },
     {
-      "instanceId": "p-notificaciones",
+      "instanceId": "sd-notificaciones",
       "participantType": "service-domain",
       "label": "Notificaciones",
       "order": 12
     },
     {
-      "instanceId": "p-resoluci-n",
+      "instanceId": "sd-resolucion",
       "participantType": "service-domain",
-      "label": "resoluci n",
+      "label": "Resolución",
       "order": 13
     },
     {
-      "instanceId": "p-unificaci-n",
+      "instanceId": "sd-unificaci-n",
       "participantType": "service-domain",
       "label": "unificaci n",
       "order": 14
     },
     {
-      "instanceId": "p-afore",
+      "instanceId": "sd-conciliacion",
       "participantType": "service-domain",
-      "label": "afore",
-      "order": 15
-    },
-    {
-      "instanceId": "p-conciliaci-n",
-      "participantType": "service-domain",
-      "label": "conciliaci n",
+      "label": "Conciliación",
       "order": 16
     }
   ],
@@ -108,183 +102,174 @@
       "id": "RAIA-BS-0006-MSG-01",
       "scenarioStepId": "RAIA-BS-0006-STEP-01",
       "sequence": 1,
-      "sourceParticipantInstanceId": "p-trabajador",
-      "targetParticipantInstanceId": "p-gesti-n-de-soli",
+      "sourceParticipantInstanceId": "actor-worker",
+      "targetParticipantInstanceId": "sd-gestion-de-solicitud",
       "label": "Solicitar unificación.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Trabajador y Gestión de Solicitudes."
+      "description": "Solicitar unificación."
     },
     {
       "id": "RAIA-BS-0006-MSG-02",
       "scenarioStepId": "RAIA-BS-0006-STEP-02",
       "sequence": 2,
-      "sourceParticipantInstanceId": "p-gesti-n-de-soli",
-      "targetParticipantInstanceId": "p-resoluci-n-de-i",
+      "sourceParticipantInstanceId": "sd-gestion-de-solicitud",
+      "targetParticipantInstanceId": "sd-resolucion-de-identi",
       "label": "Validar persona.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Gestión de Solicitudes y Resolución de Identidad."
+      "description": "Validar persona."
     },
     {
       "id": "RAIA-BS-0006-MSG-03",
       "scenarioStepId": "RAIA-BS-0006-STEP-03",
       "sequence": 3,
-      "sourceParticipantInstanceId": "p-resoluci-n",
-      "targetParticipantInstanceId": "p-gesti-n-de-iden",
+      "sourceParticipantInstanceId": "sd-resolucion",
+      "targetParticipantInstanceId": "sd-gestion-de-identidad",
       "label": "Comparar CURP, NSS y RFC.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Resolución y Gestión de Identificadores."
+      "description": "Comparar CURP, NSS y RFC."
     },
     {
       "id": "RAIA-BS-0006-MSG-04",
       "scenarioStepId": "RAIA-BS-0006-STEP-04",
       "sequence": 4,
-      "sourceParticipantInstanceId": "p-gesti-n-de-iden",
-      "targetParticipantInstanceId": "p-bdnsar",
+      "sourceParticipantInstanceId": "sd-gestion-de-identidad",
+      "targetParticipantInstanceId": "registry-bdnsar",
       "label": "Consultar cuentas asociadas.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Gestión de Identificadores y BDNSAR."
+      "description": "Consultar cuentas asociadas."
     },
     {
       "id": "RAIA-BS-0006-MSG-05",
       "scenarioStepId": "RAIA-BS-0006-STEP-05",
       "sequence": 5,
-      "sourceParticipantInstanceId": "p-bdnsar",
-      "targetParticipantInstanceId": "p-unificaci-n-de-",
+      "sourceParticipantInstanceId": "registry-bdnsar",
+      "targetParticipantInstanceId": "sd-unificacion-de-cuent",
       "label": "Entregar cuentas candidatas.",
       "messageType": "response",
-      "description": "Interacción entre BDNSAR y Unificación de Cuentas."
+      "description": "Entregar cuentas candidatas."
     },
     {
       "id": "RAIA-BS-0006-MSG-06",
       "scenarioStepId": "RAIA-BS-0006-STEP-06",
       "sequence": 6,
-      "sourceParticipantInstanceId": "p-unificaci-n",
-      "targetParticipantInstanceId": "p-imss",
+      "sourceParticipantInstanceId": "sd-unificaci-n",
+      "targetParticipantInstanceId": "institute-imss",
       "label": "Validar información.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Unificación y IMSS."
+      "description": "Validar información."
     },
     {
       "id": "RAIA-BS-0006-MSG-07",
       "scenarioStepId": "RAIA-BS-0006-STEP-07",
       "sequence": 7,
-      "sourceParticipantInstanceId": "p-unificaci-n",
-      "targetParticipantInstanceId": "p-issste",
+      "sourceParticipantInstanceId": "sd-unificaci-n",
+      "targetParticipantInstanceId": "institute-issste",
       "label": "Validar información.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Unificación y ISSSTE."
+      "description": "Validar información."
     },
     {
       "id": "RAIA-BS-0006-MSG-08",
       "scenarioStepId": "RAIA-BS-0006-STEP-08",
       "sequence": 8,
-      "sourceParticipantInstanceId": "p-imss",
-      "targetParticipantInstanceId": "p-unificaci-n",
+      "sourceParticipantInstanceId": "institute-imss",
+      "targetParticipantInstanceId": "sd-unificaci-n",
       "label": "Entregar antecedentes.",
       "messageType": "response",
-      "description": "Interacción entre IMSS y Unificación."
+      "description": "Entregar antecedentes."
     },
     {
       "id": "RAIA-BS-0006-MSG-09",
       "scenarioStepId": "RAIA-BS-0006-STEP-09",
       "sequence": 9,
-      "sourceParticipantInstanceId": "p-issste",
-      "targetParticipantInstanceId": "p-unificaci-n",
+      "sourceParticipantInstanceId": "institute-issste",
+      "targetParticipantInstanceId": "sd-unificaci-n",
       "label": "Entregar antecedentes.",
       "messageType": "response",
-      "description": "Interacción entre ISSSTE y Unificación."
+      "description": "Entregar antecedentes."
     },
     {
       "id": "RAIA-BS-0006-MSG-10",
       "scenarioStepId": "RAIA-BS-0006-STEP-10",
       "sequence": 10,
-      "sourceParticipantInstanceId": "p-unificaci-n",
-      "targetParticipantInstanceId": "p-afore-involucra",
+      "sourceParticipantInstanceId": "sd-unificaci-n",
+      "targetParticipantInstanceId": "org-afore",
       "label": "Solicitar movimientos y saldos.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Unificación y AFORE involucradas."
+      "description": "Solicitar movimientos y saldos."
     },
     {
       "id": "RAIA-BS-0006-MSG-11",
       "scenarioStepId": "RAIA-BS-0006-STEP-11",
       "sequence": 11,
-      "sourceParticipantInstanceId": "p-afore",
-      "targetParticipantInstanceId": "p-unificaci-n",
+      "sourceParticipantInstanceId": "org-afore",
+      "targetParticipantInstanceId": "sd-unificaci-n",
       "label": "Entregar información.",
       "messageType": "response",
-      "description": "Interacción entre AFORE y Unificación."
+      "description": "Entregar información."
     },
     {
       "id": "RAIA-BS-0006-MSG-12",
       "scenarioStepId": "RAIA-BS-0006-STEP-12",
       "sequence": 12,
-      "sourceParticipantInstanceId": "p-unificaci-n",
-      "targetParticipantInstanceId": "p-conciliaci-n",
+      "sourceParticipantInstanceId": "sd-unificaci-n",
+      "targetParticipantInstanceId": "sd-conciliacion",
       "label": "Conciliar recursos.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Unificación y Conciliación."
+      "description": "Conciliar recursos."
     },
     {
       "id": "RAIA-BS-0006-MSG-13",
       "scenarioStepId": "RAIA-BS-0006-STEP-13",
       "sequence": 13,
-      "sourceParticipantInstanceId": "p-conciliaci-n",
-      "targetParticipantInstanceId": "p-unificaci-n",
+      "sourceParticipantInstanceId": "sd-conciliacion",
+      "targetParticipantInstanceId": "sd-unificaci-n",
       "label": "Confirmar saldo integrado.",
       "messageType": "response",
-      "description": "Interacción entre Conciliación y Unificación."
+      "description": "Confirmar saldo integrado."
     },
     {
       "id": "RAIA-BS-0006-MSG-14",
       "scenarioStepId": "RAIA-BS-0006-STEP-14",
       "sequence": 14,
-      "sourceParticipantInstanceId": "p-unificaci-n",
-      "targetParticipantInstanceId": "p-libro-mayor",
+      "sourceParticipantInstanceId": "sd-unificaci-n",
+      "targetParticipantInstanceId": "sd-libro-mayor",
       "label": "Consolidar movimientos.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Unificación y Libro Mayor."
+      "description": "Consolidar movimientos."
     },
     {
       "id": "RAIA-BS-0006-MSG-15",
       "scenarioStepId": "RAIA-BS-0006-STEP-15",
       "sequence": 15,
-      "sourceParticipantInstanceId": "p-unificaci-n",
-      "targetParticipantInstanceId": "p-bdnsar",
+      "sourceParticipantInstanceId": "sd-unificaci-n",
+      "targetParticipantInstanceId": "registry-bdnsar",
       "label": "Actualizar cuenta concentradora.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Unificación y BDNSAR."
+      "description": "Actualizar cuenta concentradora."
     },
     {
       "id": "RAIA-BS-0006-MSG-16",
       "scenarioStepId": "RAIA-BS-0006-STEP-16",
       "sequence": 16,
-      "sourceParticipantInstanceId": "p-unificaci-n",
-      "targetParticipantInstanceId": "p-notificaciones",
+      "sourceParticipantInstanceId": "sd-unificaci-n",
+      "targetParticipantInstanceId": "sd-notificaciones",
       "label": "Emitir resultado.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Unificación y Notificaciones."
+      "description": "Emitir resultado."
     },
     {
       "id": "RAIA-BS-0006-MSG-17",
       "scenarioStepId": "RAIA-BS-0006-STEP-17",
       "sequence": 17,
-      "sourceParticipantInstanceId": "p-notificaciones",
-      "targetParticipantInstanceId": "p-trabajador",
+      "sourceParticipantInstanceId": "sd-notificaciones",
+      "targetParticipantInstanceId": "actor-worker",
       "label": "Confirmar unificación.",
       "messageType": "response",
-      "description": "Interacción entre Notificaciones y Trabajador."
+      "description": "Confirmar unificación."
     }
   ],
-  "activations": [
-    {
-      "id": "act-1",
-      "participantInstanceId": "p-gesti-n-de-soli",
-      "startSequence": 1,
-      "endSequence": 17,
-      "depth": 0,
-      "activationType": "processing"
-    }
-  ],
+  "activations": [],
   "notes": [
     {
       "id": "note-control-1",
@@ -341,5 +326,6 @@
         }
       ]
     }
-  ]
+  ],
+  "modelingStatus": "partially-modeled"
 }

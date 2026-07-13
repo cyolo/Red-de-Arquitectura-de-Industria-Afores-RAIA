@@ -7,94 +7,76 @@
   "regulatoryValidationStatus": "pending",
   "participants": [
     {
-      "instanceId": "p-consar",
-      "participantType": "service-domain",
+      "instanceId": "authority-consar",
+      "participantType": "authority",
       "label": "CONSAR",
       "order": 1
     },
     {
-      "instanceId": "p-bdnsar",
-      "participantType": "service-domain",
+      "instanceId": "registry-bdnsar",
+      "participantType": "information-asset",
       "label": "BDNSAR",
       "order": 2
     },
     {
-      "instanceId": "p-registro-maestr",
-      "participantType": "service-domain",
-      "label": "Registro Maestro de Cuentas",
-      "order": 3
-    },
-    {
-      "instanceId": "p-identificaci-n-",
+      "instanceId": "sd-identificacion-de-cu",
       "participantType": "service-domain",
       "label": "Identificación de Cuentas Elegibles",
       "order": 4
     },
     {
-      "instanceId": "p-datos-del-traba",
-      "participantType": "service-domain",
+      "instanceId": "actor-worker",
+      "participantType": "actor",
       "label": "Datos del Trabajador",
       "order": 5
     },
     {
-      "instanceId": "p-imss",
-      "participantType": "service-domain",
+      "instanceId": "institute-imss",
+      "participantType": "social-security-institute",
       "label": "IMSS",
       "order": 6
     },
     {
-      "instanceId": "p-issste",
-      "participantType": "service-domain",
+      "instanceId": "institute-issste",
+      "participantType": "social-security-institute",
       "label": "ISSSTE",
       "order": 7
     },
     {
-      "instanceId": "p-afore",
-      "participantType": "service-domain",
+      "instanceId": "org-afore",
+      "participantType": "organization",
       "label": "AFORE",
       "order": 8
     },
     {
-      "instanceId": "p-fondo-de-pensio",
-      "participantType": "service-domain",
+      "instanceId": "trust-fund",
+      "participantType": "public-trust",
       "label": "Fondo de Pensiones para el Bienestar",
       "order": 9
     },
     {
-      "instanceId": "p-supervisi-n-reg",
+      "instanceId": "sd-supervision-regulato",
       "participantType": "service-domain",
       "label": "Supervisión Regulatoria",
       "order": 10
     },
     {
-      "instanceId": "p-notificaciones",
+      "instanceId": "sd-notificaciones",
       "participantType": "service-domain",
       "label": "Notificaciones",
       "order": 11
     },
     {
-      "instanceId": "p-identificaci-n",
+      "instanceId": "sd-identificacion",
       "participantType": "service-domain",
-      "label": "identificaci n",
+      "label": "Identificación",
       "order": 12
     },
     {
-      "instanceId": "p-imss-issste",
+      "instanceId": "sd-supervision",
       "participantType": "service-domain",
-      "label": "imss issste",
-      "order": 13
-    },
-    {
-      "instanceId": "p-supervisi-n",
-      "participantType": "service-domain",
-      "label": "supervisi n",
+      "label": "Supervisión",
       "order": 14
-    },
-    {
-      "instanceId": "p-fondo",
-      "participantType": "service-domain",
-      "label": "fondo",
-      "order": 15
     }
   ],
   "messages": [
@@ -102,173 +84,164 @@
       "id": "RAIA-BS-0016-MSG-01",
       "scenarioStepId": "RAIA-BS-0016-STEP-01",
       "sequence": 1,
-      "sourceParticipantInstanceId": "p-consar",
-      "targetParticipantInstanceId": "p-identificaci-n-",
+      "sourceParticipantInstanceId": "authority-consar",
+      "targetParticipantInstanceId": "sd-identificacion-de-cu",
       "label": "Iniciar ciclo.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre CONSAR y Identificación de Cuentas Elegibles."
+      "description": "Iniciar ciclo."
     },
     {
       "id": "RAIA-BS-0016-MSG-02",
       "scenarioStepId": "RAIA-BS-0016-STEP-02",
       "sequence": 2,
-      "sourceParticipantInstanceId": "p-identificaci-n",
-      "targetParticipantInstanceId": "p-bdnsar",
+      "sourceParticipantInstanceId": "sd-identificacion",
+      "targetParticipantInstanceId": "registry-bdnsar",
       "label": "Solicitar universo candidato.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Identificación y BDNSAR."
+      "description": "Solicitar universo candidato."
     },
     {
       "id": "RAIA-BS-0016-MSG-03",
       "scenarioStepId": "RAIA-BS-0016-STEP-03",
       "sequence": 3,
-      "sourceParticipantInstanceId": "p-bdnsar",
-      "targetParticipantInstanceId": "p-registro-maestr",
+      "sourceParticipantInstanceId": "registry-bdnsar",
+      "targetParticipantInstanceId": "registry-bdnsar",
       "label": "Recuperar cuentas.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre BDNSAR y Registro Maestro."
+      "description": "Recuperar cuentas."
     },
     {
       "id": "RAIA-BS-0016-MSG-04",
       "scenarioStepId": "RAIA-BS-0016-STEP-04",
       "sequence": 4,
-      "sourceParticipantInstanceId": "p-registro-maestr",
-      "targetParticipantInstanceId": "p-bdnsar",
+      "sourceParticipantInstanceId": "registry-bdnsar",
+      "targetParticipantInstanceId": "registry-bdnsar",
       "label": "Entregar cuentas.",
       "messageType": "response",
-      "description": "Interacción entre Registro Maestro y BDNSAR."
+      "description": "Entregar cuentas."
     },
     {
       "id": "RAIA-BS-0016-MSG-05",
       "scenarioStepId": "RAIA-BS-0016-STEP-05",
       "sequence": 5,
-      "sourceParticipantInstanceId": "p-bdnsar",
-      "targetParticipantInstanceId": "p-identificaci-n",
+      "sourceParticipantInstanceId": "registry-bdnsar",
+      "targetParticipantInstanceId": "sd-identificacion",
       "label": "Entregar universo.",
       "messageType": "response",
-      "description": "Interacción entre BDNSAR y Identificación."
+      "description": "Entregar universo."
     },
     {
       "id": "RAIA-BS-0016-MSG-06",
       "scenarioStepId": "RAIA-BS-0016-STEP-06",
       "sequence": 6,
-      "sourceParticipantInstanceId": "p-identificaci-n",
-      "targetParticipantInstanceId": "p-datos-del-traba",
+      "sourceParticipantInstanceId": "sd-identificacion",
+      "targetParticipantInstanceId": "actor-worker",
       "label": "Recuperar información.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Identificación y Datos del Trabajador."
+      "description": "Recuperar información."
     },
     {
       "id": "RAIA-BS-0016-MSG-07",
       "scenarioStepId": "RAIA-BS-0016-STEP-07",
       "sequence": 7,
-      "sourceParticipantInstanceId": "p-identificaci-n",
-      "targetParticipantInstanceId": "p-imss",
+      "sourceParticipantInstanceId": "sd-identificacion",
+      "targetParticipantInstanceId": "institute-imss",
       "label": "Consultar estado.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Identificación y IMSS."
+      "description": "Consultar estado."
     },
     {
       "id": "RAIA-BS-0016-MSG-08",
       "scenarioStepId": "RAIA-BS-0016-STEP-08",
       "sequence": 8,
-      "sourceParticipantInstanceId": "p-identificaci-n",
-      "targetParticipantInstanceId": "p-issste",
+      "sourceParticipantInstanceId": "sd-identificacion",
+      "targetParticipantInstanceId": "institute-issste",
       "label": "Consultar estado.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Identificación y ISSSTE."
+      "description": "Consultar estado."
     },
     {
       "id": "RAIA-BS-0016-MSG-09",
       "scenarioStepId": "RAIA-BS-0016-STEP-09",
       "sequence": 9,
-      "sourceParticipantInstanceId": "p-imss-issste",
-      "targetParticipantInstanceId": "p-identificaci-n",
+      "sourceParticipantInstanceId": "institute-imss",
+      "targetParticipantInstanceId": "sd-identificacion",
       "label": "Entregar información.",
       "messageType": "response",
-      "description": "Interacción entre IMSS/ISSSTE y Identificación."
+      "description": "Entregar información."
     },
     {
       "id": "RAIA-BS-0016-MSG-10",
       "scenarioStepId": "RAIA-BS-0016-STEP-10",
       "sequence": 10,
-      "sourceParticipantInstanceId": "p-identificaci-n",
-      "targetParticipantInstanceId": "p-afore",
+      "sourceParticipantInstanceId": "sd-identificacion",
+      "targetParticipantInstanceId": "org-afore",
       "label": "Consultar situación de la cuenta.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Identificación y AFORE."
+      "description": "Consultar situación de la cuenta."
     },
     {
       "id": "RAIA-BS-0016-MSG-11",
       "scenarioStepId": "RAIA-BS-0016-STEP-11",
       "sequence": 11,
-      "sourceParticipantInstanceId": "p-afore",
-      "targetParticipantInstanceId": "p-identificaci-n",
+      "sourceParticipantInstanceId": "org-afore",
+      "targetParticipantInstanceId": "sd-identificacion",
       "label": "Entregar estado y saldos.",
       "messageType": "response",
-      "description": "Interacción entre AFORE y Identificación."
+      "description": "Entregar estado y saldos."
     },
     {
       "id": "RAIA-BS-0016-MSG-12",
       "scenarioStepId": "RAIA-BS-0016-STEP-12",
       "sequence": 12,
-      "sourceParticipantInstanceId": "p-identificaci-n",
-      "targetParticipantInstanceId": "p-identificaci-n",
+      "sourceParticipantInstanceId": "sd-identificacion",
+      "targetParticipantInstanceId": "sd-identificacion",
       "label": "Evaluar parámetros vigentes.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Identificación y Identificación."
+      "description": "Evaluar parámetros vigentes."
     },
     {
       "id": "RAIA-BS-0016-MSG-13",
       "scenarioStepId": "RAIA-BS-0016-STEP-13",
       "sequence": 13,
-      "sourceParticipantInstanceId": "p-identificaci-n",
-      "targetParticipantInstanceId": "p-supervisi-n-reg",
+      "sourceParticipantInstanceId": "sd-identificacion",
+      "targetParticipantInstanceId": "sd-supervision-regulato",
       "label": "Presentar lista controlada.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Identificación y Supervisión Regulatoria."
+      "description": "Presentar lista controlada."
     },
     {
       "id": "RAIA-BS-0016-MSG-14",
       "scenarioStepId": "RAIA-BS-0016-STEP-14",
       "sequence": 14,
-      "sourceParticipantInstanceId": "p-supervisi-n",
-      "targetParticipantInstanceId": "p-identificaci-n",
+      "sourceParticipantInstanceId": "sd-supervision",
+      "targetParticipantInstanceId": "sd-identificacion",
       "label": "Aprobar o solicitar revisión.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Supervisión y Identificación."
+      "description": "Aprobar o solicitar revisión."
     },
     {
       "id": "RAIA-BS-0016-MSG-15",
       "scenarioStepId": "RAIA-BS-0016-STEP-15",
       "sequence": 15,
-      "sourceParticipantInstanceId": "p-identificaci-n",
-      "targetParticipantInstanceId": "p-fondo",
+      "sourceParticipantInstanceId": "sd-identificacion",
+      "targetParticipantInstanceId": "trust-fund",
       "label": "Informar cuentas potenciales.",
       "messageType": "response",
-      "description": "Interacción entre Identificación y Fondo."
+      "description": "Informar cuentas potenciales."
     },
     {
       "id": "RAIA-BS-0016-MSG-16",
       "scenarioStepId": "RAIA-BS-0016-STEP-16",
       "sequence": 16,
-      "sourceParticipantInstanceId": "p-identificaci-n",
-      "targetParticipantInstanceId": "p-notificaciones",
+      "sourceParticipantInstanceId": "sd-identificacion",
+      "targetParticipantInstanceId": "sd-notificaciones",
       "label": "Registrar comunicaciones.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Identificación y Notificaciones."
+      "description": "Registrar comunicaciones."
     }
   ],
-  "activations": [
-    {
-      "id": "act-1",
-      "participantInstanceId": "p-identificaci-n-",
-      "startSequence": 1,
-      "endSequence": 16,
-      "depth": 0,
-      "activationType": "processing"
-    }
-  ],
+  "activations": [],
   "notes": [
     {
       "id": "note-control-1",
@@ -331,5 +304,6 @@
         }
       ]
     }
-  ]
+  ],
+  "modelingStatus": "partially-modeled"
 }

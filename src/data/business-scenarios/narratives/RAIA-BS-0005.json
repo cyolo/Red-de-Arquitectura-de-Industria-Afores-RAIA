@@ -27,7 +27,7 @@
   "updatedAt": "2026-07-13T07:22:16.249Z",
   "participantNarratives": [
     {
-      "participantInstanceId": "p-consar",
+      "participantInstanceId": "authority-consar",
       "participantName": "CONSAR",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -46,26 +46,12 @@
       ]
     },
     {
-      "participantInstanceId": "p-m-tricas-del-si",
-      "participantName": "Métricas del Sistema",
-      "structuralRole": "Service Domain coordinador / ejecutor",
-      "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
-      "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
-      "receivesFrom": [
-        "evaluaci n"
-      ],
-      "sendsTo": [],
-      "businessObjectsManaged": [
-        "Registro de Operación",
-        "Parámetro Validado"
-      ],
-      "controlsApplied": [
-        "Validación de entrada",
-        "Rechazo por formato inválido"
-      ]
+      "participantInstanceId": "sd-metricas-del-sistema",
+      "roleNarrative": "Responsabilidad asignada a Métricas del Sistema",
+      "expectedBehavior": "Comportamiento esperado para Métricas del Sistema"
     },
     {
-      "participantInstanceId": "p-evaluaci-n-de-d",
+      "participantInstanceId": "sd-evaluacion-de-desemp",
       "participantName": "Evaluación de Desempeño",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -84,7 +70,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-gesti-n-de-comi",
+      "participantInstanceId": "sd-gestion-de-comisione",
       "participantName": "Gestión de Comisiones",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -105,7 +91,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-reasignaci-n-de",
+      "participantInstanceId": "sd-reasignacion-de-cuen",
       "participantName": "Reasignación de Cuenta",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -124,7 +110,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-bdnsar",
+      "participantInstanceId": "registry-bdnsar",
       "participantName": "BDNSAR",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -145,7 +131,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-afore-de-origen",
+      "participantInstanceId": "org-afore",
       "participantName": "AFORE de origen",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -166,28 +152,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-afore-receptora",
-      "participantName": "AFORE receptora",
-      "structuralRole": "Service Domain coordinador / ejecutor",
-      "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
-      "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
-      "receivesFrom": [
-        "reasignaci n"
-      ],
-      "sendsTo": [
-        "reasignaci n"
-      ],
-      "businessObjectsManaged": [
-        "Registro de Operación",
-        "Parámetro Validado"
-      ],
-      "controlsApplied": [
-        "Validación de entrada",
-        "Rechazo por formato inválido"
-      ]
-    },
-    {
-      "participantInstanceId": "p-transferencia-d",
+      "participantInstanceId": "sd-transferencia-de-rec",
       "participantName": "Transferencia de Recursos",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -206,7 +171,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-libro-mayor",
+      "participantInstanceId": "sd-libro-mayor",
       "participantName": "Libro Mayor",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -225,7 +190,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-notificaciones",
+      "participantInstanceId": "sd-notificaciones",
       "participantName": "Notificaciones",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -244,20 +209,15 @@
       ]
     },
     {
-      "participantInstanceId": "p-evaluaci-n",
-      "participantName": "evaluaci n",
+      "participantInstanceId": "sd-evaluacion",
+      "participantName": "Evaluación de Desempeño",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
       "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
       "receivesFrom": [
-        "m tricas",
-        "Gestión de Comisiones"
+        "CONSAR"
       ],
-      "sendsTo": [
-        "Métricas del Sistema",
-        "Gestión de Comisiones",
-        "Reasignación de Cuenta"
-      ],
+      "sendsTo": [],
       "businessObjectsManaged": [
         "Registro de Operación",
         "Parámetro Validado"
@@ -268,15 +228,20 @@
       ]
     },
     {
-      "participantInstanceId": "p-m-tricas",
-      "participantName": "m tricas",
+      "participantInstanceId": "sd-metricas",
+      "roleNarrative": "Responsabilidad asignada a Métricas",
+      "expectedBehavior": "Comportamiento esperado para Métricas"
+    },
+    {
+      "participantInstanceId": "sd-reasignacion",
+      "participantName": "Reasignación de Cuenta",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
       "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
-      "receivesFrom": [],
-      "sendsTo": [
+      "receivesFrom": [
         "evaluaci n"
       ],
+      "sendsTo": [],
       "businessObjectsManaged": [
         "Registro de Operación",
         "Parámetro Validado"
@@ -287,42 +252,15 @@
       ]
     },
     {
-      "participantInstanceId": "p-reasignaci-n",
-      "participantName": "reasignaci n",
+      "participantInstanceId": "sd-transferencia",
+      "participantName": "Transferencia de Recursos",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
       "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
       "receivesFrom": [
-        "BDNSAR",
-        "AFORE de origen",
-        "AFORE receptora"
+        "reasignaci n"
       ],
-      "sendsTo": [
-        "BDNSAR",
-        "AFORE de origen",
-        "AFORE receptora",
-        "Transferencia de Recursos",
-        "Notificaciones"
-      ],
-      "businessObjectsManaged": [
-        "Registro de Operación",
-        "Parámetro Validado"
-      ],
-      "controlsApplied": [
-        "Validación de entrada",
-        "Rechazo por formato inválido"
-      ]
-    },
-    {
-      "participantInstanceId": "p-transferencia",
-      "participantName": "transferencia",
-      "structuralRole": "Service Domain coordinador / ejecutor",
-      "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
-      "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
-      "receivesFrom": [],
-      "sendsTo": [
-        "Libro Mayor"
-      ],
+      "sendsTo": [],
       "businessObjectsManaged": [
         "Registro de Operación",
         "Parámetro Validado"

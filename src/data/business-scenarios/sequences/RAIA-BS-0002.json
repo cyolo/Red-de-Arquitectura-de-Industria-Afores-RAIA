@@ -7,103 +7,103 @@
   "regulatoryValidationStatus": "pending",
   "participants": [
     {
-      "instanceId": "p-patr-n-o-depend",
+      "instanceId": "sd-patron-o-dependencia",
       "participantType": "service-domain",
       "label": "Patrón o dependencia",
       "order": 1
     },
     {
-      "instanceId": "p-entidad-recauda",
+      "instanceId": "sd-entidad-recaudadora",
       "participantType": "service-domain",
       "label": "Entidad Recaudadora",
       "order": 2
     },
     {
-      "instanceId": "p-determinaci-n-d",
+      "instanceId": "sd-determinacion-de-apo",
       "participantType": "service-domain",
       "label": "Determinación de Aportaciones",
       "order": 3
     },
     {
-      "instanceId": "p-recaudaci-n-de-",
+      "instanceId": "sd-recaudacion-de-aport",
       "participantType": "service-domain",
       "label": "Recaudación de Aportaciones",
       "order": 4
     },
     {
-      "instanceId": "p-conciliaci-n-de",
+      "instanceId": "sd-conciliacion-de-reca",
       "participantType": "service-domain",
       "label": "Conciliación de Recaudación",
       "order": 5
     },
     {
-      "instanceId": "p-individualizaci",
+      "instanceId": "sd-individualizacion-de",
       "participantType": "service-domain",
       "label": "Individualización de Aportaciones",
       "order": 6
     },
     {
-      "instanceId": "p-administraci-n-",
+      "instanceId": "sd-administracion-de-su",
       "participantType": "service-domain",
       "label": "Administración de Subcuentas",
       "order": 7
     },
     {
-      "instanceId": "p-libro-mayor",
+      "instanceId": "sd-libro-mayor",
       "participantType": "service-domain",
       "label": "Libro Mayor",
       "order": 8
     },
     {
-      "instanceId": "p-asignaci-n-de-a",
+      "instanceId": "sd-asignacion-de-accion",
       "participantType": "service-domain",
       "label": "Asignación de Acciones",
       "order": 9
     },
     {
-      "instanceId": "p-asignaci-n-a-si",
+      "instanceId": "sd-asignacion-a-siefore",
       "participantType": "service-domain",
       "label": "Asignación a SIEFORE",
       "order": 10
     },
     {
-      "instanceId": "p-gesti-n-de-liqu",
+      "instanceId": "sd-gestion-de-liquidez",
       "participantType": "service-domain",
       "label": "Gestión de Liquidez",
       "order": 11
     },
     {
-      "instanceId": "p-portafolio-de-i",
+      "instanceId": "sd-portafolio-de-invers",
       "participantType": "service-domain",
       "label": "Portafolio de Inversión",
       "order": 12
     },
     {
-      "instanceId": "p-patr-n",
+      "instanceId": "sd-patr-n",
       "participantType": "service-domain",
       "label": "patr n",
       "order": 13
     },
     {
-      "instanceId": "p-determinaci-n",
+      "instanceId": "sd-determinacion",
       "participantType": "service-domain",
-      "label": "determinaci n",
+      "label": "Determinación",
       "order": 14
     },
     {
-      "instanceId": "p-recaudaci-n",
+      "instanceId": "sd-recaudaci-n",
       "participantType": "service-domain",
       "label": "recaudaci n",
       "order": 15
     },
     {
-      "instanceId": "p-conciliaci-n",
+      "instanceId": "sd-conciliacion",
       "participantType": "service-domain",
-      "label": "conciliaci n",
+      "label": "Conciliación",
       "order": 16
     },
     {
-      "instanceId": "p-portafolio",
+      "instanceId": "sd-portafolio",
       "participantType": "service-domain",
       "label": "portafolio",
       "order": 17
@@ -114,163 +114,154 @@
       "id": "RAIA-BS-0002-MSG-01",
       "scenarioStepId": "RAIA-BS-0002-STEP-01",
       "sequence": 1,
-      "sourceParticipantInstanceId": "p-patr-n",
-      "targetParticipantInstanceId": "p-determinaci-n-d",
+      "sourceParticipantInstanceId": "sd-patr-n",
+      "targetParticipantInstanceId": "sd-determinacion-de-apo",
       "label": "Presentar información de cotización.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Patrón y Determinación de Aportaciones."
+      "description": "Presentar información de cotización."
     },
     {
       "id": "RAIA-BS-0002-MSG-02",
       "scenarioStepId": "RAIA-BS-0002-STEP-02",
       "sequence": 2,
-      "sourceParticipantInstanceId": "p-determinaci-n",
-      "targetParticipantInstanceId": "p-recaudaci-n",
+      "sourceParticipantInstanceId": "sd-determinacion",
+      "targetParticipantInstanceId": "sd-recaudaci-n",
       "label": "Generar instrucción de aportación.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Determinación y Recaudación."
+      "description": "Generar instrucción de aportación."
     },
     {
       "id": "RAIA-BS-0002-MSG-03",
       "scenarioStepId": "RAIA-BS-0002-STEP-03",
       "sequence": 3,
-      "sourceParticipantInstanceId": "p-patr-n",
-      "targetParticipantInstanceId": "p-entidad-recauda",
+      "sourceParticipantInstanceId": "sd-patr-n",
+      "targetParticipantInstanceId": "sd-entidad-recaudadora",
       "label": "Enterar recursos.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Patrón y Entidad Recaudadora."
+      "description": "Enterar recursos."
     },
     {
       "id": "RAIA-BS-0002-MSG-04",
       "scenarioStepId": "RAIA-BS-0002-STEP-04",
       "sequence": 4,
-      "sourceParticipantInstanceId": "p-entidad-recauda",
-      "targetParticipantInstanceId": "p-recaudaci-n",
+      "sourceParticipantInstanceId": "sd-entidad-recaudadora",
+      "targetParticipantInstanceId": "sd-recaudaci-n",
       "label": "Entregar recursos e información.",
       "messageType": "response",
-      "description": "Interacción entre Entidad Recaudadora y Recaudación."
+      "description": "Entregar recursos e información."
     },
     {
       "id": "RAIA-BS-0002-MSG-05",
       "scenarioStepId": "RAIA-BS-0002-STEP-05",
       "sequence": 5,
-      "sourceParticipantInstanceId": "p-recaudaci-n",
-      "targetParticipantInstanceId": "p-conciliaci-n",
+      "sourceParticipantInstanceId": "sd-recaudaci-n",
+      "targetParticipantInstanceId": "sd-conciliacion",
       "label": "Registrar lote recibido.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Recaudación y Conciliación."
+      "description": "Registrar lote recibido."
     },
     {
       "id": "RAIA-BS-0002-MSG-06",
       "scenarioStepId": "RAIA-BS-0002-STEP-06",
       "sequence": 6,
-      "sourceParticipantInstanceId": "p-conciliaci-n",
-      "targetParticipantInstanceId": "p-entidad-recauda",
+      "sourceParticipantInstanceId": "sd-conciliacion",
+      "targetParticipantInstanceId": "sd-entidad-recaudadora",
       "label": "Confirmar o solicitar corrección.",
       "messageType": "response",
-      "description": "Interacción entre Conciliación y Entidad Recaudadora."
+      "description": "Confirmar o solicitar corrección."
     },
     {
       "id": "RAIA-BS-0002-MSG-07",
       "scenarioStepId": "RAIA-BS-0002-STEP-07",
       "sequence": 7,
-      "sourceParticipantInstanceId": "p-conciliaci-n",
-      "targetParticipantInstanceId": "p-individualizaci",
+      "sourceParticipantInstanceId": "sd-conciliacion",
+      "targetParticipantInstanceId": "sd-individualizacion-de",
       "label": "Liberar lote conciliado.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Conciliación y Individualización."
+      "description": "Liberar lote conciliado."
     },
     {
       "id": "RAIA-BS-0002-MSG-08",
       "scenarioStepId": "RAIA-BS-0002-STEP-08",
       "sequence": 8,
-      "sourceParticipantInstanceId": "p-individualizaci",
-      "targetParticipantInstanceId": "p-administraci-n-",
+      "sourceParticipantInstanceId": "sd-individualizacion-de",
+      "targetParticipantInstanceId": "sd-administracion-de-su",
       "label": "Distribuir aportaciones.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Individualización y Administración de Subcuentas."
+      "description": "Distribuir aportaciones."
     },
     {
       "id": "RAIA-BS-0002-MSG-09",
       "scenarioStepId": "RAIA-BS-0002-STEP-09",
       "sequence": 9,
-      "sourceParticipantInstanceId": "p-administraci-n-",
-      "targetParticipantInstanceId": "p-libro-mayor",
+      "sourceParticipantInstanceId": "sd-administracion-de-su",
+      "targetParticipantInstanceId": "sd-libro-mayor",
       "label": "Registrar movimientos.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Administración de Subcuentas y Libro Mayor."
+      "description": "Registrar movimientos."
     },
     {
       "id": "RAIA-BS-0002-MSG-10",
       "scenarioStepId": "RAIA-BS-0002-STEP-10",
       "sequence": 10,
-      "sourceParticipantInstanceId": "p-libro-mayor",
-      "targetParticipantInstanceId": "p-asignaci-n-de-a",
+      "sourceParticipantInstanceId": "sd-libro-mayor",
+      "targetParticipantInstanceId": "sd-asignacion-de-accion",
       "label": "Solicitar asignación.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Libro Mayor y Asignación de Acciones."
+      "description": "Solicitar asignación."
     },
     {
       "id": "RAIA-BS-0002-MSG-11",
       "scenarioStepId": "RAIA-BS-0002-STEP-11",
       "sequence": 11,
-      "sourceParticipantInstanceId": "p-asignaci-n-de-a",
-      "targetParticipantInstanceId": "p-asignaci-n-a-si",
+      "sourceParticipantInstanceId": "sd-asignacion-de-accion",
+      "targetParticipantInstanceId": "sd-asignacion-a-siefore",
       "label": "Determinar fondo.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Asignación de Acciones y Asignación a SIEFORE."
+      "description": "Determinar fondo."
     },
     {
       "id": "RAIA-BS-0002-MSG-12",
       "scenarioStepId": "RAIA-BS-0002-STEP-12",
       "sequence": 12,
-      "sourceParticipantInstanceId": "p-asignaci-n-a-si",
-      "targetParticipantInstanceId": "p-gesti-n-de-liqu",
+      "sourceParticipantInstanceId": "sd-asignacion-a-siefore",
+      "targetParticipantInstanceId": "sd-gestion-de-liquidez",
       "label": "Informar recursos disponibles.",
       "messageType": "response",
-      "description": "Interacción entre Asignación a SIEFORE y Gestión de Liquidez."
+      "description": "Informar recursos disponibles."
     },
     {
       "id": "RAIA-BS-0002-MSG-13",
       "scenarioStepId": "RAIA-BS-0002-STEP-13",
       "sequence": 13,
-      "sourceParticipantInstanceId": "p-gesti-n-de-liqu",
-      "targetParticipantInstanceId": "p-portafolio",
+      "sourceParticipantInstanceId": "sd-gestion-de-liquidez",
+      "targetParticipantInstanceId": "sd-portafolio",
       "label": "Integrar recursos al proceso de inversión.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Gestión de Liquidez y Portafolio."
+      "description": "Integrar recursos al proceso de inversión."
     },
     {
       "id": "RAIA-BS-0002-MSG-14",
       "scenarioStepId": "RAIA-BS-0002-STEP-14",
       "sequence": 14,
-      "sourceParticipantInstanceId": "p-portafolio",
-      "targetParticipantInstanceId": "p-libro-mayor",
+      "sourceParticipantInstanceId": "sd-portafolio",
+      "targetParticipantInstanceId": "sd-libro-mayor",
       "label": "Confirmar posición y acciones.",
       "messageType": "response",
-      "description": "Interacción entre Portafolio y Libro Mayor."
+      "description": "Confirmar posición y acciones."
     },
     {
       "id": "RAIA-BS-0002-MSG-15",
       "scenarioStepId": "RAIA-BS-0002-STEP-15",
       "sequence": 15,
-      "sourceParticipantInstanceId": "p-libro-mayor",
-      "targetParticipantInstanceId": "p-individualizaci",
+      "sourceParticipantInstanceId": "sd-libro-mayor",
+      "targetParticipantInstanceId": "sd-individualizacion-de",
       "label": "Confirmar acreditación.",
       "messageType": "response",
-      "description": "Interacción entre Libro Mayor y Individualización."
+      "description": "Confirmar acreditación."
     }
   ],
-  "activations": [
-    {
-      "id": "act-1",
-      "participantInstanceId": "p-determinaci-n-d",
-      "startSequence": 1,
-      "endSequence": 15,
-      "depth": 0,
-      "activationType": "processing"
-    }
-  ],
+  "activations": [],
   "notes": [
     {
       "id": "note-control-1",
@@ -327,5 +318,6 @@
         }
       ]
     }
-  ]
+  ],
+  "modelingStatus": "partially-modeled"
 }

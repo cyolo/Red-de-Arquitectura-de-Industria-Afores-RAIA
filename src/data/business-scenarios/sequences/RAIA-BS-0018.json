@@ -7,111 +7,99 @@
   "regulatoryValidationStatus": "pending",
   "participants": [
     {
-      "instanceId": "p-pensionado",
-      "participantType": "service-domain",
+      "instanceId": "actor-worker",
+      "participantType": "actor",
       "label": "Pensionado",
       "order": 1
     },
     {
-      "instanceId": "p-resoluci-n-de-p",
+      "instanceId": "sd-resolucion-de-pensio",
       "participantType": "service-domain",
       "label": "Resolución de Pensión",
       "order": 2
     },
     {
-      "instanceId": "p-imss",
-      "participantType": "service-domain",
+      "instanceId": "institute-imss",
+      "participantType": "social-security-institute",
       "label": "IMSS",
       "order": 3
     },
     {
-      "instanceId": "p-issste",
-      "participantType": "service-domain",
+      "instanceId": "institute-issste",
+      "participantType": "social-security-institute",
       "label": "ISSSTE",
       "order": 4
     },
     {
-      "instanceId": "p-validaci-n-de-e",
+      "instanceId": "sd-validacion-de-elegib",
       "participantType": "service-domain",
       "label": "Validación de Elegibilidad",
       "order": 5
     },
     {
-      "instanceId": "p-fondo-de-pensio",
-      "participantType": "service-domain",
+      "instanceId": "trust-fund",
+      "participantType": "public-trust",
       "label": "Fondo de Pensiones para el Bienestar",
       "order": 6
     },
     {
-      "instanceId": "p-c-lculo-de-comp",
+      "instanceId": "sd-calculo-de-complemen",
       "participantType": "service-domain",
       "label": "Cálculo de Complemento",
       "order": 7
     },
     {
-      "instanceId": "p-autorizaci-n-de",
+      "instanceId": "sd-autorizacion-de-comp",
       "participantType": "service-domain",
       "label": "Autorización de Complemento",
       "order": 8
     },
     {
-      "instanceId": "p-gesti-n-de-pago",
+      "instanceId": "sd-gestion-de-pagos",
       "participantType": "service-domain",
       "label": "Gestión de Pagos",
       "order": 9
     },
     {
-      "instanceId": "p-instituci-n-fin",
-      "participantType": "service-domain",
+      "instanceId": "ext-counterparty",
+      "participantType": "external-party",
       "label": "Institución Financiera",
       "order": 10
     },
     {
-      "instanceId": "p-conciliaci-n",
+      "instanceId": "sd-conciliacion",
       "participantType": "service-domain",
       "label": "Conciliación",
       "order": 11
     },
     {
-      "instanceId": "p-informaci-n-reg",
+      "instanceId": "sd-informacion-regulato",
       "participantType": "service-domain",
       "label": "Información Regulatoria",
       "order": 12
     },
     {
-      "instanceId": "p-notificaciones",
+      "instanceId": "sd-notificaciones",
       "participantType": "service-domain",
       "label": "Notificaciones",
       "order": 13
     },
     {
-      "instanceId": "p-validaci-n",
+      "instanceId": "sd-validaci-n",
       "participantType": "service-domain",
       "label": "validaci n",
       "order": 14
     },
     {
-      "instanceId": "p-imss-issste",
+      "instanceId": "sd-calculo",
       "participantType": "service-domain",
-      "label": "imss issste",
-      "order": 15
-    },
-    {
-      "instanceId": "p-fondo",
-      "participantType": "service-domain",
-      "label": "fondo",
-      "order": 16
-    },
-    {
-      "instanceId": "p-c-lculo",
-      "participantType": "service-domain",
-      "label": "c lculo",
+      "label": "Cálculo",
       "order": 17
     },
     {
-      "instanceId": "p-autorizaci-n",
+      "instanceId": "sd-autorizacion",
       "participantType": "service-domain",
-      "label": "autorizaci n",
+      "label": "Autorización",
       "order": 18
     }
   ],
@@ -120,183 +108,174 @@
       "id": "RAIA-BS-0018-MSG-01",
       "scenarioStepId": "RAIA-BS-0018-STEP-01",
       "sequence": 1,
-      "sourceParticipantInstanceId": "p-resoluci-n-de-p",
-      "targetParticipantInstanceId": "p-validaci-n",
+      "sourceParticipantInstanceId": "sd-resolucion-de-pensio",
+      "targetParticipantInstanceId": "sd-validaci-n",
       "label": "Solicitar evaluación.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Resolución de Pensión y Validación."
+      "description": "Solicitar evaluación."
     },
     {
       "id": "RAIA-BS-0018-MSG-02",
       "scenarioStepId": "RAIA-BS-0018-STEP-02",
       "sequence": 2,
-      "sourceParticipantInstanceId": "p-validaci-n",
-      "targetParticipantInstanceId": "p-imss",
+      "sourceParticipantInstanceId": "sd-validaci-n",
+      "targetParticipantInstanceId": "institute-imss",
       "label": "Consultar información pensionaria.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Validación y IMSS."
+      "description": "Consultar información pensionaria."
     },
     {
       "id": "RAIA-BS-0018-MSG-03",
       "scenarioStepId": "RAIA-BS-0018-STEP-03",
       "sequence": 3,
-      "sourceParticipantInstanceId": "p-validaci-n",
-      "targetParticipantInstanceId": "p-issste",
+      "sourceParticipantInstanceId": "sd-validaci-n",
+      "targetParticipantInstanceId": "institute-issste",
       "label": "Consultar información cuando aplique.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Validación y ISSSTE."
+      "description": "Consultar información cuando aplique."
     },
     {
       "id": "RAIA-BS-0018-MSG-04",
       "scenarioStepId": "RAIA-BS-0018-STEP-04",
       "sequence": 4,
-      "sourceParticipantInstanceId": "p-imss-issste",
-      "targetParticipantInstanceId": "p-validaci-n",
+      "sourceParticipantInstanceId": "institute-imss",
+      "targetParticipantInstanceId": "sd-validaci-n",
       "label": "Entregar información.",
       "messageType": "response",
-      "description": "Interacción entre IMSS/ISSSTE y Validación."
+      "description": "Entregar información."
     },
     {
       "id": "RAIA-BS-0018-MSG-05",
       "scenarioStepId": "RAIA-BS-0018-STEP-05",
       "sequence": 5,
-      "sourceParticipantInstanceId": "p-validaci-n",
-      "targetParticipantInstanceId": "p-fondo",
+      "sourceParticipantInstanceId": "sd-validaci-n",
+      "targetParticipantInstanceId": "trust-fund",
       "label": "Consultar parámetros vigentes.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Validación y Fondo."
+      "description": "Consultar parámetros vigentes."
     },
     {
       "id": "RAIA-BS-0018-MSG-06",
       "scenarioStepId": "RAIA-BS-0018-STEP-06",
       "sequence": 6,
-      "sourceParticipantInstanceId": "p-fondo",
-      "targetParticipantInstanceId": "p-validaci-n",
+      "sourceParticipantInstanceId": "trust-fund",
+      "targetParticipantInstanceId": "sd-validaci-n",
       "label": "Entregar parámetros.",
       "messageType": "response",
-      "description": "Interacción entre Fondo y Validación."
+      "description": "Entregar parámetros."
     },
     {
       "id": "RAIA-BS-0018-MSG-07",
       "scenarioStepId": "RAIA-BS-0018-STEP-07",
       "sequence": 7,
-      "sourceParticipantInstanceId": "p-validaci-n",
-      "targetParticipantInstanceId": "p-c-lculo-de-comp",
+      "sourceParticipantInstanceId": "sd-validaci-n",
+      "targetParticipantInstanceId": "sd-calculo-de-complemen",
       "label": "Solicitar cálculo.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Validación y Cálculo de Complemento."
+      "description": "Solicitar cálculo."
     },
     {
       "id": "RAIA-BS-0018-MSG-08",
       "scenarioStepId": "RAIA-BS-0018-STEP-08",
       "sequence": 8,
-      "sourceParticipantInstanceId": "p-c-lculo",
-      "targetParticipantInstanceId": "p-c-lculo",
+      "sourceParticipantInstanceId": "sd-calculo",
+      "targetParticipantInstanceId": "sd-calculo",
       "label": "Aplicar parámetros y validaciones.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Cálculo y Cálculo."
+      "description": "Aplicar parámetros y validaciones."
     },
     {
       "id": "RAIA-BS-0018-MSG-09",
       "scenarioStepId": "RAIA-BS-0018-STEP-09",
       "sequence": 9,
-      "sourceParticipantInstanceId": "p-c-lculo",
-      "targetParticipantInstanceId": "p-autorizaci-n",
+      "sourceParticipantInstanceId": "sd-calculo",
+      "targetParticipantInstanceId": "sd-autorizacion",
       "label": "Presentar resultado.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Cálculo y Autorización."
+      "description": "Presentar resultado."
     },
     {
       "id": "RAIA-BS-0018-MSG-10",
       "scenarioStepId": "RAIA-BS-0018-STEP-10",
       "sequence": 10,
-      "sourceParticipantInstanceId": "p-autorizaci-n",
-      "targetParticipantInstanceId": "p-c-lculo",
+      "sourceParticipantInstanceId": "sd-autorizacion",
+      "targetParticipantInstanceId": "sd-calculo",
       "label": "Aprobar o rechazar.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Autorización y Cálculo."
+      "description": "Aprobar o rechazar."
     },
     {
       "id": "RAIA-BS-0018-MSG-11",
       "scenarioStepId": "RAIA-BS-0018-STEP-11",
       "sequence": 11,
-      "sourceParticipantInstanceId": "p-c-lculo",
-      "targetParticipantInstanceId": "p-gesti-n-de-pago",
+      "sourceParticipantInstanceId": "sd-calculo",
+      "targetParticipantInstanceId": "sd-gestion-de-pagos",
       "label": "Configurar pago.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Cálculo y Gestión de Pagos."
+      "description": "Configurar pago."
     },
     {
       "id": "RAIA-BS-0018-MSG-12",
       "scenarioStepId": "RAIA-BS-0018-STEP-12",
       "sequence": 12,
-      "sourceParticipantInstanceId": "p-gesti-n-de-pago",
-      "targetParticipantInstanceId": "p-instituci-n-fin",
+      "sourceParticipantInstanceId": "sd-gestion-de-pagos",
+      "targetParticipantInstanceId": "ext-counterparty",
       "label": "Ejecutar complemento.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Gestión de Pagos y Institución Financiera."
+      "description": "Ejecutar complemento."
     },
     {
       "id": "RAIA-BS-0018-MSG-13",
       "scenarioStepId": "RAIA-BS-0018-STEP-13",
       "sequence": 13,
-      "sourceParticipantInstanceId": "p-instituci-n-fin",
-      "targetParticipantInstanceId": "p-gesti-n-de-pago",
+      "sourceParticipantInstanceId": "ext-counterparty",
+      "targetParticipantInstanceId": "sd-gestion-de-pagos",
       "label": "Confirmar pago.",
       "messageType": "response",
-      "description": "Interacción entre Institución Financiera y Gestión de Pagos."
+      "description": "Confirmar pago."
     },
     {
       "id": "RAIA-BS-0018-MSG-14",
       "scenarioStepId": "RAIA-BS-0018-STEP-14",
       "sequence": 14,
-      "sourceParticipantInstanceId": "p-gesti-n-de-pago",
-      "targetParticipantInstanceId": "p-conciliaci-n",
+      "sourceParticipantInstanceId": "sd-gestion-de-pagos",
+      "targetParticipantInstanceId": "sd-conciliacion",
       "label": "Conciliar operación.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Gestión de Pagos y Conciliación."
+      "description": "Conciliar operación."
     },
     {
       "id": "RAIA-BS-0018-MSG-15",
       "scenarioStepId": "RAIA-BS-0018-STEP-15",
       "sequence": 15,
-      "sourceParticipantInstanceId": "p-conciliaci-n",
-      "targetParticipantInstanceId": "p-informaci-n-reg",
+      "sourceParticipantInstanceId": "sd-conciliacion",
+      "targetParticipantInstanceId": "sd-informacion-regulato",
       "label": "Registrar resultado.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Conciliación y Información Regulatoria."
+      "description": "Registrar resultado."
     },
     {
       "id": "RAIA-BS-0018-MSG-16",
       "scenarioStepId": "RAIA-BS-0018-STEP-16",
       "sequence": 16,
-      "sourceParticipantInstanceId": "p-gesti-n-de-pago",
-      "targetParticipantInstanceId": "p-notificaciones",
+      "sourceParticipantInstanceId": "sd-gestion-de-pagos",
+      "targetParticipantInstanceId": "sd-notificaciones",
       "label": "Comunicar pago.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Gestión de Pagos y Notificaciones."
+      "description": "Comunicar pago."
     },
     {
       "id": "RAIA-BS-0018-MSG-17",
       "scenarioStepId": "RAIA-BS-0018-STEP-17",
       "sequence": 17,
-      "sourceParticipantInstanceId": "p-notificaciones",
-      "targetParticipantInstanceId": "p-pensionado",
+      "sourceParticipantInstanceId": "sd-notificaciones",
+      "targetParticipantInstanceId": "actor-worker",
       "label": "Informar complemento.",
       "messageType": "response",
-      "description": "Interacción entre Notificaciones y Pensionado."
+      "description": "Informar complemento."
     }
   ],
-  "activations": [
-    {
-      "id": "act-1",
-      "participantInstanceId": "p-validaci-n",
-      "startSequence": 1,
-      "endSequence": 17,
-      "depth": 0,
-      "activationType": "processing"
-    }
-  ],
+  "activations": [],
   "notes": [
     {
       "id": "note-control-1",
@@ -359,5 +338,6 @@
         }
       ]
     }
-  ]
+  ],
+  "modelingStatus": "partially-modeled"
 }

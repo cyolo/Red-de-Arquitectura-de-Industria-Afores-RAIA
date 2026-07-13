@@ -7,81 +7,81 @@
   "regulatoryValidationStatus": "pending",
   "participants": [
     {
-      "instanceId": "p-trabajador",
-      "participantType": "service-domain",
+      "instanceId": "actor-worker",
+      "participantType": "actor",
       "label": "Trabajador",
       "order": 1
     },
     {
-      "instanceId": "p-gesti-n-de-soli",
+      "instanceId": "sd-gestion-de-solicitud",
       "participantType": "service-domain",
       "label": "Gestión de Solicitudes",
       "order": 2
     },
     {
-      "instanceId": "p-resoluci-n-de-i",
+      "instanceId": "sd-resolucion-de-identi",
       "participantType": "service-domain",
       "label": "Resolución de Identidad",
       "order": 3
     },
     {
-      "instanceId": "p-separaci-n-de-c",
+      "instanceId": "sd-separacion-de-cuenta",
       "participantType": "service-domain",
       "label": "Separación de Cuentas",
       "order": 4
     },
     {
-      "instanceId": "p-imss",
-      "participantType": "service-domain",
+      "instanceId": "institute-imss",
+      "participantType": "social-security-institute",
       "label": "IMSS",
       "order": 5
     },
     {
-      "instanceId": "p-issste",
-      "participantType": "service-domain",
+      "instanceId": "institute-issste",
+      "participantType": "social-security-institute",
       "label": "ISSSTE",
       "order": 6
     },
     {
-      "instanceId": "p-bdnsar",
-      "participantType": "service-domain",
+      "instanceId": "registry-bdnsar",
+      "participantType": "information-asset",
       "label": "BDNSAR",
       "order": 7
     },
     {
-      "instanceId": "p-administraci-n-",
+      "instanceId": "sd-administracion-de-su",
       "participantType": "service-domain",
       "label": "Administración de Subcuentas",
       "order": 8
     },
     {
-      "instanceId": "p-conciliaci-n-de",
+      "instanceId": "sd-conciliacion-de-cuen",
       "participantType": "service-domain",
       "label": "Conciliación de Cuenta",
       "order": 9
     },
     {
-      "instanceId": "p-libro-mayor",
+      "instanceId": "sd-libro-mayor",
       "participantType": "service-domain",
       "label": "Libro Mayor",
       "order": 10
     },
     {
-      "instanceId": "p-notificaciones",
+      "instanceId": "sd-notificaciones",
       "participantType": "service-domain",
       "label": "Notificaciones",
       "order": 11
     },
     {
-      "instanceId": "p-separaci-n",
+      "instanceId": "sd-separaci-n",
       "participantType": "service-domain",
       "label": "separaci n",
       "order": 12
     },
     {
-      "instanceId": "p-conciliaci-n",
+      "instanceId": "sd-conciliacion",
       "participantType": "service-domain",
-      "label": "conciliaci n",
+      "label": "Conciliación",
       "order": 13
     }
   ],
@@ -90,163 +90,154 @@
       "id": "RAIA-BS-0007-MSG-01",
       "scenarioStepId": "RAIA-BS-0007-STEP-01",
       "sequence": 1,
-      "sourceParticipantInstanceId": "p-trabajador",
-      "targetParticipantInstanceId": "p-gesti-n-de-soli",
+      "sourceParticipantInstanceId": "actor-worker",
+      "targetParticipantInstanceId": "sd-gestion-de-solicitud",
       "label": "Solicitar separación.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Trabajador y Gestión de Solicitudes."
+      "description": "Solicitar separación."
     },
     {
       "id": "RAIA-BS-0007-MSG-02",
       "scenarioStepId": "RAIA-BS-0007-STEP-02",
       "sequence": 2,
-      "sourceParticipantInstanceId": "p-gesti-n-de-soli",
-      "targetParticipantInstanceId": "p-resoluci-n-de-i",
+      "sourceParticipantInstanceId": "sd-gestion-de-solicitud",
+      "targetParticipantInstanceId": "sd-resolucion-de-identi",
       "label": "Validar identidad.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Gestión de Solicitudes y Resolución de Identidad."
+      "description": "Validar identidad."
     },
     {
       "id": "RAIA-BS-0007-MSG-03",
       "scenarioStepId": "RAIA-BS-0007-STEP-03",
       "sequence": 3,
-      "sourceParticipantInstanceId": "p-gesti-n-de-soli",
-      "targetParticipantInstanceId": "p-separaci-n-de-c",
+      "sourceParticipantInstanceId": "sd-gestion-de-solicitud",
+      "targetParticipantInstanceId": "sd-separacion-de-cuenta",
       "label": "Registrar solicitud.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Gestión de Solicitudes y Separación de Cuentas."
+      "description": "Registrar solicitud."
     },
     {
       "id": "RAIA-BS-0007-MSG-04",
       "scenarioStepId": "RAIA-BS-0007-STEP-04",
       "sequence": 4,
-      "sourceParticipantInstanceId": "p-separaci-n",
-      "targetParticipantInstanceId": "p-bdnsar",
+      "sourceParticipantInstanceId": "sd-separaci-n",
+      "targetParticipantInstanceId": "registry-bdnsar",
       "label": "Recuperar historial.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Separación y BDNSAR."
+      "description": "Recuperar historial."
     },
     {
       "id": "RAIA-BS-0007-MSG-05",
       "scenarioStepId": "RAIA-BS-0007-STEP-05",
       "sequence": 5,
-      "sourceParticipantInstanceId": "p-separaci-n",
-      "targetParticipantInstanceId": "p-imss",
+      "sourceParticipantInstanceId": "sd-separaci-n",
+      "targetParticipantInstanceId": "institute-imss",
       "label": "Consultar cotizaciones.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Separación y IMSS."
+      "description": "Consultar cotizaciones."
     },
     {
       "id": "RAIA-BS-0007-MSG-06",
       "scenarioStepId": "RAIA-BS-0007-STEP-06",
       "sequence": 6,
-      "sourceParticipantInstanceId": "p-separaci-n",
-      "targetParticipantInstanceId": "p-issste",
+      "sourceParticipantInstanceId": "sd-separaci-n",
+      "targetParticipantInstanceId": "institute-issste",
       "label": "Consultar cotizaciones.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Separación y ISSSTE."
+      "description": "Consultar cotizaciones."
     },
     {
       "id": "RAIA-BS-0007-MSG-07",
       "scenarioStepId": "RAIA-BS-0007-STEP-07",
       "sequence": 7,
-      "sourceParticipantInstanceId": "p-imss",
-      "targetParticipantInstanceId": "p-separaci-n",
+      "sourceParticipantInstanceId": "institute-imss",
+      "targetParticipantInstanceId": "sd-separaci-n",
       "label": "Entregar información.",
       "messageType": "response",
-      "description": "Interacción entre IMSS y Separación."
+      "description": "Entregar información."
     },
     {
       "id": "RAIA-BS-0007-MSG-08",
       "scenarioStepId": "RAIA-BS-0007-STEP-08",
       "sequence": 8,
-      "sourceParticipantInstanceId": "p-issste",
-      "targetParticipantInstanceId": "p-separaci-n",
+      "sourceParticipantInstanceId": "institute-issste",
+      "targetParticipantInstanceId": "sd-separaci-n",
       "label": "Entregar información.",
       "messageType": "response",
-      "description": "Interacción entre ISSSTE y Separación."
+      "description": "Entregar información."
     },
     {
       "id": "RAIA-BS-0007-MSG-09",
       "scenarioStepId": "RAIA-BS-0007-STEP-09",
       "sequence": 9,
-      "sourceParticipantInstanceId": "p-separaci-n",
-      "targetParticipantInstanceId": "p-administraci-n-",
+      "sourceParticipantInstanceId": "sd-separaci-n",
+      "targetParticipantInstanceId": "sd-administracion-de-su",
       "label": "Clasificar recursos.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Separación y Administración de Subcuentas."
+      "description": "Clasificar recursos."
     },
     {
       "id": "RAIA-BS-0007-MSG-10",
       "scenarioStepId": "RAIA-BS-0007-STEP-10",
       "sequence": 10,
-      "sourceParticipantInstanceId": "p-administraci-n-",
-      "targetParticipantInstanceId": "p-conciliaci-n",
+      "sourceParticipantInstanceId": "sd-administracion-de-su",
+      "targetParticipantInstanceId": "sd-conciliacion",
       "label": "Conciliar distribución.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Administración de Subcuentas y Conciliación."
+      "description": "Conciliar distribución."
     },
     {
       "id": "RAIA-BS-0007-MSG-11",
       "scenarioStepId": "RAIA-BS-0007-STEP-11",
       "sequence": 11,
-      "sourceParticipantInstanceId": "p-conciliaci-n",
-      "targetParticipantInstanceId": "p-separaci-n",
+      "sourceParticipantInstanceId": "sd-conciliacion",
+      "targetParticipantInstanceId": "sd-separaci-n",
       "label": "Confirmar propuesta.",
       "messageType": "response",
-      "description": "Interacción entre Conciliación y Separación."
+      "description": "Confirmar propuesta."
     },
     {
       "id": "RAIA-BS-0007-MSG-12",
       "scenarioStepId": "RAIA-BS-0007-STEP-12",
       "sequence": 12,
-      "sourceParticipantInstanceId": "p-separaci-n",
-      "targetParticipantInstanceId": "p-libro-mayor",
+      "sourceParticipantInstanceId": "sd-separaci-n",
+      "targetParticipantInstanceId": "sd-libro-mayor",
       "label": "Registrar cuentas resultantes.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Separación y Libro Mayor."
+      "description": "Registrar cuentas resultantes."
     },
     {
       "id": "RAIA-BS-0007-MSG-13",
       "scenarioStepId": "RAIA-BS-0007-STEP-13",
       "sequence": 13,
-      "sourceParticipantInstanceId": "p-separaci-n",
-      "targetParticipantInstanceId": "p-bdnsar",
+      "sourceParticipantInstanceId": "sd-separaci-n",
+      "targetParticipantInstanceId": "registry-bdnsar",
       "label": "Actualizar registros.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Separación y BDNSAR."
+      "description": "Actualizar registros."
     },
     {
       "id": "RAIA-BS-0007-MSG-14",
       "scenarioStepId": "RAIA-BS-0007-STEP-14",
       "sequence": 14,
-      "sourceParticipantInstanceId": "p-separaci-n",
-      "targetParticipantInstanceId": "p-notificaciones",
+      "sourceParticipantInstanceId": "sd-separaci-n",
+      "targetParticipantInstanceId": "sd-notificaciones",
       "label": "Comunicar resolución.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Separación y Notificaciones."
+      "description": "Comunicar resolución."
     },
     {
       "id": "RAIA-BS-0007-MSG-15",
       "scenarioStepId": "RAIA-BS-0007-STEP-15",
       "sequence": 15,
-      "sourceParticipantInstanceId": "p-notificaciones",
-      "targetParticipantInstanceId": "p-trabajador",
+      "sourceParticipantInstanceId": "sd-notificaciones",
+      "targetParticipantInstanceId": "actor-worker",
       "label": "Informar separación.",
       "messageType": "response",
-      "description": "Interacción entre Notificaciones y Trabajador."
+      "description": "Informar separación."
     }
   ],
-  "activations": [
-    {
-      "id": "act-1",
-      "participantInstanceId": "p-gesti-n-de-soli",
-      "startSequence": 1,
-      "endSequence": 15,
-      "depth": 0,
-      "activationType": "processing"
-    }
-  ],
+  "activations": [],
   "notes": [
     {
       "id": "note-control-1",
@@ -303,5 +294,6 @@
         }
       ]
     }
-  ]
+  ],
+  "modelingStatus": "partially-modeled"
 }

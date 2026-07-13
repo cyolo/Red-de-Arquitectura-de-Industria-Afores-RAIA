@@ -7,81 +7,81 @@
   "regulatoryValidationStatus": "pending",
   "participants": [
     {
-      "instanceId": "p-trabajador",
-      "participantType": "service-domain",
+      "instanceId": "actor-worker",
+      "participantType": "actor",
       "label": "Trabajador",
       "order": 1
     },
     {
-      "instanceId": "p-gesti-n-de-soli",
+      "instanceId": "sd-gestion-de-solicitud",
       "participantType": "service-domain",
       "label": "Gestión de Solicitudes",
       "order": 2
     },
     {
-      "instanceId": "p-autenticaci-n",
+      "instanceId": "sd-autenticacion",
       "participantType": "service-domain",
       "label": "Autenticación",
       "order": 3
     },
     {
-      "instanceId": "p-expediente-elec",
+      "instanceId": "sd-expediente-electroni",
       "participantType": "service-domain",
       "label": "Expediente Electrónico",
       "order": 4
     },
     {
-      "instanceId": "p-validaci-n-de-e",
+      "instanceId": "sd-validacion-de-elegib",
       "participantType": "service-domain",
       "label": "Validación de Elegibilidad",
       "order": 5
     },
     {
-      "instanceId": "p-imss",
-      "participantType": "service-domain",
+      "instanceId": "institute-imss",
+      "participantType": "social-security-institute",
       "label": "IMSS",
       "order": 6
     },
     {
-      "instanceId": "p-cuenta-individu",
+      "instanceId": "sd-cuenta-individual",
       "participantType": "service-domain",
       "label": "Cuenta Individual",
       "order": 7
     },
     {
-      "instanceId": "p-gesti-n-de-pago",
+      "instanceId": "sd-gestion-de-pagos",
       "participantType": "service-domain",
       "label": "Gestión de Pagos",
       "order": 8
     },
     {
-      "instanceId": "p-libro-mayor",
+      "instanceId": "sd-libro-mayor",
       "participantType": "service-domain",
       "label": "Libro Mayor",
       "order": 9
     },
     {
-      "instanceId": "p-notificaciones",
+      "instanceId": "sd-notificaciones",
       "participantType": "service-domain",
       "label": "Notificaciones",
       "order": 10
     },
     {
-      "instanceId": "p-expediente",
+      "instanceId": "sd-expediente",
       "participantType": "service-domain",
       "label": "expediente",
       "order": 11
     },
     {
-      "instanceId": "p-validaci-n",
+      "instanceId": "sd-validaci-n",
       "participantType": "service-domain",
       "label": "validaci n",
       "order": 12
     },
     {
-      "instanceId": "p-instituci-n-fin",
-      "participantType": "service-domain",
-      "label": "instituci n fin",
+      "instanceId": "ext-counterparty",
+      "participantType": "external-party",
+      "label": "Institución Financiera",
       "order": 13
     }
   ],
@@ -90,153 +90,144 @@
       "id": "RAIA-BS-0013-MSG-01",
       "scenarioStepId": "RAIA-BS-0013-STEP-01",
       "sequence": 1,
-      "sourceParticipantInstanceId": "p-trabajador",
-      "targetParticipantInstanceId": "p-gesti-n-de-soli",
+      "sourceParticipantInstanceId": "actor-worker",
+      "targetParticipantInstanceId": "sd-gestion-de-solicitud",
       "label": "Solicitar ayuda.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Trabajador y Gestión de Solicitudes."
+      "description": "Solicitar ayuda."
     },
     {
       "id": "RAIA-BS-0013-MSG-02",
       "scenarioStepId": "RAIA-BS-0013-STEP-02",
       "sequence": 2,
-      "sourceParticipantInstanceId": "p-gesti-n-de-soli",
-      "targetParticipantInstanceId": "p-autenticaci-n",
+      "sourceParticipantInstanceId": "sd-gestion-de-solicitud",
+      "targetParticipantInstanceId": "sd-autenticacion",
       "label": "Validar identidad.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Gestión de Solicitudes y Autenticación."
+      "description": "Validar identidad."
     },
     {
       "id": "RAIA-BS-0013-MSG-03",
       "scenarioStepId": "RAIA-BS-0013-STEP-03",
       "sequence": 3,
-      "sourceParticipantInstanceId": "p-gesti-n-de-soli",
-      "targetParticipantInstanceId": "p-expediente",
+      "sourceParticipantInstanceId": "sd-gestion-de-solicitud",
+      "targetParticipantInstanceId": "sd-expediente",
       "label": "Recuperar documentación.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Gestión de Solicitudes y Expediente."
+      "description": "Recuperar documentación."
     },
     {
       "id": "RAIA-BS-0013-MSG-04",
       "scenarioStepId": "RAIA-BS-0013-STEP-04",
       "sequence": 4,
-      "sourceParticipantInstanceId": "p-gesti-n-de-soli",
-      "targetParticipantInstanceId": "p-validaci-n",
+      "sourceParticipantInstanceId": "sd-gestion-de-solicitud",
+      "targetParticipantInstanceId": "sd-validaci-n",
       "label": "Evaluar derecho.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Gestión de Solicitudes y Validación."
+      "description": "Evaluar derecho."
     },
     {
       "id": "RAIA-BS-0013-MSG-05",
       "scenarioStepId": "RAIA-BS-0013-STEP-05",
       "sequence": 5,
-      "sourceParticipantInstanceId": "p-validaci-n",
-      "targetParticipantInstanceId": "p-imss",
+      "sourceParticipantInstanceId": "sd-validaci-n",
+      "targetParticipantInstanceId": "institute-imss",
       "label": "Consultar elegibilidad.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Validación y IMSS."
+      "description": "Consultar elegibilidad."
     },
     {
       "id": "RAIA-BS-0013-MSG-06",
       "scenarioStepId": "RAIA-BS-0013-STEP-06",
       "sequence": 6,
-      "sourceParticipantInstanceId": "p-imss",
-      "targetParticipantInstanceId": "p-validaci-n",
+      "sourceParticipantInstanceId": "institute-imss",
+      "targetParticipantInstanceId": "sd-validaci-n",
       "label": "Entregar resultado.",
       "messageType": "response",
-      "description": "Interacción entre IMSS y Validación."
+      "description": "Entregar resultado."
     },
     {
       "id": "RAIA-BS-0013-MSG-07",
       "scenarioStepId": "RAIA-BS-0013-STEP-07",
       "sequence": 7,
-      "sourceParticipantInstanceId": "p-validaci-n",
-      "targetParticipantInstanceId": "p-cuenta-individu",
+      "sourceParticipantInstanceId": "sd-validaci-n",
+      "targetParticipantInstanceId": "sd-cuenta-individual",
       "label": "Consultar información.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Validación y Cuenta Individual."
+      "description": "Consultar información."
     },
     {
       "id": "RAIA-BS-0013-MSG-08",
       "scenarioStepId": "RAIA-BS-0013-STEP-08",
       "sequence": 8,
-      "sourceParticipantInstanceId": "p-cuenta-individu",
-      "targetParticipantInstanceId": "p-validaci-n",
+      "sourceParticipantInstanceId": "sd-cuenta-individual",
+      "targetParticipantInstanceId": "sd-validaci-n",
       "label": "Entregar datos.",
       "messageType": "response",
-      "description": "Interacción entre Cuenta Individual y Validación."
+      "description": "Entregar datos."
     },
     {
       "id": "RAIA-BS-0013-MSG-09",
       "scenarioStepId": "RAIA-BS-0013-STEP-09",
       "sequence": 9,
-      "sourceParticipantInstanceId": "p-validaci-n",
-      "targetParticipantInstanceId": "p-gesti-n-de-pago",
+      "sourceParticipantInstanceId": "sd-validaci-n",
+      "targetParticipantInstanceId": "sd-gestion-de-pagos",
       "label": "Autorizar pago.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Validación y Gestión de Pagos."
+      "description": "Autorizar pago."
     },
     {
       "id": "RAIA-BS-0013-MSG-10",
       "scenarioStepId": "RAIA-BS-0013-STEP-10",
       "sequence": 10,
-      "sourceParticipantInstanceId": "p-gesti-n-de-pago",
-      "targetParticipantInstanceId": "p-instituci-n-fin",
+      "sourceParticipantInstanceId": "sd-gestion-de-pagos",
+      "targetParticipantInstanceId": "ext-counterparty",
       "label": "Ejecutar pago.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Gestión de Pagos y Institución Financiera."
+      "description": "Ejecutar pago."
     },
     {
       "id": "RAIA-BS-0013-MSG-11",
       "scenarioStepId": "RAIA-BS-0013-STEP-11",
       "sequence": 11,
-      "sourceParticipantInstanceId": "p-instituci-n-fin",
-      "targetParticipantInstanceId": "p-gesti-n-de-pago",
+      "sourceParticipantInstanceId": "ext-counterparty",
+      "targetParticipantInstanceId": "sd-gestion-de-pagos",
       "label": "Confirmar pago.",
       "messageType": "response",
-      "description": "Interacción entre Institución Financiera y Gestión de Pagos."
+      "description": "Confirmar pago."
     },
     {
       "id": "RAIA-BS-0013-MSG-12",
       "scenarioStepId": "RAIA-BS-0013-STEP-12",
       "sequence": 12,
-      "sourceParticipantInstanceId": "p-gesti-n-de-pago",
-      "targetParticipantInstanceId": "p-libro-mayor",
+      "sourceParticipantInstanceId": "sd-gestion-de-pagos",
+      "targetParticipantInstanceId": "sd-libro-mayor",
       "label": "Registrar movimiento.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Gestión de Pagos y Libro Mayor."
+      "description": "Registrar movimiento."
     },
     {
       "id": "RAIA-BS-0013-MSG-13",
       "scenarioStepId": "RAIA-BS-0013-STEP-13",
       "sequence": 13,
-      "sourceParticipantInstanceId": "p-gesti-n-de-soli",
-      "targetParticipantInstanceId": "p-notificaciones",
+      "sourceParticipantInstanceId": "sd-gestion-de-solicitud",
+      "targetParticipantInstanceId": "sd-notificaciones",
       "label": "Emitir resolución.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Gestión de Solicitudes y Notificaciones."
+      "description": "Emitir resolución."
     },
     {
       "id": "RAIA-BS-0013-MSG-14",
       "scenarioStepId": "RAIA-BS-0013-STEP-14",
       "sequence": 14,
-      "sourceParticipantInstanceId": "p-notificaciones",
-      "targetParticipantInstanceId": "p-trabajador",
+      "sourceParticipantInstanceId": "sd-notificaciones",
+      "targetParticipantInstanceId": "actor-worker",
       "label": "Informar resultado.",
       "messageType": "response",
-      "description": "Interacción entre Notificaciones y Trabajador."
+      "description": "Informar resultado."
     }
   ],
-  "activations": [
-    {
-      "id": "act-1",
-      "participantInstanceId": "p-gesti-n-de-soli",
-      "startSequence": 1,
-      "endSequence": 14,
-      "depth": 0,
-      "activationType": "processing"
-    }
-  ],
+  "activations": [],
   "notes": [
     {
       "id": "note-control-1",
@@ -293,5 +284,6 @@
         }
       ]
     }
-  ]
+  ],
+  "modelingStatus": "partially-modeled"
 }

@@ -27,7 +27,7 @@
   "updatedAt": "2026-07-13T07:22:16.260Z",
   "participantNarratives": [
     {
-      "participantInstanceId": "p-trabajador",
+      "participantInstanceId": "actor-worker",
       "participantName": "Trabajador",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -46,7 +46,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-resoluci-n-de-p",
+      "participantInstanceId": "sd-resolucion-de-pensio",
       "participantName": "Resolución de Pensión",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -63,7 +63,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-gesti-n-de-rent",
+      "participantInstanceId": "sd-gestion-de-renta-vit",
       "participantName": "Gestión de Renta Vitalicia",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -90,7 +90,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-determinaci-n-d",
+      "participantInstanceId": "sd-determinacion-de-rec",
       "participantName": "Determinación de Recursos",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -109,7 +109,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-desinversi-n-de",
+      "participantInstanceId": "sd-desinversion-de-recu",
       "participantName": "Desinversión de Recursos",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -126,7 +126,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-transferencia-d",
+      "participantInstanceId": "sd-transferencia-de-rec",
       "participantName": "Transferencia de Recursos",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -143,7 +143,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-instituci-n-fin",
+      "participantInstanceId": "ext-counterparty",
       "participantName": "Institución Financiera",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -164,7 +164,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-custodia",
+      "participantInstanceId": "sd-custodia",
       "participantName": "Custodia",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -181,7 +181,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-aseguradora",
+      "participantInstanceId": "org-insurer",
       "participantName": "Aseguradora",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -205,7 +205,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-seguro-de-sobre",
+      "participantInstanceId": "sd-seguro-de-sobreviven",
       "participantName": "Seguro de Sobrevivencia",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -224,7 +224,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-libro-mayor",
+      "participantInstanceId": "sd-libro-mayor",
       "participantName": "Libro Mayor",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -245,7 +245,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-conciliaci-n",
+      "participantInstanceId": "sd-conciliacion",
       "participantName": "Conciliación",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -266,7 +266,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-notificaciones",
+      "participantInstanceId": "sd-notificaciones",
       "participantName": "Notificaciones",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -287,15 +287,13 @@
       ]
     },
     {
-      "participantInstanceId": "p-resoluci-n",
-      "participantName": "resoluci n",
+      "participantInstanceId": "sd-resolucion",
+      "participantName": "Resolución de Pensión",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
       "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
       "receivesFrom": [],
-      "sendsTo": [
-        "Gestión de Renta Vitalicia"
-      ],
+      "sendsTo": [],
       "businessObjectsManaged": [
         "Registro de Operación",
         "Parámetro Validado"
@@ -306,36 +304,15 @@
       ]
     },
     {
-      "participantInstanceId": "p-determinaci-n",
-      "participantName": "determinaci n",
-      "structuralRole": "Service Domain coordinador / ejecutor",
-      "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
-      "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
-      "receivesFrom": [],
-      "sendsTo": [
-        "Gestión de Renta Vitalicia"
-      ],
-      "businessObjectsManaged": [
-        "Registro de Operación",
-        "Parámetro Validado"
-      ],
-      "controlsApplied": [
-        "Validación de entrada",
-        "Rechazo por formato inválido"
-      ]
-    },
-    {
-      "participantInstanceId": "p-desinversi-n",
-      "participantName": "desinversi n",
+      "participantInstanceId": "sd-determinacion",
+      "participantName": "Determinación de Recursos",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
       "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
       "receivesFrom": [
         "Gestión de Renta Vitalicia"
       ],
-      "sendsTo": [
-        "transferencia"
-      ],
+      "sendsTo": [],
       "businessObjectsManaged": [
         "Registro de Operación",
         "Parámetro Validado"
@@ -346,19 +323,30 @@
       ]
     },
     {
-      "participantInstanceId": "p-transferencia",
-      "participantName": "transferencia",
+      "participantInstanceId": "sd-desinversion",
+      "participantName": "Desinversión de Recursos",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
       "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
-      "receivesFrom": [
-        "desinversi n",
-        "Aseguradora"
+      "receivesFrom": [],
+      "sendsTo": [],
+      "businessObjectsManaged": [
+        "Registro de Operación",
+        "Parámetro Validado"
       ],
-      "sendsTo": [
-        "Institución Financiera",
-        "Libro Mayor"
-      ],
+      "controlsApplied": [
+        "Validación de entrada",
+        "Rechazo por formato inválido"
+      ]
+    },
+    {
+      "participantInstanceId": "sd-transferencia",
+      "participantName": "Transferencia de Recursos",
+      "structuralRole": "Service Domain coordinador / ejecutor",
+      "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
+      "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
+      "receivesFrom": [],
+      "sendsTo": [],
       "businessObjectsManaged": [
         "Registro de Operación",
         "Parámetro Validado"

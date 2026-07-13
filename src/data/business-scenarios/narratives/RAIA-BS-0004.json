@@ -27,7 +27,7 @@
   "updatedAt": "2026-07-13T07:22:16.248Z",
   "participantNarratives": [
     {
-      "participantInstanceId": "p-instituto-de-se",
+      "participantInstanceId": "institute-issste",
       "participantName": "Instituto de Seguridad Social",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -44,7 +44,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-entidad-recauda",
+      "participantInstanceId": "sd-entidad-recaudadora",
       "participantName": "Entidad Recaudadora",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -63,7 +63,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-bdnsar",
+      "participantInstanceId": "registry-bdnsar",
       "participantName": "BDNSAR",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -89,28 +89,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-registro-maestr",
-      "participantName": "Registro Maestro de Cuentas",
-      "structuralRole": "Service Domain coordinador / ejecutor",
-      "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
-      "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
-      "receivesFrom": [
-        "BDNSAR"
-      ],
-      "sendsTo": [
-        "BDNSAR"
-      ],
-      "businessObjectsManaged": [
-        "Registro de Operación",
-        "Parámetro Validado"
-      ],
-      "controlsApplied": [
-        "Validación de entrada",
-        "Rechazo por formato inválido"
-      ]
-    },
-    {
-      "participantInstanceId": "p-asignaci-n-de-c",
+      "participantInstanceId": "sd-asignacion-de-cuenta",
       "participantName": "Asignación de Cuenta",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -133,7 +112,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-evaluaci-n-de-c",
+      "participantInstanceId": "sd-evaluacion-de-criter",
       "participantName": "Evaluación de Criterios",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -156,7 +135,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-consar",
+      "participantInstanceId": "authority-consar",
       "participantName": "CONSAR",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -177,18 +156,18 @@
       ]
     },
     {
-      "participantInstanceId": "p-afore-asignada",
-      "participantName": "AFORE asignada",
+      "participantInstanceId": "org-afore",
+      "participantName": "Asignación de Cuenta",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
       "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
       "receivesFrom": [
         "BDNSAR",
-        "Libro Mayor"
+        "Evaluación de Criterios"
       ],
       "sendsTo": [
-        "Libro Mayor",
-        "Notificaciones"
+        "Evaluación de Criterios",
+        "BDNSAR"
       ],
       "businessObjectsManaged": [
         "Registro de Operación",
@@ -200,7 +179,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-libro-mayor",
+      "participantInstanceId": "sd-libro-mayor",
       "participantName": "Libro Mayor",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -221,7 +200,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-notificaciones",
+      "participantInstanceId": "sd-notificaciones",
       "participantName": "Notificaciones",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -242,26 +221,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-instituto",
-      "participantName": "instituto",
-      "structuralRole": "Service Domain coordinador / ejecutor",
-      "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
-      "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
-      "receivesFrom": [],
-      "sendsTo": [
-        "BDNSAR"
-      ],
-      "businessObjectsManaged": [
-        "Registro de Operación",
-        "Parámetro Validado"
-      ],
-      "controlsApplied": [
-        "Validación de entrada",
-        "Rechazo por formato inválido"
-      ]
-    },
-    {
-      "participantInstanceId": "p-trabajador",
+      "participantInstanceId": "actor-worker",
       "participantName": "trabajador",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",

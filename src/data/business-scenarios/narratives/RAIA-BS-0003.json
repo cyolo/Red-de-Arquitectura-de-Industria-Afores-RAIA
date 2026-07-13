@@ -27,7 +27,7 @@
   "updatedAt": "2026-07-13T07:22:16.238Z",
   "participantNarratives": [
     {
-      "participantInstanceId": "p-trabajador",
+      "participantInstanceId": "actor-worker",
       "participantName": "Trabajador",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -48,7 +48,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-gesti-n-de-soli",
+      "participantInstanceId": "sd-gestion-de-solicitud",
       "participantName": "Gestión de Solicitudes",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -74,15 +74,22 @@
       ]
     },
     {
-      "participantInstanceId": "p-datos-del-traba",
-      "participantName": "Datos del Trabajador",
+      "participantInstanceId": "sd-gestion-de-curp-nss-",
+      "participantName": "Gestión de Solicitudes",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
       "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
       "receivesFrom": [
-        "Gestión de Solicitudes"
+        "Trabajador",
+        "Resolución de Identidad",
+        "Localización de Cuenta"
       ],
-      "sendsTo": [],
+      "sendsTo": [
+        "Datos del Trabajador",
+        "gesti n de iden",
+        "Localización de Cuenta",
+        "Notificaciones"
+      ],
       "businessObjectsManaged": [
         "Registro de Operación",
         "Parámetro Validado"
@@ -93,24 +100,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-gesti-n-de-curp",
-      "participantName": "Gestión de CURP, NSS y RFC",
-      "structuralRole": "Service Domain coordinador / ejecutor",
-      "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
-      "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
-      "receivesFrom": [],
-      "sendsTo": [],
-      "businessObjectsManaged": [
-        "Registro de Operación",
-        "Parámetro Validado"
-      ],
-      "controlsApplied": [
-        "Validación de entrada",
-        "Rechazo por formato inválido"
-      ]
-    },
-    {
-      "participantInstanceId": "p-resoluci-n-de-i",
+      "participantInstanceId": "sd-resolucion-de-identi",
       "participantName": "Resolución de Identidad",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -131,7 +121,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-localizaci-n-de",
+      "participantInstanceId": "sd-localizacion-de-cuen",
       "participantName": "Localización de Cuenta",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -154,7 +144,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-bdnsar",
+      "participantInstanceId": "registry-bdnsar",
       "participantName": "BDNSAR",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -177,28 +167,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-registro-maestr",
-      "participantName": "Registro Maestro de Cuentas",
-      "structuralRole": "Service Domain coordinador / ejecutor",
-      "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
-      "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
-      "receivesFrom": [
-        "BDNSAR"
-      ],
-      "sendsTo": [
-        "BDNSAR"
-      ],
-      "businessObjectsManaged": [
-        "Registro de Operación",
-        "Parámetro Validado"
-      ],
-      "controlsApplied": [
-        "Validación de entrada",
-        "Rechazo por formato inválido"
-      ]
-    },
-    {
-      "participantInstanceId": "p-notificaciones",
+      "participantInstanceId": "sd-notificaciones",
       "participantName": "Notificaciones",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -219,16 +188,21 @@
       ]
     },
     {
-      "participantInstanceId": "p-gesti-n-de-iden",
-      "participantName": "gesti n de iden",
+      "participantInstanceId": "sd-gestion-de-identidad",
+      "participantName": "Gestión de Solicitudes",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
       "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
       "receivesFrom": [
-        "Gestión de Solicitudes"
+        "Trabajador",
+        "Resolución de Identidad",
+        "Localización de Cuenta"
       ],
       "sendsTo": [
-        "Resolución de Identidad"
+        "Datos del Trabajador",
+        "gesti n de iden",
+        "Localización de Cuenta",
+        "Notificaciones"
       ],
       "businessObjectsManaged": [
         "Registro de Operación",

@@ -27,7 +27,7 @@
   "updatedAt": "2026-07-13T07:22:16.259Z",
   "participantNarratives": [
     {
-      "participantInstanceId": "p-trabajador",
+      "participantInstanceId": "actor-worker",
       "participantName": "Trabajador",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -49,7 +49,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-gesti-n-de-soli",
+      "participantInstanceId": "sd-gestion-de-solicitud",
       "participantName": "Gestión de Solicitudes Pensionarias",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -73,7 +73,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-resoluci-n-de-p",
+      "participantInstanceId": "sd-resolucion-de-pensio",
       "participantName": "Resolución de Pensión",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -92,7 +92,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-elegibilidad-pe",
+      "participantInstanceId": "sd-elegibilidad-pension",
       "participantName": "Elegibilidad Pensionaria",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -109,7 +109,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-proyecci-n-pens",
+      "participantInstanceId": "sd-proyeccion-pensionar",
       "participantName": "Proyección Pensionaria",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -126,7 +126,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-retiro-programa",
+      "participantInstanceId": "sd-retiro-programado",
       "participantName": "Retiro Programado",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -145,7 +145,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-renta-vitalicia",
+      "participantInstanceId": "sd-renta-vitalicia",
       "participantName": "Renta Vitalicia",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -166,7 +166,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-pensi-n-garanti",
+      "participantInstanceId": "sd-pension-garantizada",
       "participantName": "Pensión Garantizada",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -185,7 +185,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-aseguradoras",
+      "participantInstanceId": "org-insurer",
       "participantName": "Aseguradoras",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -204,16 +204,19 @@
       ]
     },
     {
-      "participantInstanceId": "p-gesti-n-de-cons",
-      "participantName": "Gestión de Consentimiento",
+      "participantInstanceId": "sd-gestion-de-consentim",
+      "participantName": "Gestión de Solicitudes Pensionarias",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
       "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
       "receivesFrom": [
-        "Trabajador"
+        "proyecci n"
       ],
       "sendsTo": [
-        "Firma Electrónica"
+        "Resolución de Pensión",
+        "Trabajador",
+        "modalidad elegi",
+        "Notificaciones"
       ],
       "businessObjectsManaged": [
         "Registro de Operación",
@@ -225,7 +228,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-firma-electr-ni",
+      "participantInstanceId": "sd-firma-electronica",
       "participantName": "Firma Electrónica",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -246,7 +249,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-expediente-elec",
+      "participantInstanceId": "sd-expediente-electroni",
       "participantName": "Expediente Electrónico",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -263,7 +266,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-notificaciones",
+      "participantInstanceId": "sd-notificaciones",
       "participantName": "Notificaciones",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -284,77 +287,13 @@
       ]
     },
     {
-      "participantInstanceId": "p-resoluci-n",
-      "participantName": "resoluci n",
-      "structuralRole": "Service Domain coordinador / ejecutor",
-      "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
-      "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
-      "receivesFrom": [],
-      "sendsTo": [
-        "elegibilidad"
-      ],
-      "businessObjectsManaged": [
-        "Registro de Operación",
-        "Parámetro Validado"
-      ],
-      "controlsApplied": [
-        "Validación de entrada",
-        "Rechazo por formato inválido"
-      ]
-    },
-    {
-      "participantInstanceId": "p-elegibilidad",
-      "participantName": "elegibilidad",
+      "participantInstanceId": "sd-resolucion",
+      "participantName": "Resolución de Pensión",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
       "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
       "receivesFrom": [
-        "resoluci n"
-      ],
-      "sendsTo": [
-        "proyecci n"
-      ],
-      "businessObjectsManaged": [
-        "Registro de Operación",
-        "Parámetro Validado"
-      ],
-      "controlsApplied": [
-        "Validación de entrada",
-        "Rechazo por formato inválido"
-      ]
-    },
-    {
-      "participantInstanceId": "p-proyecci-n",
-      "participantName": "proyecci n",
-      "structuralRole": "Service Domain coordinador / ejecutor",
-      "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
-      "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
-      "receivesFrom": [
-        "elegibilidad"
-      ],
-      "sendsTo": [
-        "Retiro Programado",
-        "Renta Vitalicia",
-        "Pensión Garantizada",
         "Gestión de Solicitudes Pensionarias"
-      ],
-      "businessObjectsManaged": [
-        "Registro de Operación",
-        "Parámetro Validado"
-      ],
-      "controlsApplied": [
-        "Validación de entrada",
-        "Rechazo por formato inválido"
-      ]
-    },
-    {
-      "participantInstanceId": "p-expediente",
-      "participantName": "expediente",
-      "structuralRole": "Service Domain coordinador / ejecutor",
-      "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
-      "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
-      "receivesFrom": [
-        "Firma Electrónica"
       ],
       "sendsTo": [],
       "businessObjectsManaged": [
@@ -367,13 +306,64 @@
       ]
     },
     {
-      "participantInstanceId": "p-modalidad-elegi",
-      "participantName": "modalidad elegi",
+      "participantInstanceId": "sd-elegibilidad",
+      "participantName": "Elegibilidad Pensionaria",
+      "structuralRole": "Service Domain coordinador / ejecutor",
+      "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
+      "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
+      "receivesFrom": [],
+      "sendsTo": [],
+      "businessObjectsManaged": [
+        "Registro de Operación",
+        "Parámetro Validado"
+      ],
+      "controlsApplied": [
+        "Validación de entrada",
+        "Rechazo por formato inválido"
+      ]
+    },
+    {
+      "participantInstanceId": "sd-proyeccion",
+      "participantName": "Proyección Pensionaria",
+      "structuralRole": "Service Domain coordinador / ejecutor",
+      "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
+      "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
+      "receivesFrom": [],
+      "sendsTo": [],
+      "businessObjectsManaged": [
+        "Registro de Operación",
+        "Parámetro Validado"
+      ],
+      "controlsApplied": [
+        "Validación de entrada",
+        "Rechazo por formato inválido"
+      ]
+    },
+    {
+      "participantInstanceId": "sd-expediente",
+      "participantName": "Expediente Electrónico",
+      "structuralRole": "Service Domain coordinador / ejecutor",
+      "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
+      "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
+      "receivesFrom": [],
+      "sendsTo": [],
+      "businessObjectsManaged": [
+        "Registro de Operación",
+        "Parámetro Validado"
+      ],
+      "controlsApplied": [
+        "Validación de entrada",
+        "Rechazo por formato inválido"
+      ]
+    },
+    {
+      "participantInstanceId": "sd-modalidad-de-pension",
+      "participantName": "Pensión Garantizada",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
       "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
       "receivesFrom": [
-        "Gestión de Solicitudes Pensionarias"
+        "proyecci n"
       ],
       "sendsTo": [],
       "businessObjectsManaged": [

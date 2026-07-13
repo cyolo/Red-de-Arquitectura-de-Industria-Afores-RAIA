@@ -27,7 +27,7 @@
   "updatedAt": "2026-07-13T07:22:16.252Z",
   "participantNarratives": [
     {
-      "participantInstanceId": "p-cuenta-individu",
+      "participantInstanceId": "sd-cuenta-individual",
       "participantName": "Cuenta Individual",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -48,7 +48,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-datos-del-traba",
+      "participantInstanceId": "actor-worker",
       "participantName": "Datos del Trabajador",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -67,7 +67,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-asignaci-n-a-si",
+      "participantInstanceId": "sd-asignacion-a-siefore",
       "participantName": "Asignación a SIEFORE",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -86,26 +86,12 @@
       ]
     },
     {
-      "participantInstanceId": "p-cat-logo-de-sie",
-      "participantName": "Catálogo de SIEFORE",
-      "structuralRole": "Service Domain coordinador / ejecutor",
-      "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
-      "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
-      "receivesFrom": [
-        "asignaci n"
-      ],
-      "sendsTo": [],
-      "businessObjectsManaged": [
-        "Registro de Operación",
-        "Parámetro Validado"
-      ],
-      "controlsApplied": [
-        "Validación de entrada",
-        "Rechazo por formato inválido"
-      ]
+      "participantInstanceId": "registry-bdnsar",
+      "roleNarrative": "Responsabilidad asignada a Catálogo de SIEFORE",
+      "expectedBehavior": "Comportamiento esperado para Catálogo de SIEFORE"
     },
     {
-      "participantInstanceId": "p-gesti-n-regulat",
+      "participantInstanceId": "trust-fund",
       "participantName": "Gestión Regulatoria de Fondos",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -126,7 +112,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-transferencia-e",
+      "participantInstanceId": "sd-transferencia-entre-",
       "participantName": "Transferencia entre SIEFORE",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -145,17 +131,15 @@
       ]
     },
     {
-      "participantInstanceId": "p-asignaci-n-de-a",
-      "participantName": "Asignación de Acciones",
+      "participantInstanceId": "sd-asignacion-de-accion",
+      "participantName": "Asignación a SIEFORE",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
       "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
       "receivesFrom": [
-        "transferencia"
+        "Cuenta Individual"
       ],
-      "sendsTo": [
-        "Libro Mayor"
-      ],
+      "sendsTo": [],
       "businessObjectsManaged": [
         "Registro de Operación",
         "Parámetro Validado"
@@ -166,7 +150,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-libro-mayor",
+      "participantInstanceId": "sd-libro-mayor",
       "participantName": "Libro Mayor",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -187,7 +171,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-notificaciones",
+      "participantInstanceId": "sd-notificaciones",
       "participantName": "Notificaciones",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -206,22 +190,15 @@
       ]
     },
     {
-      "participantInstanceId": "p-asignaci-n",
-      "participantName": "asignaci n",
+      "participantInstanceId": "sd-asignacion",
+      "participantName": "Asignación a SIEFORE",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
       "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
       "receivesFrom": [
-        "cat logo",
-        "Libro Mayor"
+        "Cuenta Individual"
       ],
-      "sendsTo": [
-        "Datos del Trabajador",
-        "Catálogo de SIEFORE",
-        "Cuenta Individual",
-        "Transferencia entre SIEFORE",
-        "Notificaciones"
-      ],
+      "sendsTo": [],
       "businessObjectsManaged": [
         "Registro de Operación",
         "Parámetro Validado"
@@ -232,37 +209,15 @@
       ]
     },
     {
-      "participantInstanceId": "p-cat-logo",
-      "participantName": "cat logo",
+      "participantInstanceId": "sd-transferencia",
+      "participantName": "Transferencia entre SIEFORE",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
       "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
       "receivesFrom": [
-        "Gestión Regulatoria de Fondos"
-      ],
-      "sendsTo": [
-        "Gestión Regulatoria de Fondos",
         "asignaci n"
       ],
-      "businessObjectsManaged": [
-        "Registro de Operación",
-        "Parámetro Validado"
-      ],
-      "controlsApplied": [
-        "Validación de entrada",
-        "Rechazo por formato inválido"
-      ]
-    },
-    {
-      "participantInstanceId": "p-transferencia",
-      "participantName": "transferencia",
-      "structuralRole": "Service Domain coordinador / ejecutor",
-      "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
-      "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
-      "receivesFrom": [],
-      "sendsTo": [
-        "Asignación de Acciones"
-      ],
+      "sendsTo": [],
       "businessObjectsManaged": [
         "Registro de Operación",
         "Parámetro Validado"

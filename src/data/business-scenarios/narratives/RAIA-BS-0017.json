@@ -27,7 +27,7 @@
   "updatedAt": "2026-07-13T07:22:16.262Z",
   "participantNarratives": [
     {
-      "participantInstanceId": "p-identificaci-n-",
+      "participantInstanceId": "sd-identificacion-de-cu",
       "participantName": "Identificación de Cuentas Elegibles",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -44,7 +44,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-afore",
+      "participantInstanceId": "org-afore",
       "participantName": "AFORE",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -67,7 +67,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-administraci-n-",
+      "participantInstanceId": "sd-administracion-de-cu",
       "participantName": "Administración de Cuenta Individual",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -89,7 +89,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-desinversi-n-de",
+      "participantInstanceId": "sd-desinversion-de-recu",
       "participantName": "Desinversión de Recursos",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -106,7 +106,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-transferencia-a",
+      "participantInstanceId": "trust-fund",
       "participantName": "Transferencia al Fondo",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -125,7 +125,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-instituci-n-fin",
+      "participantInstanceId": "ext-counterparty",
       "participantName": "Institución Financiera",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -146,24 +146,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-fondo-de-pensio",
-      "participantName": "Fondo de Pensiones para el Bienestar",
-      "structuralRole": "Service Domain coordinador / ejecutor",
-      "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
-      "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
-      "receivesFrom": [],
-      "sendsTo": [],
-      "businessObjectsManaged": [
-        "Registro de Operación",
-        "Parámetro Validado"
-      ],
-      "controlsApplied": [
-        "Validación de entrada",
-        "Rechazo por formato inválido"
-      ]
-    },
-    {
-      "participantInstanceId": "p-bdnsar",
+      "participantInstanceId": "registry-bdnsar",
       "participantName": "BDNSAR",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -182,7 +165,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-conciliaci-n",
+      "participantInstanceId": "sd-conciliacion",
       "participantName": "Conciliación",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -203,7 +186,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-informaci-n-reg",
+      "participantInstanceId": "sd-informacion-regulato",
       "participantName": "Información Regulatoria",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -222,7 +205,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-notificaciones",
+      "participantInstanceId": "sd-notificaciones",
       "participantName": "Notificaciones",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -241,15 +224,13 @@
       ]
     },
     {
-      "participantInstanceId": "p-identificaci-n",
-      "participantName": "identificaci n",
+      "participantInstanceId": "sd-identificacion",
+      "participantName": "Identificación de Cuentas Elegibles",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
       "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
       "receivesFrom": [],
-      "sendsTo": [
-        "AFORE"
-      ],
+      "sendsTo": [],
       "businessObjectsManaged": [
         "Registro de Operación",
         "Parámetro Validado"
@@ -260,17 +241,13 @@
       ]
     },
     {
-      "participantInstanceId": "p-desinversi-n",
-      "participantName": "desinversi n",
+      "participantInstanceId": "sd-desinversion",
+      "participantName": "Desinversión de Recursos",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
       "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
-      "receivesFrom": [
-        "AFORE"
-      ],
-      "sendsTo": [
-        "Transferencia al Fondo"
-      ],
+      "receivesFrom": [],
+      "sendsTo": [],
       "businessObjectsManaged": [
         "Registro de Operación",
         "Parámetro Validado"
@@ -281,44 +258,15 @@
       ]
     },
     {
-      "participantInstanceId": "p-transferencia",
-      "participantName": "transferencia",
+      "participantInstanceId": "sd-transferencia",
+      "participantName": "Transferencia al Fondo",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
       "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
       "receivesFrom": [
-        "fondo",
-        "Conciliación"
+        "desinversi n"
       ],
-      "sendsTo": [
-        "Institución Financiera",
-        "Administración de Cuenta Individual",
-        "BDNSAR",
-        "Conciliación",
-        "Información Regulatoria",
-        "Notificaciones"
-      ],
-      "businessObjectsManaged": [
-        "Registro de Operación",
-        "Parámetro Validado"
-      ],
-      "controlsApplied": [
-        "Validación de entrada",
-        "Rechazo por formato inválido"
-      ]
-    },
-    {
-      "participantInstanceId": "p-fondo",
-      "participantName": "fondo",
-      "structuralRole": "Service Domain coordinador / ejecutor",
-      "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
-      "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
-      "receivesFrom": [
-        "Institución Financiera"
-      ],
-      "sendsTo": [
-        "transferencia"
-      ],
+      "sendsTo": [],
       "businessObjectsManaged": [
         "Registro de Operación",
         "Parámetro Validado"

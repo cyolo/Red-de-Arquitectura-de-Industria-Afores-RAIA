@@ -7,73 +7,67 @@
   "regulatoryValidationStatus": "pending",
   "participants": [
     {
-      "instanceId": "p-cuenta-individu",
+      "instanceId": "sd-cuenta-individual",
       "participantType": "service-domain",
       "label": "Cuenta Individual",
       "order": 1
     },
     {
-      "instanceId": "p-datos-del-traba",
-      "participantType": "service-domain",
+      "instanceId": "actor-worker",
+      "participantType": "actor",
       "label": "Datos del Trabajador",
       "order": 2
     },
     {
-      "instanceId": "p-asignaci-n-a-si",
+      "instanceId": "sd-asignacion-a-siefore",
       "participantType": "service-domain",
       "label": "Asignación a SIEFORE",
       "order": 3
     },
     {
-      "instanceId": "p-cat-logo-de-sie",
-      "participantType": "service-domain",
+      "instanceId": "registry-bdnsar",
+      "participantType": "information-asset",
       "label": "Catálogo de SIEFORE",
       "order": 4
     },
     {
-      "instanceId": "p-gesti-n-regulat",
-      "participantType": "service-domain",
+      "instanceId": "trust-fund",
+      "participantType": "public-trust",
       "label": "Gestión Regulatoria de Fondos",
       "order": 5
     },
     {
-      "instanceId": "p-transferencia-e",
+      "instanceId": "sd-transferencia-entre-",
       "participantType": "service-domain",
       "label": "Transferencia entre SIEFORE",
       "order": 6
     },
     {
-      "instanceId": "p-asignaci-n-de-a",
+      "instanceId": "sd-asignacion-de-accion",
       "participantType": "service-domain",
       "label": "Asignación de Acciones",
       "order": 7
     },
     {
-      "instanceId": "p-libro-mayor",
+      "instanceId": "sd-libro-mayor",
       "participantType": "service-domain",
       "label": "Libro Mayor",
       "order": 8
     },
     {
-      "instanceId": "p-notificaciones",
+      "instanceId": "sd-notificaciones",
       "participantType": "service-domain",
       "label": "Notificaciones",
       "order": 9
     },
     {
-      "instanceId": "p-asignaci-n",
+      "instanceId": "sd-asignacion",
       "participantType": "service-domain",
-      "label": "asignaci n",
+      "label": "Asignación",
       "order": 10
     },
     {
-      "instanceId": "p-cat-logo",
-      "participantType": "service-domain",
-      "label": "cat logo",
-      "order": 11
-    },
-    {
-      "instanceId": "p-transferencia",
+      "instanceId": "sd-transferencia",
       "participantType": "service-domain",
       "label": "transferencia",
       "order": 12
@@ -84,133 +78,124 @@
       "id": "RAIA-BS-0008-MSG-01",
       "scenarioStepId": "RAIA-BS-0008-STEP-01",
       "sequence": 1,
-      "sourceParticipantInstanceId": "p-cuenta-individu",
-      "targetParticipantInstanceId": "p-asignaci-n-a-si",
+      "sourceParticipantInstanceId": "sd-cuenta-individual",
+      "targetParticipantInstanceId": "sd-asignacion-a-siefore",
       "label": "Solicitar clasificación.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Cuenta Individual y Asignación a SIEFORE."
+      "description": "Solicitar clasificación."
     },
     {
       "id": "RAIA-BS-0008-MSG-02",
       "scenarioStepId": "RAIA-BS-0008-STEP-02",
       "sequence": 2,
-      "sourceParticipantInstanceId": "p-asignaci-n",
-      "targetParticipantInstanceId": "p-datos-del-traba",
+      "sourceParticipantInstanceId": "sd-asignacion",
+      "targetParticipantInstanceId": "actor-worker",
       "label": "Recuperar datos relevantes.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Asignación y Datos del Trabajador."
+      "description": "Recuperar datos relevantes."
     },
     {
       "id": "RAIA-BS-0008-MSG-03",
       "scenarioStepId": "RAIA-BS-0008-STEP-03",
       "sequence": 3,
-      "sourceParticipantInstanceId": "p-asignaci-n",
-      "targetParticipantInstanceId": "p-cat-logo-de-sie",
+      "sourceParticipantInstanceId": "sd-asignacion",
+      "targetParticipantInstanceId": "registry-bdnsar",
       "label": "Consultar fondos vigentes.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Asignación y Catálogo de SIEFORE."
+      "description": "Consultar fondos vigentes."
     },
     {
       "id": "RAIA-BS-0008-MSG-04",
       "scenarioStepId": "RAIA-BS-0008-STEP-04",
       "sequence": 4,
-      "sourceParticipantInstanceId": "p-cat-logo",
-      "targetParticipantInstanceId": "p-gesti-n-regulat",
+      "sourceParticipantInstanceId": "registry-bdnsar",
+      "targetParticipantInstanceId": "trust-fund",
       "label": "Validar reglas vigentes.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Catálogo y Gestión Regulatoria."
+      "description": "Validar reglas vigentes."
     },
     {
       "id": "RAIA-BS-0008-MSG-05",
       "scenarioStepId": "RAIA-BS-0008-STEP-05",
       "sequence": 5,
-      "sourceParticipantInstanceId": "p-gesti-n-regulat",
-      "targetParticipantInstanceId": "p-cat-logo",
+      "sourceParticipantInstanceId": "trust-fund",
+      "targetParticipantInstanceId": "registry-bdnsar",
       "label": "Confirmar parámetros.",
       "messageType": "response",
-      "description": "Interacción entre Gestión Regulatoria y Catálogo."
+      "description": "Confirmar parámetros."
     },
     {
       "id": "RAIA-BS-0008-MSG-06",
       "scenarioStepId": "RAIA-BS-0008-STEP-06",
       "sequence": 6,
-      "sourceParticipantInstanceId": "p-cat-logo",
-      "targetParticipantInstanceId": "p-asignaci-n",
+      "sourceParticipantInstanceId": "registry-bdnsar",
+      "targetParticipantInstanceId": "sd-asignacion",
       "label": "Entregar SIEFORE aplicable.",
       "messageType": "response",
-      "description": "Interacción entre Catálogo y Asignación."
+      "description": "Entregar SIEFORE aplicable."
     },
     {
       "id": "RAIA-BS-0008-MSG-07",
       "scenarioStepId": "RAIA-BS-0008-STEP-07",
       "sequence": 7,
-      "sourceParticipantInstanceId": "p-asignaci-n",
-      "targetParticipantInstanceId": "p-cuenta-individu",
+      "sourceParticipantInstanceId": "sd-asignacion",
+      "targetParticipantInstanceId": "sd-cuenta-individual",
       "label": "Consultar fondo actual.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Asignación y Cuenta Individual."
+      "description": "Consultar fondo actual."
     },
     {
       "id": "RAIA-BS-0008-MSG-08",
       "scenarioStepId": "RAIA-BS-0008-STEP-08",
       "sequence": 8,
-      "sourceParticipantInstanceId": "p-asignaci-n",
-      "targetParticipantInstanceId": "p-transferencia-e",
+      "sourceParticipantInstanceId": "sd-asignacion",
+      "targetParticipantInstanceId": "sd-transferencia-entre-",
       "label": "Solicitar transferencia cuando corresponda.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Asignación y Transferencia entre SIEFORE."
+      "description": "Solicitar transferencia cuando corresponda."
     },
     {
       "id": "RAIA-BS-0008-MSG-09",
       "scenarioStepId": "RAIA-BS-0008-STEP-09",
       "sequence": 9,
-      "sourceParticipantInstanceId": "p-transferencia",
-      "targetParticipantInstanceId": "p-asignaci-n-de-a",
+      "sourceParticipantInstanceId": "sd-transferencia",
+      "targetParticipantInstanceId": "sd-asignacion-de-accion",
       "label": "Cancelar y asignar acciones.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Transferencia y Asignación de Acciones."
+      "description": "Cancelar y asignar acciones."
     },
     {
       "id": "RAIA-BS-0008-MSG-10",
       "scenarioStepId": "RAIA-BS-0008-STEP-10",
       "sequence": 10,
-      "sourceParticipantInstanceId": "p-asignaci-n-de-a",
-      "targetParticipantInstanceId": "p-libro-mayor",
+      "sourceParticipantInstanceId": "sd-asignacion-de-accion",
+      "targetParticipantInstanceId": "sd-libro-mayor",
       "label": "Registrar movimientos.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Asignación de Acciones y Libro Mayor."
+      "description": "Registrar movimientos."
     },
     {
       "id": "RAIA-BS-0008-MSG-11",
       "scenarioStepId": "RAIA-BS-0008-STEP-11",
       "sequence": 11,
-      "sourceParticipantInstanceId": "p-libro-mayor",
-      "targetParticipantInstanceId": "p-asignaci-n",
+      "sourceParticipantInstanceId": "sd-libro-mayor",
+      "targetParticipantInstanceId": "sd-asignacion",
       "label": "Confirmar registro.",
       "messageType": "response",
-      "description": "Interacción entre Libro Mayor y Asignación."
+      "description": "Confirmar registro."
     },
     {
       "id": "RAIA-BS-0008-MSG-12",
       "scenarioStepId": "RAIA-BS-0008-STEP-12",
       "sequence": 12,
-      "sourceParticipantInstanceId": "p-asignaci-n",
-      "targetParticipantInstanceId": "p-notificaciones",
+      "sourceParticipantInstanceId": "sd-asignacion",
+      "targetParticipantInstanceId": "sd-notificaciones",
       "label": "Comunicar resultado.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Asignación y Notificaciones."
+      "description": "Comunicar resultado."
     }
   ],
-  "activations": [
-    {
-      "id": "act-1",
-      "participantInstanceId": "p-asignaci-n-a-si",
-      "startSequence": 1,
-      "endSequence": 12,
-      "depth": 0,
-      "activationType": "processing"
-    }
-  ],
+  "activations": [],
   "notes": [
     {
       "id": "note-control-1",
@@ -267,5 +252,6 @@
         }
       ]
     }
-  ]
+  ],
+  "modelingStatus": "partially-modeled"
 }

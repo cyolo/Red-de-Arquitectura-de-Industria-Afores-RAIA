@@ -27,24 +27,12 @@
   "updatedAt": "2026-07-13T07:22:16.237Z",
   "participantNarratives": [
     {
-      "participantInstanceId": "p-patr-n-o-depend",
-      "participantName": "Patrón o dependencia",
-      "structuralRole": "Service Domain coordinador / ejecutor",
-      "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
-      "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
-      "receivesFrom": [],
-      "sendsTo": [],
-      "businessObjectsManaged": [
-        "Registro de Operación",
-        "Parámetro Validado"
-      ],
-      "controlsApplied": [
-        "Validación de entrada",
-        "Rechazo por formato inválido"
-      ]
+      "participantInstanceId": "sd-patron-o-dependencia",
+      "roleNarrative": "Responsabilidad asignada a Patrón o dependencia",
+      "expectedBehavior": "Comportamiento esperado para Patrón o dependencia"
     },
     {
-      "participantInstanceId": "p-entidad-recauda",
+      "participantInstanceId": "sd-entidad-recaudadora",
       "participantName": "Entidad Recaudadora",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -66,7 +54,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-determinaci-n-d",
+      "participantInstanceId": "sd-determinacion-de-apo",
       "participantName": "Determinación de Aportaciones",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -85,7 +73,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-recaudaci-n-de-",
+      "participantInstanceId": "sd-recaudacion-de-aport",
       "participantName": "Recaudación de Aportaciones",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -102,8 +90,8 @@
       ]
     },
     {
-      "participantInstanceId": "p-conciliaci-n-de",
-      "participantName": "Conciliación de Recaudación",
+      "participantInstanceId": "sd-conciliacion-de-reca",
+      "participantName": "Recaudación de Aportaciones",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
       "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
@@ -119,7 +107,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-individualizaci",
+      "participantInstanceId": "sd-individualizacion-de",
       "participantName": "Individualización de Aportaciones",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -141,7 +129,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-administraci-n-",
+      "participantInstanceId": "sd-administracion-de-su",
       "participantName": "Administración de Subcuentas",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -162,7 +150,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-libro-mayor",
+      "participantInstanceId": "sd-libro-mayor",
       "participantName": "Libro Mayor",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -185,7 +173,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-asignaci-n-de-a",
+      "participantInstanceId": "sd-asignacion-de-accion",
       "participantName": "Asignación de Acciones",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -206,16 +194,16 @@
       ]
     },
     {
-      "participantInstanceId": "p-asignaci-n-a-si",
-      "participantName": "Asignación a SIEFORE",
+      "participantInstanceId": "sd-asignacion-a-siefore",
+      "participantName": "Asignación de Acciones",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
       "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
       "receivesFrom": [
-        "Asignación de Acciones"
+        "Libro Mayor"
       ],
       "sendsTo": [
-        "Gestión de Liquidez"
+        "Asignación a SIEFORE"
       ],
       "businessObjectsManaged": [
         "Registro de Operación",
@@ -227,7 +215,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-gesti-n-de-liqu",
+      "participantInstanceId": "sd-gestion-de-liquidez",
       "participantName": "Gestión de Liquidez",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -248,7 +236,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-portafolio-de-i",
+      "participantInstanceId": "sd-portafolio-de-invers",
       "participantName": "Portafolio de Inversión",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -265,16 +253,13 @@
       ]
     },
     {
-      "participantInstanceId": "p-patr-n",
-      "participantName": "patr n",
+      "participantInstanceId": "sd-patr-n",
+      "participantName": "Patrón o dependencia",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
       "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
       "receivesFrom": [],
-      "sendsTo": [
-        "Determinación de Aportaciones",
-        "Entidad Recaudadora"
-      ],
+      "sendsTo": [],
       "businessObjectsManaged": [
         "Registro de Operación",
         "Parámetro Validado"
@@ -285,15 +270,32 @@
       ]
     },
     {
-      "participantInstanceId": "p-determinaci-n",
-      "participantName": "determinaci n",
+      "participantInstanceId": "sd-determinacion",
+      "participantName": "Determinación de Aportaciones",
+      "structuralRole": "Service Domain coordinador / ejecutor",
+      "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
+      "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
+      "receivesFrom": [
+        "patr n"
+      ],
+      "sendsTo": [],
+      "businessObjectsManaged": [
+        "Registro de Operación",
+        "Parámetro Validado"
+      ],
+      "controlsApplied": [
+        "Validación de entrada",
+        "Rechazo por formato inválido"
+      ]
+    },
+    {
+      "participantInstanceId": "sd-recaudaci-n",
+      "participantName": "Recaudación de Aportaciones",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
       "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
       "receivesFrom": [],
-      "sendsTo": [
-        "recaudaci n"
-      ],
+      "sendsTo": [],
       "businessObjectsManaged": [
         "Registro de Operación",
         "Parámetro Validado"
@@ -304,18 +306,13 @@
       ]
     },
     {
-      "participantInstanceId": "p-recaudaci-n",
-      "participantName": "recaudaci n",
+      "participantInstanceId": "sd-conciliacion",
+      "participantName": "Conciliación de Recaudación",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
       "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
-      "receivesFrom": [
-        "determinaci n",
-        "Entidad Recaudadora"
-      ],
-      "sendsTo": [
-        "conciliaci n"
-      ],
+      "receivesFrom": [],
+      "sendsTo": [],
       "businessObjectsManaged": [
         "Registro de Operación",
         "Parámetro Validado"
@@ -326,39 +323,13 @@
       ]
     },
     {
-      "participantInstanceId": "p-conciliaci-n",
-      "participantName": "conciliaci n",
+      "participantInstanceId": "sd-portafolio",
+      "participantName": "Portafolio de Inversión",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
       "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
-      "receivesFrom": [
-        "recaudaci n"
-      ],
-      "sendsTo": [
-        "Entidad Recaudadora",
-        "Individualización de Aportaciones"
-      ],
-      "businessObjectsManaged": [
-        "Registro de Operación",
-        "Parámetro Validado"
-      ],
-      "controlsApplied": [
-        "Validación de entrada",
-        "Rechazo por formato inválido"
-      ]
-    },
-    {
-      "participantInstanceId": "p-portafolio",
-      "participantName": "portafolio",
-      "structuralRole": "Service Domain coordinador / ejecutor",
-      "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
-      "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
-      "receivesFrom": [
-        "Gestión de Liquidez"
-      ],
-      "sendsTo": [
-        "Libro Mayor"
-      ],
+      "receivesFrom": [],
+      "sendsTo": [],
       "businessObjectsManaged": [
         "Registro de Operación",
         "Parámetro Validado"

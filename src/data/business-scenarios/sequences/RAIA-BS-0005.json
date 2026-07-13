@@ -7,91 +7,85 @@
   "regulatoryValidationStatus": "pending",
   "participants": [
     {
-      "instanceId": "p-consar",
-      "participantType": "service-domain",
+      "instanceId": "authority-consar",
+      "participantType": "authority",
       "label": "CONSAR",
       "order": 1
     },
     {
-      "instanceId": "p-m-tricas-del-si",
+      "instanceId": "sd-metricas-del-sistema",
       "participantType": "service-domain",
       "label": "Métricas del Sistema",
       "order": 2
     },
     {
-      "instanceId": "p-evaluaci-n-de-d",
+      "instanceId": "sd-evaluacion-de-desemp",
       "participantType": "service-domain",
       "label": "Evaluación de Desempeño",
       "order": 3
     },
     {
-      "instanceId": "p-gesti-n-de-comi",
+      "instanceId": "sd-gestion-de-comisione",
       "participantType": "service-domain",
       "label": "Gestión de Comisiones",
       "order": 4
     },
     {
-      "instanceId": "p-reasignaci-n-de",
+      "instanceId": "sd-reasignacion-de-cuen",
       "participantType": "service-domain",
       "label": "Reasignación de Cuenta",
       "order": 5
     },
     {
-      "instanceId": "p-bdnsar",
-      "participantType": "service-domain",
+      "instanceId": "registry-bdnsar",
+      "participantType": "information-asset",
       "label": "BDNSAR",
       "order": 6
     },
     {
-      "instanceId": "p-afore-de-origen",
-      "participantType": "service-domain",
+      "instanceId": "org-afore",
+      "participantType": "organization",
       "label": "AFORE de origen",
       "order": 7
     },
     {
-      "instanceId": "p-afore-receptora",
-      "participantType": "service-domain",
-      "label": "AFORE receptora",
-      "order": 8
-    },
-    {
-      "instanceId": "p-transferencia-d",
+      "instanceId": "sd-transferencia-de-rec",
       "participantType": "service-domain",
       "label": "Transferencia de Recursos",
       "order": 9
     },
     {
-      "instanceId": "p-libro-mayor",
+      "instanceId": "sd-libro-mayor",
       "participantType": "service-domain",
       "label": "Libro Mayor",
       "order": 10
     },
     {
-      "instanceId": "p-notificaciones",
+      "instanceId": "sd-notificaciones",
       "participantType": "service-domain",
       "label": "Notificaciones",
       "order": 11
     },
     {
-      "instanceId": "p-evaluaci-n",
+      "instanceId": "sd-evaluacion",
       "participantType": "service-domain",
-      "label": "evaluaci n",
+      "label": "eValuación",
       "order": 12
     },
     {
-      "instanceId": "p-m-tricas",
+      "instanceId": "sd-metricas",
       "participantType": "service-domain",
-      "label": "m tricas",
+      "label": "Métricas",
       "order": 13
     },
     {
-      "instanceId": "p-reasignaci-n",
+      "instanceId": "sd-reasignacion",
       "participantType": "service-domain",
-      "label": "reasignaci n",
+      "label": "reAsignación",
       "order": 14
     },
     {
-      "instanceId": "p-transferencia",
+      "instanceId": "sd-transferencia",
       "participantType": "service-domain",
       "label": "transferencia",
       "order": 15
@@ -102,173 +96,164 @@
       "id": "RAIA-BS-0005-MSG-01",
       "scenarioStepId": "RAIA-BS-0005-STEP-01",
       "sequence": 1,
-      "sourceParticipantInstanceId": "p-consar",
-      "targetParticipantInstanceId": "p-evaluaci-n-de-d",
+      "sourceParticipantInstanceId": "authority-consar",
+      "targetParticipantInstanceId": "sd-evaluacion-de-desemp",
       "label": "Iniciar ciclo de evaluación.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre CONSAR y Evaluación de Desempeño."
+      "description": "Iniciar ciclo de evaluación."
     },
     {
       "id": "RAIA-BS-0005-MSG-02",
       "scenarioStepId": "RAIA-BS-0005-STEP-02",
       "sequence": 2,
-      "sourceParticipantInstanceId": "p-evaluaci-n",
-      "targetParticipantInstanceId": "p-m-tricas-del-si",
+      "sourceParticipantInstanceId": "sd-evaluacion",
+      "targetParticipantInstanceId": "sd-metricas-del-sistema",
       "label": "Recuperar indicadores.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Evaluación y Métricas del Sistema."
+      "description": "Recuperar indicadores."
     },
     {
       "id": "RAIA-BS-0005-MSG-03",
       "scenarioStepId": "RAIA-BS-0005-STEP-03",
       "sequence": 3,
-      "sourceParticipantInstanceId": "p-evaluaci-n",
-      "targetParticipantInstanceId": "p-gesti-n-de-comi",
+      "sourceParticipantInstanceId": "sd-evaluacion",
+      "targetParticipantInstanceId": "sd-gestion-de-comisione",
       "label": "Recuperar comisiones vigentes.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Evaluación y Gestión de Comisiones."
+      "description": "Recuperar comisiones vigentes."
     },
     {
       "id": "RAIA-BS-0005-MSG-04",
       "scenarioStepId": "RAIA-BS-0005-STEP-04",
       "sequence": 4,
-      "sourceParticipantInstanceId": "p-m-tricas",
-      "targetParticipantInstanceId": "p-evaluaci-n",
+      "sourceParticipantInstanceId": "sd-metricas",
+      "targetParticipantInstanceId": "sd-evaluacion",
       "label": "Entregar resultados.",
       "messageType": "response",
-      "description": "Interacción entre Métricas y Evaluación."
+      "description": "Entregar resultados."
     },
     {
       "id": "RAIA-BS-0005-MSG-05",
       "scenarioStepId": "RAIA-BS-0005-STEP-05",
       "sequence": 5,
-      "sourceParticipantInstanceId": "p-gesti-n-de-comi",
-      "targetParticipantInstanceId": "p-evaluaci-n",
+      "sourceParticipantInstanceId": "sd-gestion-de-comisione",
+      "targetParticipantInstanceId": "sd-evaluacion",
       "label": "Entregar información.",
       "messageType": "response",
-      "description": "Interacción entre Gestión de Comisiones y Evaluación."
+      "description": "Entregar información."
     },
     {
       "id": "RAIA-BS-0005-MSG-06",
       "scenarioStepId": "RAIA-BS-0005-STEP-06",
       "sequence": 6,
-      "sourceParticipantInstanceId": "p-evaluaci-n",
-      "targetParticipantInstanceId": "p-reasignaci-n-de",
+      "sourceParticipantInstanceId": "sd-evaluacion",
+      "targetParticipantInstanceId": "sd-reasignacion-de-cuen",
       "label": "Identificar cuentas elegibles.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Evaluación y Reasignación de Cuenta."
+      "description": "Identificar cuentas elegibles."
     },
     {
       "id": "RAIA-BS-0005-MSG-07",
       "scenarioStepId": "RAIA-BS-0005-STEP-07",
       "sequence": 7,
-      "sourceParticipantInstanceId": "p-reasignaci-n",
-      "targetParticipantInstanceId": "p-bdnsar",
+      "sourceParticipantInstanceId": "sd-reasignacion",
+      "targetParticipantInstanceId": "registry-bdnsar",
       "label": "Consultar cuentas asignadas.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Reasignación y BDNSAR."
+      "description": "Consultar cuentas asignadas."
     },
     {
       "id": "RAIA-BS-0005-MSG-08",
       "scenarioStepId": "RAIA-BS-0005-STEP-08",
       "sequence": 8,
-      "sourceParticipantInstanceId": "p-bdnsar",
-      "targetParticipantInstanceId": "p-reasignaci-n",
+      "sourceParticipantInstanceId": "registry-bdnsar",
+      "targetParticipantInstanceId": "sd-reasignacion",
       "label": "Entregar universo elegible.",
       "messageType": "response",
-      "description": "Interacción entre BDNSAR y Reasignación."
+      "description": "Entregar universo elegible."
     },
     {
       "id": "RAIA-BS-0005-MSG-09",
       "scenarioStepId": "RAIA-BS-0005-STEP-09",
       "sequence": 9,
-      "sourceParticipantInstanceId": "p-reasignaci-n",
-      "targetParticipantInstanceId": "p-afore-de-origen",
+      "sourceParticipantInstanceId": "sd-reasignacion",
+      "targetParticipantInstanceId": "org-afore",
       "label": "Solicitar información.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Reasignación y AFORE de origen."
+      "description": "Solicitar información."
     },
     {
       "id": "RAIA-BS-0005-MSG-10",
       "scenarioStepId": "RAIA-BS-0005-STEP-10",
       "sequence": 10,
-      "sourceParticipantInstanceId": "p-afore-de-origen",
-      "targetParticipantInstanceId": "p-reasignaci-n",
+      "sourceParticipantInstanceId": "org-afore",
+      "targetParticipantInstanceId": "sd-reasignacion",
       "label": "Entregar cuenta y saldos.",
       "messageType": "response",
-      "description": "Interacción entre AFORE de origen y Reasignación."
+      "description": "Entregar cuenta y saldos."
     },
     {
       "id": "RAIA-BS-0005-MSG-11",
       "scenarioStepId": "RAIA-BS-0005-STEP-11",
       "sequence": 11,
-      "sourceParticipantInstanceId": "p-reasignaci-n",
-      "targetParticipantInstanceId": "p-afore-receptora",
+      "sourceParticipantInstanceId": "sd-reasignacion",
+      "targetParticipantInstanceId": "org-afore",
       "label": "Solicitar recepción.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Reasignación y AFORE receptora."
+      "description": "Solicitar recepción."
     },
     {
       "id": "RAIA-BS-0005-MSG-12",
       "scenarioStepId": "RAIA-BS-0005-STEP-12",
       "sequence": 12,
-      "sourceParticipantInstanceId": "p-afore-receptora",
-      "targetParticipantInstanceId": "p-reasignaci-n",
+      "sourceParticipantInstanceId": "org-afore",
+      "targetParticipantInstanceId": "sd-reasignacion",
       "label": "Confirmar recepción.",
       "messageType": "response",
-      "description": "Interacción entre AFORE receptora y Reasignación."
+      "description": "Confirmar recepción."
     },
     {
       "id": "RAIA-BS-0005-MSG-13",
       "scenarioStepId": "RAIA-BS-0005-STEP-13",
       "sequence": 13,
-      "sourceParticipantInstanceId": "p-reasignaci-n",
-      "targetParticipantInstanceId": "p-transferencia-d",
+      "sourceParticipantInstanceId": "sd-reasignacion",
+      "targetParticipantInstanceId": "sd-transferencia-de-rec",
       "label": "Ejecutar transferencia.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Reasignación y Transferencia de Recursos."
+      "description": "Ejecutar transferencia."
     },
     {
       "id": "RAIA-BS-0005-MSG-14",
       "scenarioStepId": "RAIA-BS-0005-STEP-14",
       "sequence": 14,
-      "sourceParticipantInstanceId": "p-transferencia",
-      "targetParticipantInstanceId": "p-libro-mayor",
+      "sourceParticipantInstanceId": "sd-transferencia",
+      "targetParticipantInstanceId": "sd-libro-mayor",
       "label": "Registrar movimientos.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Transferencia y Libro Mayor."
+      "description": "Registrar movimientos."
     },
     {
       "id": "RAIA-BS-0005-MSG-15",
       "scenarioStepId": "RAIA-BS-0005-STEP-15",
       "sequence": 15,
-      "sourceParticipantInstanceId": "p-reasignaci-n",
-      "targetParticipantInstanceId": "p-bdnsar",
+      "sourceParticipantInstanceId": "sd-reasignacion",
+      "targetParticipantInstanceId": "registry-bdnsar",
       "label": "Actualizar responsable.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Reasignación y BDNSAR."
+      "description": "Actualizar responsable."
     },
     {
       "id": "RAIA-BS-0005-MSG-16",
       "scenarioStepId": "RAIA-BS-0005-STEP-16",
       "sequence": 16,
-      "sourceParticipantInstanceId": "p-reasignaci-n",
-      "targetParticipantInstanceId": "p-notificaciones",
+      "sourceParticipantInstanceId": "sd-reasignacion",
+      "targetParticipantInstanceId": "sd-notificaciones",
       "label": "Comunicar resultado.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Reasignación y Notificaciones."
+      "description": "Comunicar resultado."
     }
   ],
-  "activations": [
-    {
-      "id": "act-1",
-      "participantInstanceId": "p-evaluaci-n-de-d",
-      "startSequence": 1,
-      "endSequence": 16,
-      "depth": 0,
-      "activationType": "processing"
-    }
-  ],
+  "activations": [],
   "notes": [
     {
       "id": "note-control-1",
@@ -325,5 +310,6 @@
         }
       ]
     }
-  ]
+  ],
+  "modelingStatus": "partially-modeled"
 }

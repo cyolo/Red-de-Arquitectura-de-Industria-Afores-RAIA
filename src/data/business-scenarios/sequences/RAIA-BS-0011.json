@@ -7,91 +7,85 @@
   "regulatoryValidationStatus": "pending",
   "participants": [
     {
-      "instanceId": "p-cat-logo-de-ins",
-      "participantType": "service-domain",
+      "instanceId": "registry-bdnsar",
+      "participantType": "information-asset",
       "label": "Catálogo de Instrumentos",
       "order": 1
     },
     {
-      "instanceId": "p-proveedor-de-pr",
+      "instanceId": "sd-proveedor-de-precios",
       "participantType": "service-domain",
       "label": "Proveedor de Precios",
       "order": 2
     },
     {
-      "instanceId": "p-valuaci-n-de-in",
+      "instanceId": "sd-valuacion-de-instrum",
       "participantType": "service-domain",
       "label": "Valuación de Instrumentos",
       "order": 3
     },
     {
-      "instanceId": "p-validaci-n-de-p",
+      "instanceId": "sd-validacion-de-precio",
       "participantType": "service-domain",
       "label": "Validación de Precios",
       "order": 4
     },
     {
-      "instanceId": "p-gesti-n-de-exce",
+      "instanceId": "sd-gestion-de-excepcion",
       "participantType": "service-domain",
       "label": "Gestión de Excepciones",
       "order": 5
     },
     {
-      "instanceId": "p-valuaci-n-de-po",
+      "instanceId": "sd-valuacion-de-portafo",
       "participantType": "service-domain",
       "label": "Valuación de Portafolio",
       "order": 6
     },
     {
-      "instanceId": "p-contabilidad-de",
+      "instanceId": "sd-contabilidad-de-inve",
       "participantType": "service-domain",
       "label": "Contabilidad de Inversiones",
       "order": 7
     },
     {
-      "instanceId": "p-riesgo-de-inver",
+      "instanceId": "sd-riesgo-de-inversion",
       "participantType": "service-domain",
       "label": "Riesgo de Inversión",
       "order": 8
     },
     {
-      "instanceId": "p-asignaci-n-de-r",
+      "instanceId": "sd-asignacion-de-rendim",
       "participantType": "service-domain",
       "label": "Asignación de Rendimientos",
       "order": 9
     },
     {
-      "instanceId": "p-cat-logo",
+      "instanceId": "sd-valuacion",
       "participantType": "service-domain",
-      "label": "cat logo",
-      "order": 10
-    },
-    {
-      "instanceId": "p-valuaci-n",
-      "participantType": "service-domain",
-      "label": "valuaci n",
+      "label": "Valuación",
       "order": 11
     },
     {
-      "instanceId": "p-proveedor",
+      "instanceId": "sd-proveedor",
       "participantType": "service-domain",
       "label": "proveedor",
       "order": 12
     },
     {
-      "instanceId": "p-validaci-n",
+      "instanceId": "sd-validaci-n",
       "participantType": "service-domain",
       "label": "validaci n",
       "order": 13
     },
     {
-      "instanceId": "p-riesgo",
+      "instanceId": "sd-riesgo",
       "participantType": "service-domain",
       "label": "riesgo",
       "order": 14
     },
     {
-      "instanceId": "p-contabilidad",
+      "instanceId": "sd-contabilidad",
       "participantType": "service-domain",
       "label": "contabilidad",
       "order": 15
@@ -102,133 +96,124 @@
       "id": "RAIA-BS-0011-MSG-01",
       "scenarioStepId": "RAIA-BS-0011-STEP-01",
       "sequence": 1,
-      "sourceParticipantInstanceId": "p-valuaci-n-de-in",
-      "targetParticipantInstanceId": "p-cat-logo",
+      "sourceParticipantInstanceId": "sd-valuacion-de-instrum",
+      "targetParticipantInstanceId": "registry-bdnsar",
       "label": "Recuperar instrumentos.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Valuación de Instrumentos y Catálogo."
+      "description": "Recuperar instrumentos."
     },
     {
       "id": "RAIA-BS-0011-MSG-02",
       "scenarioStepId": "RAIA-BS-0011-STEP-02",
       "sequence": 2,
-      "sourceParticipantInstanceId": "p-valuaci-n",
-      "targetParticipantInstanceId": "p-proveedor-de-pr",
+      "sourceParticipantInstanceId": "sd-valuacion",
+      "targetParticipantInstanceId": "sd-proveedor-de-precios",
       "label": "Solicitar precios.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Valuación y Proveedor de Precios."
+      "description": "Solicitar precios."
     },
     {
       "id": "RAIA-BS-0011-MSG-03",
       "scenarioStepId": "RAIA-BS-0011-STEP-03",
       "sequence": 3,
-      "sourceParticipantInstanceId": "p-proveedor",
-      "targetParticipantInstanceId": "p-valuaci-n",
+      "sourceParticipantInstanceId": "sd-proveedor",
+      "targetParticipantInstanceId": "sd-valuacion",
       "label": "Entregar información.",
       "messageType": "response",
-      "description": "Interacción entre Proveedor y Valuación."
+      "description": "Entregar información."
     },
     {
       "id": "RAIA-BS-0011-MSG-04",
       "scenarioStepId": "RAIA-BS-0011-STEP-04",
       "sequence": 4,
-      "sourceParticipantInstanceId": "p-valuaci-n",
-      "targetParticipantInstanceId": "p-validaci-n-de-p",
+      "sourceParticipantInstanceId": "sd-valuacion",
+      "targetParticipantInstanceId": "sd-validacion-de-precio",
       "label": "Validar calidad.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Valuación y Validación de Precios."
+      "description": "Validar calidad."
     },
     {
       "id": "RAIA-BS-0011-MSG-05",
       "scenarioStepId": "RAIA-BS-0011-STEP-05",
       "sequence": 5,
-      "sourceParticipantInstanceId": "p-validaci-n",
-      "targetParticipantInstanceId": "p-valuaci-n",
+      "sourceParticipantInstanceId": "sd-validaci-n",
+      "targetParticipantInstanceId": "sd-valuacion",
       "label": "Confirmar o rechazar precio.",
       "messageType": "response",
-      "description": "Interacción entre Validación y Valuación."
+      "description": "Confirmar o rechazar precio."
     },
     {
       "id": "RAIA-BS-0011-MSG-06",
       "scenarioStepId": "RAIA-BS-0011-STEP-06",
       "sequence": 6,
-      "sourceParticipantInstanceId": "p-valuaci-n",
-      "targetParticipantInstanceId": "p-gesti-n-de-exce",
+      "sourceParticipantInstanceId": "sd-valuacion",
+      "targetParticipantInstanceId": "sd-gestion-de-excepcion",
       "label": "Solicitar revisión cuando corresponda.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Valuación y Gestión de Excepciones."
+      "description": "Solicitar revisión cuando corresponda."
     },
     {
       "id": "RAIA-BS-0011-MSG-07",
       "scenarioStepId": "RAIA-BS-0011-STEP-07",
       "sequence": 7,
-      "sourceParticipantInstanceId": "p-gesti-n-de-exce",
-      "targetParticipantInstanceId": "p-valuaci-n",
+      "sourceParticipantInstanceId": "sd-gestion-de-excepcion",
+      "targetParticipantInstanceId": "sd-valuacion",
       "label": "Entregar precio aprobado.",
       "messageType": "response",
-      "description": "Interacción entre Gestión de Excepciones y Valuación."
+      "description": "Entregar precio aprobado."
     },
     {
       "id": "RAIA-BS-0011-MSG-08",
       "scenarioStepId": "RAIA-BS-0011-STEP-08",
       "sequence": 8,
-      "sourceParticipantInstanceId": "p-valuaci-n",
-      "targetParticipantInstanceId": "p-valuaci-n-de-po",
+      "sourceParticipantInstanceId": "sd-valuacion",
+      "targetParticipantInstanceId": "sd-valuacion-de-portafo",
       "label": "Entregar valores.",
       "messageType": "response",
-      "description": "Interacción entre Valuación y Valuación de Portafolio."
+      "description": "Entregar valores."
     },
     {
       "id": "RAIA-BS-0011-MSG-09",
       "scenarioStepId": "RAIA-BS-0011-STEP-09",
       "sequence": 9,
-      "sourceParticipantInstanceId": "p-valuaci-n-de-po",
-      "targetParticipantInstanceId": "p-riesgo",
+      "sourceParticipantInstanceId": "sd-valuacion-de-portafo",
+      "targetParticipantInstanceId": "sd-riesgo",
       "label": "Entregar exposición.",
       "messageType": "response",
-      "description": "Interacción entre Valuación de Portafolio y Riesgo."
+      "description": "Entregar exposición."
     },
     {
       "id": "RAIA-BS-0011-MSG-10",
       "scenarioStepId": "RAIA-BS-0011-STEP-10",
       "sequence": 10,
-      "sourceParticipantInstanceId": "p-valuaci-n-de-po",
-      "targetParticipantInstanceId": "p-contabilidad",
+      "sourceParticipantInstanceId": "sd-valuacion-de-portafo",
+      "targetParticipantInstanceId": "sd-contabilidad",
       "label": "Actualizar posiciones.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Valuación de Portafolio y Contabilidad."
+      "description": "Actualizar posiciones."
     },
     {
       "id": "RAIA-BS-0011-MSG-11",
       "scenarioStepId": "RAIA-BS-0011-STEP-11",
       "sequence": 11,
-      "sourceParticipantInstanceId": "p-valuaci-n-de-po",
-      "targetParticipantInstanceId": "p-asignaci-n-de-r",
+      "sourceParticipantInstanceId": "sd-valuacion-de-portafo",
+      "targetParticipantInstanceId": "sd-asignacion-de-rendim",
       "label": "Entregar valor de acción.",
       "messageType": "response",
-      "description": "Interacción entre Valuación de Portafolio y Asignación de Rendimientos."
+      "description": "Entregar valor de acción."
     },
     {
       "id": "RAIA-BS-0011-MSG-12",
       "scenarioStepId": "RAIA-BS-0011-STEP-12",
       "sequence": 12,
-      "sourceParticipantInstanceId": "p-asignaci-n-de-r",
-      "targetParticipantInstanceId": "p-contabilidad",
+      "sourceParticipantInstanceId": "sd-asignacion-de-rendim",
+      "targetParticipantInstanceId": "sd-contabilidad",
       "label": "Registrar rendimiento.",
       "messageType": "synchronous-command",
-      "description": "Interacción entre Asignación de Rendimientos y Contabilidad."
+      "description": "Registrar rendimiento."
     }
   ],
-  "activations": [
-    {
-      "id": "act-1",
-      "participantInstanceId": "p-cat-logo",
-      "startSequence": 1,
-      "endSequence": 12,
-      "depth": 0,
-      "activationType": "processing"
-    }
-  ],
+  "activations": [],
   "notes": [
     {
       "id": "note-control-1",
@@ -291,5 +276,6 @@
         }
       ]
     }
-  ]
+  ],
+  "modelingStatus": "partially-modeled"
 }

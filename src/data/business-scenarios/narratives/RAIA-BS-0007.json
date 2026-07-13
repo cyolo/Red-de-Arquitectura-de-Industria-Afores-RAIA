@@ -27,7 +27,7 @@
   "updatedAt": "2026-07-13T07:22:16.251Z",
   "participantNarratives": [
     {
-      "participantInstanceId": "p-trabajador",
+      "participantInstanceId": "actor-worker",
       "participantName": "Trabajador",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -48,7 +48,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-gesti-n-de-soli",
+      "participantInstanceId": "sd-gestion-de-solicitud",
       "participantName": "Gestión de Solicitudes",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -70,7 +70,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-resoluci-n-de-i",
+      "participantInstanceId": "sd-resolucion-de-identi",
       "participantName": "Resolución de Identidad",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -89,7 +89,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-separaci-n-de-c",
+      "participantInstanceId": "sd-separacion-de-cuenta",
       "participantName": "Separación de Cuentas",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -108,7 +108,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-imss",
+      "participantInstanceId": "institute-imss",
       "participantName": "IMSS",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -129,7 +129,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-issste",
+      "participantInstanceId": "institute-issste",
       "participantName": "ISSSTE",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -150,7 +150,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-bdnsar",
+      "participantInstanceId": "registry-bdnsar",
       "participantName": "BDNSAR",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -169,7 +169,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-administraci-n-",
+      "participantInstanceId": "sd-administracion-de-su",
       "participantName": "Administración de Subcuentas",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -190,7 +190,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-conciliaci-n-de",
+      "participantInstanceId": "sd-conciliacion-de-cuen",
       "participantName": "Conciliación de Cuenta",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -207,7 +207,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-libro-mayor",
+      "participantInstanceId": "sd-libro-mayor",
       "participantName": "Libro Mayor",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -226,7 +226,7 @@
       ]
     },
     {
-      "participantInstanceId": "p-notificaciones",
+      "participantInstanceId": "sd-notificaciones",
       "participantName": "Notificaciones",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
@@ -247,24 +247,15 @@
       ]
     },
     {
-      "participantInstanceId": "p-separaci-n",
-      "participantName": "separaci n",
+      "participantInstanceId": "sd-separaci-n",
+      "participantName": "Separación de Cuentas",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
       "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
       "receivesFrom": [
-        "IMSS",
-        "ISSSTE",
-        "conciliaci n"
+        "Gestión de Solicitudes"
       ],
-      "sendsTo": [
-        "BDNSAR",
-        "IMSS",
-        "ISSSTE",
-        "Administración de Subcuentas",
-        "Libro Mayor",
-        "Notificaciones"
-      ],
+      "sendsTo": [],
       "businessObjectsManaged": [
         "Registro de Operación",
         "Parámetro Validado"
@@ -275,17 +266,13 @@
       ]
     },
     {
-      "participantInstanceId": "p-conciliaci-n",
-      "participantName": "conciliaci n",
+      "participantInstanceId": "sd-conciliacion",
+      "participantName": "Conciliación de Cuenta",
       "structuralRole": "Service Domain coordinador / ejecutor",
       "behavioralRole": "Interviene de manera síncrona o asíncrona dentro del proceso validando, consultando o registrando transacciones.",
       "responsibility": "Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.",
-      "receivesFrom": [
-        "Administración de Subcuentas"
-      ],
-      "sendsTo": [
-        "separaci n"
-      ],
+      "receivesFrom": [],
+      "sendsTo": [],
       "businessObjectsManaged": [
         "Registro de Operación",
         "Parámetro Validado"
