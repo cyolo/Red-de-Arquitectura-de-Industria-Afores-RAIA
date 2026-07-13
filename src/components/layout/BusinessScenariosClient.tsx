@@ -9,6 +9,7 @@ import RaiaSequenceDiagram, { DetailedSequence } from "../../features/business-s
 import sequenceBundle from "../../data/business-scenarios/scenario-sequences.json";
 import { useScenarioNarrative } from "../../features/business-scenarios/narrative/hooks/useScenarioNarrative";
 import ScenarioArchitectureNarrativeComponent from "../../features/business-scenarios/narrative/components/ScenarioArchitectureNarrative";
+import ScenarioStructuredSteps from "../../features/business-scenarios/components/ScenarioStructuredSteps";
 
 export default function BusinessScenariosClient() {
   const [scenarios, setScenarios] = useState<BusinessScenario[]>([]);
@@ -24,12 +25,28 @@ export default function BusinessScenariosClient() {
       setScenarios(scenData);
       setServiceDomains(sdData);
       if (scenData.length > 0) {
-        setSelectedScenarioId(scenData[0].id);
+        selectScenario(scenData[0].id);
       }
     } catch (e) {
       console.error("Error loading scenarios or service domains", e);
     }
   }, []);
+
+  function selectScenario(scenarioId: string) {
+    setSelectedScenarioId(scenarioId);
+
+    const scenarioSequence =
+      sequenceBundle[
+        scenarioId as keyof typeof sequenceBundle
+      ] as DetailedSequence | undefined;
+
+    const firstStep =
+      [...(scenarioSequence?.messages ?? [])]
+        .sort((a, b) => a.sequence - b.sequence)[0]
+        ?.sequence ?? 1;
+
+    setActiveStep(firstStep);
+  }
 
   const selectedScenario = scenarios.find((s) => s.id === selectedScenarioId);
 
@@ -100,7 +117,7 @@ export default function BusinessScenariosClient() {
         {scenarios.length > 0 && selectedScenario && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             {/* Sidebar selector */}
-            <div className="lg:col-span-4 space-y-4">
+            <div className="lg:col-span-4 space-y-4" data-testid="scenario-catalog">
               <h2 className="text-xs font-extrabold text-slate-400 uppercase tracking-wider">
                 Escenarios Propuestos (0.1.0)
               </h2>
@@ -108,10 +125,8 @@ export default function BusinessScenariosClient() {
                 {scenarios.map((scen) => (
                   <button
                     key={scen.id}
-                    onClick={() => {
-                      setSelectedScenarioId(scen.id);
-                      setActiveStep(1);
-                    }}
+                    onClick={() => selectScenario(scen.id)}
+                    data-testid="scenario-card"
                     className={`w-full text-left p-4 rounded-2xl border transition-all flex flex-col justify-between text-xs ${
                       selectedScenarioId === scen.id
                         ? "bg-slate-900 text-white border-slate-800 shadow-md"
@@ -128,52 +143,10 @@ export default function BusinessScenariosClient() {
                   </button>
                 ))}
               </div>
-
-              {/* Stepper Logic for Messages */}
-              {(detailedSequence?.messages || []).map((msg, idx) => {
-                const isActive = msg.sequence === activeStep;
-                const sourceParticipant = detailedSequence?.participants.find(p => p.instanceId === msg.sourceParticipantInstanceId);
-                const targetParticipant = detailedSequence?.participants.find(p => p.instanceId === msg.targetParticipantInstanceId);
-                
-                return (
-                  <button
-                    key={idx}
-                    onClick={() => setActiveStep(msg.sequence)}
-                    className={`w-full text-left p-4 rounded-2xl border transition-all flex flex-col justify-between text-xs ${
-                      isActive
-                        ? "bg-slate-900 text-white border-slate-800 shadow-md"
-                        : "bg-white text-slate-700 border-slate-200 hover:border-slate-300 shadow-xs"
-                    }`}
-                  >
-                    <div className="flex items-center gap-3 w-full">
-                      <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-extrabold shrink-0 ${
-                        isActive ? "bg-raia-turquoise text-slate-900" : "bg-slate-100 text-slate-600"
-                      }`}>
-                        {msg.sequence}
-                      </div>
-                      
-                      <div className="flex-1 min-w-0">
-                        <span className={`text-[10px] font-bold block uppercase tracking-wider ${isActive ? "text-raia-turquoise" : "text-raia-blue-inst"}`}>
-                          {msg.label || `Paso ${msg.sequence}`}
-                        </span>
-                        <span className="text-[11px] font-bold block truncate mt-0.5">
-                          {sourceParticipant?.label || msg.sourceParticipantInstanceId} &rarr; {targetParticipant?.label || msg.targetParticipantInstanceId}
-                        </span>
-                      </div>
-                    </div>
-
-                    {isActive && msg.description && (
-                      <p className="text-[11px] text-slate-300 mt-3 leading-relaxed border-t border-slate-800 pt-2 font-medium">
-                        {msg.description}
-                      </p>
-                    )}
-                  </button>
-                );
-              })}
             </div>
 
             {/* Stepper & Visual Sequence Diagram */}
-            <div className="lg:col-span-8 bg-white rounded-3xl border border-slate-200 shadow-sm p-6 md:p-8 space-y-6">
+            <div className="lg:col-span-8 bg-white rounded-3xl border border-slate-200 shadow-sm p-6 md:p-8 space-y-6" data-testid="scenario-detail">
               <div>
                 <div className="flex flex-wrap gap-2">
                   <span className="text-[10px] font-extrabold text-raia-blue-inst uppercase tracking-wider bg-blue-50 border border-blue-100 px-2 py-0.5 rounded">
@@ -195,7 +168,7 @@ export default function BusinessScenariosClient() {
               </div>
 
               {/* Graphical SVG Sequence Flow Engine */}
-              <div className="mb-6">
+              <div className="mb-6" data-testid="scenario-sequence-diagram">
                 {hasRenderableSequence ? (
                   <RaiaSequenceDiagram
                     sequence={detailedSequence!}
@@ -215,7 +188,7 @@ export default function BusinessScenariosClient() {
                 )}
               </div>
               {/* Narrative Integration */}
-              <div className="mt-12">
+              <div className="mt-12" data-testid="scenario-architecture-narrative">
                 {narrativeLoading ? (
                   <div className="animate-pulse space-y-4">
                     <div className="h-8 bg-slate-200 rounded w-1/3 mx-auto mb-8"></div>
@@ -232,6 +205,13 @@ export default function BusinessScenariosClient() {
                   )
                 )}
               </div>
+
+              {/* Structured Steps — must remain after the complete narrative */}
+              <ScenarioStructuredSteps
+                sequence={detailedSequence}
+                activeStep={activeStep}
+                onStepChange={setActiveStep}
+              />
             </div>
           </div>
         )}
