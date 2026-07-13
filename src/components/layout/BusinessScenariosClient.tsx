@@ -9,7 +9,8 @@ import RaiaSequenceDiagram, { DetailedSequence } from "../../features/business-s
 import sequenceBundle from "../../data/business-scenarios/scenario-sequences.json";
 import { useScenarioNarrative } from "../../features/business-scenarios/narrative/hooks/useScenarioNarrative";
 import ScenarioArchitectureNarrativeComponent from "../../features/business-scenarios/narrative/components/ScenarioArchitectureNarrative";
-import ScenarioStructuredSteps from "../../features/business-scenarios/components/ScenarioStructuredSteps";
+import { ScenarioStepNarrative } from "../../domain/types/scenarioNarrativeTypes";
+import ScenarioStepsWorkspace from "../../features/business-scenarios/components/ScenarioStepsWorkspace";
 
 export default function BusinessScenariosClient() {
   const [scenarios, setScenarios] = useState<BusinessScenario[]>([]);
@@ -80,6 +81,17 @@ export default function BusinessScenariosClient() {
     }
     return scenario.steps?.length ?? 0;
   }
+
+  const handleDiagramStepSelect = (sequence: number) => {
+    setActiveStep(sequence);
+    requestAnimationFrame(() => {
+      const stepsSection = document.getElementById("structured-steps");
+      stepsSection?.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    });
+  };
 
   return (
     <div className="flex-1 overflow-y-auto bg-slate-50 py-12 px-4 sm:px-6 lg:px-8">
@@ -173,7 +185,7 @@ export default function BusinessScenariosClient() {
                   <RaiaSequenceDiagram
                     sequence={detailedSequence!}
                     activeStep={activeStep}
-                    onStepClick={setActiveStep}
+                    onStepClick={handleDiagramStepSelect}
                   />
                 ) : (
                   <div className="p-10 text-left text-slate-700 border border-slate-200 rounded-xl bg-slate-50">
@@ -187,7 +199,8 @@ export default function BusinessScenariosClient() {
                   </div>
                 )}
               </div>
-              {/* Narrative Integration */}
+
+              {/* Narrative Context (General Architecture only) */}
               <div className="mt-12" data-testid="scenario-architecture-narrative">
                 {narrativeLoading ? (
                   <div className="animate-pulse space-y-4">
@@ -198,17 +211,17 @@ export default function BusinessScenariosClient() {
                   </div>
                 ) : (
                   narrative && (
-                    <ScenarioArchitectureNarrativeComponent 
-                      narrative={narrative as any} 
-                      activeSequenceId={activeStep} 
+                    <ScenarioArchitectureNarrativeComponent
+                      narrative={narrative as any}
                     />
                   )
                 )}
               </div>
 
-              {/* Structured Steps — must remain after the complete narrative */}
-              <ScenarioStructuredSteps
+              {/* Structured Steps & Analysis Workspace */}
+              <ScenarioStepsWorkspace
                 sequence={detailedSequence}
+                stepNarratives={(narrative?.stepNarratives ?? []) as ScenarioStepNarrative[]}
                 activeStep={activeStep}
                 onStepChange={setActiveStep}
               />

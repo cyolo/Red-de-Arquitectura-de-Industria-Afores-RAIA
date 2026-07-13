@@ -6,7 +6,6 @@ import { CheckCircle, AlertTriangle, ShieldCheck, FileText, Activity, Map, Navig
 
 interface Props {
   narrative: NarrativeType;
-  activeSequenceId?: number;
 }
 
 export function ScenarioExecutiveSummary({ narrative }: { narrative: NarrativeType }) {
@@ -213,11 +212,7 @@ export function ScenarioOutcomeNarrative({ narrative }: { narrative: NarrativeTy
   );
 }
 
-export default function ScenarioArchitectureNarrativeComponent({ narrative, activeSequenceId }: Props) {
-  const activeStep = activeSequenceId 
-    ? narrative.stepNarratives.find(s => s.sequence === activeSequenceId)
-    : null;
-
+export default function ScenarioArchitectureNarrativeComponent({ narrative }: Props) {
   return (
     <div className="mt-16 pt-16 border-t border-slate-200">
       <div className="text-center mb-12">
@@ -227,13 +222,6 @@ export default function ScenarioArchitectureNarrativeComponent({ narrative, acti
 
       <ScenarioExecutiveSummary narrative={narrative} />
       
-      {activeStep && (
-        <div id="active-step-narrative">
-          <h3 className="text-xl font-black text-slate-900 mb-4">Análisis del paso seleccionado</h3>
-          <ScenarioStepNarrative step={activeStep} />
-        </div>
-      )}
-
       <StructureBehaviorBridge narrative={narrative} />
       <ScenarioStructuralNarrative narrative={narrative} />
       <ScenarioBehavioralNarrative narrative={narrative} />

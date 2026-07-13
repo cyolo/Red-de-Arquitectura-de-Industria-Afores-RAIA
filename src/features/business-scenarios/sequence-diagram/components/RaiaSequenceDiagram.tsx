@@ -17,13 +17,17 @@ export interface SequenceParticipant {
 
 export interface SequenceMessage {
   id: string;
+  scenarioStepId?: string;
   sequence: number;
   sourceParticipantInstanceId: string;
   targetParticipantInstanceId: string;
   label: string;
   description?: string;
-  messageType: string;
   expectedOutcome?: string;
+  messageType: string;
+  businessObjectIds?: string[];
+  controlIds?: string[];
+  evidenceIds?: string[];
 }
 
 export interface ActivationSpan {
