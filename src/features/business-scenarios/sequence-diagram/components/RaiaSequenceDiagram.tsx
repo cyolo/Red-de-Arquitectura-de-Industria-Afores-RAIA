@@ -15,6 +15,7 @@ interface Props {
 export default function RaiaSequenceDiagram({ scenario, serviceDomains, activeStep, onStepClick }: Props) {
   const svgRef = useRef<SVGSVGElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const zoomRef = useRef<d3.ZoomBehavior<SVGSVGElement, unknown> | null>(null);
 
   // Configuration
   const config = {
@@ -88,6 +89,7 @@ export default function RaiaSequenceDiagram({ scenario, serviceDomains, activeSt
         g.attr("transform", event.transform);
       });
       
+    zoomRef.current = zoom;
     svg.call(zoom as any);
     
     // Initial center fit
@@ -109,15 +111,23 @@ export default function RaiaSequenceDiagram({ scenario, serviceDomains, activeSt
       {/* Toolbar overlay */}
       <div className="absolute top-4 right-4 z-10 flex gap-2">
         <button 
-          onClick={() => select(svgRef.current as any).transition().duration(500).call((d3.zoom() as any).scaleBy, 1.2)}
-          className="bg-white border border-slate-200 shadow-sm p-2 rounded text-slate-600 hover:bg-slate-50"
+          onClick={() => {
+            if (svgRef.current && zoomRef.current) {
+              select(svgRef.current as any).transition().duration(300).call(zoomRef.current.scaleBy, 1.2);
+            }
+          }}
+          className="bg-white border border-slate-200 shadow-sm px-3 py-1.5 rounded-lg text-slate-600 hover:bg-slate-100 font-bold text-lg"
           title="Acercar"
         >
           +
         </button>
         <button 
-          onClick={() => select(svgRef.current as any).transition().duration(500).call((d3.zoom() as any).scaleBy, 0.8)}
-          className="bg-white border border-slate-200 shadow-sm p-2 rounded text-slate-600 hover:bg-slate-50"
+          onClick={() => {
+            if (svgRef.current && zoomRef.current) {
+              select(svgRef.current as any).transition().duration(300).call(zoomRef.current.scaleBy, 0.8);
+            }
+          }}
+          className="bg-white border border-slate-200 shadow-sm px-3 py-1.5 rounded-lg text-slate-600 hover:bg-slate-100 font-bold text-lg"
           title="Alejar"
         >
           -
