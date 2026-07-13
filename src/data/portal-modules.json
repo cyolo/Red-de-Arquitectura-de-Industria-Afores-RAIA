@@ -14,9 +14,27 @@
     "version": "0.1.0",
     "ownerRole": "RAIA Maintainers",
     "validationStatus": "pending-industry-review",
-    "roadmap": ["Fase 1: Mapeo conceptual de entidades (Q3 2026)", "Fase 2: Diccionario canónico (Q4 2026)"],
-    "dependencies": ["RAIA-MOD-003", "RAIA-MOD-012"],
-    "tags": ["datos", "gobernanza", "semantica"],
+    "roadmap": [
+      {
+        "title": "Fase 1: Mapeo conceptual de entidades",
+        "status": "not-started",
+        "targetDate": "Q3 2026"
+      },
+      {
+        "title": "Fase 2: Diccionario canónico",
+        "status": "not-started",
+        "targetDate": "Q4 2026"
+      }
+    ],
+    "dependencies": [
+      "RAIA-MOD-003",
+      "RAIA-MOD-012"
+    ],
+    "tags": [
+      "datos",
+      "gobernanza",
+      "semantica"
+    ],
     "createdAt": "2026-07-12T00:00:00Z",
     "updatedAt": "2026-07-12T00:00:00Z"
   },
@@ -35,9 +53,26 @@
     "version": "0.1.0",
     "ownerRole": "RAIA Maintainers",
     "validationStatus": "pending-industry-review",
-    "roadmap": ["Fase 1: Identificación de objetos focales (Q3 2026)", "Fase 2: Modelado de máquinas de estado (Q4 2026)"],
-    "dependencies": ["RAIA-MOD-003"],
-    "tags": ["proceso", "ciclo-de-vida", "control"],
+    "roadmap": [
+      {
+        "title": "Fase 1: Identificación de objetos focales",
+        "status": "not-started",
+        "targetDate": "Q3 2026"
+      },
+      {
+        "title": "Fase 2: Modelado de máquinas de estado",
+        "status": "not-started",
+        "targetDate": "Q4 2026"
+      }
+    ],
+    "dependencies": [
+      "RAIA-MOD-003"
+    ],
+    "tags": [
+      "proceso",
+      "ciclo-de-vida",
+      "control"
+    ],
     "createdAt": "2026-07-12T00:00:00Z",
     "updatedAt": "2026-07-12T00:00:00Z"
   },
@@ -56,9 +91,26 @@
     "version": "0.1.0",
     "ownerRole": "RAIA Maintainers",
     "validationStatus": "pending-industry-review",
-    "roadmap": ["Fase 1: Catálogo inicial de 24 objetos núcleo (Q3 2026)", "Fase 2: Atributos y tipos de datos (Q1 2027)"],
-    "dependencies": ["RAIA-MOD-012"],
-    "tags": ["entidades", "modelo-datos", "canónico"],
+    "roadmap": [
+      {
+        "title": "Fase 1: Catálogo inicial de 24 objetos núcleo",
+        "status": "not-started",
+        "targetDate": "Q3 2026"
+      },
+      {
+        "title": "Fase 2: Atributos y tipos de datos",
+        "status": "not-started",
+        "targetDate": "Q1 2027"
+      }
+    ],
+    "dependencies": [
+      "RAIA-MOD-012"
+    ],
+    "tags": [
+      "entidades",
+      "modelo-datos",
+      "canónico"
+    ],
     "createdAt": "2026-07-12T00:00:00Z",
     "updatedAt": "2026-07-12T00:00:00Z"
   },
@@ -77,9 +129,21 @@
     "version": "0.1.0",
     "ownerRole": "RAIA Maintainers",
     "validationStatus": "pending-industry-review",
-    "roadmap": ["Fase 1: Mapeo conceptual inicial (Q4 2026)"],
-    "dependencies": ["RAIA-MOD-005", "RAIA-MOD-012"],
-    "tags": ["marco-referencia", "arquitectura"],
+    "roadmap": [
+      {
+        "title": "Fase 1: Mapeo conceptual inicial",
+        "status": "not-started",
+        "targetDate": "Q4 2026"
+      }
+    ],
+    "dependencies": [
+      "RAIA-MOD-005",
+      "RAIA-MOD-012"
+    ],
+    "tags": [
+      "marco-referencia",
+      "arquitectura"
+    ],
     "createdAt": "2026-07-12T00:00:00Z",
     "updatedAt": "2026-07-12T00:00:00Z"
   },
@@ -99,9 +163,29 @@
     "countSource": "serviceDomains",
     "ownerRole": "RAIA Maintainers",
     "validationStatus": "pending-industry-review",
-    "roadmap": ["Fase 1: Estructura jerárquica de 3 niveles (Completado)", "Fase 2: Fichas técnicas conceptuales (En progreso)", "Fase 3: Validación regulatoria (Planeado)"],
-    "dependencies": ["RAIA-MOD-012", "RAIA-MOD-015"],
-    "tags": ["visualizacion", "cadena-valor", "interactivo"],
+    "roadmap": [
+      {
+        "title": "Fase 1: Estructura jerárquica de 3 niveles",
+        "status": "completed"
+      },
+      {
+        "title": "Fase 2: Fichas técnicas conceptuales",
+        "status": "in-progress"
+      },
+      {
+        "title": "Fase 3: Validación regulatoria",
+        "status": "not-started"
+      }
+    ],
+    "dependencies": [
+      "RAIA-MOD-012",
+      "RAIA-MOD-015"
+    ],
+    "tags": [
+      "visualizacion",
+      "cadena-valor",
+      "interactivo"
+    ],
     "createdAt": "2026-07-12T00:00:00Z",
     "updatedAt": "2026-07-12T00:00:00Z",
     "lastReviewedAt": "2026-07-12T00:00:00Z"
@@ -121,9 +205,21 @@
     "version": "0.1.0",
     "ownerRole": "RAIA Maintainers",
     "validationStatus": "pending-industry-review",
-    "roadmap": ["Fase 1: Diseñar cuadrículas cruzadas (Q4 2026)"],
-    "dependencies": ["RAIA-MOD-005"],
-    "tags": ["analisis", "matriz", "dimensiones"],
+    "roadmap": [
+      {
+        "title": "Fase 1: Diseñar cuadrículas cruzadas",
+        "status": "not-started",
+        "targetDate": "Q4 2026"
+      }
+    ],
+    "dependencies": [
+      "RAIA-MOD-005"
+    ],
+    "tags": [
+      "analisis",
+      "matriz",
+      "dimensiones"
+    ],
     "createdAt": "2026-07-12T00:00:00Z",
     "updatedAt": "2026-07-12T00:00:00Z"
   },
@@ -142,9 +238,21 @@
     "version": "0.1.0",
     "ownerRole": "RAIA Maintainers",
     "validationStatus": "pending-industry-review",
-    "roadmap": ["Fase 1: Diagramar flujos clave de negocio (Q1 2027)"],
-    "dependencies": ["RAIA-MOD-005"],
-    "tags": ["diagramas", "flujos", "arquitectura"],
+    "roadmap": [
+      {
+        "title": "Fase 1: Diagramar flujos clave de negocio",
+        "status": "not-started",
+        "targetDate": "Q1 2027"
+      }
+    ],
+    "dependencies": [
+      "RAIA-MOD-005"
+    ],
+    "tags": [
+      "diagramas",
+      "flujos",
+      "arquitectura"
+    ],
     "createdAt": "2026-07-12T00:00:00Z",
     "updatedAt": "2026-07-12T00:00:00Z"
   },
@@ -157,15 +265,32 @@
     "purpose": "Mapear flujos de interacción de punta a punta entre entidades del ecosistema de pensiones.",
     "route": "/business-scenarios",
     "category": "business-scenarios",
-    "status": "planned",
+    "status": "in-development",
     "icon": "Compass",
     "order": 8,
     "version": "0.1.0",
     "ownerRole": "RAIA Maintainers",
     "validationStatus": "pending-industry-review",
-    "roadmap": ["Fase 1: Definir primeros 5 escenarios clave (Q3 2026)", "Fase 2: Catálogo interactivo de flujos (Q4 2026)"],
-    "dependencies": ["RAIA-MOD-005"],
-    "tags": ["escenarios", "interaccion", "secuencia"],
+    "roadmap": [
+      {
+        "title": "Fase 1: Definir primeros 5 escenarios clave",
+        "status": "not-started",
+        "targetDate": "Q3 2026"
+      },
+      {
+        "title": "Fase 2: Catálogo interactivo de flujos",
+        "status": "not-started",
+        "targetDate": "Q4 2026"
+      }
+    ],
+    "dependencies": [
+      "RAIA-MOD-005"
+    ],
+    "tags": [
+      "escenarios",
+      "interaccion",
+      "secuencia"
+    ],
     "createdAt": "2026-07-12T00:00:00Z",
     "updatedAt": "2026-07-12T00:00:00Z"
   },
@@ -184,9 +309,21 @@
     "version": "0.1.0",
     "ownerRole": "RAIA Maintainers",
     "validationStatus": "pending-industry-review",
-    "roadmap": ["Fase 1: Catálogo conceptual de firmas y consentimiento (Q4 2026)"],
-    "dependencies": ["RAIA-MOD-008"],
-    "tags": ["patrones", "reutilización", "interacciones"],
+    "roadmap": [
+      {
+        "title": "Fase 1: Catálogo conceptual de firmas y consentimiento",
+        "status": "not-started",
+        "targetDate": "Q4 2026"
+      }
+    ],
+    "dependencies": [
+      "RAIA-MOD-008"
+    ],
+    "tags": [
+      "patrones",
+      "reutilización",
+      "interacciones"
+    ],
     "createdAt": "2026-07-12T00:00:00Z",
     "updatedAt": "2026-07-12T00:00:00Z"
   },
@@ -205,9 +342,21 @@
     "version": "0.1.0",
     "ownerRole": "RAIA Maintainers",
     "validationStatus": "pending-industry-review",
-    "roadmap": ["Fase 1: Taxonomía de capacidades L1/L2 (Q4 2026)"],
-    "dependencies": ["RAIA-MOD-005"],
-    "tags": ["capacidades", "mapa", "negocio"],
+    "roadmap": [
+      {
+        "title": "Fase 1: Taxonomía de capacidades L1/L2",
+        "status": "not-started",
+        "targetDate": "Q4 2026"
+      }
+    ],
+    "dependencies": [
+      "RAIA-MOD-005"
+    ],
+    "tags": [
+      "capacidades",
+      "mapa",
+      "negocio"
+    ],
     "createdAt": "2026-07-12T00:00:00Z",
     "updatedAt": "2026-07-12T00:00:00Z"
   },
@@ -226,9 +375,21 @@
     "version": "0.1.0",
     "ownerRole": "RAIA Maintainers",
     "validationStatus": "pending-industry-review",
-    "roadmap": ["Fase 1: Definir vistas reguladas (Q1 2027)"],
-    "dependencies": ["RAIA-MOD-010"],
-    "tags": ["vistas", "filtros", "capacidades"],
+    "roadmap": [
+      {
+        "title": "Fase 1: Definir vistas reguladas",
+        "status": "not-started",
+        "targetDate": "Q1 2027"
+      }
+    ],
+    "dependencies": [
+      "RAIA-MOD-010"
+    ],
+    "tags": [
+      "vistas",
+      "filtros",
+      "capacidades"
+    ],
     "createdAt": "2026-07-12T00:00:00Z",
     "updatedAt": "2026-07-12T00:00:00Z"
   },
@@ -247,8 +408,21 @@
     "version": "0.1.0",
     "ownerRole": "RAIA Maintainers",
     "validationStatus": "pending-industry-review",
-    "roadmap": ["Fase 1: Jerarquías y glosario base (Completado)", "Fase 2: Formalización del metamodelo conceptual (En progreso)"],
-    "tags": ["metodo", "gobierno", "definición"],
+    "roadmap": [
+      {
+        "title": "Fase 1: Jerarquías y glosario base",
+        "status": "completed"
+      },
+      {
+        "title": "Fase 2: Formalización del metamodelo conceptual",
+        "status": "in-progress"
+      }
+    ],
+    "tags": [
+      "metodo",
+      "gobierno",
+      "definición"
+    ],
     "createdAt": "2026-07-12T00:00:00Z",
     "updatedAt": "2026-07-12T00:00:00Z",
     "lastReviewedAt": "2026-07-12T00:00:00Z"
@@ -268,9 +442,21 @@
     "version": "0.1.0",
     "ownerRole": "RAIA Maintainers",
     "validationStatus": "pending-industry-review",
-    "roadmap": ["Fase 1: Mapeo de flujos de pantallas de traspasos (Q1 2027)"],
-    "dependencies": ["RAIA-MOD-008"],
-    "tags": ["experiencia", "interfaz", "wireframes"],
+    "roadmap": [
+      {
+        "title": "Fase 1: Mapeo de flujos de pantallas de traspasos",
+        "status": "not-started",
+        "targetDate": "Q1 2027"
+      }
+    ],
+    "dependencies": [
+      "RAIA-MOD-008"
+    ],
+    "tags": [
+      "experiencia",
+      "interfaz",
+      "wireframes"
+    ],
     "createdAt": "2026-07-12T00:00:00Z",
     "updatedAt": "2026-07-12T00:00:00Z"
   },
@@ -289,8 +475,22 @@
     "version": "0.1.0",
     "ownerRole": "RAIA Maintainers",
     "validationStatus": "pending-industry-review",
-    "roadmap": ["Fase 1: Métricas de completitud y anomalías (Completado)", "Fase 2: Trazabilidad regulatoria en tiempo real (Q3 2026)"],
-    "tags": ["analiticas", "calidad", "indicadores"],
+    "roadmap": [
+      {
+        "title": "Fase 1: Métricas de completitud y anomalías",
+        "status": "completed"
+      },
+      {
+        "title": "Fase 2: Trazabilidad regulatoria en tiempo real",
+        "status": "not-started",
+        "targetDate": "Q3 2026"
+      }
+    ],
+    "tags": [
+      "analiticas",
+      "calidad",
+      "indicadores"
+    ],
     "createdAt": "2026-07-12T00:00:00Z",
     "updatedAt": "2026-07-12T00:00:00Z",
     "lastReviewedAt": "2026-07-12T00:00:00Z"
@@ -310,9 +510,21 @@
     "version": "0.1.0",
     "ownerRole": "RAIA Maintainers",
     "validationStatus": "pending-industry-review",
-    "roadmap": ["Fase 1: Mapeo de Ley SAR y circulares CONSAR (Q3 2026)"],
-    "dependencies": ["RAIA-MOD-005"],
-    "tags": ["regulacion", "obligaciones", "trazabilidad"],
+    "roadmap": [
+      {
+        "title": "Fase 1: Mapeo de Ley SAR y circulares CONSAR",
+        "status": "not-started",
+        "targetDate": "Q3 2026"
+      }
+    ],
+    "dependencies": [
+      "RAIA-MOD-005"
+    ],
+    "tags": [
+      "regulacion",
+      "obligaciones",
+      "trazabilidad"
+    ],
     "createdAt": "2026-07-12T00:00:00Z",
     "updatedAt": "2026-07-12T00:00:00Z"
   },
@@ -331,8 +543,17 @@
     "version": "0.1.0",
     "ownerRole": "RAIA Maintainers",
     "validationStatus": "pending-industry-review",
-    "roadmap": ["Fase 1: Changelog de la versión inicial (Completado)"],
-    "tags": ["versiones", "changelog", "evolución"],
+    "roadmap": [
+      {
+        "title": "Fase 1: Changelog de la versión inicial",
+        "status": "completed"
+      }
+    ],
+    "tags": [
+      "versiones",
+      "changelog",
+      "evolución"
+    ],
     "createdAt": "2026-07-12T00:00:00Z",
     "updatedAt": "2026-07-12T00:00:00Z",
     "lastReviewedAt": "2026-07-12T00:00:00Z"
@@ -352,8 +573,21 @@
     "version": "0.1.0",
     "ownerRole": "RAIA Maintainers",
     "validationStatus": "pending-industry-review",
-    "roadmap": ["Fase 1: Proceso de revisión y pull requests (Completado)", "Fase 2: Guía editorial (Completado)"],
-    "tags": ["colaboracion", "gobierno", "guias"],
+    "roadmap": [
+      {
+        "title": "Fase 1: Proceso de revisión y pull requests",
+        "status": "completed"
+      },
+      {
+        "title": "Fase 2: Guía editorial",
+        "status": "completed"
+      }
+    ],
+    "tags": [
+      "colaboracion",
+      "gobierno",
+      "guias"
+    ],
     "createdAt": "2026-07-12T00:00:00Z",
     "updatedAt": "2026-07-12T00:00:00Z",
     "lastReviewedAt": "2026-07-12T00:00:00Z"

@@ -229,7 +229,12 @@ export const PortalModuleSchema = z.object({
   dependencies: z.array(z.string()).optional(),
   ownerRole: z.string().optional(),
   validationStatus: z.string().optional(),
-  roadmap: z.array(z.string()).optional(),
+  roadmap: z.array(z.object({
+    title: z.string(),
+    status: z.enum(["not-started", "in-progress", "completed", "blocked"]),
+    targetDate: z.string().optional(),
+    evidence: z.string().optional(),
+  })).optional(),
   lastReviewedAt: z.string().optional(),
   tags: z.array(z.string()),
   createdAt: z.string(),

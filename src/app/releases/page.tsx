@@ -31,7 +31,7 @@ export default async function ReleasesPage() {
           </div>
 
           <p className="text-sm text-slate-600 mt-6 leading-relaxed">
-            Consulte la evolución histórica del estándar de arquitectura de la industria previsional mexicana. Aquí se catalogan las incorporaciones de dominios, ajustes por cambios en las circulares de CONSAR y la Empresa Operadora de la Base de Datos Nacional SAR, y mejoras de modelado de capacidades.
+            Consulte la evolución histórica de la arquitectura de referencia propuesta para la industria previsional mexicana. Aquí se catalogan las incorporaciones de dominios, ajustes por cambios en las circulares de CONSAR y la Empresa Operadora de la Base de Datos Nacional SAR, y mejoras de modelado de capacidades.
           </p>
         </div>
 
@@ -48,14 +48,26 @@ export default async function ReleasesPage() {
                   <div>
                     <h2 className="text-lg font-extrabold text-slate-800">{rel.name}</h2>
                     <p className="text-[10px] text-slate-400 font-semibold uppercase tracking-wider mt-0.5">
-                      Publicado: {rel.releaseDate} &bull; Baseline Regulatorio: {rel.regulatoryBaselineDate}
+                      {rel.status === "draft" ? "Fecha prevista" : "Publicado"}: {rel.releaseDate} &bull; Baseline Regulatorio: {rel.regulatoryBaselineDate}
                     </p>
                   </div>
                 </div>
 
-                <span className="px-2.5 py-1 rounded bg-emerald-50 border border-emerald-200 text-emerald-700 text-[10px] font-bold uppercase tracking-wider">
-                  {rel.status === "published" ? "Publicado" : rel.status}
-                </span>
+                {rel.status === "published" && (
+                  <span className="px-2.5 py-1 rounded bg-emerald-50 border border-emerald-200 text-emerald-700 text-[10px] font-bold uppercase tracking-wider">
+                    Publicado
+                  </span>
+                )}
+                {rel.status === "draft" && (
+                  <span className="px-2.5 py-1 rounded bg-blue-50 border border-blue-200 text-blue-700 text-[10px] font-bold uppercase tracking-wider">
+                    Borrador
+                  </span>
+                )}
+                {rel.status === "deprecated" && (
+                  <span className="px-2.5 py-1 rounded bg-slate-100 border border-slate-300 text-slate-700 text-[10px] font-bold uppercase tracking-wider">
+                    Deprecado
+                  </span>
+                )}
               </div>
 
               {/* Summary */}

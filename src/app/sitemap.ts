@@ -1,35 +1,27 @@
 import { MetadataRoute } from "next";
 import { getServiceDomains } from "../domain/repositories/landscapeRepository";
+import { getPortalModules } from "../domain/repositories/portalRepository";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://raia.org.mx"; // Canonical domain placeholder
-  const lastModified = new Date();
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
-  // Static routes
-  const staticRoutes = [
-    "",
-    "/metamodel",
-    "/methodology",
-    "/dashboard",
-    "/releases",
-    "/contribute",
-    "/business-scenarios",
-    "/service-landscape/value-chain",
-  ].map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified,
+  // Dynamic modules from portal-modules
+  const modules = getPortalModules();
+  const moduleRoutes = modules.map((mod) => ({
+    url: `${baseUrl}${mod.route}`,
+    lastModified: new Date(mod.updatedAt),
     changeFrequency: "weekly" as const,
-    priority: route === "" ? 1.0 : 0.8,
+    priority: mod.route === "/" ? 1.0 : 0.8,
   }));
 
   // Dynamic service domains
   const serviceDomains = getServiceDomains();
-  const dynamicRoutes = serviceDomains.map((sd) => ({
+  const domainRoutes = serviceDomains.map((sd) => ({
     url: `${baseUrl}/service-domains/${sd.slug}`,
-    lastModified,
+    lastModified: new Date(sd.updatedAt),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
 
-  return [...staticRoutes, ...dynamicRoutes];
+  return [...moduleRoutes, ...domainRoutes];
 }

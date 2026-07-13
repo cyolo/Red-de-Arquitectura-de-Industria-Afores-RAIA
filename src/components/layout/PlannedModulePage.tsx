@@ -22,92 +22,6 @@ export default function PlannedModulePage({ module }: Props) {
     deprecated: { bg: "bg-slate-100 text-slate-700 border-slate-300", label: "Deprecado" },
   }[module.status];
 
-  // Helper roadmap mock content based on the module's slug to provide "contexto útil"
-  const getRoadmapForModule = (slug: string) => {
-    switch (slug) {
-      case "information-architecture":
-        return [
-          { step: "Fase 1: Definición de dominios de información y glosario canónico", completed: true },
-          { step: "Fase 2: Mapeo de linaje y propiedad (ownership/stewardship) de datos", completed: false },
-          { step: "Fase 3: Estándares de intercambio y calidad de datos", completed: false },
-        ];
-      case "control-record-model":
-        return [
-          { step: "Fase 1: Mapeo del Focus Object de cada Service Domain", completed: true },
-          { step: "Fase 2: Modelado lógico de transiciones y estados (Control Record)", completed: false },
-          { step: "Fase 3: Vinculación con evidencias digitales e historiales", completed: false },
-        ];
-      case "business-object-model":
-        return [
-          { step: "Fase 1: Identificación y catalogación de objetos iniciales (Trabajador, Cuenta, Aportación)", completed: true },
-          { step: "Fase 2: Estructuración del esquema de datos JSON y validaciones Zod", completed: false },
-          { step: "Fase 3: Publicación de esquemas JSON Schema para la industria", completed: false },
-        ];
-      case "reference-model":
-        return [
-          { step: "Fase 1: Estructuración de los pilares de la arquitectura previsional", completed: true },
-          { step: "Fase 2: Integración de mapas de aplicaciones lógicas y redes", completed: false },
-          { step: "Fase 3: Alineación de perfiles operativos de participantes", completed: false },
-        ];
-      case "matrix":
-        return [
-          { step: "Fase 1: Definición de dimensiones operativas (Área x Dominio)", completed: true },
-          { step: "Fase 2: Implementación del renderizador matricial dinámico en React", completed: false },
-          { step: "Fase 3: Exportación de matrices en formato CSV y PDF", completed: false },
-        ];
-      case "overview-diagrams":
-        return [
-          { step: "Fase 1: Diseño vectorial de diagramas clave (Ciclo de Vida de Cuenta)", completed: true },
-          { step: "Fase 2: Integración de SVG interactivos vinculados a Service Domains", completed: false },
-          { step: "Fase 3: Pruebas de accesibilidad y diagramas alternativos en texto", completed: false },
-        ];
-      case "business-scenarios":
-        return [
-          { step: "Fase 1: Definición de categorías transaccionales (Retiros, Inversión, etc.)", completed: true },
-          { step: "Fase 2: Secuenciación de pasos y mapeo de dependencias de servicio", completed: false },
-          { step: "Fase 3: Renderizado interactivo de diagramas de secuencia en el navegador", completed: false },
-        ];
-      case "snippets":
-        return [
-          { step: "Fase 1: Identificación de patrones comunes (firma digital, prueba de vida)", completed: true },
-          { step: "Fase 2: Codificación de esquemas de interacción reutilizables", completed: false },
-          { step: "Fase 3: Pruebas de integración de fragmentos en escenarios de negocio", completed: false },
-        ];
-      case "capability-map":
-        return [
-          { step: "Fase 1: Jerarquización del Mapa de Capacidades de Negocio (Nivel 1 y 2)", completed: true },
-          { step: "Fase 2: Relación del Mapa de Capacidades con Service Domains", completed: false },
-          { step: "Fase 3: Herramienta de análisis de brechas (Gap Analysis) sectoriales", completed: false },
-        ];
-      case "capability-views":
-        return [
-          { step: "Fase 1: Mapeo de vistas específicas por rol (AFORE, SIEFORE, IMSS)", completed: true },
-          { step: "Fase 2: Filtros interactivos para proyectar capacidades reguladas", completed: false },
-          { step: "Fase 3: Exportación de vistas de cumplimiento y auditoría", completed: false },
-        ];
-      case "wireframes":
-        return [
-          { step: "Fase 1: Creación de prototipos de baja fidelidad para el portal del trabajador", completed: true },
-          { step: "Fase 2: Definición de patrones UX comunes de autogestión", completed: false },
-          { step: "Fase 3: Pruebas de usabilidad e interactividad básicas", completed: false },
-        ];
-      case "regulatory-architecture":
-        return [
-          { step: "Fase 1: Catalogación de leyes y circulares SAR principales", completed: true },
-          { step: "Fase 2: Vinculación fina de artículos con controles de Service Domains", completed: false },
-          { step: "Fase 3: Trazabilidad completa CONSAR-Procesar-Afore", completed: false },
-        ];
-      default:
-        return [
-          { step: "Fase 1: Diseño preliminar del catálogo conceptual", completed: true },
-          { step: "Fase 2: Recopilación de retroalimentación de la comunidad", completed: false },
-          { step: "Fase 3: Publicación e integración en el portal", completed: false },
-        ];
-    }
-  };
-
-  const roadmap = getRoadmapForModule(module.slug);
-
   return (
     <div className="flex-1 overflow-y-auto bg-slate-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
@@ -174,20 +88,55 @@ export default function PlannedModulePage({ module }: Props) {
                   Roadmap de Evolución
                 </h2>
                 <div className="mt-3 space-y-3">
-                  {roadmap.map((item, idx) => (
-                    <div key={idx} className="flex items-start gap-3">
-                      <div className={`mt-0.5 w-4 h-4 rounded-full flex items-center justify-center border text-[9px] font-bold ${
-                        item.completed 
-                          ? "bg-raia-blue-inst/10 text-raia-blue-inst border-raia-blue-inst" 
-                          : "bg-slate-50 text-slate-400 border-slate-200"
-                      }`}>
-                        {item.completed ? "✓" : idx + 1}
-                      </div>
-                      <span className={`text-xs ${item.completed ? "text-slate-700 font-semibold" : "text-slate-400"}`}>
-                        {item.step}
-                      </span>
-                    </div>
-                  ))}
+                  {module.roadmap && module.roadmap.length > 0 ? (
+                    module.roadmap.map((item, idx) => {
+                      const isCompleted = item.status === "completed";
+                      const isInProgress = item.status === "in-progress";
+                      const isBlocked = item.status === "blocked";
+
+                      let badgeClass = "bg-slate-50 text-slate-400 border-slate-200";
+                      let textClass = "text-slate-400";
+                      let iconContent = (idx + 1).toString();
+
+                      if (isCompleted) {
+                        badgeClass = "bg-emerald-50 text-emerald-600 border-emerald-200";
+                        textClass = "text-slate-700 font-semibold";
+                        iconContent = "✓";
+                      } else if (isInProgress) {
+                        badgeClass = "bg-amber-50 text-amber-600 border-amber-200 animate-pulse";
+                        textClass = "text-slate-700 font-medium";
+                      } else if (isBlocked) {
+                        badgeClass = "bg-red-50 text-red-600 border-red-200";
+                        textClass = "text-red-500 font-medium";
+                        iconContent = "!";
+                      }
+
+                      return (
+                        <div key={idx} className="flex items-start gap-3">
+                          <div className={`mt-0.5 w-5 h-5 rounded-full flex items-center justify-center border text-[10px] font-bold shrink-0 ${badgeClass}`}>
+                            {iconContent}
+                          </div>
+                          <div className="flex-1">
+                            <span className={`text-xs ${textClass}`}>
+                              {item.title}
+                            </span>
+                            {item.targetDate && (
+                              <span className="text-[10px] text-slate-400 font-mono ml-2">
+                                (Previsto: {item.targetDate})
+                              </span>
+                            )}
+                            {item.evidence && (
+                              <p className="text-[10px] text-slate-500 mt-0.5 italic">
+                                Evidencia: {item.evidence}
+                              </p>
+                            )}
+                          </div>
+                        </div>
+                      );
+                    })
+                  ) : (
+                    <p className="text-xs text-slate-400 italic">No hay pasos definidos en el roadmap.</p>
+                  )}
                 </div>
               </div>
             </div>

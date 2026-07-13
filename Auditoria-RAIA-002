@@ -1,0 +1,697 @@
+# Auditoría del branch `dev-001`
+
+**Commit revisado:** `65f5f415492c3f876fa517945e9c703b0c81c116`
+**Mensaje:** `feat: implement RAIA Architecture Overview Portal, dynamic dashboard, and metamodel`.
+
+## Veredicto ejecutivo
+
+El branch representa un **avance importante del Architecture Overview Portal** y ya es útil como demostración visual. Sin embargo, **no recomiendo fusionarlo todavía a `main` ni declararlo release 0.1.0 publicado**.
+
+### Estado estimado
+
+| Componente                     | Madurez |
+| ------------------------------ | ------: |
+| Architecture Overview Portal   |     70% |
+| Navegación y módulos planeados |     75% |
+| Metamodel Overview             |     60% |
+| Dashboard                      |     45% |
+| Gobierno y releases            |     40% |
+| Business Scenarios solicitados |     10% |
+| Calidad, pruebas y CI          |     30% |
+| Seguridad y accesibilidad      |     30% |
+
+> **Decisión recomendada: NO-GO para merge.**
+> Apto para demo interna; no apto aún para publicación como baseline gobernado.
+
+---
+
+# Lo que está bien implementado
+
+El portal raíz ya se alimenta desde `portal-modules.json`, agrupa los módulos por arquitectura de referencia, Service Landscape, escenarios, capacidades, regulación y gobierno, y conserva acceso al Value Chain existente.
+
+También se implementaron correctamente:
+
+* 17 módulos arquitectónicos configurables;
+* rutas informativas para activos planeados;
+* `/architecture-overview` redirigiendo al portal principal;
+* Dashboard inicial;
+* Metamodel Overview;
+* Releases;
+* página de contribución;
+* navegación responsive;
+* búsqueda global;
+* validación Zod de los nuevos archivos de portal.
+
+La separación visible entre **RAIA 0.1.0** y **BIAN 14.0 como baseline de inspiración** ya aparece en la página principal y en releases.
+
+---
+
+# Hallazgos críticos — P0
+
+## P0-01 — Existen dos o tres buscadores globales montados simultáneamente
+
+El `Header` renderiza una instancia de `GlobalSearch` para escritorio y otra para móvil. Aunque una se oculte mediante CSS, **ambas permanecen montadas y registran el listener global de `Ctrl/Cmd + K`**.
+
+La página inicial agrega una tercera instancia.
+
+Cada instancia registra:
+
+```typescript
+window.addEventListener("keydown", handleKeyDown);
+```
+
+### Consecuencia
+
+Al presionar `Ctrl/Cmd + K` pueden abrirse varios modales superpuestos. Además, el corpus de búsqueda se construye varias veces.
+
+### Corrección
+
+Crear una sola instancia global:
+
+```text
+SearchProvider
+└── CommandPalette
+    ├── DesktopSearchTrigger
+    ├── MobileSearchTrigger
+    └── HeroSearchTrigger
+```
+
+Los botones deben abrir el mismo modal mediante Zustand o Context.
+
+---
+
+## P0-02 — El Dashboard presenta métricas inventadas
+
+El código declara explícitamente:
+
+```typescript
+const fieldCompleteness = 87;
+```
+
+con el comentario de que se trata de un valor simulado.
+
+Además, el conteo de objetos de negocio utiliza:
+
+```typescript
+const businessObjectsCount = boNames.size || 24;
+```
+
+Si no encuentra objetos, informa 24 en lugar de cero.
+
+La fecha de última actualización también está fija:
+
+```typescript
+lastUpdatedAt: "2026-07-12"
+```
+
+### Riesgo
+
+El Dashboard aparenta ser analítico y gobernado, pero puede mostrar información que no corresponde al repositorio.
+
+### Corrección
+
+Ninguna métrica debe tener fallback ficticio. Debe generarse un manifest:
+
+```json
+{
+  "generatedAt": "...",
+  "businessAreas": 11,
+  "businessDomains": 34,
+  "serviceDomains": 273,
+  "fieldCompleteness": 0,
+  "validatedContent": 0
+}
+```
+
+---
+
+## P0-03 — El estado de validación puede mostrar una falsa cobertura del 100%
+
+El Dashboard considera validado todo contenido con estado `active` o `validated`.
+
+Sin embargo, los datos base conservan numerosos elementos marcados directamente como `active` y versionados como `14.0.0`, aunque RAIA todavía está en construcción. Por ejemplo, las Áreas de Negocio aparecen como activas desde la carga inicial.
+
+### Corrección
+
+Mientras no exista revisión formal:
+
+```text
+status: proposed
+maturity: conceptual
+regulatoryValidationStatus: pending
+```
+
+`active` debe reservarse para contenido aprobado por el proceso editorial real.
+
+---
+
+## P0-04 — El versionamiento sigue mezclando RAIA y BIAN
+
+La página principal y el header utilizan correctamente `RAIA 0.1.0`, pero el layout global todavía declara:
+
+```text
+RAIA Service Landscape V14.0
+```
+
+El footer también continúa mostrando:
+
+```text
+RAIA V14.0
+```
+
+Los datos canónicos siguen versionados como `14.0.0`.
+
+### Corrección
+
+Separar formalmente:
+
+```text
+RAIA Release: 0.1.0
+RAIA Content Schema: 1.0.0
+Regulatory Baseline: 2026-07-12
+BIAN Inspiration Baseline: 14.0
+```
+
+Renombrar progresivamente:
+
+```text
+raia-v14.0.json
+```
+
+a:
+
+```text
+raia-landscape-0.1.0.json
+```
+
+---
+
+## P0-05 — Contradicción legal sobre la licencia
+
+La página de contribución afirma:
+
+> “Los modelos y contenidos se publican bajo un esquema abierto y de uso libre”.
+
+El footer declara:
+
+> “Todos los derechos reservados”.
+
+Además, no se localizó un archivo `LICENSE`.
+
+### Corrección
+
+Definir primero la estrategia legal y agregar un archivo formal. Por ejemplo:
+
+* código: Apache-2.0 o MIT;
+* modelos y documentación: CC BY 4.0;
+* marcas y logotipo RAIA: derechos reservados;
+* disclaimer de independencia respecto de BIAN y autoridades.
+
+Hasta entonces, eliminar “uso libre” y evitar afirmar una licencia inexistente.
+
+---
+
+## P0-06 — Se presentan artefactos y releases como activos o publicados sin gobierno real
+
+`architecture-artifacts.json` declara el metamodelo, el catálogo y el Dashboard como `active`, propiedad de un supuesto “Comité de Arquitectura de Industria”.
+
+`releases.json` marca RAIA 0.1.0 como `published`.
+
+La página de contribución define `Active` como contenido publicado en un “release oficial”.
+
+### Riesgo
+
+Puede interpretarse como reconocimiento de industria o validación regulatoria inexistente.
+
+### Corrección
+
+Usar provisionalmente:
+
+```text
+release status: draft
+artifact status: proposed
+ownerRole: RAIA Maintainers
+validationStatus: pending-industry-review
+```
+
+Evitar la palabra **oficial**.
+
+---
+
+## P0-07 — El branch no tiene evidencia de CI
+
+El workflow solo se activa ante:
+
+```yaml
+push:
+  branches: [main]
+
+pull_request:
+  branches: [main]
+```
+
+GitHub no reporta ejecuciones de workflow para el commit de `dev-001`.
+
+### Corrección
+
+Crear un Pull Request hacia `main` o activar:
+
+```yaml
+push:
+  branches:
+    - main
+    - dev-*
+```
+
+No fusionar sin evidencia de:
+
+```text
+validate:data
+lint
+typecheck
+test
+build
+test:e2e
+accessibility
+```
+
+---
+
+# Business Scenarios: brecha principal
+
+El trabajo solicitado de Business Scenarios **todavía no está implementado**.
+
+La página actual contiene solamente diez categorías y 54 nombres de escenarios escritos directamente en JSX.
+
+No existen todavía:
+
+* 18 Scenario Families;
+* Scenario Groups;
+* identificadores `RAIA-BSF`, `RAIA-BSG`, `RAIA-BS`;
+* páginas intermedias por familia y grupo;
+* páginas detalladas;
+* Scenario Steps;
+* actores;
+* triggers;
+* business outcomes;
+* precondiciones y postcondiciones;
+* objetos;
+* regulación;
+* controles;
+* excepciones;
+* snippets reutilizables;
+* diagramas Sequence o Swimlane;
+* filtros;
+* exportaciones;
+* validación de escenarios.
+
+El modelo TypeScript continúa siendo:
+
+```typescript
+interface BusinessScenario {
+  id: string;
+  name: string;
+  description: string;
+  steps: BusinessScenarioStep[];
+}
+```
+
+Tampoco se localizaron:
+
+```text
+src/data/business-scenarios/
+src/domain/repositories/scenarioRepository.ts
+src/domain/schemas/scenarioSchemas.ts
+```
+
+### Conclusión
+
+El branch implementa el **catálogo visual preliminar**, pero no el módulo RAIA Business Scenarios solicitado.
+
+---
+
+# Hallazgos importantes — P1
+
+## P1-01 — El buscador carga todo el repositorio arquitectónico en el cliente
+
+`GlobalSearch`, al ser un Client Component, importa directamente los repositorios del portal y del landscape.
+
+El `landscapeRepository` importa:
+
+* el JSON de 273 Service Domains;
+* relaciones;
+* regulaciones;
+* escenarios;
+* Zod y todos sus schemas.
+
+### Impacto
+
+* bundle del navegador innecesariamente grande;
+* validación Zod ejecutada en cliente;
+* mayor tiempo de hidratación;
+* corpus reconstruido en cada instancia.
+
+### Corrección
+
+Generar en build:
+
+```text
+public/generated/search-index.json
+```
+
+con solo:
+
+```typescript
+{id, name, type, route, keywords}
+```
+
+---
+
+## P1-02 — La búsqueda no es realmente difusa
+
+Aunque `fuse.js` está instalado, el nuevo buscador utiliza únicamente:
+
+```typescript
+text.includes(query.toLowerCase())
+```
+
+Además, solo incluye:
+
+* módulos;
+* áreas;
+* dominios;
+* Service Domains.
+
+No incluye releases, artefactos, escenarios, regulaciones, controles ni objetos.
+
+---
+
+## P1-03 — El modal de búsqueda no cumple todavía accesibilidad AA
+
+Faltan:
+
+* `role="dialog"`;
+* `aria-modal="true"`;
+* focus trap;
+* retorno del foco al trigger;
+* `aria-live` para resultados;
+* bloqueo/inert del fondo;
+* relación semántica entre input y lista.
+
+El modal actual se limita a backdrop, input y botones.
+
+---
+
+## P1-04 — El Service Landscape sigue siendo una cuadrícula codificada por IDs
+
+La vista principal todavía usa:
+
+```typescript
+renderBusinessArea("RAIA-BA-008")
+renderBusinessArea("RAIA-BA-003")
+renderBusinessArea("RAIA-BA-004")
+```
+
+No es todavía el canvas solicitado con:
+
+* pan;
+* zoom;
+* minimapa;
+* semantic zoom;
+* ELK;
+* fullscreen;
+* relaciones globales;
+* exportación;
+* layout generado completamente desde datos.
+
+Sin embargo, el portal lo marca como `available` y versión `1.0.0`.
+
+La clasificación recomendada sería:
+
+```text
+status: in-development
+version: 0.1.0
+```
+
+---
+
+## P1-05 — El script de validación ignora los nuevos archivos del portal
+
+`validateData.js` solo carga:
+
+* `raia-v14.0.json`;
+* relaciones;
+* regulaciones;
+* escenarios antiguos.
+
+No valida:
+
+* `portal-modules.json`;
+* `releases.json`;
+* `architecture-artifacts.json`;
+* rutas;
+* dependencias;
+* IDs de artefactos;
+* source IDs;
+* duplicidad de módulos;
+* coherencia de estados;
+* conteos declarados en releases.
+
+Los schemas Zod sí se ejecutan al importar el repositorio, pero no existe validación relacional integral.
+
+---
+
+## P1-06 — Las pruebas no cubren el nuevo portal
+
+`npm test` ejecuta un script Node artesanal y no Vitest.
+
+La suite actual solo verifica siete aspectos del Service Landscape anterior.
+
+No prueba:
+
+* módulos;
+* rutas;
+* Dashboard;
+* búsqueda;
+* mobile navigation;
+* Metamodel;
+* Releases;
+* Contribution;
+* accesibilidad;
+* Business Scenarios.
+
+Tampoco existen comandos `test:e2e` ni dependencias de Playwright/Vitest.
+
+---
+
+## P1-07 — El CI no ejecuta lint
+
+El workflow ejecuta datos, TypeScript, tests y build, pero omite `npm run lint`.
+
+Esto es relevante porque existen imports y variables aparentemente sin uso, por ejemplo:
+
+* `searchCorpus` se construye en la página principal, pero `GlobalSearch` vuelve a generar su propio corpus;
+* `module` se obtiene en Business Scenarios, pero no se utiliza.
+
+---
+
+## P1-08 — El metamodelo contiene dos definiciones conceptualmente incorrectas
+
+Se define `Business Event` como un mensaje necesariamente asíncrono.
+
+Un Business Event es un hecho de negocio significativo; puede representarse mediante evento, API, mensaje, archivo, lote o interacción manual.
+
+También se define `Control` únicamente como mitigación de seguridad.
+
+RAIA debe contemplar controles:
+
+* regulatorios;
+* operativos;
+* financieros;
+* inversión;
+* privacidad;
+* seguridad;
+* datos;
+* continuidad;
+* auditoría.
+
+---
+
+## P1-09 — Metadatos globales y seguridad están incompletos
+
+El metadata global todavía corresponde al Service Landscape V14.0.
+
+`next.config.ts` no contiene:
+
+* CSP;
+* `X-Content-Type-Options`;
+* `Referrer-Policy`;
+* `Permissions-Policy`;
+* anti-framing;
+* HSTS.
+
+Tampoco se localizaron `sitemap.ts` ni `robots.ts`.
+
+---
+
+## P1-10 — Las tarjetas del portal no muestran toda la metadata solicitada
+
+Las tarjetas muestran:
+
+* icono;
+* nombre;
+* ID;
+* descripción;
+* estado;
+* acción.
+
+Faltan:
+
+* versión;
+* número de artefactos;
+* última actualización;
+* owner;
+* validation status;
+* dependencias;
+* roadmap.
+
+El tipo `PortalModule` tampoco contempla owner o validation status.
+
+---
+
+## P1-11 — Los roadmaps planeados están simulados
+
+`PlannedModulePage` declara literalmente que genera contenido de roadmap “mock” y marca fases como completadas.
+
+Esto puede presentar trabajo inexistente como concluido.
+
+Los roadmaps deben residir en datos versionados y usar:
+
+```text
+not-started
+in-progress
+completed
+blocked
+```
+
+solo con evidencia.
+
+---
+
+## P1-12 — El README no está alineado con el nuevo Portal
+
+El README sigue titulado únicamente como `RAIA — Service Landscape` y documenta principalmente la estructura anterior.
+
+No describe:
+
+* Architecture Overview Portal;
+* los 17 módulos;
+* Dashboard;
+* Releases;
+* Architecture Artifacts;
+* búsqueda;
+* páginas planeadas;
+* versión de portal;
+* Business Scenarios;
+* estrategia de gobierno completa.
+
+También denomina la vista Value Chain como “Canvas interactivo”, aunque actualmente continúa siendo una cuadrícula.
+
+---
+
+# Matriz de aceptación
+
+| Requisito                                  | Estado                                   |
+| ------------------------------------------ | ---------------------------------------- |
+| Portal principal en `/`                    | Cumplido                                 |
+| Módulos generados desde JSON               | Cumplido                                 |
+| 17 módulos registrados                     | Cumplido                                 |
+| Rutas informativas para módulos planeados  | Mayormente cumplido                      |
+| `/capability-map/top-level`                | Faltante                                 |
+| Dashboard dinámico                         | Parcial, contiene mocks                  |
+| Metamodel Overview                         | Parcial                                  |
+| Releases                                   | Implementado, gobierno prematuro         |
+| Contribute                                 | Implementado, sin licencia formal        |
+| Search global                              | Parcial                                  |
+| Search de escenarios/regulación/artefactos | Faltante                                 |
+| Mobile navigation                          | Implementado, pendiente de accesibilidad |
+| Zod para portal                            | Implementado parcialmente                |
+| Validación relacional de portal            | Faltante                                 |
+| CI del branch                              | Sin evidencia                            |
+| Lint en CI                                 | Faltante                                 |
+| Vitest                                     | Faltante                                 |
+| Playwright E2E                             | Faltante                                 |
+| Axe/accessibility tests                    | Faltante                                 |
+| Security headers                           | Faltante                                 |
+| Sitemap/robots/canonical                   | Faltante                                 |
+| README de portal                           | Faltante                                 |
+| Business Scenario Families                 | Faltante                                 |
+| Scenario Groups                            | Faltante                                 |
+| Detailed Scenario View                     | Faltante                                 |
+| Sequence/Swimlane diagrams                 | Faltante                                 |
+| Scenario snippets canónicos                | Faltante                                 |
+
+---
+
+# Orden recomendado de corrección
+
+## Antes del merge
+
+1. Convertir el buscador en singleton.
+2. Eliminar métricas y roadmaps simulados.
+3. Uniformar todo el versionamiento en RAIA 0.1.0.
+4. Cambiar releases y artefactos de `active/published` a `proposed/draft`.
+5. Resolver la licencia y agregar `LICENSE`.
+6. Eliminar expresiones como “release oficial”.
+7. Ejecutar CI sobre `dev-001`.
+8. Añadir lint al pipeline.
+9. Actualizar metadata, footer y README.
+10. Clasificar Value Chain como `in-development`.
+
+## Siguiente incremento funcional
+
+Implementar Business Scenarios con:
+
+```text
+Scenario Family
+→ Scenario Group
+→ Business Scenario
+→ Scenario Step
+```
+
+y comenzar con el escenario de referencia:
+
+```text
+Registrar a un nuevo trabajador en una AFORE
+```
+
+## Posteriormente
+
+* verdadero Value Chain Canvas;
+* buscador indexado;
+* validación relacional;
+* Vitest y Playwright;
+* accesibilidad;
+* seguridad;
+* SEO;
+* documentación y gobierno formal.
+
+---
+
+## Conclusión
+
+El branch `dev-001` sí cumple su propósito de demostrar cómo puede verse el **RAIA Architecture Overview Portal**. La estructura general es correcta y merece conservarse.
+
+El problema no está en la dirección visual, sino en que varios elementos se presentan con una madurez superior a la real:
+
+```text
+Portal funcional
+≠
+Baseline validado
+≠
+Release publicado
+≠
+Estándar oficial
+```
+
+La decisión arquitectónica adecuada es mantener este branch como **prototipo de portal en desarrollo**, corregir los P0 y después iniciar el modelo canónico de Business Scenarios.

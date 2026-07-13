@@ -231,7 +231,12 @@ export interface PortalModule {
   dependencies?: string[];
   ownerRole?: string;
   validationStatus?: string;
-  roadmap?: string[];
+  roadmap?: {
+    title: string;
+    status: "not-started" | "in-progress" | "completed" | "blocked";
+    targetDate?: string;
+    evidence?: string;
+  }[];
   lastReviewedAt?: string;
   tags: string[];
   createdAt: string;
