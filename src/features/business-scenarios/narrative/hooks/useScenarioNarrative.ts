@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ScenarioArchitectureNarrative } from '../../../../domain/types/scenarioNarrativeTypes';
+import narrativesBundle from '../../../../data/scenario-narratives.json';
 
 export function useScenarioNarrative(scenarioId?: string) {
   const [narrative, setNarrative] = useState<ScenarioArchitectureNarrative | null>(null);
@@ -12,13 +13,14 @@ export function useScenarioNarrative(scenarioId?: string) {
     }
 
     setLoading(true);
-    fetch('/data/scenario-narratives.json')
-      .then(res => res.json())
-      .then(data => {
-        setNarrative(data[scenarioId] || null);
-      })
-      .catch(() => setNarrative(null))
-      .finally(() => setLoading(false));
+    
+    // Simular un micro-retraso para que la UI muestre el skeleton state limpiamente
+    const timer = setTimeout(() => {
+      setNarrative((narrativesBundle as any)[scenarioId] || null);
+      setLoading(false);
+    }, 150);
+
+    return () => clearTimeout(timer);
   }, [scenarioId]);
 
   return { narrative, loading };
