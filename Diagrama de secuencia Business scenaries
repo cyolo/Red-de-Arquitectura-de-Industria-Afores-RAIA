@@ -1,0 +1,1810 @@
+La mejor opción para replicar el estilo observado en BIAN **no es Mermaid ni React Flow como motor principal**. La vista de BIAN utiliza una semántica estricta de diagrama de secuencia: participantes en columnas, líneas de vida verticales, mensajes horizontales, auto-interacciones, barras de activación y orden temporal descendente. ([BIAN][1])
+
+Mi recomendación es construir un **motor de diagramas de secuencia SVG propio para RAIA**, usando:
+
+* **React + TypeScript + SVG nativo** para el renderizado.
+* **D3-zoom** exclusivamente para zoom, paneo y ajuste al contenido; funciona sobre SVG y distintos mecanismos de entrada. ([D3.js][2])
+* **Zod** para validar el modelo.
+* **Canvas Text Metrics** para medir y distribuir textos.
+* **React Flow** únicamente para vistas complementarias de topología o relaciones, no para el diagrama secuencial principal. React Flow permite nodos y aristas personalizados, pero su modelo natural es de grafos; la distribución temporal rígida de una secuencia se controla mejor directamente mediante SVG. ([React Flow][3])
+
+````markdown
+# PROMPT MAESTRO PARA ANTIGRAVITY IA
+
+# RAIA Sequence Diagram Engine — Diagramas de secuencia inspirados en BIAN
+
+## 1. Objetivo
+
+Extiende el proyecto:
+
+**RAIA — Red de Arquitectura de Industria Afores**
+
+Repositorio:
+
+```text
+https://github.com/cyolo/Red-de-Arquitectura-de-Industria-Afores-RAIA
+````
+
+Branch:
+
+```text
+dev-001
+```
+
+Implementa un motor propio de diagramas de secuencia para representar cada Business Scenario de RAIA.
+
+La referencia visual y conceptual es:
+
+```text
+https://bian.org/servicelandscape-12-0-0/views/view_55613.html
+```
+
+El resultado debe inspirarse en la estructura de los diagramas de secuencia de BIAN, pero debe tener diseño, código, componentes, estilos y contenido originales de RAIA.
+
+No copies:
+
+* código fuente de BIAN;
+* SVG de BIAN;
+* estilos CSS de BIAN;
+* activos gráficos;
+* imágenes;
+* textos bancarios;
+* identidad gráfica;
+* diagramas existentes.
+
+Utiliza como inspiración únicamente:
+
+* marco exterior del escenario;
+* título de diagrama con prefijo `sd`;
+* participantes organizados horizontalmente;
+* encabezados rectangulares;
+* líneas de vida verticales;
+* mensajes horizontales;
+* auto-interacciones;
+* barras de activación;
+* secuencia temporal descendente;
+* etiquetas colocadas sobre los mensajes.
+
+---
+
+# 2. Decisión tecnológica obligatoria
+
+## Motor principal
+
+Construye un motor denominado:
+
+# **RAIA Sequence Diagram Engine**
+
+Tecnología:
+
+```text
+React
+TypeScript strict
+SVG nativo
+D3 Zoom
+Zod
+Canvas Text Metrics
+Tailwind CSS
+Zustand
+```
+
+Dependencias recomendadas:
+
+```bash
+npm install d3-zoom d3-selection
+npm install -D @types/d3-zoom @types/d3-selection
+```
+
+Conserva:
+
+```text
+@xyflow/react
+```
+
+para otros diagramas del portal.
+
+No utilices React Flow como renderizador principal del diagrama de secuencia.
+
+No utilices:
+
+* Mermaid;
+* PlantUML;
+* Graphviz;
+* Kroki;
+* imágenes preconstruidas;
+* diagramas rasterizados;
+* iframes;
+* servicios externos;
+* layouts automáticos de grafos;
+* APIs remotas para generar diagramas.
+
+## Razón arquitectónica
+
+Un diagrama de secuencia tiene una geometría determinista:
+
+```text
+Participantes → eje horizontal
+Tiempo y mensajes → eje vertical
+Línea de vida → columna fija
+Mensaje → fila secuencial
+Activación → intervalo temporal
+Fragmento → región de filas
+```
+
+No requiere un algoritmo genérico de grafos.
+
+Debe utilizar un algoritmo específico de secuencia desarrollado para RAIA.
+
+---
+
+# 3. Principio de fuente única
+
+La fuente canónica debe ser el modelo estructurado del Business Scenario.
+
+```text
+Business Scenario JSON
+    ├── Diagrama SVG BIAN-style
+    ├── Tabla de interacciones
+    ├── Vista textual
+    ├── Timeline móvil
+    ├── Exportación SVG
+    ├── Exportación PNG
+    └── Exportación JSON
+```
+
+No almacenes coordenadas en los datos.
+
+No almacenes SVG manual en los escenarios.
+
+No programes un componente JSX distinto para cada escenario.
+
+El mismo escenario y la misma versión deben producir siempre la misma geometría y el mismo SVG.
+
+---
+
+# 4. Estructura visual requerida
+
+Cada diagrama deberá contener las siguientes capas.
+
+## 4.1 Marco del escenario
+
+Mostrar un marco exterior rectangular.
+
+Encabezado superior:
+
+```text
+sd RAIA-BS-XXXX — Nombre del Business Scenario
+```
+
+Ejemplo:
+
+```text
+sd RAIA-BS-0001 — Registrar a un nuevo trabajador en una AFORE
+```
+
+Características:
+
+* fondo blanco;
+* borde gris;
+* encabezado alineado a la izquierda;
+* nombre completo;
+* versión;
+* estado editorial;
+* baseline regulatorio opcional;
+* espacio suficiente entre el encabezado y los participantes.
+
+## 4.2 Participantes
+
+Los participantes deberán mostrarse horizontalmente en la parte superior.
+
+Cada participante tendrá:
+
+* rectángulo de encabezado;
+* fondo amarillo suave inspirado conceptualmente en BIAN;
+* borde gris;
+* nombre centrado;
+* máximo de dos o tres líneas;
+* identificador RAIA opcional;
+* icono o estereotipo opcional;
+* ancho calculado según el texto;
+* ancho mínimo y máximo;
+* línea de vida vertical.
+
+Ejemplo conceptual:
+
+```text
+┌───────────────────────┐
+│ :Gestión de Solicitud │
+│      de Servicio      │
+└───────────────────────┘
+            ┊
+            ┊
+            ┊
+```
+
+Los tipos de participantes pueden ser:
+
+```text
+actor
+service-domain
+authority
+industry-service
+external-participant
+```
+
+## 4.3 Líneas de vida
+
+Las líneas de vida deberán:
+
+* comenzar debajo del encabezado del participante;
+* terminar al final del diagrama;
+* ser verticales;
+* utilizar trazo gris claro;
+* utilizar línea discontinua;
+* permanecer detrás de mensajes y activaciones;
+* crecer dinámicamente con el número de pasos.
+
+## 4.4 Mensajes
+
+Los mensajes deberán:
+
+* ser horizontales;
+* mostrar una flecha;
+* colocar el texto sobre la línea;
+* iniciar y terminar en las líneas de vida;
+* respetar el orden secuencial;
+* mostrar un punto de origen opcional;
+* permitir seleccionar el mensaje;
+* vincularse con el Scenario Step correspondiente.
+
+## 4.5 Barras de activación
+
+Las barras de activación deberán:
+
+* colocarse sobre la línea de vida;
+* ser rectángulos estrechos;
+* tener fondo blanco;
+* usar borde gris;
+* comenzar cuando el participante recibe una interacción;
+* terminar cuando devuelve el control o concluye su participación;
+* soportar activaciones anidadas.
+
+## 4.6 Auto-interacciones
+
+Cuando origen y destino sean el mismo participante, renderiza una llamada a sí mismo:
+
+```text
+      ┊
+      ●──────┐
+      ┊      │ Validar datos relacionados
+      ◀──────┘
+      ┊
+```
+
+La auto-interacción debe:
+
+* salir hacia la derecha;
+* bajar una fila;
+* regresar a la misma línea de vida;
+* mostrar punta de flecha;
+* evitar colisiones con el texto;
+* aumentar el alto de la fila automáticamente.
+
+---
+
+# 5. Lenguaje visual RAIA
+
+## Colores base
+
+```text
+Marco:                    #CBD5E1
+Fondo:                    #FFFFFF
+Participante:             #FFF98A
+Participante seleccionado:#FDE68A
+Texto:                    #111827
+Línea de vida:            #D1D5DB
+Mensaje principal:        #111827
+Respuesta:                #64748B
+Evento:                   #0E6B6F
+Excepción:                #B54747
+Activación:               #FFFFFF
+Activación borde:         #CBD5E1
+Fragmento alternativo:    #F8FAFC
+Selección:                #1F78B4
+```
+
+No copies exactamente los colores de BIAN.
+
+## Tipografía
+
+Utiliza:
+
+```text
+Inter
+```
+
+Tamaños mínimos:
+
+```text
+Título del escenario: 14 px
+Participantes: 12 px
+Mensajes: 12 px
+Identificadores: 10 px
+Notas: 11 px
+```
+
+No utilices textos esenciales menores de 11 px.
+
+---
+
+# 6. Modelo de datos
+
+## 6.1 ScenarioParticipantInstance
+
+Un mismo Service Domain puede aparecer más de una vez cuando desempeñe roles distintos dentro de un escenario.
+
+Por ello, no utilices únicamente `serviceDomainId` como identidad visual.
+
+```typescript
+export interface ScenarioParticipantInstance {
+  instanceId: string;
+
+  participantType:
+    | "actor"
+    | "service-domain"
+    | "authority"
+    | "industry-service"
+    | "external-participant";
+
+  actorId?: string;
+  serviceDomainId?: string;
+  externalParticipantId?: string;
+
+  label: string;
+  shortLabel?: string;
+  stereotype?: string;
+
+  role?: string;
+  order: number;
+
+  groupId?: string;
+
+  visual?: {
+    emphasis?: "normal" | "primary" | "external";
+    headerColorToken?: string;
+  };
+}
+```
+
+Ejemplo:
+
+```json
+{
+  "instanceId": "transfer-receiving-afore",
+  "participantType": "service-domain",
+  "serviceDomainId": "RAIA-SD-045",
+  "label": "Traspaso de Cuenta",
+  "role": "AFORE receptora",
+  "order": 5
+}
+```
+
+## 6.2 SequenceMessage
+
+```typescript
+export interface SequenceMessage {
+  id: string;
+  scenarioStepId: string;
+  sequence: number;
+
+  sourceParticipantInstanceId: string;
+  targetParticipantInstanceId: string;
+
+  label: string;
+  operationName?: string;
+  serviceOperationId?: string;
+
+  messageType:
+    | "synchronous-command"
+    | "asynchronous-command"
+    | "query"
+    | "response"
+    | "business-event"
+    | "notification"
+    | "file-transfer"
+    | "manual-interaction"
+    | "approval"
+    | "rejection";
+
+  lineStyle?: "solid" | "dashed";
+  arrowStyle?: "filled" | "open";
+
+  activatesTarget?: boolean;
+  deactivatesSource?: boolean;
+  deactivatesTarget?: boolean;
+
+  optional?: boolean;
+  expectedOutcome?: string;
+
+  businessObjectIds?: string[];
+  controlIds?: string[];
+  evidenceIds?: string[];
+
+  noteIds?: string[];
+}
+```
+
+## 6.3 ActivationSpan
+
+```typescript
+export interface ActivationSpan {
+  id: string;
+  participantInstanceId: string;
+
+  startSequence: number;
+  endSequence: number;
+
+  depth: number;
+  activationType:
+    | "processing"
+    | "manual-review"
+    | "waiting"
+    | "transaction";
+}
+```
+
+## 6.4 SequenceNote
+
+```typescript
+export interface SequenceNote {
+  id: string;
+
+  participantInstanceIds: string[];
+
+  placement:
+    | "left"
+    | "right"
+    | "over"
+    | "between";
+
+  text: string;
+
+  afterSequence?: number;
+  beforeSequence?: number;
+
+  noteType:
+    | "information"
+    | "control"
+    | "regulation"
+    | "exception"
+    | "evidence";
+}
+```
+
+## 6.5 SequenceFragment
+
+```typescript
+export interface SequenceFragment {
+  id: string;
+
+  fragmentType:
+    | "alt"
+    | "opt"
+    | "loop"
+    | "par"
+    | "critical"
+    | "break";
+
+  label: string;
+
+  startSequence: number;
+  endSequence: number;
+
+  branches?: SequenceFragmentBranch[];
+
+  participantInstanceIds?: string[];
+}
+```
+
+```typescript
+export interface SequenceFragmentBranch {
+  id: string;
+  label: string;
+  startSequence: number;
+  endSequence: number;
+}
+```
+
+## 6.6 BusinessScenarioSequence
+
+```typescript
+export interface BusinessScenarioSequence {
+  scenarioId: string;
+  version: string;
+
+  title: string;
+  description: string;
+
+  participants: ScenarioParticipantInstance[];
+  messages: SequenceMessage[];
+  activations: ActivationSpan[];
+  notes: SequenceNote[];
+  fragments: SequenceFragment[];
+
+  status:
+    | "draft"
+    | "proposed"
+    | "validated"
+    | "active"
+    | "deprecated";
+
+  regulatoryValidationStatus:
+    | "pending"
+    | "partially-validated"
+    | "validated";
+}
+```
+
+---
+
+# 7. Arquitectura del motor
+
+Crea:
+
+```text
+src/features/business-scenarios/sequence-diagram/
+├── components/
+│   ├── RaiaSequenceDiagram.tsx
+│   ├── SequenceDiagramFrame.tsx
+│   ├── ParticipantHeader.tsx
+│   ├── ParticipantLifeline.tsx
+│   ├── SequenceMessage.tsx
+│   ├── SelfMessage.tsx
+│   ├── ActivationBar.tsx
+│   ├── SequenceFragment.tsx
+│   ├── SequenceNote.tsx
+│   ├── SequenceDiagramToolbar.tsx
+│   ├── SequenceDiagramLegend.tsx
+│   ├── SequenceDiagramError.tsx
+│   └── SequenceDiagramAccessibleTable.tsx
+├── layout/
+│   ├── calculateParticipantLayout.ts
+│   ├── calculateMessageLayout.ts
+│   ├── calculateActivationLayout.ts
+│   ├── calculateFragmentLayout.ts
+│   ├── calculateNoteLayout.ts
+│   ├── calculateDiagramBounds.ts
+│   ├── measureText.ts
+│   └── sequenceLayoutEngine.ts
+├── model/
+│   ├── sequenceTypes.ts
+│   ├── sequenceSchemas.ts
+│   └── sequenceRepository.ts
+├── interaction/
+│   ├── useSequenceZoom.ts
+│   ├── useSequenceSelection.ts
+│   ├── useSequenceKeyboard.ts
+│   └── useSequenceFullscreen.ts
+├── export/
+│   ├── exportSequenceSvg.ts
+│   ├── exportSequencePng.ts
+│   ├── exportSequenceJson.ts
+│   └── printSequenceDiagram.ts
+└── validation/
+    ├── validateSequenceModel.ts
+    ├── validateSequenceGeometry.ts
+    └── validateSequenceReferences.ts
+```
+
+---
+
+# 8. Algoritmo de layout
+
+No utilices ELK, Dagre ni force layout para esta vista.
+
+Crea un algoritmo determinista especializado.
+
+## 8.1 Configuración
+
+```typescript
+export interface SequenceLayoutConfig {
+  canvasPaddingX: number;
+  canvasPaddingY: number;
+
+  frameHeaderHeight: number;
+
+  participantMinWidth: number;
+  participantMaxWidth: number;
+  participantHeaderHeight: number;
+  participantGap: number;
+
+  lifelineTopOffset: number;
+  lifelineBottomPadding: number;
+
+  firstMessageOffset: number;
+  messageMinHeight: number;
+  messageTextMaxWidth: number;
+
+  activationWidth: number;
+  activationDepthOffset: number;
+
+  selfMessageWidth: number;
+  selfMessageHeight: number;
+
+  fragmentPadding: number;
+  notePadding: number;
+}
+```
+
+Valores iniciales sugeridos:
+
+```typescript
+export const defaultSequenceLayoutConfig = {
+  canvasPaddingX: 48,
+  canvasPaddingY: 28,
+
+  frameHeaderHeight: 36,
+
+  participantMinWidth: 150,
+  participantMaxWidth: 220,
+  participantHeaderHeight: 58,
+  participantGap: 58,
+
+  lifelineTopOffset: 8,
+  lifelineBottomPadding: 40,
+
+  firstMessageOffset: 38,
+  messageMinHeight: 46,
+  messageTextMaxWidth: 260,
+
+  activationWidth: 14,
+  activationDepthOffset: 5,
+
+  selfMessageWidth: 54,
+  selfMessageHeight: 36,
+
+  fragmentPadding: 18,
+  notePadding: 12
+};
+```
+
+## 8.2 Cálculo horizontal
+
+Para cada participante:
+
+1. medir el nombre;
+2. calcular sus líneas;
+3. determinar ancho entre mínimo y máximo;
+4. colocar según `order`;
+5. asignar centro horizontal;
+6. asignar posición de línea de vida;
+7. calcular ancho total.
+
+Fórmula conceptual:
+
+```text
+participantX[n] =
+  padding
+  + suma de anchos anteriores
+  + suma de gaps anteriores
+```
+
+La flecha debe iniciar y terminar exactamente en el centro de las líneas de vida.
+
+## 8.3 Cálculo vertical
+
+La posición vertical se deriva del número de secuencia.
+
+```text
+messageY[sequence] =
+  messagesStartY
+  + suma de alturas de filas anteriores
+```
+
+La altura de cada fila debe considerar:
+
+* líneas del texto;
+* auto-interacción;
+* notas;
+* inicio o fin de fragmento;
+* activaciones;
+* etiquetas largas;
+* branches alternativos.
+
+No utilices una altura fija cuando el mensaje ocupe más de una línea.
+
+## 8.4 Medición de texto
+
+Utiliza:
+
+```typescript
+CanvasRenderingContext2D.measureText()
+```
+
+o medición equivalente de SVG.
+
+Implementa:
+
+```typescript
+measureAndWrapText(
+  text: string,
+  maxWidth: number,
+  font: string
+): WrappedTextResult
+```
+
+Debe retornar:
+
+```typescript
+{
+  lines: string[];
+  width: number;
+  height: number;
+}
+```
+
+## 8.5 Determinismo
+
+La misma entrada debe producir:
+
+* las mismas posiciones;
+* el mismo ancho;
+* el mismo alto;
+* el mismo orden;
+* el mismo SVG.
+
+No utilices valores aleatorios.
+
+---
+
+# 9. Tipos de mensajes y representación
+
+## Comando síncrono
+
+```text
+línea sólida
+flecha triangular rellena
+```
+
+## Consulta
+
+```text
+línea sólida
+flecha triangular rellena
+etiqueta iniciada con verbo de consulta
+```
+
+## Respuesta
+
+```text
+línea discontinua
+flecha abierta
+color gris oscuro
+```
+
+## Evento de negocio
+
+```text
+línea discontinua
+flecha rellena
+indicador o badge “Evento”
+```
+
+## Notificación
+
+```text
+línea discontinua
+flecha abierta
+icono discreto de notificación
+```
+
+## Archivo o lote
+
+```text
+línea doble o línea sólida
+icono de documento
+etiqueta “Archivo” o “Lote”
+```
+
+## Revisión manual
+
+```text
+línea sólida
+icono de persona
+nota de intervención humana
+```
+
+## Aprobación
+
+```text
+línea sólida
+marca de validación
+```
+
+## Rechazo
+
+```text
+línea sólida
+color de excepción
+marca de rechazo
+```
+
+No dependas exclusivamente del color.
+
+---
+
+# 10. Marcadores SVG
+
+Define marcadores reutilizables:
+
+```text
+arrow-filled
+arrow-open
+arrow-event
+arrow-error
+```
+
+Crea los marcadores dentro de:
+
+```tsx
+<defs>
+```
+
+No recrees un marcador por cada mensaje.
+
+---
+
+# 11. Interacción
+
+El diagrama deberá permitir:
+
+* zoom con rueda;
+* zoom táctil;
+* paneo;
+* ajustar al contenido;
+* restablecer;
+* fullscreen;
+* seleccionar participante;
+* seleccionar mensaje;
+* seleccionar activación;
+* resaltar origen y destino;
+* atenuar elementos no relacionados;
+* abrir ficha del Service Domain;
+* abrir detalle del Scenario Step;
+* copiar enlace al paso.
+
+Utiliza `d3-zoom` únicamente para transformar un grupo SVG:
+
+```tsx
+<svg>
+  <g className="sequence-viewport" transform={viewportTransform}>
+    ...
+  </g>
+</svg>
+```
+
+No permitas mover manualmente participantes o mensajes.
+
+El diagrama debe conservar siempre su estructura semántica.
+
+---
+
+# 12. Toolbar
+
+Incluye:
+
+```text
+Acercar
+Alejar
+Ajustar
+Restablecer
+Pantalla completa
+Mostrar números
+Mostrar IDs
+Mostrar activaciones
+Mostrar respuestas
+Mostrar controles
+Exportar SVG
+Exportar PNG
+Exportar JSON
+Imprimir
+```
+
+Todas las acciones deben funcionar.
+
+No agregues botones decorativos.
+
+---
+
+# 13. Panel de detalle del mensaje
+
+Al seleccionar un mensaje muestra:
+
+* ID;
+* secuencia;
+* origen;
+* destino;
+* tipo de interacción;
+* operación;
+* descripción;
+* resultado esperado;
+* objetos de negocio;
+* controles;
+* evidencias;
+* Service Operations;
+* regulación asociada;
+* SLA cuando exista.
+
+El panel no debe cubrir por completo el diagrama.
+
+---
+
+# 14. Fragmentos combinados
+
+Soporta:
+
+## Alternative
+
+```text
+alt condición
+else condición alterna
+```
+
+## Optional
+
+```text
+opt condición
+```
+
+## Loop
+
+```text
+loop condición
+```
+
+## Parallel
+
+```text
+par flujo A
+and flujo B
+```
+
+## Critical
+
+```text
+critical operación
+```
+
+Visualización:
+
+* rectángulo alrededor de los mensajes afectados;
+* etiqueta en la esquina superior izquierda;
+* separadores horizontales para branches;
+* título de cada branch;
+* fondo casi transparente;
+* borde gris o color semántico;
+* sin ocultar líneas de vida.
+
+---
+
+# 15. Agrupación de participantes
+
+Permite agrupar participantes visualmente por responsabilidad:
+
+```text
+Trabajador
+AFORE
+Servicios de industria
+Autoridad
+Instituto de seguridad social
+Instituto de vivienda
+Inversiones
+Aseguradora
+```
+
+El grupo puede mostrarse como:
+
+* etiqueta superior;
+* banda muy ligera;
+* borde opcional.
+
+No conviertas los grupos en nodos.
+
+---
+
+# 16. Vista de Business Scenario
+
+Cada página detallada deberá mostrar tabs:
+
+```text
+Diagrama de secuencia
+Tabla de interacciones
+Excepciones
+Trazabilidad
+Modelo JSON
+```
+
+No mostrar Mermaid.
+
+No incluir una pestaña de código Mermaid.
+
+## Diagrama de secuencia
+
+Motor SVG RAIA.
+
+## Tabla de interacciones
+
+| Secuencia | Origen | Mensaje | Destino | Tipo | Resultado |
+| --------: | ------ | ------- | ------- | ---- | --------- |
+
+## Excepciones
+
+Fragmentos alternativos y rutas de error.
+
+## Trazabilidad
+
+* Service Domains;
+* operaciones;
+* objetos;
+* eventos;
+* controles;
+* evidencias;
+* regulaciones;
+* KPIs.
+
+## Modelo JSON
+
+Solo lectura, descargable y validado.
+
+---
+
+# 17. Integración con las rutas
+
+Implementa:
+
+```text
+/business-scenarios
+/business-scenarios/[familySlug]
+/business-scenarios/[familySlug]/[groupSlug]
+/business-scenarios/[familySlug]/[groupSlug]/[scenarioSlug]
+```
+
+En la página detallada:
+
+```text
+?message=RAIA-BSS-0001-05
+```
+
+debe seleccionar el mensaje correspondiente.
+
+Ejemplo:
+
+```text
+/business-scenarios/cuenta-individual/traspaso/traspaso-de-cuenta?message=RAIA-BSS-0001-05
+```
+
+---
+
+# 18. Migración del componente actual
+
+El branch actual contiene un Scenario Stepper básico.
+
+Debes:
+
+1. conservar temporalmente los datos;
+2. migrar `scenarios-0.1.0.json`;
+3. transformar `stepNumber` en `sequence`;
+4. crear participantes por instancia;
+5. convertir source y target en referencias de participante;
+6. sustituir el stepper visual por `RaiaSequenceDiagram`;
+7. conservar una tabla accesible;
+8. documentar la migración;
+9. no eliminar el formato anterior hasta validar la equivalencia.
+
+Crea:
+
+```text
+scripts/migrations/002-migrate-scenarios-to-sequence-model.js
+```
+
+Debe soportar:
+
+```bash
+node scripts/migrations/002-migrate-scenarios-to-sequence-model.js --dry-run
+```
+
+---
+
+# 19. Escenario piloto obligatorio
+
+Implementa completamente:
+
+# **Registro y Traspaso de Cuenta Individual**
+
+Participantes sugeridos:
+
+```text
+Trabajador
+Gestión de Solicitudes
+Datos del Trabajador
+Resolución de Identidad
+Identidad Biométrica
+Expediente Electrónico
+Traspaso de Cuenta
+Empresa Operadora de la Base de Datos Nacional SAR
+AFORE transferente
+AFORE receptora
+Libro Mayor de Cuenta Individual
+Notificaciones
+```
+
+Secuencia conceptual:
+
+1. Trabajador solicita el traspaso.
+2. Gestión de Solicitudes registra la petición.
+3. Datos del Trabajador recupera la información.
+4. Resolución de Identidad valida unicidad.
+5. Identidad Biométrica valida identidad y prueba de vida.
+6. Expediente Electrónico integra evidencia.
+7. Traspaso de Cuenta valida elegibilidad.
+8. Empresa Operadora registra y orquesta la solicitud.
+9. AFORE transferente entrega información.
+10. AFORE receptora acepta la cuenta.
+11. Se transfieren los recursos.
+12. Libro Mayor registra los movimientos.
+13. Notificaciones informa el resultado.
+
+Excepciones:
+
+* identidad no validada;
+* expediente incompleto;
+* cuenta no elegible;
+* solicitud duplicada;
+* rechazo de administradora;
+* falla en transferencia;
+* diferencia de conciliación;
+* cancelación de solicitud.
+
+Debe utilizar:
+
+* mensajes horizontales;
+* auto-interacciones cuando corresponda;
+* respuestas discontinuas;
+* activaciones;
+* al menos un fragmento `alt`;
+* una nota de control;
+* una nota de evidencia.
+
+---
+
+# 20. Ejemplo de datos del piloto
+
+```json
+{
+  "scenarioId": "RAIA-BS-0001",
+  "version": "0.1.0",
+  "title": "Registro y Traspaso de Cuenta Individual",
+  "description": "Gestiona la solicitud, validación y transferencia de una cuenta individual entre administradoras.",
+  "status": "proposed",
+  "regulatoryValidationStatus": "pending",
+  "participants": [
+    {
+      "instanceId": "worker",
+      "participantType": "actor",
+      "actorId": "RAIA-ACT-001",
+      "label": "Trabajador",
+      "order": 1
+    },
+    {
+      "instanceId": "service-request",
+      "participantType": "service-domain",
+      "serviceDomainId": "RAIA-SD-160",
+      "label": "Gestión de Solicitudes",
+      "order": 2
+    },
+    {
+      "instanceId": "worker-data",
+      "participantType": "service-domain",
+      "serviceDomainId": "RAIA-SD-020",
+      "label": "Datos del Trabajador",
+      "order": 3
+    },
+    {
+      "instanceId": "identity-resolution",
+      "participantType": "service-domain",
+      "serviceDomainId": "RAIA-SD-021",
+      "label": "Resolución de Identidad",
+      "order": 4
+    },
+    {
+      "instanceId": "biometric-identity",
+      "participantType": "service-domain",
+      "serviceDomainId": "RAIA-SD-023",
+      "label": "Identidad Biométrica",
+      "order": 5
+    },
+    {
+      "instanceId": "electronic-file",
+      "participantType": "service-domain",
+      "serviceDomainId": "RAIA-SD-031",
+      "label": "Expediente Electrónico",
+      "order": 6
+    },
+    {
+      "instanceId": "account-transfer",
+      "participantType": "service-domain",
+      "serviceDomainId": "RAIA-SD-045",
+      "label": "Traspaso de Cuenta",
+      "order": 7
+    },
+    {
+      "instanceId": "industry-operator",
+      "participantType": "industry-service",
+      "label": "Empresa Operadora de la Base de Datos Nacional SAR",
+      "shortLabel": "Empresa Operadora",
+      "order": 8
+    },
+    {
+      "instanceId": "individual-ledger",
+      "participantType": "service-domain",
+      "serviceDomainId": "RAIA-SD-046",
+      "label": "Libro Mayor de Cuenta Individual",
+      "order": 9
+    }
+  ],
+  "messages": [
+    {
+      "id": "RAIA-MSG-0001-01",
+      "scenarioStepId": "RAIA-BSS-0001-01",
+      "sequence": 1,
+      "sourceParticipantInstanceId": "worker",
+      "targetParticipantInstanceId": "service-request",
+      "label": "Solicitar traspaso de cuenta",
+      "messageType": "synchronous-command",
+      "activatesTarget": true
+    },
+    {
+      "id": "RAIA-MSG-0001-02",
+      "scenarioStepId": "RAIA-BSS-0001-02",
+      "sequence": 2,
+      "sourceParticipantInstanceId": "service-request",
+      "targetParticipantInstanceId": "worker-data",
+      "label": "Recuperar datos del trabajador",
+      "messageType": "query",
+      "activatesTarget": true
+    },
+    {
+      "id": "RAIA-MSG-0001-03",
+      "scenarioStepId": "RAIA-BSS-0001-03",
+      "sequence": 3,
+      "sourceParticipantInstanceId": "worker-data",
+      "targetParticipantInstanceId": "service-request",
+      "label": "Entregar datos del trabajador",
+      "messageType": "response",
+      "deactivatesSource": true
+    },
+    {
+      "id": "RAIA-MSG-0001-04",
+      "scenarioStepId": "RAIA-BSS-0001-04",
+      "sequence": 4,
+      "sourceParticipantInstanceId": "service-request",
+      "targetParticipantInstanceId": "identity-resolution",
+      "label": "Validar identidad del trabajador",
+      "messageType": "synchronous-command",
+      "activatesTarget": true
+    },
+    {
+      "id": "RAIA-MSG-0001-05",
+      "scenarioStepId": "RAIA-BSS-0001-05",
+      "sequence": 5,
+      "sourceParticipantInstanceId": "identity-resolution",
+      "targetParticipantInstanceId": "biometric-identity",
+      "label": "Validar biometría y prueba de vida",
+      "messageType": "synchronous-command",
+      "activatesTarget": true
+    },
+    {
+      "id": "RAIA-MSG-0001-06",
+      "scenarioStepId": "RAIA-BSS-0001-06",
+      "sequence": 6,
+      "sourceParticipantInstanceId": "service-request",
+      "targetParticipantInstanceId": "electronic-file",
+      "label": "Integrar expediente y evidencia",
+      "messageType": "synchronous-command"
+    },
+    {
+      "id": "RAIA-MSG-0001-07",
+      "scenarioStepId": "RAIA-BSS-0001-07",
+      "sequence": 7,
+      "sourceParticipantInstanceId": "service-request",
+      "targetParticipantInstanceId": "account-transfer",
+      "label": "Registrar solicitud de traspaso",
+      "messageType": "synchronous-command",
+      "activatesTarget": true
+    },
+    {
+      "id": "RAIA-MSG-0001-08",
+      "scenarioStepId": "RAIA-BSS-0001-08",
+      "sequence": 8,
+      "sourceParticipantInstanceId": "account-transfer",
+      "targetParticipantInstanceId": "industry-operator",
+      "label": "Validar elegibilidad y registrar solicitud",
+      "messageType": "synchronous-command",
+      "activatesTarget": true
+    },
+    {
+      "id": "RAIA-MSG-0001-09",
+      "scenarioStepId": "RAIA-BSS-0001-09",
+      "sequence": 9,
+      "sourceParticipantInstanceId": "industry-operator",
+      "targetParticipantInstanceId": "account-transfer",
+      "label": "Confirmar resultado de validación",
+      "messageType": "response",
+      "deactivatesSource": true
+    },
+    {
+      "id": "RAIA-MSG-0001-10",
+      "scenarioStepId": "RAIA-BSS-0001-10",
+      "sequence": 10,
+      "sourceParticipantInstanceId": "account-transfer",
+      "targetParticipantInstanceId": "individual-ledger",
+      "label": "Registrar transferencia de recursos",
+      "messageType": "synchronous-command"
+    }
+  ],
+  "activations": [],
+  "notes": [],
+  "fragments": []
+}
+```
+
+Valida los IDs reales existentes en el repositorio antes de usar este ejemplo.
+
+No inventes silenciosamente Service Domains.
+
+Registra cualquier gap.
+
+---
+
+# 21. Responsive
+
+## Escritorio
+
+Mostrar el diagrama completo.
+
+Permitir:
+
+* zoom;
+* paneo;
+* fullscreen;
+* scroll horizontal.
+
+## Tablet
+
+Mostrar el SVG con zoom táctil.
+
+## Móvil
+
+No comprimir todo el diagrama.
+
+Mostrar por defecto:
+
+```text
+Timeline vertical
+```
+
+Permitir cambiar a:
+
+```text
+Diagrama completo
+Tabla
+```
+
+La timeline móvil debe generarse desde los mismos mensajes.
+
+---
+
+# 22. Accesibilidad
+
+Cumple WCAG 2.2 AA.
+
+El SVG debe contener:
+
+```tsx
+<svg
+  role="img"
+  aria-labelledby="sequence-title"
+  aria-describedby="sequence-description"
+>
+```
+
+Incluye:
+
+* título accesible;
+* descripción;
+* tabla alternativa;
+* navegación por teclado;
+* foco visible;
+* mensajes seleccionables;
+* `aria-live` para selección y errores;
+* controles con nombre;
+* contraste suficiente;
+* patrones distintos además del color;
+* reducción de movimiento.
+
+Toda información del diagrama debe estar disponible en la tabla.
+
+---
+
+# 23. Exportación
+
+Implementa:
+
+## SVG
+
+Serializa el SVG completo con:
+
+* estilos embebidos;
+* título;
+* versión;
+* leyenda;
+* disclaimer.
+
+## PNG
+
+Convierte el SVG a canvas en alta resolución.
+
+## JSON
+
+Exporta el modelo canónico.
+
+## PDF
+
+Utiliza estilos de impresión del navegador.
+
+Formatos:
+
+```text
+A3 horizontal
+A4 horizontal
+```
+
+Nombres:
+
+```text
+RAIA-BS-0001-0.1.0.svg
+RAIA-BS-0001-0.1.0.png
+RAIA-BS-0001-0.1.0.json
+```
+
+---
+
+# 24. Validaciones
+
+Crea:
+
+```text
+npm run validate:sequence-diagrams
+```
+
+Debe detectar:
+
+* escenario sin participantes;
+* escenario sin mensajes;
+* `instanceId` duplicado;
+* secuencia duplicada;
+* secuencia no ordenada;
+* origen inexistente;
+* destino inexistente;
+* Service Domain inexistente;
+* activación sin participante;
+* activación con rango inválido;
+* fragmento sin cierre;
+* branch fuera de rango;
+* nota sin participante;
+* auto-interacción inválida;
+* participante sin nombre;
+* geometría con ancho negativo;
+* texto fuera del canvas;
+* colisión entre encabezados;
+* mensaje sin etiqueta;
+* versión inválida;
+* referencias huérfanas.
+
+La validación debe fallar ante errores críticos.
+
+---
+
+# 25. Pruebas
+
+## Unitarias
+
+Prueba:
+
+* medición y wrapping;
+* layout horizontal;
+* layout vertical;
+* mensajes izquierda-derecha;
+* mensajes derecha-izquierda;
+* respuestas;
+* auto-interacciones;
+* activaciones;
+* activaciones anidadas;
+* notas;
+* fragmentos;
+* múltiples branches;
+* participante repetido con distinto rol;
+* determinismo;
+* escenarios grandes.
+
+## Componentes
+
+Prueba:
+
+* marco;
+* participantes;
+* líneas de vida;
+* mensajes;
+* self-call;
+* activación;
+* fragmentos;
+* selección;
+* toolbar;
+* exportación;
+* tabla accesible;
+* errores.
+
+## Visual regression
+
+Agrega capturas de referencia para:
+
+```text
+1280 × 720
+1440 × 900
+1920 × 1080
+375 × 812
+```
+
+Valida que:
+
+* los nombres no se superpongan;
+* los mensajes no crucen etiquetas;
+* los encabezados no colisionen;
+* las flechas terminen en las líneas de vida;
+* las activaciones estén alineadas;
+* los fragmentos cubran las filas correctas.
+
+## End-to-end
+
+Automatiza:
+
+1. abrir Business Scenarios;
+2. abrir un escenario;
+3. comprobar participantes;
+4. comprobar líneas de vida;
+5. comprobar mensajes;
+6. seleccionar mensaje;
+7. abrir Service Domain;
+8. regresar al escenario;
+9. hacer zoom;
+10. ajustar contenido;
+11. entrar en fullscreen;
+12. exportar SVG;
+13. abrir tabla;
+14. probar teclado;
+15. probar móvil;
+16. verificar ausencia de errores de consola.
+
+---
+
+# 26. Scripts
+
+Actualiza:
+
+```json
+{
+  "scripts": {
+    "validate:sequence-diagrams": "node scripts/validateSequenceDiagrams.js",
+    "test:visual": "playwright test tests/visual",
+    "test:e2e": "playwright test",
+    "prebuild": "npm run validate:data && npm run validate:scenarios && npm run validate:sequence-diagrams && npm run lint && npm run typecheck && npm run test"
+  }
+}
+```
+
+Integra en GitHub Actions:
+
+```text
+npm ci
+npm run validate:data
+npm run validate:scenarios
+npm run validate:sequence-diagrams
+npm run lint
+npm run typecheck
+npm run test
+npm run build
+npm run test:e2e
+```
+
+---
+
+# 27. Documentación
+
+Crea:
+
+```text
+docs/sequence-diagram-engine.md
+docs/sequence-diagram-metamodel.md
+docs/sequence-diagram-visual-language.md
+docs/sequence-diagram-layout.md
+docs/sequence-diagram-accessibility.md
+docs/sequence-diagram-export.md
+docs/adr/005-custom-svg-sequence-engine.md
+```
+
+La ADR debe explicar:
+
+* por qué Mermaid fue descartado;
+* por qué React Flow no es el renderer principal;
+* por qué se seleccionó SVG;
+* uso limitado de D3 Zoom;
+* algoritmo determinista;
+* impactos;
+* alternativas evaluadas;
+* estrategia de mantenimiento.
+
+---
+
+# 28. Restricciones
+
+No debes:
+
+* utilizar Mermaid;
+* utilizar PlantUML;
+* utilizar Graphviz;
+* utilizar React Flow como motor principal;
+* copiar SVG de BIAN;
+* guardar coordenadas en JSON;
+* hardcodear diagramas por escenario;
+* utilizar imágenes;
+* posicionar manualmente cada participante;
+* permitir que el usuario arrastre participantes;
+* utilizar un force layout;
+* inventar Service Domains;
+* presentar escenarios como validados sin revisión;
+* usar nombres técnicos de aplicaciones particulares;
+* asumir que todas las interacciones son APIs;
+* dejar exportaciones simuladas;
+* afirmar que las pruebas pasaron sin ejecutarlas.
+
+---
+
+# 29. Criterios de aceptación
+
+La implementación será aceptada cuando:
+
+* cada Business Scenario pueda producir un diagrama SVG;
+* el diseño conserve la semántica visual tipo BIAN;
+* existan participantes superiores;
+* existan líneas de vida;
+* existan mensajes horizontales;
+* existan respuestas;
+* existan activaciones;
+* existan auto-interacciones;
+* existan fragmentos alternativos;
+* el layout se genere automáticamente;
+* no existan posiciones en los datos;
+* exista zoom y paneo;
+* exista fullscreen;
+* exista tabla accesible;
+* exista timeline móvil;
+* exista exportación SVG;
+* exista exportación PNG;
+* exista exportación JSON;
+* existan validaciones;
+* existan pruebas;
+* el build pase;
+* CI pase;
+* el escenario piloto esté completo;
+* los dos escenarios actuales estén migrados;
+* ningún diagrama dependa de Mermaid.
+
+---
+
+# 30. Formato de entrega
+
+Al finalizar entrega:
+
+## Resumen
+
+Qué fue construido.
+
+## Decisión tecnológica
+
+Por qué se seleccionó SVG y D3 Zoom.
+
+## Arquitectura
+
+Cómo el modelo canónico se transforma en geometría y SVG.
+
+## Componentes
+
+Lista de archivos creados.
+
+## Escenarios migrados
+
+Cantidad y estado.
+
+## Service Domain gaps
+
+Responsabilidades que no pudieron mapearse.
+
+## Validaciones
+
+Resultados reales.
+
+## Pruebas
+
+Comandos, cantidad y resultado.
+
+## Build
+
+Resultado real.
+
+## Capturas
+
+Incluye evidencia visual de escritorio y móvil.
+
+## Limitaciones
+
+Pendientes reales.
+
+---
+
+# 31. Instrucción final
+
+Construye un motor de diagramas de secuencia específico para RAIA:
+
+```text
+Business Scenario
+→ Participantes
+→ Mensajes
+→ Activaciones
+→ Fragmentos
+→ Layout determinista
+→ SVG interactivo
+→ Tabla accesible
+→ Exportación
+```
+
+El objetivo visual es obtener diagramas sobrios, legibles y arquitectónicos, con una semántica similar a la utilizada por BIAN:
+
+```text
+participantes superiores
++ líneas de vida verticales
++ mensajes horizontales
++ orden temporal
++ activaciones
++ auto-interacciones
++ excepciones
+```
+
+El objetivo funcional es que cada diagrama permita responder:
+
+* quién inicia el escenario;
+* qué participantes intervienen;
+* qué Service Domain recibe cada solicitud;
+* qué operación se ejecuta;
+* qué respuesta se devuelve;
+* qué orden siguen las interacciones;
+* dónde existe revisión manual;
+* qué controles participan;
+* qué evidencia queda;
+* qué excepción modifica el flujo.
+
+```
+```
+Fuentes
+[1]: https://bian.org/servicelandscape-12-0-0/views/view_55613.html "InSite"
+[2]: https://d3js.org/d3-zoom "d3-zoom | D3 by Observable"
+[3]: https://reactflow.dev/learn/customization/custom-nodes "Custom Nodes - React Flow"

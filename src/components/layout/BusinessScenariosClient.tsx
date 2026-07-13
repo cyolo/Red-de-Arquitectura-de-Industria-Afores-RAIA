@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowLeft, Compass, ChevronRight } from "lucide-react";
 import { getScenarios, getServiceDomains } from "../../domain/repositories/landscapeRepository";
 import { BusinessScenario, ServiceDomain } from "../../domain/types";
+import RaiaSequenceDiagram from "../../features/business-scenarios/sequence-diagram/components/RaiaSequenceDiagram";
 
 export default function BusinessScenariosClient() {
   const [scenarios, setScenarios] = useState<BusinessScenario[]>([]);
@@ -172,52 +173,14 @@ export default function BusinessScenariosClient() {
                 </p>
               </div>
 
-              {/* Graphical Sequence Flow */}
-              <div className="border border-slate-100 bg-slate-50 rounded-2xl p-6 relative overflow-hidden">
-                <span className="text-[9px] font-extrabold text-slate-400 uppercase tracking-wider block mb-4 text-center">
-                  Diagrama de Flujo Dinámico de Mensajes
-                </span>
-                
-                <div className="flex flex-col gap-6 max-w-md mx-auto">
-                  {selectedScenario.steps.map((step, idx) => {
-                    const isActive = step.stepNumber === activeStep;
-                    
-                    return (
-                      <button
-                        key={idx}
-                        onClick={() => setActiveStep(step.stepNumber)}
-                        className={`w-full text-left p-3.5 rounded-xl border transition-all ${
-                          isActive
-                            ? "bg-slate-900 border-slate-800 text-white shadow-md scale-102"
-                            : "bg-white border-slate-200 text-slate-700 hover:border-slate-300"
-                        }`}
-                      >
-                        <div className="flex items-center gap-3">
-                          <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-extrabold shrink-0 ${
-                            isActive ? "bg-raia-turquoise text-slate-900" : "bg-slate-100 text-slate-600"
-                          }`}>
-                            {step.stepNumber}
-                          </div>
-                          
-                          <div className="flex-1 min-w-0">
-                            <span className={`text-[10px] font-bold block uppercase tracking-wider ${isActive ? "text-raia-turquoise" : "text-raia-blue-inst"}`}>
-                              {step.eventName || `Paso ${step.stepNumber}`}
-                            </span>
-                            <span className="text-[11px] font-bold block truncate mt-0.5">
-                              {getSdName(step.sourceId)} &rarr; {getSdName(step.targetId)}
-                            </span>
-                          </div>
-                        </div>
-
-                        {isActive && (
-                          <p className="text-[11px] text-slate-300 mt-3 leading-relaxed border-t border-slate-800 pt-2 font-medium">
-                            {step.description}
-                          </p>
-                        )}
-                      </button>
-                    );
-                  })}
-                </div>
+              {/* Graphical SVG Sequence Flow Engine */}
+              <div className="mb-6">
+                <RaiaSequenceDiagram
+                  scenario={selectedScenario}
+                  serviceDomains={serviceDomains}
+                  activeStep={activeStep}
+                  onStepClick={setActiveStep}
+                />
               </div>
 
               {/* Detailed active step documentation */}
