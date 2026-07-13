@@ -1,0 +1,13 @@
+{
+  "scenarioId": "RAIA-BS-0001",
+  "version": "0.2.0",
+  "title": "Registro y Traspaso de Cuenta Individual",
+  "description": "Registro y Traspaso de Cuenta Individual",
+  "participants": [],
+  "messages": [],
+  "activations": [],
+  "notes": [],
+  "fragments": [],
+  "status": "proposed",
+  "regulatoryValidationStatus": "pending"
+}

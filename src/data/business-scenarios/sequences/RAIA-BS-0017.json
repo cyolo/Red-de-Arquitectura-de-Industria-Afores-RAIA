@@ -1,0 +1,13 @@
+{
+  "scenarioId": "RAIA-BS-0017",
+  "version": "0.2.0",
+  "title": "Transferencia de recursos al Fondo",
+  "description": "Transferencia de recursos al Fondo",
+  "participants": [],
+  "messages": [],
+  "activations": [],
+  "notes": [],
+  "fragments": [],
+  "status": "proposed",
+  "regulatoryValidationStatus": "pending"
+}

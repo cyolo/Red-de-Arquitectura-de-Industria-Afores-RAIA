@@ -1,0 +1,13 @@
+{
+  "scenarioId": "RAIA-BS-0015",
+  "version": "0.2.0",
+  "title": "Transferencia de fondos para renta vitalicia",
+  "description": "Transferencia de fondos para renta vitalicia",
+  "participants": [],
+  "messages": [],
+  "activations": [],
+  "notes": [],
+  "fragments": [],
+  "status": "proposed",
+  "regulatoryValidationStatus": "pending"
+}

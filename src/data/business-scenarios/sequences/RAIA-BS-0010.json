@@ -1,0 +1,13 @@
+{
+  "scenarioId": "RAIA-BS-0010",
+  "version": "0.2.0",
+  "title": "Ejecución y liquidación de operaciones",
+  "description": "Ejecución y liquidación de operaciones",
+  "participants": [],
+  "messages": [],
+  "activations": [],
+  "notes": [],
+  "fragments": [],
+  "status": "proposed",
+  "regulatoryValidationStatus": "pending"
+}

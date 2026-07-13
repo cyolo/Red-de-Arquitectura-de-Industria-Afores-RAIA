@@ -1,0 +1,13 @@
+{
+  "scenarioId": "RAIA-BS-0009",
+  "version": "0.2.0",
+  "title": "Construcción y rebalanceo de portafolio",
+  "description": "Construcción y rebalanceo de portafolio",
+  "participants": [],
+  "messages": [],
+  "activations": [],
+  "notes": [],
+  "fragments": [],
+  "status": "proposed",
+  "regulatoryValidationStatus": "pending"
+}

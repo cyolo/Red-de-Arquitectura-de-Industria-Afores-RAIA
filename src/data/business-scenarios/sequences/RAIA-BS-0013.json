@@ -1,0 +1,13 @@
+{
+  "scenarioId": "RAIA-BS-0013",
+  "version": "0.2.0",
+  "title": "Ayuda para gastos de matrimonio",
+  "description": "Ayuda para gastos de matrimonio",
+  "participants": [],
+  "messages": [],
+  "activations": [],
+  "notes": [],
+  "fragments": [],
+  "status": "proposed",
+  "regulatoryValidationStatus": "pending"
+}

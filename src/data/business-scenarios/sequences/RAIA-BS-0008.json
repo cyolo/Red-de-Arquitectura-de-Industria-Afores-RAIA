@@ -1,0 +1,13 @@
+{
+  "scenarioId": "RAIA-BS-0008",
+  "version": "0.2.0",
+  "title": "Asignación automática a SIEFORE Generacional",
+  "description": "Asignación automática a SIEFORE Generacional",
+  "participants": [],
+  "messages": [],
+  "activations": [],
+  "notes": [],
+  "fragments": [],
+  "status": "proposed",
+  "regulatoryValidationStatus": "pending"
+}

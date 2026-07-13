@@ -5,7 +5,8 @@ import Link from "next/link";
 import { ArrowLeft, Compass, ChevronRight } from "lucide-react";
 import { getScenarios, getServiceDomains } from "../../domain/repositories/landscapeRepository";
 import { BusinessScenario, ServiceDomain } from "../../domain/types";
-import RaiaSequenceDiagram from "../../features/business-scenarios/sequence-diagram/components/RaiaSequenceDiagram";
+import RaiaSequenceDiagram, { DetailedSequence } from "../../features/business-scenarios/sequence-diagram/components/RaiaSequenceDiagram";
+import sequenceBundle from "../../data/business-scenarios/scenario-sequences.json";
 
 export default function BusinessScenariosClient() {
   const [scenarios, setScenarios] = useState<BusinessScenario[]>([]);
@@ -39,9 +40,12 @@ export default function BusinessScenariosClient() {
     return sd ? sd.slug : "";
   };
 
-
-
-  const activeStepDetail = selectedScenario?.steps.find((step) => step.stepNumber === activeStep);
+  const detailedSequence = sequenceBundle[selectedScenarioId as keyof typeof sequenceBundle] as DetailedSequence | undefined;
+  
+  // Try to find the step in detailedSequence first, fallback to basic steps array
+  const activeStepDetail = detailedSequence 
+    ? detailedSequence.messages.find((m) => m.sequence === activeStep)
+    : selectedScenario?.steps?.find((step) => step.stepNumber === activeStep);
 
   return (
     <div className="flex-1 overflow-y-auto bg-slate-50 py-12 px-4 sm:px-6 lg:px-8">
@@ -108,7 +112,47 @@ export default function BusinessScenariosClient() {
                 ))}
               </div>
 
+              {/* Stepper Logic for Messages */}
+              {(detailedSequence?.messages || []).map((msg, idx) => {
+                const isActive = msg.sequence === activeStep;
+                const sourceParticipant = detailedSequence?.participants.find(p => p.instanceId === msg.sourceParticipantInstanceId);
+                const targetParticipant = detailedSequence?.participants.find(p => p.instanceId === msg.targetParticipantInstanceId);
+                
+                return (
+                  <button
+                    key={idx}
+                    onClick={() => setActiveStep(msg.sequence)}
+                    className={`w-full text-left p-4 rounded-2xl border transition-all flex flex-col justify-between text-xs ${
+                      isActive
+                        ? "bg-slate-900 text-white border-slate-800 shadow-md"
+                        : "bg-white text-slate-700 border-slate-200 hover:border-slate-300 shadow-xs"
+                    }`}
+                  >
+                    <div className="flex items-center gap-3 w-full">
+                      <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-extrabold shrink-0 ${
+                        isActive ? "bg-raia-turquoise text-slate-900" : "bg-slate-100 text-slate-600"
+                      }`}>
+                        {msg.sequence}
+                      </div>
+                      
+                      <div className="flex-1 min-w-0">
+                        <span className={`text-[10px] font-bold block uppercase tracking-wider ${isActive ? "text-raia-turquoise" : "text-raia-blue-inst"}`}>
+                          {msg.label || `Paso ${msg.sequence}`}
+                        </span>
+                        <span className="text-[11px] font-bold block truncate mt-0.5">
+                          {sourceParticipant?.label || msg.sourceParticipantInstanceId} &rarr; {targetParticipant?.label || msg.targetParticipantInstanceId}
+                        </span>
+                      </div>
+                    </div>
 
+                    {isActive && msg.description && (
+                      <p className="text-[11px] text-slate-300 mt-3 leading-relaxed border-t border-slate-800 pt-2 font-medium">
+                        {msg.description}
+                      </p>
+                    )}
+                  </button>
+                );
+              })}
             </div>
 
             {/* Stepper & Visual Sequence Diagram */}
@@ -135,12 +179,17 @@ export default function BusinessScenariosClient() {
 
               {/* Graphical SVG Sequence Flow Engine */}
               <div className="mb-6">
-                <RaiaSequenceDiagram
-                  scenario={selectedScenario}
-                  serviceDomains={serviceDomains}
-                  activeStep={activeStep}
-                  onStepClick={setActiveStep}
-                />
+                {detailedSequence ? (
+                  <RaiaSequenceDiagram
+                    sequence={detailedSequence}
+                    activeStep={activeStep}
+                    onStepClick={setActiveStep}
+                  />
+                ) : (
+                  <div className="p-10 text-center text-slate-500 border border-slate-200 rounded-xl bg-slate-50">
+                    Diagrama no disponible para este escenario.
+                  </div>
+                )}
               </div>
 
               {/* Detailed active step documentation */}
@@ -156,31 +205,19 @@ export default function BusinessScenariosClient() {
                       </span>
                     </div>
                     <span className="text-[10px] font-bold text-slate-400">
-                      Evento: {activeStepDetail.eventName}
+                      Evento: {(activeStepDetail as any).label || (activeStepDetail as any).eventName}
                     </span>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-1">
                       <span className="text-[9px] font-extrabold text-slate-400 uppercase block">Origen</span>
-                      <Link
-                        href={`/service-domains/${getSdSlug(activeStepDetail.sourceId)}`}
-                        className="text-xs font-bold text-raia-blue-inst hover:underline block truncate"
-                      >
-                        {getSdName(activeStepDetail.sourceId)}
-                      </Link>
-                      <span className="text-[10px] text-slate-400 block font-medium">{activeStepDetail.sourceId}</span>
+                      <span className="text-[10px] text-slate-800 block font-bold">{(activeStepDetail as any).sourceParticipantInstanceId || (activeStepDetail as any).sourceId}</span>
                     </div>
 
                     <div className="space-y-1">
                       <span className="text-[9px] font-extrabold text-slate-400 uppercase block">Destino</span>
-                      <Link
-                        href={`/service-domains/${getSdSlug(activeStepDetail.targetId)}`}
-                        className="text-xs font-bold text-raia-blue-inst hover:underline block truncate"
-                      >
-                        {getSdName(activeStepDetail.targetId)}
-                      </Link>
-                      <span className="text-[10px] text-slate-400 block font-medium">{activeStepDetail.targetId}</span>
+                      <span className="text-[10px] text-slate-800 block font-bold">{(activeStepDetail as any).targetParticipantInstanceId || (activeStepDetail as any).targetId}</span>
                     </div>
                   </div>
 

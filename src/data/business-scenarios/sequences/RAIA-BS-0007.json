@@ -1,0 +1,13 @@
+{
+  "scenarioId": "RAIA-BS-0007",
+  "version": "0.2.0",
+  "title": "Separación de cuentas IMSS/ISSSTE",
+  "description": "Separación de cuentas IMSS/ISSSTE",
+  "participants": [],
+  "messages": [],
+  "activations": [],
+  "notes": [],
+  "fragments": [],
+  "status": "proposed",
+  "regulatoryValidationStatus": "pending"
+}

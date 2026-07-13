@@ -1,0 +1,13 @@
+{
+  "scenarioId": "RAIA-BS-0014",
+  "version": "0.2.0",
+  "title": "Elección de modalidad de pensión",
+  "description": "Elección de modalidad de pensión",
+  "participants": [],
+  "messages": [],
+  "activations": [],
+  "notes": [],
+  "fragments": [],
+  "status": "proposed",
+  "regulatoryValidationStatus": "pending"
+}

@@ -1,0 +1,13 @@
+{
+  "scenarioId": "RAIA-BS-0018",
+  "version": "0.2.0",
+  "title": "Cálculo y gestión del complemento de pensión",
+  "description": "Cálculo y gestión del complemento de pensión",
+  "participants": [],
+  "messages": [],
+  "activations": [],
+  "notes": [],
+  "fragments": [],
+  "status": "proposed",
+  "regulatoryValidationStatus": "pending"
+}

@@ -1,0 +1,13 @@
+{
+  "scenarioId": "RAIA-BS-0004",
+  "version": "0.2.0",
+  "title": "Asignación automática de cuentas",
+  "description": "Asignación automática de cuentas",
+  "participants": [],
+  "messages": [],
+  "activations": [],
+  "notes": [],
+  "fragments": [],
+  "status": "proposed",
+  "regulatoryValidationStatus": "pending"
+}

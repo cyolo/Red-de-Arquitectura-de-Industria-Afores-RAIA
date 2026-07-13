@@ -1,0 +1,13 @@
+{
+  "scenarioId": "RAIA-BS-0011",
+  "version": "0.2.0",
+  "title": "Valuación de instrumentos financieros",
+  "description": "Valuación de instrumentos financieros",
+  "participants": [],
+  "messages": [],
+  "activations": [],
+  "notes": [],
+  "fragments": [],
+  "status": "proposed",
+  "regulatoryValidationStatus": "pending"
+}

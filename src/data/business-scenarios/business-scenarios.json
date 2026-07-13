@@ -1,0 +1,128 @@
+[
+  {
+    "id": "RAIA-BS-0001",
+    "nameEs": "Registro y Traspaso de Cuenta Individual",
+    "summary": "Registro y Traspaso de Cuenta Individual",
+    "version": "0.2.0",
+    "status": "proposed"
+  },
+  {
+    "id": "RAIA-BS-0002",
+    "nameEs": "Recaudación de Aportaciones e Inversión",
+    "summary": "Recaudación de Aportaciones e Inversión",
+    "version": "0.2.0",
+    "status": "proposed"
+  },
+  {
+    "id": "RAIA-BS-0003",
+    "nameEs": "Localización de cuenta individual",
+    "summary": "Localización de cuenta individual",
+    "version": "0.2.0",
+    "status": "proposed"
+  },
+  {
+    "id": "RAIA-BS-0004",
+    "nameEs": "Asignación automática de cuentas",
+    "summary": "Asignación automática de cuentas",
+    "version": "0.2.0",
+    "status": "proposed"
+  },
+  {
+    "id": "RAIA-BS-0005",
+    "nameEs": "Reasignación por desempeño",
+    "summary": "Reasignación por desempeño",
+    "version": "0.2.0",
+    "status": "proposed"
+  },
+  {
+    "id": "RAIA-BS-0006",
+    "nameEs": "Unificación de cuentas duplicadas",
+    "summary": "Unificación de cuentas duplicadas",
+    "version": "0.2.0",
+    "status": "proposed"
+  },
+  {
+    "id": "RAIA-BS-0007",
+    "nameEs": "Separación de cuentas IMSS/ISSSTE",
+    "summary": "Separación de cuentas IMSS/ISSSTE",
+    "version": "0.2.0",
+    "status": "proposed"
+  },
+  {
+    "id": "RAIA-BS-0008",
+    "nameEs": "Asignación automática a SIEFORE Generacional",
+    "summary": "Asignación automática a SIEFORE Generacional",
+    "version": "0.2.0",
+    "status": "proposed"
+  },
+  {
+    "id": "RAIA-BS-0009",
+    "nameEs": "Construcción y rebalanceo de portafolio",
+    "summary": "Construcción y rebalanceo de portafolio",
+    "version": "0.2.0",
+    "status": "proposed"
+  },
+  {
+    "id": "RAIA-BS-0010",
+    "nameEs": "Ejecución y liquidación de operaciones",
+    "summary": "Ejecución y liquidación de operaciones",
+    "version": "0.2.0",
+    "status": "proposed"
+  },
+  {
+    "id": "RAIA-BS-0011",
+    "nameEs": "Valuación de instrumentos financieros",
+    "summary": "Valuación de instrumentos financieros",
+    "version": "0.2.0",
+    "status": "proposed"
+  },
+  {
+    "id": "RAIA-BS-0012",
+    "nameEs": "Retiro por desempleo IMSS/ISSSTE",
+    "summary": "Retiro por desempleo IMSS/ISSSTE",
+    "version": "0.2.0",
+    "status": "proposed"
+  },
+  {
+    "id": "RAIA-BS-0013",
+    "nameEs": "Ayuda para gastos de matrimonio",
+    "summary": "Ayuda para gastos de matrimonio",
+    "version": "0.2.0",
+    "status": "proposed"
+  },
+  {
+    "id": "RAIA-BS-0014",
+    "nameEs": "Elección de modalidad de pensión",
+    "summary": "Elección de modalidad de pensión",
+    "version": "0.2.0",
+    "status": "proposed"
+  },
+  {
+    "id": "RAIA-BS-0015",
+    "nameEs": "Transferencia de fondos para renta vitalicia",
+    "summary": "Transferencia de fondos para renta vitalicia",
+    "version": "0.2.0",
+    "status": "proposed"
+  },
+  {
+    "id": "RAIA-BS-0016",
+    "nameEs": "Identificación de cuentas potencialmente elegibles",
+    "summary": "Identificación de cuentas potencialmente elegibles",
+    "version": "0.2.0",
+    "status": "proposed"
+  },
+  {
+    "id": "RAIA-BS-0017",
+    "nameEs": "Transferencia de recursos al Fondo",
+    "summary": "Transferencia de recursos al Fondo",
+    "version": "0.2.0",
+    "status": "proposed"
+  },
+  {
+    "id": "RAIA-BS-0018",
+    "nameEs": "Cálculo y gestión del complemento de pensión",
+    "summary": "Cálculo y gestión del complemento de pensión",
+    "version": "0.2.0",
+    "status": "proposed"
+  }
+]

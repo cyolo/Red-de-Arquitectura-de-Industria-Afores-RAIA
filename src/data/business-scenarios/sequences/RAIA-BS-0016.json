@@ -1,0 +1,13 @@
+{
+  "scenarioId": "RAIA-BS-0016",
+  "version": "0.2.0",
+  "title": "Identificación de cuentas potencialmente elegibles",
+  "description": "Identificación de cuentas potencialmente elegibles",
+  "participants": [],
+  "messages": [],
+  "activations": [],
+  "notes": [],
+  "fragments": [],
+  "status": "proposed",
+  "regulatoryValidationStatus": "pending"
+}

@@ -1,0 +1,13 @@
+{
+  "scenarioId": "RAIA-BS-0012",
+  "version": "0.2.0",
+  "title": "Retiro por desempleo IMSS/ISSSTE",
+  "description": "Retiro por desempleo IMSS/ISSSTE",
+  "participants": [],
+  "messages": [],
+  "activations": [],
+  "notes": [],
+  "fragments": [],
+  "status": "proposed",
+  "regulatoryValidationStatus": "pending"
+}
