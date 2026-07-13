@@ -3,11 +3,335 @@
   "version": "0.2.0",
   "title": "Construcción y rebalanceo de portafolio",
   "description": "Construcción y rebalanceo de portafolio",
-  "participants": [],
-  "messages": [],
-  "activations": [],
-  "notes": [],
-  "fragments": [],
   "status": "proposed",
-  "regulatoryValidationStatus": "pending"
+  "regulatoryValidationStatus": "pending",
+  "participants": [
+    {
+      "instanceId": "p-comit--de-inver",
+      "participantType": "service-domain",
+      "label": "Comité de Inversión",
+      "order": 1
+    },
+    {
+      "instanceId": "p-estrategia-de-i",
+      "participantType": "service-domain",
+      "label": "Estrategia de Inversión",
+      "order": 2
+    },
+    {
+      "instanceId": "p-construcci-n-de",
+      "participantType": "service-domain",
+      "label": "Construcción de Portafolio",
+      "order": 3
+    },
+    {
+      "instanceId": "p-gesti-n-de-benc",
+      "participantType": "service-domain",
+      "label": "Gestión de Benchmark",
+      "order": 4
+    },
+    {
+      "instanceId": "p-gesti-n-de-liqu",
+      "participantType": "service-domain",
+      "label": "Gestión de Liquidez",
+      "order": 5
+    },
+    {
+      "instanceId": "p-gesti-n-de-l-mi",
+      "participantType": "service-domain",
+      "label": "Gestión de Límites",
+      "order": 6
+    },
+    {
+      "instanceId": "p-riesgo-de-inver",
+      "participantType": "service-domain",
+      "label": "Riesgo de Inversión",
+      "order": 7
+    },
+    {
+      "instanceId": "p-cumplimiento-de",
+      "participantType": "service-domain",
+      "label": "Cumplimiento del Régimen",
+      "order": 8
+    },
+    {
+      "instanceId": "p-ejecuci-n-de-op",
+      "participantType": "service-domain",
+      "label": "Ejecución de Operaciones",
+      "order": 9
+    },
+    {
+      "instanceId": "p-comit-",
+      "participantType": "service-domain",
+      "label": "comit ",
+      "order": 10
+    },
+    {
+      "instanceId": "p-estrategia",
+      "participantType": "service-domain",
+      "label": "estrategia",
+      "order": 11
+    },
+    {
+      "instanceId": "p-construcci-n",
+      "participantType": "service-domain",
+      "label": "construcci n",
+      "order": 12
+    },
+    {
+      "instanceId": "p-benchmark",
+      "participantType": "service-domain",
+      "label": "benchmark",
+      "order": 13
+    },
+    {
+      "instanceId": "p-liquidez",
+      "participantType": "service-domain",
+      "label": "liquidez",
+      "order": 14
+    },
+    {
+      "instanceId": "p-l-mites",
+      "participantType": "service-domain",
+      "label": "l mites",
+      "order": 15
+    },
+    {
+      "instanceId": "p-riesgo",
+      "participantType": "service-domain",
+      "label": "riesgo",
+      "order": 16
+    },
+    {
+      "instanceId": "p-cumplimiento",
+      "participantType": "service-domain",
+      "label": "cumplimiento",
+      "order": 17
+    },
+    {
+      "instanceId": "p-ejecuci-n",
+      "participantType": "service-domain",
+      "label": "ejecuci n",
+      "order": 18
+    }
+  ],
+  "messages": [
+    {
+      "id": "RAIA-BS-0009-MSG-01",
+      "scenarioStepId": "RAIA-BS-0009-STEP-01",
+      "sequence": 1,
+      "sourceParticipantInstanceId": "p-comit-",
+      "targetParticipantInstanceId": "p-estrategia-de-i",
+      "label": "Solicitar propuesta.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Comité y Estrategia de Inversión."
+    },
+    {
+      "id": "RAIA-BS-0009-MSG-02",
+      "scenarioStepId": "RAIA-BS-0009-STEP-02",
+      "sequence": 2,
+      "sourceParticipantInstanceId": "p-estrategia",
+      "targetParticipantInstanceId": "p-construcci-n-de",
+      "label": "Entregar lineamientos.",
+      "messageType": "response",
+      "description": "Interacción entre Estrategia y Construcción de Portafolio."
+    },
+    {
+      "id": "RAIA-BS-0009-MSG-03",
+      "scenarioStepId": "RAIA-BS-0009-STEP-03",
+      "sequence": 3,
+      "sourceParticipantInstanceId": "p-construcci-n",
+      "targetParticipantInstanceId": "p-gesti-n-de-benc",
+      "label": "Recuperar referencia.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Construcción y Gestión de Benchmark."
+    },
+    {
+      "id": "RAIA-BS-0009-MSG-04",
+      "scenarioStepId": "RAIA-BS-0009-STEP-04",
+      "sequence": 4,
+      "sourceParticipantInstanceId": "p-construcci-n",
+      "targetParticipantInstanceId": "p-gesti-n-de-liqu",
+      "label": "Consultar necesidades.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Construcción y Gestión de Liquidez."
+    },
+    {
+      "id": "RAIA-BS-0009-MSG-05",
+      "scenarioStepId": "RAIA-BS-0009-STEP-05",
+      "sequence": 5,
+      "sourceParticipantInstanceId": "p-construcci-n",
+      "targetParticipantInstanceId": "p-gesti-n-de-l-mi",
+      "label": "Consultar restricciones.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Construcción y Gestión de Límites."
+    },
+    {
+      "id": "RAIA-BS-0009-MSG-06",
+      "scenarioStepId": "RAIA-BS-0009-STEP-06",
+      "sequence": 6,
+      "sourceParticipantInstanceId": "p-benchmark",
+      "targetParticipantInstanceId": "p-construcci-n",
+      "label": "Entregar referencia.",
+      "messageType": "response",
+      "description": "Interacción entre Benchmark y Construcción."
+    },
+    {
+      "id": "RAIA-BS-0009-MSG-07",
+      "scenarioStepId": "RAIA-BS-0009-STEP-07",
+      "sequence": 7,
+      "sourceParticipantInstanceId": "p-liquidez",
+      "targetParticipantInstanceId": "p-construcci-n",
+      "label": "Entregar proyección.",
+      "messageType": "response",
+      "description": "Interacción entre Liquidez y Construcción."
+    },
+    {
+      "id": "RAIA-BS-0009-MSG-08",
+      "scenarioStepId": "RAIA-BS-0009-STEP-08",
+      "sequence": 8,
+      "sourceParticipantInstanceId": "p-l-mites",
+      "targetParticipantInstanceId": "p-construcci-n",
+      "label": "Entregar restricciones.",
+      "messageType": "response",
+      "description": "Interacción entre Límites y Construcción."
+    },
+    {
+      "id": "RAIA-BS-0009-MSG-09",
+      "scenarioStepId": "RAIA-BS-0009-STEP-09",
+      "sequence": 9,
+      "sourceParticipantInstanceId": "p-construcci-n",
+      "targetParticipantInstanceId": "p-riesgo",
+      "label": "Evaluar portafolio objetivo.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Construcción y Riesgo."
+    },
+    {
+      "id": "RAIA-BS-0009-MSG-10",
+      "scenarioStepId": "RAIA-BS-0009-STEP-10",
+      "sequence": 10,
+      "sourceParticipantInstanceId": "p-riesgo",
+      "targetParticipantInstanceId": "p-cumplimiento",
+      "label": "Validar régimen.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Riesgo y Cumplimiento."
+    },
+    {
+      "id": "RAIA-BS-0009-MSG-11",
+      "scenarioStepId": "RAIA-BS-0009-STEP-11",
+      "sequence": 11,
+      "sourceParticipantInstanceId": "p-cumplimiento",
+      "targetParticipantInstanceId": "p-riesgo",
+      "label": "Confirmar resultado.",
+      "messageType": "response",
+      "description": "Interacción entre Cumplimiento y Riesgo."
+    },
+    {
+      "id": "RAIA-BS-0009-MSG-12",
+      "scenarioStepId": "RAIA-BS-0009-STEP-12",
+      "sequence": 12,
+      "sourceParticipantInstanceId": "p-riesgo",
+      "targetParticipantInstanceId": "p-construcci-n",
+      "label": "Entregar evaluación.",
+      "messageType": "response",
+      "description": "Interacción entre Riesgo y Construcción."
+    },
+    {
+      "id": "RAIA-BS-0009-MSG-13",
+      "scenarioStepId": "RAIA-BS-0009-STEP-13",
+      "sequence": 13,
+      "sourceParticipantInstanceId": "p-construcci-n",
+      "targetParticipantInstanceId": "p-comit-",
+      "label": "Presentar propuesta.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Construcción y Comité."
+    },
+    {
+      "id": "RAIA-BS-0009-MSG-14",
+      "scenarioStepId": "RAIA-BS-0009-STEP-14",
+      "sequence": 14,
+      "sourceParticipantInstanceId": "p-comit-",
+      "targetParticipantInstanceId": "p-construcci-n",
+      "label": "Aprobar o rechazar.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Comité y Construcción."
+    },
+    {
+      "id": "RAIA-BS-0009-MSG-15",
+      "scenarioStepId": "RAIA-BS-0009-STEP-15",
+      "sequence": 15,
+      "sourceParticipantInstanceId": "p-construcci-n",
+      "targetParticipantInstanceId": "p-ejecuci-n",
+      "label": "Generar plan de rebalanceo.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Construcción y Ejecución."
+    }
+  ],
+  "activations": [
+    {
+      "id": "act-1",
+      "participantInstanceId": "p-estrategia-de-i",
+      "startSequence": 1,
+      "endSequence": 15,
+      "depth": 0,
+      "activationType": "processing"
+    }
+  ],
+  "notes": [
+    {
+      "id": "note-control-1",
+      "participantInstanceIds": [
+        "p-comit-"
+      ],
+      "placement": "left",
+      "text": "Control: identidad y consentimiento verificables.",
+      "noteType": "control",
+      "afterSequence": 1
+    },
+    {
+      "id": "note-evidence-1",
+      "participantInstanceIds": [
+        "p-ejecuci-n"
+      ],
+      "placement": "right",
+      "text": "Evidencia: expediente, folio y acuses.",
+      "noteType": "evidence",
+      "afterSequence": 15
+    }
+  ],
+  "fragments": [
+    {
+      "id": "frag-1",
+      "fragmentType": "alt",
+      "label": "Condiciones de Negocio",
+      "startSequence": 13,
+      "endSequence": 15,
+      "branches": [
+        {
+          "id": "branch-0",
+          "label": "Propuesta aprobada",
+          "startSequence": 14,
+          "endSequence": 15
+        },
+        {
+          "id": "branch-1",
+          "label": "Exceso de límite",
+          "startSequence": 14,
+          "endSequence": 15
+        },
+        {
+          "id": "branch-2",
+          "label": "Liquidez insuficiente",
+          "startSequence": 14,
+          "endSequence": 15
+        },
+        {
+          "id": "branch-3",
+          "label": "Rebalanceo de emergencia",
+          "startSequence": 14,
+          "endSequence": 15
+        }
+      ]
+    }
+  ]
 }

@@ -42,10 +42,24 @@ export default function BusinessScenariosClient() {
 
   const detailedSequence = sequenceBundle[selectedScenarioId as keyof typeof sequenceBundle] as DetailedSequence | undefined;
   
+  const hasRenderableSequence =
+    Boolean(detailedSequence) &&
+    Array.isArray(detailedSequence?.participants) &&
+    (detailedSequence?.participants.length ?? 0) > 0 &&
+    Array.isArray(detailedSequence?.messages) &&
+    (detailedSequence?.messages.length ?? 0) > 0;
+
   // Try to find the step in detailedSequence first, fallback to basic steps array
   const activeStepDetail = detailedSequence 
     ? detailedSequence.messages.find((m) => m.sequence === activeStep)
     : selectedScenario?.steps?.find((step) => step.stepNumber === activeStep);
+
+  function getScenarioStepCount(scenario: BusinessScenario, sequence?: DetailedSequence): number {
+    if (sequence?.messages?.length) {
+      return sequence.messages.length;
+    }
+    return scenario.steps?.length ?? 0;
+  }
 
   return (
     <div className="flex-1 overflow-y-auto bg-slate-50 py-12 px-4 sm:px-6 lg:px-8">
@@ -106,7 +120,7 @@ export default function BusinessScenariosClient() {
                       <ChevronRight size={14} className={`shrink-0 ml-2 mt-0.5 ${selectedScenarioId === scen.id ? "text-raia-turquoise" : "text-slate-400"}`} />
                     </div>
                     <span className={`text-[10px] mt-2 block font-medium leading-relaxed ${selectedScenarioId === scen.id ? "text-slate-400" : "text-slate-500"}`}>
-                      {scen.steps.length} pasos estructurados
+                      {getScenarioStepCount(scen, sequenceBundle[scen.id as keyof typeof sequenceBundle] as DetailedSequence)} {getScenarioStepCount(scen, sequenceBundle[scen.id as keyof typeof sequenceBundle] as DetailedSequence) === 1 ? 'paso estructurado' : 'pasos estructurados'}
                     </span>
                   </button>
                 ))}
@@ -179,15 +193,21 @@ export default function BusinessScenariosClient() {
 
               {/* Graphical SVG Sequence Flow Engine */}
               <div className="mb-6">
-                {detailedSequence ? (
+                {hasRenderableSequence ? (
                   <RaiaSequenceDiagram
-                    sequence={detailedSequence}
+                    sequence={detailedSequence!}
                     activeStep={activeStep}
                     onStepClick={setActiveStep}
                   />
                 ) : (
-                  <div className="p-10 text-center text-slate-500 border border-slate-200 rounded-xl bg-slate-50">
-                    Diagrama no disponible para este escenario.
+                  <div className="p-10 text-left text-slate-700 border border-slate-200 rounded-xl bg-slate-50">
+                    <h3 className="font-bold text-slate-900 mb-2">No fue posible generar el diagrama de secuencia.</h3>
+                    <p className="text-sm mb-4">Errores encontrados:</p>
+                    <ul className="list-disc pl-5 text-sm space-y-1 mb-6 text-red-600 font-medium">
+                      {!detailedSequence?.participants?.length && <li>El escenario no contiene participantes.</li>}
+                      {!detailedSequence?.messages?.length && <li>El escenario no contiene mensajes.</li>}
+                    </ul>
+                    <p className="text-xs text-slate-500 font-mono">Ejecute npm run validate:sequence-diagrams para obtener más información.</p>
                   </div>
                 )}
               </div>

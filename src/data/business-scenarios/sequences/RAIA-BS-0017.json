@@ -3,11 +3,299 @@
   "version": "0.2.0",
   "title": "Transferencia de recursos al Fondo",
   "description": "Transferencia de recursos al Fondo",
-  "participants": [],
-  "messages": [],
-  "activations": [],
-  "notes": [],
-  "fragments": [],
   "status": "proposed",
-  "regulatoryValidationStatus": "pending"
+  "regulatoryValidationStatus": "pending",
+  "participants": [
+    {
+      "instanceId": "p-identificaci-n-",
+      "participantType": "service-domain",
+      "label": "Identificación de Cuentas Elegibles",
+      "order": 1
+    },
+    {
+      "instanceId": "p-afore",
+      "participantType": "service-domain",
+      "label": "AFORE",
+      "order": 2
+    },
+    {
+      "instanceId": "p-administraci-n-",
+      "participantType": "service-domain",
+      "label": "Administración de Cuenta Individual",
+      "order": 3
+    },
+    {
+      "instanceId": "p-desinversi-n-de",
+      "participantType": "service-domain",
+      "label": "Desinversión de Recursos",
+      "order": 4
+    },
+    {
+      "instanceId": "p-transferencia-a",
+      "participantType": "service-domain",
+      "label": "Transferencia al Fondo",
+      "order": 5
+    },
+    {
+      "instanceId": "p-instituci-n-fin",
+      "participantType": "service-domain",
+      "label": "Institución Financiera",
+      "order": 6
+    },
+    {
+      "instanceId": "p-fondo-de-pensio",
+      "participantType": "service-domain",
+      "label": "Fondo de Pensiones para el Bienestar",
+      "order": 7
+    },
+    {
+      "instanceId": "p-bdnsar",
+      "participantType": "service-domain",
+      "label": "BDNSAR",
+      "order": 8
+    },
+    {
+      "instanceId": "p-conciliaci-n",
+      "participantType": "service-domain",
+      "label": "Conciliación",
+      "order": 9
+    },
+    {
+      "instanceId": "p-informaci-n-reg",
+      "participantType": "service-domain",
+      "label": "Información Regulatoria",
+      "order": 10
+    },
+    {
+      "instanceId": "p-notificaciones",
+      "participantType": "service-domain",
+      "label": "Notificaciones",
+      "order": 11
+    },
+    {
+      "instanceId": "p-identificaci-n",
+      "participantType": "service-domain",
+      "label": "identificaci n",
+      "order": 12
+    },
+    {
+      "instanceId": "p-desinversi-n",
+      "participantType": "service-domain",
+      "label": "desinversi n",
+      "order": 13
+    },
+    {
+      "instanceId": "p-transferencia",
+      "participantType": "service-domain",
+      "label": "transferencia",
+      "order": 14
+    },
+    {
+      "instanceId": "p-fondo",
+      "participantType": "service-domain",
+      "label": "fondo",
+      "order": 15
+    }
+  ],
+  "messages": [
+    {
+      "id": "RAIA-BS-0017-MSG-01",
+      "scenarioStepId": "RAIA-BS-0017-STEP-01",
+      "sequence": 1,
+      "sourceParticipantInstanceId": "p-identificaci-n",
+      "targetParticipantInstanceId": "p-afore",
+      "label": "Emitir instrucción autorizada.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Identificación y AFORE."
+    },
+    {
+      "id": "RAIA-BS-0017-MSG-02",
+      "scenarioStepId": "RAIA-BS-0017-STEP-02",
+      "sequence": 2,
+      "sourceParticipantInstanceId": "p-afore",
+      "targetParticipantInstanceId": "p-administraci-n-",
+      "label": "Validar estado actual.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre AFORE y Administración de Cuenta."
+    },
+    {
+      "id": "RAIA-BS-0017-MSG-03",
+      "scenarioStepId": "RAIA-BS-0017-STEP-03",
+      "sequence": 3,
+      "sourceParticipantInstanceId": "p-administraci-n-",
+      "targetParticipantInstanceId": "p-afore",
+      "label": "Confirmar condición.",
+      "messageType": "response",
+      "description": "Interacción entre Administración de Cuenta y AFORE."
+    },
+    {
+      "id": "RAIA-BS-0017-MSG-04",
+      "scenarioStepId": "RAIA-BS-0017-STEP-04",
+      "sequence": 4,
+      "sourceParticipantInstanceId": "p-afore",
+      "targetParticipantInstanceId": "p-administraci-n-",
+      "label": "Determinar saldo elegible.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre AFORE y Administración de Cuenta."
+    },
+    {
+      "id": "RAIA-BS-0017-MSG-05",
+      "scenarioStepId": "RAIA-BS-0017-STEP-05",
+      "sequence": 5,
+      "sourceParticipantInstanceId": "p-afore",
+      "targetParticipantInstanceId": "p-desinversi-n",
+      "label": "Solicitar liberación de recursos.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre AFORE y Desinversión."
+    },
+    {
+      "id": "RAIA-BS-0017-MSG-06",
+      "scenarioStepId": "RAIA-BS-0017-STEP-06",
+      "sequence": 6,
+      "sourceParticipantInstanceId": "p-desinversi-n",
+      "targetParticipantInstanceId": "p-transferencia-a",
+      "label": "Entregar monto.",
+      "messageType": "response",
+      "description": "Interacción entre Desinversión y Transferencia al Fondo."
+    },
+    {
+      "id": "RAIA-BS-0017-MSG-07",
+      "scenarioStepId": "RAIA-BS-0017-STEP-07",
+      "sequence": 7,
+      "sourceParticipantInstanceId": "p-transferencia",
+      "targetParticipantInstanceId": "p-instituci-n-fin",
+      "label": "Instruir liquidación.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Transferencia y Institución Financiera."
+    },
+    {
+      "id": "RAIA-BS-0017-MSG-08",
+      "scenarioStepId": "RAIA-BS-0017-STEP-08",
+      "sequence": 8,
+      "sourceParticipantInstanceId": "p-instituci-n-fin",
+      "targetParticipantInstanceId": "p-fondo",
+      "label": "Transferir recursos.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Institución Financiera y Fondo."
+    },
+    {
+      "id": "RAIA-BS-0017-MSG-09",
+      "scenarioStepId": "RAIA-BS-0017-STEP-09",
+      "sequence": 9,
+      "sourceParticipantInstanceId": "p-fondo",
+      "targetParticipantInstanceId": "p-transferencia",
+      "label": "Confirmar recepción.",
+      "messageType": "response",
+      "description": "Interacción entre Fondo y Transferencia."
+    },
+    {
+      "id": "RAIA-BS-0017-MSG-10",
+      "scenarioStepId": "RAIA-BS-0017-STEP-10",
+      "sequence": 10,
+      "sourceParticipantInstanceId": "p-transferencia",
+      "targetParticipantInstanceId": "p-administraci-n-",
+      "label": "Registrar disposición.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Transferencia y Administración de Cuenta."
+    },
+    {
+      "id": "RAIA-BS-0017-MSG-11",
+      "scenarioStepId": "RAIA-BS-0017-STEP-11",
+      "sequence": 11,
+      "sourceParticipantInstanceId": "p-transferencia",
+      "targetParticipantInstanceId": "p-bdnsar",
+      "label": "Actualizar estado.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Transferencia y BDNSAR."
+    },
+    {
+      "id": "RAIA-BS-0017-MSG-12",
+      "scenarioStepId": "RAIA-BS-0017-STEP-12",
+      "sequence": 12,
+      "sourceParticipantInstanceId": "p-transferencia",
+      "targetParticipantInstanceId": "p-conciliaci-n",
+      "label": "Conciliar monto.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Transferencia y Conciliación."
+    },
+    {
+      "id": "RAIA-BS-0017-MSG-13",
+      "scenarioStepId": "RAIA-BS-0017-STEP-13",
+      "sequence": 13,
+      "sourceParticipantInstanceId": "p-conciliaci-n",
+      "targetParticipantInstanceId": "p-transferencia",
+      "label": "Confirmar cierre.",
+      "messageType": "response",
+      "description": "Interacción entre Conciliación y Transferencia."
+    },
+    {
+      "id": "RAIA-BS-0017-MSG-14",
+      "scenarioStepId": "RAIA-BS-0017-STEP-14",
+      "sequence": 14,
+      "sourceParticipantInstanceId": "p-transferencia",
+      "targetParticipantInstanceId": "p-informaci-n-reg",
+      "label": "Reportar operación.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Transferencia y Información Regulatoria."
+    },
+    {
+      "id": "RAIA-BS-0017-MSG-15",
+      "scenarioStepId": "RAIA-BS-0017-STEP-15",
+      "sequence": 15,
+      "sourceParticipantInstanceId": "p-transferencia",
+      "targetParticipantInstanceId": "p-notificaciones",
+      "label": "Emitir comunicación.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Transferencia y Notificaciones."
+    }
+  ],
+  "activations": [
+    {
+      "id": "act-1",
+      "participantInstanceId": "p-afore",
+      "startSequence": 1,
+      "endSequence": 15,
+      "depth": 0,
+      "activationType": "processing"
+    }
+  ],
+  "notes": [
+    {
+      "id": "note-control-1",
+      "participantInstanceIds": [
+        "p-identificaci-n"
+      ],
+      "placement": "left",
+      "text": "Control: identidad y consentimiento verificables.",
+      "noteType": "control",
+      "afterSequence": 1
+    },
+    {
+      "id": "note-evidence-1",
+      "participantInstanceIds": [
+        "p-notificaciones"
+      ],
+      "placement": "right",
+      "text": "Evidencia: expediente, folio y acuses.",
+      "noteType": "evidence",
+      "afterSequence": 15
+    }
+  ],
+  "fragments": [
+    {
+      "id": "frag-1",
+      "fragmentType": "alt",
+      "label": "Excepciones",
+      "startSequence": 14,
+      "endSequence": 15,
+      "branches": [
+        {
+          "id": "branch-0",
+          "label": "Fallo de conexión",
+          "startSequence": 15,
+          "endSequence": 15
+        }
+      ]
+    }
+  ]
 }

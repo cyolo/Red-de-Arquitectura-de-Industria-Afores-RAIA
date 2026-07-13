@@ -3,11 +3,299 @@
   "version": "0.2.0",
   "title": "Asignación automática de cuentas",
   "description": "Asignación automática de cuentas",
-  "participants": [],
-  "messages": [],
-  "activations": [],
-  "notes": [],
-  "fragments": [],
   "status": "proposed",
-  "regulatoryValidationStatus": "pending"
+  "regulatoryValidationStatus": "pending",
+  "participants": [
+    {
+      "instanceId": "p-instituto-de-se",
+      "participantType": "service-domain",
+      "label": "Instituto de Seguridad Social",
+      "order": 1
+    },
+    {
+      "instanceId": "p-entidad-recauda",
+      "participantType": "service-domain",
+      "label": "Entidad Recaudadora",
+      "order": 2
+    },
+    {
+      "instanceId": "p-bdnsar",
+      "participantType": "service-domain",
+      "label": "BDNSAR",
+      "order": 3
+    },
+    {
+      "instanceId": "p-registro-maestr",
+      "participantType": "service-domain",
+      "label": "Registro Maestro de Cuentas",
+      "order": 4
+    },
+    {
+      "instanceId": "p-asignaci-n-de-c",
+      "participantType": "service-domain",
+      "label": "Asignación de Cuenta",
+      "order": 5
+    },
+    {
+      "instanceId": "p-evaluaci-n-de-c",
+      "participantType": "service-domain",
+      "label": "Evaluación de Criterios",
+      "order": 6
+    },
+    {
+      "instanceId": "p-consar",
+      "participantType": "service-domain",
+      "label": "CONSAR",
+      "order": 7
+    },
+    {
+      "instanceId": "p-afore-asignada",
+      "participantType": "service-domain",
+      "label": "AFORE asignada",
+      "order": 8
+    },
+    {
+      "instanceId": "p-libro-mayor",
+      "participantType": "service-domain",
+      "label": "Libro Mayor",
+      "order": 9
+    },
+    {
+      "instanceId": "p-notificaciones",
+      "participantType": "service-domain",
+      "label": "Notificaciones",
+      "order": 10
+    },
+    {
+      "instanceId": "p-instituto",
+      "participantType": "service-domain",
+      "label": "instituto",
+      "order": 11
+    },
+    {
+      "instanceId": "p-trabajador",
+      "participantType": "service-domain",
+      "label": "trabajador",
+      "order": 12
+    }
+  ],
+  "messages": [
+    {
+      "id": "RAIA-BS-0004-MSG-01",
+      "scenarioStepId": "RAIA-BS-0004-STEP-01",
+      "sequence": 1,
+      "sourceParticipantInstanceId": "p-instituto",
+      "targetParticipantInstanceId": "p-bdnsar",
+      "label": "Registrar cuenta sin elección de AFORE.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Instituto y BDNSAR."
+    },
+    {
+      "id": "RAIA-BS-0004-MSG-02",
+      "scenarioStepId": "RAIA-BS-0004-STEP-02",
+      "sequence": 2,
+      "sourceParticipantInstanceId": "p-entidad-recauda",
+      "targetParticipantInstanceId": "p-bdnsar",
+      "label": "Informar aportaciones asociadas.",
+      "messageType": "response",
+      "description": "Interacción entre Entidad Recaudadora y BDNSAR."
+    },
+    {
+      "id": "RAIA-BS-0004-MSG-03",
+      "scenarioStepId": "RAIA-BS-0004-STEP-03",
+      "sequence": 3,
+      "sourceParticipantInstanceId": "p-bdnsar",
+      "targetParticipantInstanceId": "p-registro-maestr",
+      "label": "Validar estado de la cuenta.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre BDNSAR y Registro Maestro."
+    },
+    {
+      "id": "RAIA-BS-0004-MSG-04",
+      "scenarioStepId": "RAIA-BS-0004-STEP-04",
+      "sequence": 4,
+      "sourceParticipantInstanceId": "p-registro-maestr",
+      "targetParticipantInstanceId": "p-bdnsar",
+      "label": "Confirmar cuenta no registrada.",
+      "messageType": "response",
+      "description": "Interacción entre Registro Maestro y BDNSAR."
+    },
+    {
+      "id": "RAIA-BS-0004-MSG-05",
+      "scenarioStepId": "RAIA-BS-0004-STEP-05",
+      "sequence": 5,
+      "sourceParticipantInstanceId": "p-bdnsar",
+      "targetParticipantInstanceId": "p-asignaci-n-de-c",
+      "label": "Solicitar asignación.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre BDNSAR y Asignación de Cuenta."
+    },
+    {
+      "id": "RAIA-BS-0004-MSG-06",
+      "scenarioStepId": "RAIA-BS-0004-STEP-06",
+      "sequence": 6,
+      "sourceParticipantInstanceId": "p-asignaci-n-de-c",
+      "targetParticipantInstanceId": "p-evaluaci-n-de-c",
+      "label": "Evaluar parámetros vigentes.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Asignación de Cuenta y Evaluación de Criterios."
+    },
+    {
+      "id": "RAIA-BS-0004-MSG-07",
+      "scenarioStepId": "RAIA-BS-0004-STEP-07",
+      "sequence": 7,
+      "sourceParticipantInstanceId": "p-evaluaci-n-de-c",
+      "targetParticipantInstanceId": "p-consar",
+      "label": "Consultar baseline aplicable.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Evaluación de Criterios y CONSAR."
+    },
+    {
+      "id": "RAIA-BS-0004-MSG-08",
+      "scenarioStepId": "RAIA-BS-0004-STEP-08",
+      "sequence": 8,
+      "sourceParticipantInstanceId": "p-consar",
+      "targetParticipantInstanceId": "p-evaluaci-n-de-c",
+      "label": "Entregar parámetros vigentes.",
+      "messageType": "response",
+      "description": "Interacción entre CONSAR y Evaluación de Criterios."
+    },
+    {
+      "id": "RAIA-BS-0004-MSG-09",
+      "scenarioStepId": "RAIA-BS-0004-STEP-09",
+      "sequence": 9,
+      "sourceParticipantInstanceId": "p-evaluaci-n-de-c",
+      "targetParticipantInstanceId": "p-asignaci-n-de-c",
+      "label": "Proponer administradora.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Evaluación de Criterios y Asignación de Cuenta."
+    },
+    {
+      "id": "RAIA-BS-0004-MSG-10",
+      "scenarioStepId": "RAIA-BS-0004-STEP-10",
+      "sequence": 10,
+      "sourceParticipantInstanceId": "p-asignaci-n-de-c",
+      "targetParticipantInstanceId": "p-bdnsar",
+      "label": "Registrar AFORE responsable.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Asignación de Cuenta y BDNSAR."
+    },
+    {
+      "id": "RAIA-BS-0004-MSG-11",
+      "scenarioStepId": "RAIA-BS-0004-STEP-11",
+      "sequence": 11,
+      "sourceParticipantInstanceId": "p-bdnsar",
+      "targetParticipantInstanceId": "p-afore-asignada",
+      "label": "Transferir información de cuenta.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre BDNSAR y AFORE asignada."
+    },
+    {
+      "id": "RAIA-BS-0004-MSG-12",
+      "scenarioStepId": "RAIA-BS-0004-STEP-12",
+      "sequence": 12,
+      "sourceParticipantInstanceId": "p-afore-asignada",
+      "targetParticipantInstanceId": "p-libro-mayor",
+      "label": "Activar administración.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre AFORE asignada y Libro Mayor."
+    },
+    {
+      "id": "RAIA-BS-0004-MSG-13",
+      "scenarioStepId": "RAIA-BS-0004-STEP-13",
+      "sequence": 13,
+      "sourceParticipantInstanceId": "p-libro-mayor",
+      "targetParticipantInstanceId": "p-afore-asignada",
+      "label": "Confirmar activación.",
+      "messageType": "response",
+      "description": "Interacción entre Libro Mayor y AFORE asignada."
+    },
+    {
+      "id": "RAIA-BS-0004-MSG-14",
+      "scenarioStepId": "RAIA-BS-0004-STEP-14",
+      "sequence": 14,
+      "sourceParticipantInstanceId": "p-afore-asignada",
+      "targetParticipantInstanceId": "p-notificaciones",
+      "label": "Generar aviso.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre AFORE asignada y Notificaciones."
+    },
+    {
+      "id": "RAIA-BS-0004-MSG-15",
+      "scenarioStepId": "RAIA-BS-0004-STEP-15",
+      "sequence": 15,
+      "sourceParticipantInstanceId": "p-notificaciones",
+      "targetParticipantInstanceId": "p-trabajador",
+      "label": "Informar asignación.",
+      "messageType": "response",
+      "description": "Interacción entre Notificaciones y Trabajador."
+    }
+  ],
+  "activations": [
+    {
+      "id": "act-1",
+      "participantInstanceId": "p-bdnsar",
+      "startSequence": 1,
+      "endSequence": 15,
+      "depth": 0,
+      "activationType": "processing"
+    }
+  ],
+  "notes": [
+    {
+      "id": "note-control-1",
+      "participantInstanceIds": [
+        "p-instituto"
+      ],
+      "placement": "left",
+      "text": "Control: identidad y consentimiento verificables.",
+      "noteType": "control",
+      "afterSequence": 1
+    },
+    {
+      "id": "note-evidence-1",
+      "participantInstanceIds": [
+        "p-trabajador"
+      ],
+      "placement": "right",
+      "text": "Evidencia: expediente, folio y acuses.",
+      "noteType": "evidence",
+      "afterSequence": 15
+    }
+  ],
+  "fragments": [
+    {
+      "id": "frag-1",
+      "fragmentType": "alt",
+      "label": "Condiciones de Negocio",
+      "startSequence": 13,
+      "endSequence": 15,
+      "branches": [
+        {
+          "id": "branch-0",
+          "label": "Cuenta elegible",
+          "startSequence": 14,
+          "endSequence": 15
+        },
+        {
+          "id": "branch-1",
+          "label": "Cuenta ya registrada",
+          "startSequence": 14,
+          "endSequence": 15
+        },
+        {
+          "id": "branch-2",
+          "label": "Información inconsistente",
+          "startSequence": 14,
+          "endSequence": 15
+        },
+        {
+          "id": "branch-3",
+          "label": "No existe participante elegible",
+          "startSequence": 14,
+          "endSequence": 15
+        }
+      ]
+    }
+  ]
 }

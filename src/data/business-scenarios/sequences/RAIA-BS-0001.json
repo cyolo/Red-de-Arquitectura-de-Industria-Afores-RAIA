@@ -3,11 +3,383 @@
   "version": "0.2.0",
   "title": "Registro y Traspaso de Cuenta Individual",
   "description": "Registro y Traspaso de Cuenta Individual",
-  "participants": [],
-  "messages": [],
-  "activations": [],
-  "notes": [],
-  "fragments": [],
   "status": "proposed",
-  "regulatoryValidationStatus": "pending"
+  "regulatoryValidationStatus": "pending",
+  "participants": [
+    {
+      "instanceId": "p-trabajador",
+      "participantType": "service-domain",
+      "label": "Trabajador",
+      "order": 1
+    },
+    {
+      "instanceId": "p-gesti-n-de-soli",
+      "participantType": "service-domain",
+      "label": "Gestión de Solicitudes",
+      "order": 2
+    },
+    {
+      "instanceId": "p-datos-del-traba",
+      "participantType": "service-domain",
+      "label": "Datos del Trabajador",
+      "order": 3
+    },
+    {
+      "instanceId": "p-resoluci-n-de-i",
+      "participantType": "service-domain",
+      "label": "Resolución de Identidad",
+      "order": 4
+    },
+    {
+      "instanceId": "p-identidad-biom-",
+      "participantType": "service-domain",
+      "label": "Identidad Biométrica",
+      "order": 5
+    },
+    {
+      "instanceId": "p-expediente-elec",
+      "participantType": "service-domain",
+      "label": "Expediente Electrónico",
+      "order": 6
+    },
+    {
+      "instanceId": "p-gesti-n-de-cons",
+      "participantType": "service-domain",
+      "label": "Gestión de Consentimiento",
+      "order": 7
+    },
+    {
+      "instanceId": "p-localizaci-n-de",
+      "participantType": "service-domain",
+      "label": "Localización de Cuenta",
+      "order": 8
+    },
+    {
+      "instanceId": "p-base-de-datos-n",
+      "participantType": "service-domain",
+      "label": "Base de Datos Nacional SAR",
+      "order": 9
+    },
+    {
+      "instanceId": "p-traspaso-de-cue",
+      "participantType": "service-domain",
+      "label": "Traspaso de Cuenta",
+      "order": 10
+    },
+    {
+      "instanceId": "p-afore-transfere",
+      "participantType": "service-domain",
+      "label": "AFORE transferente",
+      "order": 11
+    },
+    {
+      "instanceId": "p-afore-receptora",
+      "participantType": "service-domain",
+      "label": "AFORE receptora",
+      "order": 12
+    },
+    {
+      "instanceId": "p-libro-mayor-de-",
+      "participantType": "service-domain",
+      "label": "Libro Mayor de Cuenta Individual",
+      "order": 13
+    },
+    {
+      "instanceId": "p-notificaciones",
+      "participantType": "service-domain",
+      "label": "Notificaciones",
+      "order": 14
+    },
+    {
+      "instanceId": "p-bdnsar",
+      "participantType": "service-domain",
+      "label": "bdnsar",
+      "order": 15
+    },
+    {
+      "instanceId": "p-libro-mayor",
+      "participantType": "service-domain",
+      "label": "libro mayor",
+      "order": 16
+    }
+  ],
+  "messages": [
+    {
+      "id": "RAIA-BS-0001-MSG-01",
+      "scenarioStepId": "RAIA-BS-0001-STEP-01",
+      "sequence": 1,
+      "sourceParticipantInstanceId": "p-trabajador",
+      "targetParticipantInstanceId": "p-gesti-n-de-soli",
+      "label": "Solicitar registro o traspaso.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Trabajador y Gestión de Solicitudes."
+    },
+    {
+      "id": "RAIA-BS-0001-MSG-02",
+      "scenarioStepId": "RAIA-BS-0001-STEP-02",
+      "sequence": 2,
+      "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+      "targetParticipantInstanceId": "p-datos-del-traba",
+      "label": "Recuperar datos.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Gestión de Solicitudes y Datos del Trabajador."
+    },
+    {
+      "id": "RAIA-BS-0001-MSG-03",
+      "scenarioStepId": "RAIA-BS-0001-STEP-03",
+      "sequence": 3,
+      "sourceParticipantInstanceId": "p-datos-del-traba",
+      "targetParticipantInstanceId": "p-gesti-n-de-soli",
+      "label": "Entregar datos disponibles.",
+      "messageType": "response",
+      "description": "Interacción entre Datos del Trabajador y Gestión de Solicitudes."
+    },
+    {
+      "id": "RAIA-BS-0001-MSG-04",
+      "scenarioStepId": "RAIA-BS-0001-STEP-04",
+      "sequence": 4,
+      "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+      "targetParticipantInstanceId": "p-resoluci-n-de-i",
+      "label": "Validar identidad.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Gestión de Solicitudes y Resolución de Identidad."
+    },
+    {
+      "id": "RAIA-BS-0001-MSG-05",
+      "scenarioStepId": "RAIA-BS-0001-STEP-05",
+      "sequence": 5,
+      "sourceParticipantInstanceId": "p-resoluci-n-de-i",
+      "targetParticipantInstanceId": "p-identidad-biom-",
+      "label": "Validar biometría y prueba de vida.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Resolución de Identidad y Identidad Biométrica."
+    },
+    {
+      "id": "RAIA-BS-0001-MSG-06",
+      "scenarioStepId": "RAIA-BS-0001-STEP-06",
+      "sequence": 6,
+      "sourceParticipantInstanceId": "p-identidad-biom-",
+      "targetParticipantInstanceId": "p-resoluci-n-de-i",
+      "label": "Confirmar resultado biométrico.",
+      "messageType": "response",
+      "description": "Interacción entre Identidad Biométrica y Resolución de Identidad."
+    },
+    {
+      "id": "RAIA-BS-0001-MSG-07",
+      "scenarioStepId": "RAIA-BS-0001-STEP-07",
+      "sequence": 7,
+      "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+      "targetParticipantInstanceId": "p-expediente-elec",
+      "label": "Integrar expediente.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Gestión de Solicitudes y Expediente Electrónico."
+    },
+    {
+      "id": "RAIA-BS-0001-MSG-08",
+      "scenarioStepId": "RAIA-BS-0001-STEP-08",
+      "sequence": 8,
+      "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+      "targetParticipantInstanceId": "p-gesti-n-de-cons",
+      "label": "Capturar consentimiento.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Gestión de Solicitudes y Gestión de Consentimiento."
+    },
+    {
+      "id": "RAIA-BS-0001-MSG-09",
+      "scenarioStepId": "RAIA-BS-0001-STEP-09",
+      "sequence": 9,
+      "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+      "targetParticipantInstanceId": "p-localizaci-n-de",
+      "label": "Consultar existencia de cuenta.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Gestión de Solicitudes y Localización de Cuenta."
+    },
+    {
+      "id": "RAIA-BS-0001-MSG-10",
+      "scenarioStepId": "RAIA-BS-0001-STEP-10",
+      "sequence": 10,
+      "sourceParticipantInstanceId": "p-localizaci-n-de",
+      "targetParticipantInstanceId": "p-bdnsar",
+      "label": "Buscar cuenta individual.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Localización de Cuenta y BDNSAR."
+    },
+    {
+      "id": "RAIA-BS-0001-MSG-11",
+      "scenarioStepId": "RAIA-BS-0001-STEP-11",
+      "sequence": 11,
+      "sourceParticipantInstanceId": "p-bdnsar",
+      "targetParticipantInstanceId": "p-localizaci-n-de",
+      "label": "Entregar estado de cuenta.",
+      "messageType": "response",
+      "description": "Interacción entre BDNSAR y Localización de Cuenta."
+    },
+    {
+      "id": "RAIA-BS-0001-MSG-12",
+      "scenarioStepId": "RAIA-BS-0001-STEP-12",
+      "sequence": 12,
+      "sourceParticipantInstanceId": "p-localizaci-n-de",
+      "targetParticipantInstanceId": "p-gesti-n-de-soli",
+      "label": "Informar resultado.",
+      "messageType": "response",
+      "description": "Interacción entre Localización de Cuenta y Gestión de Solicitudes."
+    },
+    {
+      "id": "RAIA-BS-0001-MSG-13",
+      "scenarioStepId": "RAIA-BS-0001-STEP-13",
+      "sequence": 13,
+      "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+      "targetParticipantInstanceId": "p-traspaso-de-cue",
+      "label": "Registrar solicitud.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Gestión de Solicitudes y Traspaso de Cuenta."
+    },
+    {
+      "id": "RAIA-BS-0001-MSG-14",
+      "scenarioStepId": "RAIA-BS-0001-STEP-14",
+      "sequence": 14,
+      "sourceParticipantInstanceId": "p-traspaso-de-cue",
+      "targetParticipantInstanceId": "p-afore-transfere",
+      "label": "Solicitar información y saldos.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Traspaso de Cuenta y AFORE transferente."
+    },
+    {
+      "id": "RAIA-BS-0001-MSG-15",
+      "scenarioStepId": "RAIA-BS-0001-STEP-15",
+      "sequence": 15,
+      "sourceParticipantInstanceId": "p-afore-transfere",
+      "targetParticipantInstanceId": "p-traspaso-de-cue",
+      "label": "Entregar información.",
+      "messageType": "response",
+      "description": "Interacción entre AFORE transferente y Traspaso de Cuenta."
+    },
+    {
+      "id": "RAIA-BS-0001-MSG-16",
+      "scenarioStepId": "RAIA-BS-0001-STEP-16",
+      "sequence": 16,
+      "sourceParticipantInstanceId": "p-traspaso-de-cue",
+      "targetParticipantInstanceId": "p-afore-receptora",
+      "label": "Solicitar aceptación.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Traspaso de Cuenta y AFORE receptora."
+    },
+    {
+      "id": "RAIA-BS-0001-MSG-17",
+      "scenarioStepId": "RAIA-BS-0001-STEP-17",
+      "sequence": 17,
+      "sourceParticipantInstanceId": "p-afore-receptora",
+      "targetParticipantInstanceId": "p-traspaso-de-cue",
+      "label": "Confirmar aceptación.",
+      "messageType": "response",
+      "description": "Interacción entre AFORE receptora y Traspaso de Cuenta."
+    },
+    {
+      "id": "RAIA-BS-0001-MSG-18",
+      "scenarioStepId": "RAIA-BS-0001-STEP-18",
+      "sequence": 18,
+      "sourceParticipantInstanceId": "p-traspaso-de-cue",
+      "targetParticipantInstanceId": "p-libro-mayor",
+      "label": "Registrar transferencia.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Traspaso de Cuenta y Libro Mayor."
+    },
+    {
+      "id": "RAIA-BS-0001-MSG-19",
+      "scenarioStepId": "RAIA-BS-0001-STEP-19",
+      "sequence": 19,
+      "sourceParticipantInstanceId": "p-libro-mayor",
+      "targetParticipantInstanceId": "p-traspaso-de-cue",
+      "label": "Confirmar registro.",
+      "messageType": "response",
+      "description": "Interacción entre Libro Mayor y Traspaso de Cuenta."
+    },
+    {
+      "id": "RAIA-BS-0001-MSG-20",
+      "scenarioStepId": "RAIA-BS-0001-STEP-20",
+      "sequence": 20,
+      "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+      "targetParticipantInstanceId": "p-notificaciones",
+      "label": "Emitir resultado.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Gestión de Solicitudes y Notificaciones."
+    },
+    {
+      "id": "RAIA-BS-0001-MSG-21",
+      "scenarioStepId": "RAIA-BS-0001-STEP-21",
+      "sequence": 21,
+      "sourceParticipantInstanceId": "p-notificaciones",
+      "targetParticipantInstanceId": "p-trabajador",
+      "label": "Notificar registro o traspaso.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Notificaciones y Trabajador."
+    }
+  ],
+  "activations": [
+    {
+      "id": "act-1",
+      "participantInstanceId": "p-gesti-n-de-soli",
+      "startSequence": 1,
+      "endSequence": 21,
+      "depth": 0,
+      "activationType": "processing"
+    }
+  ],
+  "notes": [
+    {
+      "id": "note-control-1",
+      "participantInstanceIds": [
+        "p-trabajador"
+      ],
+      "placement": "left",
+      "text": "Control: identidad y consentimiento verificables.",
+      "noteType": "control",
+      "afterSequence": 1
+    },
+    {
+      "id": "note-evidence-1",
+      "participantInstanceIds": [
+        "p-trabajador"
+      ],
+      "placement": "right",
+      "text": "Evidencia: expediente, folio y acuses.",
+      "noteType": "evidence",
+      "afterSequence": 21
+    }
+  ],
+  "fragments": [
+    {
+      "id": "frag-1",
+      "fragmentType": "alt",
+      "label": "Condiciones de Negocio",
+      "startSequence": 19,
+      "endSequence": 21,
+      "branches": [
+        {
+          "id": "branch-0",
+          "label": "Cuenta no registrada",
+          "startSequence": 20,
+          "endSequence": 21
+        },
+        {
+          "id": "branch-1",
+          "label": "Cuenta registrada en otra AFORE",
+          "startSequence": 20,
+          "endSequence": 21
+        },
+        {
+          "id": "branch-2",
+          "label": "Múltiples cuentas",
+          "startSequence": 20,
+          "endSequence": 21
+        },
+        {
+          "id": "branch-3",
+          "label": "Cuenta no elegible",
+          "startSequence": 20,
+          "endSequence": 21
+        }
+      ]
+    }
+  ]
 }

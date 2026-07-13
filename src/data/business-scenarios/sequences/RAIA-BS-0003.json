@@ -3,11 +3,273 @@
   "version": "0.2.0",
   "title": "Localización de cuenta individual",
   "description": "Localización de cuenta individual",
-  "participants": [],
-  "messages": [],
-  "activations": [],
-  "notes": [],
-  "fragments": [],
   "status": "proposed",
-  "regulatoryValidationStatus": "pending"
+  "regulatoryValidationStatus": "pending",
+  "participants": [
+    {
+      "instanceId": "p-trabajador",
+      "participantType": "service-domain",
+      "label": "Trabajador",
+      "order": 1
+    },
+    {
+      "instanceId": "p-gesti-n-de-soli",
+      "participantType": "service-domain",
+      "label": "Gestión de Solicitudes",
+      "order": 2
+    },
+    {
+      "instanceId": "p-datos-del-traba",
+      "participantType": "service-domain",
+      "label": "Datos del Trabajador",
+      "order": 3
+    },
+    {
+      "instanceId": "p-gesti-n-de-curp",
+      "participantType": "service-domain",
+      "label": "Gestión de CURP, NSS y RFC",
+      "order": 4
+    },
+    {
+      "instanceId": "p-resoluci-n-de-i",
+      "participantType": "service-domain",
+      "label": "Resolución de Identidad",
+      "order": 5
+    },
+    {
+      "instanceId": "p-localizaci-n-de",
+      "participantType": "service-domain",
+      "label": "Localización de Cuenta",
+      "order": 6
+    },
+    {
+      "instanceId": "p-bdnsar",
+      "participantType": "service-domain",
+      "label": "BDNSAR",
+      "order": 7
+    },
+    {
+      "instanceId": "p-registro-maestr",
+      "participantType": "service-domain",
+      "label": "Registro Maestro de Cuentas",
+      "order": 8
+    },
+    {
+      "instanceId": "p-notificaciones",
+      "participantType": "service-domain",
+      "label": "Notificaciones",
+      "order": 9
+    },
+    {
+      "instanceId": "p-gesti-n-de-iden",
+      "participantType": "service-domain",
+      "label": "gesti n de iden",
+      "order": 10
+    }
+  ],
+  "messages": [
+    {
+      "id": "RAIA-BS-0003-MSG-01",
+      "scenarioStepId": "RAIA-BS-0003-STEP-01",
+      "sequence": 1,
+      "sourceParticipantInstanceId": "p-trabajador",
+      "targetParticipantInstanceId": "p-gesti-n-de-soli",
+      "label": "Solicitar localización.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Trabajador y Gestión de Solicitudes."
+    },
+    {
+      "id": "RAIA-BS-0003-MSG-02",
+      "scenarioStepId": "RAIA-BS-0003-STEP-02",
+      "sequence": 2,
+      "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+      "targetParticipantInstanceId": "p-datos-del-traba",
+      "label": "Recuperar datos.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Gestión de Solicitudes y Datos del Trabajador."
+    },
+    {
+      "id": "RAIA-BS-0003-MSG-03",
+      "scenarioStepId": "RAIA-BS-0003-STEP-03",
+      "sequence": 3,
+      "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+      "targetParticipantInstanceId": "p-gesti-n-de-iden",
+      "label": "Validar CURP, NSS y RFC.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Gestión de Solicitudes y Gestión de Identificadores."
+    },
+    {
+      "id": "RAIA-BS-0003-MSG-04",
+      "scenarioStepId": "RAIA-BS-0003-STEP-04",
+      "sequence": 4,
+      "sourceParticipantInstanceId": "p-gesti-n-de-iden",
+      "targetParticipantInstanceId": "p-resoluci-n-de-i",
+      "label": "Resolver coincidencias.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Gestión de Identificadores y Resolución de Identidad."
+    },
+    {
+      "id": "RAIA-BS-0003-MSG-05",
+      "scenarioStepId": "RAIA-BS-0003-STEP-05",
+      "sequence": 5,
+      "sourceParticipantInstanceId": "p-resoluci-n-de-i",
+      "targetParticipantInstanceId": "p-gesti-n-de-soli",
+      "label": "Confirmar identidad.",
+      "messageType": "response",
+      "description": "Interacción entre Resolución de Identidad y Gestión de Solicitudes."
+    },
+    {
+      "id": "RAIA-BS-0003-MSG-06",
+      "scenarioStepId": "RAIA-BS-0003-STEP-06",
+      "sequence": 6,
+      "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+      "targetParticipantInstanceId": "p-localizaci-n-de",
+      "label": "Consultar cuenta.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Gestión de Solicitudes y Localización de Cuenta."
+    },
+    {
+      "id": "RAIA-BS-0003-MSG-07",
+      "scenarioStepId": "RAIA-BS-0003-STEP-07",
+      "sequence": 7,
+      "sourceParticipantInstanceId": "p-localizaci-n-de",
+      "targetParticipantInstanceId": "p-bdnsar",
+      "label": "Buscar registros.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Localización de Cuenta y BDNSAR."
+    },
+    {
+      "id": "RAIA-BS-0003-MSG-08",
+      "scenarioStepId": "RAIA-BS-0003-STEP-08",
+      "sequence": 8,
+      "sourceParticipantInstanceId": "p-bdnsar",
+      "targetParticipantInstanceId": "p-registro-maestr",
+      "label": "Consultar cuentas asociadas.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre BDNSAR y Registro Maestro."
+    },
+    {
+      "id": "RAIA-BS-0003-MSG-09",
+      "scenarioStepId": "RAIA-BS-0003-STEP-09",
+      "sequence": 9,
+      "sourceParticipantInstanceId": "p-registro-maestr",
+      "targetParticipantInstanceId": "p-bdnsar",
+      "label": "Entregar coincidencias.",
+      "messageType": "response",
+      "description": "Interacción entre Registro Maestro y BDNSAR."
+    },
+    {
+      "id": "RAIA-BS-0003-MSG-10",
+      "scenarioStepId": "RAIA-BS-0003-STEP-10",
+      "sequence": 10,
+      "sourceParticipantInstanceId": "p-bdnsar",
+      "targetParticipantInstanceId": "p-localizaci-n-de",
+      "label": "Devolver estado.",
+      "messageType": "response",
+      "description": "Interacción entre BDNSAR y Localización de Cuenta."
+    },
+    {
+      "id": "RAIA-BS-0003-MSG-11",
+      "scenarioStepId": "RAIA-BS-0003-STEP-11",
+      "sequence": 11,
+      "sourceParticipantInstanceId": "p-localizaci-n-de",
+      "targetParticipantInstanceId": "p-gesti-n-de-soli",
+      "label": "Clasificar resultado.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Localización de Cuenta y Gestión de Solicitudes."
+    },
+    {
+      "id": "RAIA-BS-0003-MSG-12",
+      "scenarioStepId": "RAIA-BS-0003-STEP-12",
+      "sequence": 12,
+      "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+      "targetParticipantInstanceId": "p-notificaciones",
+      "label": "Emitir respuesta.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Gestión de Solicitudes y Notificaciones."
+    },
+    {
+      "id": "RAIA-BS-0003-MSG-13",
+      "scenarioStepId": "RAIA-BS-0003-STEP-13",
+      "sequence": 13,
+      "sourceParticipantInstanceId": "p-notificaciones",
+      "targetParticipantInstanceId": "p-trabajador",
+      "label": "Informar resultado.",
+      "messageType": "response",
+      "description": "Interacción entre Notificaciones y Trabajador."
+    }
+  ],
+  "activations": [
+    {
+      "id": "act-1",
+      "participantInstanceId": "p-gesti-n-de-soli",
+      "startSequence": 1,
+      "endSequence": 13,
+      "depth": 0,
+      "activationType": "processing"
+    }
+  ],
+  "notes": [
+    {
+      "id": "note-control-1",
+      "participantInstanceIds": [
+        "p-trabajador"
+      ],
+      "placement": "left",
+      "text": "Control: identidad y consentimiento verificables.",
+      "noteType": "control",
+      "afterSequence": 1
+    },
+    {
+      "id": "note-evidence-1",
+      "participantInstanceIds": [
+        "p-trabajador"
+      ],
+      "placement": "right",
+      "text": "Evidencia: expediente, folio y acuses.",
+      "noteType": "evidence",
+      "afterSequence": 13
+    }
+  ],
+  "fragments": [
+    {
+      "id": "frag-1",
+      "fragmentType": "alt",
+      "label": "Condiciones de Negocio",
+      "startSequence": 11,
+      "endSequence": 13,
+      "branches": [
+        {
+          "id": "branch-0",
+          "label": "Cuenta localizada",
+          "startSequence": 12,
+          "endSequence": 13
+        },
+        {
+          "id": "branch-1",
+          "label": "Cuenta asignada",
+          "startSequence": 12,
+          "endSequence": 13
+        },
+        {
+          "id": "branch-2",
+          "label": "Cuenta en otra AFORE",
+          "startSequence": 12,
+          "endSequence": 13
+        },
+        {
+          "id": "branch-3",
+          "label": "Múltiples cuentas",
+          "startSequence": 12,
+          "endSequence": 13
+        },
+        {
+          "id": "branch-4",
+          "label": "Cuenta no localizada",
+          "startSequence": 12,
+          "endSequence": 13
+        }
+      ]
+    }
+  ]
 }

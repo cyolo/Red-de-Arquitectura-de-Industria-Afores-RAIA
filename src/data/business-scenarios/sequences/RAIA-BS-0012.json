@@ -3,11 +3,355 @@
   "version": "0.2.0",
   "title": "Retiro por desempleo IMSS/ISSSTE",
   "description": "Retiro por desempleo IMSS/ISSSTE",
-  "participants": [],
-  "messages": [],
-  "activations": [],
-  "notes": [],
-  "fragments": [],
   "status": "proposed",
-  "regulatoryValidationStatus": "pending"
+  "regulatoryValidationStatus": "pending",
+  "participants": [
+    {
+      "instanceId": "p-trabajador",
+      "participantType": "service-domain",
+      "label": "Trabajador",
+      "order": 1
+    },
+    {
+      "instanceId": "p-gesti-n-de-soli",
+      "participantType": "service-domain",
+      "label": "Gestión de Solicitudes",
+      "order": 2
+    },
+    {
+      "instanceId": "p-autenticaci-n",
+      "participantType": "service-domain",
+      "label": "Autenticación",
+      "order": 3
+    },
+    {
+      "instanceId": "p-expediente-elec",
+      "participantType": "service-domain",
+      "label": "Expediente Electrónico",
+      "order": 4
+    },
+    {
+      "instanceId": "p-validaci-n-de-e",
+      "participantType": "service-domain",
+      "label": "Validación de Elegibilidad",
+      "order": 5
+    },
+    {
+      "instanceId": "p-imss",
+      "participantType": "service-domain",
+      "label": "IMSS",
+      "order": 6
+    },
+    {
+      "instanceId": "p-issste",
+      "participantType": "service-domain",
+      "label": "ISSSTE",
+      "order": 7
+    },
+    {
+      "instanceId": "p-cuenta-individu",
+      "participantType": "service-domain",
+      "label": "Cuenta Individual",
+      "order": 8
+    },
+    {
+      "instanceId": "p-desinversi-n-de",
+      "participantType": "service-domain",
+      "label": "Desinversión de Recursos",
+      "order": 9
+    },
+    {
+      "instanceId": "p-gesti-n-de-pago",
+      "participantType": "service-domain",
+      "label": "Gestión de Pagos",
+      "order": 10
+    },
+    {
+      "instanceId": "p-libro-mayor",
+      "participantType": "service-domain",
+      "label": "Libro Mayor",
+      "order": 11
+    },
+    {
+      "instanceId": "p-notificaciones",
+      "participantType": "service-domain",
+      "label": "Notificaciones",
+      "order": 12
+    },
+    {
+      "instanceId": "p-expediente",
+      "participantType": "service-domain",
+      "label": "expediente",
+      "order": 13
+    },
+    {
+      "instanceId": "p-validaci-n",
+      "participantType": "service-domain",
+      "label": "validaci n",
+      "order": 14
+    },
+    {
+      "instanceId": "p-imss-issste",
+      "participantType": "service-domain",
+      "label": "imss issste",
+      "order": 15
+    },
+    {
+      "instanceId": "p-desinversi-n",
+      "participantType": "service-domain",
+      "label": "desinversi n",
+      "order": 16
+    },
+    {
+      "instanceId": "p-instituci-n-fin",
+      "participantType": "service-domain",
+      "label": "instituci n fin",
+      "order": 17
+    }
+  ],
+  "messages": [
+    {
+      "id": "RAIA-BS-0012-MSG-01",
+      "scenarioStepId": "RAIA-BS-0012-STEP-01",
+      "sequence": 1,
+      "sourceParticipantInstanceId": "p-trabajador",
+      "targetParticipantInstanceId": "p-gesti-n-de-soli",
+      "label": "Solicitar retiro.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Trabajador y Gestión de Solicitudes."
+    },
+    {
+      "id": "RAIA-BS-0012-MSG-02",
+      "scenarioStepId": "RAIA-BS-0012-STEP-02",
+      "sequence": 2,
+      "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+      "targetParticipantInstanceId": "p-autenticaci-n",
+      "label": "Validar identidad.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Gestión de Solicitudes y Autenticación."
+    },
+    {
+      "id": "RAIA-BS-0012-MSG-03",
+      "scenarioStepId": "RAIA-BS-0012-STEP-03",
+      "sequence": 3,
+      "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+      "targetParticipantInstanceId": "p-expediente",
+      "label": "Recuperar evidencia.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Gestión de Solicitudes y Expediente."
+    },
+    {
+      "id": "RAIA-BS-0012-MSG-04",
+      "scenarioStepId": "RAIA-BS-0012-STEP-04",
+      "sequence": 4,
+      "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+      "targetParticipantInstanceId": "p-validaci-n-de-e",
+      "label": "Evaluar solicitud.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Gestión de Solicitudes y Validación de Elegibilidad."
+    },
+    {
+      "id": "RAIA-BS-0012-MSG-05",
+      "scenarioStepId": "RAIA-BS-0012-STEP-05",
+      "sequence": 5,
+      "sourceParticipantInstanceId": "p-validaci-n",
+      "targetParticipantInstanceId": "p-imss",
+      "label": "Consultar información cuando aplique.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Validación y IMSS."
+    },
+    {
+      "id": "RAIA-BS-0012-MSG-06",
+      "scenarioStepId": "RAIA-BS-0012-STEP-06",
+      "sequence": 6,
+      "sourceParticipantInstanceId": "p-validaci-n",
+      "targetParticipantInstanceId": "p-issste",
+      "label": "Consultar información cuando aplique.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Validación y ISSSTE."
+    },
+    {
+      "id": "RAIA-BS-0012-MSG-07",
+      "scenarioStepId": "RAIA-BS-0012-STEP-07",
+      "sequence": 7,
+      "sourceParticipantInstanceId": "p-imss-issste",
+      "targetParticipantInstanceId": "p-validaci-n",
+      "label": "Entregar respuesta.",
+      "messageType": "response",
+      "description": "Interacción entre IMSS/ISSSTE y Validación."
+    },
+    {
+      "id": "RAIA-BS-0012-MSG-08",
+      "scenarioStepId": "RAIA-BS-0012-STEP-08",
+      "sequence": 8,
+      "sourceParticipantInstanceId": "p-validaci-n",
+      "targetParticipantInstanceId": "p-cuenta-individu",
+      "label": "Consultar saldo disponible.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Validación y Cuenta Individual."
+    },
+    {
+      "id": "RAIA-BS-0012-MSG-09",
+      "scenarioStepId": "RAIA-BS-0012-STEP-09",
+      "sequence": 9,
+      "sourceParticipantInstanceId": "p-cuenta-individu",
+      "targetParticipantInstanceId": "p-validaci-n",
+      "label": "Entregar saldo.",
+      "messageType": "response",
+      "description": "Interacción entre Cuenta Individual y Validación."
+    },
+    {
+      "id": "RAIA-BS-0012-MSG-10",
+      "scenarioStepId": "RAIA-BS-0012-STEP-10",
+      "sequence": 10,
+      "sourceParticipantInstanceId": "p-validaci-n",
+      "targetParticipantInstanceId": "p-desinversi-n",
+      "label": "Solicitar recursos.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Validación y Desinversión."
+    },
+    {
+      "id": "RAIA-BS-0012-MSG-11",
+      "scenarioStepId": "RAIA-BS-0012-STEP-11",
+      "sequence": 11,
+      "sourceParticipantInstanceId": "p-desinversi-n",
+      "targetParticipantInstanceId": "p-gesti-n-de-pago",
+      "label": "Entregar monto disponible.",
+      "messageType": "response",
+      "description": "Interacción entre Desinversión y Gestión de Pagos."
+    },
+    {
+      "id": "RAIA-BS-0012-MSG-12",
+      "scenarioStepId": "RAIA-BS-0012-STEP-12",
+      "sequence": 12,
+      "sourceParticipantInstanceId": "p-gesti-n-de-pago",
+      "targetParticipantInstanceId": "p-instituci-n-fin",
+      "label": "Ejecutar pago.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Gestión de Pagos y Institución Financiera."
+    },
+    {
+      "id": "RAIA-BS-0012-MSG-13",
+      "scenarioStepId": "RAIA-BS-0012-STEP-13",
+      "sequence": 13,
+      "sourceParticipantInstanceId": "p-instituci-n-fin",
+      "targetParticipantInstanceId": "p-gesti-n-de-pago",
+      "label": "Confirmar resultado.",
+      "messageType": "response",
+      "description": "Interacción entre Institución Financiera y Gestión de Pagos."
+    },
+    {
+      "id": "RAIA-BS-0012-MSG-14",
+      "scenarioStepId": "RAIA-BS-0012-STEP-14",
+      "sequence": 14,
+      "sourceParticipantInstanceId": "p-gesti-n-de-pago",
+      "targetParticipantInstanceId": "p-libro-mayor",
+      "label": "Registrar retiro.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Gestión de Pagos y Libro Mayor."
+    },
+    {
+      "id": "RAIA-BS-0012-MSG-15",
+      "scenarioStepId": "RAIA-BS-0012-STEP-15",
+      "sequence": 15,
+      "sourceParticipantInstanceId": "p-libro-mayor",
+      "targetParticipantInstanceId": "p-gesti-n-de-soli",
+      "label": "Confirmar movimiento.",
+      "messageType": "response",
+      "description": "Interacción entre Libro Mayor y Gestión de Solicitudes."
+    },
+    {
+      "id": "RAIA-BS-0012-MSG-16",
+      "scenarioStepId": "RAIA-BS-0012-STEP-16",
+      "sequence": 16,
+      "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+      "targetParticipantInstanceId": "p-notificaciones",
+      "label": "Comunicar resultado.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Gestión de Solicitudes y Notificaciones."
+    },
+    {
+      "id": "RAIA-BS-0012-MSG-17",
+      "scenarioStepId": "RAIA-BS-0012-STEP-17",
+      "sequence": 17,
+      "sourceParticipantInstanceId": "p-notificaciones",
+      "targetParticipantInstanceId": "p-trabajador",
+      "label": "Notificar pago.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Notificaciones y Trabajador."
+    }
+  ],
+  "activations": [
+    {
+      "id": "act-1",
+      "participantInstanceId": "p-gesti-n-de-soli",
+      "startSequence": 1,
+      "endSequence": 17,
+      "depth": 0,
+      "activationType": "processing"
+    }
+  ],
+  "notes": [
+    {
+      "id": "note-control-1",
+      "participantInstanceIds": [
+        "p-trabajador"
+      ],
+      "placement": "left",
+      "text": "Control: identidad y consentimiento verificables.",
+      "noteType": "control",
+      "afterSequence": 1
+    },
+    {
+      "id": "note-evidence-1",
+      "participantInstanceIds": [
+        "p-trabajador"
+      ],
+      "placement": "right",
+      "text": "Evidencia: expediente, folio y acuses.",
+      "noteType": "evidence",
+      "afterSequence": 17
+    }
+  ],
+  "fragments": [
+    {
+      "id": "frag-1",
+      "fragmentType": "alt",
+      "label": "Condiciones de Negocio",
+      "startSequence": 15,
+      "endSequence": 17,
+      "branches": [
+        {
+          "id": "branch-0",
+          "label": "Solicitud elegible",
+          "startSequence": 16,
+          "endSequence": 17
+        },
+        {
+          "id": "branch-1",
+          "label": "No cumple condiciones",
+          "startSequence": 16,
+          "endSequence": 17
+        },
+        {
+          "id": "branch-2",
+          "label": "Información no disponible",
+          "startSequence": 16,
+          "endSequence": 17
+        },
+        {
+          "id": "branch-3",
+          "label": "Medio de pago inválido",
+          "startSequence": 16,
+          "endSequence": 17
+        },
+        {
+          "id": "branch-4",
+          "label": "Pago rechazado",
+          "startSequence": 16,
+          "endSequence": 17
+        }
+      ]
+    }
+  ]
 }

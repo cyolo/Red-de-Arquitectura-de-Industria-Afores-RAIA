@@ -3,11 +3,321 @@
   "version": "0.2.0",
   "title": "Ejecución y liquidación de operaciones",
   "description": "Ejecución y liquidación de operaciones",
-  "participants": [],
-  "messages": [],
-  "activations": [],
-  "notes": [],
-  "fragments": [],
   "status": "proposed",
-  "regulatoryValidationStatus": "pending"
+  "regulatoryValidationStatus": "pending",
+  "participants": [
+    {
+      "instanceId": "p-gesti-n-de-inst",
+      "participantType": "service-domain",
+      "label": "Gestión de Instrucciones",
+      "order": 1
+    },
+    {
+      "instanceId": "p-cumplimiento-pr",
+      "participantType": "service-domain",
+      "label": "Cumplimiento Preoperación",
+      "order": 2
+    },
+    {
+      "instanceId": "p-ejecuci-n-de-op",
+      "participantType": "service-domain",
+      "label": "Ejecución de Operaciones",
+      "order": 3
+    },
+    {
+      "instanceId": "p-contraparte",
+      "participantType": "service-domain",
+      "label": "Contraparte",
+      "order": 4
+    },
+    {
+      "instanceId": "p-mercado",
+      "participantType": "service-domain",
+      "label": "Mercado",
+      "order": 5
+    },
+    {
+      "instanceId": "p-confirmaci-n-de",
+      "participantType": "service-domain",
+      "label": "Confirmación de Operaciones",
+      "order": 6
+    },
+    {
+      "instanceId": "p-liquidaci-n",
+      "participantType": "service-domain",
+      "label": "Liquidación",
+      "order": 7
+    },
+    {
+      "instanceId": "p-custodia",
+      "participantType": "service-domain",
+      "label": "Custodia",
+      "order": 8
+    },
+    {
+      "instanceId": "p-contabilidad-de",
+      "participantType": "service-domain",
+      "label": "Contabilidad de Inversiones",
+      "order": 9
+    },
+    {
+      "instanceId": "p-conciliaci-n-de",
+      "participantType": "service-domain",
+      "label": "Conciliación de Posiciones",
+      "order": 10
+    },
+    {
+      "instanceId": "p-riesgo-de-inver",
+      "participantType": "service-domain",
+      "label": "Riesgo de Inversión",
+      "order": 11
+    },
+    {
+      "instanceId": "p-cumplimiento",
+      "participantType": "service-domain",
+      "label": "cumplimiento",
+      "order": 12
+    },
+    {
+      "instanceId": "p-riesgo",
+      "participantType": "service-domain",
+      "label": "riesgo",
+      "order": 13
+    },
+    {
+      "instanceId": "p-ejecuci-n",
+      "participantType": "service-domain",
+      "label": "ejecuci n",
+      "order": 14
+    },
+    {
+      "instanceId": "p-confirmaci-n",
+      "participantType": "service-domain",
+      "label": "confirmaci n",
+      "order": 15
+    },
+    {
+      "instanceId": "p-contabilidad",
+      "participantType": "service-domain",
+      "label": "contabilidad",
+      "order": 16
+    },
+    {
+      "instanceId": "p-conciliaci-n",
+      "participantType": "service-domain",
+      "label": "conciliaci n",
+      "order": 17
+    }
+  ],
+  "messages": [
+    {
+      "id": "RAIA-BS-0010-MSG-01",
+      "scenarioStepId": "RAIA-BS-0010-STEP-01",
+      "sequence": 1,
+      "sourceParticipantInstanceId": "p-gesti-n-de-inst",
+      "targetParticipantInstanceId": "p-cumplimiento",
+      "label": "Validar orden.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Gestión de Instrucciones y Cumplimiento."
+    },
+    {
+      "id": "RAIA-BS-0010-MSG-02",
+      "scenarioStepId": "RAIA-BS-0010-STEP-02",
+      "sequence": 2,
+      "sourceParticipantInstanceId": "p-cumplimiento",
+      "targetParticipantInstanceId": "p-riesgo",
+      "label": "Validar límites.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Cumplimiento y Riesgo."
+    },
+    {
+      "id": "RAIA-BS-0010-MSG-03",
+      "scenarioStepId": "RAIA-BS-0010-STEP-03",
+      "sequence": 3,
+      "sourceParticipantInstanceId": "p-riesgo",
+      "targetParticipantInstanceId": "p-cumplimiento",
+      "label": "Confirmar resultado.",
+      "messageType": "response",
+      "description": "Interacción entre Riesgo y Cumplimiento."
+    },
+    {
+      "id": "RAIA-BS-0010-MSG-04",
+      "scenarioStepId": "RAIA-BS-0010-STEP-04",
+      "sequence": 4,
+      "sourceParticipantInstanceId": "p-cumplimiento",
+      "targetParticipantInstanceId": "p-gesti-n-de-inst",
+      "label": "Autorizar orden.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Cumplimiento y Gestión de Instrucciones."
+    },
+    {
+      "id": "RAIA-BS-0010-MSG-05",
+      "scenarioStepId": "RAIA-BS-0010-STEP-05",
+      "sequence": 5,
+      "sourceParticipantInstanceId": "p-gesti-n-de-inst",
+      "targetParticipantInstanceId": "p-ejecuci-n",
+      "label": "Enviar instrucción.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Gestión de Instrucciones y Ejecución."
+    },
+    {
+      "id": "RAIA-BS-0010-MSG-06",
+      "scenarioStepId": "RAIA-BS-0010-STEP-06",
+      "sequence": 6,
+      "sourceParticipantInstanceId": "p-ejecuci-n",
+      "targetParticipantInstanceId": "p-mercado",
+      "label": "Ejecutar operación.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Ejecución y Mercado."
+    },
+    {
+      "id": "RAIA-BS-0010-MSG-07",
+      "scenarioStepId": "RAIA-BS-0010-STEP-07",
+      "sequence": 7,
+      "sourceParticipantInstanceId": "p-mercado",
+      "targetParticipantInstanceId": "p-contraparte",
+      "label": "Cruzar operación.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Mercado y Contraparte."
+    },
+    {
+      "id": "RAIA-BS-0010-MSG-08",
+      "scenarioStepId": "RAIA-BS-0010-STEP-08",
+      "sequence": 8,
+      "sourceParticipantInstanceId": "p-contraparte",
+      "targetParticipantInstanceId": "p-confirmaci-n",
+      "label": "Emitir confirmación.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Contraparte y Confirmación."
+    },
+    {
+      "id": "RAIA-BS-0010-MSG-09",
+      "scenarioStepId": "RAIA-BS-0010-STEP-09",
+      "sequence": 9,
+      "sourceParticipantInstanceId": "p-confirmaci-n",
+      "targetParticipantInstanceId": "p-ejecuci-n",
+      "label": "Comparar términos.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Confirmación y Ejecución."
+    },
+    {
+      "id": "RAIA-BS-0010-MSG-10",
+      "scenarioStepId": "RAIA-BS-0010-STEP-10",
+      "sequence": 10,
+      "sourceParticipantInstanceId": "p-ejecuci-n",
+      "targetParticipantInstanceId": "p-liquidaci-n",
+      "label": "Instruir liquidación.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Ejecución y Liquidación."
+    },
+    {
+      "id": "RAIA-BS-0010-MSG-11",
+      "scenarioStepId": "RAIA-BS-0010-STEP-11",
+      "sequence": 11,
+      "sourceParticipantInstanceId": "p-liquidaci-n",
+      "targetParticipantInstanceId": "p-custodia",
+      "label": "Transferir valores.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Liquidación y Custodia."
+    },
+    {
+      "id": "RAIA-BS-0010-MSG-12",
+      "scenarioStepId": "RAIA-BS-0010-STEP-12",
+      "sequence": 12,
+      "sourceParticipantInstanceId": "p-liquidaci-n",
+      "targetParticipantInstanceId": "p-contraparte",
+      "label": "Transferir efectivo.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Liquidación y Contraparte."
+    },
+    {
+      "id": "RAIA-BS-0010-MSG-13",
+      "scenarioStepId": "RAIA-BS-0010-STEP-13",
+      "sequence": 13,
+      "sourceParticipantInstanceId": "p-custodia",
+      "targetParticipantInstanceId": "p-liquidaci-n",
+      "label": "Confirmar posición.",
+      "messageType": "response",
+      "description": "Interacción entre Custodia y Liquidación."
+    },
+    {
+      "id": "RAIA-BS-0010-MSG-14",
+      "scenarioStepId": "RAIA-BS-0010-STEP-14",
+      "sequence": 14,
+      "sourceParticipantInstanceId": "p-liquidaci-n",
+      "targetParticipantInstanceId": "p-contabilidad",
+      "label": "Registrar operación.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Liquidación y Contabilidad."
+    },
+    {
+      "id": "RAIA-BS-0010-MSG-15",
+      "scenarioStepId": "RAIA-BS-0010-STEP-15",
+      "sequence": 15,
+      "sourceParticipantInstanceId": "p-contabilidad",
+      "targetParticipantInstanceId": "p-conciliaci-n",
+      "label": "Conciliar posición.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Contabilidad y Conciliación."
+    },
+    {
+      "id": "RAIA-BS-0010-MSG-16",
+      "scenarioStepId": "RAIA-BS-0010-STEP-16",
+      "sequence": 16,
+      "sourceParticipantInstanceId": "p-conciliaci-n",
+      "targetParticipantInstanceId": "p-ejecuci-n",
+      "label": "Confirmar cierre.",
+      "messageType": "response",
+      "description": "Interacción entre Conciliación y Ejecución."
+    }
+  ],
+  "activations": [
+    {
+      "id": "act-1",
+      "participantInstanceId": "p-cumplimiento",
+      "startSequence": 1,
+      "endSequence": 16,
+      "depth": 0,
+      "activationType": "processing"
+    }
+  ],
+  "notes": [
+    {
+      "id": "note-control-1",
+      "participantInstanceIds": [
+        "p-gesti-n-de-inst"
+      ],
+      "placement": "left",
+      "text": "Control: identidad y consentimiento verificables.",
+      "noteType": "control",
+      "afterSequence": 1
+    },
+    {
+      "id": "note-evidence-1",
+      "participantInstanceIds": [
+        "p-ejecuci-n"
+      ],
+      "placement": "right",
+      "text": "Evidencia: expediente, folio y acuses.",
+      "noteType": "evidence",
+      "afterSequence": 16
+    }
+  ],
+  "fragments": [
+    {
+      "id": "frag-1",
+      "fragmentType": "alt",
+      "label": "Excepciones",
+      "startSequence": 15,
+      "endSequence": 16,
+      "branches": [
+        {
+          "id": "branch-0",
+          "label": "Fallo de conexión",
+          "startSequence": 16,
+          "endSequence": 16
+        }
+      ]
+    }
+  ]
 }

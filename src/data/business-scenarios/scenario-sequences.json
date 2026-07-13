@@ -4,233 +4,5811 @@
     "version": "0.2.0",
     "title": "Registro y Traspaso de Cuenta Individual",
     "description": "Registro y Traspaso de Cuenta Individual",
-    "participants": [],
-    "messages": [],
-    "activations": [],
-    "notes": [],
-    "fragments": [],
     "status": "proposed",
-    "regulatoryValidationStatus": "pending"
+    "regulatoryValidationStatus": "pending",
+    "participants": [
+      {
+        "instanceId": "p-trabajador",
+        "participantType": "service-domain",
+        "label": "Trabajador",
+        "order": 1
+      },
+      {
+        "instanceId": "p-gesti-n-de-soli",
+        "participantType": "service-domain",
+        "label": "Gestión de Solicitudes",
+        "order": 2
+      },
+      {
+        "instanceId": "p-datos-del-traba",
+        "participantType": "service-domain",
+        "label": "Datos del Trabajador",
+        "order": 3
+      },
+      {
+        "instanceId": "p-resoluci-n-de-i",
+        "participantType": "service-domain",
+        "label": "Resolución de Identidad",
+        "order": 4
+      },
+      {
+        "instanceId": "p-identidad-biom-",
+        "participantType": "service-domain",
+        "label": "Identidad Biométrica",
+        "order": 5
+      },
+      {
+        "instanceId": "p-expediente-elec",
+        "participantType": "service-domain",
+        "label": "Expediente Electrónico",
+        "order": 6
+      },
+      {
+        "instanceId": "p-gesti-n-de-cons",
+        "participantType": "service-domain",
+        "label": "Gestión de Consentimiento",
+        "order": 7
+      },
+      {
+        "instanceId": "p-localizaci-n-de",
+        "participantType": "service-domain",
+        "label": "Localización de Cuenta",
+        "order": 8
+      },
+      {
+        "instanceId": "p-base-de-datos-n",
+        "participantType": "service-domain",
+        "label": "Base de Datos Nacional SAR",
+        "order": 9
+      },
+      {
+        "instanceId": "p-traspaso-de-cue",
+        "participantType": "service-domain",
+        "label": "Traspaso de Cuenta",
+        "order": 10
+      },
+      {
+        "instanceId": "p-afore-transfere",
+        "participantType": "service-domain",
+        "label": "AFORE transferente",
+        "order": 11
+      },
+      {
+        "instanceId": "p-afore-receptora",
+        "participantType": "service-domain",
+        "label": "AFORE receptora",
+        "order": 12
+      },
+      {
+        "instanceId": "p-libro-mayor-de-",
+        "participantType": "service-domain",
+        "label": "Libro Mayor de Cuenta Individual",
+        "order": 13
+      },
+      {
+        "instanceId": "p-notificaciones",
+        "participantType": "service-domain",
+        "label": "Notificaciones",
+        "order": 14
+      },
+      {
+        "instanceId": "p-bdnsar",
+        "participantType": "service-domain",
+        "label": "bdnsar",
+        "order": 15
+      },
+      {
+        "instanceId": "p-libro-mayor",
+        "participantType": "service-domain",
+        "label": "libro mayor",
+        "order": 16
+      }
+    ],
+    "messages": [
+      {
+        "id": "RAIA-BS-0001-MSG-01",
+        "scenarioStepId": "RAIA-BS-0001-STEP-01",
+        "sequence": 1,
+        "sourceParticipantInstanceId": "p-trabajador",
+        "targetParticipantInstanceId": "p-gesti-n-de-soli",
+        "label": "Solicitar registro o traspaso.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Trabajador y Gestión de Solicitudes."
+      },
+      {
+        "id": "RAIA-BS-0001-MSG-02",
+        "scenarioStepId": "RAIA-BS-0001-STEP-02",
+        "sequence": 2,
+        "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+        "targetParticipantInstanceId": "p-datos-del-traba",
+        "label": "Recuperar datos.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Solicitudes y Datos del Trabajador."
+      },
+      {
+        "id": "RAIA-BS-0001-MSG-03",
+        "scenarioStepId": "RAIA-BS-0001-STEP-03",
+        "sequence": 3,
+        "sourceParticipantInstanceId": "p-datos-del-traba",
+        "targetParticipantInstanceId": "p-gesti-n-de-soli",
+        "label": "Entregar datos disponibles.",
+        "messageType": "response",
+        "description": "Interacción entre Datos del Trabajador y Gestión de Solicitudes."
+      },
+      {
+        "id": "RAIA-BS-0001-MSG-04",
+        "scenarioStepId": "RAIA-BS-0001-STEP-04",
+        "sequence": 4,
+        "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+        "targetParticipantInstanceId": "p-resoluci-n-de-i",
+        "label": "Validar identidad.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Solicitudes y Resolución de Identidad."
+      },
+      {
+        "id": "RAIA-BS-0001-MSG-05",
+        "scenarioStepId": "RAIA-BS-0001-STEP-05",
+        "sequence": 5,
+        "sourceParticipantInstanceId": "p-resoluci-n-de-i",
+        "targetParticipantInstanceId": "p-identidad-biom-",
+        "label": "Validar biometría y prueba de vida.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Resolución de Identidad y Identidad Biométrica."
+      },
+      {
+        "id": "RAIA-BS-0001-MSG-06",
+        "scenarioStepId": "RAIA-BS-0001-STEP-06",
+        "sequence": 6,
+        "sourceParticipantInstanceId": "p-identidad-biom-",
+        "targetParticipantInstanceId": "p-resoluci-n-de-i",
+        "label": "Confirmar resultado biométrico.",
+        "messageType": "response",
+        "description": "Interacción entre Identidad Biométrica y Resolución de Identidad."
+      },
+      {
+        "id": "RAIA-BS-0001-MSG-07",
+        "scenarioStepId": "RAIA-BS-0001-STEP-07",
+        "sequence": 7,
+        "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+        "targetParticipantInstanceId": "p-expediente-elec",
+        "label": "Integrar expediente.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Solicitudes y Expediente Electrónico."
+      },
+      {
+        "id": "RAIA-BS-0001-MSG-08",
+        "scenarioStepId": "RAIA-BS-0001-STEP-08",
+        "sequence": 8,
+        "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+        "targetParticipantInstanceId": "p-gesti-n-de-cons",
+        "label": "Capturar consentimiento.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Solicitudes y Gestión de Consentimiento."
+      },
+      {
+        "id": "RAIA-BS-0001-MSG-09",
+        "scenarioStepId": "RAIA-BS-0001-STEP-09",
+        "sequence": 9,
+        "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+        "targetParticipantInstanceId": "p-localizaci-n-de",
+        "label": "Consultar existencia de cuenta.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Solicitudes y Localización de Cuenta."
+      },
+      {
+        "id": "RAIA-BS-0001-MSG-10",
+        "scenarioStepId": "RAIA-BS-0001-STEP-10",
+        "sequence": 10,
+        "sourceParticipantInstanceId": "p-localizaci-n-de",
+        "targetParticipantInstanceId": "p-bdnsar",
+        "label": "Buscar cuenta individual.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Localización de Cuenta y BDNSAR."
+      },
+      {
+        "id": "RAIA-BS-0001-MSG-11",
+        "scenarioStepId": "RAIA-BS-0001-STEP-11",
+        "sequence": 11,
+        "sourceParticipantInstanceId": "p-bdnsar",
+        "targetParticipantInstanceId": "p-localizaci-n-de",
+        "label": "Entregar estado de cuenta.",
+        "messageType": "response",
+        "description": "Interacción entre BDNSAR y Localización de Cuenta."
+      },
+      {
+        "id": "RAIA-BS-0001-MSG-12",
+        "scenarioStepId": "RAIA-BS-0001-STEP-12",
+        "sequence": 12,
+        "sourceParticipantInstanceId": "p-localizaci-n-de",
+        "targetParticipantInstanceId": "p-gesti-n-de-soli",
+        "label": "Informar resultado.",
+        "messageType": "response",
+        "description": "Interacción entre Localización de Cuenta y Gestión de Solicitudes."
+      },
+      {
+        "id": "RAIA-BS-0001-MSG-13",
+        "scenarioStepId": "RAIA-BS-0001-STEP-13",
+        "sequence": 13,
+        "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+        "targetParticipantInstanceId": "p-traspaso-de-cue",
+        "label": "Registrar solicitud.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Solicitudes y Traspaso de Cuenta."
+      },
+      {
+        "id": "RAIA-BS-0001-MSG-14",
+        "scenarioStepId": "RAIA-BS-0001-STEP-14",
+        "sequence": 14,
+        "sourceParticipantInstanceId": "p-traspaso-de-cue",
+        "targetParticipantInstanceId": "p-afore-transfere",
+        "label": "Solicitar información y saldos.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Traspaso de Cuenta y AFORE transferente."
+      },
+      {
+        "id": "RAIA-BS-0001-MSG-15",
+        "scenarioStepId": "RAIA-BS-0001-STEP-15",
+        "sequence": 15,
+        "sourceParticipantInstanceId": "p-afore-transfere",
+        "targetParticipantInstanceId": "p-traspaso-de-cue",
+        "label": "Entregar información.",
+        "messageType": "response",
+        "description": "Interacción entre AFORE transferente y Traspaso de Cuenta."
+      },
+      {
+        "id": "RAIA-BS-0001-MSG-16",
+        "scenarioStepId": "RAIA-BS-0001-STEP-16",
+        "sequence": 16,
+        "sourceParticipantInstanceId": "p-traspaso-de-cue",
+        "targetParticipantInstanceId": "p-afore-receptora",
+        "label": "Solicitar aceptación.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Traspaso de Cuenta y AFORE receptora."
+      },
+      {
+        "id": "RAIA-BS-0001-MSG-17",
+        "scenarioStepId": "RAIA-BS-0001-STEP-17",
+        "sequence": 17,
+        "sourceParticipantInstanceId": "p-afore-receptora",
+        "targetParticipantInstanceId": "p-traspaso-de-cue",
+        "label": "Confirmar aceptación.",
+        "messageType": "response",
+        "description": "Interacción entre AFORE receptora y Traspaso de Cuenta."
+      },
+      {
+        "id": "RAIA-BS-0001-MSG-18",
+        "scenarioStepId": "RAIA-BS-0001-STEP-18",
+        "sequence": 18,
+        "sourceParticipantInstanceId": "p-traspaso-de-cue",
+        "targetParticipantInstanceId": "p-libro-mayor",
+        "label": "Registrar transferencia.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Traspaso de Cuenta y Libro Mayor."
+      },
+      {
+        "id": "RAIA-BS-0001-MSG-19",
+        "scenarioStepId": "RAIA-BS-0001-STEP-19",
+        "sequence": 19,
+        "sourceParticipantInstanceId": "p-libro-mayor",
+        "targetParticipantInstanceId": "p-traspaso-de-cue",
+        "label": "Confirmar registro.",
+        "messageType": "response",
+        "description": "Interacción entre Libro Mayor y Traspaso de Cuenta."
+      },
+      {
+        "id": "RAIA-BS-0001-MSG-20",
+        "scenarioStepId": "RAIA-BS-0001-STEP-20",
+        "sequence": 20,
+        "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+        "targetParticipantInstanceId": "p-notificaciones",
+        "label": "Emitir resultado.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Solicitudes y Notificaciones."
+      },
+      {
+        "id": "RAIA-BS-0001-MSG-21",
+        "scenarioStepId": "RAIA-BS-0001-STEP-21",
+        "sequence": 21,
+        "sourceParticipantInstanceId": "p-notificaciones",
+        "targetParticipantInstanceId": "p-trabajador",
+        "label": "Notificar registro o traspaso.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Notificaciones y Trabajador."
+      }
+    ],
+    "activations": [
+      {
+        "id": "act-1",
+        "participantInstanceId": "p-gesti-n-de-soli",
+        "startSequence": 1,
+        "endSequence": 21,
+        "depth": 0,
+        "activationType": "processing"
+      }
+    ],
+    "notes": [
+      {
+        "id": "note-control-1",
+        "participantInstanceIds": [
+          "p-trabajador"
+        ],
+        "placement": "left",
+        "text": "Control: identidad y consentimiento verificables.",
+        "noteType": "control",
+        "afterSequence": 1
+      },
+      {
+        "id": "note-evidence-1",
+        "participantInstanceIds": [
+          "p-trabajador"
+        ],
+        "placement": "right",
+        "text": "Evidencia: expediente, folio y acuses.",
+        "noteType": "evidence",
+        "afterSequence": 21
+      }
+    ],
+    "fragments": [
+      {
+        "id": "frag-1",
+        "fragmentType": "alt",
+        "label": "Condiciones de Negocio",
+        "startSequence": 19,
+        "endSequence": 21,
+        "branches": [
+          {
+            "id": "branch-0",
+            "label": "Cuenta no registrada",
+            "startSequence": 20,
+            "endSequence": 21
+          },
+          {
+            "id": "branch-1",
+            "label": "Cuenta registrada en otra AFORE",
+            "startSequence": 20,
+            "endSequence": 21
+          },
+          {
+            "id": "branch-2",
+            "label": "Múltiples cuentas",
+            "startSequence": 20,
+            "endSequence": 21
+          },
+          {
+            "id": "branch-3",
+            "label": "Cuenta no elegible",
+            "startSequence": 20,
+            "endSequence": 21
+          }
+        ]
+      }
+    ]
   },
   "RAIA-BS-0002": {
     "scenarioId": "RAIA-BS-0002",
     "version": "0.2.0",
     "title": "Recaudación de Aportaciones e Inversión",
     "description": "Recaudación de Aportaciones e Inversión",
-    "participants": [],
-    "messages": [],
-    "activations": [],
-    "notes": [],
-    "fragments": [],
     "status": "proposed",
-    "regulatoryValidationStatus": "pending"
+    "regulatoryValidationStatus": "pending",
+    "participants": [
+      {
+        "instanceId": "p-patr-n-o-depend",
+        "participantType": "service-domain",
+        "label": "Patrón o dependencia",
+        "order": 1
+      },
+      {
+        "instanceId": "p-entidad-recauda",
+        "participantType": "service-domain",
+        "label": "Entidad Recaudadora",
+        "order": 2
+      },
+      {
+        "instanceId": "p-determinaci-n-d",
+        "participantType": "service-domain",
+        "label": "Determinación de Aportaciones",
+        "order": 3
+      },
+      {
+        "instanceId": "p-recaudaci-n-de-",
+        "participantType": "service-domain",
+        "label": "Recaudación de Aportaciones",
+        "order": 4
+      },
+      {
+        "instanceId": "p-conciliaci-n-de",
+        "participantType": "service-domain",
+        "label": "Conciliación de Recaudación",
+        "order": 5
+      },
+      {
+        "instanceId": "p-individualizaci",
+        "participantType": "service-domain",
+        "label": "Individualización de Aportaciones",
+        "order": 6
+      },
+      {
+        "instanceId": "p-administraci-n-",
+        "participantType": "service-domain",
+        "label": "Administración de Subcuentas",
+        "order": 7
+      },
+      {
+        "instanceId": "p-libro-mayor",
+        "participantType": "service-domain",
+        "label": "Libro Mayor",
+        "order": 8
+      },
+      {
+        "instanceId": "p-asignaci-n-de-a",
+        "participantType": "service-domain",
+        "label": "Asignación de Acciones",
+        "order": 9
+      },
+      {
+        "instanceId": "p-asignaci-n-a-si",
+        "participantType": "service-domain",
+        "label": "Asignación a SIEFORE",
+        "order": 10
+      },
+      {
+        "instanceId": "p-gesti-n-de-liqu",
+        "participantType": "service-domain",
+        "label": "Gestión de Liquidez",
+        "order": 11
+      },
+      {
+        "instanceId": "p-portafolio-de-i",
+        "participantType": "service-domain",
+        "label": "Portafolio de Inversión",
+        "order": 12
+      },
+      {
+        "instanceId": "p-patr-n",
+        "participantType": "service-domain",
+        "label": "patr n",
+        "order": 13
+      },
+      {
+        "instanceId": "p-determinaci-n",
+        "participantType": "service-domain",
+        "label": "determinaci n",
+        "order": 14
+      },
+      {
+        "instanceId": "p-recaudaci-n",
+        "participantType": "service-domain",
+        "label": "recaudaci n",
+        "order": 15
+      },
+      {
+        "instanceId": "p-conciliaci-n",
+        "participantType": "service-domain",
+        "label": "conciliaci n",
+        "order": 16
+      },
+      {
+        "instanceId": "p-portafolio",
+        "participantType": "service-domain",
+        "label": "portafolio",
+        "order": 17
+      }
+    ],
+    "messages": [
+      {
+        "id": "RAIA-BS-0002-MSG-01",
+        "scenarioStepId": "RAIA-BS-0002-STEP-01",
+        "sequence": 1,
+        "sourceParticipantInstanceId": "p-patr-n",
+        "targetParticipantInstanceId": "p-determinaci-n-d",
+        "label": "Presentar información de cotización.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Patrón y Determinación de Aportaciones."
+      },
+      {
+        "id": "RAIA-BS-0002-MSG-02",
+        "scenarioStepId": "RAIA-BS-0002-STEP-02",
+        "sequence": 2,
+        "sourceParticipantInstanceId": "p-determinaci-n",
+        "targetParticipantInstanceId": "p-recaudaci-n",
+        "label": "Generar instrucción de aportación.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Determinación y Recaudación."
+      },
+      {
+        "id": "RAIA-BS-0002-MSG-03",
+        "scenarioStepId": "RAIA-BS-0002-STEP-03",
+        "sequence": 3,
+        "sourceParticipantInstanceId": "p-patr-n",
+        "targetParticipantInstanceId": "p-entidad-recauda",
+        "label": "Enterar recursos.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Patrón y Entidad Recaudadora."
+      },
+      {
+        "id": "RAIA-BS-0002-MSG-04",
+        "scenarioStepId": "RAIA-BS-0002-STEP-04",
+        "sequence": 4,
+        "sourceParticipantInstanceId": "p-entidad-recauda",
+        "targetParticipantInstanceId": "p-recaudaci-n",
+        "label": "Entregar recursos e información.",
+        "messageType": "response",
+        "description": "Interacción entre Entidad Recaudadora y Recaudación."
+      },
+      {
+        "id": "RAIA-BS-0002-MSG-05",
+        "scenarioStepId": "RAIA-BS-0002-STEP-05",
+        "sequence": 5,
+        "sourceParticipantInstanceId": "p-recaudaci-n",
+        "targetParticipantInstanceId": "p-conciliaci-n",
+        "label": "Registrar lote recibido.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Recaudación y Conciliación."
+      },
+      {
+        "id": "RAIA-BS-0002-MSG-06",
+        "scenarioStepId": "RAIA-BS-0002-STEP-06",
+        "sequence": 6,
+        "sourceParticipantInstanceId": "p-conciliaci-n",
+        "targetParticipantInstanceId": "p-entidad-recauda",
+        "label": "Confirmar o solicitar corrección.",
+        "messageType": "response",
+        "description": "Interacción entre Conciliación y Entidad Recaudadora."
+      },
+      {
+        "id": "RAIA-BS-0002-MSG-07",
+        "scenarioStepId": "RAIA-BS-0002-STEP-07",
+        "sequence": 7,
+        "sourceParticipantInstanceId": "p-conciliaci-n",
+        "targetParticipantInstanceId": "p-individualizaci",
+        "label": "Liberar lote conciliado.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Conciliación y Individualización."
+      },
+      {
+        "id": "RAIA-BS-0002-MSG-08",
+        "scenarioStepId": "RAIA-BS-0002-STEP-08",
+        "sequence": 8,
+        "sourceParticipantInstanceId": "p-individualizaci",
+        "targetParticipantInstanceId": "p-administraci-n-",
+        "label": "Distribuir aportaciones.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Individualización y Administración de Subcuentas."
+      },
+      {
+        "id": "RAIA-BS-0002-MSG-09",
+        "scenarioStepId": "RAIA-BS-0002-STEP-09",
+        "sequence": 9,
+        "sourceParticipantInstanceId": "p-administraci-n-",
+        "targetParticipantInstanceId": "p-libro-mayor",
+        "label": "Registrar movimientos.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Administración de Subcuentas y Libro Mayor."
+      },
+      {
+        "id": "RAIA-BS-0002-MSG-10",
+        "scenarioStepId": "RAIA-BS-0002-STEP-10",
+        "sequence": 10,
+        "sourceParticipantInstanceId": "p-libro-mayor",
+        "targetParticipantInstanceId": "p-asignaci-n-de-a",
+        "label": "Solicitar asignación.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Libro Mayor y Asignación de Acciones."
+      },
+      {
+        "id": "RAIA-BS-0002-MSG-11",
+        "scenarioStepId": "RAIA-BS-0002-STEP-11",
+        "sequence": 11,
+        "sourceParticipantInstanceId": "p-asignaci-n-de-a",
+        "targetParticipantInstanceId": "p-asignaci-n-a-si",
+        "label": "Determinar fondo.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Asignación de Acciones y Asignación a SIEFORE."
+      },
+      {
+        "id": "RAIA-BS-0002-MSG-12",
+        "scenarioStepId": "RAIA-BS-0002-STEP-12",
+        "sequence": 12,
+        "sourceParticipantInstanceId": "p-asignaci-n-a-si",
+        "targetParticipantInstanceId": "p-gesti-n-de-liqu",
+        "label": "Informar recursos disponibles.",
+        "messageType": "response",
+        "description": "Interacción entre Asignación a SIEFORE y Gestión de Liquidez."
+      },
+      {
+        "id": "RAIA-BS-0002-MSG-13",
+        "scenarioStepId": "RAIA-BS-0002-STEP-13",
+        "sequence": 13,
+        "sourceParticipantInstanceId": "p-gesti-n-de-liqu",
+        "targetParticipantInstanceId": "p-portafolio",
+        "label": "Integrar recursos al proceso de inversión.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Liquidez y Portafolio."
+      },
+      {
+        "id": "RAIA-BS-0002-MSG-14",
+        "scenarioStepId": "RAIA-BS-0002-STEP-14",
+        "sequence": 14,
+        "sourceParticipantInstanceId": "p-portafolio",
+        "targetParticipantInstanceId": "p-libro-mayor",
+        "label": "Confirmar posición y acciones.",
+        "messageType": "response",
+        "description": "Interacción entre Portafolio y Libro Mayor."
+      },
+      {
+        "id": "RAIA-BS-0002-MSG-15",
+        "scenarioStepId": "RAIA-BS-0002-STEP-15",
+        "sequence": 15,
+        "sourceParticipantInstanceId": "p-libro-mayor",
+        "targetParticipantInstanceId": "p-individualizaci",
+        "label": "Confirmar acreditación.",
+        "messageType": "response",
+        "description": "Interacción entre Libro Mayor y Individualización."
+      }
+    ],
+    "activations": [
+      {
+        "id": "act-1",
+        "participantInstanceId": "p-determinaci-n-d",
+        "startSequence": 1,
+        "endSequence": 15,
+        "depth": 0,
+        "activationType": "processing"
+      }
+    ],
+    "notes": [
+      {
+        "id": "note-control-1",
+        "participantInstanceIds": [
+          "p-patr-n"
+        ],
+        "placement": "left",
+        "text": "Control: identidad y consentimiento verificables.",
+        "noteType": "control",
+        "afterSequence": 1
+      },
+      {
+        "id": "note-evidence-1",
+        "participantInstanceIds": [
+          "p-individualizaci"
+        ],
+        "placement": "right",
+        "text": "Evidencia: expediente, folio y acuses.",
+        "noteType": "evidence",
+        "afterSequence": 15
+      }
+    ],
+    "fragments": [
+      {
+        "id": "frag-1",
+        "fragmentType": "alt",
+        "label": "Condiciones de Negocio",
+        "startSequence": 13,
+        "endSequence": 15,
+        "branches": [
+          {
+            "id": "branch-0",
+            "label": "Lote conciliado",
+            "startSequence": 14,
+            "endSequence": 15
+          },
+          {
+            "id": "branch-1",
+            "label": "Pago no identificado",
+            "startSequence": 14,
+            "endSequence": 15
+          },
+          {
+            "id": "branch-2",
+            "label": "Diferencia de monto",
+            "startSequence": 14,
+            "endSequence": 15
+          },
+          {
+            "id": "branch-3",
+            "label": "Trabajador no localizado",
+            "startSequence": 14,
+            "endSequence": 15
+          }
+        ]
+      }
+    ]
   },
   "RAIA-BS-0003": {
     "scenarioId": "RAIA-BS-0003",
     "version": "0.2.0",
     "title": "Localización de cuenta individual",
     "description": "Localización de cuenta individual",
-    "participants": [],
-    "messages": [],
-    "activations": [],
-    "notes": [],
-    "fragments": [],
     "status": "proposed",
-    "regulatoryValidationStatus": "pending"
+    "regulatoryValidationStatus": "pending",
+    "participants": [
+      {
+        "instanceId": "p-trabajador",
+        "participantType": "service-domain",
+        "label": "Trabajador",
+        "order": 1
+      },
+      {
+        "instanceId": "p-gesti-n-de-soli",
+        "participantType": "service-domain",
+        "label": "Gestión de Solicitudes",
+        "order": 2
+      },
+      {
+        "instanceId": "p-datos-del-traba",
+        "participantType": "service-domain",
+        "label": "Datos del Trabajador",
+        "order": 3
+      },
+      {
+        "instanceId": "p-gesti-n-de-curp",
+        "participantType": "service-domain",
+        "label": "Gestión de CURP, NSS y RFC",
+        "order": 4
+      },
+      {
+        "instanceId": "p-resoluci-n-de-i",
+        "participantType": "service-domain",
+        "label": "Resolución de Identidad",
+        "order": 5
+      },
+      {
+        "instanceId": "p-localizaci-n-de",
+        "participantType": "service-domain",
+        "label": "Localización de Cuenta",
+        "order": 6
+      },
+      {
+        "instanceId": "p-bdnsar",
+        "participantType": "service-domain",
+        "label": "BDNSAR",
+        "order": 7
+      },
+      {
+        "instanceId": "p-registro-maestr",
+        "participantType": "service-domain",
+        "label": "Registro Maestro de Cuentas",
+        "order": 8
+      },
+      {
+        "instanceId": "p-notificaciones",
+        "participantType": "service-domain",
+        "label": "Notificaciones",
+        "order": 9
+      },
+      {
+        "instanceId": "p-gesti-n-de-iden",
+        "participantType": "service-domain",
+        "label": "gesti n de iden",
+        "order": 10
+      }
+    ],
+    "messages": [
+      {
+        "id": "RAIA-BS-0003-MSG-01",
+        "scenarioStepId": "RAIA-BS-0003-STEP-01",
+        "sequence": 1,
+        "sourceParticipantInstanceId": "p-trabajador",
+        "targetParticipantInstanceId": "p-gesti-n-de-soli",
+        "label": "Solicitar localización.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Trabajador y Gestión de Solicitudes."
+      },
+      {
+        "id": "RAIA-BS-0003-MSG-02",
+        "scenarioStepId": "RAIA-BS-0003-STEP-02",
+        "sequence": 2,
+        "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+        "targetParticipantInstanceId": "p-datos-del-traba",
+        "label": "Recuperar datos.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Solicitudes y Datos del Trabajador."
+      },
+      {
+        "id": "RAIA-BS-0003-MSG-03",
+        "scenarioStepId": "RAIA-BS-0003-STEP-03",
+        "sequence": 3,
+        "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+        "targetParticipantInstanceId": "p-gesti-n-de-iden",
+        "label": "Validar CURP, NSS y RFC.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Solicitudes y Gestión de Identificadores."
+      },
+      {
+        "id": "RAIA-BS-0003-MSG-04",
+        "scenarioStepId": "RAIA-BS-0003-STEP-04",
+        "sequence": 4,
+        "sourceParticipantInstanceId": "p-gesti-n-de-iden",
+        "targetParticipantInstanceId": "p-resoluci-n-de-i",
+        "label": "Resolver coincidencias.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Identificadores y Resolución de Identidad."
+      },
+      {
+        "id": "RAIA-BS-0003-MSG-05",
+        "scenarioStepId": "RAIA-BS-0003-STEP-05",
+        "sequence": 5,
+        "sourceParticipantInstanceId": "p-resoluci-n-de-i",
+        "targetParticipantInstanceId": "p-gesti-n-de-soli",
+        "label": "Confirmar identidad.",
+        "messageType": "response",
+        "description": "Interacción entre Resolución de Identidad y Gestión de Solicitudes."
+      },
+      {
+        "id": "RAIA-BS-0003-MSG-06",
+        "scenarioStepId": "RAIA-BS-0003-STEP-06",
+        "sequence": 6,
+        "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+        "targetParticipantInstanceId": "p-localizaci-n-de",
+        "label": "Consultar cuenta.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Solicitudes y Localización de Cuenta."
+      },
+      {
+        "id": "RAIA-BS-0003-MSG-07",
+        "scenarioStepId": "RAIA-BS-0003-STEP-07",
+        "sequence": 7,
+        "sourceParticipantInstanceId": "p-localizaci-n-de",
+        "targetParticipantInstanceId": "p-bdnsar",
+        "label": "Buscar registros.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Localización de Cuenta y BDNSAR."
+      },
+      {
+        "id": "RAIA-BS-0003-MSG-08",
+        "scenarioStepId": "RAIA-BS-0003-STEP-08",
+        "sequence": 8,
+        "sourceParticipantInstanceId": "p-bdnsar",
+        "targetParticipantInstanceId": "p-registro-maestr",
+        "label": "Consultar cuentas asociadas.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre BDNSAR y Registro Maestro."
+      },
+      {
+        "id": "RAIA-BS-0003-MSG-09",
+        "scenarioStepId": "RAIA-BS-0003-STEP-09",
+        "sequence": 9,
+        "sourceParticipantInstanceId": "p-registro-maestr",
+        "targetParticipantInstanceId": "p-bdnsar",
+        "label": "Entregar coincidencias.",
+        "messageType": "response",
+        "description": "Interacción entre Registro Maestro y BDNSAR."
+      },
+      {
+        "id": "RAIA-BS-0003-MSG-10",
+        "scenarioStepId": "RAIA-BS-0003-STEP-10",
+        "sequence": 10,
+        "sourceParticipantInstanceId": "p-bdnsar",
+        "targetParticipantInstanceId": "p-localizaci-n-de",
+        "label": "Devolver estado.",
+        "messageType": "response",
+        "description": "Interacción entre BDNSAR y Localización de Cuenta."
+      },
+      {
+        "id": "RAIA-BS-0003-MSG-11",
+        "scenarioStepId": "RAIA-BS-0003-STEP-11",
+        "sequence": 11,
+        "sourceParticipantInstanceId": "p-localizaci-n-de",
+        "targetParticipantInstanceId": "p-gesti-n-de-soli",
+        "label": "Clasificar resultado.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Localización de Cuenta y Gestión de Solicitudes."
+      },
+      {
+        "id": "RAIA-BS-0003-MSG-12",
+        "scenarioStepId": "RAIA-BS-0003-STEP-12",
+        "sequence": 12,
+        "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+        "targetParticipantInstanceId": "p-notificaciones",
+        "label": "Emitir respuesta.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Solicitudes y Notificaciones."
+      },
+      {
+        "id": "RAIA-BS-0003-MSG-13",
+        "scenarioStepId": "RAIA-BS-0003-STEP-13",
+        "sequence": 13,
+        "sourceParticipantInstanceId": "p-notificaciones",
+        "targetParticipantInstanceId": "p-trabajador",
+        "label": "Informar resultado.",
+        "messageType": "response",
+        "description": "Interacción entre Notificaciones y Trabajador."
+      }
+    ],
+    "activations": [
+      {
+        "id": "act-1",
+        "participantInstanceId": "p-gesti-n-de-soli",
+        "startSequence": 1,
+        "endSequence": 13,
+        "depth": 0,
+        "activationType": "processing"
+      }
+    ],
+    "notes": [
+      {
+        "id": "note-control-1",
+        "participantInstanceIds": [
+          "p-trabajador"
+        ],
+        "placement": "left",
+        "text": "Control: identidad y consentimiento verificables.",
+        "noteType": "control",
+        "afterSequence": 1
+      },
+      {
+        "id": "note-evidence-1",
+        "participantInstanceIds": [
+          "p-trabajador"
+        ],
+        "placement": "right",
+        "text": "Evidencia: expediente, folio y acuses.",
+        "noteType": "evidence",
+        "afterSequence": 13
+      }
+    ],
+    "fragments": [
+      {
+        "id": "frag-1",
+        "fragmentType": "alt",
+        "label": "Condiciones de Negocio",
+        "startSequence": 11,
+        "endSequence": 13,
+        "branches": [
+          {
+            "id": "branch-0",
+            "label": "Cuenta localizada",
+            "startSequence": 12,
+            "endSequence": 13
+          },
+          {
+            "id": "branch-1",
+            "label": "Cuenta asignada",
+            "startSequence": 12,
+            "endSequence": 13
+          },
+          {
+            "id": "branch-2",
+            "label": "Cuenta en otra AFORE",
+            "startSequence": 12,
+            "endSequence": 13
+          },
+          {
+            "id": "branch-3",
+            "label": "Múltiples cuentas",
+            "startSequence": 12,
+            "endSequence": 13
+          },
+          {
+            "id": "branch-4",
+            "label": "Cuenta no localizada",
+            "startSequence": 12,
+            "endSequence": 13
+          }
+        ]
+      }
+    ]
   },
   "RAIA-BS-0004": {
     "scenarioId": "RAIA-BS-0004",
     "version": "0.2.0",
     "title": "Asignación automática de cuentas",
     "description": "Asignación automática de cuentas",
-    "participants": [],
-    "messages": [],
-    "activations": [],
-    "notes": [],
-    "fragments": [],
     "status": "proposed",
-    "regulatoryValidationStatus": "pending"
+    "regulatoryValidationStatus": "pending",
+    "participants": [
+      {
+        "instanceId": "p-instituto-de-se",
+        "participantType": "service-domain",
+        "label": "Instituto de Seguridad Social",
+        "order": 1
+      },
+      {
+        "instanceId": "p-entidad-recauda",
+        "participantType": "service-domain",
+        "label": "Entidad Recaudadora",
+        "order": 2
+      },
+      {
+        "instanceId": "p-bdnsar",
+        "participantType": "service-domain",
+        "label": "BDNSAR",
+        "order": 3
+      },
+      {
+        "instanceId": "p-registro-maestr",
+        "participantType": "service-domain",
+        "label": "Registro Maestro de Cuentas",
+        "order": 4
+      },
+      {
+        "instanceId": "p-asignaci-n-de-c",
+        "participantType": "service-domain",
+        "label": "Asignación de Cuenta",
+        "order": 5
+      },
+      {
+        "instanceId": "p-evaluaci-n-de-c",
+        "participantType": "service-domain",
+        "label": "Evaluación de Criterios",
+        "order": 6
+      },
+      {
+        "instanceId": "p-consar",
+        "participantType": "service-domain",
+        "label": "CONSAR",
+        "order": 7
+      },
+      {
+        "instanceId": "p-afore-asignada",
+        "participantType": "service-domain",
+        "label": "AFORE asignada",
+        "order": 8
+      },
+      {
+        "instanceId": "p-libro-mayor",
+        "participantType": "service-domain",
+        "label": "Libro Mayor",
+        "order": 9
+      },
+      {
+        "instanceId": "p-notificaciones",
+        "participantType": "service-domain",
+        "label": "Notificaciones",
+        "order": 10
+      },
+      {
+        "instanceId": "p-instituto",
+        "participantType": "service-domain",
+        "label": "instituto",
+        "order": 11
+      },
+      {
+        "instanceId": "p-trabajador",
+        "participantType": "service-domain",
+        "label": "trabajador",
+        "order": 12
+      }
+    ],
+    "messages": [
+      {
+        "id": "RAIA-BS-0004-MSG-01",
+        "scenarioStepId": "RAIA-BS-0004-STEP-01",
+        "sequence": 1,
+        "sourceParticipantInstanceId": "p-instituto",
+        "targetParticipantInstanceId": "p-bdnsar",
+        "label": "Registrar cuenta sin elección de AFORE.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Instituto y BDNSAR."
+      },
+      {
+        "id": "RAIA-BS-0004-MSG-02",
+        "scenarioStepId": "RAIA-BS-0004-STEP-02",
+        "sequence": 2,
+        "sourceParticipantInstanceId": "p-entidad-recauda",
+        "targetParticipantInstanceId": "p-bdnsar",
+        "label": "Informar aportaciones asociadas.",
+        "messageType": "response",
+        "description": "Interacción entre Entidad Recaudadora y BDNSAR."
+      },
+      {
+        "id": "RAIA-BS-0004-MSG-03",
+        "scenarioStepId": "RAIA-BS-0004-STEP-03",
+        "sequence": 3,
+        "sourceParticipantInstanceId": "p-bdnsar",
+        "targetParticipantInstanceId": "p-registro-maestr",
+        "label": "Validar estado de la cuenta.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre BDNSAR y Registro Maestro."
+      },
+      {
+        "id": "RAIA-BS-0004-MSG-04",
+        "scenarioStepId": "RAIA-BS-0004-STEP-04",
+        "sequence": 4,
+        "sourceParticipantInstanceId": "p-registro-maestr",
+        "targetParticipantInstanceId": "p-bdnsar",
+        "label": "Confirmar cuenta no registrada.",
+        "messageType": "response",
+        "description": "Interacción entre Registro Maestro y BDNSAR."
+      },
+      {
+        "id": "RAIA-BS-0004-MSG-05",
+        "scenarioStepId": "RAIA-BS-0004-STEP-05",
+        "sequence": 5,
+        "sourceParticipantInstanceId": "p-bdnsar",
+        "targetParticipantInstanceId": "p-asignaci-n-de-c",
+        "label": "Solicitar asignación.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre BDNSAR y Asignación de Cuenta."
+      },
+      {
+        "id": "RAIA-BS-0004-MSG-06",
+        "scenarioStepId": "RAIA-BS-0004-STEP-06",
+        "sequence": 6,
+        "sourceParticipantInstanceId": "p-asignaci-n-de-c",
+        "targetParticipantInstanceId": "p-evaluaci-n-de-c",
+        "label": "Evaluar parámetros vigentes.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Asignación de Cuenta y Evaluación de Criterios."
+      },
+      {
+        "id": "RAIA-BS-0004-MSG-07",
+        "scenarioStepId": "RAIA-BS-0004-STEP-07",
+        "sequence": 7,
+        "sourceParticipantInstanceId": "p-evaluaci-n-de-c",
+        "targetParticipantInstanceId": "p-consar",
+        "label": "Consultar baseline aplicable.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Evaluación de Criterios y CONSAR."
+      },
+      {
+        "id": "RAIA-BS-0004-MSG-08",
+        "scenarioStepId": "RAIA-BS-0004-STEP-08",
+        "sequence": 8,
+        "sourceParticipantInstanceId": "p-consar",
+        "targetParticipantInstanceId": "p-evaluaci-n-de-c",
+        "label": "Entregar parámetros vigentes.",
+        "messageType": "response",
+        "description": "Interacción entre CONSAR y Evaluación de Criterios."
+      },
+      {
+        "id": "RAIA-BS-0004-MSG-09",
+        "scenarioStepId": "RAIA-BS-0004-STEP-09",
+        "sequence": 9,
+        "sourceParticipantInstanceId": "p-evaluaci-n-de-c",
+        "targetParticipantInstanceId": "p-asignaci-n-de-c",
+        "label": "Proponer administradora.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Evaluación de Criterios y Asignación de Cuenta."
+      },
+      {
+        "id": "RAIA-BS-0004-MSG-10",
+        "scenarioStepId": "RAIA-BS-0004-STEP-10",
+        "sequence": 10,
+        "sourceParticipantInstanceId": "p-asignaci-n-de-c",
+        "targetParticipantInstanceId": "p-bdnsar",
+        "label": "Registrar AFORE responsable.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Asignación de Cuenta y BDNSAR."
+      },
+      {
+        "id": "RAIA-BS-0004-MSG-11",
+        "scenarioStepId": "RAIA-BS-0004-STEP-11",
+        "sequence": 11,
+        "sourceParticipantInstanceId": "p-bdnsar",
+        "targetParticipantInstanceId": "p-afore-asignada",
+        "label": "Transferir información de cuenta.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre BDNSAR y AFORE asignada."
+      },
+      {
+        "id": "RAIA-BS-0004-MSG-12",
+        "scenarioStepId": "RAIA-BS-0004-STEP-12",
+        "sequence": 12,
+        "sourceParticipantInstanceId": "p-afore-asignada",
+        "targetParticipantInstanceId": "p-libro-mayor",
+        "label": "Activar administración.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre AFORE asignada y Libro Mayor."
+      },
+      {
+        "id": "RAIA-BS-0004-MSG-13",
+        "scenarioStepId": "RAIA-BS-0004-STEP-13",
+        "sequence": 13,
+        "sourceParticipantInstanceId": "p-libro-mayor",
+        "targetParticipantInstanceId": "p-afore-asignada",
+        "label": "Confirmar activación.",
+        "messageType": "response",
+        "description": "Interacción entre Libro Mayor y AFORE asignada."
+      },
+      {
+        "id": "RAIA-BS-0004-MSG-14",
+        "scenarioStepId": "RAIA-BS-0004-STEP-14",
+        "sequence": 14,
+        "sourceParticipantInstanceId": "p-afore-asignada",
+        "targetParticipantInstanceId": "p-notificaciones",
+        "label": "Generar aviso.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre AFORE asignada y Notificaciones."
+      },
+      {
+        "id": "RAIA-BS-0004-MSG-15",
+        "scenarioStepId": "RAIA-BS-0004-STEP-15",
+        "sequence": 15,
+        "sourceParticipantInstanceId": "p-notificaciones",
+        "targetParticipantInstanceId": "p-trabajador",
+        "label": "Informar asignación.",
+        "messageType": "response",
+        "description": "Interacción entre Notificaciones y Trabajador."
+      }
+    ],
+    "activations": [
+      {
+        "id": "act-1",
+        "participantInstanceId": "p-bdnsar",
+        "startSequence": 1,
+        "endSequence": 15,
+        "depth": 0,
+        "activationType": "processing"
+      }
+    ],
+    "notes": [
+      {
+        "id": "note-control-1",
+        "participantInstanceIds": [
+          "p-instituto"
+        ],
+        "placement": "left",
+        "text": "Control: identidad y consentimiento verificables.",
+        "noteType": "control",
+        "afterSequence": 1
+      },
+      {
+        "id": "note-evidence-1",
+        "participantInstanceIds": [
+          "p-trabajador"
+        ],
+        "placement": "right",
+        "text": "Evidencia: expediente, folio y acuses.",
+        "noteType": "evidence",
+        "afterSequence": 15
+      }
+    ],
+    "fragments": [
+      {
+        "id": "frag-1",
+        "fragmentType": "alt",
+        "label": "Condiciones de Negocio",
+        "startSequence": 13,
+        "endSequence": 15,
+        "branches": [
+          {
+            "id": "branch-0",
+            "label": "Cuenta elegible",
+            "startSequence": 14,
+            "endSequence": 15
+          },
+          {
+            "id": "branch-1",
+            "label": "Cuenta ya registrada",
+            "startSequence": 14,
+            "endSequence": 15
+          },
+          {
+            "id": "branch-2",
+            "label": "Información inconsistente",
+            "startSequence": 14,
+            "endSequence": 15
+          },
+          {
+            "id": "branch-3",
+            "label": "No existe participante elegible",
+            "startSequence": 14,
+            "endSequence": 15
+          }
+        ]
+      }
+    ]
   },
   "RAIA-BS-0005": {
     "scenarioId": "RAIA-BS-0005",
     "version": "0.2.0",
     "title": "Reasignación por desempeño",
     "description": "Reasignación por desempeño",
-    "participants": [],
-    "messages": [],
-    "activations": [],
-    "notes": [],
-    "fragments": [],
     "status": "proposed",
-    "regulatoryValidationStatus": "pending"
+    "regulatoryValidationStatus": "pending",
+    "participants": [
+      {
+        "instanceId": "p-consar",
+        "participantType": "service-domain",
+        "label": "CONSAR",
+        "order": 1
+      },
+      {
+        "instanceId": "p-m-tricas-del-si",
+        "participantType": "service-domain",
+        "label": "Métricas del Sistema",
+        "order": 2
+      },
+      {
+        "instanceId": "p-evaluaci-n-de-d",
+        "participantType": "service-domain",
+        "label": "Evaluación de Desempeño",
+        "order": 3
+      },
+      {
+        "instanceId": "p-gesti-n-de-comi",
+        "participantType": "service-domain",
+        "label": "Gestión de Comisiones",
+        "order": 4
+      },
+      {
+        "instanceId": "p-reasignaci-n-de",
+        "participantType": "service-domain",
+        "label": "Reasignación de Cuenta",
+        "order": 5
+      },
+      {
+        "instanceId": "p-bdnsar",
+        "participantType": "service-domain",
+        "label": "BDNSAR",
+        "order": 6
+      },
+      {
+        "instanceId": "p-afore-de-origen",
+        "participantType": "service-domain",
+        "label": "AFORE de origen",
+        "order": 7
+      },
+      {
+        "instanceId": "p-afore-receptora",
+        "participantType": "service-domain",
+        "label": "AFORE receptora",
+        "order": 8
+      },
+      {
+        "instanceId": "p-transferencia-d",
+        "participantType": "service-domain",
+        "label": "Transferencia de Recursos",
+        "order": 9
+      },
+      {
+        "instanceId": "p-libro-mayor",
+        "participantType": "service-domain",
+        "label": "Libro Mayor",
+        "order": 10
+      },
+      {
+        "instanceId": "p-notificaciones",
+        "participantType": "service-domain",
+        "label": "Notificaciones",
+        "order": 11
+      },
+      {
+        "instanceId": "p-evaluaci-n",
+        "participantType": "service-domain",
+        "label": "evaluaci n",
+        "order": 12
+      },
+      {
+        "instanceId": "p-m-tricas",
+        "participantType": "service-domain",
+        "label": "m tricas",
+        "order": 13
+      },
+      {
+        "instanceId": "p-reasignaci-n",
+        "participantType": "service-domain",
+        "label": "reasignaci n",
+        "order": 14
+      },
+      {
+        "instanceId": "p-transferencia",
+        "participantType": "service-domain",
+        "label": "transferencia",
+        "order": 15
+      }
+    ],
+    "messages": [
+      {
+        "id": "RAIA-BS-0005-MSG-01",
+        "scenarioStepId": "RAIA-BS-0005-STEP-01",
+        "sequence": 1,
+        "sourceParticipantInstanceId": "p-consar",
+        "targetParticipantInstanceId": "p-evaluaci-n-de-d",
+        "label": "Iniciar ciclo de evaluación.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre CONSAR y Evaluación de Desempeño."
+      },
+      {
+        "id": "RAIA-BS-0005-MSG-02",
+        "scenarioStepId": "RAIA-BS-0005-STEP-02",
+        "sequence": 2,
+        "sourceParticipantInstanceId": "p-evaluaci-n",
+        "targetParticipantInstanceId": "p-m-tricas-del-si",
+        "label": "Recuperar indicadores.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Evaluación y Métricas del Sistema."
+      },
+      {
+        "id": "RAIA-BS-0005-MSG-03",
+        "scenarioStepId": "RAIA-BS-0005-STEP-03",
+        "sequence": 3,
+        "sourceParticipantInstanceId": "p-evaluaci-n",
+        "targetParticipantInstanceId": "p-gesti-n-de-comi",
+        "label": "Recuperar comisiones vigentes.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Evaluación y Gestión de Comisiones."
+      },
+      {
+        "id": "RAIA-BS-0005-MSG-04",
+        "scenarioStepId": "RAIA-BS-0005-STEP-04",
+        "sequence": 4,
+        "sourceParticipantInstanceId": "p-m-tricas",
+        "targetParticipantInstanceId": "p-evaluaci-n",
+        "label": "Entregar resultados.",
+        "messageType": "response",
+        "description": "Interacción entre Métricas y Evaluación."
+      },
+      {
+        "id": "RAIA-BS-0005-MSG-05",
+        "scenarioStepId": "RAIA-BS-0005-STEP-05",
+        "sequence": 5,
+        "sourceParticipantInstanceId": "p-gesti-n-de-comi",
+        "targetParticipantInstanceId": "p-evaluaci-n",
+        "label": "Entregar información.",
+        "messageType": "response",
+        "description": "Interacción entre Gestión de Comisiones y Evaluación."
+      },
+      {
+        "id": "RAIA-BS-0005-MSG-06",
+        "scenarioStepId": "RAIA-BS-0005-STEP-06",
+        "sequence": 6,
+        "sourceParticipantInstanceId": "p-evaluaci-n",
+        "targetParticipantInstanceId": "p-reasignaci-n-de",
+        "label": "Identificar cuentas elegibles.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Evaluación y Reasignación de Cuenta."
+      },
+      {
+        "id": "RAIA-BS-0005-MSG-07",
+        "scenarioStepId": "RAIA-BS-0005-STEP-07",
+        "sequence": 7,
+        "sourceParticipantInstanceId": "p-reasignaci-n",
+        "targetParticipantInstanceId": "p-bdnsar",
+        "label": "Consultar cuentas asignadas.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Reasignación y BDNSAR."
+      },
+      {
+        "id": "RAIA-BS-0005-MSG-08",
+        "scenarioStepId": "RAIA-BS-0005-STEP-08",
+        "sequence": 8,
+        "sourceParticipantInstanceId": "p-bdnsar",
+        "targetParticipantInstanceId": "p-reasignaci-n",
+        "label": "Entregar universo elegible.",
+        "messageType": "response",
+        "description": "Interacción entre BDNSAR y Reasignación."
+      },
+      {
+        "id": "RAIA-BS-0005-MSG-09",
+        "scenarioStepId": "RAIA-BS-0005-STEP-09",
+        "sequence": 9,
+        "sourceParticipantInstanceId": "p-reasignaci-n",
+        "targetParticipantInstanceId": "p-afore-de-origen",
+        "label": "Solicitar información.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Reasignación y AFORE de origen."
+      },
+      {
+        "id": "RAIA-BS-0005-MSG-10",
+        "scenarioStepId": "RAIA-BS-0005-STEP-10",
+        "sequence": 10,
+        "sourceParticipantInstanceId": "p-afore-de-origen",
+        "targetParticipantInstanceId": "p-reasignaci-n",
+        "label": "Entregar cuenta y saldos.",
+        "messageType": "response",
+        "description": "Interacción entre AFORE de origen y Reasignación."
+      },
+      {
+        "id": "RAIA-BS-0005-MSG-11",
+        "scenarioStepId": "RAIA-BS-0005-STEP-11",
+        "sequence": 11,
+        "sourceParticipantInstanceId": "p-reasignaci-n",
+        "targetParticipantInstanceId": "p-afore-receptora",
+        "label": "Solicitar recepción.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Reasignación y AFORE receptora."
+      },
+      {
+        "id": "RAIA-BS-0005-MSG-12",
+        "scenarioStepId": "RAIA-BS-0005-STEP-12",
+        "sequence": 12,
+        "sourceParticipantInstanceId": "p-afore-receptora",
+        "targetParticipantInstanceId": "p-reasignaci-n",
+        "label": "Confirmar recepción.",
+        "messageType": "response",
+        "description": "Interacción entre AFORE receptora y Reasignación."
+      },
+      {
+        "id": "RAIA-BS-0005-MSG-13",
+        "scenarioStepId": "RAIA-BS-0005-STEP-13",
+        "sequence": 13,
+        "sourceParticipantInstanceId": "p-reasignaci-n",
+        "targetParticipantInstanceId": "p-transferencia-d",
+        "label": "Ejecutar transferencia.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Reasignación y Transferencia de Recursos."
+      },
+      {
+        "id": "RAIA-BS-0005-MSG-14",
+        "scenarioStepId": "RAIA-BS-0005-STEP-14",
+        "sequence": 14,
+        "sourceParticipantInstanceId": "p-transferencia",
+        "targetParticipantInstanceId": "p-libro-mayor",
+        "label": "Registrar movimientos.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Transferencia y Libro Mayor."
+      },
+      {
+        "id": "RAIA-BS-0005-MSG-15",
+        "scenarioStepId": "RAIA-BS-0005-STEP-15",
+        "sequence": 15,
+        "sourceParticipantInstanceId": "p-reasignaci-n",
+        "targetParticipantInstanceId": "p-bdnsar",
+        "label": "Actualizar responsable.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Reasignación y BDNSAR."
+      },
+      {
+        "id": "RAIA-BS-0005-MSG-16",
+        "scenarioStepId": "RAIA-BS-0005-STEP-16",
+        "sequence": 16,
+        "sourceParticipantInstanceId": "p-reasignaci-n",
+        "targetParticipantInstanceId": "p-notificaciones",
+        "label": "Comunicar resultado.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Reasignación y Notificaciones."
+      }
+    ],
+    "activations": [
+      {
+        "id": "act-1",
+        "participantInstanceId": "p-evaluaci-n-de-d",
+        "startSequence": 1,
+        "endSequence": 16,
+        "depth": 0,
+        "activationType": "processing"
+      }
+    ],
+    "notes": [
+      {
+        "id": "note-control-1",
+        "participantInstanceIds": [
+          "p-consar"
+        ],
+        "placement": "left",
+        "text": "Control: identidad y consentimiento verificables.",
+        "noteType": "control",
+        "afterSequence": 1
+      },
+      {
+        "id": "note-evidence-1",
+        "participantInstanceIds": [
+          "p-notificaciones"
+        ],
+        "placement": "right",
+        "text": "Evidencia: expediente, folio y acuses.",
+        "noteType": "evidence",
+        "afterSequence": 16
+      }
+    ],
+    "fragments": [
+      {
+        "id": "frag-1",
+        "fragmentType": "alt",
+        "label": "Condiciones de Negocio",
+        "startSequence": 14,
+        "endSequence": 16,
+        "branches": [
+          {
+            "id": "branch-0",
+            "label": "Cuenta elegible",
+            "startSequence": 15,
+            "endSequence": 16
+          },
+          {
+            "id": "branch-1",
+            "label": "Cuenta no elegible",
+            "startSequence": 15,
+            "endSequence": 16
+          },
+          {
+            "id": "branch-2",
+            "label": "Falla en transferencia",
+            "startSequence": 15,
+            "endSequence": 16
+          },
+          {
+            "id": "branch-3",
+            "label": "Datos inconsistentes",
+            "startSequence": 15,
+            "endSequence": 16
+          }
+        ]
+      }
+    ]
   },
   "RAIA-BS-0006": {
     "scenarioId": "RAIA-BS-0006",
     "version": "0.2.0",
     "title": "Unificación de cuentas duplicadas",
     "description": "Unificación de cuentas duplicadas",
-    "participants": [],
-    "messages": [],
-    "activations": [],
-    "notes": [],
-    "fragments": [],
     "status": "proposed",
-    "regulatoryValidationStatus": "pending"
+    "regulatoryValidationStatus": "pending",
+    "participants": [
+      {
+        "instanceId": "p-trabajador",
+        "participantType": "service-domain",
+        "label": "Trabajador",
+        "order": 1
+      },
+      {
+        "instanceId": "p-gesti-n-de-soli",
+        "participantType": "service-domain",
+        "label": "Gestión de Solicitudes",
+        "order": 2
+      },
+      {
+        "instanceId": "p-resoluci-n-de-i",
+        "participantType": "service-domain",
+        "label": "Resolución de Identidad",
+        "order": 3
+      },
+      {
+        "instanceId": "p-gesti-n-de-iden",
+        "participantType": "service-domain",
+        "label": "Gestión de Identificadores",
+        "order": 4
+      },
+      {
+        "instanceId": "p-bdnsar",
+        "participantType": "service-domain",
+        "label": "BDNSAR",
+        "order": 5
+      },
+      {
+        "instanceId": "p-unificaci-n-de-",
+        "participantType": "service-domain",
+        "label": "Unificación de Cuentas",
+        "order": 6
+      },
+      {
+        "instanceId": "p-imss",
+        "participantType": "service-domain",
+        "label": "IMSS",
+        "order": 7
+      },
+      {
+        "instanceId": "p-issste",
+        "participantType": "service-domain",
+        "label": "ISSSTE",
+        "order": 8
+      },
+      {
+        "instanceId": "p-afore-involucra",
+        "participantType": "service-domain",
+        "label": "AFORE involucradas",
+        "order": 9
+      },
+      {
+        "instanceId": "p-conciliaci-n-de",
+        "participantType": "service-domain",
+        "label": "Conciliación de Cuenta",
+        "order": 10
+      },
+      {
+        "instanceId": "p-libro-mayor",
+        "participantType": "service-domain",
+        "label": "Libro Mayor",
+        "order": 11
+      },
+      {
+        "instanceId": "p-notificaciones",
+        "participantType": "service-domain",
+        "label": "Notificaciones",
+        "order": 12
+      },
+      {
+        "instanceId": "p-resoluci-n",
+        "participantType": "service-domain",
+        "label": "resoluci n",
+        "order": 13
+      },
+      {
+        "instanceId": "p-unificaci-n",
+        "participantType": "service-domain",
+        "label": "unificaci n",
+        "order": 14
+      },
+      {
+        "instanceId": "p-afore",
+        "participantType": "service-domain",
+        "label": "afore",
+        "order": 15
+      },
+      {
+        "instanceId": "p-conciliaci-n",
+        "participantType": "service-domain",
+        "label": "conciliaci n",
+        "order": 16
+      }
+    ],
+    "messages": [
+      {
+        "id": "RAIA-BS-0006-MSG-01",
+        "scenarioStepId": "RAIA-BS-0006-STEP-01",
+        "sequence": 1,
+        "sourceParticipantInstanceId": "p-trabajador",
+        "targetParticipantInstanceId": "p-gesti-n-de-soli",
+        "label": "Solicitar unificación.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Trabajador y Gestión de Solicitudes."
+      },
+      {
+        "id": "RAIA-BS-0006-MSG-02",
+        "scenarioStepId": "RAIA-BS-0006-STEP-02",
+        "sequence": 2,
+        "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+        "targetParticipantInstanceId": "p-resoluci-n-de-i",
+        "label": "Validar persona.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Solicitudes y Resolución de Identidad."
+      },
+      {
+        "id": "RAIA-BS-0006-MSG-03",
+        "scenarioStepId": "RAIA-BS-0006-STEP-03",
+        "sequence": 3,
+        "sourceParticipantInstanceId": "p-resoluci-n",
+        "targetParticipantInstanceId": "p-gesti-n-de-iden",
+        "label": "Comparar CURP, NSS y RFC.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Resolución y Gestión de Identificadores."
+      },
+      {
+        "id": "RAIA-BS-0006-MSG-04",
+        "scenarioStepId": "RAIA-BS-0006-STEP-04",
+        "sequence": 4,
+        "sourceParticipantInstanceId": "p-gesti-n-de-iden",
+        "targetParticipantInstanceId": "p-bdnsar",
+        "label": "Consultar cuentas asociadas.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Identificadores y BDNSAR."
+      },
+      {
+        "id": "RAIA-BS-0006-MSG-05",
+        "scenarioStepId": "RAIA-BS-0006-STEP-05",
+        "sequence": 5,
+        "sourceParticipantInstanceId": "p-bdnsar",
+        "targetParticipantInstanceId": "p-unificaci-n-de-",
+        "label": "Entregar cuentas candidatas.",
+        "messageType": "response",
+        "description": "Interacción entre BDNSAR y Unificación de Cuentas."
+      },
+      {
+        "id": "RAIA-BS-0006-MSG-06",
+        "scenarioStepId": "RAIA-BS-0006-STEP-06",
+        "sequence": 6,
+        "sourceParticipantInstanceId": "p-unificaci-n",
+        "targetParticipantInstanceId": "p-imss",
+        "label": "Validar información.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Unificación y IMSS."
+      },
+      {
+        "id": "RAIA-BS-0006-MSG-07",
+        "scenarioStepId": "RAIA-BS-0006-STEP-07",
+        "sequence": 7,
+        "sourceParticipantInstanceId": "p-unificaci-n",
+        "targetParticipantInstanceId": "p-issste",
+        "label": "Validar información.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Unificación y ISSSTE."
+      },
+      {
+        "id": "RAIA-BS-0006-MSG-08",
+        "scenarioStepId": "RAIA-BS-0006-STEP-08",
+        "sequence": 8,
+        "sourceParticipantInstanceId": "p-imss",
+        "targetParticipantInstanceId": "p-unificaci-n",
+        "label": "Entregar antecedentes.",
+        "messageType": "response",
+        "description": "Interacción entre IMSS y Unificación."
+      },
+      {
+        "id": "RAIA-BS-0006-MSG-09",
+        "scenarioStepId": "RAIA-BS-0006-STEP-09",
+        "sequence": 9,
+        "sourceParticipantInstanceId": "p-issste",
+        "targetParticipantInstanceId": "p-unificaci-n",
+        "label": "Entregar antecedentes.",
+        "messageType": "response",
+        "description": "Interacción entre ISSSTE y Unificación."
+      },
+      {
+        "id": "RAIA-BS-0006-MSG-10",
+        "scenarioStepId": "RAIA-BS-0006-STEP-10",
+        "sequence": 10,
+        "sourceParticipantInstanceId": "p-unificaci-n",
+        "targetParticipantInstanceId": "p-afore-involucra",
+        "label": "Solicitar movimientos y saldos.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Unificación y AFORE involucradas."
+      },
+      {
+        "id": "RAIA-BS-0006-MSG-11",
+        "scenarioStepId": "RAIA-BS-0006-STEP-11",
+        "sequence": 11,
+        "sourceParticipantInstanceId": "p-afore",
+        "targetParticipantInstanceId": "p-unificaci-n",
+        "label": "Entregar información.",
+        "messageType": "response",
+        "description": "Interacción entre AFORE y Unificación."
+      },
+      {
+        "id": "RAIA-BS-0006-MSG-12",
+        "scenarioStepId": "RAIA-BS-0006-STEP-12",
+        "sequence": 12,
+        "sourceParticipantInstanceId": "p-unificaci-n",
+        "targetParticipantInstanceId": "p-conciliaci-n",
+        "label": "Conciliar recursos.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Unificación y Conciliación."
+      },
+      {
+        "id": "RAIA-BS-0006-MSG-13",
+        "scenarioStepId": "RAIA-BS-0006-STEP-13",
+        "sequence": 13,
+        "sourceParticipantInstanceId": "p-conciliaci-n",
+        "targetParticipantInstanceId": "p-unificaci-n",
+        "label": "Confirmar saldo integrado.",
+        "messageType": "response",
+        "description": "Interacción entre Conciliación y Unificación."
+      },
+      {
+        "id": "RAIA-BS-0006-MSG-14",
+        "scenarioStepId": "RAIA-BS-0006-STEP-14",
+        "sequence": 14,
+        "sourceParticipantInstanceId": "p-unificaci-n",
+        "targetParticipantInstanceId": "p-libro-mayor",
+        "label": "Consolidar movimientos.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Unificación y Libro Mayor."
+      },
+      {
+        "id": "RAIA-BS-0006-MSG-15",
+        "scenarioStepId": "RAIA-BS-0006-STEP-15",
+        "sequence": 15,
+        "sourceParticipantInstanceId": "p-unificaci-n",
+        "targetParticipantInstanceId": "p-bdnsar",
+        "label": "Actualizar cuenta concentradora.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Unificación y BDNSAR."
+      },
+      {
+        "id": "RAIA-BS-0006-MSG-16",
+        "scenarioStepId": "RAIA-BS-0006-STEP-16",
+        "sequence": 16,
+        "sourceParticipantInstanceId": "p-unificaci-n",
+        "targetParticipantInstanceId": "p-notificaciones",
+        "label": "Emitir resultado.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Unificación y Notificaciones."
+      },
+      {
+        "id": "RAIA-BS-0006-MSG-17",
+        "scenarioStepId": "RAIA-BS-0006-STEP-17",
+        "sequence": 17,
+        "sourceParticipantInstanceId": "p-notificaciones",
+        "targetParticipantInstanceId": "p-trabajador",
+        "label": "Confirmar unificación.",
+        "messageType": "response",
+        "description": "Interacción entre Notificaciones y Trabajador."
+      }
+    ],
+    "activations": [
+      {
+        "id": "act-1",
+        "participantInstanceId": "p-gesti-n-de-soli",
+        "startSequence": 1,
+        "endSequence": 17,
+        "depth": 0,
+        "activationType": "processing"
+      }
+    ],
+    "notes": [
+      {
+        "id": "note-control-1",
+        "participantInstanceIds": [
+          "p-trabajador"
+        ],
+        "placement": "left",
+        "text": "Control: identidad y consentimiento verificables.",
+        "noteType": "control",
+        "afterSequence": 1
+      },
+      {
+        "id": "note-evidence-1",
+        "participantInstanceIds": [
+          "p-trabajador"
+        ],
+        "placement": "right",
+        "text": "Evidencia: expediente, folio y acuses.",
+        "noteType": "evidence",
+        "afterSequence": 17
+      }
+    ],
+    "fragments": [
+      {
+        "id": "frag-1",
+        "fragmentType": "alt",
+        "label": "Condiciones de Negocio",
+        "startSequence": 15,
+        "endSequence": 17,
+        "branches": [
+          {
+            "id": "branch-0",
+            "label": "Identidad coincidente",
+            "startSequence": 16,
+            "endSequence": 17
+          },
+          {
+            "id": "branch-1",
+            "label": "Evidencia insuficiente",
+            "startSequence": 16,
+            "endSequence": 17
+          },
+          {
+            "id": "branch-2",
+            "label": "Cuentas de personas distintas",
+            "startSequence": 16,
+            "endSequence": 17
+          },
+          {
+            "id": "branch-3",
+            "label": "Diferencia de saldos",
+            "startSequence": 16,
+            "endSequence": 17
+          }
+        ]
+      }
+    ]
   },
   "RAIA-BS-0007": {
     "scenarioId": "RAIA-BS-0007",
     "version": "0.2.0",
     "title": "Separación de cuentas IMSS/ISSSTE",
     "description": "Separación de cuentas IMSS/ISSSTE",
-    "participants": [],
-    "messages": [],
-    "activations": [],
-    "notes": [],
-    "fragments": [],
     "status": "proposed",
-    "regulatoryValidationStatus": "pending"
+    "regulatoryValidationStatus": "pending",
+    "participants": [
+      {
+        "instanceId": "p-trabajador",
+        "participantType": "service-domain",
+        "label": "Trabajador",
+        "order": 1
+      },
+      {
+        "instanceId": "p-gesti-n-de-soli",
+        "participantType": "service-domain",
+        "label": "Gestión de Solicitudes",
+        "order": 2
+      },
+      {
+        "instanceId": "p-resoluci-n-de-i",
+        "participantType": "service-domain",
+        "label": "Resolución de Identidad",
+        "order": 3
+      },
+      {
+        "instanceId": "p-separaci-n-de-c",
+        "participantType": "service-domain",
+        "label": "Separación de Cuentas",
+        "order": 4
+      },
+      {
+        "instanceId": "p-imss",
+        "participantType": "service-domain",
+        "label": "IMSS",
+        "order": 5
+      },
+      {
+        "instanceId": "p-issste",
+        "participantType": "service-domain",
+        "label": "ISSSTE",
+        "order": 6
+      },
+      {
+        "instanceId": "p-bdnsar",
+        "participantType": "service-domain",
+        "label": "BDNSAR",
+        "order": 7
+      },
+      {
+        "instanceId": "p-administraci-n-",
+        "participantType": "service-domain",
+        "label": "Administración de Subcuentas",
+        "order": 8
+      },
+      {
+        "instanceId": "p-conciliaci-n-de",
+        "participantType": "service-domain",
+        "label": "Conciliación de Cuenta",
+        "order": 9
+      },
+      {
+        "instanceId": "p-libro-mayor",
+        "participantType": "service-domain",
+        "label": "Libro Mayor",
+        "order": 10
+      },
+      {
+        "instanceId": "p-notificaciones",
+        "participantType": "service-domain",
+        "label": "Notificaciones",
+        "order": 11
+      },
+      {
+        "instanceId": "p-separaci-n",
+        "participantType": "service-domain",
+        "label": "separaci n",
+        "order": 12
+      },
+      {
+        "instanceId": "p-conciliaci-n",
+        "participantType": "service-domain",
+        "label": "conciliaci n",
+        "order": 13
+      }
+    ],
+    "messages": [
+      {
+        "id": "RAIA-BS-0007-MSG-01",
+        "scenarioStepId": "RAIA-BS-0007-STEP-01",
+        "sequence": 1,
+        "sourceParticipantInstanceId": "p-trabajador",
+        "targetParticipantInstanceId": "p-gesti-n-de-soli",
+        "label": "Solicitar separación.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Trabajador y Gestión de Solicitudes."
+      },
+      {
+        "id": "RAIA-BS-0007-MSG-02",
+        "scenarioStepId": "RAIA-BS-0007-STEP-02",
+        "sequence": 2,
+        "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+        "targetParticipantInstanceId": "p-resoluci-n-de-i",
+        "label": "Validar identidad.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Solicitudes y Resolución de Identidad."
+      },
+      {
+        "id": "RAIA-BS-0007-MSG-03",
+        "scenarioStepId": "RAIA-BS-0007-STEP-03",
+        "sequence": 3,
+        "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+        "targetParticipantInstanceId": "p-separaci-n-de-c",
+        "label": "Registrar solicitud.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Solicitudes y Separación de Cuentas."
+      },
+      {
+        "id": "RAIA-BS-0007-MSG-04",
+        "scenarioStepId": "RAIA-BS-0007-STEP-04",
+        "sequence": 4,
+        "sourceParticipantInstanceId": "p-separaci-n",
+        "targetParticipantInstanceId": "p-bdnsar",
+        "label": "Recuperar historial.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Separación y BDNSAR."
+      },
+      {
+        "id": "RAIA-BS-0007-MSG-05",
+        "scenarioStepId": "RAIA-BS-0007-STEP-05",
+        "sequence": 5,
+        "sourceParticipantInstanceId": "p-separaci-n",
+        "targetParticipantInstanceId": "p-imss",
+        "label": "Consultar cotizaciones.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Separación y IMSS."
+      },
+      {
+        "id": "RAIA-BS-0007-MSG-06",
+        "scenarioStepId": "RAIA-BS-0007-STEP-06",
+        "sequence": 6,
+        "sourceParticipantInstanceId": "p-separaci-n",
+        "targetParticipantInstanceId": "p-issste",
+        "label": "Consultar cotizaciones.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Separación y ISSSTE."
+      },
+      {
+        "id": "RAIA-BS-0007-MSG-07",
+        "scenarioStepId": "RAIA-BS-0007-STEP-07",
+        "sequence": 7,
+        "sourceParticipantInstanceId": "p-imss",
+        "targetParticipantInstanceId": "p-separaci-n",
+        "label": "Entregar información.",
+        "messageType": "response",
+        "description": "Interacción entre IMSS y Separación."
+      },
+      {
+        "id": "RAIA-BS-0007-MSG-08",
+        "scenarioStepId": "RAIA-BS-0007-STEP-08",
+        "sequence": 8,
+        "sourceParticipantInstanceId": "p-issste",
+        "targetParticipantInstanceId": "p-separaci-n",
+        "label": "Entregar información.",
+        "messageType": "response",
+        "description": "Interacción entre ISSSTE y Separación."
+      },
+      {
+        "id": "RAIA-BS-0007-MSG-09",
+        "scenarioStepId": "RAIA-BS-0007-STEP-09",
+        "sequence": 9,
+        "sourceParticipantInstanceId": "p-separaci-n",
+        "targetParticipantInstanceId": "p-administraci-n-",
+        "label": "Clasificar recursos.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Separación y Administración de Subcuentas."
+      },
+      {
+        "id": "RAIA-BS-0007-MSG-10",
+        "scenarioStepId": "RAIA-BS-0007-STEP-10",
+        "sequence": 10,
+        "sourceParticipantInstanceId": "p-administraci-n-",
+        "targetParticipantInstanceId": "p-conciliaci-n",
+        "label": "Conciliar distribución.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Administración de Subcuentas y Conciliación."
+      },
+      {
+        "id": "RAIA-BS-0007-MSG-11",
+        "scenarioStepId": "RAIA-BS-0007-STEP-11",
+        "sequence": 11,
+        "sourceParticipantInstanceId": "p-conciliaci-n",
+        "targetParticipantInstanceId": "p-separaci-n",
+        "label": "Confirmar propuesta.",
+        "messageType": "response",
+        "description": "Interacción entre Conciliación y Separación."
+      },
+      {
+        "id": "RAIA-BS-0007-MSG-12",
+        "scenarioStepId": "RAIA-BS-0007-STEP-12",
+        "sequence": 12,
+        "sourceParticipantInstanceId": "p-separaci-n",
+        "targetParticipantInstanceId": "p-libro-mayor",
+        "label": "Registrar cuentas resultantes.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Separación y Libro Mayor."
+      },
+      {
+        "id": "RAIA-BS-0007-MSG-13",
+        "scenarioStepId": "RAIA-BS-0007-STEP-13",
+        "sequence": 13,
+        "sourceParticipantInstanceId": "p-separaci-n",
+        "targetParticipantInstanceId": "p-bdnsar",
+        "label": "Actualizar registros.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Separación y BDNSAR."
+      },
+      {
+        "id": "RAIA-BS-0007-MSG-14",
+        "scenarioStepId": "RAIA-BS-0007-STEP-14",
+        "sequence": 14,
+        "sourceParticipantInstanceId": "p-separaci-n",
+        "targetParticipantInstanceId": "p-notificaciones",
+        "label": "Comunicar resolución.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Separación y Notificaciones."
+      },
+      {
+        "id": "RAIA-BS-0007-MSG-15",
+        "scenarioStepId": "RAIA-BS-0007-STEP-15",
+        "sequence": 15,
+        "sourceParticipantInstanceId": "p-notificaciones",
+        "targetParticipantInstanceId": "p-trabajador",
+        "label": "Informar separación.",
+        "messageType": "response",
+        "description": "Interacción entre Notificaciones y Trabajador."
+      }
+    ],
+    "activations": [
+      {
+        "id": "act-1",
+        "participantInstanceId": "p-gesti-n-de-soli",
+        "startSequence": 1,
+        "endSequence": 15,
+        "depth": 0,
+        "activationType": "processing"
+      }
+    ],
+    "notes": [
+      {
+        "id": "note-control-1",
+        "participantInstanceIds": [
+          "p-trabajador"
+        ],
+        "placement": "left",
+        "text": "Control: identidad y consentimiento verificables.",
+        "noteType": "control",
+        "afterSequence": 1
+      },
+      {
+        "id": "note-evidence-1",
+        "participantInstanceIds": [
+          "p-trabajador"
+        ],
+        "placement": "right",
+        "text": "Evidencia: expediente, folio y acuses.",
+        "noteType": "evidence",
+        "afterSequence": 15
+      }
+    ],
+    "fragments": [
+      {
+        "id": "frag-1",
+        "fragmentType": "alt",
+        "label": "Condiciones de Negocio",
+        "startSequence": 13,
+        "endSequence": 15,
+        "branches": [
+          {
+            "id": "branch-0",
+            "label": "Separación procedente",
+            "startSequence": 14,
+            "endSequence": 15
+          },
+          {
+            "id": "branch-1",
+            "label": "Información insuficiente",
+            "startSequence": 14,
+            "endSequence": 15
+          },
+          {
+            "id": "branch-2",
+            "label": "Diferencia entre institutos",
+            "startSequence": 14,
+            "endSequence": 15
+          },
+          {
+            "id": "branch-3",
+            "label": "Revisión manual requerida",
+            "startSequence": 14,
+            "endSequence": 15
+          }
+        ]
+      }
+    ]
   },
   "RAIA-BS-0008": {
     "scenarioId": "RAIA-BS-0008",
     "version": "0.2.0",
     "title": "Asignación automática a SIEFORE Generacional",
     "description": "Asignación automática a SIEFORE Generacional",
-    "participants": [],
-    "messages": [],
-    "activations": [],
-    "notes": [],
-    "fragments": [],
     "status": "proposed",
-    "regulatoryValidationStatus": "pending"
+    "regulatoryValidationStatus": "pending",
+    "participants": [
+      {
+        "instanceId": "p-cuenta-individu",
+        "participantType": "service-domain",
+        "label": "Cuenta Individual",
+        "order": 1
+      },
+      {
+        "instanceId": "p-datos-del-traba",
+        "participantType": "service-domain",
+        "label": "Datos del Trabajador",
+        "order": 2
+      },
+      {
+        "instanceId": "p-asignaci-n-a-si",
+        "participantType": "service-domain",
+        "label": "Asignación a SIEFORE",
+        "order": 3
+      },
+      {
+        "instanceId": "p-cat-logo-de-sie",
+        "participantType": "service-domain",
+        "label": "Catálogo de SIEFORE",
+        "order": 4
+      },
+      {
+        "instanceId": "p-gesti-n-regulat",
+        "participantType": "service-domain",
+        "label": "Gestión Regulatoria de Fondos",
+        "order": 5
+      },
+      {
+        "instanceId": "p-transferencia-e",
+        "participantType": "service-domain",
+        "label": "Transferencia entre SIEFORE",
+        "order": 6
+      },
+      {
+        "instanceId": "p-asignaci-n-de-a",
+        "participantType": "service-domain",
+        "label": "Asignación de Acciones",
+        "order": 7
+      },
+      {
+        "instanceId": "p-libro-mayor",
+        "participantType": "service-domain",
+        "label": "Libro Mayor",
+        "order": 8
+      },
+      {
+        "instanceId": "p-notificaciones",
+        "participantType": "service-domain",
+        "label": "Notificaciones",
+        "order": 9
+      },
+      {
+        "instanceId": "p-asignaci-n",
+        "participantType": "service-domain",
+        "label": "asignaci n",
+        "order": 10
+      },
+      {
+        "instanceId": "p-cat-logo",
+        "participantType": "service-domain",
+        "label": "cat logo",
+        "order": 11
+      },
+      {
+        "instanceId": "p-transferencia",
+        "participantType": "service-domain",
+        "label": "transferencia",
+        "order": 12
+      }
+    ],
+    "messages": [
+      {
+        "id": "RAIA-BS-0008-MSG-01",
+        "scenarioStepId": "RAIA-BS-0008-STEP-01",
+        "sequence": 1,
+        "sourceParticipantInstanceId": "p-cuenta-individu",
+        "targetParticipantInstanceId": "p-asignaci-n-a-si",
+        "label": "Solicitar clasificación.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Cuenta Individual y Asignación a SIEFORE."
+      },
+      {
+        "id": "RAIA-BS-0008-MSG-02",
+        "scenarioStepId": "RAIA-BS-0008-STEP-02",
+        "sequence": 2,
+        "sourceParticipantInstanceId": "p-asignaci-n",
+        "targetParticipantInstanceId": "p-datos-del-traba",
+        "label": "Recuperar datos relevantes.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Asignación y Datos del Trabajador."
+      },
+      {
+        "id": "RAIA-BS-0008-MSG-03",
+        "scenarioStepId": "RAIA-BS-0008-STEP-03",
+        "sequence": 3,
+        "sourceParticipantInstanceId": "p-asignaci-n",
+        "targetParticipantInstanceId": "p-cat-logo-de-sie",
+        "label": "Consultar fondos vigentes.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Asignación y Catálogo de SIEFORE."
+      },
+      {
+        "id": "RAIA-BS-0008-MSG-04",
+        "scenarioStepId": "RAIA-BS-0008-STEP-04",
+        "sequence": 4,
+        "sourceParticipantInstanceId": "p-cat-logo",
+        "targetParticipantInstanceId": "p-gesti-n-regulat",
+        "label": "Validar reglas vigentes.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Catálogo y Gestión Regulatoria."
+      },
+      {
+        "id": "RAIA-BS-0008-MSG-05",
+        "scenarioStepId": "RAIA-BS-0008-STEP-05",
+        "sequence": 5,
+        "sourceParticipantInstanceId": "p-gesti-n-regulat",
+        "targetParticipantInstanceId": "p-cat-logo",
+        "label": "Confirmar parámetros.",
+        "messageType": "response",
+        "description": "Interacción entre Gestión Regulatoria y Catálogo."
+      },
+      {
+        "id": "RAIA-BS-0008-MSG-06",
+        "scenarioStepId": "RAIA-BS-0008-STEP-06",
+        "sequence": 6,
+        "sourceParticipantInstanceId": "p-cat-logo",
+        "targetParticipantInstanceId": "p-asignaci-n",
+        "label": "Entregar SIEFORE aplicable.",
+        "messageType": "response",
+        "description": "Interacción entre Catálogo y Asignación."
+      },
+      {
+        "id": "RAIA-BS-0008-MSG-07",
+        "scenarioStepId": "RAIA-BS-0008-STEP-07",
+        "sequence": 7,
+        "sourceParticipantInstanceId": "p-asignaci-n",
+        "targetParticipantInstanceId": "p-cuenta-individu",
+        "label": "Consultar fondo actual.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Asignación y Cuenta Individual."
+      },
+      {
+        "id": "RAIA-BS-0008-MSG-08",
+        "scenarioStepId": "RAIA-BS-0008-STEP-08",
+        "sequence": 8,
+        "sourceParticipantInstanceId": "p-asignaci-n",
+        "targetParticipantInstanceId": "p-transferencia-e",
+        "label": "Solicitar transferencia cuando corresponda.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Asignación y Transferencia entre SIEFORE."
+      },
+      {
+        "id": "RAIA-BS-0008-MSG-09",
+        "scenarioStepId": "RAIA-BS-0008-STEP-09",
+        "sequence": 9,
+        "sourceParticipantInstanceId": "p-transferencia",
+        "targetParticipantInstanceId": "p-asignaci-n-de-a",
+        "label": "Cancelar y asignar acciones.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Transferencia y Asignación de Acciones."
+      },
+      {
+        "id": "RAIA-BS-0008-MSG-10",
+        "scenarioStepId": "RAIA-BS-0008-STEP-10",
+        "sequence": 10,
+        "sourceParticipantInstanceId": "p-asignaci-n-de-a",
+        "targetParticipantInstanceId": "p-libro-mayor",
+        "label": "Registrar movimientos.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Asignación de Acciones y Libro Mayor."
+      },
+      {
+        "id": "RAIA-BS-0008-MSG-11",
+        "scenarioStepId": "RAIA-BS-0008-STEP-11",
+        "sequence": 11,
+        "sourceParticipantInstanceId": "p-libro-mayor",
+        "targetParticipantInstanceId": "p-asignaci-n",
+        "label": "Confirmar registro.",
+        "messageType": "response",
+        "description": "Interacción entre Libro Mayor y Asignación."
+      },
+      {
+        "id": "RAIA-BS-0008-MSG-12",
+        "scenarioStepId": "RAIA-BS-0008-STEP-12",
+        "sequence": 12,
+        "sourceParticipantInstanceId": "p-asignaci-n",
+        "targetParticipantInstanceId": "p-notificaciones",
+        "label": "Comunicar resultado.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Asignación y Notificaciones."
+      }
+    ],
+    "activations": [
+      {
+        "id": "act-1",
+        "participantInstanceId": "p-asignaci-n-a-si",
+        "startSequence": 1,
+        "endSequence": 12,
+        "depth": 0,
+        "activationType": "processing"
+      }
+    ],
+    "notes": [
+      {
+        "id": "note-control-1",
+        "participantInstanceIds": [
+          "p-cuenta-individu"
+        ],
+        "placement": "left",
+        "text": "Control: identidad y consentimiento verificables.",
+        "noteType": "control",
+        "afterSequence": 1
+      },
+      {
+        "id": "note-evidence-1",
+        "participantInstanceIds": [
+          "p-notificaciones"
+        ],
+        "placement": "right",
+        "text": "Evidencia: expediente, folio y acuses.",
+        "noteType": "evidence",
+        "afterSequence": 12
+      }
+    ],
+    "fragments": [
+      {
+        "id": "frag-1",
+        "fragmentType": "alt",
+        "label": "Condiciones de Negocio",
+        "startSequence": 10,
+        "endSequence": 12,
+        "branches": [
+          {
+            "id": "branch-0",
+            "label": "Primera asignación",
+            "startSequence": 11,
+            "endSequence": 12
+          },
+          {
+            "id": "branch-1",
+            "label": "Transición generacional",
+            "startSequence": 11,
+            "endSequence": 12
+          },
+          {
+            "id": "branch-2",
+            "label": "Cambio permitido",
+            "startSequence": 11,
+            "endSequence": 12
+          },
+          {
+            "id": "branch-3",
+            "label": "Datos inconsistentes",
+            "startSequence": 11,
+            "endSequence": 12
+          }
+        ]
+      }
+    ]
   },
   "RAIA-BS-0009": {
     "scenarioId": "RAIA-BS-0009",
     "version": "0.2.0",
     "title": "Construcción y rebalanceo de portafolio",
     "description": "Construcción y rebalanceo de portafolio",
-    "participants": [],
-    "messages": [],
-    "activations": [],
-    "notes": [],
-    "fragments": [],
     "status": "proposed",
-    "regulatoryValidationStatus": "pending"
+    "regulatoryValidationStatus": "pending",
+    "participants": [
+      {
+        "instanceId": "p-comit--de-inver",
+        "participantType": "service-domain",
+        "label": "Comité de Inversión",
+        "order": 1
+      },
+      {
+        "instanceId": "p-estrategia-de-i",
+        "participantType": "service-domain",
+        "label": "Estrategia de Inversión",
+        "order": 2
+      },
+      {
+        "instanceId": "p-construcci-n-de",
+        "participantType": "service-domain",
+        "label": "Construcción de Portafolio",
+        "order": 3
+      },
+      {
+        "instanceId": "p-gesti-n-de-benc",
+        "participantType": "service-domain",
+        "label": "Gestión de Benchmark",
+        "order": 4
+      },
+      {
+        "instanceId": "p-gesti-n-de-liqu",
+        "participantType": "service-domain",
+        "label": "Gestión de Liquidez",
+        "order": 5
+      },
+      {
+        "instanceId": "p-gesti-n-de-l-mi",
+        "participantType": "service-domain",
+        "label": "Gestión de Límites",
+        "order": 6
+      },
+      {
+        "instanceId": "p-riesgo-de-inver",
+        "participantType": "service-domain",
+        "label": "Riesgo de Inversión",
+        "order": 7
+      },
+      {
+        "instanceId": "p-cumplimiento-de",
+        "participantType": "service-domain",
+        "label": "Cumplimiento del Régimen",
+        "order": 8
+      },
+      {
+        "instanceId": "p-ejecuci-n-de-op",
+        "participantType": "service-domain",
+        "label": "Ejecución de Operaciones",
+        "order": 9
+      },
+      {
+        "instanceId": "p-comit-",
+        "participantType": "service-domain",
+        "label": "comit ",
+        "order": 10
+      },
+      {
+        "instanceId": "p-estrategia",
+        "participantType": "service-domain",
+        "label": "estrategia",
+        "order": 11
+      },
+      {
+        "instanceId": "p-construcci-n",
+        "participantType": "service-domain",
+        "label": "construcci n",
+        "order": 12
+      },
+      {
+        "instanceId": "p-benchmark",
+        "participantType": "service-domain",
+        "label": "benchmark",
+        "order": 13
+      },
+      {
+        "instanceId": "p-liquidez",
+        "participantType": "service-domain",
+        "label": "liquidez",
+        "order": 14
+      },
+      {
+        "instanceId": "p-l-mites",
+        "participantType": "service-domain",
+        "label": "l mites",
+        "order": 15
+      },
+      {
+        "instanceId": "p-riesgo",
+        "participantType": "service-domain",
+        "label": "riesgo",
+        "order": 16
+      },
+      {
+        "instanceId": "p-cumplimiento",
+        "participantType": "service-domain",
+        "label": "cumplimiento",
+        "order": 17
+      },
+      {
+        "instanceId": "p-ejecuci-n",
+        "participantType": "service-domain",
+        "label": "ejecuci n",
+        "order": 18
+      }
+    ],
+    "messages": [
+      {
+        "id": "RAIA-BS-0009-MSG-01",
+        "scenarioStepId": "RAIA-BS-0009-STEP-01",
+        "sequence": 1,
+        "sourceParticipantInstanceId": "p-comit-",
+        "targetParticipantInstanceId": "p-estrategia-de-i",
+        "label": "Solicitar propuesta.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Comité y Estrategia de Inversión."
+      },
+      {
+        "id": "RAIA-BS-0009-MSG-02",
+        "scenarioStepId": "RAIA-BS-0009-STEP-02",
+        "sequence": 2,
+        "sourceParticipantInstanceId": "p-estrategia",
+        "targetParticipantInstanceId": "p-construcci-n-de",
+        "label": "Entregar lineamientos.",
+        "messageType": "response",
+        "description": "Interacción entre Estrategia y Construcción de Portafolio."
+      },
+      {
+        "id": "RAIA-BS-0009-MSG-03",
+        "scenarioStepId": "RAIA-BS-0009-STEP-03",
+        "sequence": 3,
+        "sourceParticipantInstanceId": "p-construcci-n",
+        "targetParticipantInstanceId": "p-gesti-n-de-benc",
+        "label": "Recuperar referencia.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Construcción y Gestión de Benchmark."
+      },
+      {
+        "id": "RAIA-BS-0009-MSG-04",
+        "scenarioStepId": "RAIA-BS-0009-STEP-04",
+        "sequence": 4,
+        "sourceParticipantInstanceId": "p-construcci-n",
+        "targetParticipantInstanceId": "p-gesti-n-de-liqu",
+        "label": "Consultar necesidades.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Construcción y Gestión de Liquidez."
+      },
+      {
+        "id": "RAIA-BS-0009-MSG-05",
+        "scenarioStepId": "RAIA-BS-0009-STEP-05",
+        "sequence": 5,
+        "sourceParticipantInstanceId": "p-construcci-n",
+        "targetParticipantInstanceId": "p-gesti-n-de-l-mi",
+        "label": "Consultar restricciones.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Construcción y Gestión de Límites."
+      },
+      {
+        "id": "RAIA-BS-0009-MSG-06",
+        "scenarioStepId": "RAIA-BS-0009-STEP-06",
+        "sequence": 6,
+        "sourceParticipantInstanceId": "p-benchmark",
+        "targetParticipantInstanceId": "p-construcci-n",
+        "label": "Entregar referencia.",
+        "messageType": "response",
+        "description": "Interacción entre Benchmark y Construcción."
+      },
+      {
+        "id": "RAIA-BS-0009-MSG-07",
+        "scenarioStepId": "RAIA-BS-0009-STEP-07",
+        "sequence": 7,
+        "sourceParticipantInstanceId": "p-liquidez",
+        "targetParticipantInstanceId": "p-construcci-n",
+        "label": "Entregar proyección.",
+        "messageType": "response",
+        "description": "Interacción entre Liquidez y Construcción."
+      },
+      {
+        "id": "RAIA-BS-0009-MSG-08",
+        "scenarioStepId": "RAIA-BS-0009-STEP-08",
+        "sequence": 8,
+        "sourceParticipantInstanceId": "p-l-mites",
+        "targetParticipantInstanceId": "p-construcci-n",
+        "label": "Entregar restricciones.",
+        "messageType": "response",
+        "description": "Interacción entre Límites y Construcción."
+      },
+      {
+        "id": "RAIA-BS-0009-MSG-09",
+        "scenarioStepId": "RAIA-BS-0009-STEP-09",
+        "sequence": 9,
+        "sourceParticipantInstanceId": "p-construcci-n",
+        "targetParticipantInstanceId": "p-riesgo",
+        "label": "Evaluar portafolio objetivo.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Construcción y Riesgo."
+      },
+      {
+        "id": "RAIA-BS-0009-MSG-10",
+        "scenarioStepId": "RAIA-BS-0009-STEP-10",
+        "sequence": 10,
+        "sourceParticipantInstanceId": "p-riesgo",
+        "targetParticipantInstanceId": "p-cumplimiento",
+        "label": "Validar régimen.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Riesgo y Cumplimiento."
+      },
+      {
+        "id": "RAIA-BS-0009-MSG-11",
+        "scenarioStepId": "RAIA-BS-0009-STEP-11",
+        "sequence": 11,
+        "sourceParticipantInstanceId": "p-cumplimiento",
+        "targetParticipantInstanceId": "p-riesgo",
+        "label": "Confirmar resultado.",
+        "messageType": "response",
+        "description": "Interacción entre Cumplimiento y Riesgo."
+      },
+      {
+        "id": "RAIA-BS-0009-MSG-12",
+        "scenarioStepId": "RAIA-BS-0009-STEP-12",
+        "sequence": 12,
+        "sourceParticipantInstanceId": "p-riesgo",
+        "targetParticipantInstanceId": "p-construcci-n",
+        "label": "Entregar evaluación.",
+        "messageType": "response",
+        "description": "Interacción entre Riesgo y Construcción."
+      },
+      {
+        "id": "RAIA-BS-0009-MSG-13",
+        "scenarioStepId": "RAIA-BS-0009-STEP-13",
+        "sequence": 13,
+        "sourceParticipantInstanceId": "p-construcci-n",
+        "targetParticipantInstanceId": "p-comit-",
+        "label": "Presentar propuesta.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Construcción y Comité."
+      },
+      {
+        "id": "RAIA-BS-0009-MSG-14",
+        "scenarioStepId": "RAIA-BS-0009-STEP-14",
+        "sequence": 14,
+        "sourceParticipantInstanceId": "p-comit-",
+        "targetParticipantInstanceId": "p-construcci-n",
+        "label": "Aprobar o rechazar.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Comité y Construcción."
+      },
+      {
+        "id": "RAIA-BS-0009-MSG-15",
+        "scenarioStepId": "RAIA-BS-0009-STEP-15",
+        "sequence": 15,
+        "sourceParticipantInstanceId": "p-construcci-n",
+        "targetParticipantInstanceId": "p-ejecuci-n",
+        "label": "Generar plan de rebalanceo.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Construcción y Ejecución."
+      }
+    ],
+    "activations": [
+      {
+        "id": "act-1",
+        "participantInstanceId": "p-estrategia-de-i",
+        "startSequence": 1,
+        "endSequence": 15,
+        "depth": 0,
+        "activationType": "processing"
+      }
+    ],
+    "notes": [
+      {
+        "id": "note-control-1",
+        "participantInstanceIds": [
+          "p-comit-"
+        ],
+        "placement": "left",
+        "text": "Control: identidad y consentimiento verificables.",
+        "noteType": "control",
+        "afterSequence": 1
+      },
+      {
+        "id": "note-evidence-1",
+        "participantInstanceIds": [
+          "p-ejecuci-n"
+        ],
+        "placement": "right",
+        "text": "Evidencia: expediente, folio y acuses.",
+        "noteType": "evidence",
+        "afterSequence": 15
+      }
+    ],
+    "fragments": [
+      {
+        "id": "frag-1",
+        "fragmentType": "alt",
+        "label": "Condiciones de Negocio",
+        "startSequence": 13,
+        "endSequence": 15,
+        "branches": [
+          {
+            "id": "branch-0",
+            "label": "Propuesta aprobada",
+            "startSequence": 14,
+            "endSequence": 15
+          },
+          {
+            "id": "branch-1",
+            "label": "Exceso de límite",
+            "startSequence": 14,
+            "endSequence": 15
+          },
+          {
+            "id": "branch-2",
+            "label": "Liquidez insuficiente",
+            "startSequence": 14,
+            "endSequence": 15
+          },
+          {
+            "id": "branch-3",
+            "label": "Rebalanceo de emergencia",
+            "startSequence": 14,
+            "endSequence": 15
+          }
+        ]
+      }
+    ]
   },
   "RAIA-BS-0010": {
     "scenarioId": "RAIA-BS-0010",
     "version": "0.2.0",
     "title": "Ejecución y liquidación de operaciones",
     "description": "Ejecución y liquidación de operaciones",
-    "participants": [],
-    "messages": [],
-    "activations": [],
-    "notes": [],
-    "fragments": [],
     "status": "proposed",
-    "regulatoryValidationStatus": "pending"
+    "regulatoryValidationStatus": "pending",
+    "participants": [
+      {
+        "instanceId": "p-gesti-n-de-inst",
+        "participantType": "service-domain",
+        "label": "Gestión de Instrucciones",
+        "order": 1
+      },
+      {
+        "instanceId": "p-cumplimiento-pr",
+        "participantType": "service-domain",
+        "label": "Cumplimiento Preoperación",
+        "order": 2
+      },
+      {
+        "instanceId": "p-ejecuci-n-de-op",
+        "participantType": "service-domain",
+        "label": "Ejecución de Operaciones",
+        "order": 3
+      },
+      {
+        "instanceId": "p-contraparte",
+        "participantType": "service-domain",
+        "label": "Contraparte",
+        "order": 4
+      },
+      {
+        "instanceId": "p-mercado",
+        "participantType": "service-domain",
+        "label": "Mercado",
+        "order": 5
+      },
+      {
+        "instanceId": "p-confirmaci-n-de",
+        "participantType": "service-domain",
+        "label": "Confirmación de Operaciones",
+        "order": 6
+      },
+      {
+        "instanceId": "p-liquidaci-n",
+        "participantType": "service-domain",
+        "label": "Liquidación",
+        "order": 7
+      },
+      {
+        "instanceId": "p-custodia",
+        "participantType": "service-domain",
+        "label": "Custodia",
+        "order": 8
+      },
+      {
+        "instanceId": "p-contabilidad-de",
+        "participantType": "service-domain",
+        "label": "Contabilidad de Inversiones",
+        "order": 9
+      },
+      {
+        "instanceId": "p-conciliaci-n-de",
+        "participantType": "service-domain",
+        "label": "Conciliación de Posiciones",
+        "order": 10
+      },
+      {
+        "instanceId": "p-riesgo-de-inver",
+        "participantType": "service-domain",
+        "label": "Riesgo de Inversión",
+        "order": 11
+      },
+      {
+        "instanceId": "p-cumplimiento",
+        "participantType": "service-domain",
+        "label": "cumplimiento",
+        "order": 12
+      },
+      {
+        "instanceId": "p-riesgo",
+        "participantType": "service-domain",
+        "label": "riesgo",
+        "order": 13
+      },
+      {
+        "instanceId": "p-ejecuci-n",
+        "participantType": "service-domain",
+        "label": "ejecuci n",
+        "order": 14
+      },
+      {
+        "instanceId": "p-confirmaci-n",
+        "participantType": "service-domain",
+        "label": "confirmaci n",
+        "order": 15
+      },
+      {
+        "instanceId": "p-contabilidad",
+        "participantType": "service-domain",
+        "label": "contabilidad",
+        "order": 16
+      },
+      {
+        "instanceId": "p-conciliaci-n",
+        "participantType": "service-domain",
+        "label": "conciliaci n",
+        "order": 17
+      }
+    ],
+    "messages": [
+      {
+        "id": "RAIA-BS-0010-MSG-01",
+        "scenarioStepId": "RAIA-BS-0010-STEP-01",
+        "sequence": 1,
+        "sourceParticipantInstanceId": "p-gesti-n-de-inst",
+        "targetParticipantInstanceId": "p-cumplimiento",
+        "label": "Validar orden.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Instrucciones y Cumplimiento."
+      },
+      {
+        "id": "RAIA-BS-0010-MSG-02",
+        "scenarioStepId": "RAIA-BS-0010-STEP-02",
+        "sequence": 2,
+        "sourceParticipantInstanceId": "p-cumplimiento",
+        "targetParticipantInstanceId": "p-riesgo",
+        "label": "Validar límites.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Cumplimiento y Riesgo."
+      },
+      {
+        "id": "RAIA-BS-0010-MSG-03",
+        "scenarioStepId": "RAIA-BS-0010-STEP-03",
+        "sequence": 3,
+        "sourceParticipantInstanceId": "p-riesgo",
+        "targetParticipantInstanceId": "p-cumplimiento",
+        "label": "Confirmar resultado.",
+        "messageType": "response",
+        "description": "Interacción entre Riesgo y Cumplimiento."
+      },
+      {
+        "id": "RAIA-BS-0010-MSG-04",
+        "scenarioStepId": "RAIA-BS-0010-STEP-04",
+        "sequence": 4,
+        "sourceParticipantInstanceId": "p-cumplimiento",
+        "targetParticipantInstanceId": "p-gesti-n-de-inst",
+        "label": "Autorizar orden.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Cumplimiento y Gestión de Instrucciones."
+      },
+      {
+        "id": "RAIA-BS-0010-MSG-05",
+        "scenarioStepId": "RAIA-BS-0010-STEP-05",
+        "sequence": 5,
+        "sourceParticipantInstanceId": "p-gesti-n-de-inst",
+        "targetParticipantInstanceId": "p-ejecuci-n",
+        "label": "Enviar instrucción.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Instrucciones y Ejecución."
+      },
+      {
+        "id": "RAIA-BS-0010-MSG-06",
+        "scenarioStepId": "RAIA-BS-0010-STEP-06",
+        "sequence": 6,
+        "sourceParticipantInstanceId": "p-ejecuci-n",
+        "targetParticipantInstanceId": "p-mercado",
+        "label": "Ejecutar operación.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Ejecución y Mercado."
+      },
+      {
+        "id": "RAIA-BS-0010-MSG-07",
+        "scenarioStepId": "RAIA-BS-0010-STEP-07",
+        "sequence": 7,
+        "sourceParticipantInstanceId": "p-mercado",
+        "targetParticipantInstanceId": "p-contraparte",
+        "label": "Cruzar operación.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Mercado y Contraparte."
+      },
+      {
+        "id": "RAIA-BS-0010-MSG-08",
+        "scenarioStepId": "RAIA-BS-0010-STEP-08",
+        "sequence": 8,
+        "sourceParticipantInstanceId": "p-contraparte",
+        "targetParticipantInstanceId": "p-confirmaci-n",
+        "label": "Emitir confirmación.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Contraparte y Confirmación."
+      },
+      {
+        "id": "RAIA-BS-0010-MSG-09",
+        "scenarioStepId": "RAIA-BS-0010-STEP-09",
+        "sequence": 9,
+        "sourceParticipantInstanceId": "p-confirmaci-n",
+        "targetParticipantInstanceId": "p-ejecuci-n",
+        "label": "Comparar términos.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Confirmación y Ejecución."
+      },
+      {
+        "id": "RAIA-BS-0010-MSG-10",
+        "scenarioStepId": "RAIA-BS-0010-STEP-10",
+        "sequence": 10,
+        "sourceParticipantInstanceId": "p-ejecuci-n",
+        "targetParticipantInstanceId": "p-liquidaci-n",
+        "label": "Instruir liquidación.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Ejecución y Liquidación."
+      },
+      {
+        "id": "RAIA-BS-0010-MSG-11",
+        "scenarioStepId": "RAIA-BS-0010-STEP-11",
+        "sequence": 11,
+        "sourceParticipantInstanceId": "p-liquidaci-n",
+        "targetParticipantInstanceId": "p-custodia",
+        "label": "Transferir valores.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Liquidación y Custodia."
+      },
+      {
+        "id": "RAIA-BS-0010-MSG-12",
+        "scenarioStepId": "RAIA-BS-0010-STEP-12",
+        "sequence": 12,
+        "sourceParticipantInstanceId": "p-liquidaci-n",
+        "targetParticipantInstanceId": "p-contraparte",
+        "label": "Transferir efectivo.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Liquidación y Contraparte."
+      },
+      {
+        "id": "RAIA-BS-0010-MSG-13",
+        "scenarioStepId": "RAIA-BS-0010-STEP-13",
+        "sequence": 13,
+        "sourceParticipantInstanceId": "p-custodia",
+        "targetParticipantInstanceId": "p-liquidaci-n",
+        "label": "Confirmar posición.",
+        "messageType": "response",
+        "description": "Interacción entre Custodia y Liquidación."
+      },
+      {
+        "id": "RAIA-BS-0010-MSG-14",
+        "scenarioStepId": "RAIA-BS-0010-STEP-14",
+        "sequence": 14,
+        "sourceParticipantInstanceId": "p-liquidaci-n",
+        "targetParticipantInstanceId": "p-contabilidad",
+        "label": "Registrar operación.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Liquidación y Contabilidad."
+      },
+      {
+        "id": "RAIA-BS-0010-MSG-15",
+        "scenarioStepId": "RAIA-BS-0010-STEP-15",
+        "sequence": 15,
+        "sourceParticipantInstanceId": "p-contabilidad",
+        "targetParticipantInstanceId": "p-conciliaci-n",
+        "label": "Conciliar posición.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Contabilidad y Conciliación."
+      },
+      {
+        "id": "RAIA-BS-0010-MSG-16",
+        "scenarioStepId": "RAIA-BS-0010-STEP-16",
+        "sequence": 16,
+        "sourceParticipantInstanceId": "p-conciliaci-n",
+        "targetParticipantInstanceId": "p-ejecuci-n",
+        "label": "Confirmar cierre.",
+        "messageType": "response",
+        "description": "Interacción entre Conciliación y Ejecución."
+      }
+    ],
+    "activations": [
+      {
+        "id": "act-1",
+        "participantInstanceId": "p-cumplimiento",
+        "startSequence": 1,
+        "endSequence": 16,
+        "depth": 0,
+        "activationType": "processing"
+      }
+    ],
+    "notes": [
+      {
+        "id": "note-control-1",
+        "participantInstanceIds": [
+          "p-gesti-n-de-inst"
+        ],
+        "placement": "left",
+        "text": "Control: identidad y consentimiento verificables.",
+        "noteType": "control",
+        "afterSequence": 1
+      },
+      {
+        "id": "note-evidence-1",
+        "participantInstanceIds": [
+          "p-ejecuci-n"
+        ],
+        "placement": "right",
+        "text": "Evidencia: expediente, folio y acuses.",
+        "noteType": "evidence",
+        "afterSequence": 16
+      }
+    ],
+    "fragments": [
+      {
+        "id": "frag-1",
+        "fragmentType": "alt",
+        "label": "Excepciones",
+        "startSequence": 15,
+        "endSequence": 16,
+        "branches": [
+          {
+            "id": "branch-0",
+            "label": "Fallo de conexión",
+            "startSequence": 16,
+            "endSequence": 16
+          }
+        ]
+      }
+    ]
   },
   "RAIA-BS-0011": {
     "scenarioId": "RAIA-BS-0011",
     "version": "0.2.0",
     "title": "Valuación de instrumentos financieros",
     "description": "Valuación de instrumentos financieros",
-    "participants": [],
-    "messages": [],
-    "activations": [],
-    "notes": [],
-    "fragments": [],
     "status": "proposed",
-    "regulatoryValidationStatus": "pending"
+    "regulatoryValidationStatus": "pending",
+    "participants": [
+      {
+        "instanceId": "p-cat-logo-de-ins",
+        "participantType": "service-domain",
+        "label": "Catálogo de Instrumentos",
+        "order": 1
+      },
+      {
+        "instanceId": "p-proveedor-de-pr",
+        "participantType": "service-domain",
+        "label": "Proveedor de Precios",
+        "order": 2
+      },
+      {
+        "instanceId": "p-valuaci-n-de-in",
+        "participantType": "service-domain",
+        "label": "Valuación de Instrumentos",
+        "order": 3
+      },
+      {
+        "instanceId": "p-validaci-n-de-p",
+        "participantType": "service-domain",
+        "label": "Validación de Precios",
+        "order": 4
+      },
+      {
+        "instanceId": "p-gesti-n-de-exce",
+        "participantType": "service-domain",
+        "label": "Gestión de Excepciones",
+        "order": 5
+      },
+      {
+        "instanceId": "p-valuaci-n-de-po",
+        "participantType": "service-domain",
+        "label": "Valuación de Portafolio",
+        "order": 6
+      },
+      {
+        "instanceId": "p-contabilidad-de",
+        "participantType": "service-domain",
+        "label": "Contabilidad de Inversiones",
+        "order": 7
+      },
+      {
+        "instanceId": "p-riesgo-de-inver",
+        "participantType": "service-domain",
+        "label": "Riesgo de Inversión",
+        "order": 8
+      },
+      {
+        "instanceId": "p-asignaci-n-de-r",
+        "participantType": "service-domain",
+        "label": "Asignación de Rendimientos",
+        "order": 9
+      },
+      {
+        "instanceId": "p-cat-logo",
+        "participantType": "service-domain",
+        "label": "cat logo",
+        "order": 10
+      },
+      {
+        "instanceId": "p-valuaci-n",
+        "participantType": "service-domain",
+        "label": "valuaci n",
+        "order": 11
+      },
+      {
+        "instanceId": "p-proveedor",
+        "participantType": "service-domain",
+        "label": "proveedor",
+        "order": 12
+      },
+      {
+        "instanceId": "p-validaci-n",
+        "participantType": "service-domain",
+        "label": "validaci n",
+        "order": 13
+      },
+      {
+        "instanceId": "p-riesgo",
+        "participantType": "service-domain",
+        "label": "riesgo",
+        "order": 14
+      },
+      {
+        "instanceId": "p-contabilidad",
+        "participantType": "service-domain",
+        "label": "contabilidad",
+        "order": 15
+      }
+    ],
+    "messages": [
+      {
+        "id": "RAIA-BS-0011-MSG-01",
+        "scenarioStepId": "RAIA-BS-0011-STEP-01",
+        "sequence": 1,
+        "sourceParticipantInstanceId": "p-valuaci-n-de-in",
+        "targetParticipantInstanceId": "p-cat-logo",
+        "label": "Recuperar instrumentos.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Valuación de Instrumentos y Catálogo."
+      },
+      {
+        "id": "RAIA-BS-0011-MSG-02",
+        "scenarioStepId": "RAIA-BS-0011-STEP-02",
+        "sequence": 2,
+        "sourceParticipantInstanceId": "p-valuaci-n",
+        "targetParticipantInstanceId": "p-proveedor-de-pr",
+        "label": "Solicitar precios.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Valuación y Proveedor de Precios."
+      },
+      {
+        "id": "RAIA-BS-0011-MSG-03",
+        "scenarioStepId": "RAIA-BS-0011-STEP-03",
+        "sequence": 3,
+        "sourceParticipantInstanceId": "p-proveedor",
+        "targetParticipantInstanceId": "p-valuaci-n",
+        "label": "Entregar información.",
+        "messageType": "response",
+        "description": "Interacción entre Proveedor y Valuación."
+      },
+      {
+        "id": "RAIA-BS-0011-MSG-04",
+        "scenarioStepId": "RAIA-BS-0011-STEP-04",
+        "sequence": 4,
+        "sourceParticipantInstanceId": "p-valuaci-n",
+        "targetParticipantInstanceId": "p-validaci-n-de-p",
+        "label": "Validar calidad.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Valuación y Validación de Precios."
+      },
+      {
+        "id": "RAIA-BS-0011-MSG-05",
+        "scenarioStepId": "RAIA-BS-0011-STEP-05",
+        "sequence": 5,
+        "sourceParticipantInstanceId": "p-validaci-n",
+        "targetParticipantInstanceId": "p-valuaci-n",
+        "label": "Confirmar o rechazar precio.",
+        "messageType": "response",
+        "description": "Interacción entre Validación y Valuación."
+      },
+      {
+        "id": "RAIA-BS-0011-MSG-06",
+        "scenarioStepId": "RAIA-BS-0011-STEP-06",
+        "sequence": 6,
+        "sourceParticipantInstanceId": "p-valuaci-n",
+        "targetParticipantInstanceId": "p-gesti-n-de-exce",
+        "label": "Solicitar revisión cuando corresponda.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Valuación y Gestión de Excepciones."
+      },
+      {
+        "id": "RAIA-BS-0011-MSG-07",
+        "scenarioStepId": "RAIA-BS-0011-STEP-07",
+        "sequence": 7,
+        "sourceParticipantInstanceId": "p-gesti-n-de-exce",
+        "targetParticipantInstanceId": "p-valuaci-n",
+        "label": "Entregar precio aprobado.",
+        "messageType": "response",
+        "description": "Interacción entre Gestión de Excepciones y Valuación."
+      },
+      {
+        "id": "RAIA-BS-0011-MSG-08",
+        "scenarioStepId": "RAIA-BS-0011-STEP-08",
+        "sequence": 8,
+        "sourceParticipantInstanceId": "p-valuaci-n",
+        "targetParticipantInstanceId": "p-valuaci-n-de-po",
+        "label": "Entregar valores.",
+        "messageType": "response",
+        "description": "Interacción entre Valuación y Valuación de Portafolio."
+      },
+      {
+        "id": "RAIA-BS-0011-MSG-09",
+        "scenarioStepId": "RAIA-BS-0011-STEP-09",
+        "sequence": 9,
+        "sourceParticipantInstanceId": "p-valuaci-n-de-po",
+        "targetParticipantInstanceId": "p-riesgo",
+        "label": "Entregar exposición.",
+        "messageType": "response",
+        "description": "Interacción entre Valuación de Portafolio y Riesgo."
+      },
+      {
+        "id": "RAIA-BS-0011-MSG-10",
+        "scenarioStepId": "RAIA-BS-0011-STEP-10",
+        "sequence": 10,
+        "sourceParticipantInstanceId": "p-valuaci-n-de-po",
+        "targetParticipantInstanceId": "p-contabilidad",
+        "label": "Actualizar posiciones.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Valuación de Portafolio y Contabilidad."
+      },
+      {
+        "id": "RAIA-BS-0011-MSG-11",
+        "scenarioStepId": "RAIA-BS-0011-STEP-11",
+        "sequence": 11,
+        "sourceParticipantInstanceId": "p-valuaci-n-de-po",
+        "targetParticipantInstanceId": "p-asignaci-n-de-r",
+        "label": "Entregar valor de acción.",
+        "messageType": "response",
+        "description": "Interacción entre Valuación de Portafolio y Asignación de Rendimientos."
+      },
+      {
+        "id": "RAIA-BS-0011-MSG-12",
+        "scenarioStepId": "RAIA-BS-0011-STEP-12",
+        "sequence": 12,
+        "sourceParticipantInstanceId": "p-asignaci-n-de-r",
+        "targetParticipantInstanceId": "p-contabilidad",
+        "label": "Registrar rendimiento.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Asignación de Rendimientos y Contabilidad."
+      }
+    ],
+    "activations": [
+      {
+        "id": "act-1",
+        "participantInstanceId": "p-cat-logo",
+        "startSequence": 1,
+        "endSequence": 12,
+        "depth": 0,
+        "activationType": "processing"
+      }
+    ],
+    "notes": [
+      {
+        "id": "note-control-1",
+        "participantInstanceIds": [
+          "p-valuaci-n-de-in"
+        ],
+        "placement": "left",
+        "text": "Control: identidad y consentimiento verificables.",
+        "noteType": "control",
+        "afterSequence": 1
+      },
+      {
+        "id": "note-evidence-1",
+        "participantInstanceIds": [
+          "p-contabilidad"
+        ],
+        "placement": "right",
+        "text": "Evidencia: expediente, folio y acuses.",
+        "noteType": "evidence",
+        "afterSequence": 12
+      }
+    ],
+    "fragments": [
+      {
+        "id": "frag-1",
+        "fragmentType": "alt",
+        "label": "Condiciones de Negocio",
+        "startSequence": 10,
+        "endSequence": 12,
+        "branches": [
+          {
+            "id": "branch-0",
+            "label": "Precio válido",
+            "startSequence": 11,
+            "endSequence": 12
+          },
+          {
+            "id": "branch-1",
+            "label": "Precio ausente",
+            "startSequence": 11,
+            "endSequence": 12
+          },
+          {
+            "id": "branch-2",
+            "label": "Precio fuera de tolerancia",
+            "startSequence": 11,
+            "endSequence": 12
+          },
+          {
+            "id": "branch-3",
+            "label": "Instrumento ilíquido",
+            "startSequence": 11,
+            "endSequence": 12
+          },
+          {
+            "id": "branch-4",
+            "label": "Revisión manual",
+            "startSequence": 11,
+            "endSequence": 12
+          }
+        ]
+      }
+    ]
   },
   "RAIA-BS-0012": {
     "scenarioId": "RAIA-BS-0012",
     "version": "0.2.0",
     "title": "Retiro por desempleo IMSS/ISSSTE",
     "description": "Retiro por desempleo IMSS/ISSSTE",
-    "participants": [],
-    "messages": [],
-    "activations": [],
-    "notes": [],
-    "fragments": [],
     "status": "proposed",
-    "regulatoryValidationStatus": "pending"
+    "regulatoryValidationStatus": "pending",
+    "participants": [
+      {
+        "instanceId": "p-trabajador",
+        "participantType": "service-domain",
+        "label": "Trabajador",
+        "order": 1
+      },
+      {
+        "instanceId": "p-gesti-n-de-soli",
+        "participantType": "service-domain",
+        "label": "Gestión de Solicitudes",
+        "order": 2
+      },
+      {
+        "instanceId": "p-autenticaci-n",
+        "participantType": "service-domain",
+        "label": "Autenticación",
+        "order": 3
+      },
+      {
+        "instanceId": "p-expediente-elec",
+        "participantType": "service-domain",
+        "label": "Expediente Electrónico",
+        "order": 4
+      },
+      {
+        "instanceId": "p-validaci-n-de-e",
+        "participantType": "service-domain",
+        "label": "Validación de Elegibilidad",
+        "order": 5
+      },
+      {
+        "instanceId": "p-imss",
+        "participantType": "service-domain",
+        "label": "IMSS",
+        "order": 6
+      },
+      {
+        "instanceId": "p-issste",
+        "participantType": "service-domain",
+        "label": "ISSSTE",
+        "order": 7
+      },
+      {
+        "instanceId": "p-cuenta-individu",
+        "participantType": "service-domain",
+        "label": "Cuenta Individual",
+        "order": 8
+      },
+      {
+        "instanceId": "p-desinversi-n-de",
+        "participantType": "service-domain",
+        "label": "Desinversión de Recursos",
+        "order": 9
+      },
+      {
+        "instanceId": "p-gesti-n-de-pago",
+        "participantType": "service-domain",
+        "label": "Gestión de Pagos",
+        "order": 10
+      },
+      {
+        "instanceId": "p-libro-mayor",
+        "participantType": "service-domain",
+        "label": "Libro Mayor",
+        "order": 11
+      },
+      {
+        "instanceId": "p-notificaciones",
+        "participantType": "service-domain",
+        "label": "Notificaciones",
+        "order": 12
+      },
+      {
+        "instanceId": "p-expediente",
+        "participantType": "service-domain",
+        "label": "expediente",
+        "order": 13
+      },
+      {
+        "instanceId": "p-validaci-n",
+        "participantType": "service-domain",
+        "label": "validaci n",
+        "order": 14
+      },
+      {
+        "instanceId": "p-imss-issste",
+        "participantType": "service-domain",
+        "label": "imss issste",
+        "order": 15
+      },
+      {
+        "instanceId": "p-desinversi-n",
+        "participantType": "service-domain",
+        "label": "desinversi n",
+        "order": 16
+      },
+      {
+        "instanceId": "p-instituci-n-fin",
+        "participantType": "service-domain",
+        "label": "instituci n fin",
+        "order": 17
+      }
+    ],
+    "messages": [
+      {
+        "id": "RAIA-BS-0012-MSG-01",
+        "scenarioStepId": "RAIA-BS-0012-STEP-01",
+        "sequence": 1,
+        "sourceParticipantInstanceId": "p-trabajador",
+        "targetParticipantInstanceId": "p-gesti-n-de-soli",
+        "label": "Solicitar retiro.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Trabajador y Gestión de Solicitudes."
+      },
+      {
+        "id": "RAIA-BS-0012-MSG-02",
+        "scenarioStepId": "RAIA-BS-0012-STEP-02",
+        "sequence": 2,
+        "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+        "targetParticipantInstanceId": "p-autenticaci-n",
+        "label": "Validar identidad.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Solicitudes y Autenticación."
+      },
+      {
+        "id": "RAIA-BS-0012-MSG-03",
+        "scenarioStepId": "RAIA-BS-0012-STEP-03",
+        "sequence": 3,
+        "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+        "targetParticipantInstanceId": "p-expediente",
+        "label": "Recuperar evidencia.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Solicitudes y Expediente."
+      },
+      {
+        "id": "RAIA-BS-0012-MSG-04",
+        "scenarioStepId": "RAIA-BS-0012-STEP-04",
+        "sequence": 4,
+        "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+        "targetParticipantInstanceId": "p-validaci-n-de-e",
+        "label": "Evaluar solicitud.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Solicitudes y Validación de Elegibilidad."
+      },
+      {
+        "id": "RAIA-BS-0012-MSG-05",
+        "scenarioStepId": "RAIA-BS-0012-STEP-05",
+        "sequence": 5,
+        "sourceParticipantInstanceId": "p-validaci-n",
+        "targetParticipantInstanceId": "p-imss",
+        "label": "Consultar información cuando aplique.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Validación y IMSS."
+      },
+      {
+        "id": "RAIA-BS-0012-MSG-06",
+        "scenarioStepId": "RAIA-BS-0012-STEP-06",
+        "sequence": 6,
+        "sourceParticipantInstanceId": "p-validaci-n",
+        "targetParticipantInstanceId": "p-issste",
+        "label": "Consultar información cuando aplique.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Validación y ISSSTE."
+      },
+      {
+        "id": "RAIA-BS-0012-MSG-07",
+        "scenarioStepId": "RAIA-BS-0012-STEP-07",
+        "sequence": 7,
+        "sourceParticipantInstanceId": "p-imss-issste",
+        "targetParticipantInstanceId": "p-validaci-n",
+        "label": "Entregar respuesta.",
+        "messageType": "response",
+        "description": "Interacción entre IMSS/ISSSTE y Validación."
+      },
+      {
+        "id": "RAIA-BS-0012-MSG-08",
+        "scenarioStepId": "RAIA-BS-0012-STEP-08",
+        "sequence": 8,
+        "sourceParticipantInstanceId": "p-validaci-n",
+        "targetParticipantInstanceId": "p-cuenta-individu",
+        "label": "Consultar saldo disponible.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Validación y Cuenta Individual."
+      },
+      {
+        "id": "RAIA-BS-0012-MSG-09",
+        "scenarioStepId": "RAIA-BS-0012-STEP-09",
+        "sequence": 9,
+        "sourceParticipantInstanceId": "p-cuenta-individu",
+        "targetParticipantInstanceId": "p-validaci-n",
+        "label": "Entregar saldo.",
+        "messageType": "response",
+        "description": "Interacción entre Cuenta Individual y Validación."
+      },
+      {
+        "id": "RAIA-BS-0012-MSG-10",
+        "scenarioStepId": "RAIA-BS-0012-STEP-10",
+        "sequence": 10,
+        "sourceParticipantInstanceId": "p-validaci-n",
+        "targetParticipantInstanceId": "p-desinversi-n",
+        "label": "Solicitar recursos.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Validación y Desinversión."
+      },
+      {
+        "id": "RAIA-BS-0012-MSG-11",
+        "scenarioStepId": "RAIA-BS-0012-STEP-11",
+        "sequence": 11,
+        "sourceParticipantInstanceId": "p-desinversi-n",
+        "targetParticipantInstanceId": "p-gesti-n-de-pago",
+        "label": "Entregar monto disponible.",
+        "messageType": "response",
+        "description": "Interacción entre Desinversión y Gestión de Pagos."
+      },
+      {
+        "id": "RAIA-BS-0012-MSG-12",
+        "scenarioStepId": "RAIA-BS-0012-STEP-12",
+        "sequence": 12,
+        "sourceParticipantInstanceId": "p-gesti-n-de-pago",
+        "targetParticipantInstanceId": "p-instituci-n-fin",
+        "label": "Ejecutar pago.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Pagos y Institución Financiera."
+      },
+      {
+        "id": "RAIA-BS-0012-MSG-13",
+        "scenarioStepId": "RAIA-BS-0012-STEP-13",
+        "sequence": 13,
+        "sourceParticipantInstanceId": "p-instituci-n-fin",
+        "targetParticipantInstanceId": "p-gesti-n-de-pago",
+        "label": "Confirmar resultado.",
+        "messageType": "response",
+        "description": "Interacción entre Institución Financiera y Gestión de Pagos."
+      },
+      {
+        "id": "RAIA-BS-0012-MSG-14",
+        "scenarioStepId": "RAIA-BS-0012-STEP-14",
+        "sequence": 14,
+        "sourceParticipantInstanceId": "p-gesti-n-de-pago",
+        "targetParticipantInstanceId": "p-libro-mayor",
+        "label": "Registrar retiro.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Pagos y Libro Mayor."
+      },
+      {
+        "id": "RAIA-BS-0012-MSG-15",
+        "scenarioStepId": "RAIA-BS-0012-STEP-15",
+        "sequence": 15,
+        "sourceParticipantInstanceId": "p-libro-mayor",
+        "targetParticipantInstanceId": "p-gesti-n-de-soli",
+        "label": "Confirmar movimiento.",
+        "messageType": "response",
+        "description": "Interacción entre Libro Mayor y Gestión de Solicitudes."
+      },
+      {
+        "id": "RAIA-BS-0012-MSG-16",
+        "scenarioStepId": "RAIA-BS-0012-STEP-16",
+        "sequence": 16,
+        "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+        "targetParticipantInstanceId": "p-notificaciones",
+        "label": "Comunicar resultado.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Solicitudes y Notificaciones."
+      },
+      {
+        "id": "RAIA-BS-0012-MSG-17",
+        "scenarioStepId": "RAIA-BS-0012-STEP-17",
+        "sequence": 17,
+        "sourceParticipantInstanceId": "p-notificaciones",
+        "targetParticipantInstanceId": "p-trabajador",
+        "label": "Notificar pago.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Notificaciones y Trabajador."
+      }
+    ],
+    "activations": [
+      {
+        "id": "act-1",
+        "participantInstanceId": "p-gesti-n-de-soli",
+        "startSequence": 1,
+        "endSequence": 17,
+        "depth": 0,
+        "activationType": "processing"
+      }
+    ],
+    "notes": [
+      {
+        "id": "note-control-1",
+        "participantInstanceIds": [
+          "p-trabajador"
+        ],
+        "placement": "left",
+        "text": "Control: identidad y consentimiento verificables.",
+        "noteType": "control",
+        "afterSequence": 1
+      },
+      {
+        "id": "note-evidence-1",
+        "participantInstanceIds": [
+          "p-trabajador"
+        ],
+        "placement": "right",
+        "text": "Evidencia: expediente, folio y acuses.",
+        "noteType": "evidence",
+        "afterSequence": 17
+      }
+    ],
+    "fragments": [
+      {
+        "id": "frag-1",
+        "fragmentType": "alt",
+        "label": "Condiciones de Negocio",
+        "startSequence": 15,
+        "endSequence": 17,
+        "branches": [
+          {
+            "id": "branch-0",
+            "label": "Solicitud elegible",
+            "startSequence": 16,
+            "endSequence": 17
+          },
+          {
+            "id": "branch-1",
+            "label": "No cumple condiciones",
+            "startSequence": 16,
+            "endSequence": 17
+          },
+          {
+            "id": "branch-2",
+            "label": "Información no disponible",
+            "startSequence": 16,
+            "endSequence": 17
+          },
+          {
+            "id": "branch-3",
+            "label": "Medio de pago inválido",
+            "startSequence": 16,
+            "endSequence": 17
+          },
+          {
+            "id": "branch-4",
+            "label": "Pago rechazado",
+            "startSequence": 16,
+            "endSequence": 17
+          }
+        ]
+      }
+    ]
   },
   "RAIA-BS-0013": {
     "scenarioId": "RAIA-BS-0013",
     "version": "0.2.0",
     "title": "Ayuda para gastos de matrimonio",
     "description": "Ayuda para gastos de matrimonio",
-    "participants": [],
-    "messages": [],
-    "activations": [],
-    "notes": [],
-    "fragments": [],
     "status": "proposed",
-    "regulatoryValidationStatus": "pending"
+    "regulatoryValidationStatus": "pending",
+    "participants": [
+      {
+        "instanceId": "p-trabajador",
+        "participantType": "service-domain",
+        "label": "Trabajador",
+        "order": 1
+      },
+      {
+        "instanceId": "p-gesti-n-de-soli",
+        "participantType": "service-domain",
+        "label": "Gestión de Solicitudes",
+        "order": 2
+      },
+      {
+        "instanceId": "p-autenticaci-n",
+        "participantType": "service-domain",
+        "label": "Autenticación",
+        "order": 3
+      },
+      {
+        "instanceId": "p-expediente-elec",
+        "participantType": "service-domain",
+        "label": "Expediente Electrónico",
+        "order": 4
+      },
+      {
+        "instanceId": "p-validaci-n-de-e",
+        "participantType": "service-domain",
+        "label": "Validación de Elegibilidad",
+        "order": 5
+      },
+      {
+        "instanceId": "p-imss",
+        "participantType": "service-domain",
+        "label": "IMSS",
+        "order": 6
+      },
+      {
+        "instanceId": "p-cuenta-individu",
+        "participantType": "service-domain",
+        "label": "Cuenta Individual",
+        "order": 7
+      },
+      {
+        "instanceId": "p-gesti-n-de-pago",
+        "participantType": "service-domain",
+        "label": "Gestión de Pagos",
+        "order": 8
+      },
+      {
+        "instanceId": "p-libro-mayor",
+        "participantType": "service-domain",
+        "label": "Libro Mayor",
+        "order": 9
+      },
+      {
+        "instanceId": "p-notificaciones",
+        "participantType": "service-domain",
+        "label": "Notificaciones",
+        "order": 10
+      },
+      {
+        "instanceId": "p-expediente",
+        "participantType": "service-domain",
+        "label": "expediente",
+        "order": 11
+      },
+      {
+        "instanceId": "p-validaci-n",
+        "participantType": "service-domain",
+        "label": "validaci n",
+        "order": 12
+      },
+      {
+        "instanceId": "p-instituci-n-fin",
+        "participantType": "service-domain",
+        "label": "instituci n fin",
+        "order": 13
+      }
+    ],
+    "messages": [
+      {
+        "id": "RAIA-BS-0013-MSG-01",
+        "scenarioStepId": "RAIA-BS-0013-STEP-01",
+        "sequence": 1,
+        "sourceParticipantInstanceId": "p-trabajador",
+        "targetParticipantInstanceId": "p-gesti-n-de-soli",
+        "label": "Solicitar ayuda.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Trabajador y Gestión de Solicitudes."
+      },
+      {
+        "id": "RAIA-BS-0013-MSG-02",
+        "scenarioStepId": "RAIA-BS-0013-STEP-02",
+        "sequence": 2,
+        "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+        "targetParticipantInstanceId": "p-autenticaci-n",
+        "label": "Validar identidad.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Solicitudes y Autenticación."
+      },
+      {
+        "id": "RAIA-BS-0013-MSG-03",
+        "scenarioStepId": "RAIA-BS-0013-STEP-03",
+        "sequence": 3,
+        "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+        "targetParticipantInstanceId": "p-expediente",
+        "label": "Recuperar documentación.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Solicitudes y Expediente."
+      },
+      {
+        "id": "RAIA-BS-0013-MSG-04",
+        "scenarioStepId": "RAIA-BS-0013-STEP-04",
+        "sequence": 4,
+        "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+        "targetParticipantInstanceId": "p-validaci-n",
+        "label": "Evaluar derecho.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Solicitudes y Validación."
+      },
+      {
+        "id": "RAIA-BS-0013-MSG-05",
+        "scenarioStepId": "RAIA-BS-0013-STEP-05",
+        "sequence": 5,
+        "sourceParticipantInstanceId": "p-validaci-n",
+        "targetParticipantInstanceId": "p-imss",
+        "label": "Consultar elegibilidad.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Validación y IMSS."
+      },
+      {
+        "id": "RAIA-BS-0013-MSG-06",
+        "scenarioStepId": "RAIA-BS-0013-STEP-06",
+        "sequence": 6,
+        "sourceParticipantInstanceId": "p-imss",
+        "targetParticipantInstanceId": "p-validaci-n",
+        "label": "Entregar resultado.",
+        "messageType": "response",
+        "description": "Interacción entre IMSS y Validación."
+      },
+      {
+        "id": "RAIA-BS-0013-MSG-07",
+        "scenarioStepId": "RAIA-BS-0013-STEP-07",
+        "sequence": 7,
+        "sourceParticipantInstanceId": "p-validaci-n",
+        "targetParticipantInstanceId": "p-cuenta-individu",
+        "label": "Consultar información.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Validación y Cuenta Individual."
+      },
+      {
+        "id": "RAIA-BS-0013-MSG-08",
+        "scenarioStepId": "RAIA-BS-0013-STEP-08",
+        "sequence": 8,
+        "sourceParticipantInstanceId": "p-cuenta-individu",
+        "targetParticipantInstanceId": "p-validaci-n",
+        "label": "Entregar datos.",
+        "messageType": "response",
+        "description": "Interacción entre Cuenta Individual y Validación."
+      },
+      {
+        "id": "RAIA-BS-0013-MSG-09",
+        "scenarioStepId": "RAIA-BS-0013-STEP-09",
+        "sequence": 9,
+        "sourceParticipantInstanceId": "p-validaci-n",
+        "targetParticipantInstanceId": "p-gesti-n-de-pago",
+        "label": "Autorizar pago.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Validación y Gestión de Pagos."
+      },
+      {
+        "id": "RAIA-BS-0013-MSG-10",
+        "scenarioStepId": "RAIA-BS-0013-STEP-10",
+        "sequence": 10,
+        "sourceParticipantInstanceId": "p-gesti-n-de-pago",
+        "targetParticipantInstanceId": "p-instituci-n-fin",
+        "label": "Ejecutar pago.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Pagos y Institución Financiera."
+      },
+      {
+        "id": "RAIA-BS-0013-MSG-11",
+        "scenarioStepId": "RAIA-BS-0013-STEP-11",
+        "sequence": 11,
+        "sourceParticipantInstanceId": "p-instituci-n-fin",
+        "targetParticipantInstanceId": "p-gesti-n-de-pago",
+        "label": "Confirmar pago.",
+        "messageType": "response",
+        "description": "Interacción entre Institución Financiera y Gestión de Pagos."
+      },
+      {
+        "id": "RAIA-BS-0013-MSG-12",
+        "scenarioStepId": "RAIA-BS-0013-STEP-12",
+        "sequence": 12,
+        "sourceParticipantInstanceId": "p-gesti-n-de-pago",
+        "targetParticipantInstanceId": "p-libro-mayor",
+        "label": "Registrar movimiento.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Pagos y Libro Mayor."
+      },
+      {
+        "id": "RAIA-BS-0013-MSG-13",
+        "scenarioStepId": "RAIA-BS-0013-STEP-13",
+        "sequence": 13,
+        "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+        "targetParticipantInstanceId": "p-notificaciones",
+        "label": "Emitir resolución.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Solicitudes y Notificaciones."
+      },
+      {
+        "id": "RAIA-BS-0013-MSG-14",
+        "scenarioStepId": "RAIA-BS-0013-STEP-14",
+        "sequence": 14,
+        "sourceParticipantInstanceId": "p-notificaciones",
+        "targetParticipantInstanceId": "p-trabajador",
+        "label": "Informar resultado.",
+        "messageType": "response",
+        "description": "Interacción entre Notificaciones y Trabajador."
+      }
+    ],
+    "activations": [
+      {
+        "id": "act-1",
+        "participantInstanceId": "p-gesti-n-de-soli",
+        "startSequence": 1,
+        "endSequence": 14,
+        "depth": 0,
+        "activationType": "processing"
+      }
+    ],
+    "notes": [
+      {
+        "id": "note-control-1",
+        "participantInstanceIds": [
+          "p-trabajador"
+        ],
+        "placement": "left",
+        "text": "Control: identidad y consentimiento verificables.",
+        "noteType": "control",
+        "afterSequence": 1
+      },
+      {
+        "id": "note-evidence-1",
+        "participantInstanceIds": [
+          "p-trabajador"
+        ],
+        "placement": "right",
+        "text": "Evidencia: expediente, folio y acuses.",
+        "noteType": "evidence",
+        "afterSequence": 14
+      }
+    ],
+    "fragments": [
+      {
+        "id": "frag-1",
+        "fragmentType": "alt",
+        "label": "Condiciones de Negocio",
+        "startSequence": 12,
+        "endSequence": 14,
+        "branches": [
+          {
+            "id": "branch-0",
+            "label": "Derecho procedente",
+            "startSequence": 13,
+            "endSequence": 14
+          },
+          {
+            "id": "branch-1",
+            "label": "Derecho previamente ejercido",
+            "startSequence": 13,
+            "endSequence": 14
+          },
+          {
+            "id": "branch-2",
+            "label": "Información insuficiente",
+            "startSequence": 13,
+            "endSequence": 14
+          },
+          {
+            "id": "branch-3",
+            "label": "Pago fallido",
+            "startSequence": 13,
+            "endSequence": 14
+          }
+        ]
+      }
+    ]
   },
   "RAIA-BS-0014": {
     "scenarioId": "RAIA-BS-0014",
     "version": "0.2.0",
     "title": "Elección de modalidad de pensión",
     "description": "Elección de modalidad de pensión",
-    "participants": [],
-    "messages": [],
-    "activations": [],
-    "notes": [],
-    "fragments": [],
     "status": "proposed",
-    "regulatoryValidationStatus": "pending"
+    "regulatoryValidationStatus": "pending",
+    "participants": [
+      {
+        "instanceId": "p-trabajador",
+        "participantType": "service-domain",
+        "label": "Trabajador",
+        "order": 1
+      },
+      {
+        "instanceId": "p-gesti-n-de-soli",
+        "participantType": "service-domain",
+        "label": "Gestión de Solicitudes Pensionarias",
+        "order": 2
+      },
+      {
+        "instanceId": "p-resoluci-n-de-p",
+        "participantType": "service-domain",
+        "label": "Resolución de Pensión",
+        "order": 3
+      },
+      {
+        "instanceId": "p-elegibilidad-pe",
+        "participantType": "service-domain",
+        "label": "Elegibilidad Pensionaria",
+        "order": 4
+      },
+      {
+        "instanceId": "p-proyecci-n-pens",
+        "participantType": "service-domain",
+        "label": "Proyección Pensionaria",
+        "order": 5
+      },
+      {
+        "instanceId": "p-retiro-programa",
+        "participantType": "service-domain",
+        "label": "Retiro Programado",
+        "order": 6
+      },
+      {
+        "instanceId": "p-renta-vitalicia",
+        "participantType": "service-domain",
+        "label": "Renta Vitalicia",
+        "order": 7
+      },
+      {
+        "instanceId": "p-pensi-n-garanti",
+        "participantType": "service-domain",
+        "label": "Pensión Garantizada",
+        "order": 8
+      },
+      {
+        "instanceId": "p-aseguradoras",
+        "participantType": "service-domain",
+        "label": "Aseguradoras",
+        "order": 9
+      },
+      {
+        "instanceId": "p-gesti-n-de-cons",
+        "participantType": "service-domain",
+        "label": "Gestión de Consentimiento",
+        "order": 10
+      },
+      {
+        "instanceId": "p-firma-electr-ni",
+        "participantType": "service-domain",
+        "label": "Firma Electrónica",
+        "order": 11
+      },
+      {
+        "instanceId": "p-expediente-elec",
+        "participantType": "service-domain",
+        "label": "Expediente Electrónico",
+        "order": 12
+      },
+      {
+        "instanceId": "p-notificaciones",
+        "participantType": "service-domain",
+        "label": "Notificaciones",
+        "order": 13
+      },
+      {
+        "instanceId": "p-resoluci-n",
+        "participantType": "service-domain",
+        "label": "resoluci n",
+        "order": 14
+      },
+      {
+        "instanceId": "p-elegibilidad",
+        "participantType": "service-domain",
+        "label": "elegibilidad",
+        "order": 15
+      },
+      {
+        "instanceId": "p-proyecci-n",
+        "participantType": "service-domain",
+        "label": "proyecci n",
+        "order": 16
+      },
+      {
+        "instanceId": "p-expediente",
+        "participantType": "service-domain",
+        "label": "expediente",
+        "order": 17
+      },
+      {
+        "instanceId": "p-modalidad-elegi",
+        "participantType": "service-domain",
+        "label": "modalidad elegi",
+        "order": 18
+      }
+    ],
+    "messages": [
+      {
+        "id": "RAIA-BS-0014-MSG-01",
+        "scenarioStepId": "RAIA-BS-0014-STEP-01",
+        "sequence": 1,
+        "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+        "targetParticipantInstanceId": "p-resoluci-n-de-p",
+        "label": "Recuperar resolución.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Solicitudes y Resolución de Pensión."
+      },
+      {
+        "id": "RAIA-BS-0014-MSG-02",
+        "scenarioStepId": "RAIA-BS-0014-STEP-02",
+        "sequence": 2,
+        "sourceParticipantInstanceId": "p-resoluci-n",
+        "targetParticipantInstanceId": "p-elegibilidad",
+        "label": "Confirmar condiciones.",
+        "messageType": "response",
+        "description": "Interacción entre Resolución y Elegibilidad."
+      },
+      {
+        "id": "RAIA-BS-0014-MSG-03",
+        "scenarioStepId": "RAIA-BS-0014-STEP-03",
+        "sequence": 3,
+        "sourceParticipantInstanceId": "p-elegibilidad",
+        "targetParticipantInstanceId": "p-proyecci-n",
+        "label": "Solicitar alternativas.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Elegibilidad y Proyección."
+      },
+      {
+        "id": "RAIA-BS-0014-MSG-04",
+        "scenarioStepId": "RAIA-BS-0014-STEP-04",
+        "sequence": 4,
+        "sourceParticipantInstanceId": "p-proyecci-n",
+        "targetParticipantInstanceId": "p-retiro-programa",
+        "label": "Calcular alternativa.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Proyección y Retiro Programado."
+      },
+      {
+        "id": "RAIA-BS-0014-MSG-05",
+        "scenarioStepId": "RAIA-BS-0014-STEP-05",
+        "sequence": 5,
+        "sourceParticipantInstanceId": "p-proyecci-n",
+        "targetParticipantInstanceId": "p-renta-vitalicia",
+        "label": "Solicitar alternativa.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Proyección y Renta Vitalicia."
+      },
+      {
+        "id": "RAIA-BS-0014-MSG-06",
+        "scenarioStepId": "RAIA-BS-0014-STEP-06",
+        "sequence": 6,
+        "sourceParticipantInstanceId": "p-renta-vitalicia",
+        "targetParticipantInstanceId": "p-aseguradoras",
+        "label": "Obtener ofertas o condiciones.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Renta Vitalicia y Aseguradoras."
+      },
+      {
+        "id": "RAIA-BS-0014-MSG-07",
+        "scenarioStepId": "RAIA-BS-0014-STEP-07",
+        "sequence": 7,
+        "sourceParticipantInstanceId": "p-proyecci-n",
+        "targetParticipantInstanceId": "p-pensi-n-garanti",
+        "label": "Evaluar procedencia.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Proyección y Pensión Garantizada."
+      },
+      {
+        "id": "RAIA-BS-0014-MSG-08",
+        "scenarioStepId": "RAIA-BS-0014-STEP-08",
+        "sequence": 8,
+        "sourceParticipantInstanceId": "p-proyecci-n",
+        "targetParticipantInstanceId": "p-gesti-n-de-soli",
+        "label": "Entregar alternativas.",
+        "messageType": "response",
+        "description": "Interacción entre Proyección y Gestión de Solicitudes."
+      },
+      {
+        "id": "RAIA-BS-0014-MSG-09",
+        "scenarioStepId": "RAIA-BS-0014-STEP-09",
+        "sequence": 9,
+        "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+        "targetParticipantInstanceId": "p-trabajador",
+        "label": "Presentar modalidades.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Solicitudes y Trabajador."
+      },
+      {
+        "id": "RAIA-BS-0014-MSG-10",
+        "scenarioStepId": "RAIA-BS-0014-STEP-10",
+        "sequence": 10,
+        "sourceParticipantInstanceId": "p-trabajador",
+        "targetParticipantInstanceId": "p-gesti-n-de-cons",
+        "label": "Seleccionar modalidad.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Trabajador y Gestión de Consentimiento."
+      },
+      {
+        "id": "RAIA-BS-0014-MSG-11",
+        "scenarioStepId": "RAIA-BS-0014-STEP-11",
+        "sequence": 11,
+        "sourceParticipantInstanceId": "p-gesti-n-de-cons",
+        "targetParticipantInstanceId": "p-firma-electr-ni",
+        "label": "Formalizar elección.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Consentimiento y Firma Electrónica."
+      },
+      {
+        "id": "RAIA-BS-0014-MSG-12",
+        "scenarioStepId": "RAIA-BS-0014-STEP-12",
+        "sequence": 12,
+        "sourceParticipantInstanceId": "p-firma-electr-ni",
+        "targetParticipantInstanceId": "p-expediente",
+        "label": "Conservar evidencia.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Firma Electrónica y Expediente."
+      },
+      {
+        "id": "RAIA-BS-0014-MSG-13",
+        "scenarioStepId": "RAIA-BS-0014-STEP-13",
+        "sequence": 13,
+        "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+        "targetParticipantInstanceId": "p-modalidad-elegi",
+        "label": "Iniciar ejecución.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Solicitudes y Modalidad elegida."
+      },
+      {
+        "id": "RAIA-BS-0014-MSG-14",
+        "scenarioStepId": "RAIA-BS-0014-STEP-14",
+        "sequence": 14,
+        "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+        "targetParticipantInstanceId": "p-notificaciones",
+        "label": "Confirmar elección.",
+        "messageType": "response",
+        "description": "Interacción entre Gestión de Solicitudes y Notificaciones."
+      },
+      {
+        "id": "RAIA-BS-0014-MSG-15",
+        "scenarioStepId": "RAIA-BS-0014-STEP-15",
+        "sequence": 15,
+        "sourceParticipantInstanceId": "p-notificaciones",
+        "targetParticipantInstanceId": "p-trabajador",
+        "label": "Entregar acuse.",
+        "messageType": "response",
+        "description": "Interacción entre Notificaciones y Trabajador."
+      }
+    ],
+    "activations": [
+      {
+        "id": "act-1",
+        "participantInstanceId": "p-resoluci-n-de-p",
+        "startSequence": 1,
+        "endSequence": 15,
+        "depth": 0,
+        "activationType": "processing"
+      }
+    ],
+    "notes": [
+      {
+        "id": "note-control-1",
+        "participantInstanceIds": [
+          "p-gesti-n-de-soli"
+        ],
+        "placement": "left",
+        "text": "Control: identidad y consentimiento verificables.",
+        "noteType": "control",
+        "afterSequence": 1
+      },
+      {
+        "id": "note-evidence-1",
+        "participantInstanceIds": [
+          "p-trabajador"
+        ],
+        "placement": "right",
+        "text": "Evidencia: expediente, folio y acuses.",
+        "noteType": "evidence",
+        "afterSequence": 15
+      }
+    ],
+    "fragments": [
+      {
+        "id": "frag-1",
+        "fragmentType": "alt",
+        "label": "Condiciones de Negocio",
+        "startSequence": 13,
+        "endSequence": 15,
+        "branches": [
+          {
+            "id": "branch-0",
+            "label": "Renta vitalicia",
+            "startSequence": 14,
+            "endSequence": 15
+          },
+          {
+            "id": "branch-1",
+            "label": "Retiro programado",
+            "startSequence": 14,
+            "endSequence": 15
+          },
+          {
+            "id": "branch-2",
+            "label": "Pensión garantizada",
+            "startSequence": 14,
+            "endSequence": 15
+          },
+          {
+            "id": "branch-3",
+            "label": "Elección no válida",
+            "startSequence": 14,
+            "endSequence": 15
+          }
+        ]
+      }
+    ]
   },
   "RAIA-BS-0015": {
     "scenarioId": "RAIA-BS-0015",
     "version": "0.2.0",
     "title": "Transferencia de fondos para renta vitalicia",
     "description": "Transferencia de fondos para renta vitalicia",
-    "participants": [],
-    "messages": [],
-    "activations": [],
-    "notes": [],
-    "fragments": [],
     "status": "proposed",
-    "regulatoryValidationStatus": "pending"
+    "regulatoryValidationStatus": "pending",
+    "participants": [
+      {
+        "instanceId": "p-trabajador",
+        "participantType": "service-domain",
+        "label": "Trabajador",
+        "order": 1
+      },
+      {
+        "instanceId": "p-resoluci-n-de-p",
+        "participantType": "service-domain",
+        "label": "Resolución de Pensión",
+        "order": 2
+      },
+      {
+        "instanceId": "p-gesti-n-de-rent",
+        "participantType": "service-domain",
+        "label": "Gestión de Renta Vitalicia",
+        "order": 3
+      },
+      {
+        "instanceId": "p-determinaci-n-d",
+        "participantType": "service-domain",
+        "label": "Determinación de Recursos",
+        "order": 4
+      },
+      {
+        "instanceId": "p-desinversi-n-de",
+        "participantType": "service-domain",
+        "label": "Desinversión de Recursos",
+        "order": 5
+      },
+      {
+        "instanceId": "p-transferencia-d",
+        "participantType": "service-domain",
+        "label": "Transferencia de Recursos",
+        "order": 6
+      },
+      {
+        "instanceId": "p-instituci-n-fin",
+        "participantType": "service-domain",
+        "label": "Institución Financiera",
+        "order": 7
+      },
+      {
+        "instanceId": "p-custodia",
+        "participantType": "service-domain",
+        "label": "Custodia",
+        "order": 8
+      },
+      {
+        "instanceId": "p-aseguradora",
+        "participantType": "service-domain",
+        "label": "Aseguradora",
+        "order": 9
+      },
+      {
+        "instanceId": "p-seguro-de-sobre",
+        "participantType": "service-domain",
+        "label": "Seguro de Sobrevivencia",
+        "order": 10
+      },
+      {
+        "instanceId": "p-libro-mayor",
+        "participantType": "service-domain",
+        "label": "Libro Mayor",
+        "order": 11
+      },
+      {
+        "instanceId": "p-conciliaci-n",
+        "participantType": "service-domain",
+        "label": "Conciliación",
+        "order": 12
+      },
+      {
+        "instanceId": "p-notificaciones",
+        "participantType": "service-domain",
+        "label": "Notificaciones",
+        "order": 13
+      },
+      {
+        "instanceId": "p-resoluci-n",
+        "participantType": "service-domain",
+        "label": "resoluci n",
+        "order": 14
+      },
+      {
+        "instanceId": "p-determinaci-n",
+        "participantType": "service-domain",
+        "label": "determinaci n",
+        "order": 15
+      },
+      {
+        "instanceId": "p-desinversi-n",
+        "participantType": "service-domain",
+        "label": "desinversi n",
+        "order": 16
+      },
+      {
+        "instanceId": "p-transferencia",
+        "participantType": "service-domain",
+        "label": "transferencia",
+        "order": 17
+      }
+    ],
+    "messages": [
+      {
+        "id": "RAIA-BS-0015-MSG-01",
+        "scenarioStepId": "RAIA-BS-0015-STEP-01",
+        "sequence": 1,
+        "sourceParticipantInstanceId": "p-resoluci-n",
+        "targetParticipantInstanceId": "p-gesti-n-de-rent",
+        "label": "Confirmar modalidad.",
+        "messageType": "response",
+        "description": "Interacción entre Resolución y Gestión de Renta Vitalicia."
+      },
+      {
+        "id": "RAIA-BS-0015-MSG-02",
+        "scenarioStepId": "RAIA-BS-0015-STEP-02",
+        "sequence": 2,
+        "sourceParticipantInstanceId": "p-gesti-n-de-rent",
+        "targetParticipantInstanceId": "p-determinaci-n-d",
+        "label": "Calcular monto.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Renta Vitalicia y Determinación de Recursos."
+      },
+      {
+        "id": "RAIA-BS-0015-MSG-03",
+        "scenarioStepId": "RAIA-BS-0015-STEP-03",
+        "sequence": 3,
+        "sourceParticipantInstanceId": "p-determinaci-n",
+        "targetParticipantInstanceId": "p-gesti-n-de-rent",
+        "label": "Entregar monto.",
+        "messageType": "response",
+        "description": "Interacción entre Determinación y Gestión de Renta Vitalicia."
+      },
+      {
+        "id": "RAIA-BS-0015-MSG-04",
+        "scenarioStepId": "RAIA-BS-0015-STEP-04",
+        "sequence": 4,
+        "sourceParticipantInstanceId": "p-gesti-n-de-rent",
+        "targetParticipantInstanceId": "p-aseguradora",
+        "label": "Confirmar contratación.",
+        "messageType": "response",
+        "description": "Interacción entre Gestión de Renta Vitalicia y Aseguradora."
+      },
+      {
+        "id": "RAIA-BS-0015-MSG-05",
+        "scenarioStepId": "RAIA-BS-0015-STEP-05",
+        "sequence": 5,
+        "sourceParticipantInstanceId": "p-aseguradora",
+        "targetParticipantInstanceId": "p-gesti-n-de-rent",
+        "label": "Aceptar operación.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Aseguradora y Gestión de Renta Vitalicia."
+      },
+      {
+        "id": "RAIA-BS-0015-MSG-06",
+        "scenarioStepId": "RAIA-BS-0015-STEP-06",
+        "sequence": 6,
+        "sourceParticipantInstanceId": "p-gesti-n-de-rent",
+        "targetParticipantInstanceId": "p-desinversi-n",
+        "label": "Liberar recursos.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Renta Vitalicia y Desinversión."
+      },
+      {
+        "id": "RAIA-BS-0015-MSG-07",
+        "scenarioStepId": "RAIA-BS-0015-STEP-07",
+        "sequence": 7,
+        "sourceParticipantInstanceId": "p-desinversi-n",
+        "targetParticipantInstanceId": "p-transferencia",
+        "label": "Entregar efectivo disponible.",
+        "messageType": "response",
+        "description": "Interacción entre Desinversión y Transferencia."
+      },
+      {
+        "id": "RAIA-BS-0015-MSG-08",
+        "scenarioStepId": "RAIA-BS-0015-STEP-08",
+        "sequence": 8,
+        "sourceParticipantInstanceId": "p-transferencia",
+        "targetParticipantInstanceId": "p-instituci-n-fin",
+        "label": "Instruir liquidación.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Transferencia y Institución Financiera."
+      },
+      {
+        "id": "RAIA-BS-0015-MSG-09",
+        "scenarioStepId": "RAIA-BS-0015-STEP-09",
+        "sequence": 9,
+        "sourceParticipantInstanceId": "p-instituci-n-fin",
+        "targetParticipantInstanceId": "p-aseguradora",
+        "label": "Transferir recursos.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Institución Financiera y Aseguradora."
+      },
+      {
+        "id": "RAIA-BS-0015-MSG-10",
+        "scenarioStepId": "RAIA-BS-0015-STEP-10",
+        "sequence": 10,
+        "sourceParticipantInstanceId": "p-aseguradora",
+        "targetParticipantInstanceId": "p-transferencia",
+        "label": "Confirmar recepción.",
+        "messageType": "response",
+        "description": "Interacción entre Aseguradora y Transferencia."
+      },
+      {
+        "id": "RAIA-BS-0015-MSG-11",
+        "scenarioStepId": "RAIA-BS-0015-STEP-11",
+        "sequence": 11,
+        "sourceParticipantInstanceId": "p-aseguradora",
+        "targetParticipantInstanceId": "p-seguro-de-sobre",
+        "label": "Configurar cobertura.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Aseguradora y Seguro de Sobrevivencia."
+      },
+      {
+        "id": "RAIA-BS-0015-MSG-12",
+        "scenarioStepId": "RAIA-BS-0015-STEP-12",
+        "sequence": 12,
+        "sourceParticipantInstanceId": "p-transferencia",
+        "targetParticipantInstanceId": "p-libro-mayor",
+        "label": "Registrar disposición.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Transferencia y Libro Mayor."
+      },
+      {
+        "id": "RAIA-BS-0015-MSG-13",
+        "scenarioStepId": "RAIA-BS-0015-STEP-13",
+        "sequence": 13,
+        "sourceParticipantInstanceId": "p-libro-mayor",
+        "targetParticipantInstanceId": "p-conciliaci-n",
+        "label": "Conciliar saldo.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Libro Mayor y Conciliación."
+      },
+      {
+        "id": "RAIA-BS-0015-MSG-14",
+        "scenarioStepId": "RAIA-BS-0015-STEP-14",
+        "sequence": 14,
+        "sourceParticipantInstanceId": "p-conciliaci-n",
+        "targetParticipantInstanceId": "p-gesti-n-de-rent",
+        "label": "Confirmar cierre.",
+        "messageType": "response",
+        "description": "Interacción entre Conciliación y Gestión de Renta Vitalicia."
+      },
+      {
+        "id": "RAIA-BS-0015-MSG-15",
+        "scenarioStepId": "RAIA-BS-0015-STEP-15",
+        "sequence": 15,
+        "sourceParticipantInstanceId": "p-gesti-n-de-rent",
+        "targetParticipantInstanceId": "p-notificaciones",
+        "label": "Comunicar resultado.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Renta Vitalicia y Notificaciones."
+      },
+      {
+        "id": "RAIA-BS-0015-MSG-16",
+        "scenarioStepId": "RAIA-BS-0015-STEP-16",
+        "sequence": 16,
+        "sourceParticipantInstanceId": "p-notificaciones",
+        "targetParticipantInstanceId": "p-trabajador",
+        "label": "Confirmar contratación.",
+        "messageType": "response",
+        "description": "Interacción entre Notificaciones y Trabajador."
+      }
+    ],
+    "activations": [
+      {
+        "id": "act-1",
+        "participantInstanceId": "p-gesti-n-de-rent",
+        "startSequence": 1,
+        "endSequence": 16,
+        "depth": 0,
+        "activationType": "processing"
+      }
+    ],
+    "notes": [
+      {
+        "id": "note-control-1",
+        "participantInstanceIds": [
+          "p-resoluci-n"
+        ],
+        "placement": "left",
+        "text": "Control: identidad y consentimiento verificables.",
+        "noteType": "control",
+        "afterSequence": 1
+      },
+      {
+        "id": "note-evidence-1",
+        "participantInstanceIds": [
+          "p-trabajador"
+        ],
+        "placement": "right",
+        "text": "Evidencia: expediente, folio y acuses.",
+        "noteType": "evidence",
+        "afterSequence": 16
+      }
+    ],
+    "fragments": [
+      {
+        "id": "frag-1",
+        "fragmentType": "alt",
+        "label": "Excepciones",
+        "startSequence": 15,
+        "endSequence": 16,
+        "branches": [
+          {
+            "id": "branch-0",
+            "label": "Fallo de conexión",
+            "startSequence": 16,
+            "endSequence": 16
+          }
+        ]
+      }
+    ]
   },
   "RAIA-BS-0016": {
     "scenarioId": "RAIA-BS-0016",
     "version": "0.2.0",
     "title": "Identificación de cuentas potencialmente elegibles",
     "description": "Identificación de cuentas potencialmente elegibles",
-    "participants": [],
-    "messages": [],
-    "activations": [],
-    "notes": [],
-    "fragments": [],
     "status": "proposed",
-    "regulatoryValidationStatus": "pending"
+    "regulatoryValidationStatus": "pending",
+    "participants": [
+      {
+        "instanceId": "p-consar",
+        "participantType": "service-domain",
+        "label": "CONSAR",
+        "order": 1
+      },
+      {
+        "instanceId": "p-bdnsar",
+        "participantType": "service-domain",
+        "label": "BDNSAR",
+        "order": 2
+      },
+      {
+        "instanceId": "p-registro-maestr",
+        "participantType": "service-domain",
+        "label": "Registro Maestro de Cuentas",
+        "order": 3
+      },
+      {
+        "instanceId": "p-identificaci-n-",
+        "participantType": "service-domain",
+        "label": "Identificación de Cuentas Elegibles",
+        "order": 4
+      },
+      {
+        "instanceId": "p-datos-del-traba",
+        "participantType": "service-domain",
+        "label": "Datos del Trabajador",
+        "order": 5
+      },
+      {
+        "instanceId": "p-imss",
+        "participantType": "service-domain",
+        "label": "IMSS",
+        "order": 6
+      },
+      {
+        "instanceId": "p-issste",
+        "participantType": "service-domain",
+        "label": "ISSSTE",
+        "order": 7
+      },
+      {
+        "instanceId": "p-afore",
+        "participantType": "service-domain",
+        "label": "AFORE",
+        "order": 8
+      },
+      {
+        "instanceId": "p-fondo-de-pensio",
+        "participantType": "service-domain",
+        "label": "Fondo de Pensiones para el Bienestar",
+        "order": 9
+      },
+      {
+        "instanceId": "p-supervisi-n-reg",
+        "participantType": "service-domain",
+        "label": "Supervisión Regulatoria",
+        "order": 10
+      },
+      {
+        "instanceId": "p-notificaciones",
+        "participantType": "service-domain",
+        "label": "Notificaciones",
+        "order": 11
+      },
+      {
+        "instanceId": "p-identificaci-n",
+        "participantType": "service-domain",
+        "label": "identificaci n",
+        "order": 12
+      },
+      {
+        "instanceId": "p-imss-issste",
+        "participantType": "service-domain",
+        "label": "imss issste",
+        "order": 13
+      },
+      {
+        "instanceId": "p-supervisi-n",
+        "participantType": "service-domain",
+        "label": "supervisi n",
+        "order": 14
+      },
+      {
+        "instanceId": "p-fondo",
+        "participantType": "service-domain",
+        "label": "fondo",
+        "order": 15
+      }
+    ],
+    "messages": [
+      {
+        "id": "RAIA-BS-0016-MSG-01",
+        "scenarioStepId": "RAIA-BS-0016-STEP-01",
+        "sequence": 1,
+        "sourceParticipantInstanceId": "p-consar",
+        "targetParticipantInstanceId": "p-identificaci-n-",
+        "label": "Iniciar ciclo.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre CONSAR y Identificación de Cuentas Elegibles."
+      },
+      {
+        "id": "RAIA-BS-0016-MSG-02",
+        "scenarioStepId": "RAIA-BS-0016-STEP-02",
+        "sequence": 2,
+        "sourceParticipantInstanceId": "p-identificaci-n",
+        "targetParticipantInstanceId": "p-bdnsar",
+        "label": "Solicitar universo candidato.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Identificación y BDNSAR."
+      },
+      {
+        "id": "RAIA-BS-0016-MSG-03",
+        "scenarioStepId": "RAIA-BS-0016-STEP-03",
+        "sequence": 3,
+        "sourceParticipantInstanceId": "p-bdnsar",
+        "targetParticipantInstanceId": "p-registro-maestr",
+        "label": "Recuperar cuentas.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre BDNSAR y Registro Maestro."
+      },
+      {
+        "id": "RAIA-BS-0016-MSG-04",
+        "scenarioStepId": "RAIA-BS-0016-STEP-04",
+        "sequence": 4,
+        "sourceParticipantInstanceId": "p-registro-maestr",
+        "targetParticipantInstanceId": "p-bdnsar",
+        "label": "Entregar cuentas.",
+        "messageType": "response",
+        "description": "Interacción entre Registro Maestro y BDNSAR."
+      },
+      {
+        "id": "RAIA-BS-0016-MSG-05",
+        "scenarioStepId": "RAIA-BS-0016-STEP-05",
+        "sequence": 5,
+        "sourceParticipantInstanceId": "p-bdnsar",
+        "targetParticipantInstanceId": "p-identificaci-n",
+        "label": "Entregar universo.",
+        "messageType": "response",
+        "description": "Interacción entre BDNSAR y Identificación."
+      },
+      {
+        "id": "RAIA-BS-0016-MSG-06",
+        "scenarioStepId": "RAIA-BS-0016-STEP-06",
+        "sequence": 6,
+        "sourceParticipantInstanceId": "p-identificaci-n",
+        "targetParticipantInstanceId": "p-datos-del-traba",
+        "label": "Recuperar información.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Identificación y Datos del Trabajador."
+      },
+      {
+        "id": "RAIA-BS-0016-MSG-07",
+        "scenarioStepId": "RAIA-BS-0016-STEP-07",
+        "sequence": 7,
+        "sourceParticipantInstanceId": "p-identificaci-n",
+        "targetParticipantInstanceId": "p-imss",
+        "label": "Consultar estado.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Identificación y IMSS."
+      },
+      {
+        "id": "RAIA-BS-0016-MSG-08",
+        "scenarioStepId": "RAIA-BS-0016-STEP-08",
+        "sequence": 8,
+        "sourceParticipantInstanceId": "p-identificaci-n",
+        "targetParticipantInstanceId": "p-issste",
+        "label": "Consultar estado.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Identificación y ISSSTE."
+      },
+      {
+        "id": "RAIA-BS-0016-MSG-09",
+        "scenarioStepId": "RAIA-BS-0016-STEP-09",
+        "sequence": 9,
+        "sourceParticipantInstanceId": "p-imss-issste",
+        "targetParticipantInstanceId": "p-identificaci-n",
+        "label": "Entregar información.",
+        "messageType": "response",
+        "description": "Interacción entre IMSS/ISSSTE y Identificación."
+      },
+      {
+        "id": "RAIA-BS-0016-MSG-10",
+        "scenarioStepId": "RAIA-BS-0016-STEP-10",
+        "sequence": 10,
+        "sourceParticipantInstanceId": "p-identificaci-n",
+        "targetParticipantInstanceId": "p-afore",
+        "label": "Consultar situación de la cuenta.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Identificación y AFORE."
+      },
+      {
+        "id": "RAIA-BS-0016-MSG-11",
+        "scenarioStepId": "RAIA-BS-0016-STEP-11",
+        "sequence": 11,
+        "sourceParticipantInstanceId": "p-afore",
+        "targetParticipantInstanceId": "p-identificaci-n",
+        "label": "Entregar estado y saldos.",
+        "messageType": "response",
+        "description": "Interacción entre AFORE y Identificación."
+      },
+      {
+        "id": "RAIA-BS-0016-MSG-12",
+        "scenarioStepId": "RAIA-BS-0016-STEP-12",
+        "sequence": 12,
+        "sourceParticipantInstanceId": "p-identificaci-n",
+        "targetParticipantInstanceId": "p-identificaci-n",
+        "label": "Evaluar parámetros vigentes.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Identificación y Identificación."
+      },
+      {
+        "id": "RAIA-BS-0016-MSG-13",
+        "scenarioStepId": "RAIA-BS-0016-STEP-13",
+        "sequence": 13,
+        "sourceParticipantInstanceId": "p-identificaci-n",
+        "targetParticipantInstanceId": "p-supervisi-n-reg",
+        "label": "Presentar lista controlada.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Identificación y Supervisión Regulatoria."
+      },
+      {
+        "id": "RAIA-BS-0016-MSG-14",
+        "scenarioStepId": "RAIA-BS-0016-STEP-14",
+        "sequence": 14,
+        "sourceParticipantInstanceId": "p-supervisi-n",
+        "targetParticipantInstanceId": "p-identificaci-n",
+        "label": "Aprobar o solicitar revisión.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Supervisión y Identificación."
+      },
+      {
+        "id": "RAIA-BS-0016-MSG-15",
+        "scenarioStepId": "RAIA-BS-0016-STEP-15",
+        "sequence": 15,
+        "sourceParticipantInstanceId": "p-identificaci-n",
+        "targetParticipantInstanceId": "p-fondo",
+        "label": "Informar cuentas potenciales.",
+        "messageType": "response",
+        "description": "Interacción entre Identificación y Fondo."
+      },
+      {
+        "id": "RAIA-BS-0016-MSG-16",
+        "scenarioStepId": "RAIA-BS-0016-STEP-16",
+        "sequence": 16,
+        "sourceParticipantInstanceId": "p-identificaci-n",
+        "targetParticipantInstanceId": "p-notificaciones",
+        "label": "Registrar comunicaciones.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Identificación y Notificaciones."
+      }
+    ],
+    "activations": [
+      {
+        "id": "act-1",
+        "participantInstanceId": "p-identificaci-n-",
+        "startSequence": 1,
+        "endSequence": 16,
+        "depth": 0,
+        "activationType": "processing"
+      }
+    ],
+    "notes": [
+      {
+        "id": "note-control-1",
+        "participantInstanceIds": [
+          "p-consar"
+        ],
+        "placement": "left",
+        "text": "Control: identidad y consentimiento verificables.",
+        "noteType": "control",
+        "afterSequence": 1
+      },
+      {
+        "id": "note-evidence-1",
+        "participantInstanceIds": [
+          "p-notificaciones"
+        ],
+        "placement": "right",
+        "text": "Evidencia: expediente, folio y acuses.",
+        "noteType": "evidence",
+        "afterSequence": 16
+      }
+    ],
+    "fragments": [
+      {
+        "id": "frag-1",
+        "fragmentType": "alt",
+        "label": "Condiciones de Negocio",
+        "startSequence": 14,
+        "endSequence": 16,
+        "branches": [
+          {
+            "id": "branch-0",
+            "label": "Cuenta potencialmente elegible",
+            "startSequence": 15,
+            "endSequence": 16
+          },
+          {
+            "id": "branch-1",
+            "label": "Cuenta excluida",
+            "startSequence": 15,
+            "endSequence": 16
+          },
+          {
+            "id": "branch-2",
+            "label": "Información incompleta",
+            "startSequence": 15,
+            "endSequence": 16
+          },
+          {
+            "id": "branch-3",
+            "label": "Cuenta reclamada",
+            "startSequence": 15,
+            "endSequence": 16
+          },
+          {
+            "id": "branch-4",
+            "label": "Proceso pensionario activo",
+            "startSequence": 15,
+            "endSequence": 16
+          }
+        ]
+      }
+    ]
   },
   "RAIA-BS-0017": {
     "scenarioId": "RAIA-BS-0017",
     "version": "0.2.0",
     "title": "Transferencia de recursos al Fondo",
     "description": "Transferencia de recursos al Fondo",
-    "participants": [],
-    "messages": [],
-    "activations": [],
-    "notes": [],
-    "fragments": [],
     "status": "proposed",
-    "regulatoryValidationStatus": "pending"
+    "regulatoryValidationStatus": "pending",
+    "participants": [
+      {
+        "instanceId": "p-identificaci-n-",
+        "participantType": "service-domain",
+        "label": "Identificación de Cuentas Elegibles",
+        "order": 1
+      },
+      {
+        "instanceId": "p-afore",
+        "participantType": "service-domain",
+        "label": "AFORE",
+        "order": 2
+      },
+      {
+        "instanceId": "p-administraci-n-",
+        "participantType": "service-domain",
+        "label": "Administración de Cuenta Individual",
+        "order": 3
+      },
+      {
+        "instanceId": "p-desinversi-n-de",
+        "participantType": "service-domain",
+        "label": "Desinversión de Recursos",
+        "order": 4
+      },
+      {
+        "instanceId": "p-transferencia-a",
+        "participantType": "service-domain",
+        "label": "Transferencia al Fondo",
+        "order": 5
+      },
+      {
+        "instanceId": "p-instituci-n-fin",
+        "participantType": "service-domain",
+        "label": "Institución Financiera",
+        "order": 6
+      },
+      {
+        "instanceId": "p-fondo-de-pensio",
+        "participantType": "service-domain",
+        "label": "Fondo de Pensiones para el Bienestar",
+        "order": 7
+      },
+      {
+        "instanceId": "p-bdnsar",
+        "participantType": "service-domain",
+        "label": "BDNSAR",
+        "order": 8
+      },
+      {
+        "instanceId": "p-conciliaci-n",
+        "participantType": "service-domain",
+        "label": "Conciliación",
+        "order": 9
+      },
+      {
+        "instanceId": "p-informaci-n-reg",
+        "participantType": "service-domain",
+        "label": "Información Regulatoria",
+        "order": 10
+      },
+      {
+        "instanceId": "p-notificaciones",
+        "participantType": "service-domain",
+        "label": "Notificaciones",
+        "order": 11
+      },
+      {
+        "instanceId": "p-identificaci-n",
+        "participantType": "service-domain",
+        "label": "identificaci n",
+        "order": 12
+      },
+      {
+        "instanceId": "p-desinversi-n",
+        "participantType": "service-domain",
+        "label": "desinversi n",
+        "order": 13
+      },
+      {
+        "instanceId": "p-transferencia",
+        "participantType": "service-domain",
+        "label": "transferencia",
+        "order": 14
+      },
+      {
+        "instanceId": "p-fondo",
+        "participantType": "service-domain",
+        "label": "fondo",
+        "order": 15
+      }
+    ],
+    "messages": [
+      {
+        "id": "RAIA-BS-0017-MSG-01",
+        "scenarioStepId": "RAIA-BS-0017-STEP-01",
+        "sequence": 1,
+        "sourceParticipantInstanceId": "p-identificaci-n",
+        "targetParticipantInstanceId": "p-afore",
+        "label": "Emitir instrucción autorizada.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Identificación y AFORE."
+      },
+      {
+        "id": "RAIA-BS-0017-MSG-02",
+        "scenarioStepId": "RAIA-BS-0017-STEP-02",
+        "sequence": 2,
+        "sourceParticipantInstanceId": "p-afore",
+        "targetParticipantInstanceId": "p-administraci-n-",
+        "label": "Validar estado actual.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre AFORE y Administración de Cuenta."
+      },
+      {
+        "id": "RAIA-BS-0017-MSG-03",
+        "scenarioStepId": "RAIA-BS-0017-STEP-03",
+        "sequence": 3,
+        "sourceParticipantInstanceId": "p-administraci-n-",
+        "targetParticipantInstanceId": "p-afore",
+        "label": "Confirmar condición.",
+        "messageType": "response",
+        "description": "Interacción entre Administración de Cuenta y AFORE."
+      },
+      {
+        "id": "RAIA-BS-0017-MSG-04",
+        "scenarioStepId": "RAIA-BS-0017-STEP-04",
+        "sequence": 4,
+        "sourceParticipantInstanceId": "p-afore",
+        "targetParticipantInstanceId": "p-administraci-n-",
+        "label": "Determinar saldo elegible.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre AFORE y Administración de Cuenta."
+      },
+      {
+        "id": "RAIA-BS-0017-MSG-05",
+        "scenarioStepId": "RAIA-BS-0017-STEP-05",
+        "sequence": 5,
+        "sourceParticipantInstanceId": "p-afore",
+        "targetParticipantInstanceId": "p-desinversi-n",
+        "label": "Solicitar liberación de recursos.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre AFORE y Desinversión."
+      },
+      {
+        "id": "RAIA-BS-0017-MSG-06",
+        "scenarioStepId": "RAIA-BS-0017-STEP-06",
+        "sequence": 6,
+        "sourceParticipantInstanceId": "p-desinversi-n",
+        "targetParticipantInstanceId": "p-transferencia-a",
+        "label": "Entregar monto.",
+        "messageType": "response",
+        "description": "Interacción entre Desinversión y Transferencia al Fondo."
+      },
+      {
+        "id": "RAIA-BS-0017-MSG-07",
+        "scenarioStepId": "RAIA-BS-0017-STEP-07",
+        "sequence": 7,
+        "sourceParticipantInstanceId": "p-transferencia",
+        "targetParticipantInstanceId": "p-instituci-n-fin",
+        "label": "Instruir liquidación.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Transferencia y Institución Financiera."
+      },
+      {
+        "id": "RAIA-BS-0017-MSG-08",
+        "scenarioStepId": "RAIA-BS-0017-STEP-08",
+        "sequence": 8,
+        "sourceParticipantInstanceId": "p-instituci-n-fin",
+        "targetParticipantInstanceId": "p-fondo",
+        "label": "Transferir recursos.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Institución Financiera y Fondo."
+      },
+      {
+        "id": "RAIA-BS-0017-MSG-09",
+        "scenarioStepId": "RAIA-BS-0017-STEP-09",
+        "sequence": 9,
+        "sourceParticipantInstanceId": "p-fondo",
+        "targetParticipantInstanceId": "p-transferencia",
+        "label": "Confirmar recepción.",
+        "messageType": "response",
+        "description": "Interacción entre Fondo y Transferencia."
+      },
+      {
+        "id": "RAIA-BS-0017-MSG-10",
+        "scenarioStepId": "RAIA-BS-0017-STEP-10",
+        "sequence": 10,
+        "sourceParticipantInstanceId": "p-transferencia",
+        "targetParticipantInstanceId": "p-administraci-n-",
+        "label": "Registrar disposición.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Transferencia y Administración de Cuenta."
+      },
+      {
+        "id": "RAIA-BS-0017-MSG-11",
+        "scenarioStepId": "RAIA-BS-0017-STEP-11",
+        "sequence": 11,
+        "sourceParticipantInstanceId": "p-transferencia",
+        "targetParticipantInstanceId": "p-bdnsar",
+        "label": "Actualizar estado.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Transferencia y BDNSAR."
+      },
+      {
+        "id": "RAIA-BS-0017-MSG-12",
+        "scenarioStepId": "RAIA-BS-0017-STEP-12",
+        "sequence": 12,
+        "sourceParticipantInstanceId": "p-transferencia",
+        "targetParticipantInstanceId": "p-conciliaci-n",
+        "label": "Conciliar monto.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Transferencia y Conciliación."
+      },
+      {
+        "id": "RAIA-BS-0017-MSG-13",
+        "scenarioStepId": "RAIA-BS-0017-STEP-13",
+        "sequence": 13,
+        "sourceParticipantInstanceId": "p-conciliaci-n",
+        "targetParticipantInstanceId": "p-transferencia",
+        "label": "Confirmar cierre.",
+        "messageType": "response",
+        "description": "Interacción entre Conciliación y Transferencia."
+      },
+      {
+        "id": "RAIA-BS-0017-MSG-14",
+        "scenarioStepId": "RAIA-BS-0017-STEP-14",
+        "sequence": 14,
+        "sourceParticipantInstanceId": "p-transferencia",
+        "targetParticipantInstanceId": "p-informaci-n-reg",
+        "label": "Reportar operación.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Transferencia y Información Regulatoria."
+      },
+      {
+        "id": "RAIA-BS-0017-MSG-15",
+        "scenarioStepId": "RAIA-BS-0017-STEP-15",
+        "sequence": 15,
+        "sourceParticipantInstanceId": "p-transferencia",
+        "targetParticipantInstanceId": "p-notificaciones",
+        "label": "Emitir comunicación.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Transferencia y Notificaciones."
+      }
+    ],
+    "activations": [
+      {
+        "id": "act-1",
+        "participantInstanceId": "p-afore",
+        "startSequence": 1,
+        "endSequence": 15,
+        "depth": 0,
+        "activationType": "processing"
+      }
+    ],
+    "notes": [
+      {
+        "id": "note-control-1",
+        "participantInstanceIds": [
+          "p-identificaci-n"
+        ],
+        "placement": "left",
+        "text": "Control: identidad y consentimiento verificables.",
+        "noteType": "control",
+        "afterSequence": 1
+      },
+      {
+        "id": "note-evidence-1",
+        "participantInstanceIds": [
+          "p-notificaciones"
+        ],
+        "placement": "right",
+        "text": "Evidencia: expediente, folio y acuses.",
+        "noteType": "evidence",
+        "afterSequence": 15
+      }
+    ],
+    "fragments": [
+      {
+        "id": "frag-1",
+        "fragmentType": "alt",
+        "label": "Excepciones",
+        "startSequence": 14,
+        "endSequence": 15,
+        "branches": [
+          {
+            "id": "branch-0",
+            "label": "Fallo de conexión",
+            "startSequence": 15,
+            "endSequence": 15
+          }
+        ]
+      }
+    ]
   },
   "RAIA-BS-0018": {
     "scenarioId": "RAIA-BS-0018",
     "version": "0.2.0",
     "title": "Cálculo y gestión del complemento de pensión",
     "description": "Cálculo y gestión del complemento de pensión",
-    "participants": [],
-    "messages": [],
-    "activations": [],
-    "notes": [],
-    "fragments": [],
     "status": "proposed",
-    "regulatoryValidationStatus": "pending"
+    "regulatoryValidationStatus": "pending",
+    "participants": [
+      {
+        "instanceId": "p-pensionado",
+        "participantType": "service-domain",
+        "label": "Pensionado",
+        "order": 1
+      },
+      {
+        "instanceId": "p-resoluci-n-de-p",
+        "participantType": "service-domain",
+        "label": "Resolución de Pensión",
+        "order": 2
+      },
+      {
+        "instanceId": "p-imss",
+        "participantType": "service-domain",
+        "label": "IMSS",
+        "order": 3
+      },
+      {
+        "instanceId": "p-issste",
+        "participantType": "service-domain",
+        "label": "ISSSTE",
+        "order": 4
+      },
+      {
+        "instanceId": "p-validaci-n-de-e",
+        "participantType": "service-domain",
+        "label": "Validación de Elegibilidad",
+        "order": 5
+      },
+      {
+        "instanceId": "p-fondo-de-pensio",
+        "participantType": "service-domain",
+        "label": "Fondo de Pensiones para el Bienestar",
+        "order": 6
+      },
+      {
+        "instanceId": "p-c-lculo-de-comp",
+        "participantType": "service-domain",
+        "label": "Cálculo de Complemento",
+        "order": 7
+      },
+      {
+        "instanceId": "p-autorizaci-n-de",
+        "participantType": "service-domain",
+        "label": "Autorización de Complemento",
+        "order": 8
+      },
+      {
+        "instanceId": "p-gesti-n-de-pago",
+        "participantType": "service-domain",
+        "label": "Gestión de Pagos",
+        "order": 9
+      },
+      {
+        "instanceId": "p-instituci-n-fin",
+        "participantType": "service-domain",
+        "label": "Institución Financiera",
+        "order": 10
+      },
+      {
+        "instanceId": "p-conciliaci-n",
+        "participantType": "service-domain",
+        "label": "Conciliación",
+        "order": 11
+      },
+      {
+        "instanceId": "p-informaci-n-reg",
+        "participantType": "service-domain",
+        "label": "Información Regulatoria",
+        "order": 12
+      },
+      {
+        "instanceId": "p-notificaciones",
+        "participantType": "service-domain",
+        "label": "Notificaciones",
+        "order": 13
+      },
+      {
+        "instanceId": "p-validaci-n",
+        "participantType": "service-domain",
+        "label": "validaci n",
+        "order": 14
+      },
+      {
+        "instanceId": "p-imss-issste",
+        "participantType": "service-domain",
+        "label": "imss issste",
+        "order": 15
+      },
+      {
+        "instanceId": "p-fondo",
+        "participantType": "service-domain",
+        "label": "fondo",
+        "order": 16
+      },
+      {
+        "instanceId": "p-c-lculo",
+        "participantType": "service-domain",
+        "label": "c lculo",
+        "order": 17
+      },
+      {
+        "instanceId": "p-autorizaci-n",
+        "participantType": "service-domain",
+        "label": "autorizaci n",
+        "order": 18
+      }
+    ],
+    "messages": [
+      {
+        "id": "RAIA-BS-0018-MSG-01",
+        "scenarioStepId": "RAIA-BS-0018-STEP-01",
+        "sequence": 1,
+        "sourceParticipantInstanceId": "p-resoluci-n-de-p",
+        "targetParticipantInstanceId": "p-validaci-n",
+        "label": "Solicitar evaluación.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Resolución de Pensión y Validación."
+      },
+      {
+        "id": "RAIA-BS-0018-MSG-02",
+        "scenarioStepId": "RAIA-BS-0018-STEP-02",
+        "sequence": 2,
+        "sourceParticipantInstanceId": "p-validaci-n",
+        "targetParticipantInstanceId": "p-imss",
+        "label": "Consultar información pensionaria.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Validación y IMSS."
+      },
+      {
+        "id": "RAIA-BS-0018-MSG-03",
+        "scenarioStepId": "RAIA-BS-0018-STEP-03",
+        "sequence": 3,
+        "sourceParticipantInstanceId": "p-validaci-n",
+        "targetParticipantInstanceId": "p-issste",
+        "label": "Consultar información cuando aplique.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Validación y ISSSTE."
+      },
+      {
+        "id": "RAIA-BS-0018-MSG-04",
+        "scenarioStepId": "RAIA-BS-0018-STEP-04",
+        "sequence": 4,
+        "sourceParticipantInstanceId": "p-imss-issste",
+        "targetParticipantInstanceId": "p-validaci-n",
+        "label": "Entregar información.",
+        "messageType": "response",
+        "description": "Interacción entre IMSS/ISSSTE y Validación."
+      },
+      {
+        "id": "RAIA-BS-0018-MSG-05",
+        "scenarioStepId": "RAIA-BS-0018-STEP-05",
+        "sequence": 5,
+        "sourceParticipantInstanceId": "p-validaci-n",
+        "targetParticipantInstanceId": "p-fondo",
+        "label": "Consultar parámetros vigentes.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Validación y Fondo."
+      },
+      {
+        "id": "RAIA-BS-0018-MSG-06",
+        "scenarioStepId": "RAIA-BS-0018-STEP-06",
+        "sequence": 6,
+        "sourceParticipantInstanceId": "p-fondo",
+        "targetParticipantInstanceId": "p-validaci-n",
+        "label": "Entregar parámetros.",
+        "messageType": "response",
+        "description": "Interacción entre Fondo y Validación."
+      },
+      {
+        "id": "RAIA-BS-0018-MSG-07",
+        "scenarioStepId": "RAIA-BS-0018-STEP-07",
+        "sequence": 7,
+        "sourceParticipantInstanceId": "p-validaci-n",
+        "targetParticipantInstanceId": "p-c-lculo-de-comp",
+        "label": "Solicitar cálculo.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Validación y Cálculo de Complemento."
+      },
+      {
+        "id": "RAIA-BS-0018-MSG-08",
+        "scenarioStepId": "RAIA-BS-0018-STEP-08",
+        "sequence": 8,
+        "sourceParticipantInstanceId": "p-c-lculo",
+        "targetParticipantInstanceId": "p-c-lculo",
+        "label": "Aplicar parámetros y validaciones.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Cálculo y Cálculo."
+      },
+      {
+        "id": "RAIA-BS-0018-MSG-09",
+        "scenarioStepId": "RAIA-BS-0018-STEP-09",
+        "sequence": 9,
+        "sourceParticipantInstanceId": "p-c-lculo",
+        "targetParticipantInstanceId": "p-autorizaci-n",
+        "label": "Presentar resultado.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Cálculo y Autorización."
+      },
+      {
+        "id": "RAIA-BS-0018-MSG-10",
+        "scenarioStepId": "RAIA-BS-0018-STEP-10",
+        "sequence": 10,
+        "sourceParticipantInstanceId": "p-autorizaci-n",
+        "targetParticipantInstanceId": "p-c-lculo",
+        "label": "Aprobar o rechazar.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Autorización y Cálculo."
+      },
+      {
+        "id": "RAIA-BS-0018-MSG-11",
+        "scenarioStepId": "RAIA-BS-0018-STEP-11",
+        "sequence": 11,
+        "sourceParticipantInstanceId": "p-c-lculo",
+        "targetParticipantInstanceId": "p-gesti-n-de-pago",
+        "label": "Configurar pago.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Cálculo y Gestión de Pagos."
+      },
+      {
+        "id": "RAIA-BS-0018-MSG-12",
+        "scenarioStepId": "RAIA-BS-0018-STEP-12",
+        "sequence": 12,
+        "sourceParticipantInstanceId": "p-gesti-n-de-pago",
+        "targetParticipantInstanceId": "p-instituci-n-fin",
+        "label": "Ejecutar complemento.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Pagos y Institución Financiera."
+      },
+      {
+        "id": "RAIA-BS-0018-MSG-13",
+        "scenarioStepId": "RAIA-BS-0018-STEP-13",
+        "sequence": 13,
+        "sourceParticipantInstanceId": "p-instituci-n-fin",
+        "targetParticipantInstanceId": "p-gesti-n-de-pago",
+        "label": "Confirmar pago.",
+        "messageType": "response",
+        "description": "Interacción entre Institución Financiera y Gestión de Pagos."
+      },
+      {
+        "id": "RAIA-BS-0018-MSG-14",
+        "scenarioStepId": "RAIA-BS-0018-STEP-14",
+        "sequence": 14,
+        "sourceParticipantInstanceId": "p-gesti-n-de-pago",
+        "targetParticipantInstanceId": "p-conciliaci-n",
+        "label": "Conciliar operación.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Pagos y Conciliación."
+      },
+      {
+        "id": "RAIA-BS-0018-MSG-15",
+        "scenarioStepId": "RAIA-BS-0018-STEP-15",
+        "sequence": 15,
+        "sourceParticipantInstanceId": "p-conciliaci-n",
+        "targetParticipantInstanceId": "p-informaci-n-reg",
+        "label": "Registrar resultado.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Conciliación y Información Regulatoria."
+      },
+      {
+        "id": "RAIA-BS-0018-MSG-16",
+        "scenarioStepId": "RAIA-BS-0018-STEP-16",
+        "sequence": 16,
+        "sourceParticipantInstanceId": "p-gesti-n-de-pago",
+        "targetParticipantInstanceId": "p-notificaciones",
+        "label": "Comunicar pago.",
+        "messageType": "synchronous-command",
+        "description": "Interacción entre Gestión de Pagos y Notificaciones."
+      },
+      {
+        "id": "RAIA-BS-0018-MSG-17",
+        "scenarioStepId": "RAIA-BS-0018-STEP-17",
+        "sequence": 17,
+        "sourceParticipantInstanceId": "p-notificaciones",
+        "targetParticipantInstanceId": "p-pensionado",
+        "label": "Informar complemento.",
+        "messageType": "response",
+        "description": "Interacción entre Notificaciones y Pensionado."
+      }
+    ],
+    "activations": [
+      {
+        "id": "act-1",
+        "participantInstanceId": "p-validaci-n",
+        "startSequence": 1,
+        "endSequence": 17,
+        "depth": 0,
+        "activationType": "processing"
+      }
+    ],
+    "notes": [
+      {
+        "id": "note-control-1",
+        "participantInstanceIds": [
+          "p-resoluci-n-de-p"
+        ],
+        "placement": "left",
+        "text": "Control: identidad y consentimiento verificables.",
+        "noteType": "control",
+        "afterSequence": 1
+      },
+      {
+        "id": "note-evidence-1",
+        "participantInstanceIds": [
+          "p-pensionado"
+        ],
+        "placement": "right",
+        "text": "Evidencia: expediente, folio y acuses.",
+        "noteType": "evidence",
+        "afterSequence": 17
+      }
+    ],
+    "fragments": [
+      {
+        "id": "frag-1",
+        "fragmentType": "alt",
+        "label": "Condiciones de Negocio",
+        "startSequence": 15,
+        "endSequence": 17,
+        "branches": [
+          {
+            "id": "branch-0",
+            "label": "Complemento procedente",
+            "startSequence": 16,
+            "endSequence": 17
+          },
+          {
+            "id": "branch-1",
+            "label": "No existe diferencia",
+            "startSequence": 16,
+            "endSequence": 17
+          },
+          {
+            "id": "branch-2",
+            "label": "Información inconsistente",
+            "startSequence": 16,
+            "endSequence": 17
+          },
+          {
+            "id": "branch-3",
+            "label": "Revisión manual requerida",
+            "startSequence": 16,
+            "endSequence": 17
+          },
+          {
+            "id": "branch-4",
+            "label": "Pago rechazado",
+            "startSequence": 16,
+            "endSequence": 17
+          }
+        ]
+      }
+    ]
   }
 }

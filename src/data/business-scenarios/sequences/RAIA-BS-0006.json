@@ -3,11 +3,343 @@
   "version": "0.2.0",
   "title": "Unificación de cuentas duplicadas",
   "description": "Unificación de cuentas duplicadas",
-  "participants": [],
-  "messages": [],
-  "activations": [],
-  "notes": [],
-  "fragments": [],
   "status": "proposed",
-  "regulatoryValidationStatus": "pending"
+  "regulatoryValidationStatus": "pending",
+  "participants": [
+    {
+      "instanceId": "p-trabajador",
+      "participantType": "service-domain",
+      "label": "Trabajador",
+      "order": 1
+    },
+    {
+      "instanceId": "p-gesti-n-de-soli",
+      "participantType": "service-domain",
+      "label": "Gestión de Solicitudes",
+      "order": 2
+    },
+    {
+      "instanceId": "p-resoluci-n-de-i",
+      "participantType": "service-domain",
+      "label": "Resolución de Identidad",
+      "order": 3
+    },
+    {
+      "instanceId": "p-gesti-n-de-iden",
+      "participantType": "service-domain",
+      "label": "Gestión de Identificadores",
+      "order": 4
+    },
+    {
+      "instanceId": "p-bdnsar",
+      "participantType": "service-domain",
+      "label": "BDNSAR",
+      "order": 5
+    },
+    {
+      "instanceId": "p-unificaci-n-de-",
+      "participantType": "service-domain",
+      "label": "Unificación de Cuentas",
+      "order": 6
+    },
+    {
+      "instanceId": "p-imss",
+      "participantType": "service-domain",
+      "label": "IMSS",
+      "order": 7
+    },
+    {
+      "instanceId": "p-issste",
+      "participantType": "service-domain",
+      "label": "ISSSTE",
+      "order": 8
+    },
+    {
+      "instanceId": "p-afore-involucra",
+      "participantType": "service-domain",
+      "label": "AFORE involucradas",
+      "order": 9
+    },
+    {
+      "instanceId": "p-conciliaci-n-de",
+      "participantType": "service-domain",
+      "label": "Conciliación de Cuenta",
+      "order": 10
+    },
+    {
+      "instanceId": "p-libro-mayor",
+      "participantType": "service-domain",
+      "label": "Libro Mayor",
+      "order": 11
+    },
+    {
+      "instanceId": "p-notificaciones",
+      "participantType": "service-domain",
+      "label": "Notificaciones",
+      "order": 12
+    },
+    {
+      "instanceId": "p-resoluci-n",
+      "participantType": "service-domain",
+      "label": "resoluci n",
+      "order": 13
+    },
+    {
+      "instanceId": "p-unificaci-n",
+      "participantType": "service-domain",
+      "label": "unificaci n",
+      "order": 14
+    },
+    {
+      "instanceId": "p-afore",
+      "participantType": "service-domain",
+      "label": "afore",
+      "order": 15
+    },
+    {
+      "instanceId": "p-conciliaci-n",
+      "participantType": "service-domain",
+      "label": "conciliaci n",
+      "order": 16
+    }
+  ],
+  "messages": [
+    {
+      "id": "RAIA-BS-0006-MSG-01",
+      "scenarioStepId": "RAIA-BS-0006-STEP-01",
+      "sequence": 1,
+      "sourceParticipantInstanceId": "p-trabajador",
+      "targetParticipantInstanceId": "p-gesti-n-de-soli",
+      "label": "Solicitar unificación.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Trabajador y Gestión de Solicitudes."
+    },
+    {
+      "id": "RAIA-BS-0006-MSG-02",
+      "scenarioStepId": "RAIA-BS-0006-STEP-02",
+      "sequence": 2,
+      "sourceParticipantInstanceId": "p-gesti-n-de-soli",
+      "targetParticipantInstanceId": "p-resoluci-n-de-i",
+      "label": "Validar persona.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Gestión de Solicitudes y Resolución de Identidad."
+    },
+    {
+      "id": "RAIA-BS-0006-MSG-03",
+      "scenarioStepId": "RAIA-BS-0006-STEP-03",
+      "sequence": 3,
+      "sourceParticipantInstanceId": "p-resoluci-n",
+      "targetParticipantInstanceId": "p-gesti-n-de-iden",
+      "label": "Comparar CURP, NSS y RFC.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Resolución y Gestión de Identificadores."
+    },
+    {
+      "id": "RAIA-BS-0006-MSG-04",
+      "scenarioStepId": "RAIA-BS-0006-STEP-04",
+      "sequence": 4,
+      "sourceParticipantInstanceId": "p-gesti-n-de-iden",
+      "targetParticipantInstanceId": "p-bdnsar",
+      "label": "Consultar cuentas asociadas.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Gestión de Identificadores y BDNSAR."
+    },
+    {
+      "id": "RAIA-BS-0006-MSG-05",
+      "scenarioStepId": "RAIA-BS-0006-STEP-05",
+      "sequence": 5,
+      "sourceParticipantInstanceId": "p-bdnsar",
+      "targetParticipantInstanceId": "p-unificaci-n-de-",
+      "label": "Entregar cuentas candidatas.",
+      "messageType": "response",
+      "description": "Interacción entre BDNSAR y Unificación de Cuentas."
+    },
+    {
+      "id": "RAIA-BS-0006-MSG-06",
+      "scenarioStepId": "RAIA-BS-0006-STEP-06",
+      "sequence": 6,
+      "sourceParticipantInstanceId": "p-unificaci-n",
+      "targetParticipantInstanceId": "p-imss",
+      "label": "Validar información.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Unificación y IMSS."
+    },
+    {
+      "id": "RAIA-BS-0006-MSG-07",
+      "scenarioStepId": "RAIA-BS-0006-STEP-07",
+      "sequence": 7,
+      "sourceParticipantInstanceId": "p-unificaci-n",
+      "targetParticipantInstanceId": "p-issste",
+      "label": "Validar información.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Unificación y ISSSTE."
+    },
+    {
+      "id": "RAIA-BS-0006-MSG-08",
+      "scenarioStepId": "RAIA-BS-0006-STEP-08",
+      "sequence": 8,
+      "sourceParticipantInstanceId": "p-imss",
+      "targetParticipantInstanceId": "p-unificaci-n",
+      "label": "Entregar antecedentes.",
+      "messageType": "response",
+      "description": "Interacción entre IMSS y Unificación."
+    },
+    {
+      "id": "RAIA-BS-0006-MSG-09",
+      "scenarioStepId": "RAIA-BS-0006-STEP-09",
+      "sequence": 9,
+      "sourceParticipantInstanceId": "p-issste",
+      "targetParticipantInstanceId": "p-unificaci-n",
+      "label": "Entregar antecedentes.",
+      "messageType": "response",
+      "description": "Interacción entre ISSSTE y Unificación."
+    },
+    {
+      "id": "RAIA-BS-0006-MSG-10",
+      "scenarioStepId": "RAIA-BS-0006-STEP-10",
+      "sequence": 10,
+      "sourceParticipantInstanceId": "p-unificaci-n",
+      "targetParticipantInstanceId": "p-afore-involucra",
+      "label": "Solicitar movimientos y saldos.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Unificación y AFORE involucradas."
+    },
+    {
+      "id": "RAIA-BS-0006-MSG-11",
+      "scenarioStepId": "RAIA-BS-0006-STEP-11",
+      "sequence": 11,
+      "sourceParticipantInstanceId": "p-afore",
+      "targetParticipantInstanceId": "p-unificaci-n",
+      "label": "Entregar información.",
+      "messageType": "response",
+      "description": "Interacción entre AFORE y Unificación."
+    },
+    {
+      "id": "RAIA-BS-0006-MSG-12",
+      "scenarioStepId": "RAIA-BS-0006-STEP-12",
+      "sequence": 12,
+      "sourceParticipantInstanceId": "p-unificaci-n",
+      "targetParticipantInstanceId": "p-conciliaci-n",
+      "label": "Conciliar recursos.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Unificación y Conciliación."
+    },
+    {
+      "id": "RAIA-BS-0006-MSG-13",
+      "scenarioStepId": "RAIA-BS-0006-STEP-13",
+      "sequence": 13,
+      "sourceParticipantInstanceId": "p-conciliaci-n",
+      "targetParticipantInstanceId": "p-unificaci-n",
+      "label": "Confirmar saldo integrado.",
+      "messageType": "response",
+      "description": "Interacción entre Conciliación y Unificación."
+    },
+    {
+      "id": "RAIA-BS-0006-MSG-14",
+      "scenarioStepId": "RAIA-BS-0006-STEP-14",
+      "sequence": 14,
+      "sourceParticipantInstanceId": "p-unificaci-n",
+      "targetParticipantInstanceId": "p-libro-mayor",
+      "label": "Consolidar movimientos.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Unificación y Libro Mayor."
+    },
+    {
+      "id": "RAIA-BS-0006-MSG-15",
+      "scenarioStepId": "RAIA-BS-0006-STEP-15",
+      "sequence": 15,
+      "sourceParticipantInstanceId": "p-unificaci-n",
+      "targetParticipantInstanceId": "p-bdnsar",
+      "label": "Actualizar cuenta concentradora.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Unificación y BDNSAR."
+    },
+    {
+      "id": "RAIA-BS-0006-MSG-16",
+      "scenarioStepId": "RAIA-BS-0006-STEP-16",
+      "sequence": 16,
+      "sourceParticipantInstanceId": "p-unificaci-n",
+      "targetParticipantInstanceId": "p-notificaciones",
+      "label": "Emitir resultado.",
+      "messageType": "synchronous-command",
+      "description": "Interacción entre Unificación y Notificaciones."
+    },
+    {
+      "id": "RAIA-BS-0006-MSG-17",
+      "scenarioStepId": "RAIA-BS-0006-STEP-17",
+      "sequence": 17,
+      "sourceParticipantInstanceId": "p-notificaciones",
+      "targetParticipantInstanceId": "p-trabajador",
+      "label": "Confirmar unificación.",
+      "messageType": "response",
+      "description": "Interacción entre Notificaciones y Trabajador."
+    }
+  ],
+  "activations": [
+    {
+      "id": "act-1",
+      "participantInstanceId": "p-gesti-n-de-soli",
+      "startSequence": 1,
+      "endSequence": 17,
+      "depth": 0,
+      "activationType": "processing"
+    }
+  ],
+  "notes": [
+    {
+      "id": "note-control-1",
+      "participantInstanceIds": [
+        "p-trabajador"
+      ],
+      "placement": "left",
+      "text": "Control: identidad y consentimiento verificables.",
+      "noteType": "control",
+      "afterSequence": 1
+    },
+    {
+      "id": "note-evidence-1",
+      "participantInstanceIds": [
+        "p-trabajador"
+      ],
+      "placement": "right",
+      "text": "Evidencia: expediente, folio y acuses.",
+      "noteType": "evidence",
+      "afterSequence": 17
+    }
+  ],
+  "fragments": [
+    {
+      "id": "frag-1",
+      "fragmentType": "alt",
+      "label": "Condiciones de Negocio",
+      "startSequence": 15,
+      "endSequence": 17,
+      "branches": [
+        {
+          "id": "branch-0",
+          "label": "Identidad coincidente",
+          "startSequence": 16,
+          "endSequence": 17
+        },
+        {
+          "id": "branch-1",
+          "label": "Evidencia insuficiente",
+          "startSequence": 16,
+          "endSequence": 17
+        },
+        {
+          "id": "branch-2",
+          "label": "Cuentas de personas distintas",
+          "startSequence": 16,
+          "endSequence": 17
+        },
+        {
+          "id": "branch-3",
+          "label": "Diferencia de saldos",
+          "startSequence": 16,
+          "endSequence": 17
+        }
+      ]
+    }
+  ]
 }
