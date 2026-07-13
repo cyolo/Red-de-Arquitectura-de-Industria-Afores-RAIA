@@ -22,10 +22,9 @@ function ValueChainContent() {
 
   const isInitializedRef = React.useRef(false);
 
-  // 1. Sync from URL on mount
+  // 1. Sync filters from URL on mount
   React.useEffect(() => {
     if (!isInitializedRef.current) {
-      const selected = searchParams.get("selected") || null;
       const area = searchParams.get("area") || undefined;
       const domain = searchParams.get("domain") || undefined;
       const actor = searchParams.get("actor") || undefined;
@@ -33,29 +32,45 @@ function ValueChainContent() {
       const maturity = searchParams.get("maturity") || undefined;
       const search = searchParams.get("search") || "";
 
-      if (selected) setSelectedId(selected);
       setFilters({ area, domain, actor, status, maturity });
       if (search) setSearchQuery(search);
 
       isInitializedRef.current = true;
     }
-  }, [searchParams, setSelectedId, setFilters, setSearchQuery]);
+  }, [searchParams, setFilters, setSearchQuery]);
 
-  // 2. Sync to URL on state change
+  // 2. Sync selectedId from URL reactively
+  const urlSelectedId = searchParams.get("selected") || null;
+  React.useEffect(() => {
+    setSelectedId(urlSelectedId);
+  }, [urlSelectedId, setSelectedId]);
+
+  // 3. Sync filters to URL on state change
   React.useEffect(() => {
     if (!isInitializedRef.current) return;
-    const params = new URLSearchParams();
-    if (selectedId) params.set("selected", selectedId);
+    const params = new URLSearchParams(searchParams.toString());
+    
     if (activeFilters.area) params.set("area", activeFilters.area);
+    else params.delete("area");
+    
     if (activeFilters.domain) params.set("domain", activeFilters.domain);
+    else params.delete("domain");
+    
     if (activeFilters.actor) params.set("actor", activeFilters.actor);
+    else params.delete("actor");
+    
     if (activeFilters.status) params.set("status", activeFilters.status);
+    else params.delete("status");
+    
     if (activeFilters.maturity) params.set("maturity", activeFilters.maturity);
+    else params.delete("maturity");
+    
     if (searchQuery) params.set("search", searchQuery);
+    else params.delete("search");
 
     const newUrl = `/service-landscape/value-chain?${params.toString()}`;
     router.replace(newUrl);
-  }, [selectedId, activeFilters, searchQuery, router]);
+  }, [activeFilters, searchQuery, router]);
 
   // Load static data
   const areas = useMemo(() => getBusinessAreas(), []);
@@ -100,7 +115,9 @@ function ValueChainContent() {
   }, [serviceDomains, activeFilters, searchQuery]);
 
   const handleSelectServiceDomain = (id: string) => {
-    setSelectedId(id);
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("selected", id);
+    router.replace(`/service-landscape/value-chain?${params.toString()}`);
   };
 
   // Helper to render a single Business Area

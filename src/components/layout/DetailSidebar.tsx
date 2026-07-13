@@ -19,17 +19,15 @@ export default function DetailSidebar() {
 
   // Close sidebar handler
   const handleClose = () => {
-    setSidebarOpen(false);
-    setSelectedId(null);
     const params = new URLSearchParams(searchParams.toString());
     params.delete("selected");
-    router.push(`/service-landscape/value-chain?${params.toString()}`);
+    router.replace(`/service-landscape/value-chain?${params.toString()}`);
   };
 
   // Synchronize state with URL query param on mount/update
   const urlSelectedId = searchParams.get("selected");
   useEffect(() => {
-    if (urlSelectedId && urlSelectedId !== selectedId) {
+    if (urlSelectedId !== selectedId) {
       setSelectedId(urlSelectedId);
     }
   }, [urlSelectedId, selectedId, setSelectedId]);
@@ -134,7 +132,14 @@ export default function DetailSidebar() {
               <p className="text-[9px] text-slate-500 mt-0.5 leading-normal">
                 Visualiza el flujo de dependencias directo. Haz click en un nodo para seleccionarlo.
               </p>
-              <LocalRelationGraph selectedId={sdData.id} />
+              <LocalRelationGraph 
+                selectedId={sdData.id} 
+                onSelect={(id) => {
+                  const params = new URLSearchParams(searchParams.toString());
+                  params.set("selected", id);
+                  router.replace(`/service-landscape/value-chain?${params.toString()}`);
+                }}
+              />
             </div>
           </>
         )}
