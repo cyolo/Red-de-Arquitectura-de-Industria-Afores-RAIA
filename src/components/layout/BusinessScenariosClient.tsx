@@ -39,25 +39,7 @@ export default function BusinessScenariosClient() {
     return sd ? sd.slug : "";
   };
 
-  // Planned categories for V0.2.0
-  const plannedCategories = [
-    {
-      title: "Afiliación y Cuenta",
-      scenarios: ["Localización de cuenta individual", "Asignación automática de cuentas", "Reasignación por desempeño", "Unificación de cuentas duplicadas", "Separación de cuentas (IMSS/ISSSTE)"],
-    },
-    {
-      title: "Inversión y SIEFORE",
-      scenarios: ["Asignación automática a SIEFORE Generacional", "Construcción y rebalanceo de portafolio", "Ejecución y liquidación de operaciones", "Valuación de instrumentos financieros"],
-    },
-    {
-      title: "Retiros y Pensiones",
-      scenarios: ["Retiro por desempleo (IMSS/ISSSTE)", "Ayuda para gastos de matrimonio", "Elección de modalidad de pensión", "Transferencia de fondos para renta vitalicia"],
-    },
-    {
-      title: "Fondo de Pensiones para el Bienestar",
-      scenarios: ["Identificación de cuentas inactivas elegibles", "Transferencia de saldos no reclamados", "Cálculo del complemento de pensión"],
-    },
-  ];
+
 
   const activeStepDetail = selectedScenario?.steps.find((step) => step.stepNumber === activeStep);
 
@@ -126,29 +108,7 @@ export default function BusinessScenariosClient() {
                 ))}
               </div>
 
-              {/* Planned Scenarios Accordion */}
-              <div className="pt-6 border-t border-slate-200">
-                <h2 className="text-xs font-extrabold text-slate-400 uppercase tracking-wider mb-3">
-                  Próximos Escenarios (Roadmap V0.2.0)
-                </h2>
-                <div className="space-y-4">
-                  {plannedCategories.map((cat, idx) => (
-                    <div key={idx} className="bg-white rounded-xl border border-slate-200 p-4 space-y-2">
-                      <h3 className="text-[11px] font-extrabold text-slate-800 border-b border-slate-50 pb-1.5 uppercase tracking-wide">
-                        {cat.title}
-                      </h3>
-                      <ul className="space-y-1">
-                        {cat.scenarios.map((s, sIdx) => (
-                          <li key={sIdx} className="text-[10px] text-slate-500 font-medium flex items-center gap-1.5">
-                            <div className="w-1 h-1 rounded-full bg-slate-300 shrink-0" />
-                            {s}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-              </div>
+
             </div>
 
             {/* Stepper & Visual Sequence Diagram */}

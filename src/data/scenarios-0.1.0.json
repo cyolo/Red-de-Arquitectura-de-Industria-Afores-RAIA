@@ -1,6 +1,6 @@
 [
   {
-    "id": "scen-001",
+    "id": "RAIA-BS-0001",
     "name": "Registro y Traspaso de Cuenta Individual",
     "description": "Proceso completo mediante el cual un trabajador solicita el traspaso de su cuenta individual a otra Afore, incluyendo validación biométrica, de expediente y actualización del libro mayor.",
     "steps": [
@@ -46,10 +46,15 @@
         "description": "Se ejecuta la transferencia financiera y se registra en el Libro Mayor de la Cuenta Individual.",
         "eventName": "Recursos Transferidos"
       }
-    ]
+    ],
+    "version": "0.2.0",
+    "status": "proposed",
+    "modelingStatus": "modeled",
+    "regulatoryValidationStatus": "pending",
+    "confidence": "medium"
   },
   {
-    "id": "scen-002",
+    "id": "RAIA-BS-0002",
     "name": "Recaudación de Aportaciones e Inversión",
     "description": "Flujo por el cual las aportaciones patronales bimestrales entran al sistema, se concilian, se individualizan y se invierten en la SIEFORE correspondiente.",
     "steps": [
@@ -87,6 +92,315 @@
         "targetId": "RAIA-SD-110",
         "description": "Se asignan los recursos a la SIEFORE generacional correspondiente a la edad del trabajador.",
         "eventName": "Asignación de Fondos"
+      }
+    ],
+    "version": "0.2.0",
+    "status": "proposed",
+    "modelingStatus": "modeled",
+    "regulatoryValidationStatus": "pending",
+    "confidence": "medium"
+  },
+  {
+    "id": "RAIA-BS-0003",
+    "name": "Localización de cuenta individual",
+    "description": "Localización de cuenta individual",
+    "version": "0.2.0",
+    "status": "proposed",
+    "modelingStatus": "modeled",
+    "regulatoryValidationStatus": "pending",
+    "confidence": "medium",
+    "steps": [
+      {
+        "stepNumber": 1,
+        "sourceId": "RAIA-SD-172",
+        "targetId": "RAIA-SD-191",
+        "description": "Paso inicial en definición.",
+        "eventName": "Inicio"
+      }
+    ]
+  },
+  {
+    "id": "RAIA-BS-0004",
+    "name": "Asignación automática de cuentas",
+    "description": "Asignación automática de cuentas",
+    "version": "0.2.0",
+    "status": "proposed",
+    "modelingStatus": "modeled",
+    "regulatoryValidationStatus": "pending",
+    "confidence": "medium",
+    "steps": [
+      {
+        "stepNumber": 1,
+        "sourceId": "RAIA-SD-172",
+        "targetId": "RAIA-SD-191",
+        "description": "Paso inicial en definición.",
+        "eventName": "Inicio"
+      }
+    ]
+  },
+  {
+    "id": "RAIA-BS-0005",
+    "name": "Reasignación por desempeño",
+    "description": "Reasignación por desempeño",
+    "version": "0.2.0",
+    "status": "proposed",
+    "modelingStatus": "modeled",
+    "regulatoryValidationStatus": "pending",
+    "confidence": "medium",
+    "steps": [
+      {
+        "stepNumber": 1,
+        "sourceId": "RAIA-SD-172",
+        "targetId": "RAIA-SD-191",
+        "description": "Paso inicial en definición.",
+        "eventName": "Inicio"
+      }
+    ]
+  },
+  {
+    "id": "RAIA-BS-0006",
+    "name": "Unificación de cuentas duplicadas",
+    "description": "Unificación de cuentas duplicadas",
+    "version": "0.2.0",
+    "status": "proposed",
+    "modelingStatus": "modeled",
+    "regulatoryValidationStatus": "pending",
+    "confidence": "medium",
+    "steps": [
+      {
+        "stepNumber": 1,
+        "sourceId": "RAIA-SD-172",
+        "targetId": "RAIA-SD-191",
+        "description": "Paso inicial en definición.",
+        "eventName": "Inicio"
+      }
+    ]
+  },
+  {
+    "id": "RAIA-BS-0007",
+    "name": "Separación de cuentas IMSS/ISSSTE",
+    "description": "Separación de cuentas IMSS/ISSSTE",
+    "version": "0.2.0",
+    "status": "proposed",
+    "modelingStatus": "modeled",
+    "regulatoryValidationStatus": "pending",
+    "confidence": "medium",
+    "steps": [
+      {
+        "stepNumber": 1,
+        "sourceId": "RAIA-SD-172",
+        "targetId": "RAIA-SD-191",
+        "description": "Paso inicial en definición.",
+        "eventName": "Inicio"
+      }
+    ]
+  },
+  {
+    "id": "RAIA-BS-0008",
+    "name": "Asignación automática a SIEFORE Generacional",
+    "description": "Asignación automática a SIEFORE Generacional",
+    "version": "0.2.0",
+    "status": "proposed",
+    "modelingStatus": "modeled",
+    "regulatoryValidationStatus": "pending",
+    "confidence": "medium",
+    "steps": [
+      {
+        "stepNumber": 1,
+        "sourceId": "RAIA-SD-172",
+        "targetId": "RAIA-SD-191",
+        "description": "Paso inicial en definición.",
+        "eventName": "Inicio"
+      }
+    ]
+  },
+  {
+    "id": "RAIA-BS-0009",
+    "name": "Construcción y rebalanceo de portafolio",
+    "description": "Construcción y rebalanceo de portafolio",
+    "version": "0.2.0",
+    "status": "proposed",
+    "modelingStatus": "modeled",
+    "regulatoryValidationStatus": "pending",
+    "confidence": "medium",
+    "steps": [
+      {
+        "stepNumber": 1,
+        "sourceId": "RAIA-SD-172",
+        "targetId": "RAIA-SD-191",
+        "description": "Paso inicial en definición.",
+        "eventName": "Inicio"
+      }
+    ]
+  },
+  {
+    "id": "RAIA-BS-0010",
+    "name": "Ejecución y liquidación de operaciones",
+    "description": "Ejecución y liquidación de operaciones",
+    "version": "0.2.0",
+    "status": "proposed",
+    "modelingStatus": "modeled",
+    "regulatoryValidationStatus": "pending",
+    "confidence": "medium",
+    "steps": [
+      {
+        "stepNumber": 1,
+        "sourceId": "RAIA-SD-172",
+        "targetId": "RAIA-SD-191",
+        "description": "Paso inicial en definición.",
+        "eventName": "Inicio"
+      }
+    ]
+  },
+  {
+    "id": "RAIA-BS-0011",
+    "name": "Valuación de instrumentos financieros",
+    "description": "Valuación de instrumentos financieros",
+    "version": "0.2.0",
+    "status": "proposed",
+    "modelingStatus": "modeled",
+    "regulatoryValidationStatus": "pending",
+    "confidence": "medium",
+    "steps": [
+      {
+        "stepNumber": 1,
+        "sourceId": "RAIA-SD-172",
+        "targetId": "RAIA-SD-191",
+        "description": "Paso inicial en definición.",
+        "eventName": "Inicio"
+      }
+    ]
+  },
+  {
+    "id": "RAIA-BS-0012",
+    "name": "Retiro por desempleo IMSS/ISSSTE",
+    "description": "Retiro por desempleo IMSS/ISSSTE",
+    "version": "0.2.0",
+    "status": "proposed",
+    "modelingStatus": "modeled",
+    "regulatoryValidationStatus": "pending",
+    "confidence": "medium",
+    "steps": [
+      {
+        "stepNumber": 1,
+        "sourceId": "RAIA-SD-172",
+        "targetId": "RAIA-SD-191",
+        "description": "Paso inicial en definición.",
+        "eventName": "Inicio"
+      }
+    ]
+  },
+  {
+    "id": "RAIA-BS-0013",
+    "name": "Ayuda para gastos de matrimonio",
+    "description": "Ayuda para gastos de matrimonio",
+    "version": "0.2.0",
+    "status": "proposed",
+    "modelingStatus": "modeled",
+    "regulatoryValidationStatus": "pending",
+    "confidence": "medium",
+    "steps": [
+      {
+        "stepNumber": 1,
+        "sourceId": "RAIA-SD-172",
+        "targetId": "RAIA-SD-191",
+        "description": "Paso inicial en definición.",
+        "eventName": "Inicio"
+      }
+    ]
+  },
+  {
+    "id": "RAIA-BS-0014",
+    "name": "Elección de modalidad de pensión",
+    "description": "Elección de modalidad de pensión",
+    "version": "0.2.0",
+    "status": "proposed",
+    "modelingStatus": "modeled",
+    "regulatoryValidationStatus": "pending",
+    "confidence": "medium",
+    "steps": [
+      {
+        "stepNumber": 1,
+        "sourceId": "RAIA-SD-172",
+        "targetId": "RAIA-SD-191",
+        "description": "Paso inicial en definición.",
+        "eventName": "Inicio"
+      }
+    ]
+  },
+  {
+    "id": "RAIA-BS-0015",
+    "name": "Transferencia de fondos para renta vitalicia",
+    "description": "Transferencia de fondos para renta vitalicia",
+    "version": "0.2.0",
+    "status": "proposed",
+    "modelingStatus": "modeled",
+    "regulatoryValidationStatus": "pending",
+    "confidence": "medium",
+    "steps": [
+      {
+        "stepNumber": 1,
+        "sourceId": "RAIA-SD-172",
+        "targetId": "RAIA-SD-191",
+        "description": "Paso inicial en definición.",
+        "eventName": "Inicio"
+      }
+    ]
+  },
+  {
+    "id": "RAIA-BS-0016",
+    "name": "Identificación de cuentas potencialmente elegibles para el Fondo",
+    "description": "Identificación de cuentas potencialmente elegibles para el Fondo",
+    "version": "0.2.0",
+    "status": "proposed",
+    "modelingStatus": "modeled",
+    "regulatoryValidationStatus": "pending",
+    "confidence": "medium",
+    "steps": [
+      {
+        "stepNumber": 1,
+        "sourceId": "RAIA-SD-172",
+        "targetId": "RAIA-SD-191",
+        "description": "Paso inicial en definición.",
+        "eventName": "Inicio"
+      }
+    ]
+  },
+  {
+    "id": "RAIA-BS-0017",
+    "name": "Transferencia de recursos al Fondo",
+    "description": "Transferencia de recursos al Fondo",
+    "version": "0.2.0",
+    "status": "proposed",
+    "modelingStatus": "modeled",
+    "regulatoryValidationStatus": "pending",
+    "confidence": "medium",
+    "steps": [
+      {
+        "stepNumber": 1,
+        "sourceId": "RAIA-SD-172",
+        "targetId": "RAIA-SD-191",
+        "description": "Paso inicial en definición.",
+        "eventName": "Inicio"
+      }
+    ]
+  },
+  {
+    "id": "RAIA-BS-0018",
+    "name": "Cálculo y gestión del complemento de pensión",
+    "description": "Cálculo y gestión del complemento de pensión",
+    "version": "0.2.0",
+    "status": "proposed",
+    "modelingStatus": "modeled",
+    "regulatoryValidationStatus": "pending",
+    "confidence": "medium",
+    "steps": [
+      {
+        "stepNumber": 1,
+        "sourceId": "RAIA-SD-172",
+        "targetId": "RAIA-SD-191",
+        "description": "Paso inicial en definición.",
+        "eventName": "Inicio"
       }
     ]
   }

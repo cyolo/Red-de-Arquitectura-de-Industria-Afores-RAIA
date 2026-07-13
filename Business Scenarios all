@@ -1,0 +1,1722 @@
+````markdown
+# PROMPT MAESTRO PARA ANTIGRAVITY IA
+
+# Implementación de los 16 Business Scenarios faltantes del roadmap RAIA 0.2.0
+
+## 1. Objetivo
+
+Extiende el proyecto:
+
+**RAIA — Red de Arquitectura de Industria Afores**
+
+Repositorio:
+
+```text
+https://github.com/cyolo/Red-de-Arquitectura-de-Industria-Afores-RAIA
+````
+
+Branch:
+
+```text
+dev-001
+```
+
+Implementa completamente los **16 Business Scenarios que actualmente aparecen como elementos planeados** en la sección:
+
+```text
+Próximos escenarios — Roadmap 0.2.0
+```
+
+Los escenarios pendientes pertenecen a cuatro grupos:
+
+1. Afiliación y Cuenta.
+2. Inversión y SIEFORE.
+3. Retiros y Pensiones.
+4. Fondo de Pensiones para el Bienestar.
+
+Al terminar:
+
+* los escenarios no deben continuar como texto hardcodeado dentro de `plannedCategories`;
+* todos deben formar parte del repositorio canónico de Business Scenarios;
+* cada escenario debe tener una URL propia;
+* cada escenario debe incluir un diagrama de secuencia SVG inspirado conceptualmente en BIAN;
+* cada escenario debe incluir participantes, interacciones, respuestas, activaciones, controles, evidencias, excepciones y trazabilidad;
+* el Dashboard debe calcular las métricas a partir de los nuevos datos;
+* los escenarios deben permanecer como `proposed` hasta completar su validación operativa y regulatoria.
+
+---
+
+# 2. Decisión tecnológica
+
+No utilices Mermaid.
+
+No utilices React Flow como motor principal del diagrama de secuencia.
+
+Utiliza el motor definido para RAIA:
+
+# **RAIA Sequence Diagram Engine**
+
+Tecnologías:
+
+```text
+React
+TypeScript strict
+SVG nativo
+D3 Zoom
+Zod
+Canvas Text Metrics
+Zustand
+Tailwind CSS
+```
+
+El diagrama debe mostrar:
+
+* participantes en la parte superior;
+* líneas de vida verticales;
+* mensajes horizontales;
+* respuestas discontinuas;
+* barras de activación;
+* auto-interacciones;
+* notas;
+* fragmentos `alt`, `opt`, `loop`, `par` y `critical`;
+* orden temporal descendente;
+* selección de mensajes;
+* zoom;
+* paneo;
+* ajuste al contenido;
+* fullscreen;
+* exportación SVG, PNG y JSON;
+* tabla accesible.
+
+La fuente canónica debe ser el modelo JSON del escenario:
+
+```text
+Business Scenario JSON
+→ participantes
+→ mensajes
+→ activaciones
+→ excepciones
+→ geometría determinista
+→ SVG interactivo
+→ tabla accesible
+→ exportaciones
+```
+
+No almacenes coordenadas en los datos.
+
+---
+
+# 3. Estado actual y migración
+
+El repositorio ya contiene dos escenarios preliminares:
+
+```text
+scen-001 — Registro y Traspaso de Cuenta Individual
+scen-002 — Recaudación de Aportaciones e Inversión
+```
+
+Migra estos escenarios a identificadores RAIA:
+
+```text
+RAIA-BS-0001 — Registro y Traspaso de Cuenta Individual
+RAIA-BS-0002 — Recaudación de Aportaciones e Inversión
+```
+
+Los 16 escenarios nuevos deberán utilizar los identificadores:
+
+```text
+RAIA-BS-0003
+a
+RAIA-BS-0018
+```
+
+No reutilices IDs existentes.
+
+No elimines los escenarios anteriores hasta validar la migración.
+
+---
+
+# 4. Organización de escenarios
+
+## Grupo 1 — Afiliación y Cuenta
+
+```text
+RAIA-BSG-001
+Afiliación y Cuenta
+```
+
+Escenarios:
+
+```text
+RAIA-BS-0003 — Localización de cuenta individual
+RAIA-BS-0004 — Asignación automática de cuentas
+RAIA-BS-0005 — Reasignación por desempeño
+RAIA-BS-0006 — Unificación de cuentas duplicadas
+RAIA-BS-0007 — Separación de cuentas IMSS/ISSSTE
+```
+
+## Grupo 2 — Inversión y SIEFORE
+
+```text
+RAIA-BSG-002
+Inversión y SIEFORE
+```
+
+Escenarios:
+
+```text
+RAIA-BS-0008 — Asignación automática a SIEFORE Generacional
+RAIA-BS-0009 — Construcción y rebalanceo de portafolio
+RAIA-BS-0010 — Ejecución y liquidación de operaciones
+RAIA-BS-0011 — Valuación de instrumentos financieros
+```
+
+## Grupo 3 — Retiros y Pensiones
+
+```text
+RAIA-BSG-003
+Retiros y Pensiones
+```
+
+Escenarios:
+
+```text
+RAIA-BS-0012 — Retiro por desempleo IMSS/ISSSTE
+RAIA-BS-0013 — Ayuda para gastos de matrimonio
+RAIA-BS-0014 — Elección de modalidad de pensión
+RAIA-BS-0015 — Transferencia de fondos para renta vitalicia
+```
+
+## Grupo 4 — Fondo de Pensiones para el Bienestar
+
+```text
+RAIA-BSG-004
+Fondo de Pensiones para el Bienestar
+```
+
+Escenarios:
+
+```text
+RAIA-BS-0016 — Identificación de cuentas potencialmente elegibles
+RAIA-BS-0017 — Transferencia de recursos al Fondo
+RAIA-BS-0018 — Cálculo y gestión del complemento de pensión
+```
+
+---
+
+# 5. Modelo obligatorio de cada escenario
+
+Cada escenario debe contener como mínimo:
+
+```typescript
+export interface BusinessScenario {
+  id: string;
+  slug: string;
+
+  familyId: string;
+  groupId: string;
+
+  nameEs: string;
+  nameEn?: string;
+  summary: string;
+  purpose: string;
+  businessOutcome: string;
+
+  trigger: {
+    name: string;
+    description: string;
+    triggerType:
+      | "business-event"
+      | "request"
+      | "scheduled"
+      | "regulatory"
+      | "exception"
+      | "lifecycle-change";
+  };
+
+  primaryActorId: string;
+  participatingActorIds: string[];
+
+  preconditions: string[];
+  postconditions: string[];
+
+  regimeApplicability: Array<
+    | "all"
+    | "imss"
+    | "issste"
+    | "pensionissste"
+    | "independent-worker"
+    | "mixed-regime"
+  >;
+
+  channels: Array<
+    | "branch"
+    | "web"
+    | "mobile"
+    | "contact-center"
+    | "batch"
+    | "api"
+    | "file-exchange"
+    | "event"
+    | "regulatory-portal"
+    | "manual"
+  >;
+
+  participants: ScenarioParticipantInstance[];
+  messages: SequenceMessage[];
+  activations: ActivationSpan[];
+  notes: SequenceNote[];
+  fragments: SequenceFragment[];
+
+  serviceDomainIds: string[];
+  businessObjectIds: string[];
+  regulationIds: string[];
+  controlIds: string[];
+  evidenceIds: string[];
+
+  preconditions: string[];
+  postconditions: string[];
+  exceptionPaths: BusinessScenarioException[];
+
+  nfrs: ScenarioNFR[];
+  kpis: ScenarioKPI[];
+
+  relatedScenarioIds: string[];
+  reusableSnippetIds: string[];
+
+  criticality: "low" | "medium" | "high" | "systemic";
+
+  modelingStatus:
+    | "cataloged"
+    | "modeled"
+    | "reviewed"
+    | "validated";
+
+  regulatoryValidationStatus:
+    | "pending"
+    | "partially-validated"
+    | "validated";
+
+  confidence: "low" | "medium" | "high";
+
+  version: string;
+
+  status:
+    | "draft"
+    | "proposed"
+    | "validated"
+    | "active"
+    | "deprecated";
+
+  assumptions: string[];
+  validationNotes: string[];
+  sourceReferences: SourceReference[];
+
+  createdAt: string;
+  updatedAt: string;
+  lastReviewedAt?: string;
+}
+```
+
+Valores iniciales para los escenarios nuevos:
+
+```json
+{
+  "version": "0.2.0",
+  "status": "proposed",
+  "modelingStatus": "modeled",
+  "regulatoryValidationStatus": "pending",
+  "confidence": "medium"
+}
+```
+
+No marques ningún escenario como `active` o `validated` sin evidencia formal.
+
+---
+
+# 6. Reglas generales de modelado
+
+Para todos los escenarios:
+
+1. Identifica los Service Domains existentes en `raia-landscape-0.1.0.json`.
+2. Reutiliza sus IDs canónicos.
+3. No inventes IDs.
+4. Cuando una responsabilidad no exista, regístrala en:
+
+```text
+src/data/business-scenarios/scenario-domain-gaps.json
+```
+
+5. Distingue entre:
+
+   * actor;
+   * Service Domain;
+   * autoridad;
+   * servicio compartido de industria;
+   * participante externo.
+6. No utilices nombres de aplicaciones particulares.
+7. No asumas que cada interacción es una API.
+8. No utilices un proveedor específico como nombre estructural cuando el rol correcto sea:
+
+```text
+Empresa Operadora de la Base de Datos Nacional SAR
+```
+
+9. No inventes:
+
+   * artículos regulatorios;
+   * porcentajes;
+   * fechas límite;
+   * fórmulas oficiales;
+   * criterios de asignación;
+   * umbrales;
+   * layouts de industria;
+   * códigos de operación.
+10. Los criterios regulatorios deben modelarse como parámetros gobernados y pendientes de validación.
+
+---
+
+# 7. Especificación de los escenarios faltantes
+
+# RAIA-BS-0003 — Localización de cuenta individual
+
+## Propósito
+
+Determinar si una persona trabajadora tiene una cuenta individual registrada, asignada, inactiva, duplicada o no localizada dentro del ecosistema SAR.
+
+## Trigger
+
+```text
+El trabajador, una AFORE o un participante autorizado solicita localizar una cuenta individual.
+```
+
+## Participantes sugeridos
+
+* Trabajador.
+* Gestión de Solicitudes.
+* Datos del Trabajador.
+* Gestión de CURP, NSS y RFC.
+* Resolución de Identidad.
+* Localización de Cuenta.
+* Base de Datos Nacional SAR.
+* Registro Maestro de Cuentas.
+* Notificaciones.
+
+## Secuencia mínima
+
+1. El trabajador solicita localizar su cuenta.
+2. Gestión de Solicitudes registra la petición.
+3. Datos del Trabajador recupera la información disponible.
+4. Gestión de identificadores valida CURP, NSS y RFC.
+5. Resolución de Identidad confirma la identidad.
+6. Localización de Cuenta consulta la BDNSAR.
+7. La BDNSAR consulta el Registro Maestro de Cuentas.
+8. El registro devuelve coincidencias.
+9. Localización de Cuenta clasifica el resultado.
+10. Gestión de Solicitudes comunica el resultado.
+11. Notificaciones entrega el acuse al trabajador.
+
+## Fragmentos alternativos
+
+```text
+alt Cuenta localizada
+else Cuenta asignada
+else Cuenta en otra AFORE
+else Múltiples cuentas
+else Cuenta no localizada
+```
+
+## Excepciones
+
+* identificadores inconsistentes;
+* identidad no validada;
+* múltiples coincidencias;
+* indisponibilidad de BDNSAR;
+* solicitud duplicada;
+* datos insuficientes.
+
+## Resultado
+
+El estado y la administradora responsable de la cuenta quedan identificados o se determina el proceso de regularización correspondiente.
+
+---
+
+# RAIA-BS-0004 — Asignación automática de cuentas
+
+## Propósito
+
+Asignar una cuenta no registrada a una administradora conforme a los criterios vigentes definidos por la autoridad.
+
+## Trigger
+
+```text
+Se identifica una cuenta individual que no tiene una administradora elegida por el trabajador.
+```
+
+## Participantes sugeridos
+
+* Instituto de Seguridad Social.
+* Entidad Recaudadora.
+* Base de Datos Nacional SAR.
+* Registro Maestro de Cuentas.
+* Asignación de Cuenta.
+* Evaluación de Criterios de Asignación.
+* Administradora asignada.
+* Libro Mayor de Cuenta Individual.
+* Notificaciones.
+* CONSAR.
+
+## Secuencia mínima
+
+1. Se detecta una cuenta sin registro voluntario.
+2. La BDNSAR confirma el estado de la cuenta.
+3. Asignación de Cuenta solicita evaluar los criterios vigentes.
+4. Evaluación de Criterios obtiene los parámetros regulatorios.
+5. Se determina la administradora correspondiente.
+6. La BDNSAR actualiza el registro maestro.
+7. La administradora asignada recibe la información.
+8. Se activa la administración de la cuenta.
+9. Se concilian los saldos y movimientos.
+10. Se genera evidencia de la asignación.
+11. Se notifica al trabajador.
+
+## Fragmentos alternativos
+
+```text
+alt Cuenta elegible para asignación
+else Cuenta ya registrada
+else Cuenta con inconsistencia
+else No existe administradora elegible
+```
+
+## Controles mínimos
+
+* criterios versionados;
+* trazabilidad de la decisión;
+* separación de funciones;
+* conciliación posterior;
+* conservación del resultado aplicado.
+
+## Restricción
+
+No codifiques criterios concretos de selección. Deben ser parámetros externos y versionados.
+
+---
+
+# RAIA-BS-0005 — Reasignación por desempeño
+
+## Propósito
+
+Reasignar una cuenta previamente asignada cuando se cumplan los criterios regulatorios vigentes de evaluación.
+
+## Trigger
+
+```text
+Se ejecuta el ciclo regulatorio de evaluación de cuentas asignadas.
+```
+
+## Participantes sugeridos
+
+* CONSAR.
+* Evaluación de Desempeño.
+* Gestión Regulatoria de Comisiones.
+* Métricas del Sistema.
+* Reasignación de Cuenta.
+* Base de Datos Nacional SAR.
+* AFORE de origen.
+* AFORE receptora.
+* Transferencia de Recursos.
+* Libro Mayor de Cuenta Individual.
+* Notificaciones.
+
+## Secuencia mínima
+
+1. Se inicia el ciclo de evaluación.
+2. Se recuperan métricas vigentes.
+3. Se recuperan comisiones y criterios aplicables.
+4. Se evalúan las administradoras.
+5. Se identifican las cuentas elegibles.
+6. Reasignación de Cuenta determina el destino.
+7. La BDNSAR actualiza la administradora responsable.
+8. La AFORE de origen entrega información.
+9. La AFORE receptora recibe la cuenta.
+10. Se transfieren los recursos.
+11. Se concilian los saldos.
+12. Se notifica el resultado.
+
+## Fragmentos alternativos
+
+```text
+alt Cuenta elegible para reasignación
+else Cuenta no elegible
+else Inconsistencia de datos
+else Falla en transferencia
+```
+
+## Restricción
+
+No codifiques:
+
+* periodicidad;
+* métricas regulatorias específicas;
+* ponderaciones;
+* porcentajes;
+* reglas de desempate.
+
+Estos elementos deben quedar parametrizados.
+
+---
+
+# RAIA-BS-0006 — Unificación de cuentas duplicadas
+
+## Propósito
+
+Integrar en una sola cuenta individual los registros y recursos asociados a una misma persona.
+
+## Trigger
+
+```text
+Se detectan dos o más cuentas que potencialmente pertenecen al mismo trabajador.
+```
+
+## Participantes sugeridos
+
+* Trabajador.
+* Gestión de Solicitudes.
+* Resolución de Identidad.
+* Datos del Trabajador.
+* Gestión de CURP, NSS y RFC.
+* Base de Datos Nacional SAR.
+* Unificación de Cuentas.
+* AFORE involucradas.
+* Institutos de Seguridad Social.
+* Conciliación de Cuenta Individual.
+* Libro Mayor de Cuenta Individual.
+* Notificaciones.
+
+## Secuencia mínima
+
+1. Se registra la solicitud o detección.
+2. Se recuperan las cuentas candidatas.
+3. Se valida la identidad.
+4. Se comparan CURP, NSS, RFC y datos personales.
+5. Se consultan los institutos correspondientes.
+6. Se determina la cuenta concentradora.
+7. Las AFORE entregan información y saldos.
+8. Se concilian movimientos y recursos.
+9. Se transfieren los recursos.
+10. Se actualiza la BDNSAR.
+11. Se inactivan los registros duplicados.
+12. Se confirma la cuenta unificada.
+13. Se notifica al trabajador.
+
+## Fragmentos alternativos
+
+```text
+alt Identidad plenamente coincidente
+else Evidencia insuficiente
+else Cuentas pertenecen a personas distintas
+else Diferencia de saldos
+else Participante no responde
+```
+
+## Evidencias mínimas
+
+* validación de identidad;
+* comparación de identificadores;
+* resolución de unificación;
+* conciliación de saldos;
+* acuses de transferencia;
+* bitácora de actualización.
+
+---
+
+# RAIA-BS-0007 — Separación de cuentas IMSS/ISSSTE
+
+## Propósito
+
+Separar recursos o registros incorrectamente asociados cuando correspondan a personas, regímenes o relaciones distintas.
+
+## Trigger
+
+```text
+Se detecta que una cuenta contiene información o recursos que no deben permanecer integrados.
+```
+
+## Participantes sugeridos
+
+* Trabajador.
+* Gestión de Solicitudes.
+* Resolución de Identidad.
+* IMSS.
+* ISSSTE.
+* Base de Datos Nacional SAR.
+* Separación de Cuentas.
+* AFORE.
+* Administración de Subcuentas.
+* Conciliación de Cuenta Individual.
+* Libro Mayor.
+* Notificaciones.
+
+## Secuencia mínima
+
+1. Se registra la solicitud de separación.
+2. Se valida la identidad del solicitante.
+3. Se recupera el historial de la cuenta.
+4. Se consulta información con IMSS.
+5. Se consulta información con ISSSTE.
+6. Se identifican periodos, movimientos y subcuentas.
+7. Separación de Cuentas genera la propuesta.
+8. Se ejecuta revisión manual cuando corresponda.
+9. Se crean o actualizan las cuentas resultantes.
+10. Se distribuyen los movimientos y recursos.
+11. Se concilian los saldos.
+12. Se actualiza la BDNSAR.
+13. Se notifica el resultado.
+
+## Fragmentos alternativos
+
+```text
+alt Separación procedente
+else Información insuficiente
+else Registros coincidentes y correctos
+else Diferencia entre institutos
+else Requiere resolución especializada
+```
+
+---
+
+# RAIA-BS-0008 — Asignación automática a SIEFORE Generacional
+
+## Propósito
+
+Asignar los recursos del trabajador a la SIEFORE correspondiente conforme a los criterios generacionales vigentes.
+
+## Trigger
+
+```text
+Se registra una nueva cuenta, una nueva aportación o una transición generacional.
+```
+
+## Participantes sugeridos
+
+* Cuenta Individual.
+* Datos del Trabajador.
+* Asignación a SIEFORE Generacional.
+* Catálogo de SIEFORE.
+* Gestión Regulatoria de Fondos.
+* Transferencia entre SIEFORE.
+* Libro Mayor.
+* Valuación de Portafolio.
+* Notificaciones.
+
+## Secuencia mínima
+
+1. Se identifica la cuenta y sus datos relevantes.
+2. Se consulta el catálogo vigente de SIEFORE.
+3. Se evalúa la regla generacional aplicable.
+4. Se determina la SIEFORE destino.
+5. Se consulta la posición actual.
+6. Se registra la asignación.
+7. Si existe transición, se instruye la transferencia.
+8. Se cancelan y asignan acciones.
+9. Se concilian los recursos.
+10. Se actualiza el libro mayor.
+11. Se notifica el resultado.
+
+## Fragmentos alternativos
+
+```text
+alt Primera asignación
+else Transición generacional
+else Cambio permitido
+else Datos inconsistentes
+else SIEFORE no disponible
+```
+
+## Restricción
+
+No codifiques edades, rangos o reglas concretas. Deben provenir de catálogos versionados.
+
+---
+
+# RAIA-BS-0009 — Construcción y rebalanceo de portafolio
+
+## Propósito
+
+Construir y ajustar el portafolio de una SIEFORE conforme a estrategia, límites, liquidez y perfil de riesgo.
+
+## Trigger
+
+```text
+Se aprueba una estrategia, cambia la posición o se detecta una desviación respecto del portafolio objetivo.
+```
+
+## Participantes sugeridos
+
+* Comité de Inversión.
+* Estrategia de Inversión.
+* Construcción de Portafolio.
+* Gestión de Benchmark.
+* Gestión de Clases de Activos.
+* Riesgo de Inversión.
+* Cumplimiento del Régimen de Inversión.
+* Gestión de Liquidez.
+* Gestión de Límites y Exposición.
+* Ejecución de Operaciones.
+
+## Secuencia mínima
+
+1. Se recupera la estrategia aprobada.
+2. Se recupera el portafolio actual.
+3. Se recuperan límites y restricciones.
+4. Se obtiene la expectativa de liquidez.
+5. Se define el portafolio objetivo.
+6. Se calculan desviaciones.
+7. Riesgo de Inversión evalúa la propuesta.
+8. Cumplimiento valida los límites.
+9. El Comité aprueba o rechaza.
+10. Se genera el plan de rebalanceo.
+11. Se envían instrucciones de inversión.
+12. Se conserva la evidencia de aprobación.
+
+## Fragmentos alternativos
+
+```text
+alt Propuesta dentro de límites
+else Exceso de límite
+else Liquidez insuficiente
+else Propuesta rechazada
+else Rebalanceo de emergencia
+```
+
+## Controles
+
+* cuatro ojos;
+* límites previos a operación;
+* versionamiento de estrategia;
+* evidencia de aprobación;
+* segregación de funciones.
+
+---
+
+# RAIA-BS-0010 — Ejecución y liquidación de operaciones
+
+## Propósito
+
+Ejecutar una instrucción de inversión y completar su confirmación, liquidación, custodia y conciliación.
+
+## Trigger
+
+```text
+Existe una orden de inversión aprobada.
+```
+
+## Participantes sugeridos
+
+* Gestión de Instrucciones de Inversión.
+* Cumplimiento Preoperación.
+* Ejecución de Operaciones.
+* Contraparte.
+* Mercado o Plataforma de Negociación.
+* Confirmación de Operaciones.
+* Liquidación.
+* Custodia.
+* Contabilidad de Inversiones.
+* Conciliación de Posiciones.
+* Riesgo de Inversión.
+
+## Secuencia mínima
+
+1. Se recibe una orden aprobada.
+2. Se validan límites preoperación.
+3. Se valida la contraparte.
+4. Se ejecuta la orden.
+5. Se recibe la confirmación.
+6. Se compara la confirmación con la instrucción.
+7. Se genera la instrucción de liquidación.
+8. Se transfiere efectivo o valores.
+9. Custodia confirma la posición.
+10. Contabilidad registra la operación.
+11. Se concilian posiciones y efectivo.
+12. Se reporta el resultado.
+
+## Fragmentos alternativos
+
+```text
+alt Operación confirmada
+else Confirmación discrepante
+else Operación parcialmente ejecutada
+else Falla de liquidación
+else Incumplimiento de contraparte
+```
+
+## Fragmento crítico
+
+Utiliza un fragmento:
+
+```text
+critical Liquidación de operación financiera
+```
+
+para la transferencia de valores y efectivo.
+
+---
+
+# RAIA-BS-0011 — Valuación de instrumentos financieros
+
+## Propósito
+
+Determinar el valor de los instrumentos y portafolios utilizando fuentes y metodologías autorizadas.
+
+## Trigger
+
+```text
+Se ejecuta un ciclo de valuación o se recibe un evento que requiere recalcular el valor.
+```
+
+## Participantes sugeridos
+
+* Catálogo de Instrumentos.
+* Proveedor de Precios.
+* Valuación de Instrumentos.
+* Validación de Precios.
+* Gestión de Excepciones de Precio.
+* Valuación de Portafolio.
+* Contabilidad de Inversiones.
+* Riesgo de Inversión.
+* Cumplimiento.
+* Asignación de Rendimientos.
+
+## Secuencia mínima
+
+1. Se inicia el ciclo de valuación.
+2. Se recuperan posiciones.
+3. Se recuperan precios y datos de mercado.
+4. Se valida la calidad de la información.
+5. Se aplica la metodología correspondiente.
+6. Se calcula el valor del instrumento.
+7. Se detectan desviaciones o excepciones.
+8. Si procede, se ejecuta revisión manual.
+9. Se aprueba el precio.
+10. Se valúa el portafolio.
+11. Se actualiza contabilidad.
+12. Se calcula el valor de la acción.
+13. Se informa a Asignación de Rendimientos.
+
+## Fragmentos alternativos
+
+```text
+alt Precio válido
+else Precio ausente
+else Precio fuera de tolerancia
+else Instrumento ilíquido
+else Requiere modelo de valuación
+```
+
+## Restricción
+
+No inventes metodologías específicas de valuación ni tolerancias.
+
+---
+
+# RAIA-BS-0012 — Retiro por desempleo IMSS/ISSSTE
+
+## Propósito
+
+Procesar una solicitud de retiro parcial por desempleo conforme al régimen y condiciones aplicables.
+
+## Trigger
+
+```text
+El trabajador solicita un retiro parcial por desempleo.
+```
+
+## Participantes sugeridos
+
+* Trabajador.
+* Gestión de Solicitudes.
+* Autenticación del Trabajador.
+* Expediente Electrónico.
+* Validación de Elegibilidad de Retiro.
+* IMSS.
+* ISSSTE.
+* Cuenta Individual.
+* Administración de Subcuentas.
+* Desinversión de Recursos.
+* Gestión de Pagos.
+* Libro Mayor.
+* Notificaciones.
+
+## Secuencia mínima
+
+1. Se registra la solicitud.
+2. Se valida la identidad.
+3. Se recupera el expediente.
+4. Se identifica el régimen aplicable.
+5. Se consulta información con el instituto correspondiente.
+6. Se valida elegibilidad.
+7. Se determina la modalidad aplicable.
+8. Se calcula el monto conforme a parámetros vigentes.
+9. Se valida la cuenta bancaria o medio de pago.
+10. Se desinvierten los recursos.
+11. Se ejecuta el pago.
+12. Se registra el movimiento.
+13. Se actualizan los datos relacionados con cotización cuando corresponda.
+14. Se notifica el resultado.
+
+## Fragmentos alternativos
+
+```text
+alt Solicitud elegible
+else No cumple condiciones
+else Información del instituto no disponible
+else Cuenta bancaria no válida
+else Pago rechazado
+```
+
+## Restricción
+
+No codifiques semanas, porcentajes, topes, montos o fórmulas.
+
+---
+
+# RAIA-BS-0013 — Ayuda para gastos de matrimonio
+
+## Propósito
+
+Gestionar la solicitud y pago de la ayuda aplicable conforme al régimen y reglas vigentes.
+
+## Trigger
+
+```text
+El trabajador solicita la ayuda para gastos de matrimonio o supuesto equivalente reconocido.
+```
+
+## Participantes sugeridos
+
+* Trabajador.
+* Gestión de Solicitudes.
+* Identidad y Autenticación.
+* Expediente Electrónico.
+* Validación de Elegibilidad.
+* IMSS o instituto correspondiente.
+* Cuenta Individual.
+* Gestión de Pago.
+* Libro Mayor.
+* Notificaciones.
+
+## Secuencia mínima
+
+1. Se registra la solicitud.
+2. Se valida la identidad.
+3. Se verifica el expediente.
+4. Se identifica el régimen aplicable.
+5. Se solicita la información de elegibilidad.
+6. Se valida que el derecho sea procedente.
+7. Se determina el monto mediante parámetros vigentes.
+8. Se valida el medio de pago.
+9. Se ejecuta el pago.
+10. Se registra el movimiento.
+11. Se conserva evidencia.
+12. Se notifica al trabajador.
+
+## Fragmentos alternativos
+
+```text
+alt Derecho procedente
+else Derecho previamente ejercido
+else Información insuficiente
+else Solicitud no elegible
+else Pago fallido
+```
+
+---
+
+# RAIA-BS-0014 — Elección de modalidad de pensión
+
+## Propósito
+
+Presentar, evaluar y registrar la modalidad pensionaria seleccionada por el trabajador.
+
+## Trigger
+
+```text
+Existe una resolución o determinación de elegibilidad pensionaria que permite seleccionar una modalidad.
+```
+
+## Participantes sugeridos
+
+* Trabajador.
+* Gestión de Solicitudes Pensionarias.
+* Resolución de Pensión.
+* Coordinación de Elegibilidad Pensionaria.
+* Proyección Pensionaria.
+* Retiro Programado.
+* Renta Vitalicia.
+* Pensión Garantizada.
+* Aseguradoras.
+* Gestión de Consentimiento.
+* Firma Electrónica y No Repudio.
+* Notificaciones.
+
+## Secuencia mínima
+
+1. Se recupera la resolución pensionaria.
+2. Se validan los recursos disponibles.
+3. Se identifican modalidades aplicables.
+4. Se generan proyecciones.
+5. Se presentan alternativas al trabajador.
+6. Se explican condiciones y consecuencias.
+7. El trabajador selecciona una modalidad.
+8. Se valida que la modalidad sea procedente.
+9. Se captura el consentimiento.
+10. Se registra la firma.
+11. Se actualiza el expediente.
+12. Se deriva al escenario de ejecución correspondiente.
+13. Se notifica la elección.
+
+## Fragmentos alternativos
+
+```text
+alt Renta vitalicia
+else Retiro programado
+else Pensión garantizada
+else Disposición permitida de recursos
+else Elección no válida
+```
+
+## Control obligatorio
+
+Debe quedar evidencia verificable de:
+
+* alternativas presentadas;
+* consentimiento;
+* modalidad elegida;
+* fecha;
+* actor;
+* versión de la información utilizada.
+
+---
+
+# RAIA-BS-0015 — Transferencia de fondos para renta vitalicia
+
+## Propósito
+
+Transferir los recursos pensionarios a la aseguradora seleccionada para constituir la renta vitalicia y prestaciones relacionadas.
+
+## Trigger
+
+```text
+El trabajador ha elegido una renta vitalicia y la elección fue validada.
+```
+
+## Participantes sugeridos
+
+* Trabajador.
+* Resolución de Pensión.
+* Gestión de Renta Vitalicia.
+* Aseguradora.
+* Determinación de Recursos Pensionarios.
+* Desinversión de Recursos.
+* Transferencia de Recursos.
+* Custodia.
+* Institución Financiera.
+* Seguro de Sobrevivencia.
+* Libro Mayor.
+* Conciliación.
+* Notificaciones.
+
+## Secuencia mínima
+
+1. Se recupera la elección validada.
+2. Se determina el monto de recursos.
+3. Se confirman datos de la aseguradora.
+4. Se configura la contratación.
+5. Se calcula el recurso a transferir.
+6. Se desinvierten las posiciones.
+7. Se instruye la transferencia.
+8. La institución financiera liquida los recursos.
+9. La aseguradora confirma la recepción.
+10. Se configura la renta vitalicia.
+11. Se configura el seguro de sobrevivencia cuando corresponda.
+12. Se actualiza el libro mayor.
+13. Se concilian los recursos.
+14. Se notifica al trabajador.
+
+## Fragmento crítico
+
+```text
+critical Transferencia de recursos pensionarios
+```
+
+## Excepciones
+
+* aseguradora no confirmada;
+* diferencia en monto;
+* falla de liquidación;
+* transferencia rechazada;
+* conciliación pendiente;
+* cancelación antes del punto irreversible permitido.
+
+---
+
+# RAIA-BS-0016 — Identificación de cuentas potencialmente elegibles para el Fondo
+
+## Propósito
+
+Identificar cuentas que potencialmente cumplan las condiciones vigentes para su tratamiento dentro del Fondo de Pensiones para el Bienestar.
+
+## Trigger
+
+```text
+Se ejecuta un ciclo regulatorio de identificación o se presenta un evento de elegibilidad.
+```
+
+## Participantes sugeridos
+
+* Base de Datos Nacional SAR.
+* Registro Maestro de Cuentas.
+* Identificación de Cuentas Elegibles.
+* Datos del Trabajador.
+* IMSS.
+* ISSSTE.
+* AFORE.
+* Fondo de Pensiones para el Bienestar.
+* Supervisión Regulatoria.
+* Gestión de Notificaciones.
+
+## Secuencia mínima
+
+1. Se inicia el ciclo de evaluación.
+2. Se recuperan cuentas candidatas.
+3. Se recuperan datos de identidad.
+4. Se consulta información con los institutos.
+5. Se consulta el estado pensionario.
+6. Se evalúan las condiciones vigentes.
+7. Se clasifican cuentas potencialmente elegibles.
+8. Se excluyen cuentas con excepciones.
+9. Se genera una lista controlada.
+10. Se somete a validación.
+11. Se registra la evidencia.
+12. Se notifica a los participantes cuando corresponda.
+
+## Fragmentos alternativos
+
+```text
+alt Cuenta potencialmente elegible
+else Cuenta excluida
+else Cuenta con información incompleta
+else Cuenta reclamada
+else Cuenta con proceso pensionario activo
+```
+
+## Restricción
+
+No codifiques edades, plazos, montos o supuestos jurídicos concretos. Deben ser parámetros versionados y validados.
+
+---
+
+# RAIA-BS-0017 — Transferencia de recursos al Fondo
+
+## Propósito
+
+Transferir recursos previamente identificados y validados hacia el Fondo de Pensiones para el Bienestar, preservando trazabilidad y derechos.
+
+## Trigger
+
+```text
+Una cuenta fue clasificada y autorizada para transferencia conforme a las reglas vigentes.
+```
+
+## Participantes sugeridos
+
+* Identificación de Cuentas Elegibles.
+* AFORE.
+* Administración de Cuenta Individual.
+* Desinversión de Recursos.
+* Transferencia de Recursos al Fondo.
+* Institución Financiera.
+* Fondo de Pensiones para el Bienestar.
+* Base de Datos Nacional SAR.
+* Conciliación.
+* Información Regulatoria.
+* Notificaciones.
+
+## Secuencia mínima
+
+1. Se recibe la instrucción autorizada.
+2. Se valida que la cuenta mantenga la condición aplicable.
+3. Se determina el saldo elegible.
+4. Se bloquean movimientos incompatibles durante la operación.
+5. Se desinvierten los recursos.
+6. Se genera la instrucción de transferencia.
+7. La institución financiera liquida.
+8. El Fondo confirma la recepción.
+9. Se actualiza la cuenta individual.
+10. Se actualiza la BDNSAR.
+11. Se registra la trazabilidad de derechos.
+12. Se concilia el monto.
+13. Se genera información regulatoria.
+14. Se notifica cuando corresponda.
+
+## Fragmento crítico
+
+```text
+critical Transferencia de recursos al Fondo
+```
+
+## Excepciones
+
+* cuenta dejó de ser elegible;
+* reclamación en curso;
+* diferencia de saldo;
+* falla en liquidación;
+* transferencia duplicada;
+* confirmación no recibida;
+* conciliación pendiente.
+
+---
+
+# RAIA-BS-0018 — Cálculo y gestión del complemento de pensión
+
+## Propósito
+
+Determinar, autorizar y gestionar el complemento pensionario cuando el trabajador cumpla las condiciones aplicables.
+
+## Trigger
+
+```text
+Se reconoce una pensión y se solicita evaluar la existencia de un complemento.
+```
+
+## Participantes sugeridos
+
+* Trabajador o Pensionado.
+* Resolución de Pensión.
+* IMSS.
+* ISSSTE.
+* Fondo de Pensiones para el Bienestar.
+* Cálculo de Complemento Pensionario.
+* Validación de Elegibilidad.
+* Gestión de Pagos.
+* Institución Financiera.
+* Conciliación.
+* Información Regulatoria.
+* Notificaciones.
+
+## Secuencia mínima
+
+1. Se recibe la resolución pensionaria.
+2. Se recuperan datos del trabajador.
+3. Se recupera el monto pensionario reconocido.
+4. Se consulta información de los institutos.
+5. Se valida el régimen y la elegibilidad.
+6. Se recuperan los parámetros vigentes.
+7. Se calcula el complemento teórico.
+8. Se aplican validaciones y límites parametrizados.
+9. Se somete el resultado a autorización.
+10. Se configura el pago.
+11. Se ejecuta el complemento.
+12. Se concilia el pago.
+13. Se registra información regulatoria.
+14. Se notifica al pensionado.
+
+## Fragmentos alternativos
+
+```text
+alt Complemento procedente
+else No existe diferencia complementaria
+else Información pensionaria inconsistente
+else Requiere revisión manual
+else Pago rechazado
+```
+
+## Restricción
+
+No codifiques:
+
+* fórmula legal;
+* salario objetivo;
+* monto máximo;
+* periodo;
+* edad;
+* actualización;
+* límites.
+
+Todos estos elementos deben administrarse mediante parámetros versionados y sujetos a validación regulatoria.
+
+---
+
+# 8. Diagrama de secuencia obligatorio
+
+Cada uno de los 16 escenarios deberá tener un diagrama generado por:
+
+```text
+RaiaSequenceDiagram
+```
+
+El diagrama debe incluir como mínimo:
+
+* marco exterior;
+* título `sd`;
+* cinco o más participantes cuando el proceso lo requiera;
+* líneas de vida;
+* mensajes numerados;
+* por lo menos una respuesta discontinua;
+* barras de activación;
+* un fragmento alternativo;
+* una nota de control o evidencia;
+* selección de mensaje;
+* tabla accesible equivalente.
+
+No construyas diagramas decorativos.
+
+Cada mensaje debe relacionarse con un `Scenario Step`.
+
+---
+
+# 9. Rutas
+
+Implementa como mínimo:
+
+```text
+/business-scenarios
+/business-scenarios/afiliacion-y-cuenta
+/business-scenarios/inversion-y-siefore
+/business-scenarios/retiros-y-pensiones
+/business-scenarios/fondo-pensiones-bienestar
+```
+
+Página detallada:
+
+```text
+/business-scenarios/[groupSlug]/[scenarioSlug]
+```
+
+Ejemplos:
+
+```text
+/business-scenarios/afiliacion-y-cuenta/localizacion-de-cuenta-individual
+
+/business-scenarios/inversion-y-siefore/ejecucion-y-liquidacion-de-operaciones
+
+/business-scenarios/retiros-y-pensiones/eleccion-de-modalidad-de-pension
+
+/business-scenarios/fondo-pensiones-bienestar/calculo-del-complemento-de-pension
+```
+
+Debe soportar:
+
+```text
+?message=RAIA-BSS-0014-08
+```
+
+para seleccionar un paso concreto.
+
+---
+
+# 10. Archivos de datos
+
+Crea:
+
+```text
+src/data/business-scenarios/
+├── scenario-families.json
+├── scenario-groups.json
+├── business-scenarios.json
+├── scenario-sequences.json
+├── scenario-snippets.json
+├── scenario-domain-gaps.json
+└── scenario-manifest.json
+```
+
+No hardcodees los escenarios en JSX.
+
+Elimina `plannedCategories` después de migrar todo el contenido.
+
+---
+
+# 11. Actualización visual del roadmap
+
+Una vez implementados los 16 escenarios:
+
+* elimina la sección estática `Próximos escenarios`;
+* sustitúyela por grupos navegables generados desde datos;
+* muestra el número real de escenarios;
+* muestra cobertura de modelado;
+* muestra cobertura de diagramas;
+* muestra estado editorial;
+* muestra validación regulatoria;
+* muestra fecha de última actualización.
+
+Etiquetas recomendadas:
+
+```text
+Modelado
+Pendiente de revisión operativa
+Pendiente de validación regulatoria
+```
+
+No utilizar:
+
+```text
+Escenarios Activos
+```
+
+hasta completar la validación formal.
+
+---
+
+# 12. Dashboard
+
+Actualiza el Dashboard con métricas reales:
+
+```text
+Grupos de escenarios
+Escenarios totales
+Escenarios modelados
+Escenarios con diagrama
+Escenarios con excepciones
+Escenarios con controles
+Escenarios con regulación
+Escenarios pendientes de validación
+Service Domains utilizados
+Service Domains sin escenario
+Gaps de Service Domains
+```
+
+No uses valores simulados.
+
+---
+
+# 13. Validación
+
+Crea:
+
+```text
+npm run validate:scenarios
+npm run validate:sequence-diagrams
+```
+
+Debe detectar:
+
+* IDs duplicados;
+* slugs duplicados;
+* grupo inexistente;
+* escenario sin participantes;
+* escenario sin mensajes;
+* Service Domain inexistente;
+* secuencia duplicada;
+* secuencia discontinua;
+* origen inexistente;
+* destino inexistente;
+* fragmentos inválidos;
+* activaciones inválidas;
+* escenarios sin trigger;
+* escenarios sin business outcome;
+* escenarios sin excepciones;
+* escenarios sin controles;
+* escenarios sin fuente;
+* rutas duplicadas;
+* geometría inválida;
+* colisiones críticas.
+
+---
+
+# 14. Pruebas
+
+## Unitarias
+
+Probar:
+
+* carga de 16 escenarios;
+* IDs;
+* grupos;
+* participantes;
+* mensajes;
+* orden;
+* fragmentos;
+* activaciones;
+* excepciones;
+* layout;
+* determinismo;
+* búsqueda;
+* filtros.
+
+## Componentes
+
+Probar:
+
+* ScenarioGroupCard;
+* ScenarioCard;
+* ScenarioDetailPage;
+* RaiaSequenceDiagram;
+* ParticipantHeader;
+* SequenceMessage;
+* ActivationBar;
+* SequenceFragment;
+* SequenceDiagramToolbar;
+* tabla accesible;
+* panel de mensaje.
+
+## End-to-end
+
+Automatiza:
+
+1. abrir `/business-scenarios`;
+2. comprobar cuatro grupos;
+3. comprobar 16 escenarios nuevos;
+4. abrir Localización de cuenta;
+5. comprobar diagrama SVG;
+6. seleccionar un mensaje;
+7. abrir un Service Domain;
+8. regresar al escenario;
+9. abrir Ejecución y liquidación;
+10. comprobar fragmento crítico;
+11. abrir Elección de modalidad;
+12. comprobar alternativas;
+13. abrir Transferencia al Fondo;
+14. probar zoom;
+15. probar fullscreen;
+16. exportar SVG;
+17. probar tabla;
+18. probar móvil;
+19. comprobar ausencia de errores de consola.
+
+---
+
+# 15. Criterios de aceptación
+
+La entrega será aceptada cuando:
+
+* los 16 escenarios existan;
+* todos tengan ID RAIA;
+* todos tengan slug;
+* todos tengan página detallada;
+* todos tengan participantes;
+* todos tengan mensajes ordenados;
+* todos tengan diagrama SVG;
+* todos tengan tabla accesible;
+* todos tengan excepciones;
+* todos tengan controles y evidencias;
+* todos tengan regulación pendiente de validación;
+* todos reutilicen Service Domains canónicos;
+* los gaps estén documentados;
+* no exista `plannedCategories` hardcodeado;
+* el Dashboard use conteos reales;
+* las validaciones pasen;
+* las pruebas pasen;
+* el build pase;
+* CI ejecute las validaciones;
+* ningún escenario sea marcado como activo sin validación.
+
+---
+
+# 16. Formato de entrega de Antigravity
+
+Al finalizar entrega:
+
+## Resumen
+
+Qué se construyó.
+
+## Escenarios
+
+Tabla con:
+
+| ID | Escenario | Grupo | Participantes | Mensajes | Estado |
+| -- | --------- | ----- | ------------: | -------: | ------ |
+
+## Diagramas
+
+Cantidad de diagramas generados correctamente.
+
+## Service Domain gaps
+
+Responsabilidades no encontradas en el landscape.
+
+## Archivos
+
+Lista de archivos creados y modificados.
+
+## Validaciones
+
+Resultados reales de:
+
+```text
+npm run validate:data
+npm run validate:scenarios
+npm run validate:sequence-diagrams
+npm run lint
+npm run typecheck
+npm run test
+npm run build
+```
+
+## Pruebas
+
+Número de pruebas y resultado.
+
+## Supuestos
+
+Supuestos utilizados.
+
+## Pendientes regulatorios
+
+Contenido que requiere validación jurídica u operativa.
+
+## Limitaciones
+
+Limitaciones reales.
+
+---
+
+# 17. Instrucción final
+
+Convierte los 16 elementos que actualmente aparecen como roadmap en Business Scenarios reales, navegables, trazables y versionados.
+
+Cada escenario deberá expresar:
+
+```text
+Trigger
+→ Participantes
+→ Solicitud
+→ Validaciones
+→ Decisiones
+→ Operaciones
+→ Respuestas
+→ Excepciones
+→ Resultado
+→ Evidencia
+```
+
+La prioridad es:
+
+```text
+Modelo canónico
+→ Service Domains existentes
+→ Diagrama de secuencia RAIA
+→ Trazabilidad
+→ Validación
+→ Navegación
+→ Calidad
+```
+
+No midas el resultado por la cantidad de tarjetas generadas.
+
+Mídelo por la capacidad de cada escenario para explicar de manera verificable:
+
+* quién inicia;
+* quién participa;
+* qué responsabilidad interviene;
+* qué información se intercambia;
+* qué decisión se toma;
+* qué recurso se mueve;
+* qué excepción puede ocurrir;
+* qué evidencia debe conservarse;
+* qué regulación necesita validarse;
+* qué resultado obtiene el trabajador o la industria.
+
+```
+```
