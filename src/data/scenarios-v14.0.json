@@ -1,0 +1,93 @@
+[
+  {
+    "id": "scen-001",
+    "name": "Registro y Traspaso de Cuenta Individual",
+    "description": "Proceso completo mediante el cual un trabajador solicita el traspaso de su cuenta individual a otra Afore, incluyendo validación biométrica, de expediente y actualización del libro mayor.",
+    "steps": [
+      {
+        "stepNumber": 1,
+        "sourceId": "RAIA-SD-020",
+        "targetId": "RAIA-SD-021",
+        "description": "Se leen los Datos del Trabajador para iniciar la resolución de identidad.",
+        "eventName": "Traspaso Solicitado"
+      },
+      {
+        "stepNumber": 2,
+        "sourceId": "RAIA-SD-021",
+        "targetId": "RAIA-SD-023",
+        "description": "Se valida la identidad del trabajador a través de biométricos de industria.",
+        "eventName": "Identidad Validada"
+      },
+      {
+        "stepNumber": 3,
+        "sourceId": "RAIA-SD-023",
+        "targetId": "RAIA-SD-031",
+        "description": "Se asocia la validación biométrica y consentimiento firmado al Expediente Electrónico.",
+        "eventName": "Expediente Consolidado"
+      },
+      {
+        "stepNumber": 4,
+        "sourceId": "RAIA-SD-031",
+        "targetId": "RAIA-SD-045",
+        "description": "Se inicia formalmente la solicitud de Traspaso de Cuenta usando el expediente integrado.",
+        "eventName": "Solicitud de Traspaso Iniciada"
+      },
+      {
+        "stepNumber": 5,
+        "sourceId": "RAIA-SD-045",
+        "targetId": "RAIA-SD-040",
+        "description": "Se autoriza el traspaso y se actualiza el Registro en AFORE de la cuenta.",
+        "eventName": "Traspaso Aprobado"
+      },
+      {
+        "stepNumber": 6,
+        "sourceId": "RAIA-SD-040",
+        "targetId": "RAIA-SD-046",
+        "description": "Se ejecuta la transferencia financiera y se registra en el Libro Mayor de la Cuenta Individual.",
+        "eventName": "Recursos Transferidos"
+      }
+    ]
+  },
+  {
+    "id": "scen-002",
+    "name": "Recaudación de Aportaciones e Inversión",
+    "description": "Flujo por el cual las aportaciones patronales bimestrales entran al sistema, se concilian, se individualizan y se invierten en la SIEFORE correspondiente.",
+    "steps": [
+      {
+        "stepNumber": 1,
+        "sourceId": "RAIA-SD-089",
+        "targetId": "RAIA-SD-090",
+        "description": "Se determinan las aportaciones patronales y se realiza la recaudación.",
+        "eventName": "Aportaciones Recaudadas"
+      },
+      {
+        "stepNumber": 2,
+        "sourceId": "RAIA-SD-090",
+        "targetId": "RAIA-SD-105",
+        "description": "Se concilia la recaudación global contra los registros de la operadora central.",
+        "eventName": "Conciliación Exitosa"
+      },
+      {
+        "stepNumber": 3,
+        "sourceId": "RAIA-SD-105",
+        "targetId": "RAIA-SD-103",
+        "description": "Se individualizan los recursos en cada cuenta individual del trabajador.",
+        "eventName": "Recursos Individualizados"
+      },
+      {
+        "stepNumber": 4,
+        "sourceId": "RAIA-SD-103",
+        "targetId": "RAIA-SD-080",
+        "description": "Se registran los movimientos de aportaciones en la subcuenta correspondiente.",
+        "eventName": "Movimiento Registrado"
+      },
+      {
+        "stepNumber": 5,
+        "sourceId": "RAIA-SD-080",
+        "targetId": "RAIA-SD-110",
+        "description": "Se asignan los recursos a la SIEFORE generacional correspondiente a la edad del trabajador.",
+        "eventName": "Asignación de Fondos"
+      }
+    ]
+  }
+]

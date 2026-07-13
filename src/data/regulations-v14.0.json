@@ -1,0 +1,24 @@
+[
+  {
+    "id": "RAIA-REG-LSAR",
+    "name": "Ley de los Sistemas de Ahorro para el Retiro",
+    "authority": "Congreso de la Unión",
+    "url": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LSAR.pdf",
+    "mandatory": true,
+    "validationStatus": "official"
+  },
+  {
+    "id": "RAIA-REG-CUO",
+    "name": "Disposiciones de carácter general en materia de operaciones de los Sistemas de Ahorro para el Retiro",
+    "authority": "CONSAR",
+    "mandatory": true,
+    "validationStatus": "pending-validation"
+  },
+  {
+    "id": "RAIA-REG-CUS",
+    "name": "Circular Única de Sistemas Financieros en materia de Ciberseguridad",
+    "authority": "CONSAR / CNBV",
+    "mandatory": true,
+    "validationStatus": "official"
+  }
+]

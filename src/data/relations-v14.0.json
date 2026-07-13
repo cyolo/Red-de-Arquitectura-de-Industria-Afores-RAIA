@@ -1,0 +1,284 @@
+[
+  {
+    "id": "rel-001",
+    "sourceId": "RAIA-SD-020",
+    "targetId": "RAIA-SD-021",
+    "type": "triggers",
+    "label": "Desencadena",
+    "description": "Inicia la resolución de identidad"
+  },
+  {
+    "id": "rel-002",
+    "sourceId": "RAIA-SD-021",
+    "targetId": "RAIA-SD-023",
+    "type": "validates",
+    "label": "Valida con",
+    "description": "Requiere validación biométrica para resolución"
+  },
+  {
+    "id": "rel-003",
+    "sourceId": "RAIA-SD-023",
+    "targetId": "RAIA-SD-031",
+    "type": "provides-to",
+    "label": "Aporta a",
+    "description": "Provee evidencias biométricas para el expediente"
+  },
+  {
+    "id": "rel-004",
+    "sourceId": "RAIA-SD-031",
+    "targetId": "RAIA-SD-040",
+    "type": "depends-on",
+    "label": "Requerido por",
+    "description": "El expediente electrónico es obligatorio para el registro"
+  },
+  {
+    "id": "rel-005",
+    "sourceId": "RAIA-SD-040",
+    "targetId": "RAIA-SD-046",
+    "type": "triggers",
+    "label": "Inicializa",
+    "description": "Crea el libro mayor contable al registrar la cuenta"
+  },
+  {
+    "id": "rel-006",
+    "sourceId": "RAIA-SD-047",
+    "targetId": "RAIA-SD-048",
+    "type": "triggers",
+    "label": "Siguiente paso"
+  },
+  {
+    "id": "rel-007",
+    "sourceId": "RAIA-SD-048",
+    "targetId": "RAIA-SD-063",
+    "type": "triggers",
+    "label": "Siguiente paso"
+  },
+  {
+    "id": "rel-008",
+    "sourceId": "RAIA-SD-063",
+    "targetId": "RAIA-SD-061",
+    "type": "triggers",
+    "label": "Siguiente paso"
+  },
+  {
+    "id": "rel-009",
+    "sourceId": "RAIA-SD-061",
+    "targetId": "RAIA-SD-076",
+    "type": "triggers",
+    "label": "Siguiente paso"
+  },
+  {
+    "id": "rel-010",
+    "sourceId": "RAIA-SD-076",
+    "targetId": "RAIA-SD-077",
+    "type": "triggers",
+    "label": "Siguiente paso"
+  },
+  {
+    "id": "rel-011",
+    "sourceId": "RAIA-SD-077",
+    "targetId": "RAIA-SD-090",
+    "type": "triggers",
+    "label": "Siguiente paso"
+  },
+  {
+    "id": "rel-traspaso-020",
+    "sourceId": "RAIA-SD-045",
+    "targetId": "RAIA-SD-020",
+    "type": "depends-on",
+    "label": "Consulta Datos del Trabajador"
+  },
+  {
+    "id": "rel-traspaso-021",
+    "sourceId": "RAIA-SD-045",
+    "targetId": "RAIA-SD-021",
+    "type": "depends-on",
+    "label": "Consulta Resolución de Identidad"
+  },
+  {
+    "id": "rel-traspaso-023",
+    "sourceId": "RAIA-SD-045",
+    "targetId": "RAIA-SD-023",
+    "type": "validates",
+    "label": "Valida Identidad Biométrica"
+  },
+  {
+    "id": "rel-traspaso-031",
+    "sourceId": "RAIA-SD-045",
+    "targetId": "RAIA-SD-031",
+    "type": "shares-data-with",
+    "label": "Comparte Expediente Electrónico"
+  },
+  {
+    "id": "rel-traspaso-040",
+    "sourceId": "RAIA-SD-045",
+    "targetId": "RAIA-SD-040",
+    "type": "triggers",
+    "label": "Actualiza Registro en AFORE"
+  },
+  {
+    "id": "rel-traspaso-046",
+    "sourceId": "RAIA-SD-045",
+    "targetId": "RAIA-SD-046",
+    "type": "triggers",
+    "label": "Afecta Libro Mayor de Cuenta Individual"
+  },
+  {
+    "id": "rel-flow2-1",
+    "sourceId": "RAIA-SD-089",
+    "targetId": "RAIA-SD-090",
+    "type": "triggers",
+    "label": "Desencadena",
+    "description": "Inicia recaudación"
+  },
+  {
+    "id": "rel-flow2-2",
+    "sourceId": "RAIA-SD-090",
+    "targetId": "RAIA-SD-105",
+    "type": "triggers",
+    "label": "Orquesta",
+    "description": "Inicia conciliación"
+  },
+  {
+    "id": "rel-flow2-3",
+    "sourceId": "RAIA-SD-105",
+    "targetId": "RAIA-SD-103",
+    "type": "triggers",
+    "label": "Desencadena",
+    "description": "Inicia individualización"
+  },
+  {
+    "id": "rel-flow2-4",
+    "sourceId": "RAIA-SD-103",
+    "targetId": "RAIA-SD-080",
+    "type": "triggers",
+    "label": "Registra",
+    "description": "Registra movimientos de cuenta"
+  },
+  {
+    "id": "rel-flow2-5",
+    "sourceId": "RAIA-SD-080",
+    "targetId": "RAIA-SD-081",
+    "type": "triggers",
+    "label": "Asigna",
+    "description": "Compra acciones correspondientes"
+  },
+  {
+    "id": "rel-flow2-6",
+    "sourceId": "RAIA-SD-081",
+    "targetId": "RAIA-SD-110",
+    "type": "provides-to",
+    "label": "Asigna en",
+    "description": "Canaliza a SIEFORE generacional"
+  },
+  {
+    "id": "rel-flow3-1",
+    "sourceId": "RAIA-SD-111",
+    "targetId": "RAIA-SD-112",
+    "type": "orchestrates"
+  },
+  {
+    "id": "rel-flow3-2",
+    "sourceId": "RAIA-SD-112",
+    "targetId": "RAIA-SD-117",
+    "type": "triggers"
+  },
+  {
+    "id": "rel-flow3-3",
+    "sourceId": "RAIA-SD-117",
+    "targetId": "RAIA-SD-119",
+    "type": "triggers"
+  },
+  {
+    "id": "rel-flow3-4",
+    "sourceId": "RAIA-SD-119",
+    "targetId": "RAIA-SD-127",
+    "type": "triggers"
+  },
+  {
+    "id": "rel-flow3-5",
+    "sourceId": "RAIA-SD-127",
+    "targetId": "RAIA-SD-082",
+    "type": "triggers"
+  },
+  {
+    "id": "rel-flow4-1",
+    "sourceId": "RAIA-SD-139",
+    "targetId": "RAIA-SD-136",
+    "type": "validates"
+  },
+  {
+    "id": "rel-flow4-2",
+    "sourceId": "RAIA-SD-136",
+    "targetId": "RAIA-SD-147",
+    "type": "triggers"
+  },
+  {
+    "id": "rel-flow4-3",
+    "sourceId": "RAIA-SD-147",
+    "targetId": "RAIA-SD-084",
+    "type": "triggers"
+  },
+  {
+    "id": "rel-flow4-4",
+    "sourceId": "RAIA-SD-084",
+    "targetId": "RAIA-SD-085",
+    "type": "triggers"
+  },
+  {
+    "id": "rel-flow5-1",
+    "sourceId": "RAIA-SD-141",
+    "targetId": "RAIA-SD-143",
+    "type": "triggers"
+  },
+  {
+    "id": "rel-flow5-2",
+    "sourceId": "RAIA-SD-143",
+    "targetId": "RAIA-SD-142",
+    "type": "triggers"
+  },
+  {
+    "id": "rel-flow5-3",
+    "sourceId": "RAIA-SD-142",
+    "targetId": "RAIA-SD-144",
+    "type": "triggers"
+  },
+  {
+    "id": "rel-flow5-4",
+    "sourceId": "RAIA-SD-142",
+    "targetId": "RAIA-SD-145",
+    "type": "triggers"
+  },
+  {
+    "id": "rel-flow6-1",
+    "sourceId": "RAIA-SD-150",
+    "targetId": "RAIA-SD-151",
+    "type": "triggers"
+  },
+  {
+    "id": "rel-flow6-2",
+    "sourceId": "RAIA-SD-151",
+    "targetId": "RAIA-SD-152",
+    "type": "validates"
+  },
+  {
+    "id": "rel-flow6-3",
+    "sourceId": "RAIA-SD-152",
+    "targetId": "RAIA-SD-153",
+    "type": "triggers"
+  },
+  {
+    "id": "rel-reg-1",
+    "sourceId": "RAIA-SD-024",
+    "targetId": "RAIA-SD-019",
+    "type": "reports-to",
+    "label": "Reporta a"
+  },
+  {
+    "id": "rel-reg-2",
+    "sourceId": "RAIA-SD-019",
+    "targetId": "RAIA-SD-025",
+    "type": "depends-on",
+    "label": "Regulado por"
+  }
+]
