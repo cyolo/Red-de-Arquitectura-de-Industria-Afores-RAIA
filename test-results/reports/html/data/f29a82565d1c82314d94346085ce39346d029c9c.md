@@ -1,0 +1,568 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: scenario-step-analysis.spec.ts >> RAIA Business Scenarios - UX Architecture Context >> absence of console errors
+- Location: tests\e2e\scenario-step-analysis.spec.ts:102:7
+
+# Error details
+
+```
+Test timeout of 30000ms exceeded while running "beforeEach" hook.
+```
+
+```
+Error: locator.click: Test timeout of 30000ms exceeded.
+Call log:
+  - waiting for getByTestId('scenario-catalog').getByText(/RAIA-BS-/i).first()
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - link "RAIA 0.1.0 Red de Arquitectura de Industria" [ref=e5] [cursor=pointer]:
+          - /url: /
+          - img [ref=e7]
+          - generic [ref=e13]:
+            - generic [ref=e14]:
+              - generic [ref=e15]: RAIA
+              - generic [ref=e16]: 0.1.0
+            - generic [ref=e17]: Red de Arquitectura de Industria
+        - generic [ref=e18]: Referencia
+      - button "Buscar en el portal (Presione Control + K)" [ref=e20]:
+        - generic [ref=e21]:
+          - img [ref=e22]
+          - generic [ref=e25]: Buscar en RAIA...
+        - generic [ref=e26]:
+          - generic [ref=e27]: Ctrl
+          - generic [ref=e28]: K
+      - navigation [ref=e29]:
+        - link "Overview" [ref=e30] [cursor=pointer]:
+          - /url: /
+        - link "Service Landscape" [ref=e31] [cursor=pointer]:
+          - /url: /service-landscape/value-chain
+        - link "Scenarios" [ref=e32] [cursor=pointer]:
+          - /url: /business-scenarios
+        - button "Más" [ref=e34]:
+          - text: Más
+          - img [ref=e35]
+  - main [ref=e37]:
+    - generic [ref=e39]:
+      - link "Volver al Portal Principal" [ref=e40] [cursor=pointer]:
+        - /url: /
+        - img [ref=e41]
+        - text: Volver al Portal Principal
+      - generic [ref=e44]:
+        - generic [ref=e45]:
+          - img [ref=e47]
+          - generic [ref=e50]:
+            - heading "RAIA Business Scenarios" [level=1] [ref=e51]
+            - paragraph [ref=e52]: Catálogo e Interacción de Secuencias del SAR
+        - paragraph [ref=e53]: Catálogo dinámico de escenarios lógicos de industria propuestos. A continuación puede visualizar y simular de extremo a extremo las interacciones ordenadas entre Service Domains necesarios para ejecutar trámites clave del Sistema de Ahorro para el Retiro.
+      - generic [ref=e54]:
+        - generic [ref=e55]:
+          - heading "Escenarios Propuestos (0.1.0)" [level=2] [ref=e56]
+          - generic [ref=e57]:
+            - button "Registro y Traspaso de Cuenta Individual 21 pasos estructurados" [ref=e58]:
+              - generic [ref=e59]:
+                - generic [ref=e60]: Registro y Traspaso de Cuenta Individual
+                - img [ref=e61]
+              - generic [ref=e63]: 21 pasos estructurados
+            - button "Recaudación de Aportaciones e Inversión 15 pasos estructurados" [ref=e64]:
+              - generic [ref=e65]:
+                - generic [ref=e66]: Recaudación de Aportaciones e Inversión
+                - img [ref=e67]
+              - generic [ref=e69]: 15 pasos estructurados
+            - button "Localización de cuenta individual 13 pasos estructurados" [ref=e70]:
+              - generic [ref=e71]:
+                - generic [ref=e72]: Localización de cuenta individual
+                - img [ref=e73]
+              - generic [ref=e75]: 13 pasos estructurados
+            - button "Asignación automática de cuentas 15 pasos estructurados" [ref=e76]:
+              - generic [ref=e77]:
+                - generic [ref=e78]: Asignación automática de cuentas
+                - img [ref=e79]
+              - generic [ref=e81]: 15 pasos estructurados
+            - button "Reasignación por desempeño 16 pasos estructurados" [ref=e82]:
+              - generic [ref=e83]:
+                - generic [ref=e84]: Reasignación por desempeño
+                - img [ref=e85]
+              - generic [ref=e87]: 16 pasos estructurados
+            - button "Unificación de cuentas duplicadas 17 pasos estructurados" [ref=e88]:
+              - generic [ref=e89]:
+                - generic [ref=e90]: Unificación de cuentas duplicadas
+                - img [ref=e91]
+              - generic [ref=e93]: 17 pasos estructurados
+            - button "Separación de cuentas IMSS/ISSSTE 15 pasos estructurados" [ref=e94]:
+              - generic [ref=e95]:
+                - generic [ref=e96]: Separación de cuentas IMSS/ISSSTE
+                - img [ref=e97]
+              - generic [ref=e99]: 15 pasos estructurados
+            - button "Asignación automática a SIEFORE Generacional 12 pasos estructurados" [ref=e100]:
+              - generic [ref=e101]:
+                - generic [ref=e102]: Asignación automática a SIEFORE Generacional
+                - img [ref=e103]
+              - generic [ref=e105]: 12 pasos estructurados
+            - button "Construcción y rebalanceo de portafolio 15 pasos estructurados" [ref=e106]:
+              - generic [ref=e107]:
+                - generic [ref=e108]: Construcción y rebalanceo de portafolio
+                - img [ref=e109]
+              - generic [ref=e111]: 15 pasos estructurados
+            - button "Ejecución y liquidación de operaciones 16 pasos estructurados" [ref=e112]:
+              - generic [ref=e113]:
+                - generic [ref=e114]: Ejecución y liquidación de operaciones
+                - img [ref=e115]
+              - generic [ref=e117]: 16 pasos estructurados
+            - button "Valuación de instrumentos financieros 12 pasos estructurados" [ref=e118]:
+              - generic [ref=e119]:
+                - generic [ref=e120]: Valuación de instrumentos financieros
+                - img [ref=e121]
+              - generic [ref=e123]: 12 pasos estructurados
+            - button "Retiro por desempleo IMSS/ISSSTE 17 pasos estructurados" [ref=e124]:
+              - generic [ref=e125]:
+                - generic [ref=e126]: Retiro por desempleo IMSS/ISSSTE
+                - img [ref=e127]
+              - generic [ref=e129]: 17 pasos estructurados
+            - button "Ayuda para gastos de matrimonio 14 pasos estructurados" [ref=e130]:
+              - generic [ref=e131]:
+                - generic [ref=e132]: Ayuda para gastos de matrimonio
+                - img [ref=e133]
+              - generic [ref=e135]: 14 pasos estructurados
+            - button "Elección de modalidad de pensión 15 pasos estructurados" [ref=e136]:
+              - generic [ref=e137]:
+                - generic [ref=e138]: Elección de modalidad de pensión
+                - img [ref=e139]
+              - generic [ref=e141]: 15 pasos estructurados
+            - button "Transferencia de fondos para renta vitalicia 16 pasos estructurados" [ref=e142]:
+              - generic [ref=e143]:
+                - generic [ref=e144]: Transferencia de fondos para renta vitalicia
+                - img [ref=e145]
+              - generic [ref=e147]: 16 pasos estructurados
+            - button "Identificación de cuentas potencialmente elegibles para el Fondo 16 pasos estructurados" [ref=e148]:
+              - generic [ref=e149]:
+                - generic [ref=e150]: Identificación de cuentas potencialmente elegibles para el Fondo
+                - img [ref=e151]
+              - generic [ref=e153]: 16 pasos estructurados
+            - button "Transferencia de recursos al Fondo 15 pasos estructurados" [ref=e154]:
+              - generic [ref=e155]:
+                - generic [ref=e156]: Transferencia de recursos al Fondo
+                - img [ref=e157]
+              - generic [ref=e159]: 15 pasos estructurados
+            - button "Cálculo y gestión del complemento de pensión 17 pasos estructurados" [ref=e160]:
+              - generic [ref=e161]:
+                - generic [ref=e162]: Cálculo y gestión del complemento de pensión
+                - img [ref=e163]
+              - generic [ref=e165]: 17 pasos estructurados
+        - generic [ref=e166]:
+          - generic [ref=e167]:
+            - generic [ref=e168]:
+              - generic [ref=e169]: "ID: RAIA-BS-0001"
+              - generic [ref=e170]: "Estado: Proposed"
+              - generic [ref=e171]: "Validación: Pending"
+            - heading "Registro y Traspaso de Cuenta Individual" [level=2] [ref=e172]
+            - paragraph [ref=e173]: Proceso completo mediante el cual un trabajador solicita el traspaso de su cuenta individual a otra Afore, incluyendo validación biométrica, de expediente y actualización del libro mayor.
+          - figure "Registro y Traspaso de Cuenta Individual" [ref=e175]:
+            - toolbar "Controles del diagrama de secuencia" [ref=e176]:
+              - button "Acercar (+)" [ref=e177]:
+                - img [ref=e178]
+              - button "Alejar (-)" [ref=e183]:
+                - img [ref=e184]
+              - button "Ajustar al contenido (0)" [ref=e189]:
+                - img [ref=e190]
+              - button "Restablecer vista (1)" [ref=e195]:
+                - img [ref=e196]
+              - button "Visualizar a pantalla completa (F)" [ref=e201]:
+                - img [ref=e202]
+            - img "Registro y Traspaso de Cuenta Individual" [ref=e208]:
+              - generic [ref=e209]:
+                - generic [ref=e212]: sd RAIA-BS-0001
+                - generic [ref=e227]:
+                  - text: alt
+                  - generic [ref=e230]: "[Condiciones de Negocio]"
+                  - generic [ref=e233]: "[else Cuenta no registrada]"
+                  - generic [ref=e236]: "[else Cuenta registrada en otra AFORE]"
+                  - generic [ref=e239]: "[else Múltiples cuentas]"
+                  - generic [ref=e242]: "[else Cuenta no elegible]"
+                - generic "Trabajador" [ref=e243]:
+                  - generic [ref=e245]: Trabajador
+                - generic "Gestión de Solicitudes" [ref=e246]:
+                  - generic [ref=e248]: Gestión de Solicitudes
+                - generic "Resolución de Identidad" [ref=e249]:
+                  - generic [ref=e251]: Resolución de Identidad
+                - generic "Identidad Biométrica" [ref=e252]:
+                  - generic [ref=e254]: Identidad Biométrica
+                - generic "Expediente Electrónico" [ref=e255]:
+                  - generic [ref=e257]: Expediente Electrónico
+                - generic "Gestión de Consentimiento" [ref=e258]:
+                  - generic [ref=e260]: Gestión de Consentimiento
+                - generic "Localización de Cuenta" [ref=e261]:
+                  - generic [ref=e263]: Localización de Cuenta
+                - generic "Base de Datos Nacional SAR" [ref=e264]:
+                  - generic [ref=e266]: Base de Datos Nacional SAR
+                - generic "Traspaso de Cuenta" [ref=e267]:
+                  - generic [ref=e269]: Traspaso de Cuenta
+                - generic "AFORE transferente" [ref=e270]:
+                  - generic [ref=e272]: AFORE transferente
+                - generic "Libro Mayor de Cuenta Individual" [ref=e273]:
+                  - generic [ref=e275]: Libro Mayor de Cuenta Individual
+                - generic "Notificaciones" [ref=e276]:
+                  - generic [ref=e278]: Notificaciones
+                - generic "BDNSAR" [ref=e279]:
+                  - generic [ref=e281]: BDNSAR
+                - generic "libro mayor" [ref=e282]:
+                  - generic [ref=e284]: libro mayor
+                - generic "[1] Solicitar registro o traspaso. Solicitar registro o traspaso." [ref=e285] [cursor=pointer]:
+                  - generic [ref=e289]: "[1]"
+                  - generic [ref=e290]: Solicitar registro o traspaso.
+                - generic "[2] Recuperar datos. Recuperar datos." [ref=e291] [cursor=pointer]:
+                  - generic [ref=e294]: "[2]"
+                  - generic [ref=e295]: Recuperar datos.
+                - generic "[3] Entregar datos disponibles. Entregar datos disponibles." [ref=e296] [cursor=pointer]:
+                  - generic [ref=e299]: "[3]"
+                  - generic [ref=e300]: Entregar datos disponibles.
+                - generic "[4] Validar identidad. Validar identidad." [ref=e301] [cursor=pointer]:
+                  - generic [ref=e304]: "[4]"
+                  - generic [ref=e305]: Validar identidad.
+                - generic "[5] Validar biometría y prueba de vida. Validar biometría y prueba de vida." [ref=e306] [cursor=pointer]:
+                  - generic [ref=e309]: "[5]"
+                  - generic [ref=e310]: Validar biometría y prueba de vida.
+                - generic "[6] Confirmar resultado biométrico. Confirmar resultado biométrico." [ref=e311] [cursor=pointer]:
+                  - generic [ref=e314]: "[6]"
+                  - generic [ref=e315]: Confirmar resultado biométrico.
+                - generic "[7] Integrar expediente. Integrar expediente." [ref=e316] [cursor=pointer]:
+                  - generic [ref=e319]: "[7]"
+                  - generic [ref=e320]: Integrar expediente.
+                - generic "[8] Capturar consentimiento. Capturar consentimiento." [ref=e321] [cursor=pointer]:
+                  - generic [ref=e324]: "[8]"
+                  - generic [ref=e325]: Capturar consentimiento.
+                - generic "[9] Consultar existencia de cuenta. Consultar existencia de cuenta." [ref=e326] [cursor=pointer]:
+                  - generic [ref=e329]: "[9]"
+                  - generic [ref=e330]: Consultar existencia de cuenta.
+                - generic "[10] Buscar cuenta individual. Buscar cuenta individual." [ref=e331] [cursor=pointer]:
+                  - generic [ref=e334]: "[10]"
+                  - generic [ref=e335]: Buscar cuenta individual.
+                - generic "[11] Entregar estado de cuenta. Entregar estado de cuenta." [ref=e336] [cursor=pointer]:
+                  - generic [ref=e339]: "[11]"
+                  - generic [ref=e340]: Entregar estado de cuenta.
+                - generic "[12] Informar resultado. Informar resultado." [ref=e341] [cursor=pointer]:
+                  - generic [ref=e344]: "[12]"
+                  - generic [ref=e345]: Informar resultado.
+                - generic "[13] Registrar solicitud. Registrar solicitud." [ref=e346] [cursor=pointer]:
+                  - generic [ref=e349]: "[13]"
+                  - generic [ref=e350]: Registrar solicitud.
+                - generic "[14] Solicitar información y saldos. Solicitar información y saldos." [ref=e351] [cursor=pointer]:
+                  - generic [ref=e354]: "[14]"
+                  - generic [ref=e355]: Solicitar información y saldos.
+                - generic "[15] Entregar información. Entregar información." [ref=e356] [cursor=pointer]:
+                  - generic [ref=e359]: "[15]"
+                  - generic [ref=e360]: Entregar información.
+                - generic "[16] Solicitar aceptación. Solicitar aceptación." [ref=e361] [cursor=pointer]:
+                  - generic [ref=e364]: "[16]"
+                  - generic [ref=e365]: Solicitar aceptación.
+                - generic "[17] Confirmar aceptación. Confirmar aceptación." [ref=e366] [cursor=pointer]:
+                  - generic [ref=e369]: "[17]"
+                  - generic [ref=e370]: Confirmar aceptación.
+                - generic "[18] Registrar transferencia. Registrar transferencia." [ref=e371] [cursor=pointer]:
+                  - generic [ref=e374]: "[18]"
+                  - generic [ref=e375]: Registrar transferencia.
+                - generic "[19] Confirmar registro. Confirmar registro." [ref=e376] [cursor=pointer]:
+                  - generic [ref=e379]: "[19]"
+                  - generic [ref=e380]: Confirmar registro.
+                - generic "[20] Emitir resultado. Emitir resultado." [ref=e381] [cursor=pointer]:
+                  - generic [ref=e384]: "[20]"
+                  - generic [ref=e385]: Emitir resultado.
+                - generic "[21] Notificar registro o traspaso. Notificar registro o traspaso." [ref=e386] [cursor=pointer]:
+                  - generic [ref=e389]: "[21]"
+                  - generic [ref=e390]: Notificar registro o traspaso.
+          - region "Pasos estructurados del escenario" [ref=e391]:
+            - generic [ref=e392]:
+              - heading "Pasos estructurados del escenario" [level=2] [ref=e393]
+              - generic [ref=e394]:
+                - paragraph [ref=e395]: Secuencia cronológica de interacciones arquitectónicas, flujos de control y transferencias de información.
+                - generic [ref=e396]: 21 pasos
+            - generic [ref=e397]:
+              - button "1 Solicitar registro o traspaso. Trabajador→Gestión de Solicitudes SYNCHRONOUS-COMMAND" [ref=e400] [cursor=pointer]:
+                - generic [ref=e401]:
+                  - generic [ref=e402]:
+                    - generic [ref=e403]: "1"
+                    - generic [ref=e404]:
+                      - heading "Solicitar registro o traspaso." [level=3] [ref=e405]
+                      - paragraph [ref=e406]: Trabajador→Gestión de Solicitudes
+                      - generic [ref=e407]: SYNCHRONOUS-COMMAND
+                  - img [ref=e409]
+              - complementary "Solicitar registro o traspaso." [ref=e414]:
+                - generic [ref=e415]:
+                  - generic [ref=e417]: Paso 1 de 21
+                  - heading "Solicitar registro o traspaso." [level=3] [ref=e418]
+                  - generic [ref=e419]:
+                    - paragraph [ref=e420]: Trabajador→Gestión de Solicitudes
+                    - generic [ref=e421]: SYNCHRONOUS-COMMAND
+                - generic [ref=e422]:
+                  - generic [ref=e423]:
+                    - heading "Propósito de Negocio" [level=4] [ref=e424]:
+                      - img [ref=e425]
+                      - text: Propósito de Negocio
+                    - paragraph [ref=e427]: Permite cambiar el estado de la operación hacia la siguiente fase de consolidación.
+                  - generic [ref=e428]:
+                    - heading "Contexto Estructural" [level=4] [ref=e429]
+                    - paragraph [ref=e430]: Interacción entre la responsabilidad emisora y la responsabilidad que recibe el comando de negocio.
+                  - generic [ref=e431]:
+                    - heading "Comportamiento Sistémico" [level=4] [ref=e432]
+                    - paragraph [ref=e433]: p-trabajador emite Solicitar registro o traspaso. a p-gesti-n-de-soli.
+                  - generic [ref=e434]:
+                    - generic [ref=e435]:
+                      - heading "Control" [level=5] [ref=e436]:
+                        - img [ref=e437]
+                        - text: Control
+                      - paragraph [ref=e440]: Validación de formato e integridad de origen antes del envío.
+                    - generic [ref=e441]:
+                      - heading "Excepción" [level=5] [ref=e442]:
+                        - img [ref=e443]
+                        - text: Excepción
+                      - paragraph [ref=e447]: Si la conexión falla, se genera bitácora de excepción.
+                - generic [ref=e448]:
+                  - button "Anterior" [disabled] [ref=e449]:
+                    - img [ref=e450]
+                    - generic [ref=e453]: Anterior
+                  - generic [ref=e454]: 1 / 21
+                  - button "Siguiente" [ref=e455]:
+                    - generic [ref=e456]: Siguiente
+                    - img [ref=e457]
+          - generic [ref=e461]:
+            - generic [ref=e462]:
+              - heading "Narrativa arquitectónica del escenario" [level=2] [ref=e463]
+              - paragraph [ref=e464]: Conectando la vista estructural con el comportamiento transaccional
+            - generic [ref=e465]:
+              - heading "Resumen ejecutivo" [level=3] [ref=e466]:
+                - img [ref=e467]
+                - text: Resumen ejecutivo
+              - paragraph [ref=e471]: El escenario coordina el registro o traspaso de cuenta de un trabajador, asegurando identidad y voluntad.
+            - generic [ref=e472]:
+              - heading "Cómo colaboran las estructuras" [level=3] [ref=e473]
+              - paragraph [ref=e474]: Gestión de Solicitudes no realiza todas las validaciones, sino que orquesta responsabilidades independientes. Esta separación permite que identidad, consentimiento, transferencia y registro financiero mantengan controles y evidencias propios.
+            - generic [ref=e475]:
+              - heading "Contexto estructural" [level=3] [ref=e476]
+              - paragraph [ref=e477]: Se apoya en una estructura coordinadora encabezada por Gestión de Solicitudes, mientras los dominios de Datos del Trabajador, Resolución de Identidad, Identidad Biométrica, Expediente Electrónico y Consentimiento aseguran que la persona y su voluntad sean verificables. Localización de Cuenta y la Base de Datos Nacional SAR determinan la situación actual de la cuenta. Traspaso de Cuenta coordina la interacción entre la AFORE transferente y la receptora. Libro Mayor conserva la integridad financiera.
+              - generic [ref=e478]:
+                - generic [ref=e479]:
+                  - heading "Trabajador" [level=4] [ref=e480]
+                  - generic [ref=e481]:
+                    - generic [ref=e482]:
+                      - generic [ref=e483]: "Rol Estructural:"
+                      - text: Service Domain coordinador / ejecutor
+                    - generic [ref=e484]:
+                      - generic [ref=e485]: "Responsabilidad:"
+                      - text: Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.
+                - generic [ref=e486]:
+                  - heading "Gestión de Solicitudes" [level=4] [ref=e487]
+                  - generic [ref=e488]:
+                    - generic [ref=e489]:
+                      - generic [ref=e490]: "Rol Estructural:"
+                      - text: Service Domain coordinador / ejecutor
+                    - generic [ref=e491]:
+                      - generic [ref=e492]: "Responsabilidad:"
+                      - text: Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.
+                - generic [ref=e493]:
+                  - heading "Datos del Trabajador" [level=4] [ref=e494]
+                  - generic [ref=e495]:
+                    - generic [ref=e496]:
+                      - generic [ref=e497]: "Rol Estructural:"
+                      - text: Service Domain coordinador / ejecutor
+                    - generic [ref=e498]:
+                      - generic [ref=e499]: "Responsabilidad:"
+                      - text: Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.
+                - generic [ref=e500]:
+                  - heading "Resolución de Identidad" [level=4] [ref=e501]
+                  - generic [ref=e502]:
+                    - generic [ref=e503]:
+                      - generic [ref=e504]: "Rol Estructural:"
+                      - text: Service Domain coordinador / ejecutor
+                    - generic [ref=e505]:
+                      - generic [ref=e506]: "Responsabilidad:"
+                      - text: Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.
+                - generic [ref=e507]:
+                  - heading "Identidad Biométrica" [level=4] [ref=e508]
+                  - generic [ref=e509]:
+                    - generic [ref=e510]:
+                      - generic [ref=e511]: "Rol Estructural:"
+                      - text: Service Domain coordinador / ejecutor
+                    - generic [ref=e512]:
+                      - generic [ref=e513]: "Responsabilidad:"
+                      - text: Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.
+                - generic [ref=e514]:
+                  - heading "Expediente Electrónico" [level=4] [ref=e515]
+                  - generic [ref=e516]:
+                    - generic [ref=e517]:
+                      - generic [ref=e518]: "Rol Estructural:"
+                      - text: Service Domain coordinador / ejecutor
+                    - generic [ref=e519]:
+                      - generic [ref=e520]: "Responsabilidad:"
+                      - text: Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.
+                - generic [ref=e521]:
+                  - heading "Gestión de Consentimiento" [level=4] [ref=e522]
+                  - generic [ref=e523]:
+                    - generic [ref=e524]:
+                      - generic [ref=e525]: "Rol Estructural:"
+                      - text: Service Domain coordinador / ejecutor
+                    - generic [ref=e526]:
+                      - generic [ref=e527]: "Responsabilidad:"
+                      - text: Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.
+                - generic [ref=e528]:
+                  - heading "Localización de Cuenta" [level=4] [ref=e529]
+                  - generic [ref=e530]:
+                    - generic [ref=e531]:
+                      - generic [ref=e532]: "Rol Estructural:"
+                      - text: Service Domain coordinador / ejecutor
+                    - generic [ref=e533]:
+                      - generic [ref=e534]: "Responsabilidad:"
+                      - text: Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.
+                - generic [ref=e535]:
+                  - heading "Base de Datos Nacional SAR" [level=4] [ref=e536]
+                  - generic [ref=e537]:
+                    - generic [ref=e538]:
+                      - generic [ref=e539]: "Rol Estructural:"
+                      - text: Service Domain coordinador / ejecutor
+                    - generic [ref=e540]:
+                      - generic [ref=e541]: "Responsabilidad:"
+                      - text: Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.
+                - generic [ref=e542]:
+                  - heading "Traspaso de Cuenta" [level=4] [ref=e543]
+                  - generic [ref=e544]:
+                    - generic [ref=e545]:
+                      - generic [ref=e546]: "Rol Estructural:"
+                      - text: Service Domain coordinador / ejecutor
+                    - generic [ref=e547]:
+                      - generic [ref=e548]: "Responsabilidad:"
+                      - text: Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.
+                - generic [ref=e549]:
+                  - heading "AFORE transferente" [level=4] [ref=e550]
+                  - generic [ref=e551]:
+                    - generic [ref=e552]:
+                      - generic [ref=e553]: "Rol Estructural:"
+                      - text: Service Domain coordinador / ejecutor
+                    - generic [ref=e554]:
+                      - generic [ref=e555]: "Responsabilidad:"
+                      - text: Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.
+                - generic [ref=e556]:
+                  - heading "AFORE receptora" [level=4] [ref=e557]
+                  - generic [ref=e558]:
+                    - generic [ref=e559]:
+                      - generic [ref=e560]: "Rol Estructural:"
+                      - text: Service Domain coordinador / ejecutor
+                    - generic [ref=e561]:
+                      - generic [ref=e562]: "Responsabilidad:"
+                      - text: Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.
+                - generic [ref=e563]:
+                  - heading "Libro Mayor de Cuenta Individual" [level=4] [ref=e564]
+                  - generic [ref=e565]:
+                    - generic [ref=e566]:
+                      - generic [ref=e567]: "Rol Estructural:"
+                      - text: Service Domain coordinador / ejecutor
+                    - generic [ref=e568]:
+                      - generic [ref=e569]: "Responsabilidad:"
+                      - text: Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.
+                - generic [ref=e570]:
+                  - heading "Notificaciones" [level=4] [ref=e571]
+                  - generic [ref=e572]:
+                    - generic [ref=e573]:
+                      - generic [ref=e574]: "Rol Estructural:"
+                      - text: Service Domain coordinador / ejecutor
+                    - generic [ref=e575]:
+                      - generic [ref=e576]: "Responsabilidad:"
+                      - text: Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.
+                - generic [ref=e577]:
+                  - heading "bdnsar" [level=4] [ref=e578]
+                  - generic [ref=e579]:
+                    - generic [ref=e580]:
+                      - generic [ref=e581]: "Rol Estructural:"
+                      - text: Service Domain coordinador / ejecutor
+                    - generic [ref=e582]:
+                      - generic [ref=e583]: "Responsabilidad:"
+                      - text: Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.
+                - generic [ref=e584]:
+                  - heading "libro mayor" [level=4] [ref=e585]
+                  - generic [ref=e586]:
+                    - generic [ref=e587]:
+                      - generic [ref=e588]: "Rol Estructural:"
+                      - text: Service Domain coordinador / ejecutor
+                    - generic [ref=e589]:
+                      - generic [ref=e590]: "Responsabilidad:"
+                      - text: Administrar el estado de la operación y garantizar la consistencia de los objetos de negocio relacionados.
+            - generic [ref=e591]:
+              - heading "Comportamiento del escenario" [level=3] [ref=e592]:
+                - img [ref=e593]
+                - text: Comportamiento del escenario
+              - paragraph [ref=e595]: El trabajador inicia la solicitud. La estructura de identidad y expediente valida a la persona antes de consultar la cuenta. El resultado de localización determina si corresponde registrar, traspasar, unificar o rechazar. Cuando procede el traspaso, la administradora transferente entrega información y recursos, la receptora confirma su aceptación y el Libro Mayor registra el cambio. El escenario concluye cuando la cuenta, sus saldos y el registro maestro reflejan a la administradora responsable.
+            - generic [ref=e596]:
+              - heading "Fases del flujo de extremo a extremo" [level=3] [ref=e597]
+              - generic [ref=e598]:
+                - generic [ref=e599]:
+                  - generic [ref=e600]: "1"
+                  - generic [ref=e601]:
+                    - heading "Fase 1 — Inicio y registro" [level=4] [ref=e602]
+                    - paragraph [ref=e603]: Estructuras involucradas en la captura y validación primaria.
+                    - paragraph [ref=e604]: Se ejecutan las validaciones iniciales y se captura el intent de negocio.
+                    - generic [ref=e605]:
+                      - text: "Resultado:"
+                      - generic [ref=e606]: Contexto validado
+                - generic [ref=e607]:
+                  - generic [ref=e608]: "2"
+                  - generic [ref=e609]:
+                    - heading "Fase 2 — Ejecución y cierre" [level=4] [ref=e610]
+                    - paragraph [ref=e611]: Estructuras encargadas de asentar la resolución financiera y operativa.
+                    - paragraph [ref=e612]: Se consolida el estado final en libros mayores y registros maestros.
+                    - generic [ref=e613]:
+                      - text: "Resultado:"
+                      - generic [ref=e614]: Transacción liquidada y notificada
+            - generic [ref=e615]:
+              - heading "Decisiones y excepciones" [level=3] [ref=e616]:
+                - img [ref=e617]
+                - text: Decisiones y excepciones
+              - generic [ref=e619]:
+                - paragraph [ref=e620]: "Las siguientes condiciones de negocio modifican o bifurcan el flujo principal:"
+                - list [ref=e621]:
+                  - listitem [ref=e622]: Cuenta no registrada
+                  - listitem [ref=e623]: cuenta en otra AFORE
+                  - listitem [ref=e624]: cuentas duplicadas
+                  - listitem [ref=e625]: cuenta no elegible
+                  - listitem [ref=e626]: identidad no validada
+                  - listitem [ref=e627]: transferencia no conciliada.
+              - paragraph [ref=e628]: En caso de falla técnica o rechazo de negocio, la operación se revierte (rollback) y se informa al iniciador para no mantener saldos en tránsito colgados.
+            - generic [ref=e629]:
+              - generic [ref=e630]:
+                - heading "Controles" [level=3] [ref=e631]:
+                  - img [ref=e632]
+                  - text: Controles
+                - paragraph [ref=e635]: Se aplican validaciones preventivas de identidad y saldo, y controles detectivos durante la fase de conciliación contable.
+              - generic [ref=e636]:
+                - heading "Evidencias" [level=3] [ref=e637]:
+                  - img [ref=e638]
+                  - text: Evidencias
+                - paragraph [ref=e644]: Se conservan bitácoras de aplicación, sellos de tiempo de recepción y los identificadores de trazabilidad en el Libro Mayor.
+            - generic [ref=e645]:
+              - heading "Resultado Arquitectónico" [level=3] [ref=e646]:
+                - img [ref=e647]
+                - text: Resultado Arquitectónico
+              - paragraph [ref=e650]: El resultado es un cambio de estado en el registro maestro garantizando la atomicidad, durabilidad y consistencia de los datos.
+              - generic [ref=e651]:
+                - heading "Supuestos Trazables" [level=4] [ref=e652]
+                - list [ref=e653]:
+                  - listitem [ref=e654]: Disponibilidad de BDNSAR
+                  - listitem [ref=e655]: Conformidad con manuales operativos CONSAR
+  - contentinfo [ref=e656]:
+    - generic [ref=e657]:
+      - paragraph [ref=e658]: DisclaimerRAIA es una arquitectura de referencia y no sustituye las leyes, disposiciones, criterios, manuales ni publicaciones oficiales de las autoridades mexicanas.
+      - paragraph [ref=e659]: "RAIA 0.1.0 © 2026. Licencia: Código MIT, Modelos CC BY 4.0."
+  - button "Open Next.js Dev Tools" [ref=e665] [cursor=pointer]:
+    - img [ref=e666]
+  - alert [ref=e670]
+```

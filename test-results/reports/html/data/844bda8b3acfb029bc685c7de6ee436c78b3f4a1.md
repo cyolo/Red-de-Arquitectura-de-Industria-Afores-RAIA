@@ -1,0 +1,605 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: global\navigation.spec.ts >> Global Navigation >> RAIA-GLO-004: Validate module cards redirection
+- Location: tests\e2e\global\navigation.spec.ts:37:7
+
+# Error details
+
+```
+Error: expect(locator).toBeVisible() failed
+
+Locator: locator('a[href="/metamodel"]')
+Expected: visible
+Error: strict mode violation: locator('a[href="/metamodel"]') resolved to 2 elements:
+    1) <a href="/metamodel" class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white font-semibold text-xs px-4 py-3 rounded-lg border border-slate-700 transition-colors">…</a> aka getByRole('link', { name: 'Conocer Metodología' })
+    2) <a href="/metamodel" class="bg-white rounded-2xl border border-slate-200 shadow-xs p-5 hover:border-slate-300 hover:shadow-md transition-all flex flex-col justify-between group h-auto text-left">…</a> aka getByRole('link', { name: 'v0.1.0 Metamodel Overview' })
+
+Call log:
+  - Expect "toBeVisible" with timeout 5000ms
+  - waiting for locator('a[href="/metamodel"]')
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "RAIA 0.1.0" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e7]
+        - generic [ref=e13]:
+          - generic [ref=e14]: RAIA
+          - generic [ref=e15]: 0.1.0
+      - generic [ref=e16]:
+        - button "Buscar en el portal (Presione Control + K)" [ref=e17]:
+          - generic [ref=e18]:
+            - img [ref=e19]
+            - generic [ref=e22]: Buscar en RAIA...
+        - button "Abrir menú" [ref=e23]:
+          - img [ref=e24]
+  - main [ref=e25]:
+    - generic [ref=e27]:
+      - generic [ref=e29]:
+        - generic [ref=e30]:
+          - generic [ref=e31]: RAIA Release 0.1.0
+          - generic [ref=e32]: "Regulatory Baseline: 12 July 2026"
+          - generic [ref=e33]: Reference Architecture
+        - generic [ref=e34]:
+          - heading "RAIA Architecture Overview Portal" [level=1] [ref=e35]
+          - paragraph [ref=e36]: Arquitectura de referencia para la industria mexicana de ahorro para el retiro
+        - paragraph [ref=e37]: Explore las capacidades, dominios, objetos, escenarios, regulaciones e interacciones que conforman el ecosistema del Sistema de Ahorro para el Retiro.
+        - generic [ref=e38]:
+          - link "Explorar Service Landscape" [ref=e39] [cursor=pointer]:
+            - /url: /service-landscape/value-chain
+            - text: Explorar Service Landscape
+            - img [ref=e40]
+          - link "Conocer Metodología" [ref=e42] [cursor=pointer]:
+            - /url: /metamodel
+            - text: Conocer Metodología
+            - img [ref=e43]
+          - link "Consultar Releases" [ref=e45] [cursor=pointer]:
+            - /url: /releases
+            - text: Consultar Releases
+            - img [ref=e46]
+        - button "Buscar en el portal (Presione Control + K)" [ref=e51]:
+          - generic [ref=e52]:
+            - img [ref=e53]
+            - generic [ref=e56]: Buscar en RAIA...
+      - generic [ref=e57]:
+        - generic [ref=e58]:
+          - img [ref=e60]
+          - generic [ref=e64]:
+            - generic [ref=e65]: "11"
+            - text: Áreas
+        - generic [ref=e66]:
+          - img [ref=e68]
+          - generic [ref=e73]:
+            - generic [ref=e74]: "34"
+            - text: Dominios
+        - generic [ref=e75]:
+          - img [ref=e77]
+          - generic [ref=e80]:
+            - generic [ref=e81]: "273"
+            - text: Servicios
+        - generic [ref=e82]:
+          - img [ref=e84]
+          - generic [ref=e86]:
+            - generic [ref=e87]: "41"
+            - text: Relaciones
+      - generic [ref=e88]:
+        - generic [ref=e89]:
+          - generic [ref=e90]:
+            - heading "Sección 2 — Arquitectura de Referencia" [level=2] [ref=e91]
+            - paragraph [ref=e92]: Modelos semánticos, objetos conceptuales y el metamodelo unificado del SAR.
+          - generic [ref=e93]:
+            - 'link "v0.1.0 Information Architecture RAIA-MOD-001 Estructura semántica, linaje y propiedad de la información en el SAR. Owner: RAIA Maintainers Estado Valid.: pending-industry-review Dependencias: RAIA-MOD-003, RAIA-MOD-012 Roadmap: [object Object] → [object Object] Planeado Explorar" [ref=e94] [cursor=pointer]':
+              - /url: /information-architecture
+              - generic [ref=e95]:
+                - generic [ref=e96]:
+                  - img [ref=e98]
+                  - generic [ref=e102]: v0.1.0
+                - generic [ref=e103]:
+                  - heading "Information Architecture" [level=3] [ref=e104]
+                  - generic [ref=e105]: RAIA-MOD-001
+                  - paragraph [ref=e106]: Estructura semántica, linaje y propiedad de la información en el SAR.
+                  - generic [ref=e107]:
+                    - generic [ref=e108]:
+                      - generic [ref=e109]: "Owner:"
+                      - generic [ref=e110]: RAIA Maintainers
+                    - generic [ref=e111]:
+                      - generic [ref=e112]: "Estado Valid.:"
+                      - generic [ref=e113]: pending-industry-review
+                    - generic [ref=e114]:
+                      - generic [ref=e115]: "Dependencias:"
+                      - generic [ref=e116]: RAIA-MOD-003, RAIA-MOD-012
+                    - generic [ref=e117]:
+                      - generic [ref=e118]: "Roadmap:"
+                      - generic [ref=e119]: "[object Object] → [object Object]"
+              - generic [ref=e120]:
+                - generic [ref=e121]: Planeado
+                - generic [ref=e122]:
+                  - text: Explorar
+                  - img [ref=e123]
+            - 'link "v0.1.0 Control Record Model RAIA-MOD-002 Definición del ciclo de vida y estado de los registros principales de control. Owner: RAIA Maintainers Estado Valid.: pending-industry-review Dependencias: RAIA-MOD-003 Roadmap: [object Object] → [object Object] Planeado Explorar" [ref=e125] [cursor=pointer]':
+              - /url: /control-record-model
+              - generic [ref=e126]:
+                - generic [ref=e127]:
+                  - img [ref=e129]
+                  - generic [ref=e132]: v0.1.0
+                - generic [ref=e133]:
+                  - heading "Control Record Model" [level=3] [ref=e134]
+                  - generic [ref=e135]: RAIA-MOD-002
+                  - paragraph [ref=e136]: Definición del ciclo de vida y estado de los registros principales de control.
+                  - generic [ref=e137]:
+                    - generic [ref=e138]:
+                      - generic [ref=e139]: "Owner:"
+                      - generic [ref=e140]: RAIA Maintainers
+                    - generic [ref=e141]:
+                      - generic [ref=e142]: "Estado Valid.:"
+                      - generic [ref=e143]: pending-industry-review
+                    - generic [ref=e144]:
+                      - generic [ref=e145]: "Dependencias:"
+                      - generic [ref=e146]: RAIA-MOD-003
+                    - generic [ref=e147]:
+                      - generic [ref=e148]: "Roadmap:"
+                      - generic [ref=e149]: "[object Object] → [object Object]"
+              - generic [ref=e150]:
+                - generic [ref=e151]: Planeado
+                - generic [ref=e152]:
+                  - text: Explorar
+                  - img [ref=e153]
+            - 'link "v0.1.0 Business Object Model RAIA-MOD-003 Catálogo y diccionario de los objetos de negocio estructurados de la industria. Owner: RAIA Maintainers Estado Valid.: pending-industry-review Dependencias: RAIA-MOD-012 Roadmap: [object Object] → [object Object] Planeado Explorar" [ref=e155] [cursor=pointer]':
+              - /url: /business-object-model
+              - generic [ref=e156]:
+                - generic [ref=e157]:
+                  - img [ref=e159]
+                  - generic [ref=e169]: v0.1.0
+                - generic [ref=e170]:
+                  - heading "Business Object Model" [level=3] [ref=e171]
+                  - generic [ref=e172]: RAIA-MOD-003
+                  - paragraph [ref=e173]: Catálogo y diccionario de los objetos de negocio estructurados de la industria.
+                  - generic [ref=e174]:
+                    - generic [ref=e175]:
+                      - generic [ref=e176]: "Owner:"
+                      - generic [ref=e177]: RAIA Maintainers
+                    - generic [ref=e178]:
+                      - generic [ref=e179]: "Estado Valid.:"
+                      - generic [ref=e180]: pending-industry-review
+                    - generic [ref=e181]:
+                      - generic [ref=e182]: "Dependencias:"
+                      - generic [ref=e183]: RAIA-MOD-012
+                    - generic [ref=e184]:
+                      - generic [ref=e185]: "Roadmap:"
+                      - generic [ref=e186]: "[object Object] → [object Object]"
+              - generic [ref=e187]:
+                - generic [ref=e188]: Planeado
+                - generic [ref=e189]:
+                  - text: Explorar
+                  - img [ref=e190]
+            - 'link "v0.1.0 Industry Reference Model RAIA-MOD-004 Modelo integral de referencia de la arquitectura de la industria previsional. Owner: RAIA Maintainers Estado Valid.: pending-industry-review Dependencias: RAIA-MOD-005, RAIA-MOD-012 Roadmap: [object Object] Planeado Explorar" [ref=e192] [cursor=pointer]':
+              - /url: /reference-model
+              - generic [ref=e193]:
+                - generic [ref=e194]:
+                  - img [ref=e196]
+                  - generic [ref=e200]: v0.1.0
+                - generic [ref=e201]:
+                  - heading "Industry Reference Model" [level=3] [ref=e202]
+                  - generic [ref=e203]: RAIA-MOD-004
+                  - paragraph [ref=e204]: Modelo integral de referencia de la arquitectura de la industria previsional.
+                  - generic [ref=e205]:
+                    - generic [ref=e206]:
+                      - generic [ref=e207]: "Owner:"
+                      - generic [ref=e208]: RAIA Maintainers
+                    - generic [ref=e209]:
+                      - generic [ref=e210]: "Estado Valid.:"
+                      - generic [ref=e211]: pending-industry-review
+                    - generic [ref=e212]:
+                      - generic [ref=e213]: "Dependencias:"
+                      - generic [ref=e214]: RAIA-MOD-005, RAIA-MOD-012
+                    - generic [ref=e215]:
+                      - generic [ref=e216]: "Roadmap:"
+                      - generic [ref=e217]: "[object Object]"
+              - generic [ref=e218]:
+                - generic [ref=e219]: Planeado
+                - generic [ref=e220]:
+                  - text: Explorar
+                  - img [ref=e221]
+            - 'link "v0.1.0 Metamodel Overview RAIA-MOD-012 Definiciones y relaciones formales de las entidades y conceptos que integran RAIA. Owner: RAIA Maintainers Estado Valid.: pending-industry-review Roadmap: [object Object] → [object Object] En Desarrollo Explorar" [ref=e223] [cursor=pointer]':
+              - /url: /metamodel
+              - generic [ref=e224]:
+                - generic [ref=e225]:
+                  - img [ref=e227]
+                  - generic [ref=e229]: v0.1.0
+                - generic [ref=e230]:
+                  - heading "Metamodel Overview" [level=3] [ref=e231]
+                  - generic [ref=e232]: RAIA-MOD-012
+                  - paragraph [ref=e233]: Definiciones y relaciones formales de las entidades y conceptos que integran RAIA.
+                  - generic [ref=e234]:
+                    - generic [ref=e235]:
+                      - generic [ref=e236]: "Owner:"
+                      - generic [ref=e237]: RAIA Maintainers
+                    - generic [ref=e238]:
+                      - generic [ref=e239]: "Estado Valid.:"
+                      - generic [ref=e240]: pending-industry-review
+                    - generic [ref=e241]:
+                      - generic [ref=e242]: "Roadmap:"
+                      - generic [ref=e243]: "[object Object] → [object Object]"
+              - generic [ref=e244]:
+                - generic [ref=e245]: En Desarrollo
+                - generic [ref=e246]:
+                  - text: Explorar
+                  - img [ref=e247]
+        - generic [ref=e249]:
+          - generic [ref=e250]:
+            - heading "Sección 3 — Service Landscape" [level=2] [ref=e251]
+            - paragraph [ref=e252]: Panoramas funcionales, matrices operativas y flujos visuales interactivos.
+          - generic [ref=e253]:
+            - 'link "v0.1.0 Service Landscape — Value Chain RAIA-MOD-005 Mapa interactivo de la cadena de valor de la industria de Afores en tres niveles jerárquicos. Owner: RAIA Maintainers Estado Valid.: pending-industry-review Dependencias: RAIA-MOD-012, RAIA-MOD-015 Roadmap: [object Object] → [object Object] → [object Object] En Desarrollo Explorar" [ref=e254] [cursor=pointer]':
+              - /url: /service-landscape/value-chain
+              - generic [ref=e255]:
+                - generic [ref=e256]:
+                  - img [ref=e258]
+                  - generic [ref=e263]: v0.1.0
+                - generic [ref=e264]:
+                  - heading "Service Landscape — Value Chain" [level=3] [ref=e265]
+                  - generic [ref=e266]: RAIA-MOD-005
+                  - paragraph [ref=e267]: Mapa interactivo de la cadena de valor de la industria de Afores en tres niveles jerárquicos.
+                  - generic [ref=e268]:
+                    - generic [ref=e269]:
+                      - generic [ref=e270]: "Owner:"
+                      - generic [ref=e271]: RAIA Maintainers
+                    - generic [ref=e272]:
+                      - generic [ref=e273]: "Estado Valid.:"
+                      - generic [ref=e274]: pending-industry-review
+                    - generic [ref=e275]:
+                      - generic [ref=e276]: "Dependencias:"
+                      - generic [ref=e277]: RAIA-MOD-012, RAIA-MOD-015
+                    - generic [ref=e278]:
+                      - generic [ref=e279]: "Roadmap:"
+                      - generic [ref=e280]: "[object Object] → [object Object] → [object Object]"
+              - generic [ref=e281]:
+                - generic [ref=e282]: En Desarrollo
+                - generic [ref=e283]:
+                  - text: Explorar
+                  - img [ref=e284]
+            - 'link "v0.1.0 Service Landscape — Matrix RAIA-MOD-006 Vista bidimensional del paisaje combinando clasificaciones configurables. Owner: RAIA Maintainers Estado Valid.: pending-industry-review Dependencias: RAIA-MOD-005 Roadmap: [object Object] Planeado Explorar" [ref=e286] [cursor=pointer]':
+              - /url: /service-landscape/matrix
+              - generic [ref=e287]:
+                - generic [ref=e288]:
+                  - img [ref=e290]
+                  - generic [ref=e292]: v0.1.0
+                - generic [ref=e293]:
+                  - heading "Service Landscape — Matrix" [level=3] [ref=e294]
+                  - generic [ref=e295]: RAIA-MOD-006
+                  - paragraph [ref=e296]: Vista bidimensional del paisaje combinando clasificaciones configurables.
+                  - generic [ref=e297]:
+                    - generic [ref=e298]:
+                      - generic [ref=e299]: "Owner:"
+                      - generic [ref=e300]: RAIA Maintainers
+                    - generic [ref=e301]:
+                      - generic [ref=e302]: "Estado Valid.:"
+                      - generic [ref=e303]: pending-industry-review
+                    - generic [ref=e304]:
+                      - generic [ref=e305]: "Dependencias:"
+                      - generic [ref=e306]: RAIA-MOD-005
+                    - generic [ref=e307]:
+                      - generic [ref=e308]: "Roadmap:"
+                      - generic [ref=e309]: "[object Object]"
+              - generic [ref=e310]:
+                - generic [ref=e311]: Planeado
+                - generic [ref=e312]:
+                  - text: Explorar
+                  - img [ref=e313]
+            - 'link "v0.1.0 Service Landscape — Overview Diagrams RAIA-MOD-007 Diagramas de alto nivel que representan flujos transaccionales y operativos sectoriales. Owner: RAIA Maintainers Estado Valid.: pending-industry-review Dependencias: RAIA-MOD-005 Roadmap: [object Object] Planeado Explorar" [ref=e315] [cursor=pointer]':
+              - /url: /service-landscape/overview-diagrams
+              - generic [ref=e316]:
+                - generic [ref=e317]:
+                  - img [ref=e319]
+                  - generic [ref=e323]: v0.1.0
+                - generic [ref=e324]:
+                  - heading "Service Landscape — Overview Diagrams" [level=3] [ref=e325]
+                  - generic [ref=e326]: RAIA-MOD-007
+                  - paragraph [ref=e327]: Diagramas de alto nivel que representan flujos transaccionales y operativos sectoriales.
+                  - generic [ref=e328]:
+                    - generic [ref=e329]:
+                      - generic [ref=e330]: "Owner:"
+                      - generic [ref=e331]: RAIA Maintainers
+                    - generic [ref=e332]:
+                      - generic [ref=e333]: "Estado Valid.:"
+                      - generic [ref=e334]: pending-industry-review
+                    - generic [ref=e335]:
+                      - generic [ref=e336]: "Dependencias:"
+                      - generic [ref=e337]: RAIA-MOD-005
+                    - generic [ref=e338]:
+                      - generic [ref=e339]: "Roadmap:"
+                      - generic [ref=e340]: "[object Object]"
+              - generic [ref=e341]:
+                - generic [ref=e342]: Planeado
+                - generic [ref=e343]:
+                  - text: Explorar
+                  - img [ref=e344]
+        - generic [ref=e346]:
+          - generic [ref=e347]:
+            - heading "Sección 4 — Escenarios y Capacidades" [level=2] [ref=e348]
+            - paragraph [ref=e349]: Mapeo de interacciones complejas, secuencias y capacidades de negocio sectoriales.
+          - generic [ref=e350]:
+            - 'link "v0.1.0 Business Scenarios RAIA-MOD-008 Catálogo de escenarios transaccionales típicos del SAR que involucran múltiples Service Domains. Owner: RAIA Maintainers Estado Valid.: pending-industry-review Dependencias: RAIA-MOD-005 Roadmap: [object Object] → [object Object] En Desarrollo Explorar" [ref=e351] [cursor=pointer]':
+              - /url: /business-scenarios
+              - generic [ref=e352]:
+                - generic [ref=e353]:
+                  - img [ref=e355]
+                  - generic [ref=e358]: v0.1.0
+                - generic [ref=e359]:
+                  - heading "Business Scenarios" [level=3] [ref=e360]
+                  - generic [ref=e361]: RAIA-MOD-008
+                  - paragraph [ref=e362]: Catálogo de escenarios transaccionales típicos del SAR que involucran múltiples Service Domains.
+                  - generic [ref=e363]:
+                    - generic [ref=e364]:
+                      - generic [ref=e365]: "Owner:"
+                      - generic [ref=e366]: RAIA Maintainers
+                    - generic [ref=e367]:
+                      - generic [ref=e368]: "Estado Valid.:"
+                      - generic [ref=e369]: pending-industry-review
+                    - generic [ref=e370]:
+                      - generic [ref=e371]: "Dependencias:"
+                      - generic [ref=e372]: RAIA-MOD-005
+                    - generic [ref=e373]:
+                      - generic [ref=e374]: "Roadmap:"
+                      - generic [ref=e375]: "[object Object] → [object Object]"
+              - generic [ref=e376]:
+                - generic [ref=e377]: En Desarrollo
+                - generic [ref=e378]:
+                  - text: Explorar
+                  - img [ref=e379]
+            - 'link "v0.1.0 Scenario Snippets RAIA-MOD-009 Fragmentos reutilizables de interacción y lógica de servicio común. Owner: RAIA Maintainers Estado Valid.: pending-industry-review Dependencias: RAIA-MOD-008 Roadmap: [object Object] Planeado Explorar" [ref=e381] [cursor=pointer]':
+              - /url: /business-scenarios/snippets
+              - generic [ref=e382]:
+                - generic [ref=e383]:
+                  - img [ref=e385]
+                  - generic [ref=e388]: v0.1.0
+                - generic [ref=e389]:
+                  - heading "Scenario Snippets" [level=3] [ref=e390]
+                  - generic [ref=e391]: RAIA-MOD-009
+                  - paragraph [ref=e392]: Fragmentos reutilizables de interacción y lógica de servicio común.
+                  - generic [ref=e393]:
+                    - generic [ref=e394]:
+                      - generic [ref=e395]: "Owner:"
+                      - generic [ref=e396]: RAIA Maintainers
+                    - generic [ref=e397]:
+                      - generic [ref=e398]: "Estado Valid.:"
+                      - generic [ref=e399]: pending-industry-review
+                    - generic [ref=e400]:
+                      - generic [ref=e401]: "Dependencias:"
+                      - generic [ref=e402]: RAIA-MOD-008
+                    - generic [ref=e403]:
+                      - generic [ref=e404]: "Roadmap:"
+                      - generic [ref=e405]: "[object Object]"
+              - generic [ref=e406]:
+                - generic [ref=e407]: Planeado
+                - generic [ref=e408]:
+                  - text: Explorar
+                  - img [ref=e409]
+            - 'link "v0.1.0 Business Capability Map RAIA-MOD-010 Estructura jerárquica de capacidades de negocio que posee la industria. Owner: RAIA Maintainers Estado Valid.: pending-industry-review Dependencias: RAIA-MOD-005 Roadmap: [object Object] Planeado Explorar" [ref=e411] [cursor=pointer]':
+              - /url: /capability-map
+              - generic [ref=e412]:
+                - generic [ref=e413]:
+                  - img [ref=e415]
+                  - generic [ref=e417]: v0.1.0
+                - generic [ref=e418]:
+                  - heading "Business Capability Map" [level=3] [ref=e419]
+                  - generic [ref=e420]: RAIA-MOD-010
+                  - paragraph [ref=e421]: Estructura jerárquica de capacidades de negocio que posee la industria.
+                  - generic [ref=e422]:
+                    - generic [ref=e423]:
+                      - generic [ref=e424]: "Owner:"
+                      - generic [ref=e425]: RAIA Maintainers
+                    - generic [ref=e426]:
+                      - generic [ref=e427]: "Estado Valid.:"
+                      - generic [ref=e428]: pending-industry-review
+                    - generic [ref=e429]:
+                      - generic [ref=e430]: "Dependencias:"
+                      - generic [ref=e431]: RAIA-MOD-005
+                    - generic [ref=e432]:
+                      - generic [ref=e433]: "Roadmap:"
+                      - generic [ref=e434]: "[object Object]"
+              - generic [ref=e435]:
+                - generic [ref=e436]: Planeado
+                - generic [ref=e437]:
+                  - text: Explorar
+                  - img [ref=e438]
+            - 'link "v0.1.0 Capability Views RAIA-MOD-011 Proyecciones específicas de capacidades de negocio filtradas por participante o regulación. Owner: RAIA Maintainers Estado Valid.: pending-industry-review Dependencias: RAIA-MOD-010 Roadmap: [object Object] Planeado Explorar" [ref=e440] [cursor=pointer]':
+              - /url: /capability-map/views
+              - generic [ref=e441]:
+                - generic [ref=e442]:
+                  - img [ref=e444]
+                  - generic [ref=e447]: v0.1.0
+                - generic [ref=e448]:
+                  - heading "Capability Views" [level=3] [ref=e449]
+                  - generic [ref=e450]: RAIA-MOD-011
+                  - paragraph [ref=e451]: Proyecciones específicas de capacidades de negocio filtradas por participante o regulación.
+                  - generic [ref=e452]:
+                    - generic [ref=e453]:
+                      - generic [ref=e454]: "Owner:"
+                      - generic [ref=e455]: RAIA Maintainers
+                    - generic [ref=e456]:
+                      - generic [ref=e457]: "Estado Valid.:"
+                      - generic [ref=e458]: pending-industry-review
+                    - generic [ref=e459]:
+                      - generic [ref=e460]: "Dependencias:"
+                      - generic [ref=e461]: RAIA-MOD-010
+                    - generic [ref=e462]:
+                      - generic [ref=e463]: "Roadmap:"
+                      - generic [ref=e464]: "[object Object]"
+              - generic [ref=e465]:
+                - generic [ref=e466]: Planeado
+                - generic [ref=e467]:
+                  - text: Explorar
+                  - img [ref=e468]
+            - 'link "v0.1.0 Wireframes Overview RAIA-MOD-013 Patrones interactivos de UX/UI y flujos de pantallas de referencia para el SAR. Owner: RAIA Maintainers Estado Valid.: pending-industry-review Dependencias: RAIA-MOD-008 Roadmap: [object Object] Planeado Explorar" [ref=e470] [cursor=pointer]':
+              - /url: /wireframes
+              - generic [ref=e471]:
+                - generic [ref=e472]:
+                  - img [ref=e474]
+                  - generic [ref=e476]: v0.1.0
+                - generic [ref=e477]:
+                  - heading "Wireframes Overview" [level=3] [ref=e478]
+                  - generic [ref=e479]: RAIA-MOD-013
+                  - paragraph [ref=e480]: Patrones interactivos de UX/UI y flujos de pantallas de referencia para el SAR.
+                  - generic [ref=e481]:
+                    - generic [ref=e482]:
+                      - generic [ref=e483]: "Owner:"
+                      - generic [ref=e484]: RAIA Maintainers
+                    - generic [ref=e485]:
+                      - generic [ref=e486]: "Estado Valid.:"
+                      - generic [ref=e487]: pending-industry-review
+                    - generic [ref=e488]:
+                      - generic [ref=e489]: "Dependencias:"
+                      - generic [ref=e490]: RAIA-MOD-008
+                    - generic [ref=e491]:
+                      - generic [ref=e492]: "Roadmap:"
+                      - generic [ref=e493]: "[object Object]"
+              - generic [ref=e494]:
+                - generic [ref=e495]: Planeado
+                - generic [ref=e496]:
+                  - text: Explorar
+                  - img [ref=e497]
+        - generic [ref=e499]:
+          - generic [ref=e500]:
+            - heading "Sección 5 — Regulación y Gobierno" [level=2] [ref=e501]
+            - paragraph [ref=e502]: Trazabilidad normativa, salud del repositorio y guías de contribución para la industria.
+          - generic [ref=e503]:
+            - 'link "v0.1.0 Architecture Dashboard RAIA-MOD-014 Métricas de cobertura, calidad, completitud y madurez del repositorio de arquitectura. Owner: RAIA Maintainers Estado Valid.: pending-industry-review Roadmap: [object Object] → [object Object] En Desarrollo Explorar" [ref=e504] [cursor=pointer]':
+              - /url: /dashboard
+              - generic [ref=e505]:
+                - generic [ref=e506]:
+                  - img [ref=e508]
+                  - generic [ref=e510]: v0.1.0
+                - generic [ref=e511]:
+                  - heading "Architecture Dashboard" [level=3] [ref=e512]
+                  - generic [ref=e513]: RAIA-MOD-014
+                  - paragraph [ref=e514]: Métricas de cobertura, calidad, completitud y madurez del repositorio de arquitectura.
+                  - generic [ref=e515]:
+                    - generic [ref=e516]:
+                      - generic [ref=e517]: "Owner:"
+                      - generic [ref=e518]: RAIA Maintainers
+                    - generic [ref=e519]:
+                      - generic [ref=e520]: "Estado Valid.:"
+                      - generic [ref=e521]: pending-industry-review
+                    - generic [ref=e522]:
+                      - generic [ref=e523]: "Roadmap:"
+                      - generic [ref=e524]: "[object Object] → [object Object]"
+              - generic [ref=e525]:
+                - generic [ref=e526]: En Desarrollo
+                - generic [ref=e527]:
+                  - text: Explorar
+                  - img [ref=e528]
+            - 'link "v0.1.0 Regulatory Architecture RAIA-MOD-015 Mapeo exhaustivo de la base regulatoria aplicable y su impacto en los Service Domains. Owner: RAIA Maintainers Estado Valid.: pending-industry-review Dependencias: RAIA-MOD-005 Roadmap: [object Object] Planeado Explorar" [ref=e530] [cursor=pointer]':
+              - /url: /regulatory-architecture
+              - generic [ref=e531]:
+                - generic [ref=e532]:
+                  - img [ref=e534]
+                  - generic [ref=e538]: v0.1.0
+                - generic [ref=e539]:
+                  - heading "Regulatory Architecture" [level=3] [ref=e540]
+                  - generic [ref=e541]: RAIA-MOD-015
+                  - paragraph [ref=e542]: Mapeo exhaustivo de la base regulatoria aplicable y su impacto en los Service Domains.
+                  - generic [ref=e543]:
+                    - generic [ref=e544]:
+                      - generic [ref=e545]: "Owner:"
+                      - generic [ref=e546]: RAIA Maintainers
+                    - generic [ref=e547]:
+                      - generic [ref=e548]: "Estado Valid.:"
+                      - generic [ref=e549]: pending-industry-review
+                    - generic [ref=e550]:
+                      - generic [ref=e551]: "Dependencias:"
+                      - generic [ref=e552]: RAIA-MOD-005
+                    - generic [ref=e553]:
+                      - generic [ref=e554]: "Roadmap:"
+                      - generic [ref=e555]: "[object Object]"
+              - generic [ref=e556]:
+                - generic [ref=e557]: Planeado
+                - generic [ref=e558]:
+                  - text: Explorar
+                  - img [ref=e559]
+            - 'link "v0.1.0 RAIA Releases RAIA-MOD-016 Historial de versiones de la arquitectura de referencia, changelog y notas de migración. Owner: RAIA Maintainers Estado Valid.: pending-industry-review Roadmap: [object Object] En Desarrollo Explorar" [ref=e561] [cursor=pointer]':
+              - /url: /releases
+              - generic [ref=e562]:
+                - generic [ref=e563]:
+                  - img [ref=e565]
+                  - generic [ref=e569]: v0.1.0
+                - generic [ref=e570]:
+                  - heading "RAIA Releases" [level=3] [ref=e571]
+                  - generic [ref=e572]: RAIA-MOD-016
+                  - paragraph [ref=e573]: Historial de versiones de la arquitectura de referencia, changelog y notas de migración.
+                  - generic [ref=e574]:
+                    - generic [ref=e575]:
+                      - generic [ref=e576]: "Owner:"
+                      - generic [ref=e577]: RAIA Maintainers
+                    - generic [ref=e578]:
+                      - generic [ref=e579]: "Estado Valid.:"
+                      - generic [ref=e580]: pending-industry-review
+                    - generic [ref=e581]:
+                      - generic [ref=e582]: "Roadmap:"
+                      - generic [ref=e583]: "[object Object]"
+              - generic [ref=e584]:
+                - generic [ref=e585]: En Desarrollo
+                - generic [ref=e586]:
+                  - text: Explorar
+                  - img [ref=e587]
+            - 'link "v0.1.0 Contribution and Governance RAIA-MOD-017 Guía editorial de gobernanza y proceso de contribución a la arquitectura de referencia. Owner: RAIA Maintainers Estado Valid.: pending-industry-review Roadmap: [object Object] → [object Object] En Desarrollo Explorar" [ref=e589] [cursor=pointer]':
+              - /url: /contribute
+              - generic [ref=e590]:
+                - generic [ref=e591]:
+                  - img [ref=e593]
+                  - generic [ref=e598]: v0.1.0
+                - generic [ref=e599]:
+                  - heading "Contribution and Governance" [level=3] [ref=e600]
+                  - generic [ref=e601]: RAIA-MOD-017
+                  - paragraph [ref=e602]: Guía editorial de gobernanza y proceso de contribución a la arquitectura de referencia.
+                  - generic [ref=e603]:
+                    - generic [ref=e604]:
+                      - generic [ref=e605]: "Owner:"
+                      - generic [ref=e606]: RAIA Maintainers
+                    - generic [ref=e607]:
+                      - generic [ref=e608]: "Estado Valid.:"
+                      - generic [ref=e609]: pending-industry-review
+                    - generic [ref=e610]:
+                      - generic [ref=e611]: "Roadmap:"
+                      - generic [ref=e612]: "[object Object] → [object Object]"
+              - generic [ref=e613]:
+                - generic [ref=e614]: En Desarrollo
+                - generic [ref=e615]:
+                  - text: Explorar
+                  - img [ref=e616]
+      - generic [ref=e618]:
+        - generic [ref=e619]:
+          - img [ref=e620]
+          - heading "Cambios Recientes (Release 0.1.0)" [level=3] [ref=e624]
+        - list [ref=e625]:
+          - listitem [ref=e626]: Definición inicial del metamodelo conceptual de arquitectura RAIA.
+          - listitem [ref=e628]: Carga de datos maestros correspondientes a las 11 Áreas de Negocio de la cadena de valor.
+          - listitem [ref=e630]: Registro de 34 Dominios de Negocio y 273 Service Domains.
+        - link "Ver historial completo de cambios →" [ref=e632] [cursor=pointer]:
+          - /url: /releases
+      - generic [ref=e633]:
+        - img [ref=e634]
+        - generic [ref=e636]:
+          - generic [ref=e637]: Aviso de Neutralidad y Propósito
+          - paragraph [ref=e638]: RAIA es una arquitectura de referencia propuesta. No sustituye leyes, reglamentos, disposiciones, criterios, manuales, publicaciones oficiales ni asesoría legal, actuarial, financiera, operativa o regulatoria especializada.
+          - paragraph [ref=e639]: Inspirado en patrones de navegación y clasificación de BIAN Service Landscape 14.0.
+  - contentinfo [ref=e640]:
+    - generic [ref=e641]:
+      - paragraph [ref=e642]: DisclaimerRAIA es una arquitectura de referencia y no sustituye las leyes, disposiciones, criterios, manuales ni publicaciones oficiales de las autoridades mexicanas.
+      - paragraph [ref=e643]: "RAIA 0.1.0 © 2026. Licencia: Código MIT, Modelos CC BY 4.0."
+  - button "Open Next.js Dev Tools" [ref=e649] [cursor=pointer]:
+    - img [ref=e650]
+  - alert [ref=e653]
+```
