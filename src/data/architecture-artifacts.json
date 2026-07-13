@@ -1,0 +1,58 @@
+[
+  {
+    "id": "RAIA-ART-001",
+    "name": "Metamodelo de Arquitectura de Industria",
+    "description": "Especificación de las reglas de modelado, jerarquías de entidades y reglas conceptuales aplicadas a RAIA.",
+    "type": "model",
+    "route": "/metamodel",
+    "status": "active",
+    "version": "1.0.0",
+    "ownerRole": "Comité de Arquitectura de Industria",
+    "sourceIds": [],
+    "tags": ["metodo", "gobernanza", "definicion"],
+    "createdAt": "2026-07-12T00:00:00Z",
+    "updatedAt": "2026-07-12T00:00:00Z"
+  },
+  {
+    "id": "RAIA-ART-002",
+    "name": "Mapa Interactivo de Cadena de Valor",
+    "description": "Vista bidimensional y navegable que organiza las capacidades de industria en Front-Office, Core y Soporte.",
+    "type": "view",
+    "route": "/service-landscape/value-chain",
+    "status": "active",
+    "version": "1.0.0",
+    "ownerRole": "Comité de Arquitectura de Industria",
+    "sourceIds": ["RAIA-BA-001", "RAIA-BA-002", "RAIA-BA-003", "RAIA-BA-004", "RAIA-BA-005", "RAIA-BA-006", "RAIA-BA-007", "RAIA-BA-008", "RAIA-BA-009", "RAIA-BA-010", "RAIA-BA-011"],
+    "tags": ["visualizacion", "cadena-valor", "interactivo"],
+    "createdAt": "2026-07-12T00:00:00Z",
+    "updatedAt": "2026-07-12T00:00:00Z"
+  },
+  {
+    "id": "RAIA-ART-003",
+    "name": "Catálogo de Service Domains SAR",
+    "description": "Repositorio estructurado con las fichas técnicas completas de los 273 Service Domains del SAR.",
+    "type": "catalog",
+    "route": "/service-landscape/value-chain",
+    "status": "active",
+    "version": "1.0.0",
+    "ownerRole": "Comité de Arquitectura de Industria",
+    "sourceIds": [],
+    "tags": ["catalogo", "servicios", "ficha-tecnica"],
+    "createdAt": "2026-07-12T00:00:00Z",
+    "updatedAt": "2026-07-12T00:00:00Z"
+  },
+  {
+    "id": "RAIA-ART-004",
+    "name": "Reporte Analítico del Repositorio",
+    "description": "Panel dinámico de cobertura regulatoria, relaciones de dependencia y madurez operativa.",
+    "type": "report",
+    "route": "/dashboard",
+    "status": "active",
+    "version": "1.0.0",
+    "ownerRole": "Comité de Arquitectura de Industria",
+    "sourceIds": [],
+    "tags": ["dashboard", "metricas", "calidad"],
+    "createdAt": "2026-07-12T00:00:00Z",
+    "updatedAt": "2026-07-12T00:00:00Z"
+  }
+]

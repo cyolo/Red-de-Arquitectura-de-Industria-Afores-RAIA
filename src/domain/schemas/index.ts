@@ -196,3 +196,77 @@ export const LandscapeDataSchema = z.object({
   businessDomains: z.array(BusinessDomainSchema),
   serviceDomains: z.array(ServiceDomainSchema),
 });
+
+export const PortalModuleStatusSchema = z.enum([
+  "available",
+  "in-development",
+  "planned",
+  "deprecated",
+]);
+
+export const PortalModuleSchema = z.object({
+  id: z.string().regex(/^RAIA-MOD-\d{3}$/),
+  slug: z.string(),
+  name: z.string(),
+  shortName: z.string().optional(),
+  description: z.string(),
+  purpose: z.string(),
+  route: z.string(),
+  category: z.enum([
+    "reference-architecture",
+    "service-landscape",
+    "business-scenarios",
+    "capabilities",
+    "regulation",
+    "governance",
+  ]),
+  status: PortalModuleStatusSchema,
+  icon: z.string(),
+  order: z.number(),
+  version: z.string().optional(),
+  artifactType: z.string().optional(),
+  countSource: z.string().optional(),
+  dependencies: z.array(z.string()).optional(),
+  tags: z.array(z.string()),
+  createdAt: z.string(),
+  updatedAt: z.string(),
+});
+
+export const PortalReleaseSchema = z.object({
+  version: z.string(),
+  name: z.string(),
+  releaseDate: z.string(),
+  status: z.enum(["draft", "published", "deprecated"]),
+  regulatoryBaselineDate: z.string(),
+  bianReferenceBaseline: z.string().optional(),
+  summary: z.string(),
+  added: z.array(z.string()),
+  changed: z.array(z.string()),
+  deprecated: z.array(z.string()),
+  removed: z.array(z.string()),
+  breakingChanges: z.array(z.string()),
+});
+
+export const ArchitectureArtifactSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  description: z.string(),
+  type: z.enum([
+    "view",
+    "model",
+    "catalog",
+    "diagram",
+    "scenario",
+    "reference",
+    "report",
+  ]),
+  route: z.string(),
+  status: z.enum(["draft", "proposed", "validated", "active", "deprecated"]),
+  version: z.string(),
+  ownerRole: z.string().optional(),
+  sourceIds: z.array(z.string()),
+  tags: z.array(z.string()),
+  createdAt: z.string(),
+  updatedAt: z.string(),
+});
+

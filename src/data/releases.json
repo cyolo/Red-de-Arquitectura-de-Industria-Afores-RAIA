@@ -1,0 +1,24 @@
+[
+  {
+    "version": "0.1.0",
+    "name": "Versión Inicial RAIA",
+    "releaseDate": "2026-07-12",
+    "status": "published",
+    "regulatoryBaselineDate": "2026-07-12",
+    "bianReferenceBaseline": "Service Landscape 14.0",
+    "summary": "Establecimiento inicial de la Red de Arquitectura de Industria Afores (RAIA), incluyendo la definición de la jerarquía de tres niveles y el catálogo inicial de 11 Áreas de Negocio, 34 Dominios de Negocio y 273 Service Domains del Sistema de Ahorro para el Retiro.",
+    "added": [
+      "Definición inicial del metamodelo conceptual de arquitectura RAIA.",
+      "Carga de datos maestros correspondientes a las 11 Áreas de Negocio de la cadena de valor.",
+      "Registro de 34 Dominios de Negocio y 273 Service Domains.",
+      "Modelado inicial de 41 relaciones lógicas entre dominios.",
+      "Estructura preliminar del catálogo regulatorio aplicable (Ley de los Sistemas de Ahorro para el Retiro, circulares de CONSAR, Procesar)."
+    ],
+    "changed": [
+      "Ajustes de terminología para garantizar la neutralidad de industria (CONSAR, Empresa Operadora de la Base de Datos Nacional SAR)."
+    ],
+    "deprecated": [],
+    "removed": [],
+    "breakingChanges": []
+  }
+]

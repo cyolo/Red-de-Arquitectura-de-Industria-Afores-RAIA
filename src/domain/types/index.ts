@@ -200,3 +200,74 @@ export interface BusinessScenario {
   description: string;
   steps: BusinessScenarioStep[];
 }
+
+export type PortalModuleStatus =
+  | "available"
+  | "in-development"
+  | "planned"
+  | "deprecated";
+
+export interface PortalModule {
+  id: string;
+  slug: string;
+  name: string;
+  shortName?: string;
+  description: string;
+  purpose: string;
+  route: string;
+  category:
+    | "reference-architecture"
+    | "service-landscape"
+    | "business-scenarios"
+    | "capabilities"
+    | "regulation"
+    | "governance";
+  status: PortalModuleStatus;
+  icon: string;
+  order: number;
+  version?: string;
+  artifactType?: string;
+  countSource?: string;
+  dependencies?: string[];
+  tags: string[];
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface PortalRelease {
+  version: string;
+  name: string;
+  releaseDate: string;
+  status: "draft" | "published" | "deprecated";
+  regulatoryBaselineDate: string;
+  bianReferenceBaseline?: string;
+  summary: string;
+  added: string[];
+  changed: string[];
+  deprecated: string[];
+  removed: string[];
+  breakingChanges: string[];
+}
+
+export interface ArchitectureArtifact {
+  id: string;
+  name: string;
+  description: string;
+  type:
+    | "view"
+    | "model"
+    | "catalog"
+    | "diagram"
+    | "scenario"
+    | "reference"
+    | "report";
+  route: string;
+  status: "draft" | "proposed" | "validated" | "active" | "deprecated";
+  version: string;
+  ownerRole?: string;
+  sourceIds: string[];
+  tags: string[];
+  createdAt: string;
+  updatedAt: string;
+}
+
