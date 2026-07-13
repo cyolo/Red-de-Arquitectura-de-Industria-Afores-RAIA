@@ -2,9 +2,10 @@
 
 import React, { use } from "react";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, useRouter } from "next/navigation";
 import { ArrowLeft, ShieldCheck, Printer, Network, Layers, ExternalLink, Activity, Scale, ShieldAlert, Award } from "lucide-react";
 import { getServiceDomainBySlug, getBusinessAreaById, getBusinessDomainById, getServiceDomainById } from "../../../domain/repositories/landscapeRepository";
+import LocalRelationGraph from "../../../components/diagram/LocalRelationGraph";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -12,6 +13,7 @@ interface Props {
 
 export default function ServiceDomainPage({ params }: Props) {
   const resolvedParams = use(params);
+  const router = useRouter();
   const sd = getServiceDomainBySlug(resolvedParams.slug);
 
   if (!sd) {
@@ -418,10 +420,32 @@ export default function ServiceDomainPage({ params }: Props) {
             </div>
           </div>
 
+          {/* Section: End-to-End Relations */}
+          <div className="mt-8 border-t border-slate-100 pt-8 print:hidden">
+            <h2 className="text-sm font-extrabold text-slate-800 border-b border-slate-100 pb-2 uppercase tracking-wide flex items-center gap-1.5">
+              <Network size={16} className="text-raia-turquoise" />
+              14. Relaciones de Extremo a Extremo
+            </h2>
+            <p className="text-[11px] text-slate-500 mt-2 leading-normal">
+              Visualiza el flujo de dependencias directo. Haz click en un nodo para navegar a su correspondiente ficha técnica.
+            </p>
+            <div className="mt-4">
+              <LocalRelationGraph 
+                selectedId={sd.id} 
+                onSelect={(id) => {
+                  const targetSd = getServiceDomainById(id);
+                  if (targetSd) {
+                    router.push(`/service-domains/${targetSd.slug}`);
+                  }
+                }}
+              />
+            </div>
+          </div>
+
           {/* Section: Related Service Domains */}
           <div className="mt-8 border-t border-slate-100 pt-8 print:border-none">
             <h2 className="text-sm font-extrabold text-slate-800 border-b border-slate-100 pb-2 uppercase tracking-wide">
-              14. Dominios de Servicio Relacionados ({relatedDomains.length})
+              15. Dominios de Servicio Relacionados ({relatedDomains.length})
             </h2>
             {relatedDomains.length > 0 ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mt-4 print:hidden">
