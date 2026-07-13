@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect } from "react";
+import React, { useMemo, useState, useEffect, useRef } from "react";
 import { DetailedSequence, SequenceMessage, SequenceParticipant } from "../sequence-diagram/components/RaiaSequenceDiagram";
 import { ScenarioStepNarrative } from "../../../domain/types/scenarioNarrativeTypes";
 import ScenarioStepList from "./ScenarioStepList";
@@ -20,6 +20,8 @@ export default function ScenarioStepsWorkspace({
 }: ScenarioStepsWorkspaceProps) {
   
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const workspaceRef = useRef<HTMLDivElement>(null);
+  const [panelOffset, setPanelOffset] = useState(0);
 
   // Sorting and setup
   const messages = useMemo(() => {
@@ -85,6 +87,28 @@ export default function ScenarioStepsWorkspace({
     setIsDrawerOpen(false);
   }, [sequence?.scenarioId]);
 
+  // Synchronize sidebar height to match the selected step
+  useEffect(() => {
+    if (!workspaceRef.current) return;
+
+    // Use a slight timeout to ensure DOM reconciliation (especially when navigating very fast)
+    const timer = setTimeout(() => {
+      const activeCard = workspaceRef.current?.querySelector('[aria-current="step"]');
+      const listContainer = workspaceRef.current?.querySelector('[data-testid="scenario-step-list"]');
+      
+      if (activeCard && listContainer && activeCard instanceof HTMLElement && listContainer instanceof HTMLElement) {
+        const cardRect = activeCard.getBoundingClientRect();
+        const listRect = listContainer.getBoundingClientRect();
+        const offset = cardRect.top - listRect.top;
+        setPanelOffset(Math.max(0, offset));
+      } else {
+        setPanelOffset(0);
+      }
+    }, 50);
+
+    return () => clearTimeout(timer);
+  }, [activeStep, messages]);
+
   return (
     <section
       id="structured-steps"
@@ -106,7 +130,10 @@ export default function ScenarioStepsWorkspace({
         </div>
       </header>
 
-      <div className="grid grid-cols-1 xl:grid-cols-[minmax(320px,0.8fr)_minmax(400px,1.2fr)] gap-8 items-start">
+      <div 
+        ref={workspaceRef}
+        className="grid grid-cols-1 xl:grid-cols-[minmax(320px,0.8fr)_minmax(400px,1.2fr)] gap-8 items-start relative"
+      >
         {/* Left Column: Compact Step List */}
         <ScenarioStepList 
           messages={messages}
@@ -116,17 +143,24 @@ export default function ScenarioStepsWorkspace({
         />
 
         {/* Right Column: Sticky Analysis Panel (Desktop Only) */}
-        <div className="hidden xl:block sticky top-24 h-[calc(100vh-120px)]">
-          <ScenarioStepAnalysisPanel 
-            message={selectedMessage}
-            narrative={selectedStepNarrative}
-            source={source}
-            target={target}
-            currentIndex={currentIndex >= 0 ? currentIndex : 0}
-            totalSteps={messages.length}
-            onPrevious={handlePrevious}
-            onNext={handleNext}
-          />
+        <div className="hidden xl:block relative h-full">
+          <div 
+            className="transition-all duration-500 ease-in-out"
+            style={{ marginTop: `${panelOffset}px` }}
+          >
+            <div className="sticky top-24 h-[calc(100vh-120px)]">
+              <ScenarioStepAnalysisPanel 
+                message={selectedMessage}
+                narrative={selectedStepNarrative}
+                source={source}
+                target={target}
+                currentIndex={currentIndex >= 0 ? currentIndex : 0}
+                totalSteps={messages.length}
+                onPrevious={handlePrevious}
+                onNext={handleNext}
+              />
+            </div>
+          </div>
         </div>
       </div>
 
