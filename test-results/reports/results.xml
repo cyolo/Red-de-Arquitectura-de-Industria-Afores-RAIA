@@ -1,1775 +1,263 @@
-<testsuites id="" name="" tests="65" failures="23" skipped="0" errors="20" time="154.619552">
-<testsuite name="business-scenarios\scenarios.spec.ts" timestamp="2026-07-13T08:39:43.261Z" hostname="chromium" tests="3" failures="1" skipped="0" time="9.087" errors="0">
-<testcase name="Business Scenarios › RAIA-BS-001: Validate Business Scenarios main page loads" classname="business-scenarios\scenarios.spec.ts" time="2.982">
+<testsuites id="" name="" tests="50" failures="1" skipped="0" errors="0" time="82.62025299999999">
+<testsuite name="visual\visual.spec.ts" timestamp="2026-07-13T09:22:21.323Z" hostname="chromium" tests="10" failures="0" skipped="0" time="13.943" errors="0">
+<testcase name="RAIA Visual Regression Baseline Screenshots › Home page visual snapshot" classname="visual\visual.spec.ts" time="1.628">
 </testcase>
-<testcase name="Business Scenarios › RAIA-BS-002: Validate presence of at least 18 scenarios in the catalog" classname="business-scenarios\scenarios.spec.ts" time="3.039">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|..\business-scenarios-scenari-56b41-18-scenarios-in-the-catalog-chromium\test-failed-1.png]]
-
-[[ATTACHMENT|..\business-scenarios-scenari-56b41-18-scenarios-in-the-catalog-chromium\video.webm]]
-
-[[ATTACHMENT|..\business-scenarios-scenari-56b41-18-scenarios-in-the-catalog-chromium\error-context.md]]
-]]>
-</system-out>
-<failure message="expect(received).toBeGreaterThanOrEqual(expected)" type="expect.toBeGreaterThanOrEqual">
-<![CDATA[  [chromium] › business-scenarios\scenarios.spec.ts:12:7 › Business Scenarios › RAIA-BS-002: Validate presence of at least 18 scenarios in the catalog 
-
-    Error: expect(received).toBeGreaterThanOrEqual(expected)
-
-    Expected: >= 18
-    Received:    0
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\business-scenarios\scenarios.spec.ts:17:19)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1662:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1660:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\business-scenarios-scenari-56b41-18-scenarios-in-the-catalog-chromium\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\business-scenarios-scenari-56b41-18-scenarios-in-the-catalog-chromium\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\business-scenarios-scenari-56b41-18-scenarios-in-the-catalog-chromium\error-context.md
-]]>
-</failure>
+<testcase name="RAIA Visual Regression Baseline Screenshots › Metamodel page visual snapshot" classname="visual\visual.spec.ts" time="1.504">
 </testcase>
-<testcase name="Business Scenarios › RAIA-BS-003: Selecting a scenario updates the view" classname="business-scenarios\scenarios.spec.ts" time="3.066">
+<testcase name="RAIA Visual Regression Baseline Screenshots › Value Chain initial map visual snapshot" classname="visual\visual.spec.ts" time="1.163">
+</testcase>
+<testcase name="RAIA Visual Regression Baseline Screenshots › Value Chain filtered map visual snapshot" classname="visual\visual.spec.ts" time="1.281">
+</testcase>
+<testcase name="RAIA Visual Regression Baseline Screenshots › Value Chain sidebar active visual snapshot" classname="visual\visual.spec.ts" time="1.545">
+</testcase>
+<testcase name="RAIA Visual Regression Baseline Screenshots › Business Scenarios list visual snapshot" classname="visual\visual.spec.ts" time="2.294">
+</testcase>
+<testcase name="RAIA Visual Regression Baseline Screenshots › Business Scenario with active step visual snapshot" classname="visual\visual.spec.ts" time="1.263">
+</testcase>
+<testcase name="RAIA Visual Regression Baseline Screenshots › Business Scenario diagram fullscreen visual snapshot" classname="visual\visual.spec.ts" time="1.541">
+</testcase>
+<testcase name="RAIA Visual Regression Baseline Screenshots › Dashboard page visual snapshot" classname="visual\visual.spec.ts" time="0.924">
+</testcase>
+<testcase name="RAIA Visual Regression Baseline Screenshots › Releases page visual snapshot" classname="visual\visual.spec.ts" time="0.8">
 </testcase>
 </testsuite>
-<testsuite name="business-scenarios-layout.spec.ts" timestamp="2026-07-13T08:39:43.261Z" hostname="chromium" tests="1" failures="1" skipped="0" time="7.983" errors="0">
-<testcase name="Business Scenarios Layout › ensures correct DOM placement of scenario structural elements" classname="business-scenarios-layout.spec.ts" time="7.983">
+<testsuite name="visual\visual.spec.ts" timestamp="2026-07-13T09:22:21.323Z" hostname="firefox" tests="10" failures="0" skipped="0" time="34.973" errors="0">
+<testcase name="RAIA Visual Regression Baseline Screenshots › Home page visual snapshot" classname="visual\visual.spec.ts" time="6.873">
+</testcase>
+<testcase name="RAIA Visual Regression Baseline Screenshots › Metamodel page visual snapshot" classname="visual\visual.spec.ts" time="5.862">
+</testcase>
+<testcase name="RAIA Visual Regression Baseline Screenshots › Value Chain initial map visual snapshot" classname="visual\visual.spec.ts" time="3.523">
+</testcase>
+<testcase name="RAIA Visual Regression Baseline Screenshots › Value Chain filtered map visual snapshot" classname="visual\visual.spec.ts" time="3.683">
+</testcase>
+<testcase name="RAIA Visual Regression Baseline Screenshots › Value Chain sidebar active visual snapshot" classname="visual\visual.spec.ts" time="3.017">
+</testcase>
+<testcase name="RAIA Visual Regression Baseline Screenshots › Business Scenarios list visual snapshot" classname="visual\visual.spec.ts" time="4.094">
+</testcase>
+<testcase name="RAIA Visual Regression Baseline Screenshots › Business Scenario with active step visual snapshot" classname="visual\visual.spec.ts" time="2.233">
+</testcase>
+<testcase name="RAIA Visual Regression Baseline Screenshots › Business Scenario diagram fullscreen visual snapshot" classname="visual\visual.spec.ts" time="2.807">
+</testcase>
+<testcase name="RAIA Visual Regression Baseline Screenshots › Dashboard page visual snapshot" classname="visual\visual.spec.ts" time="1.544">
+</testcase>
+<testcase name="RAIA Visual Regression Baseline Screenshots › Releases page visual snapshot" classname="visual\visual.spec.ts" time="1.337">
+</testcase>
+</testsuite>
+<testsuite name="visual\visual.spec.ts" timestamp="2026-07-13T09:22:21.323Z" hostname="webkit" tests="10" failures="1" skipped="0" time="55.162" errors="0">
+<testcase name="RAIA Visual Regression Baseline Screenshots › Home page visual snapshot" classname="visual\visual.spec.ts" time="4.85">
 <system-out>
-<![CDATA[
-[[ATTACHMENT|..\business-scenarios-layout--7e538-cenario-structural-elements-chromium\test-failed-1.png]]
-
-[[ATTACHMENT|..\business-scenarios-layout--7e538-cenario-structural-elements-chromium\video.webm]]
-
-[[ATTACHMENT|..\business-scenarios-layout--7e538-cenario-structural-elements-chromium\error-context.md]]
+<![CDATA[C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\visual\visual.spec.ts-snapshots\home-webkit-win32.png is re-generated, writing actual.
 ]]>
 </system-out>
-<failure message="expect(locator).toBeVisible() failed" type="expect.toBeVisible">
-<![CDATA[  [chromium] › business-scenarios-layout.spec.ts:4:7 › Business Scenarios Layout › ensures correct DOM placement of scenario structural elements 
+</testcase>
+<testcase name="RAIA Visual Regression Baseline Screenshots › Metamodel page visual snapshot" classname="visual\visual.spec.ts" time="2.863">
+<system-out>
+<![CDATA[C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\visual\visual.spec.ts-snapshots\metamodel-webkit-win32.png is re-generated, writing actual.
+]]>
+</system-out>
+</testcase>
+<testcase name="RAIA Visual Regression Baseline Screenshots › Value Chain initial map visual snapshot" classname="visual\visual.spec.ts" time="3.711">
+<system-out>
+<![CDATA[C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\visual\visual.spec.ts-snapshots\value-chain-initial-webkit-win32.png is re-generated, writing actual.
+]]>
+</system-out>
+</testcase>
+<testcase name="RAIA Visual Regression Baseline Screenshots › Value Chain filtered map visual snapshot" classname="visual\visual.spec.ts" time="5.726">
+<system-out>
+<![CDATA[C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\visual\visual.spec.ts-snapshots\value-chain-filtered-webkit-win32.png is re-generated, writing actual.
+]]>
+</system-out>
+</testcase>
+<testcase name="RAIA Visual Regression Baseline Screenshots › Value Chain sidebar active visual snapshot" classname="visual\visual.spec.ts" time="9.135">
+<system-out>
+<![CDATA[C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\visual\visual.spec.ts-snapshots\value-chain-sidebar-webkit-win32.png is re-generated, writing actual.
+]]>
+</system-out>
+</testcase>
+<testcase name="RAIA Visual Regression Baseline Screenshots › Business Scenarios list visual snapshot" classname="visual\visual.spec.ts" time="4.661">
+<system-out>
+<![CDATA[C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\visual\visual.spec.ts-snapshots\business-scenarios-webkit-win32.png is re-generated, writing actual.
+]]>
+</system-out>
+</testcase>
+<testcase name="RAIA Visual Regression Baseline Screenshots › Business Scenario with active step visual snapshot" classname="visual\visual.spec.ts" time="9.39">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|..\outputs\visual-visual-RAIA-Visual--8765b-active-step-visual-snapshot-webkit\business-scenario-active-step-previous.png]]
 
-    Error: expect(locator).toBeVisible() failed
+[[ATTACHMENT|..\outputs\visual-visual-RAIA-Visual--8765b-active-step-visual-snapshot-webkit\business-scenario-active-step-actual.png]]
 
-    Locator: getByTestId('scenario-detail').getByTestId('scenario-structured-steps')
-    Expected: visible
+[[ATTACHMENT|..\outputs\visual-visual-RAIA-Visual--8765b-active-step-visual-snapshot-webkit\business-scenario-active-step-diff.png]]
+
+[[ATTACHMENT|..\outputs\visual-visual-RAIA-Visual--8765b-active-step-visual-snapshot-webkit\test-failed-1.png]]
+
+[[ATTACHMENT|..\outputs\visual-visual-RAIA-Visual--8765b-active-step-visual-snapshot-webkit\video.webm]]
+
+[[ATTACHMENT|..\outputs\visual-visual-RAIA-Visual--8765b-active-step-visual-snapshot-webkit\error-context.md]]
+
+[[ATTACHMENT|..\outputs\visual-visual-RAIA-Visual--8765b-active-step-visual-snapshot-webkit\trace.zip]]
+]]>
+</system-out>
+<failure message="expect(page).toHaveScreenshot(expected) failed" type="expect.toHaveScreenshot">
+<![CDATA[  [webkit] › visual\visual.spec.ts:39:7 › RAIA Visual Regression Baseline Screenshots › Business Scenario with active step visual snapshot 
+
+    Error: expect(page).toHaveScreenshot(expected) failed
+
     Timeout: 5000ms
-    Error: element(s) not found
+      Failed to take two consecutive stable screenshots.
+
+      Snapshot: business-scenario-active-step.png
 
     Call log:
-      - Expect "toBeVisible" with timeout 5000ms
-      - waiting for getByTestId('scenario-detail').getByTestId('scenario-structured-steps')
+      - Expect "toHaveScreenshot(business-scenario-active-step.png)" with timeout 5000ms
+        - generating new stable screenshot expectation
+      - taking page screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - waiting 100ms before taking screenshot
+      - taking page screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - 2707 pixels (ratio 0.01 of all image pixels) are different.
+      - waiting 250ms before taking screenshot
+      - taking page screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - 2707 pixels (ratio 0.01 of all image pixels) are different.
+      - waiting 500ms before taking screenshot
+      - taking page screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - 2645 pixels (ratio 0.01 of all image pixels) are different.
+      - waiting 1000ms before taking screenshot
+      - taking page screenshot
+        - disabled all CSS animations
+      - waiting for fonts to load...
+      - fonts loaded
+      - 2921 pixels (ratio 0.01 of all image pixels) are different.
+      - waiting 1000ms before taking screenshot
+      - Timeout 5000ms exceeded.
 
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\business-scenarios-layout.spec.ts:32:32)
+        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\visual\visual.spec.ts:55:24)
         at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1662:9)
         at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
         at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1660:7)
 
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\business-scenarios-layout--7e538-cenario-structural-elements-chromium\test-failed-1.png
+    attachment #1: business-scenario-active-step (image/png) ───────────────────────────────────────
+    Received: ..\..\test-results\outputs\visual-visual-RAIA-Visual--8765b-active-step-visual-snapshot-webkit\business-scenario-active-step-actual.png
+    Previous: ..\..\test-results\outputs\visual-visual-RAIA-Visual--8765b-active-step-visual-snapshot-webkit\business-scenario-active-step-previous.png
+    Diff:     ..\..\test-results\outputs\visual-visual-RAIA-Visual--8765b-active-step-visual-snapshot-webkit\business-scenario-active-step-diff.png
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\business-scenarios-layout--7e538-cenario-structural-elements-chromium\video.webm
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\..\test-results\outputs\visual-visual-RAIA-Visual--8765b-active-step-visual-snapshot-webkit\test-failed-1.png
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
-    Error Context: ..\..\test-results\business-scenarios-layout--7e538-cenario-structural-elements-chromium\error-context.md
+    attachment #3: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\..\test-results\outputs\visual-visual-RAIA-Visual--8765b-active-step-visual-snapshot-webkit\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\..\test-results\outputs\visual-visual-RAIA-Visual--8765b-active-step-visual-snapshot-webkit\error-context.md
+
+    attachment #5: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\..\test-results\outputs\visual-visual-RAIA-Visual--8765b-active-step-visual-snapshot-webkit\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\..\test-results\outputs\visual-visual-RAIA-Visual--8765b-active-step-visual-snapshot-webkit\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
 ]]>
 </failure>
 </testcase>
-</testsuite>
-<testsuite name="global\navigation.spec.ts" timestamp="2026-07-13T08:39:43.261Z" hostname="chromium" tests="5" failures="2" skipped="0" time="36.59" errors="0">
-<testcase name="Global Navigation › RAIA-GLO-001: Validate homepage loads correctly" classname="global\navigation.spec.ts" time="7.373">
+<testcase name="RAIA Visual Regression Baseline Screenshots › Business Scenario diagram fullscreen visual snapshot" classname="visual\visual.spec.ts" time="7.621">
 <system-out>
-<![CDATA[
-[[ATTACHMENT|..\global-navigation-Global-N-12d43-te-homepage-loads-correctly-chromium\test-failed-1.png]]
-
-[[ATTACHMENT|..\global-navigation-Global-N-12d43-te-homepage-loads-correctly-chromium\video.webm]]
-
-[[ATTACHMENT|..\global-navigation-Global-N-12d43-te-homepage-loads-correctly-chromium\error-context.md]]
+<![CDATA[C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\visual\visual.spec.ts-snapshots\business-scenario-fullscreen-webkit-win32.png is re-generated, writing actual.
 ]]>
 </system-out>
-<failure message="expect(locator).toContainText(expected) failed" type="expect.toContainText">
-<![CDATA[  [chromium] › global\navigation.spec.ts:4:7 › Global Navigation › RAIA-GLO-001: Validate homepage loads correctly 
-
-    Error: expect(locator).toContainText(expected) failed
-
-    Locator: locator('h1')
-    Expected substring: "Red de Arquitectura"
-    Received string:    "RAIA Architecture Overview Portal"
-    Timeout: 5000ms
-
-    Call log:
-      - Expect "toContainText" with timeout 5000ms
-      - waiting for locator('h1')
-        14 × locator resolved to <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-100 to-slate-300 bg-clip-text text-transparent">RAIA Architecture Overview Portal</h1>
-           - unexpected value "RAIA Architecture Overview Portal"
-
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\global\navigation.spec.ts:9:38)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1662:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1660:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\global-navigation-Global-N-12d43-te-homepage-loads-correctly-chromium\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\global-navigation-Global-N-12d43-te-homepage-loads-correctly-chromium\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\global-navigation-Global-N-12d43-te-homepage-loads-correctly-chromium\error-context.md
-]]>
-</failure>
 </testcase>
-<testcase name="Global Navigation › RAIA-GLO-002: Validate existence of core routes" classname="global\navigation.spec.ts" time="9.738">
-</testcase>
-<testcase name="Global Navigation › RAIA-GLO-003: Validate Back to Portal links" classname="global\navigation.spec.ts" time="7.2">
-</testcase>
-<testcase name="Global Navigation › RAIA-GLO-004: Validate module cards redirection" classname="global\navigation.spec.ts" time="6.695">
+<testcase name="RAIA Visual Regression Baseline Screenshots › Dashboard page visual snapshot" classname="visual\visual.spec.ts" time="3.31">
 <system-out>
-<![CDATA[
-[[ATTACHMENT|..\global-navigation-Global-N-a12e0-te-module-cards-redirection-chromium\test-failed-1.png]]
-
-[[ATTACHMENT|..\global-navigation-Global-N-a12e0-te-module-cards-redirection-chromium\video.webm]]
-
-[[ATTACHMENT|..\global-navigation-Global-N-a12e0-te-module-cards-redirection-chromium\error-context.md]]
+<![CDATA[C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\visual\visual.spec.ts-snapshots\dashboard-webkit-win32.png is re-generated, writing actual.
 ]]>
 </system-out>
-<failure message="expect(locator).toBeVisible() failed" type="expect.toBeVisible">
-<![CDATA[  [chromium] › global\navigation.spec.ts:37:7 › Global Navigation › RAIA-GLO-004: Validate module cards redirection 
-
-    Error: expect(locator).toBeVisible() failed
-
-    Locator: locator('a[href="/metamodel"]')
-    Expected: visible
-    Error: strict mode violation: locator('a[href="/metamodel"]') resolved to 2 elements:
-        1) <a href="/metamodel" class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white font-semibold text-xs px-4 py-3 rounded-lg border border-slate-700 transition-colors">…</a> aka getByRole('link', { name: 'Conocer Metodología' })
-        2) <a href="/metamodel" class="bg-white rounded-2xl border border-slate-200 shadow-xs p-5 hover:border-slate-300 hover:shadow-md transition-all flex flex-col justify-between group h-auto text-left">…</a> aka getByRole('link', { name: 'v0.1.0 Metamodel Overview' })
-
-    Call log:
-      - Expect "toBeVisible" with timeout 5000ms
-      - waiting for locator('a[href="/metamodel"]')
-
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\global\navigation.spec.ts:40:33)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1662:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1660:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\global-navigation-Global-N-a12e0-te-module-cards-redirection-chromium\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\global-navigation-Global-N-a12e0-te-module-cards-redirection-chromium\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\global-navigation-Global-N-a12e0-te-module-cards-redirection-chromium\error-context.md
-]]>
-</failure>
 </testcase>
-<testcase name="Global Navigation › RAIA-GLO-014: Validate 404 page" classname="global\navigation.spec.ts" time="5.584">
+<testcase name="RAIA Visual Regression Baseline Screenshots › Releases page visual snapshot" classname="visual\visual.spec.ts" time="3.895">
+<system-out>
+<![CDATA[C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\visual\visual.spec.ts-snapshots\releases-webkit-win32.png is re-generated, writing actual.
+]]>
+</system-out>
 </testcase>
 </testsuite>
-<testsuite name="scenario-step-analysis.spec.ts" timestamp="2026-07-13T08:39:43.261Z" hostname="chromium" tests="3" failures="0" skipped="0" time="94.401" errors="3">
-<testcase name="RAIA Business Scenarios - UX Architecture Context › desktop layout synchronization between list, panel, and diagram" classname="scenario-step-analysis.spec.ts" time="31.579">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|..\scenario-step-analysis-RAI-59d67-ween-list-panel-and-diagram-chromium\test-failed-1.png]]
-
-[[ATTACHMENT|..\scenario-step-analysis-RAI-59d67-ween-list-panel-and-diagram-chromium\video.webm]]
-
-[[ATTACHMENT|..\scenario-step-analysis-RAI-59d67-ween-list-panel-and-diagram-chromium\error-context.md]]
-]]>
-</system-out>
-<error message="Test timeout of 30000ms exceeded while running &quot;beforeEach&quot; hook." type="Error">
-<![CDATA[  [chromium] › scenario-step-analysis.spec.ts:17:7 › RAIA Business Scenarios - UX Architecture Context › desktop layout synchronization between list, panel, and diagram 
-
-    Test timeout of 30000ms exceeded while running "beforeEach" hook.
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\scenario-step-analysis.spec.ts:5:8)
-
-    Error: locator.click: Test timeout of 30000ms exceeded.
-    Call log:
-      - waiting for getByTestId('scenario-catalog').getByText(/RAIA-BS-/i).first()
-
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\scenario-step-analysis.spec.ts:11:50)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1819:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1652:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1648:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\scenario-step-analysis-RAI-59d67-ween-list-panel-and-diagram-chromium\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\scenario-step-analysis-RAI-59d67-ween-list-panel-and-diagram-chromium\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\scenario-step-analysis-RAI-59d67-ween-list-panel-and-diagram-chromium\error-context.md
-]]>
-</error>
+<testsuite name="visual\visual.spec.ts" timestamp="2026-07-13T09:22:21.323Z" hostname="Mobile Chrome" tests="10" failures="0" skipped="0" time="11.107" errors="0">
+<testcase name="RAIA Visual Regression Baseline Screenshots › Home page visual snapshot" classname="visual\visual.spec.ts" time="1.227">
 </testcase>
-<testcase name="RAIA Business Scenarios - UX Architecture Context › mobile layout drawer behavior" classname="scenario-step-analysis.spec.ts" time="31.459">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|..\scenario-step-analysis-RAI-18b84-bile-layout-drawer-behavior-chromium\test-failed-1.png]]
-
-[[ATTACHMENT|..\scenario-step-analysis-RAI-18b84-bile-layout-drawer-behavior-chromium\video.webm]]
-
-[[ATTACHMENT|..\scenario-step-analysis-RAI-18b84-bile-layout-drawer-behavior-chromium\error-context.md]]
-]]>
-</system-out>
-<error message="Test timeout of 30000ms exceeded while running &quot;beforeEach&quot; hook." type="Error">
-<![CDATA[  [chromium] › scenario-step-analysis.spec.ts:70:7 › RAIA Business Scenarios - UX Architecture Context › mobile layout drawer behavior 
-
-    Test timeout of 30000ms exceeded while running "beforeEach" hook.
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\scenario-step-analysis.spec.ts:5:8)
-
-    Error: locator.click: Test timeout of 30000ms exceeded.
-    Call log:
-      - waiting for getByTestId('scenario-catalog').getByText(/RAIA-BS-/i).first()
-
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\scenario-step-analysis.spec.ts:11:50)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1819:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1652:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1648:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\scenario-step-analysis-RAI-18b84-bile-layout-drawer-behavior-chromium\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\scenario-step-analysis-RAI-18b84-bile-layout-drawer-behavior-chromium\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\scenario-step-analysis-RAI-18b84-bile-layout-drawer-behavior-chromium\error-context.md
-]]>
-</error>
+<testcase name="RAIA Visual Regression Baseline Screenshots › Metamodel page visual snapshot" classname="visual\visual.spec.ts" time="0.993">
 </testcase>
-<testcase name="RAIA Business Scenarios - UX Architecture Context › absence of console errors" classname="scenario-step-analysis.spec.ts" time="31.363">
+<testcase name="RAIA Visual Regression Baseline Screenshots › Value Chain initial map visual snapshot" classname="visual\visual.spec.ts" time="0.899">
+</testcase>
+<testcase name="RAIA Visual Regression Baseline Screenshots › Value Chain filtered map visual snapshot" classname="visual\visual.spec.ts" time="1.004">
+</testcase>
+<testcase name="RAIA Visual Regression Baseline Screenshots › Value Chain sidebar active visual snapshot" classname="visual\visual.spec.ts" time="1.24">
+</testcase>
+<testcase name="RAIA Visual Regression Baseline Screenshots › Business Scenarios list visual snapshot" classname="visual\visual.spec.ts" time="0.82">
+</testcase>
+<testcase name="RAIA Visual Regression Baseline Screenshots › Business Scenario with active step visual snapshot" classname="visual\visual.spec.ts" time="1.328">
 <system-out>
-<![CDATA[
-[[ATTACHMENT|..\scenario-step-analysis-RAI-42c2b-t-absence-of-console-errors-chromium\test-failed-1.png]]
+<![CDATA[A snapshot doesn't exist at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\visual\visual.spec.ts-snapshots\business-scenario-active-step-Mobile-Chrome-win32.png, writing actual.
 
-[[ATTACHMENT|..\scenario-step-analysis-RAI-42c2b-t-absence-of-console-errors-chromium\video.webm]]
+[[ATTACHMENT|..\..\tests\e2e\visual\visual.spec.ts-snapshots\business-scenario-active-step-Mobile-Chrome-win32.png]]
 
-[[ATTACHMENT|..\scenario-step-analysis-RAI-42c2b-t-absence-of-console-errors-chromium\error-context.md]]
+[[ATTACHMENT|..\outputs\visual-visual-RAIA-Visual--8765b-active-step-visual-snapshot-Mobile-Chrome\business-scenario-active-step-actual.png]]
 ]]>
 </system-out>
-<error message="Test timeout of 30000ms exceeded while running &quot;beforeEach&quot; hook." type="Error">
-<![CDATA[  [chromium] › scenario-step-analysis.spec.ts:102:7 › RAIA Business Scenarios - UX Architecture Context › absence of console errors 
-
-    Test timeout of 30000ms exceeded while running "beforeEach" hook.
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\scenario-step-analysis.spec.ts:5:8)
-
-    Error: locator.click: Test timeout of 30000ms exceeded.
-    Call log:
-      - waiting for getByTestId('scenario-catalog').getByText(/RAIA-BS-/i).first()
-
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\scenario-step-analysis.spec.ts:11:50)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1819:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1652:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1648:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\scenario-step-analysis-RAI-42c2b-t-absence-of-console-errors-chromium\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\scenario-step-analysis-RAI-42c2b-t-absence-of-console-errors-chromium\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\scenario-step-analysis-RAI-42c2b-t-absence-of-console-errors-chromium\error-context.md
+</testcase>
+<testcase name="RAIA Visual Regression Baseline Screenshots › Business Scenario diagram fullscreen visual snapshot" classname="visual\visual.spec.ts" time="1.787">
+<system-out>
+<![CDATA[C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\visual\visual.spec.ts-snapshots\business-scenario-fullscreen-Mobile-Chrome-win32.png is re-generated, writing actual.
 ]]>
-</error>
+</system-out>
+</testcase>
+<testcase name="RAIA Visual Regression Baseline Screenshots › Dashboard page visual snapshot" classname="visual\visual.spec.ts" time="1.067">
+</testcase>
+<testcase name="RAIA Visual Regression Baseline Screenshots › Releases page visual snapshot" classname="visual\visual.spec.ts" time="0.742">
 </testcase>
 </testsuite>
-<testsuite name="sequence-diagram.spec.ts" timestamp="2026-07-13T08:39:43.261Z" hostname="chromium" tests="1" failures="0" skipped="0" time="31.328" errors="1">
-<testcase name="RAIA Sequence Diagram Engine › renders high-quality SVG engine and handles full-screen interactions" classname="sequence-diagram.spec.ts" time="31.328">
+<testsuite name="visual\visual.spec.ts" timestamp="2026-07-13T09:22:21.323Z" hostname="Mobile Safari" tests="10" failures="0" skipped="0" time="28.721" errors="0">
+<testcase name="RAIA Visual Regression Baseline Screenshots › Home page visual snapshot" classname="visual\visual.spec.ts" time="3.148">
+</testcase>
+<testcase name="RAIA Visual Regression Baseline Screenshots › Metamodel page visual snapshot" classname="visual\visual.spec.ts" time="2.576">
+</testcase>
+<testcase name="RAIA Visual Regression Baseline Screenshots › Value Chain initial map visual snapshot" classname="visual\visual.spec.ts" time="1.942">
+</testcase>
+<testcase name="RAIA Visual Regression Baseline Screenshots › Value Chain filtered map visual snapshot" classname="visual\visual.spec.ts" time="2.252">
+</testcase>
+<testcase name="RAIA Visual Regression Baseline Screenshots › Value Chain sidebar active visual snapshot" classname="visual\visual.spec.ts" time="3.265">
 <system-out>
-<![CDATA[
-[[ATTACHMENT|..\sequence-diagram-RAIA-Sequ-ebcbc-es-full-screen-interactions-chromium\test-failed-1.png]]
-
-[[ATTACHMENT|..\sequence-diagram-RAIA-Sequ-ebcbc-es-full-screen-interactions-chromium\video.webm]]
-
-[[ATTACHMENT|..\sequence-diagram-RAIA-Sequ-ebcbc-es-full-screen-interactions-chromium\error-context.md]]
+<![CDATA[C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\visual\visual.spec.ts-snapshots\value-chain-sidebar-Mobile-Safari-win32.png is re-generated, writing actual.
 ]]>
 </system-out>
-<error message="Test timeout of 30000ms exceeded." type="Error">
-<![CDATA[  [chromium] › sequence-diagram.spec.ts:4:7 › RAIA Sequence Diagram Engine › renders high-quality SVG engine and handles full-screen interactions 
-
-    Test timeout of 30000ms exceeded.
-
-    Error: locator.click: Test timeout of 30000ms exceeded.
-    Call log:
-      - waiting for getByTestId('scenario-catalog').getByText(/RAIA-BS-0001/i)
-
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\sequence-diagram.spec.ts:10:46)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1662:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1660:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\sequence-diagram-RAIA-Sequ-ebcbc-es-full-screen-interactions-chromium\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\sequence-diagram-RAIA-Sequ-ebcbc-es-full-screen-interactions-chromium\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\sequence-diagram-RAIA-Sequ-ebcbc-es-full-screen-interactions-chromium\error-context.md
-]]>
-</error>
 </testcase>
-</testsuite>
-<testsuite name="business-scenarios\scenarios.spec.ts" timestamp="2026-07-13T08:39:43.261Z" hostname="firefox" tests="3" failures="1" skipped="0" time="8.561" errors="0">
-<testcase name="Business Scenarios › RAIA-BS-001: Validate Business Scenarios main page loads" classname="business-scenarios\scenarios.spec.ts" time="3.516">
+<testcase name="RAIA Visual Regression Baseline Screenshots › Business Scenarios list visual snapshot" classname="visual\visual.spec.ts" time="2.268">
 </testcase>
-<testcase name="Business Scenarios › RAIA-BS-002: Validate presence of at least 18 scenarios in the catalog" classname="business-scenarios\scenarios.spec.ts" time="3.378">
+<testcase name="RAIA Visual Regression Baseline Screenshots › Business Scenario with active step visual snapshot" classname="visual\visual.spec.ts" time="4.823">
 <system-out>
-<![CDATA[
-[[ATTACHMENT|..\business-scenarios-scenari-56b41-18-scenarios-in-the-catalog-firefox\test-failed-1.png]]
+<![CDATA[A snapshot doesn't exist at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\visual\visual.spec.ts-snapshots\business-scenario-active-step-Mobile-Safari-win32.png, writing actual.
 
-[[ATTACHMENT|..\business-scenarios-scenari-56b41-18-scenarios-in-the-catalog-firefox\video.webm]]
+[[ATTACHMENT|..\..\tests\e2e\visual\visual.spec.ts-snapshots\business-scenario-active-step-Mobile-Safari-win32.png]]
 
-[[ATTACHMENT|..\business-scenarios-scenari-56b41-18-scenarios-in-the-catalog-firefox\error-context.md]]
+[[ATTACHMENT|..\outputs\visual-visual-RAIA-Visual--8765b-active-step-visual-snapshot-Mobile-Safari\business-scenario-active-step-actual.png]]
 ]]>
 </system-out>
-<failure message="expect(received).toBeGreaterThanOrEqual(expected)" type="expect.toBeGreaterThanOrEqual">
-<![CDATA[  [firefox] › business-scenarios\scenarios.spec.ts:12:7 › Business Scenarios › RAIA-BS-002: Validate presence of at least 18 scenarios in the catalog 
-
-    Error: expect(received).toBeGreaterThanOrEqual(expected)
-
-    Expected: >= 18
-    Received:    0
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\business-scenarios\scenarios.spec.ts:17:19)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1662:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1660:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\business-scenarios-scenari-56b41-18-scenarios-in-the-catalog-firefox\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\business-scenarios-scenari-56b41-18-scenarios-in-the-catalog-firefox\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\business-scenarios-scenari-56b41-18-scenarios-in-the-catalog-firefox\error-context.md
-]]>
-</failure>
 </testcase>
-<testcase name="Business Scenarios › RAIA-BS-003: Selecting a scenario updates the view" classname="business-scenarios\scenarios.spec.ts" time="1.667">
+<testcase name="RAIA Visual Regression Baseline Screenshots › Business Scenario diagram fullscreen visual snapshot" classname="visual\visual.spec.ts" time="4.663">
 </testcase>
-</testsuite>
-<testsuite name="business-scenarios-layout.spec.ts" timestamp="2026-07-13T08:39:43.261Z" hostname="firefox" tests="1" failures="1" skipped="0" time="9.018" errors="0">
-<testcase name="Business Scenarios Layout › ensures correct DOM placement of scenario structural elements" classname="business-scenarios-layout.spec.ts" time="9.018">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|..\business-scenarios-layout--7e538-cenario-structural-elements-firefox\test-failed-1.png]]
-
-[[ATTACHMENT|..\business-scenarios-layout--7e538-cenario-structural-elements-firefox\video.webm]]
-
-[[ATTACHMENT|..\business-scenarios-layout--7e538-cenario-structural-elements-firefox\error-context.md]]
-]]>
-</system-out>
-<failure message="expect(locator).toBeVisible() failed" type="expect.toBeVisible">
-<![CDATA[  [firefox] › business-scenarios-layout.spec.ts:4:7 › Business Scenarios Layout › ensures correct DOM placement of scenario structural elements 
-
-    Error: expect(locator).toBeVisible() failed
-
-    Locator: getByTestId('scenario-detail').getByTestId('scenario-structured-steps')
-    Expected: visible
-    Timeout: 5000ms
-    Error: element(s) not found
-
-    Call log:
-      - Expect "toBeVisible" with timeout 5000ms
-      - waiting for getByTestId('scenario-detail').getByTestId('scenario-structured-steps')
-
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\business-scenarios-layout.spec.ts:32:32)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1662:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1660:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\business-scenarios-layout--7e538-cenario-structural-elements-firefox\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\business-scenarios-layout--7e538-cenario-structural-elements-firefox\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\business-scenarios-layout--7e538-cenario-structural-elements-firefox\error-context.md
-]]>
-</failure>
+<testcase name="RAIA Visual Regression Baseline Screenshots › Dashboard page visual snapshot" classname="visual\visual.spec.ts" time="2.157">
 </testcase>
-</testsuite>
-<testsuite name="global\navigation.spec.ts" timestamp="2026-07-13T08:39:43.261Z" hostname="firefox" tests="5" failures="2" skipped="0" time="20.607" errors="0">
-<testcase name="Global Navigation › RAIA-GLO-001: Validate homepage loads correctly" classname="global\navigation.spec.ts" time="8.58">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|..\global-navigation-Global-N-12d43-te-homepage-loads-correctly-firefox\test-failed-1.png]]
-
-[[ATTACHMENT|..\global-navigation-Global-N-12d43-te-homepage-loads-correctly-firefox\video.webm]]
-
-[[ATTACHMENT|..\global-navigation-Global-N-12d43-te-homepage-loads-correctly-firefox\error-context.md]]
-]]>
-</system-out>
-<failure message="expect(locator).toContainText(expected) failed" type="expect.toContainText">
-<![CDATA[  [firefox] › global\navigation.spec.ts:4:7 › Global Navigation › RAIA-GLO-001: Validate homepage loads correctly 
-
-    Error: expect(locator).toContainText(expected) failed
-
-    Locator: locator('h1')
-    Expected substring: "Red de Arquitectura"
-    Received string:    "RAIA Architecture Overview Portal"
-    Timeout: 5000ms
-
-    Call log:
-      - Expect "toContainText" with timeout 5000ms
-      - waiting for locator('h1')
-        13 × locator resolved to <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-100 to-slate-300 bg-clip-text text-transparent">RAIA Architecture Overview Portal</h1>
-           - unexpected value "RAIA Architecture Overview Portal"
-
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\global\navigation.spec.ts:9:38)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1662:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1660:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\global-navigation-Global-N-12d43-te-homepage-loads-correctly-firefox\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\global-navigation-Global-N-12d43-te-homepage-loads-correctly-firefox\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\global-navigation-Global-N-12d43-te-homepage-loads-correctly-firefox\error-context.md
-]]>
-</failure>
-</testcase>
-<testcase name="Global Navigation › RAIA-GLO-002: Validate existence of core routes" classname="global\navigation.spec.ts" time="5.033">
-</testcase>
-<testcase name="Global Navigation › RAIA-GLO-003: Validate Back to Portal links" classname="global\navigation.spec.ts" time="3.502">
-</testcase>
-<testcase name="Global Navigation › RAIA-GLO-004: Validate module cards redirection" classname="global\navigation.spec.ts" time="2.037">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|..\global-navigation-Global-N-a12e0-te-module-cards-redirection-firefox\test-failed-1.png]]
-
-[[ATTACHMENT|..\global-navigation-Global-N-a12e0-te-module-cards-redirection-firefox\video.webm]]
-
-[[ATTACHMENT|..\global-navigation-Global-N-a12e0-te-module-cards-redirection-firefox\error-context.md]]
-]]>
-</system-out>
-<failure message="expect(locator).toBeVisible() failed" type="expect.toBeVisible">
-<![CDATA[  [firefox] › global\navigation.spec.ts:37:7 › Global Navigation › RAIA-GLO-004: Validate module cards redirection 
-
-    Error: expect(locator).toBeVisible() failed
-
-    Locator: locator('a[href="/metamodel"]')
-    Expected: visible
-    Error: strict mode violation: locator('a[href="/metamodel"]') resolved to 2 elements:
-        1) <a href="/metamodel" class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white font-semibold text-xs px-4 py-3 rounded-lg border border-slate-700 transition-colors">…</a> aka getByRole('link', { name: 'Conocer Metodología' })
-        2) <a href="/metamodel" class="bg-white rounded-2xl border border-slate-200 shadow-xs p-5 hover:border-slate-300 hover:shadow-md transition-all flex flex-col justify-between group h-auto text-left">…</a> aka getByRole('link', { name: 'v0.1.0 Metamodel Overview' })
-
-    Call log:
-      - Expect "toBeVisible" with timeout 5000ms
-      - waiting for locator('a[href="/metamodel"]')
-
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\global\navigation.spec.ts:40:33)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1662:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1660:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\global-navigation-Global-N-a12e0-te-module-cards-redirection-firefox\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\global-navigation-Global-N-a12e0-te-module-cards-redirection-firefox\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\global-navigation-Global-N-a12e0-te-module-cards-redirection-firefox\error-context.md
-]]>
-</failure>
-</testcase>
-<testcase name="Global Navigation › RAIA-GLO-014: Validate 404 page" classname="global\navigation.spec.ts" time="1.455">
-</testcase>
-</testsuite>
-<testsuite name="scenario-step-analysis.spec.ts" timestamp="2026-07-13T08:39:43.261Z" hostname="firefox" tests="3" failures="0" skipped="0" time="91.153" errors="3">
-<testcase name="RAIA Business Scenarios - UX Architecture Context › desktop layout synchronization between list, panel, and diagram" classname="scenario-step-analysis.spec.ts" time="30.401">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|..\scenario-step-analysis-RAI-59d67-ween-list-panel-and-diagram-firefox\test-failed-1.png]]
-
-[[ATTACHMENT|..\scenario-step-analysis-RAI-59d67-ween-list-panel-and-diagram-firefox\video.webm]]
-
-[[ATTACHMENT|..\scenario-step-analysis-RAI-59d67-ween-list-panel-and-diagram-firefox\error-context.md]]
-]]>
-</system-out>
-<error message="Test timeout of 30000ms exceeded while running &quot;beforeEach&quot; hook." type="Error">
-<![CDATA[  [firefox] › scenario-step-analysis.spec.ts:17:7 › RAIA Business Scenarios - UX Architecture Context › desktop layout synchronization between list, panel, and diagram 
-
-    Test timeout of 30000ms exceeded while running "beforeEach" hook.
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\scenario-step-analysis.spec.ts:5:8)
-
-    Error: locator.click: Test timeout of 30000ms exceeded.
-    Call log:
-      - waiting for getByTestId('scenario-catalog').getByText(/RAIA-BS-/i).first()
-
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\scenario-step-analysis.spec.ts:11:50)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1819:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1652:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1648:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\scenario-step-analysis-RAI-59d67-ween-list-panel-and-diagram-firefox\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\scenario-step-analysis-RAI-59d67-ween-list-panel-and-diagram-firefox\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\scenario-step-analysis-RAI-59d67-ween-list-panel-and-diagram-firefox\error-context.md
-]]>
-</error>
-</testcase>
-<testcase name="RAIA Business Scenarios - UX Architecture Context › mobile layout drawer behavior" classname="scenario-step-analysis.spec.ts" time="30.381">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|..\scenario-step-analysis-RAI-18b84-bile-layout-drawer-behavior-firefox\test-failed-1.png]]
-
-[[ATTACHMENT|..\scenario-step-analysis-RAI-18b84-bile-layout-drawer-behavior-firefox\video.webm]]
-
-[[ATTACHMENT|..\scenario-step-analysis-RAI-18b84-bile-layout-drawer-behavior-firefox\error-context.md]]
-]]>
-</system-out>
-<error message="Test timeout of 30000ms exceeded while running &quot;beforeEach&quot; hook." type="Error">
-<![CDATA[  [firefox] › scenario-step-analysis.spec.ts:70:7 › RAIA Business Scenarios - UX Architecture Context › mobile layout drawer behavior 
-
-    Test timeout of 30000ms exceeded while running "beforeEach" hook.
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\scenario-step-analysis.spec.ts:5:8)
-
-    Error: locator.click: Test timeout of 30000ms exceeded.
-    Call log:
-      - waiting for getByTestId('scenario-catalog').getByText(/RAIA-BS-/i).first()
-
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\scenario-step-analysis.spec.ts:11:50)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1819:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1652:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1648:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\scenario-step-analysis-RAI-18b84-bile-layout-drawer-behavior-firefox\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\scenario-step-analysis-RAI-18b84-bile-layout-drawer-behavior-firefox\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\scenario-step-analysis-RAI-18b84-bile-layout-drawer-behavior-firefox\error-context.md
-]]>
-</error>
-</testcase>
-<testcase name="RAIA Business Scenarios - UX Architecture Context › absence of console errors" classname="scenario-step-analysis.spec.ts" time="30.371">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|..\scenario-step-analysis-RAI-42c2b-t-absence-of-console-errors-firefox\test-failed-1.png]]
-
-[[ATTACHMENT|..\scenario-step-analysis-RAI-42c2b-t-absence-of-console-errors-firefox\video.webm]]
-
-[[ATTACHMENT|..\scenario-step-analysis-RAI-42c2b-t-absence-of-console-errors-firefox\error-context.md]]
-]]>
-</system-out>
-<error message="Test timeout of 30000ms exceeded while running &quot;beforeEach&quot; hook." type="Error">
-<![CDATA[  [firefox] › scenario-step-analysis.spec.ts:102:7 › RAIA Business Scenarios - UX Architecture Context › absence of console errors 
-
-    Test timeout of 30000ms exceeded while running "beforeEach" hook.
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\scenario-step-analysis.spec.ts:5:8)
-
-    Error: locator.click: Test timeout of 30000ms exceeded.
-    Call log:
-      - waiting for getByTestId('scenario-catalog').getByText(/RAIA-BS-/i).first()
-
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\scenario-step-analysis.spec.ts:11:50)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1819:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1652:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1648:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\scenario-step-analysis-RAI-42c2b-t-absence-of-console-errors-firefox\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\scenario-step-analysis-RAI-42c2b-t-absence-of-console-errors-firefox\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\scenario-step-analysis-RAI-42c2b-t-absence-of-console-errors-firefox\error-context.md
-]]>
-</error>
-</testcase>
-</testsuite>
-<testsuite name="sequence-diagram.spec.ts" timestamp="2026-07-13T08:39:43.261Z" hostname="firefox" tests="1" failures="0" skipped="0" time="30.387" errors="1">
-<testcase name="RAIA Sequence Diagram Engine › renders high-quality SVG engine and handles full-screen interactions" classname="sequence-diagram.spec.ts" time="30.387">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|..\sequence-diagram-RAIA-Sequ-ebcbc-es-full-screen-interactions-firefox\test-failed-1.png]]
-
-[[ATTACHMENT|..\sequence-diagram-RAIA-Sequ-ebcbc-es-full-screen-interactions-firefox\video.webm]]
-
-[[ATTACHMENT|..\sequence-diagram-RAIA-Sequ-ebcbc-es-full-screen-interactions-firefox\error-context.md]]
-]]>
-</system-out>
-<error message="Test timeout of 30000ms exceeded." type="Error">
-<![CDATA[  [firefox] › sequence-diagram.spec.ts:4:7 › RAIA Sequence Diagram Engine › renders high-quality SVG engine and handles full-screen interactions 
-
-    Test timeout of 30000ms exceeded.
-
-    Error: locator.click: Test timeout of 30000ms exceeded.
-    Call log:
-      - waiting for getByTestId('scenario-catalog').getByText(/RAIA-BS-0001/i)
-
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\sequence-diagram.spec.ts:10:46)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1662:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1660:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\sequence-diagram-RAIA-Sequ-ebcbc-es-full-screen-interactions-firefox\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\sequence-diagram-RAIA-Sequ-ebcbc-es-full-screen-interactions-firefox\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\sequence-diagram-RAIA-Sequ-ebcbc-es-full-screen-interactions-firefox\error-context.md
-]]>
-</error>
-</testcase>
-</testsuite>
-<testsuite name="business-scenarios\scenarios.spec.ts" timestamp="2026-07-13T08:39:43.261Z" hostname="webkit" tests="3" failures="2" skipped="0" time="14.219" errors="0">
-<testcase name="Business Scenarios › RAIA-BS-001: Validate Business Scenarios main page loads" classname="business-scenarios\scenarios.spec.ts" time="2.727">
-</testcase>
-<testcase name="Business Scenarios › RAIA-BS-002: Validate presence of at least 18 scenarios in the catalog" classname="business-scenarios\scenarios.spec.ts" time="3.345">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|..\business-scenarios-scenari-56b41-18-scenarios-in-the-catalog-webkit\test-failed-1.png]]
-
-[[ATTACHMENT|..\business-scenarios-scenari-56b41-18-scenarios-in-the-catalog-webkit\video.webm]]
-
-[[ATTACHMENT|..\business-scenarios-scenari-56b41-18-scenarios-in-the-catalog-webkit\error-context.md]]
-]]>
-</system-out>
-<failure message="expect(received).toBeGreaterThanOrEqual(expected)" type="expect.toBeGreaterThanOrEqual">
-<![CDATA[  [webkit] › business-scenarios\scenarios.spec.ts:12:7 › Business Scenarios › RAIA-BS-002: Validate presence of at least 18 scenarios in the catalog 
-
-    Error: expect(received).toBeGreaterThanOrEqual(expected)
-
-    Expected: >= 18
-    Received:    0
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\business-scenarios\scenarios.spec.ts:17:19)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1662:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1660:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\business-scenarios-scenari-56b41-18-scenarios-in-the-catalog-webkit\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\business-scenarios-scenari-56b41-18-scenarios-in-the-catalog-webkit\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\business-scenarios-scenari-56b41-18-scenarios-in-the-catalog-webkit\error-context.md
-]]>
-</failure>
-</testcase>
-<testcase name="Business Scenarios › RAIA-BS-003: Selecting a scenario updates the view" classname="business-scenarios\scenarios.spec.ts" time="8.147">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|..\business-scenarios-scenari-3cf30-a-scenario-updates-the-view-webkit\test-failed-1.png]]
-
-[[ATTACHMENT|..\business-scenarios-scenari-3cf30-a-scenario-updates-the-view-webkit\video.webm]]
-
-[[ATTACHMENT|..\business-scenarios-scenari-3cf30-a-scenario-updates-the-view-webkit\error-context.md]]
-]]>
-</system-out>
-<failure message="expect(locator).toBeVisible() failed" type="expect.toBeVisible">
-<![CDATA[  [webkit] › business-scenarios\scenarios.spec.ts:20:7 › Business Scenarios › RAIA-BS-003: Selecting a scenario updates the view 
-
-    Error: expect(locator).toBeVisible() failed
-
-    Locator:  locator('text=Propósito')
-    Expected: visible
-    Received: hidden
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "toBeVisible" with timeout 5000ms
-      - waiting for locator('text=Propósito')
-        13 × locator resolved to <h4 class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">…</h4>
-           - unexpected value "hidden"
-
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\business-scenarios\scenarios.spec.ts:26:50)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1662:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1660:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\business-scenarios-scenari-3cf30-a-scenario-updates-the-view-webkit\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\business-scenarios-scenari-3cf30-a-scenario-updates-the-view-webkit\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\business-scenarios-scenari-3cf30-a-scenario-updates-the-view-webkit\error-context.md
-]]>
-</failure>
-</testcase>
-</testsuite>
-<testsuite name="business-scenarios-layout.spec.ts" timestamp="2026-07-13T08:39:43.261Z" hostname="webkit" tests="1" failures="1" skipped="0" time="6.81" errors="0">
-<testcase name="Business Scenarios Layout › ensures correct DOM placement of scenario structural elements" classname="business-scenarios-layout.spec.ts" time="6.81">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|..\business-scenarios-layout--7e538-cenario-structural-elements-webkit\test-failed-1.png]]
-
-[[ATTACHMENT|..\business-scenarios-layout--7e538-cenario-structural-elements-webkit\video.webm]]
-
-[[ATTACHMENT|..\business-scenarios-layout--7e538-cenario-structural-elements-webkit\error-context.md]]
-]]>
-</system-out>
-<failure message="expect(locator).toBeVisible() failed" type="expect.toBeVisible">
-<![CDATA[  [webkit] › business-scenarios-layout.spec.ts:4:7 › Business Scenarios Layout › ensures correct DOM placement of scenario structural elements 
-
-    Error: expect(locator).toBeVisible() failed
-
-    Locator: getByTestId('scenario-detail').getByTestId('scenario-structured-steps')
-    Expected: visible
-    Timeout: 5000ms
-    Error: element(s) not found
-
-    Call log:
-      - Expect "toBeVisible" with timeout 5000ms
-      - waiting for getByTestId('scenario-detail').getByTestId('scenario-structured-steps')
-
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\business-scenarios-layout.spec.ts:32:32)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1662:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1660:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\business-scenarios-layout--7e538-cenario-structural-elements-webkit\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\business-scenarios-layout--7e538-cenario-structural-elements-webkit\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\business-scenarios-layout--7e538-cenario-structural-elements-webkit\error-context.md
-]]>
-</failure>
-</testcase>
-</testsuite>
-<testsuite name="global\navigation.spec.ts" timestamp="2026-07-13T08:39:43.261Z" hostname="webkit" tests="5" failures="2" skipped="0" time="13.868" errors="0">
-<testcase name="Global Navigation › RAIA-GLO-001: Validate homepage loads correctly" classname="global\navigation.spec.ts" time="6.555">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|..\global-navigation-Global-N-12d43-te-homepage-loads-correctly-webkit\test-failed-1.png]]
-
-[[ATTACHMENT|..\global-navigation-Global-N-12d43-te-homepage-loads-correctly-webkit\video.webm]]
-
-[[ATTACHMENT|..\global-navigation-Global-N-12d43-te-homepage-loads-correctly-webkit\error-context.md]]
-]]>
-</system-out>
-<failure message="expect(locator).toContainText(expected) failed" type="expect.toContainText">
-<![CDATA[  [webkit] › global\navigation.spec.ts:4:7 › Global Navigation › RAIA-GLO-001: Validate homepage loads correctly 
-
-    Error: expect(locator).toContainText(expected) failed
-
-    Locator: locator('h1')
-    Expected substring: "Red de Arquitectura"
-    Received string:    "RAIA Architecture Overview Portal"
-    Timeout: 5000ms
-
-    Call log:
-      - Expect "toContainText" with timeout 5000ms
-      - waiting for locator('h1')
-        13 × locator resolved to <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-100 to-slate-300 bg-clip-text text-transparent">RAIA Architecture Overview Portal</h1>
-           - unexpected value "RAIA Architecture Overview Portal"
-
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\global\navigation.spec.ts:9:38)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1662:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1660:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\global-navigation-Global-N-12d43-te-homepage-loads-correctly-webkit\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\global-navigation-Global-N-12d43-te-homepage-loads-correctly-webkit\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\global-navigation-Global-N-12d43-te-homepage-loads-correctly-webkit\error-context.md
-]]>
-</failure>
-</testcase>
-<testcase name="Global Navigation › RAIA-GLO-002: Validate existence of core routes" classname="global\navigation.spec.ts" time="2.488">
-</testcase>
-<testcase name="Global Navigation › RAIA-GLO-003: Validate Back to Portal links" classname="global\navigation.spec.ts" time="1.77">
-</testcase>
-<testcase name="Global Navigation › RAIA-GLO-004: Validate module cards redirection" classname="global\navigation.spec.ts" time="1.524">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|..\global-navigation-Global-N-a12e0-te-module-cards-redirection-webkit\test-failed-1.png]]
-
-[[ATTACHMENT|..\global-navigation-Global-N-a12e0-te-module-cards-redirection-webkit\video.webm]]
-
-[[ATTACHMENT|..\global-navigation-Global-N-a12e0-te-module-cards-redirection-webkit\error-context.md]]
-]]>
-</system-out>
-<failure message="expect(locator).toBeVisible() failed" type="expect.toBeVisible">
-<![CDATA[  [webkit] › global\navigation.spec.ts:37:7 › Global Navigation › RAIA-GLO-004: Validate module cards redirection 
-
-    Error: expect(locator).toBeVisible() failed
-
-    Locator: locator('a[href="/metamodel"]')
-    Expected: visible
-    Error: strict mode violation: locator('a[href="/metamodel"]') resolved to 2 elements:
-        1) <a href="/metamodel" class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white font-semibold text-xs px-4 py-3 rounded-lg border border-slate-700 transition-colors">…</a> aka getByRole('link', { name: 'Conocer Metodología' })
-        2) <a href="/metamodel" class="bg-white rounded-2xl border border-slate-200 shadow-xs p-5 hover:border-slate-300 hover:shadow-md transition-all flex flex-col justify-between group h-auto text-left">…</a> aka getByRole('link', { name: 'v0.1.0 Metamodel Overview' })
-
-    Call log:
-      - Expect "toBeVisible" with timeout 5000ms
-      - waiting for locator('a[href="/metamodel"]')
-
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\global\navigation.spec.ts:40:33)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1662:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1660:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\global-navigation-Global-N-a12e0-te-module-cards-redirection-webkit\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\global-navigation-Global-N-a12e0-te-module-cards-redirection-webkit\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\global-navigation-Global-N-a12e0-te-module-cards-redirection-webkit\error-context.md
-]]>
-</failure>
-</testcase>
-<testcase name="Global Navigation › RAIA-GLO-014: Validate 404 page" classname="global\navigation.spec.ts" time="1.531">
-</testcase>
-</testsuite>
-<testsuite name="scenario-step-analysis.spec.ts" timestamp="2026-07-13T08:39:43.261Z" hostname="webkit" tests="3" failures="0" skipped="0" time="93.999" errors="3">
-<testcase name="RAIA Business Scenarios - UX Architecture Context › desktop layout synchronization between list, panel, and diagram" classname="scenario-step-analysis.spec.ts" time="31.243">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|..\scenario-step-analysis-RAI-59d67-ween-list-panel-and-diagram-webkit\test-failed-1.png]]
-
-[[ATTACHMENT|..\scenario-step-analysis-RAI-59d67-ween-list-panel-and-diagram-webkit\video.webm]]
-
-[[ATTACHMENT|..\scenario-step-analysis-RAI-59d67-ween-list-panel-and-diagram-webkit\error-context.md]]
-]]>
-</system-out>
-<error message="Test timeout of 30000ms exceeded while running &quot;beforeEach&quot; hook." type="Error">
-<![CDATA[  [webkit] › scenario-step-analysis.spec.ts:17:7 › RAIA Business Scenarios - UX Architecture Context › desktop layout synchronization between list, panel, and diagram 
-
-    Test timeout of 30000ms exceeded while running "beforeEach" hook.
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\scenario-step-analysis.spec.ts:5:8)
-
-    Error: locator.click: Test timeout of 30000ms exceeded.
-    Call log:
-      - waiting for getByTestId('scenario-catalog').getByText(/RAIA-BS-/i).first()
-
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\scenario-step-analysis.spec.ts:11:50)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1819:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1652:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1648:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\scenario-step-analysis-RAI-59d67-ween-list-panel-and-diagram-webkit\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\scenario-step-analysis-RAI-59d67-ween-list-panel-and-diagram-webkit\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\scenario-step-analysis-RAI-59d67-ween-list-panel-and-diagram-webkit\error-context.md
-]]>
-</error>
-</testcase>
-<testcase name="RAIA Business Scenarios - UX Architecture Context › mobile layout drawer behavior" classname="scenario-step-analysis.spec.ts" time="31.498">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|..\scenario-step-analysis-RAI-18b84-bile-layout-drawer-behavior-webkit\test-failed-1.png]]
-
-[[ATTACHMENT|..\scenario-step-analysis-RAI-18b84-bile-layout-drawer-behavior-webkit\video.webm]]
-
-[[ATTACHMENT|..\scenario-step-analysis-RAI-18b84-bile-layout-drawer-behavior-webkit\error-context.md]]
-]]>
-</system-out>
-<error message="Test timeout of 30000ms exceeded while running &quot;beforeEach&quot; hook." type="Error">
-<![CDATA[  [webkit] › scenario-step-analysis.spec.ts:70:7 › RAIA Business Scenarios - UX Architecture Context › mobile layout drawer behavior 
-
-    Test timeout of 30000ms exceeded while running "beforeEach" hook.
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\scenario-step-analysis.spec.ts:5:8)
-
-    Error: locator.click: Test timeout of 30000ms exceeded.
-    Call log:
-      - waiting for getByTestId('scenario-catalog').getByText(/RAIA-BS-/i).first()
-
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\scenario-step-analysis.spec.ts:11:50)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1819:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1652:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1648:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\scenario-step-analysis-RAI-18b84-bile-layout-drawer-behavior-webkit\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\scenario-step-analysis-RAI-18b84-bile-layout-drawer-behavior-webkit\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\scenario-step-analysis-RAI-18b84-bile-layout-drawer-behavior-webkit\error-context.md
-]]>
-</error>
-</testcase>
-<testcase name="RAIA Business Scenarios - UX Architecture Context › absence of console errors" classname="scenario-step-analysis.spec.ts" time="31.258">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|..\scenario-step-analysis-RAI-42c2b-t-absence-of-console-errors-webkit\test-failed-1.png]]
-
-[[ATTACHMENT|..\scenario-step-analysis-RAI-42c2b-t-absence-of-console-errors-webkit\video.webm]]
-
-[[ATTACHMENT|..\scenario-step-analysis-RAI-42c2b-t-absence-of-console-errors-webkit\error-context.md]]
-]]>
-</system-out>
-<error message="Test timeout of 30000ms exceeded while running &quot;beforeEach&quot; hook." type="Error">
-<![CDATA[  [webkit] › scenario-step-analysis.spec.ts:102:7 › RAIA Business Scenarios - UX Architecture Context › absence of console errors 
-
-    Test timeout of 30000ms exceeded while running "beforeEach" hook.
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\scenario-step-analysis.spec.ts:5:8)
-
-    Error: locator.click: Test timeout of 30000ms exceeded.
-    Call log:
-      - waiting for getByTestId('scenario-catalog').getByText(/RAIA-BS-/i).first()
-
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\scenario-step-analysis.spec.ts:11:50)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1819:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1652:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1648:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\scenario-step-analysis-RAI-42c2b-t-absence-of-console-errors-webkit\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\scenario-step-analysis-RAI-42c2b-t-absence-of-console-errors-webkit\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\scenario-step-analysis-RAI-42c2b-t-absence-of-console-errors-webkit\error-context.md
-]]>
-</error>
-</testcase>
-</testsuite>
-<testsuite name="sequence-diagram.spec.ts" timestamp="2026-07-13T08:39:43.261Z" hostname="webkit" tests="1" failures="0" skipped="0" time="31.579" errors="1">
-<testcase name="RAIA Sequence Diagram Engine › renders high-quality SVG engine and handles full-screen interactions" classname="sequence-diagram.spec.ts" time="31.579">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|..\sequence-diagram-RAIA-Sequ-ebcbc-es-full-screen-interactions-webkit\test-failed-1.png]]
-
-[[ATTACHMENT|..\sequence-diagram-RAIA-Sequ-ebcbc-es-full-screen-interactions-webkit\video.webm]]
-
-[[ATTACHMENT|..\sequence-diagram-RAIA-Sequ-ebcbc-es-full-screen-interactions-webkit\error-context.md]]
-]]>
-</system-out>
-<error message="Test timeout of 30000ms exceeded." type="Error">
-<![CDATA[  [webkit] › sequence-diagram.spec.ts:4:7 › RAIA Sequence Diagram Engine › renders high-quality SVG engine and handles full-screen interactions 
-
-    Test timeout of 30000ms exceeded.
-
-    Error: locator.click: Test timeout of 30000ms exceeded.
-    Call log:
-      - waiting for getByTestId('scenario-catalog').getByText(/RAIA-BS-0001/i)
-
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\sequence-diagram.spec.ts:10:46)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1662:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1660:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\sequence-diagram-RAIA-Sequ-ebcbc-es-full-screen-interactions-webkit\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\sequence-diagram-RAIA-Sequ-ebcbc-es-full-screen-interactions-webkit\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\sequence-diagram-RAIA-Sequ-ebcbc-es-full-screen-interactions-webkit\error-context.md
-]]>
-</error>
-</testcase>
-</testsuite>
-<testsuite name="business-scenarios\scenarios.spec.ts" timestamp="2026-07-13T08:39:43.261Z" hostname="Mobile Chrome" tests="3" failures="2" skipped="0" time="7.779" errors="0">
-<testcase name="Business Scenarios › RAIA-BS-001: Validate Business Scenarios main page loads" classname="business-scenarios\scenarios.spec.ts" time="0.958">
-</testcase>
-<testcase name="Business Scenarios › RAIA-BS-002: Validate presence of at least 18 scenarios in the catalog" classname="business-scenarios\scenarios.spec.ts" time="0.862">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|..\business-scenarios-scenari-56b41-18-scenarios-in-the-catalog-Mobile-Chrome\test-failed-1.png]]
-
-[[ATTACHMENT|..\business-scenarios-scenari-56b41-18-scenarios-in-the-catalog-Mobile-Chrome\video.webm]]
-
-[[ATTACHMENT|..\business-scenarios-scenari-56b41-18-scenarios-in-the-catalog-Mobile-Chrome\error-context.md]]
-]]>
-</system-out>
-<failure message="expect(received).toBeGreaterThanOrEqual(expected)" type="expect.toBeGreaterThanOrEqual">
-<![CDATA[  [Mobile Chrome] › business-scenarios\scenarios.spec.ts:12:7 › Business Scenarios › RAIA-BS-002: Validate presence of at least 18 scenarios in the catalog 
-
-    Error: expect(received).toBeGreaterThanOrEqual(expected)
-
-    Expected: >= 18
-    Received:    0
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\business-scenarios\scenarios.spec.ts:17:19)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1662:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1660:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\business-scenarios-scenari-56b41-18-scenarios-in-the-catalog-Mobile-Chrome\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\business-scenarios-scenari-56b41-18-scenarios-in-the-catalog-Mobile-Chrome\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\business-scenarios-scenari-56b41-18-scenarios-in-the-catalog-Mobile-Chrome\error-context.md
-]]>
-</failure>
-</testcase>
-<testcase name="Business Scenarios › RAIA-BS-003: Selecting a scenario updates the view" classname="business-scenarios\scenarios.spec.ts" time="5.959">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|..\business-scenarios-scenari-3cf30-a-scenario-updates-the-view-Mobile-Chrome\test-failed-1.png]]
-
-[[ATTACHMENT|..\business-scenarios-scenari-3cf30-a-scenario-updates-the-view-Mobile-Chrome\video.webm]]
-
-[[ATTACHMENT|..\business-scenarios-scenari-3cf30-a-scenario-updates-the-view-Mobile-Chrome\error-context.md]]
-]]>
-</system-out>
-<failure message="expect(locator).toBeVisible() failed" type="expect.toBeVisible">
-<![CDATA[  [Mobile Chrome] › business-scenarios\scenarios.spec.ts:20:7 › Business Scenarios › RAIA-BS-003: Selecting a scenario updates the view 
-
-    Error: expect(locator).toBeVisible() failed
-
-    Locator:  locator('text=Propósito')
-    Expected: visible
-    Received: hidden
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "toBeVisible" with timeout 5000ms
-      - waiting for locator('text=Propósito')
-        13 × locator resolved to <h4 class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">…</h4>
-           - unexpected value "hidden"
-
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\business-scenarios\scenarios.spec.ts:26:50)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1662:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1660:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\business-scenarios-scenari-3cf30-a-scenario-updates-the-view-Mobile-Chrome\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\business-scenarios-scenari-3cf30-a-scenario-updates-the-view-Mobile-Chrome\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\business-scenarios-scenari-3cf30-a-scenario-updates-the-view-Mobile-Chrome\error-context.md
-]]>
-</failure>
-</testcase>
-</testsuite>
-<testsuite name="business-scenarios-layout.spec.ts" timestamp="2026-07-13T08:39:43.261Z" hostname="Mobile Chrome" tests="1" failures="1" skipped="0" time="6.157" errors="0">
-<testcase name="Business Scenarios Layout › ensures correct DOM placement of scenario structural elements" classname="business-scenarios-layout.spec.ts" time="6.157">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|..\business-scenarios-layout--7e538-cenario-structural-elements-Mobile-Chrome\test-failed-1.png]]
-
-[[ATTACHMENT|..\business-scenarios-layout--7e538-cenario-structural-elements-Mobile-Chrome\video.webm]]
-
-[[ATTACHMENT|..\business-scenarios-layout--7e538-cenario-structural-elements-Mobile-Chrome\error-context.md]]
-]]>
-</system-out>
-<failure message="expect(locator).toBeVisible() failed" type="expect.toBeVisible">
-<![CDATA[  [Mobile Chrome] › business-scenarios-layout.spec.ts:4:7 › Business Scenarios Layout › ensures correct DOM placement of scenario structural elements 
-
-    Error: expect(locator).toBeVisible() failed
-
-    Locator: getByTestId('scenario-detail').getByTestId('scenario-structured-steps')
-    Expected: visible
-    Timeout: 5000ms
-    Error: element(s) not found
-
-    Call log:
-      - Expect "toBeVisible" with timeout 5000ms
-      - waiting for getByTestId('scenario-detail').getByTestId('scenario-structured-steps')
-
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\business-scenarios-layout.spec.ts:32:32)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1662:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1660:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\business-scenarios-layout--7e538-cenario-structural-elements-Mobile-Chrome\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\business-scenarios-layout--7e538-cenario-structural-elements-Mobile-Chrome\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\business-scenarios-layout--7e538-cenario-structural-elements-Mobile-Chrome\error-context.md
-]]>
-</failure>
-</testcase>
-</testsuite>
-<testsuite name="global\navigation.spec.ts" timestamp="2026-07-13T08:39:43.261Z" hostname="Mobile Chrome" tests="5" failures="2" skipped="0" time="9.713" errors="0">
-<testcase name="Global Navigation › RAIA-GLO-001: Validate homepage loads correctly" classname="global\navigation.spec.ts" time="6.028">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|..\global-navigation-Global-N-12d43-te-homepage-loads-correctly-Mobile-Chrome\test-failed-1.png]]
-
-[[ATTACHMENT|..\global-navigation-Global-N-12d43-te-homepage-loads-correctly-Mobile-Chrome\video.webm]]
-
-[[ATTACHMENT|..\global-navigation-Global-N-12d43-te-homepage-loads-correctly-Mobile-Chrome\error-context.md]]
-]]>
-</system-out>
-<failure message="expect(locator).toContainText(expected) failed" type="expect.toContainText">
-<![CDATA[  [Mobile Chrome] › global\navigation.spec.ts:4:7 › Global Navigation › RAIA-GLO-001: Validate homepage loads correctly 
-
-    Error: expect(locator).toContainText(expected) failed
-
-    Locator: locator('h1')
-    Expected substring: "Red de Arquitectura"
-    Received string:    "RAIA Architecture Overview Portal"
-    Timeout: 5000ms
-
-    Call log:
-      - Expect "toContainText" with timeout 5000ms
-      - waiting for locator('h1')
-        13 × locator resolved to <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-100 to-slate-300 bg-clip-text text-transparent">RAIA Architecture Overview Portal</h1>
-           - unexpected value "RAIA Architecture Overview Portal"
-
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\global\navigation.spec.ts:9:38)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1662:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1660:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\global-navigation-Global-N-12d43-te-homepage-loads-correctly-Mobile-Chrome\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\global-navigation-Global-N-12d43-te-homepage-loads-correctly-Mobile-Chrome\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\global-navigation-Global-N-12d43-te-homepage-loads-correctly-Mobile-Chrome\error-context.md
-]]>
-</failure>
-</testcase>
-<testcase name="Global Navigation › RAIA-GLO-002: Validate existence of core routes" classname="global\navigation.spec.ts" time="1.429">
-</testcase>
-<testcase name="Global Navigation › RAIA-GLO-003: Validate Back to Portal links" classname="global\navigation.spec.ts" time="0.825">
-</testcase>
-<testcase name="Global Navigation › RAIA-GLO-004: Validate module cards redirection" classname="global\navigation.spec.ts" time="0.776">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|..\global-navigation-Global-N-a12e0-te-module-cards-redirection-Mobile-Chrome\test-failed-1.png]]
-
-[[ATTACHMENT|..\global-navigation-Global-N-a12e0-te-module-cards-redirection-Mobile-Chrome\video.webm]]
-
-[[ATTACHMENT|..\global-navigation-Global-N-a12e0-te-module-cards-redirection-Mobile-Chrome\error-context.md]]
-]]>
-</system-out>
-<failure message="expect(locator).toBeVisible() failed" type="expect.toBeVisible">
-<![CDATA[  [Mobile Chrome] › global\navigation.spec.ts:37:7 › Global Navigation › RAIA-GLO-004: Validate module cards redirection 
-
-    Error: expect(locator).toBeVisible() failed
-
-    Locator: locator('a[href="/metamodel"]')
-    Expected: visible
-    Error: strict mode violation: locator('a[href="/metamodel"]') resolved to 2 elements:
-        1) <a href="/metamodel" class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white font-semibold text-xs px-4 py-3 rounded-lg border border-slate-700 transition-colors">…</a> aka getByRole('link', { name: 'Conocer Metodología' })
-        2) <a href="/metamodel" class="bg-white rounded-2xl border border-slate-200 shadow-xs p-5 hover:border-slate-300 hover:shadow-md transition-all flex flex-col justify-between group h-auto text-left">…</a> aka getByRole('link', { name: 'v0.1.0 Metamodel Overview' })
-
-    Call log:
-      - Expect "toBeVisible" with timeout 5000ms
-      - waiting for locator('a[href="/metamodel"]')
-
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\global\navigation.spec.ts:40:33)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1662:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1660:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\global-navigation-Global-N-a12e0-te-module-cards-redirection-Mobile-Chrome\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\global-navigation-Global-N-a12e0-te-module-cards-redirection-Mobile-Chrome\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\global-navigation-Global-N-a12e0-te-module-cards-redirection-Mobile-Chrome\error-context.md
-]]>
-</failure>
-</testcase>
-<testcase name="Global Navigation › RAIA-GLO-014: Validate 404 page" classname="global\navigation.spec.ts" time="0.655">
-</testcase>
-</testsuite>
-<testsuite name="scenario-step-analysis.spec.ts" timestamp="2026-07-13T08:39:43.261Z" hostname="Mobile Chrome" tests="3" failures="0" skipped="0" time="93.178" errors="3">
-<testcase name="RAIA Business Scenarios - UX Architecture Context › desktop layout synchronization between list, panel, and diagram" classname="scenario-step-analysis.spec.ts" time="31.085">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|..\scenario-step-analysis-RAI-59d67-ween-list-panel-and-diagram-Mobile-Chrome\test-failed-1.png]]
-
-[[ATTACHMENT|..\scenario-step-analysis-RAI-59d67-ween-list-panel-and-diagram-Mobile-Chrome\video.webm]]
-
-[[ATTACHMENT|..\scenario-step-analysis-RAI-59d67-ween-list-panel-and-diagram-Mobile-Chrome\error-context.md]]
-]]>
-</system-out>
-<error message="Test timeout of 30000ms exceeded while running &quot;beforeEach&quot; hook." type="Error">
-<![CDATA[  [Mobile Chrome] › scenario-step-analysis.spec.ts:17:7 › RAIA Business Scenarios - UX Architecture Context › desktop layout synchronization between list, panel, and diagram 
-
-    Test timeout of 30000ms exceeded while running "beforeEach" hook.
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\scenario-step-analysis.spec.ts:5:8)
-
-    Error: locator.click: Test timeout of 30000ms exceeded.
-    Call log:
-      - waiting for getByTestId('scenario-catalog').getByText(/RAIA-BS-/i).first()
-
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\scenario-step-analysis.spec.ts:11:50)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1819:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1652:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1648:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\scenario-step-analysis-RAI-59d67-ween-list-panel-and-diagram-Mobile-Chrome\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\scenario-step-analysis-RAI-59d67-ween-list-panel-and-diagram-Mobile-Chrome\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\scenario-step-analysis-RAI-59d67-ween-list-panel-and-diagram-Mobile-Chrome\error-context.md
-]]>
-</error>
-</testcase>
-<testcase name="RAIA Business Scenarios - UX Architecture Context › mobile layout drawer behavior" classname="scenario-step-analysis.spec.ts" time="31.054">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|..\scenario-step-analysis-RAI-18b84-bile-layout-drawer-behavior-Mobile-Chrome\test-failed-1.png]]
-
-[[ATTACHMENT|..\scenario-step-analysis-RAI-18b84-bile-layout-drawer-behavior-Mobile-Chrome\video.webm]]
-
-[[ATTACHMENT|..\scenario-step-analysis-RAI-18b84-bile-layout-drawer-behavior-Mobile-Chrome\error-context.md]]
-]]>
-</system-out>
-<error message="Test timeout of 30000ms exceeded while running &quot;beforeEach&quot; hook." type="Error">
-<![CDATA[  [Mobile Chrome] › scenario-step-analysis.spec.ts:70:7 › RAIA Business Scenarios - UX Architecture Context › mobile layout drawer behavior 
-
-    Test timeout of 30000ms exceeded while running "beforeEach" hook.
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\scenario-step-analysis.spec.ts:5:8)
-
-    Error: locator.click: Test timeout of 30000ms exceeded.
-    Call log:
-      - waiting for getByTestId('scenario-catalog').getByText(/RAIA-BS-/i).first()
-
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\scenario-step-analysis.spec.ts:11:50)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1819:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1652:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1648:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\scenario-step-analysis-RAI-18b84-bile-layout-drawer-behavior-Mobile-Chrome\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\scenario-step-analysis-RAI-18b84-bile-layout-drawer-behavior-Mobile-Chrome\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\scenario-step-analysis-RAI-18b84-bile-layout-drawer-behavior-Mobile-Chrome\error-context.md
-]]>
-</error>
-</testcase>
-<testcase name="RAIA Business Scenarios - UX Architecture Context › absence of console errors" classname="scenario-step-analysis.spec.ts" time="31.039">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|..\scenario-step-analysis-RAI-42c2b-t-absence-of-console-errors-Mobile-Chrome\test-failed-1.png]]
-
-[[ATTACHMENT|..\scenario-step-analysis-RAI-42c2b-t-absence-of-console-errors-Mobile-Chrome\video.webm]]
-
-[[ATTACHMENT|..\scenario-step-analysis-RAI-42c2b-t-absence-of-console-errors-Mobile-Chrome\error-context.md]]
-]]>
-</system-out>
-<error message="Test timeout of 30000ms exceeded while running &quot;beforeEach&quot; hook." type="Error">
-<![CDATA[  [Mobile Chrome] › scenario-step-analysis.spec.ts:102:7 › RAIA Business Scenarios - UX Architecture Context › absence of console errors 
-
-    Test timeout of 30000ms exceeded while running "beforeEach" hook.
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\scenario-step-analysis.spec.ts:5:8)
-
-    Error: locator.click: Test timeout of 30000ms exceeded.
-    Call log:
-      - waiting for getByTestId('scenario-catalog').getByText(/RAIA-BS-/i).first()
-
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\scenario-step-analysis.spec.ts:11:50)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1819:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1652:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1648:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\scenario-step-analysis-RAI-42c2b-t-absence-of-console-errors-Mobile-Chrome\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\scenario-step-analysis-RAI-42c2b-t-absence-of-console-errors-Mobile-Chrome\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\scenario-step-analysis-RAI-42c2b-t-absence-of-console-errors-Mobile-Chrome\error-context.md
-]]>
-</error>
-</testcase>
-</testsuite>
-<testsuite name="sequence-diagram.spec.ts" timestamp="2026-07-13T08:39:43.261Z" hostname="Mobile Chrome" tests="1" failures="0" skipped="0" time="31.088" errors="1">
-<testcase name="RAIA Sequence Diagram Engine › renders high-quality SVG engine and handles full-screen interactions" classname="sequence-diagram.spec.ts" time="31.088">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|..\sequence-diagram-RAIA-Sequ-ebcbc-es-full-screen-interactions-Mobile-Chrome\test-failed-1.png]]
-
-[[ATTACHMENT|..\sequence-diagram-RAIA-Sequ-ebcbc-es-full-screen-interactions-Mobile-Chrome\video.webm]]
-
-[[ATTACHMENT|..\sequence-diagram-RAIA-Sequ-ebcbc-es-full-screen-interactions-Mobile-Chrome\error-context.md]]
-]]>
-</system-out>
-<error message="Test timeout of 30000ms exceeded." type="Error">
-<![CDATA[  [Mobile Chrome] › sequence-diagram.spec.ts:4:7 › RAIA Sequence Diagram Engine › renders high-quality SVG engine and handles full-screen interactions 
-
-    Test timeout of 30000ms exceeded.
-
-    Error: locator.click: Test timeout of 30000ms exceeded.
-    Call log:
-      - waiting for getByTestId('scenario-catalog').getByText(/RAIA-BS-0001/i)
-
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\sequence-diagram.spec.ts:10:46)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1662:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1660:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\sequence-diagram-RAIA-Sequ-ebcbc-es-full-screen-interactions-Mobile-Chrome\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\sequence-diagram-RAIA-Sequ-ebcbc-es-full-screen-interactions-Mobile-Chrome\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\sequence-diagram-RAIA-Sequ-ebcbc-es-full-screen-interactions-Mobile-Chrome\error-context.md
-]]>
-</error>
-</testcase>
-</testsuite>
-<testsuite name="business-scenarios\scenarios.spec.ts" timestamp="2026-07-13T08:39:43.261Z" hostname="Mobile Safari" tests="3" failures="2" skipped="0" time="9.097" errors="0">
-<testcase name="Business Scenarios › RAIA-BS-001: Validate Business Scenarios main page loads" classname="business-scenarios\scenarios.spec.ts" time="1.072">
-</testcase>
-<testcase name="Business Scenarios › RAIA-BS-002: Validate presence of at least 18 scenarios in the catalog" classname="business-scenarios\scenarios.spec.ts" time="0.997">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|..\business-scenarios-scenari-56b41-18-scenarios-in-the-catalog-Mobile-Safari\test-failed-1.png]]
-
-[[ATTACHMENT|..\business-scenarios-scenari-56b41-18-scenarios-in-the-catalog-Mobile-Safari\video.webm]]
-
-[[ATTACHMENT|..\business-scenarios-scenari-56b41-18-scenarios-in-the-catalog-Mobile-Safari\error-context.md]]
-]]>
-</system-out>
-<failure message="expect(received).toBeGreaterThanOrEqual(expected)" type="expect.toBeGreaterThanOrEqual">
-<![CDATA[  [Mobile Safari] › business-scenarios\scenarios.spec.ts:12:7 › Business Scenarios › RAIA-BS-002: Validate presence of at least 18 scenarios in the catalog 
-
-    Error: expect(received).toBeGreaterThanOrEqual(expected)
-
-    Expected: >= 18
-    Received:    0
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\business-scenarios\scenarios.spec.ts:17:19)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1662:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1660:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\business-scenarios-scenari-56b41-18-scenarios-in-the-catalog-Mobile-Safari\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\business-scenarios-scenari-56b41-18-scenarios-in-the-catalog-Mobile-Safari\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\business-scenarios-scenari-56b41-18-scenarios-in-the-catalog-Mobile-Safari\error-context.md
-]]>
-</failure>
-</testcase>
-<testcase name="Business Scenarios › RAIA-BS-003: Selecting a scenario updates the view" classname="business-scenarios\scenarios.spec.ts" time="7.028">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|..\business-scenarios-scenari-3cf30-a-scenario-updates-the-view-Mobile-Safari\test-failed-1.png]]
-
-[[ATTACHMENT|..\business-scenarios-scenari-3cf30-a-scenario-updates-the-view-Mobile-Safari\video.webm]]
-
-[[ATTACHMENT|..\business-scenarios-scenari-3cf30-a-scenario-updates-the-view-Mobile-Safari\error-context.md]]
-]]>
-</system-out>
-<failure message="expect(locator).toBeVisible() failed" type="expect.toBeVisible">
-<![CDATA[  [Mobile Safari] › business-scenarios\scenarios.spec.ts:20:7 › Business Scenarios › RAIA-BS-003: Selecting a scenario updates the view 
-
-    Error: expect(locator).toBeVisible() failed
-
-    Locator:  locator('text=Propósito')
-    Expected: visible
-    Received: hidden
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "toBeVisible" with timeout 5000ms
-      - waiting for locator('text=Propósito')
-        13 × locator resolved to <h4 class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">…</h4>
-           - unexpected value "hidden"
-
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\business-scenarios\scenarios.spec.ts:26:50)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1662:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1660:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\business-scenarios-scenari-3cf30-a-scenario-updates-the-view-Mobile-Safari\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\business-scenarios-scenari-3cf30-a-scenario-updates-the-view-Mobile-Safari\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\business-scenarios-scenari-3cf30-a-scenario-updates-the-view-Mobile-Safari\error-context.md
-]]>
-</failure>
-</testcase>
-</testsuite>
-<testsuite name="business-scenarios-layout.spec.ts" timestamp="2026-07-13T08:39:43.261Z" hostname="Mobile Safari" tests="1" failures="1" skipped="0" time="6.881" errors="0">
-<testcase name="Business Scenarios Layout › ensures correct DOM placement of scenario structural elements" classname="business-scenarios-layout.spec.ts" time="6.881">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|..\business-scenarios-layout--7e538-cenario-structural-elements-Mobile-Safari\test-failed-1.png]]
-
-[[ATTACHMENT|..\business-scenarios-layout--7e538-cenario-structural-elements-Mobile-Safari\video.webm]]
-
-[[ATTACHMENT|..\business-scenarios-layout--7e538-cenario-structural-elements-Mobile-Safari\error-context.md]]
-]]>
-</system-out>
-<failure message="expect(locator).toBeVisible() failed" type="expect.toBeVisible">
-<![CDATA[  [Mobile Safari] › business-scenarios-layout.spec.ts:4:7 › Business Scenarios Layout › ensures correct DOM placement of scenario structural elements 
-
-    Error: expect(locator).toBeVisible() failed
-
-    Locator: getByTestId('scenario-detail').getByTestId('scenario-structured-steps')
-    Expected: visible
-    Timeout: 5000ms
-    Error: element(s) not found
-
-    Call log:
-      - Expect "toBeVisible" with timeout 5000ms
-      - waiting for getByTestId('scenario-detail').getByTestId('scenario-structured-steps')
-
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\business-scenarios-layout.spec.ts:32:32)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1662:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1660:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\business-scenarios-layout--7e538-cenario-structural-elements-Mobile-Safari\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\business-scenarios-layout--7e538-cenario-structural-elements-Mobile-Safari\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\business-scenarios-layout--7e538-cenario-structural-elements-Mobile-Safari\error-context.md
-]]>
-</failure>
-</testcase>
-</testsuite>
-<testsuite name="global\navigation.spec.ts" timestamp="2026-07-13T08:39:43.261Z" hostname="Mobile Safari" tests="5" failures="2" skipped="0" time="13.09" errors="0">
-<testcase name="Global Navigation › RAIA-GLO-001: Validate homepage loads correctly" classname="global\navigation.spec.ts" time="6.7">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|..\global-navigation-Global-N-12d43-te-homepage-loads-correctly-Mobile-Safari\test-failed-1.png]]
-
-[[ATTACHMENT|..\global-navigation-Global-N-12d43-te-homepage-loads-correctly-Mobile-Safari\video.webm]]
-
-[[ATTACHMENT|..\global-navigation-Global-N-12d43-te-homepage-loads-correctly-Mobile-Safari\error-context.md]]
-]]>
-</system-out>
-<failure message="expect(locator).toContainText(expected) failed" type="expect.toContainText">
-<![CDATA[  [Mobile Safari] › global\navigation.spec.ts:4:7 › Global Navigation › RAIA-GLO-001: Validate homepage loads correctly 
-
-    Error: expect(locator).toContainText(expected) failed
-
-    Locator: locator('h1')
-    Expected substring: "Red de Arquitectura"
-    Received string:    "RAIA Architecture Overview Portal"
-    Timeout: 5000ms
-
-    Call log:
-      - Expect "toContainText" with timeout 5000ms
-      - waiting for locator('h1')
-        13 × locator resolved to <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-100 to-slate-300 bg-clip-text text-transparent">RAIA Architecture Overview Portal</h1>
-           - unexpected value "RAIA Architecture Overview Portal"
-
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\global\navigation.spec.ts:9:38)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1662:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1660:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\global-navigation-Global-N-12d43-te-homepage-loads-correctly-Mobile-Safari\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\global-navigation-Global-N-12d43-te-homepage-loads-correctly-Mobile-Safari\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\global-navigation-Global-N-12d43-te-homepage-loads-correctly-Mobile-Safari\error-context.md
-]]>
-</failure>
-</testcase>
-<testcase name="Global Navigation › RAIA-GLO-002: Validate existence of core routes" classname="global\navigation.spec.ts" time="2.132">
-</testcase>
-<testcase name="Global Navigation › RAIA-GLO-003: Validate Back to Portal links" classname="global\navigation.spec.ts" time="1.502">
-</testcase>
-<testcase name="Global Navigation › RAIA-GLO-004: Validate module cards redirection" classname="global\navigation.spec.ts" time="1.576">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|..\global-navigation-Global-N-a12e0-te-module-cards-redirection-Mobile-Safari\test-failed-1.png]]
-
-[[ATTACHMENT|..\global-navigation-Global-N-a12e0-te-module-cards-redirection-Mobile-Safari\video.webm]]
-
-[[ATTACHMENT|..\global-navigation-Global-N-a12e0-te-module-cards-redirection-Mobile-Safari\error-context.md]]
-]]>
-</system-out>
-<failure message="expect(locator).toBeVisible() failed" type="expect.toBeVisible">
-<![CDATA[  [Mobile Safari] › global\navigation.spec.ts:37:7 › Global Navigation › RAIA-GLO-004: Validate module cards redirection 
-
-    Error: expect(locator).toBeVisible() failed
-
-    Locator: locator('a[href="/metamodel"]')
-    Expected: visible
-    Error: strict mode violation: locator('a[href="/metamodel"]') resolved to 2 elements:
-        1) <a href="/metamodel" class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white font-semibold text-xs px-4 py-3 rounded-lg border border-slate-700 transition-colors">…</a> aka getByRole('link', { name: 'Conocer Metodología' })
-        2) <a href="/metamodel" class="bg-white rounded-2xl border border-slate-200 shadow-xs p-5 hover:border-slate-300 hover:shadow-md transition-all flex flex-col justify-between group h-auto text-left">…</a> aka getByRole('link', { name: 'v0.1.0 Metamodel Overview' })
-
-    Call log:
-      - Expect "toBeVisible" with timeout 5000ms
-      - waiting for locator('a[href="/metamodel"]')
-
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\global\navigation.spec.ts:40:33)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1662:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1660:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\global-navigation-Global-N-a12e0-te-module-cards-redirection-Mobile-Safari\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\global-navigation-Global-N-a12e0-te-module-cards-redirection-Mobile-Safari\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\global-navigation-Global-N-a12e0-te-module-cards-redirection-Mobile-Safari\error-context.md
-]]>
-</failure>
-</testcase>
-<testcase name="Global Navigation › RAIA-GLO-014: Validate 404 page" classname="global\navigation.spec.ts" time="1.18">
-</testcase>
-</testsuite>
-<testsuite name="scenario-step-analysis.spec.ts" timestamp="2026-07-13T08:39:43.261Z" hostname="Mobile Safari" tests="3" failures="0" skipped="0" time="93.471" errors="3">
-<testcase name="RAIA Business Scenarios - UX Architecture Context › desktop layout synchronization between list, panel, and diagram" classname="scenario-step-analysis.spec.ts" time="31.181">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|..\scenario-step-analysis-RAI-59d67-ween-list-panel-and-diagram-Mobile-Safari\test-failed-1.png]]
-
-[[ATTACHMENT|..\scenario-step-analysis-RAI-59d67-ween-list-panel-and-diagram-Mobile-Safari\video.webm]]
-
-[[ATTACHMENT|..\scenario-step-analysis-RAI-59d67-ween-list-panel-and-diagram-Mobile-Safari\error-context.md]]
-]]>
-</system-out>
-<error message="Test timeout of 30000ms exceeded while running &quot;beforeEach&quot; hook." type="Error">
-<![CDATA[  [Mobile Safari] › scenario-step-analysis.spec.ts:17:7 › RAIA Business Scenarios - UX Architecture Context › desktop layout synchronization between list, panel, and diagram 
-
-    Test timeout of 30000ms exceeded while running "beforeEach" hook.
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\scenario-step-analysis.spec.ts:5:8)
-
-    Error: locator.click: Test timeout of 30000ms exceeded.
-    Call log:
-      - waiting for getByTestId('scenario-catalog').getByText(/RAIA-BS-/i).first()
-
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\scenario-step-analysis.spec.ts:11:50)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1819:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1652:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1648:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\scenario-step-analysis-RAI-59d67-ween-list-panel-and-diagram-Mobile-Safari\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\scenario-step-analysis-RAI-59d67-ween-list-panel-and-diagram-Mobile-Safari\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\scenario-step-analysis-RAI-59d67-ween-list-panel-and-diagram-Mobile-Safari\error-context.md
-]]>
-</error>
-</testcase>
-<testcase name="RAIA Business Scenarios - UX Architecture Context › mobile layout drawer behavior" classname="scenario-step-analysis.spec.ts" time="31.183">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|..\scenario-step-analysis-RAI-18b84-bile-layout-drawer-behavior-Mobile-Safari\test-failed-1.png]]
-
-[[ATTACHMENT|..\scenario-step-analysis-RAI-18b84-bile-layout-drawer-behavior-Mobile-Safari\video.webm]]
-
-[[ATTACHMENT|..\scenario-step-analysis-RAI-18b84-bile-layout-drawer-behavior-Mobile-Safari\error-context.md]]
-]]>
-</system-out>
-<error message="Test timeout of 30000ms exceeded while running &quot;beforeEach&quot; hook." type="Error">
-<![CDATA[  [Mobile Safari] › scenario-step-analysis.spec.ts:70:7 › RAIA Business Scenarios - UX Architecture Context › mobile layout drawer behavior 
-
-    Test timeout of 30000ms exceeded while running "beforeEach" hook.
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\scenario-step-analysis.spec.ts:5:8)
-
-    Error: locator.click: Test timeout of 30000ms exceeded.
-    Call log:
-      - waiting for getByTestId('scenario-catalog').getByText(/RAIA-BS-/i).first()
-
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\scenario-step-analysis.spec.ts:11:50)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1819:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1652:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1648:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\scenario-step-analysis-RAI-18b84-bile-layout-drawer-behavior-Mobile-Safari\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\scenario-step-analysis-RAI-18b84-bile-layout-drawer-behavior-Mobile-Safari\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\scenario-step-analysis-RAI-18b84-bile-layout-drawer-behavior-Mobile-Safari\error-context.md
-]]>
-</error>
-</testcase>
-<testcase name="RAIA Business Scenarios - UX Architecture Context › absence of console errors" classname="scenario-step-analysis.spec.ts" time="31.107">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|..\scenario-step-analysis-RAI-42c2b-t-absence-of-console-errors-Mobile-Safari\test-failed-1.png]]
-
-[[ATTACHMENT|..\scenario-step-analysis-RAI-42c2b-t-absence-of-console-errors-Mobile-Safari\video.webm]]
-
-[[ATTACHMENT|..\scenario-step-analysis-RAI-42c2b-t-absence-of-console-errors-Mobile-Safari\error-context.md]]
-]]>
-</system-out>
-<error message="Test timeout of 30000ms exceeded while running &quot;beforeEach&quot; hook." type="Error">
-<![CDATA[  [Mobile Safari] › scenario-step-analysis.spec.ts:102:7 › RAIA Business Scenarios - UX Architecture Context › absence of console errors 
-
-    Test timeout of 30000ms exceeded while running "beforeEach" hook.
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\scenario-step-analysis.spec.ts:5:8)
-
-    Error: locator.click: Test timeout of 30000ms exceeded.
-    Call log:
-      - waiting for getByTestId('scenario-catalog').getByText(/RAIA-BS-/i).first()
-
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\scenario-step-analysis.spec.ts:11:50)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1819:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1652:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1648:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\scenario-step-analysis-RAI-42c2b-t-absence-of-console-errors-Mobile-Safari\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\scenario-step-analysis-RAI-42c2b-t-absence-of-console-errors-Mobile-Safari\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\scenario-step-analysis-RAI-42c2b-t-absence-of-console-errors-Mobile-Safari\error-context.md
-]]>
-</error>
-</testcase>
-</testsuite>
-<testsuite name="sequence-diagram.spec.ts" timestamp="2026-07-13T08:39:43.261Z" hostname="Mobile Safari" tests="1" failures="0" skipped="0" time="31.131" errors="1">
-<testcase name="RAIA Sequence Diagram Engine › renders high-quality SVG engine and handles full-screen interactions" classname="sequence-diagram.spec.ts" time="31.131">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|..\sequence-diagram-RAIA-Sequ-ebcbc-es-full-screen-interactions-Mobile-Safari\test-failed-1.png]]
-
-[[ATTACHMENT|..\sequence-diagram-RAIA-Sequ-ebcbc-es-full-screen-interactions-Mobile-Safari\video.webm]]
-
-[[ATTACHMENT|..\sequence-diagram-RAIA-Sequ-ebcbc-es-full-screen-interactions-Mobile-Safari\error-context.md]]
-]]>
-</system-out>
-<error message="Test timeout of 30000ms exceeded." type="Error">
-<![CDATA[  [Mobile Safari] › sequence-diagram.spec.ts:4:7 › RAIA Sequence Diagram Engine › renders high-quality SVG engine and handles full-screen interactions 
-
-    Test timeout of 30000ms exceeded.
-
-    Error: locator.click: Test timeout of 30000ms exceeded.
-    Call log:
-      - waiting for getByTestId('scenario-catalog').getByText(/RAIA-BS-0001/i)
-
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\tests\e2e\sequence-diagram.spec.ts:10:46)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1662:9)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1154:11)
-        at C:\Users\cesar\.gemini\antigravity\scratch\Red de Arquitectura de Industria Afores (RAIA)\node_modules\playwright\lib\worker\workerProcessEntry.js:1660:7)
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\..\test-results\sequence-diagram-RAIA-Sequ-ebcbc-es-full-screen-interactions-Mobile-Safari\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\..\test-results\sequence-diagram-RAIA-Sequ-ebcbc-es-full-screen-interactions-Mobile-Safari\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\..\test-results\sequence-diagram-RAIA-Sequ-ebcbc-es-full-screen-interactions-Mobile-Safari\error-context.md
-]]>
-</error>
+<testcase name="RAIA Visual Regression Baseline Screenshots › Releases page visual snapshot" classname="visual\visual.spec.ts" time="1.627">
 </testcase>
 </testsuite>
 </testsuites>
