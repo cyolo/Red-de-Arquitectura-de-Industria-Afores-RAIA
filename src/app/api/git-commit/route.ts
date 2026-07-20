@@ -1,7 +1,9 @@
 import { NextResponse } from 'next/server';
 import { execSync } from 'child_process';
 
-export async function GET() {
+export const dynamic = 'force-dynamic';
+
+export async function GET(request: Request) {
   const cwd = 'c:\\Users\\cesar\\.gemini\\antigravity\\scratch\\Red de Arquitectura de Industria Afores (RAIA)';
   try {
     const statusBefore = execSync('git status --porcelain', { cwd, encoding: 'utf8' });
