@@ -1,0 +1,13 @@
+[
+  {
+    "id": "GAP-CRM-001",
+    "gapType": "missing-control",
+    "controlRecordId": "RAIA-CRM-004",
+    "transitionId": "RAIA-CRT-004-01",
+    "title": "Transición de Traspaso sin Controles Normativos",
+    "description": "La transición Autorizar Traspaso no tiene controles ni firmas electrónicas validadas en el baseline actual.",
+    "severity": "P0",
+    "recommendation": "Agregar control preventivo de validación de firma autógrafa del ahorrador.",
+    "status": "open"
+  }
+]

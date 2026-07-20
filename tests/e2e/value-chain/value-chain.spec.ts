@@ -8,6 +8,9 @@ test.describe('RAIA Service Landscape — Value Chain Map', () => {
   test('RAIA-VC-001 to 005: Validate page load, counts and duplication checks', async ({ page }) => {
     await expect(page.getByTestId('value-chain-page')).toBeVisible();
 
+    // Switch to Cobertura mode to list all domains natively in grid format
+    await page.getByRole('tab', { name: /Cobertura/i }).click();
+
     const countContainer = page.getByTestId('value-chain-result-count');
     await expect(countContainer).toBeVisible();
     await expect(countContainer).toContainText('273 / 273');

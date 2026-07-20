@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RAIA Gherkin Execution Dashboard</title>
+  <style>
+    body { font-family: sans-serif; background: #f3f4f6; color: #111827; padding: 2rem; }
+    h1 { color: #1e3a8a; }
+    .card { background: white; padding: 1.5rem; border-radius: 0.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 1.5rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+    th, td { padding: 0.75rem; text-align: left; border-bottom: 1px solid #e5e7eb; }
+    th { background: #f9fafb; }
+    .badge { padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-weight: bold; }
+    .badge-pass { background: #d1fae5; color: #065f46; }
+    .badge-fail { background: #fee2e2; color: #991b1b; }
+    .badge-blocked { background: #fef3c7; color: #92400e; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>RAIA Gherkin Test Execution Summary</h1>
+    <p><strong>Run ID:</strong> 2026-07-20-095552-ce89a2af</p>
+    <p><strong>Base Commit:</strong> ce89a2af</p>
+    <p><strong>Quality Gate Status:</strong> <span class="badge badge-pass">CONDITIONAL-GO</span></p>
+  </div>
+
+  <div class="card">
+    <h2>Totals</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Total Scenarios</th>
+          <th>Passed</th>
+          <th>Failed</th>
+          <th>Blocked</th>
+          <th>Manual Review</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>624</td>
+          <td>439</td>
+          <td>0</td>
+          <td>185</td>
+          <td>0</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

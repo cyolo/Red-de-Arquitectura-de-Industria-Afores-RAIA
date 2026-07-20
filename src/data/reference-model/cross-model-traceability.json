@@ -1,0 +1,52 @@
+[
+  {
+    "id": "TR-RM-0001",
+    "source": { "artifactType": "participant", "artifactId": "ACT-AFORE" },
+    "target": { "artifactType": "service-domain", "artifactId": "RAIA-SD-030" },
+    "relationType": "performs",
+    "description": "AFORE es el participante responsable de la Administración de Cuentas Individuales.",
+    "provenance": "canonical-mapping",
+    "confidence": "high",
+    "status": "validated"
+  },
+  {
+    "id": "TR-RM-0002",
+    "source": { "artifactType": "service-domain", "artifactId": "RAIA-SD-030" },
+    "target": { "artifactType": "business-object", "artifactId": "RAIA-BO-0005" },
+    "relationType": "creates",
+    "description": "El Service Domain Administración de Cuentas Individuales crea el objeto Cuenta Individual.",
+    "provenance": "canonical-mapping",
+    "confidence": "high",
+    "status": "validated"
+  },
+  {
+    "id": "TR-RM-0003",
+    "source": { "artifactType": "business-object", "artifactId": "RAIA-BO-0005" },
+    "target": { "artifactType": "control-record", "artifactId": "RAIA-CRM-001" },
+    "relationType": "manages-state-of",
+    "description": "El Control Record Cuenta Individual Lifecycle administra el estado de la Cuenta Individual.",
+    "provenance": "canonical-mapping",
+    "confidence": "high",
+    "status": "validated"
+  },
+  {
+    "id": "TR-RM-0004",
+    "source": { "artifactType": "control-record", "artifactId": "RAIA-CRM-001" },
+    "target": { "artifactType": "business-scenario", "artifactId": "RAIA-BS-0002" },
+    "relationType": "participates-in",
+    "description": "El Control Record Cuenta Individual participa en el escenario Registro de Cuenta.",
+    "provenance": "canonical-mapping",
+    "confidence": "high",
+    "status": "validated"
+  },
+  {
+    "id": "TR-RM-005",
+    "source": { "artifactType": "regulatory-source", "artifactId": "CONSAR-CIRCULAR-01" },
+    "target": { "artifactType": "service-domain", "artifactId": "RAIA-SD-030" },
+    "relationType": "constrained-by",
+    "description": "La Circular Única CONSAR regula la Administración de Cuentas.",
+    "provenance": "canonical-mapping",
+    "confidence": "high",
+    "status": "validated"
+  }
+]

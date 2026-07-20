@@ -1,0 +1,9 @@
+[
+  {
+    "id": "MAP-CR-BO-0001",
+    "controlRecordId": "RAIA-CRM-001",
+    "businessObjectId": "RAIA-BO-0005",
+    "role": "focal",
+    "status": "validated"
+  }
+]

@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { getPortalModules } from "../../domain/repositories/portalRepository";
 import { getBusinessAreas, getBusinessDomains, getServiceDomains } from "../../domain/repositories/landscapeRepository";
 import { useLandscapeStore } from "../../features/service-landscape/store/useLandscapeStore";
+import { assertInternalRoute } from "../../domain/schemas";
 
 export interface SearchItem {
   id: string;
@@ -163,7 +164,7 @@ export default function GlobalSearchModal() {
   const handleSelect = (item: SearchItem) => {
     setSearchOpen(false);
     setQuery("");
-    router.push(item.route);
+    router.push(assertInternalRoute(item.route));
   };
 
   // Group by type

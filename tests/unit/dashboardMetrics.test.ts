@@ -1,5 +1,6 @@
 import { describe, test, expect, vi, beforeEach } from 'vitest';
 import * as landscapeRepo from '../../src/domain/repositories/landscapeRepository';
+import * as regulatoryRepo from '../../src/domain/repositories/regulatoryRepository';
 import { getArchitectureMetrics } from '../../src/domain/repositories/portalRepository';
 
 // Mock landscapeRepository functions
@@ -11,6 +12,15 @@ vi.mock('../../src/domain/repositories/landscapeRepository', () => {
     getRelations: vi.fn(),
     getRegulations: vi.fn(),
     getScenarios: vi.fn(),
+  };
+});
+
+// Mock regulatoryRepository functions
+vi.mock('../../src/domain/repositories/regulatoryRepository', () => {
+  return {
+    getRegulatorySources: vi.fn(),
+    getRegulatoryMappings: vi.fn(),
+    getRegulatoryGaps: vi.fn(),
   };
 });
 
@@ -26,6 +36,10 @@ describe('Dashboard Metrics Calculations Unit Tests', () => {
     vi.mocked(landscapeRepo.getRelations).mockReturnValue([]);
     vi.mocked(landscapeRepo.getRegulations).mockReturnValue([]);
     vi.mocked(landscapeRepo.getScenarios).mockReturnValue([]);
+
+    vi.mocked(regulatoryRepo.getRegulatorySources).mockReturnValue([]);
+    vi.mocked(regulatoryRepo.getRegulatoryMappings).mockReturnValue([]);
+    vi.mocked(regulatoryRepo.getRegulatoryGaps).mockReturnValue([]);
 
     const metrics = getArchitectureMetrics();
 
@@ -77,6 +91,12 @@ describe('Dashboard Metrics Calculations Unit Tests', () => {
     vi.mocked(landscapeRepo.getRegulations).mockReturnValue([{ id: 'REG-1' }] as any);
     vi.mocked(landscapeRepo.getScenarios).mockReturnValue([] as any);
 
+    vi.mocked(regulatoryRepo.getRegulatorySources).mockReturnValue([{ id: 'REG-1' }] as any);
+    vi.mocked(regulatoryRepo.getRegulatoryMappings).mockReturnValue([
+      { id: 'MAP-1', serviceDomainId: 'RAIA-SD-001', regulatorySourceId: 'REG-1', validationStatus: 'official' }
+    ] as any);
+    vi.mocked(regulatoryRepo.getRegulatoryGaps).mockReturnValue([]);
+
     const metrics = getArchitectureMetrics();
 
     expect(metrics.serviceDomains).toBe(1);
@@ -113,6 +133,10 @@ describe('Dashboard Metrics Calculations Unit Tests', () => {
     vi.mocked(landscapeRepo.getRelations).mockReturnValue([]);
     vi.mocked(landscapeRepo.getRegulations).mockReturnValue([]);
     vi.mocked(landscapeRepo.getScenarios).mockReturnValue([]);
+
+    vi.mocked(regulatoryRepo.getRegulatorySources).mockReturnValue([]);
+    vi.mocked(regulatoryRepo.getRegulatoryMappings).mockReturnValue([]);
+    vi.mocked(regulatoryRepo.getRegulatoryGaps).mockReturnValue([]);
 
     const metrics = getArchitectureMetrics();
 

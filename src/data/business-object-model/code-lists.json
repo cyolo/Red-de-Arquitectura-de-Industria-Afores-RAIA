@@ -1,0 +1,14 @@
+[
+  {
+    "id": "CL-BO-0001",
+    "name": "Tipo de Subcuenta",
+    "description": "Lista de códigos que clasifican las subcuentas previsionales oficiales del SAR.",
+    "values": [
+      { "code": "RC", "label": "Retiro y Cesantía", "status": "active" },
+      { "code": "CV", "label": "Cuota Social", "status": "active" },
+      { "code": "AV", "label": "Ahorro Voluntario", "status": "active" }
+    ],
+    "regulatoryMappingIds": [],
+    "status": "validated"
+  }
+]

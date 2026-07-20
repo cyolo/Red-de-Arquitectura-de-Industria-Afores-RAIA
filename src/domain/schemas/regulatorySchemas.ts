@@ -28,6 +28,35 @@ export const ValidationStatusSchema = z.enum([
   "legally-reviewed",
 ]);
 
+const allowedDomains = [
+  "diputados.gob.mx",
+  "dof.gob.mx",
+  "consar.gob.mx",
+  "gob.mx",
+  "imss.gob.mx",
+  "issste.gob.mx",
+  "infonavit.org.mx",
+];
+
+export const OfficialRegulatoryUrlSchema = z.string()
+  .url("Official URL must be a valid URL")
+  .refine(
+    (val) => {
+      try {
+        const parsed = new URL(val);
+        if (parsed.protocol !== "https:") return false;
+        if (parsed.username || parsed.password) return false;
+        if (parsed.port && parsed.port !== "" && parsed.port !== "443") return false;
+
+        const hostname = parsed.hostname.toLowerCase();
+        return allowedDomains.some((domain) => hostname === domain || hostname.endsWith(`.${domain}`));
+      } catch (e) {
+        return false;
+      }
+    },
+    { message: "Official URL must use HTTPS and belong to an official government domain" }
+  );
+
 export const RegulatorySourceSchema = z.object({
   id: z.string(),
   officialTitle: z.string(),
@@ -40,7 +69,7 @@ export const RegulatorySourceSchema = z.object({
   lastReformDate: z.string().optional(),
   effectiveFrom: z.string(),
   effectiveTo: z.string().optional(),
-  officialUrl: z.string().url("Official URL must be a valid URL"),
+  officialUrl: OfficialRegulatoryUrlSchema,
   consultedAt: z.string(),
   status: RegulatorySourceStatusSchema,
   supersedesIds: z.array(z.string()),

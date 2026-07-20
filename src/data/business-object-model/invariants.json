@@ -1,0 +1,16 @@
+[
+  {
+    "id": "INV-BO-0001",
+    "businessObjectId": "RAIA-BO-0005",
+    "name": "Cuenta con Identidad Resuelta",
+    "description": "Una cuenta individual debe pertenecer a un trabajador con expediente digital de identidad resuelto.",
+    "invariantType": "identity",
+    "ruleExpression": "Existe registro Identidad del Trabajador asociado a la Cuenta Individual en estado resuelto.",
+    "attributeIds": [],
+    "relatedBusinessObjectIds": ["RAIA-BO-0002"],
+    "controlIds": [],
+    "regulatoryMappingIds": [],
+    "severity": "critical",
+    "status": "validated"
+  }
+]

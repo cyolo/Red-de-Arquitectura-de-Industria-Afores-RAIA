@@ -1,0 +1,40 @@
+[
+  {
+    "id": "RAIA-CAPA-001-0001",
+    "capabilityId": "RAIA-CAP-001-0001",
+    "assessmentScope": "industry-reference",
+    "currentMaturity": "defined",
+    "targetMaturity": "managed",
+    "strategicImportance": "high",
+    "performance": "meets-expectation",
+    "health": "healthy",
+    "investmentPriority": "improve",
+    "evidenceIds": [],
+    "kpiIds": [],
+    "rationale": "La capacidad está bien definida a nivel sectorial pero requiere mayor automatización de reportes.",
+    "limitations": [],
+    "confidence": "high",
+    "assessmentStatus": "approved",
+    "assessedBy": "Comité de Arquitectura RAIA",
+    "assessedAt": "2026-07-20T09:14:00Z"
+  },
+  {
+    "id": "RAIA-CAPA-002-0003",
+    "capabilityId": "RAIA-CAP-002-0003",
+    "assessmentScope": "industry-reference",
+    "currentMaturity": "defined",
+    "targetMaturity": "optimized",
+    "strategicImportance": "critical",
+    "performance": "meets-expectation",
+    "health": "healthy",
+    "investmentPriority": "improve",
+    "evidenceIds": [],
+    "kpiIds": [],
+    "rationale": "Resolución de identidad es fundamental para mitigar fraudes e inconsistencias.",
+    "limitations": [],
+    "confidence": "high",
+    "assessmentStatus": "approved",
+    "assessedBy": "Comité de Arquitectura RAIA",
+    "assessedAt": "2026-07-20T09:14:00Z"
+  }
+]

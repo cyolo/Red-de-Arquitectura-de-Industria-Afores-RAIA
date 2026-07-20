@@ -8,6 +8,7 @@ import { useLandscapeStore } from "../../features/service-landscape/store/useLan
 import { getServiceDomainById, getBusinessDomainById, getBusinessAreaById } from "../../domain/repositories/landscapeRepository";
 import { getRegulatoryMappingsForServiceDomain, getRegulatorySourceById } from "../../domain/repositories/regulatoryRepository";
 import { getIndustryParticipantById } from "../../domain/repositories/participantRepository";
+import { getControlRecordForServiceDomain } from "../../domain/repositories/controlRecordRepository";
 import LocalRelationGraph from "../diagram/LocalRelationGraph";
 
 export default function DetailSidebar() {
@@ -188,12 +189,56 @@ export default function DetailSidebar() {
                   </div>
                 </div>
 
-                <div className="pt-2">
+                <div className="pt-2 flex flex-col gap-2">
                   <Link
                     href={`/service-domains/${sdData.slug}`}
-                    className="w-full flex items-center justify-center gap-1.5 bg-raia-blue-inst hover:bg-blue-800 text-white font-bold text-xs py-2 px-4 rounded transition-colors shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                    className="w-full flex items-center justify-center gap-1.5 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs py-2 px-4 rounded transition-colors shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
                   >
                     Ver Ficha Técnica Completa
+                    <ArrowRight size={14} />
+                  </Link>
+                  <Link
+                    href={`/service-landscape/overview-diagrams?selected=${sdData.id}`}
+                    className="w-full flex items-center justify-center gap-1.5 bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-bold text-xs py-2 px-4 rounded transition-colors shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                  >
+                    Ver en Overview Diagrams
+                    <ArrowRight size={14} />
+                  </Link>
+                  <Link
+                    href={`/information-architecture?serviceDomain=${sdData.id}`}
+                    className="w-full flex items-center justify-center gap-1.5 bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-bold text-xs py-2 px-4 rounded transition-colors shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                  >
+                    Ver información administrada
+                    <ArrowRight size={14} />
+                  </Link>
+                  {getControlRecordForServiceDomain(sdData.id) && (
+                    <Link
+                      href={`/control-record-model?controlRecord=${getControlRecordForServiceDomain(sdData.id)?.id}`}
+                      className="w-full flex items-center justify-center gap-1.5 bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-bold text-xs py-2 px-4 rounded transition-colors shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                    >
+                      Ver ciclo de vida de control
+                      <ArrowRight size={14} />
+                    </Link>
+                  )}
+                  <Link
+                    href={`/business-object-model?serviceDomain=${sdData.id}`}
+                    className="w-full flex items-center justify-center gap-1.5 bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-bold text-xs py-2 px-4 rounded transition-colors shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                  >
+                    Ver en Business Object Model
+                    <ArrowRight size={14} />
+                  </Link>
+                  <Link
+                    href={`/reference-model?viewpoint=RAIA-RMV-002&selected=service-domain:${sdData.id}`}
+                    className="w-full flex items-center justify-center gap-1.5 bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-bold text-xs py-2 px-4 rounded transition-colors shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                  >
+                    Ver en Reference Model
+                    <ArrowRight size={14} />
+                  </Link>
+                  <Link
+                    href={`/capability-map?serviceDomain=${sdData.id}`}
+                    className="w-full flex items-center justify-center gap-1.5 bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-bold text-xs py-2 px-4 rounded transition-colors shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                  >
+                    Ver capacidades realizadas
                     <ArrowRight size={14} />
                   </Link>
                 </div>

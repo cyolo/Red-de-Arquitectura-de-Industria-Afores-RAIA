@@ -1,0 +1,18 @@
+Module Code,Module Name,Route,Current Status,Feature File,Scenario Count,Smoke,Functional,Integration,Negative,Accessibility,Security,Performance,Regulatory,Cross Module,Gap Count,Source Files Reviewed
+RAIA-MOD-001,Information Architecture,/information-architecture,in-development,01-information-architecture.feature,41,1,24,1,6,6,7,1,8,1,3,3
+RAIA-MOD-002,Control Record Model,/control-record-model,in-development,02-control-record-model.feature,41,1,28,0,2,5,6,1,4,0,2,2
+RAIA-MOD-003,Business Object Model,/business-object-model,in-development,03-business-object-model.feature,41,1,25,0,2,6,7,1,5,0,2,2
+RAIA-MOD-004,RAIA Industry Reference Model,/reference-model,in-development,04-industry-reference-model.feature,40,1,23,0,2,6,7,1,5,0,2,1
+RAIA-MOD-005,Service Landscape — Value Chain,/service-landscape/value-chain,in-development,05-service-landscape-value-chain.feature,44,1,28,0,0,5,7,1,8,0,1,1
+RAIA-MOD-006,Service Landscape — Matrix,/service-landscape/matrix,in-development,06-service-landscape-matrix.feature,42,1,25,0,0,5,8,1,5,0,1,1
+RAIA-MOD-007,Service Landscape — Overview Diagrams,/service-landscape/overview-diagrams,in-development,07-service-landscape-overview-diagrams.feature,42,1,25,0,2,6,8,1,5,0,2,1
+RAIA-MOD-008,Business Scenarios,/business-scenarios,in-development,08-business-scenarios.feature,41,1,25,0,2,6,7,1,5,0,2,1
+RAIA-MOD-009,Scenario Snippets,/business-scenarios/snippets,in-development,09-scenario-snippets.feature,30,1,18,0,2,5,6,0,0,0,2,1
+RAIA-MOD-010,Business Capability Map,/capability-map,in-development,10-business-capability-map.feature,41,1,25,0,2,6,6,1,5,0,2,1
+RAIA-MOD-011,Capability Views,/capability-map/views,planned,11-capability-views.feature,30,1,18,0,2,5,6,0,0,0,2,1
+RAIA-MOD-012,Metamodel Overview,/metamodel,in-development,12-metamodel-overview.feature,30,1,18,0,10,5,6,0,0,0,2,1
+RAIA-MOD-013,Wireframes Overview,/wireframes,planned,13-wireframes-overview.feature,30,1,18,0,2,5,6,0,0,0,2,1
+RAIA-MOD-014,Architecture Dashboard,/dashboard,in-development,14-architecture-dashboard.feature,30,1,19,0,2,5,6,0,0,0,1,1
+RAIA-MOD-015,Regulatory Architecture,/regulatory-architecture,planned,15-regulatory-architecture.feature,41,1,25,0,2,6,6,1,5,0,2,1
+RAIA-MOD-016,RAIA Releases,/releases,in-development,16-raia-releases.feature,30,1,18,0,2,5,6,0,0,0,2,1
+RAIA-MOD-017,Contribution and Governance,/contribute,in-development,17-contribution-governance.feature,30,1,18,0,2,5,6,0,0,0,2,1

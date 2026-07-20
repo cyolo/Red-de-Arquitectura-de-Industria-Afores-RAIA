@@ -1,0 +1,125 @@
+{
+  "id": "RAIA-OVD-009",
+  "slug": "gobierno-regulacion",
+  "nameEs": "Gobierno, Regulación y Supervisión del SAR",
+  "description": "Supervisión de la CONSAR, cumplimiento normativo y mecanismos de control en la industria.",
+  "purpose": "Modelar las obligaciones y la supervisión externa e interna del SAR.",
+  "level": "industry",
+  "theme": "regulatory-governance",
+  "orientation": "top-to-bottom",
+  "nodes": [
+    {
+      "id": "node-shcp",
+      "diagramId": "RAIA-OVD-009",
+      "nodeType": "authority",
+      "referenceId": "ACT-SHCP",
+      "label": "SHCP",
+      "status": "normal"
+    },
+    {
+      "id": "node-consar",
+      "diagramId": "RAIA-OVD-009",
+      "nodeType": "authority",
+      "referenceId": "ACT-CONSAR",
+      "label": "CONSAR",
+      "status": "normal"
+    },
+    {
+      "id": "node-afore",
+      "diagramId": "RAIA-OVD-009",
+      "nodeType": "organization",
+      "referenceId": "ACT-AFORE",
+      "label": "AFORE Regulada",
+      "status": "normal"
+    },
+    {
+      "id": "node-compliance",
+      "diagramId": "RAIA-OVD-009",
+      "nodeType": "control",
+      "label": "Contraloría Normativa",
+      "status": "normal"
+    },
+    {
+      "id": "node-evidence",
+      "diagramId": "RAIA-OVD-009",
+      "nodeType": "information-asset",
+      "label": "Reportes Regulatorios e Índices",
+      "status": "normal"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-ovd009-01",
+      "diagramId": "RAIA-OVD-009",
+      "sourceNodeId": "node-shcp",
+      "targetNodeId": "node-consar",
+      "edgeType": "governance",
+      "description": "Establece políticas generales de pensiones y directrices sectoriales.",
+      "businessObjectIds": [],
+      "businessEventIds": [],
+      "regulatoryMappingIds": [],
+      "status": "proposed"
+    },
+    {
+      "id": "edge-ovd009-02",
+      "diagramId": "RAIA-OVD-009",
+      "sourceNodeId": "node-consar",
+      "targetNodeId": "node-afore",
+      "edgeType": "supervision",
+      "description": "Supervisa regulaciones prudenciales y autoriza comisiones.",
+      "businessObjectIds": [],
+      "businessEventIds": [],
+      "regulatoryMappingIds": [],
+      "status": "proposed"
+    },
+    {
+      "id": "edge-ovd009-03",
+      "diagramId": "RAIA-OVD-009",
+      "sourceNodeId": "node-afore",
+      "targetNodeId": "node-compliance",
+      "edgeType": "governance",
+      "description": "Instala oficialía de cumplimiento interno.",
+      "businessObjectIds": [],
+      "businessEventIds": [],
+      "regulatoryMappingIds": [],
+      "status": "proposed"
+    },
+    {
+      "id": "edge-ovd009-04",
+      "diagramId": "RAIA-OVD-009",
+      "sourceNodeId": "node-compliance",
+      "targetNodeId": "node-evidence",
+      "edgeType": "reporting",
+      "description": "Genera evidencias periódicas del cumplimiento regulatorio.",
+      "businessObjectIds": [],
+      "businessEventIds": [],
+      "regulatoryMappingIds": [],
+      "status": "proposed"
+    },
+    {
+      "id": "edge-ovd009-05",
+      "diagramId": "RAIA-OVD-009",
+      "sourceNodeId": "node-evidence",
+      "targetNodeId": "node-consar",
+      "edgeType": "reporting",
+      "description": "Entrega reportes oficiales y estados de cuenta periódicos.",
+      "businessObjectIds": [],
+      "businessEventIds": [],
+      "regulatoryMappingIds": [],
+      "status": "proposed"
+    }
+  ],
+  "groups": [],
+  "phases": [],
+  "status": "proposed",
+  "confidence": "high",
+  "assumptions": [
+    "CONSAR opera bajo el marco de la Ley de los Sistemas de Ahorro para el Retiro."
+  ],
+  "unresolvedQuestions": [
+    "Cómo automatizar las multas en tiempo real ante desvíos de límites de portafolio."
+  ],
+  "version": "0.1.0",
+  "createdAt": "2026-07-20T00:00:00Z",
+  "updatedAt": "2026-07-20T00:00:00Z"
+}

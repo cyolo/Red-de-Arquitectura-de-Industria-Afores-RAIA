@@ -1,0 +1,13 @@
+[
+  {
+    "id": "RAIA-IRTP-001",
+    "targetType": "business-object",
+    "targetId": "RAIA-BO-001",
+    "retentionPeriod": "10 años",
+    "retentionTrigger": "Posterior al cierre de la cuenta o fallecimiento del titular sin beneficiarios.",
+    "disposition": "archive",
+    "regulatoryMappingIds": ["RAIA-REG-LSAR"],
+    "legalHoldSupported": true,
+    "status": "validated"
+  }
+]

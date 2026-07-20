@@ -5,6 +5,7 @@ import { Search, X, CornerDownLeft, Sparkles } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { getPortalModules } from "../../domain/repositories/portalRepository";
 import { getBusinessAreas, getBusinessDomains, getServiceDomains } from "../../domain/repositories/landscapeRepository";
+import { assertInternalRoute } from "../../domain/schemas";
 
 export interface SearchItem {
   id: string;
@@ -118,7 +119,7 @@ export default function GlobalSearch() {
   const handleSelect = (item: SearchItem) => {
     setIsOpen(false);
     setQuery("");
-    router.push(item.route);
+    router.push(assertInternalRoute(item.route));
   };
 
   // Group by type

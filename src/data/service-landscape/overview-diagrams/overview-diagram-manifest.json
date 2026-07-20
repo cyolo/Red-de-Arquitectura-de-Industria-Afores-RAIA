@@ -1,0 +1,110 @@
+[
+  {
+    "id": "RAIA-OVD-001",
+    "slug": "ecosistema-sar",
+    "nameEs": "Ecosistema del Sistema de Ahorro para el Retiro",
+    "description": "Visión macro de los participantes, capacidades principales y servicios compartidos en el SAR.",
+    "level": "industry",
+    "theme": "industry-ecosystem",
+    "status": "proposed",
+    "nodesCount": 16,
+    "edgesCount": 18,
+    "scenarioIds": ["RAIA-BS-0001", "RAIA-BS-0002"]
+  },
+  {
+    "id": "RAIA-OVD-002",
+    "slug": "ciclo-vida-cuenta",
+    "nameEs": "Ciclo de Vida de la Cuenta Individual",
+    "description": "Fases y transiciones de la cuenta del trabajador desde su registro hasta el retiro o cierre.",
+    "level": "value-stream",
+    "theme": "account-lifecycle",
+    "status": "proposed",
+    "nodesCount": 12,
+    "edgesCount": 13,
+    "scenarioIds": ["RAIA-BS-0001", "RAIA-BS-0003"]
+  },
+  {
+    "id": "RAIA-OVD-003",
+    "slug": "afiliacion-traspasos",
+    "nameEs": "Afiliación, Registro, Asignación y Traspaso",
+    "description": "Procesos clave de control de identidad, localización y movilidad de las cuentas individuales.",
+    "level": "business-area",
+    "theme": "affiliation",
+    "status": "proposed",
+    "nodesCount": 11,
+    "edgesCount": 12,
+    "scenarioIds": ["RAIA-BS-0001"]
+  },
+  {
+    "id": "RAIA-OVD-004",
+    "slug": "recaudacion-individualizacion",
+    "nameEs": "Recaudación e Individualización de Aportaciones",
+    "description": "Flujo transaccional de determinación, conciliación e individualización de recursos a subcuentas.",
+    "level": "value-stream",
+    "theme": "contributions",
+    "status": "proposed",
+    "nodesCount": 12,
+    "edgesCount": 14,
+    "scenarioIds": ["RAIA-BS-0002"]
+  },
+  {
+    "id": "RAIA-OVD-005",
+    "slug": "inversiones-siefore",
+    "nameEs": "Administración de Inversiones y SIEFORE",
+    "description": "Estrategia de portafolios, liquidación, custodia y valuación de activos financieros.",
+    "level": "business-area",
+    "theme": "investments",
+    "status": "proposed",
+    "nodesCount": 10,
+    "edgesCount": 11,
+    "scenarioIds": []
+  },
+  {
+    "id": "RAIA-OVD-006",
+    "slug": "retiros-pensiones",
+    "nameEs": "Retiros, Prestaciones y Pensiones",
+    "description": "Flujo operativo de atención de solicitudes de retiro (parcial y total) y trámites previsionales.",
+    "level": "value-stream",
+    "theme": "withdrawals-pensions",
+    "status": "proposed",
+    "nodesCount": 14,
+    "edgesCount": 15,
+    "scenarioIds": ["RAIA-BS-0003"]
+  },
+  {
+    "id": "RAIA-OVD-007",
+    "slug": "fondo-bienestar",
+    "nameEs": "Fondo de Pensiones para el Bienestar",
+    "description": "Identificación, validación, aviso y transferencia de recursos inactivos al fiduciario del Fondo.",
+    "level": "value-stream",
+    "theme": "fondo-bienestar",
+    "status": "proposed",
+    "nodesCount": 9,
+    "edgesCount": 10,
+    "scenarioIds": []
+  },
+  {
+    "id": "RAIA-OVD-008",
+    "slug": "identidad-consentimiento",
+    "nameEs": "Identidad, Expediente de Identificación y Consentimiento",
+    "description": "Estructura de autenticación biométrica, firma electrónica y resguardo en el expediente único.",
+    "level": "business-domain",
+    "theme": "identity",
+    "status": "proposed",
+    "nodesCount": 9,
+    "edgesCount": 9,
+    "scenarioIds": ["RAIA-BS-0001"]
+  },
+  {
+    "id": "RAIA-OVD-009",
+    "slug": "gobierno-regulacion",
+    "nameEs": "Gobierno, Regulación y Supervisión del SAR",
+    "description": "Supervisión de la CONSAR, cumplimiento normativo y mecanismos de control en la industria.",
+    "level": "industry",
+    "theme": "regulatory-governance",
+    "status": "proposed",
+    "nodesCount": 8,
+    "edgesCount": 8,
+    "scenarioIds": []
+  }
+]

@@ -11,6 +11,7 @@ import { useScenarioNarrative } from "../../features/business-scenarios/narrativ
 import ScenarioArchitectureNarrativeComponent from "../../features/business-scenarios/narrative/components/ScenarioArchitectureNarrative";
 import { ScenarioStepNarrative } from "../../domain/types/scenarioNarrativeTypes";
 import ScenarioStepsWorkspace from "../../features/business-scenarios/components/ScenarioStepsWorkspace";
+import { resolveScenarioSequence } from "../../features/business-scenarios/snippets/domain/snippetResolver";
 
 export default function BusinessScenariosClient() {
   const [scenarios, setScenarios] = useState<BusinessScenario[]>([]);
@@ -54,7 +55,62 @@ export default function BusinessScenariosClient() {
 
   const selectedScenario = scenarios.find((s) => s.id === selectedScenarioId);
 
-  const detailedSequence = sequenceBundle[selectedScenarioId as keyof typeof sequenceBundle] as DetailedSequence | undefined;
+  const detailedSequence = React.useMemo(() => {
+    if (!selectedScenarioId) return undefined;
+    const resolvedSteps = resolveScenarioSequence(selectedScenarioId);
+    if (resolvedSteps.length > 0) {
+      const participantsMap = new Map<string, any>();
+      resolvedSteps.forEach((step) => {
+        if (!participantsMap.has(step.sourceParticipantId)) {
+          participantsMap.set(step.sourceParticipantId, {
+            instanceId: step.sourceParticipantId,
+            label: step.sourceParticipantId === "ACT-TRABAJADOR" ? "Trabajador" :
+                   step.sourceParticipantId === "ACT-AFORE" ? "AFORE" :
+                   step.sourceParticipantId === "ACT-CONSAR" ? "CONSAR" :
+                   step.sourceParticipantId === "ACT-PROCESADOR" ? "Empresa Operadora" : step.sourceParticipantId,
+            order: participantsMap.size + 1
+          });
+        }
+        if (!participantsMap.has(step.targetParticipantId)) {
+          participantsMap.set(step.targetParticipantId, {
+            instanceId: step.targetParticipantId,
+            label: step.targetParticipantId === "ACT-TRABAJADOR" ? "Trabajador" :
+                   step.targetParticipantId === "ACT-AFORE" ? "AFORE" :
+                   step.targetParticipantId === "ACT-CONSAR" ? "CONSAR" :
+                   step.targetParticipantId === "ACT-PROCESADOR" ? "Empresa Operadora" : step.targetParticipantId,
+            order: participantsMap.size + 1
+          });
+        }
+      });
+
+      const messages = resolvedSteps.map((step, idx) => ({
+        id: step.id,
+        sequence: step.sequence,
+        sourceParticipantInstanceId: step.sourceParticipantId,
+        targetParticipantInstanceId: step.targetParticipantId,
+        label: step.name,
+        description: step.description,
+        messageType: step.origin === "snippet" ? "command" : "query",
+        businessObjectIds: step.inputBusinessObjectIds,
+        controlIds: step.controlIds,
+        evidenceIds: step.evidenceIds,
+        origin: step.origin,
+        snippetId: step.snippetId,
+        snippetVersion: step.snippetVersion,
+        snippetStepId: step.snippetStepId,
+        snippetInvocationId: step.snippetInvocationId
+      }));
+
+      return {
+        scenarioId: selectedScenarioId,
+        title: selectedScenario?.name || "",
+        participants: Array.from(participantsMap.values()),
+        messages
+      };
+    }
+
+    return sequenceBundle[selectedScenarioId as keyof typeof sequenceBundle] as DetailedSequence | undefined;
+  }, [selectedScenarioId, selectedScenario]);
   
   const hasRenderableSequence =
     Boolean(detailedSequence) &&
@@ -183,6 +239,26 @@ export default function BusinessScenariosClient() {
                 <span className="hidden sm:inline-flex rounded-full border border-slate-200 bg-slate-50 px-2.5 py-0.5 text-[10px] font-bold text-slate-600">
                   {getScenarioStepCount(selectedScenario, detailedSequence)} pasos
                 </span>
+                <Link
+                  href={`/service-landscape/overview-diagrams?diagram=${
+                    selectedScenario.id === "RAIA-BS-0001"
+                      ? "RAIA-OVD-001"
+                      : selectedScenario.id === "RAIA-BS-0002"
+                      ? "RAIA-OVD-004"
+                      : selectedScenario.id === "RAIA-BS-0003"
+                      ? "RAIA-OVD-006"
+                      : "RAIA-OVD-001"
+                  }`}
+                  className="px-2.5 py-1 text-[10.5px] font-bold bg-slate-900 hover:bg-slate-800 text-white rounded-lg flex items-center gap-1 transition-colors shadow-sm focus:outline-none"
+                >
+                  Ver en Overview Diagram
+                </Link>
+                <Link
+                  href={`/information-architecture?scenario=${selectedScenario.id}`}
+                  className="px-2.5 py-1 text-[10.5px] font-bold bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 rounded-lg flex items-center gap-1 transition-colors shadow-sm focus:outline-none"
+                >
+                  Ver Objeto en IA
+                </Link>
               </div>
             </header>
 

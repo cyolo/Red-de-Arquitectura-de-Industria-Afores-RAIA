@@ -2,6 +2,8 @@ import React from "react";
 import { X, ShieldCheck, FileText, AlertTriangle, ArrowLeft, ArrowRight, Activity, Map } from "lucide-react";
 import { ScenarioStepNarrative } from "../../../domain/types/scenarioNarrativeTypes";
 import { SequenceMessage, SequenceParticipant } from "../sequence-diagram/components/RaiaSequenceDiagram";
+import { getControlRecordTransitions } from "../../../domain/repositories/controlRecordRepository";
+import Link from "next/link";
 
 interface ScenarioStepAnalysisPanelProps {
   message?: SequenceMessage;
@@ -43,6 +45,16 @@ export default function ScenarioStepAnalysisPanel({
   onNext,
   onClose
 }: ScenarioStepAnalysisPanelProps) {
+  const matchingTransition = React.useMemo(() => {
+    if (!message) return null;
+    const allTransitions = getControlRecordTransitions();
+    const lbl = (message.label || "").toLowerCase();
+    return allTransitions.find((t) =>
+      t.name.toLowerCase() === lbl ||
+      t.id.toLowerCase() === lbl ||
+      (t.serviceOperationId && message.label && t.serviceOperationId.toLowerCase() === message.label.toLowerCase())
+    );
+  }, [message]);
   
   if (!message) {
     return (
@@ -107,6 +119,24 @@ export default function ScenarioStepAnalysisPanel({
 
       {/* Scrollable Content */}
       <div className="flex-1 overflow-y-auto p-5 space-y-6 bg-white min-h-[300px]">
+
+        {message.origin === "snippet" && (
+          <div className="rounded-xl border border-teal-200 bg-teal-50 p-4">
+            <span className="text-[10px] font-extrabold uppercase tracking-widest text-teal-800 block">Scenario Snippet</span>
+            <p className="text-xs text-teal-900 mt-1 leading-relaxed">
+              Este paso proviene del snippet reutilizable <b>{message.snippetId}</b> (v{message.snippetVersion}).
+            </p>
+            <div className="mt-2.5">
+              <Link
+                href={`/business-scenarios/snippets?snippet=${message.snippetId}`}
+                className="inline-flex items-center gap-1 text-xs font-bold text-teal-700 hover:text-teal-900 underline"
+              >
+                <span>Ver definición del snippet</span>
+                <ArrowRight size={12} />
+              </Link>
+            </div>
+          </div>
+        )}
         
         {!narrative && (
           <div className="rounded-xl border border-amber-200 bg-amber-50 p-4">
@@ -194,6 +224,21 @@ export default function ScenarioStepAnalysisPanel({
                 <p className="text-xs text-red-900/80 leading-relaxed">{narrative.exceptionExplanation}</p>
               </div>
             )}
+          </section>
+        )}
+
+        {matchingTransition && (
+          <section className="pt-4 border-t border-slate-100">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
+              Ciclo de Vida de Control
+            </h4>
+            <Link
+              href={`/control-record-model?controlRecord=${matchingTransition.controlRecordId}&transition=${matchingTransition.id}&tab=state-machine`}
+              className="inline-flex items-center gap-1.5 bg-slate-900 hover:bg-slate-800 text-white font-bold text-[10px] py-1.5 px-3.5 rounded transition-colors shadow"
+            >
+              <span>Ver Transición de Control</span>
+              <ArrowRight size={12} />
+            </Link>
           </section>
         )}
       </div>

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "RAIA-CRT-TRACE-001",
+    "controlRecordId": "RAIA-CRM-001",
+    "businessScenarioId": "RAIA-BS-0002",
+    "traceName": "Simulación de Activación de Cuenta",
+    "description": "Flujo de ejemplo desde cuenta identificada a cuenta activa.",
+    "steps": [
+      {
+        "sequence": 1,
+        "transitionId": "RAIA-CRT-001-01",
+        "expectedSourceStateId": "RAIA-CRS-001-01",
+        "expectedTargetStateId": "RAIA-CRS-001-02",
+        "businessScenarioMessageId": "MSG-001"
+      }
+    ],
+    "expectedFinalStateId": "RAIA-CRS-001-02",
+    "status": "validated"
+  }
+]

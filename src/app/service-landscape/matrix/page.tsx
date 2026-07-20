@@ -1,15 +1,12 @@
 import React from "react";
-import { getPortalModuleBySlug } from "../../../domain/repositories/portalRepository";
-import PlannedModulePage from "../../../components/layout/PlannedModulePage";
-import { notFound } from "next/navigation";
+import MatrixClientPage from "./MatrixClientPage";
 
 export const metadata = {
-  title: "RAIA Service Landscape Matrix - Planned",
-  description: "Vista matricial bidimensional configurable de los dominios de servicio.",
+  title: "RAIA Service Landscape - Matrix",
+  description: "Vista matricial analítica bidimensional configurable de los dominios de servicio de industria.",
 };
 
-export default async function Page() {
-  const module = getPortalModuleBySlug("matrix");
-  if (!module) return notFound();
-  return <PlannedModulePage module={module} />;
+export default function Page() {
+  return <MatrixClientPage />;
 }
+

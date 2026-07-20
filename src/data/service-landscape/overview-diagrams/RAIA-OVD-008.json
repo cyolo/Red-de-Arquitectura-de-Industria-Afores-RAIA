@@ -1,0 +1,93 @@
+{
+  "id": "RAIA-OVD-008",
+  "slug": "identidad-consentimiento",
+  "nameEs": "Identidad, Expediente de Identificación y Consentimiento",
+  "description": "Estructura de autenticación biométrica, firma electrónica y resguardo en el expediente único.",
+  "purpose": "Asegurar la certeza jurídica de la firma y consentimiento del trabajador en trámites SAR.",
+  "level": "business-domain",
+  "theme": "identity",
+  "orientation": "left-to-right",
+  "nodes": [
+    {
+      "id": "node-worker",
+      "diagramId": "RAIA-OVD-008",
+      "nodeType": "actor",
+      "referenceId": "ACT-WORKER",
+      "label": "Trabajador",
+      "status": "normal"
+    },
+    {
+      "id": "node-biometrics",
+      "diagramId": "RAIA-OVD-008",
+      "nodeType": "external-system",
+      "label": "Verificación Biométrica de CONSAR",
+      "status": "normal"
+    },
+    {
+      "id": "node-sd-consentimiento",
+      "diagramId": "RAIA-OVD-008",
+      "nodeType": "service-domain",
+      "referenceId": "RAIA-SD-020",
+      "label": "Registro de Consentimiento",
+      "status": "normal"
+    },
+    {
+      "id": "node-expediente",
+      "diagramId": "RAIA-OVD-008",
+      "nodeType": "information-asset",
+      "label": "Expediente de Identificación Digital (EID)",
+      "status": "normal"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-ovd008-01",
+      "diagramId": "RAIA-OVD-008",
+      "sourceNodeId": "node-worker",
+      "targetNodeId": "node-biometrics",
+      "edgeType": "validation",
+      "description": "Enrola rasgos biométricos faciales y dactilares.",
+      "businessObjectIds": [],
+      "businessEventIds": [],
+      "regulatoryMappingIds": [],
+      "status": "proposed"
+    },
+    {
+      "id": "edge-ovd008-02",
+      "diagramId": "RAIA-OVD-008",
+      "sourceNodeId": "node-biometrics",
+      "targetNodeId": "node-sd-consentimiento",
+      "edgeType": "authorization",
+      "description": "Aprueba autenticidad para detonar la firma electrónica del consentimiento.",
+      "businessObjectIds": [],
+      "businessEventIds": [],
+      "regulatoryMappingIds": [],
+      "status": "proposed"
+    },
+    {
+      "id": "edge-ovd008-03",
+      "diagramId": "RAIA-OVD-008",
+      "sourceNodeId": "node-sd-consentimiento",
+      "targetNodeId": "node-expediente",
+      "edgeType": "information-flow",
+      "description": "Almacena la constancia y firma electrónica en el expediente del trabajador.",
+      "businessObjectIds": [],
+      "businessEventIds": [],
+      "regulatoryMappingIds": [],
+      "status": "proposed"
+    }
+  ],
+  "groups": [],
+  "phases": [],
+  "status": "proposed",
+  "confidence": "high",
+  "assumptions": [
+    "Los datos biométricos dactilares se cotejan contra la base del INE."
+  ],
+  "unresolvedQuestions": [
+    "Uso de firmas avanzadas e.firma del SAT como alternativa biométrica."
+  ],
+  "version": "0.1.0",
+  "createdAt": "2026-07-20T00:00:00Z",
+  "updatedAt": "2026-07-20T00:00:00Z"
+}

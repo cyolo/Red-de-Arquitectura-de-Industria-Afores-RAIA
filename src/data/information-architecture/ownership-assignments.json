@@ -1,0 +1,29 @@
+[
+  {
+    "id": "RAIA-OWN-001",
+    "targetType": "information-domain",
+    "targetId": "RAIA-IDOM-001",
+    "governanceRole": "information-owner",
+    "roleId": "Comité de Identidad SAR",
+    "responsibility": "Definir políticas de enrolamiento y validación de personas.",
+    "status": "validated"
+  },
+  {
+    "id": "RAIA-OWN-002",
+    "targetType": "business-object",
+    "targetId": "RAIA-BO-001",
+    "governanceRole": "data-steward",
+    "serviceDomainId": "RAIA-SD-020",
+    "responsibility": "Asegurar la consistencia y actualización de los datos biográficos de los afiliados.",
+    "status": "validated"
+  },
+  {
+    "id": "RAIA-OWN-003",
+    "targetType": "business-object",
+    "targetId": "RAIA-BO-004",
+    "governanceRole": "data-steward",
+    "serviceDomainId": "RAIA-SD-030",
+    "responsibility": "Asegurar la conciliación de saldos contables individuales del libro mayor.",
+    "status": "validated"
+  }
+]

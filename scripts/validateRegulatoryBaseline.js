@@ -18,6 +18,9 @@ let errors = [];
 const expectedDates = baseline.primaryBaselineReforms;
 
 sources.forEach(src => {
+  if (src.status === 'abrogated' || src.status === 'superseded') {
+    return;
+  }
   // Check if this source is in primary reforms list
   const key = src.shortName.split(' ')[0].toUpperCase();
   Object.keys(expectedDates).forEach(k => {

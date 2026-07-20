@@ -1,0 +1,128 @@
+{
+  "id": "RAIA-OVD-005",
+  "slug": "inversiones-siefore",
+  "nameEs": "Administración de Inversiones y SIEFORE",
+  "description": "Estrategia de portafolios, liquidación, custodia y valuación de activos financieros.",
+  "purpose": "Alinear la estrategia de inversión en SIEFORE con los marcos de límites de riesgo de CONSAR.",
+  "level": "business-area",
+  "theme": "investments",
+  "orientation": "left-to-right",
+  "nodes": [
+    {
+      "id": "node-siefore",
+      "diagramId": "RAIA-OVD-005",
+      "nodeType": "actor",
+      "referenceId": "ACT-SIEFORE",
+      "label": "Sociedad de Inversión SIEFORE",
+      "phaseId": "phase-gobierno",
+      "status": "normal"
+    },
+    {
+      "id": "node-sd-045",
+      "diagramId": "RAIA-OVD-005",
+      "nodeType": "service-domain",
+      "referenceId": "RAIA-SD-045",
+      "label": "Administración de Inversión",
+      "phaseId": "phase-estrategia",
+      "status": "normal"
+    },
+    {
+      "id": "node-custodian",
+      "diagramId": "RAIA-OVD-005",
+      "nodeType": "actor",
+      "referenceId": "ACT-CUSTODIAN",
+      "label": "Custodio de Valores",
+      "phaseId": "phase-ejecucion",
+      "status": "normal"
+    },
+    {
+      "id": "node-valuator",
+      "diagramId": "RAIA-OVD-005",
+      "nodeType": "actor",
+      "referenceId": "ACT-PRICEPROVIDER",
+      "label": "Proveedor de Precios",
+      "phaseId": "phase-valuacion",
+      "status": "normal"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-ovd005-01",
+      "diagramId": "RAIA-OVD-005",
+      "sourceNodeId": "node-siefore",
+      "targetNodeId": "node-sd-045",
+      "edgeType": "governance",
+      "description": "Establece el comité y política de inversión.",
+      "businessObjectIds": [],
+      "businessEventIds": [],
+      "regulatoryMappingIds": [],
+      "status": "proposed"
+    },
+    {
+      "id": "edge-ovd005-02",
+      "diagramId": "RAIA-OVD-005",
+      "sourceNodeId": "node-sd-045",
+      "targetNodeId": "node-custodian",
+      "edgeType": "fund-transfer",
+      "description": "Liquida compras y ventas de valores e instruye custodia.",
+      "businessObjectIds": [],
+      "businessEventIds": [],
+      "regulatoryMappingIds": [],
+      "status": "proposed"
+    },
+    {
+      "id": "edge-ovd005-03",
+      "diagramId": "RAIA-OVD-005",
+      "sourceNodeId": "node-valuator",
+      "targetNodeId": "node-sd-045",
+      "edgeType": "information-flow",
+      "description": "Proporciona vector de precios oficial para valuación de la cartera.",
+      "businessObjectIds": [],
+      "businessEventIds": [],
+      "regulatoryMappingIds": [],
+      "status": "proposed"
+    }
+  ],
+  "groups": [],
+  "phases": [
+    {
+      "id": "phase-gobierno",
+      "diagramId": "RAIA-OVD-005",
+      "name": "Gobierno Corporativo",
+      "description": "Marcos de autorización y comités de inversiones.",
+      "order": 1
+    },
+    {
+      "id": "phase-estrategia",
+      "diagramId": "RAIA-OVD-005",
+      "name": "Estrategia",
+      "description": "Modelos de asignación estratégica de activos.",
+      "order": 2
+    },
+    {
+      "id": "phase-ejecucion",
+      "diagramId": "RAIA-OVD-005",
+      "name": "Ejecución",
+      "description": "Negociación y liquidación en mercados financieros.",
+      "order": 3
+    },
+    {
+      "id": "phase-valuacion",
+      "diagramId": "RAIA-OVD-005",
+      "name": "Valuación",
+      "description": "Determinación diaria del precio de la acción de SIEFORE.",
+      "order": 4
+    }
+  ],
+  "status": "proposed",
+  "confidence": "high",
+  "assumptions": [
+    "Los límites de inversión se regulan mediante la circular única de CONSAR."
+  ],
+  "unresolvedQuestions": [
+    "Cómo integrar límites ISR a SIEFORE generacionales."
+  ],
+  "version": "0.1.0",
+  "createdAt": "2026-07-20T00:00:00Z",
+  "updatedAt": "2026-07-20T00:00:00Z"
+}

@@ -1,0 +1,15 @@
+[
+  {
+    "id": "RAIA-CRG-001",
+    "name": "CURP y NSS Validados",
+    "description": "Verifica que el titular de la cuenta cuente con expediente digital de identidad previamente certificado.",
+    "expressionLanguage": "natural-language",
+    "ruleExpression": "Existe expediente digital de identificación en estado resuelto AND CURP y NSS coinciden.",
+    "businessObjectIds": ["RAIA-BO-001", "RAIA-BO-002"],
+    "attributeIds": ["CURP", "NSS"],
+    "regulatoryMappingIds": [],
+    "controlIds": [],
+    "failureReason": "No se puede activar la cuenta individual si el expediente digital de identidad no ha sido certificado.",
+    "status": "validated"
+  }
+]

@@ -7,6 +7,7 @@ import { ArrowLeft, ShieldCheck, Printer, Network, Layers, ExternalLink, Activit
 import { getServiceDomainBySlug, getBusinessAreaById, getBusinessDomainById, getServiceDomainById } from "../../../domain/repositories/landscapeRepository";
 import { getRegulatoryMappingsForServiceDomain, getRegulatorySourceById } from "../../../domain/repositories/regulatoryRepository";
 import LocalRelationGraph from "../../../components/diagram/LocalRelationGraph";
+import { assertInternalRoute } from "../../../domain/schemas";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -347,24 +348,11 @@ export default function ServiceDomainPage({ params }: Props) {
                     });
                   }
 
-                  // Fallback to legacy structure
-                  return sd.regulations.map((reg) => (
-                    <div key={reg.id} className="p-3 border border-slate-200 rounded-lg text-xs bg-slate-50/20">
-                      <div className="flex items-center justify-between">
-                        <span className="text-[9px] font-mono text-slate-400">{reg.id}</span>
-                        {reg.mandatory && (
-                          <span className="px-1.5 py-0.5 rounded bg-red-50 text-red-600 border border-red-200 text-[8px] font-bold uppercase">
-                            Obligatorio
-                          </span>
-                        )}
-                      </div>
-                      <h4 className="font-bold text-slate-800 mt-1 leading-normal">{reg.name}</h4>
-                      <div className="flex items-center gap-4 mt-2 text-[10px] text-slate-500 font-medium">
-                        <span>Autoridad: {reg.authority}</span>
-                        <span>Estatus: {reg.validationStatus}</span>
-                      </div>
-                    </div>
-                  ));
+                  return (
+                    <p className="text-xs text-slate-400 font-medium italic text-center py-4 bg-slate-50 border border-slate-200 rounded-lg">
+                      No existen mapeos regulatorios vigentes consolidados para este dominio.
+                    </p>
+                  );
                 })()}
               </div>
             </div>
@@ -478,7 +466,7 @@ export default function ServiceDomainPage({ params }: Props) {
                 onSelect={(id) => {
                   const targetSd = getServiceDomainById(id);
                   if (targetSd) {
-                    router.push(`/service-domains/${targetSd.slug}`);
+                    router.push(assertInternalRoute(`/service-domains/${targetSd.slug}`));
                   }
                 }}
               />

@@ -1,0 +1,13 @@
+[
+  {
+    "id": "RAIA-CAPR-0001",
+    "sourceCapabilityId": "RAIA-CAP-002-0001",
+    "targetCapabilityId": "RAIA-CAP-002-0003",
+    "relationType": "enables",
+    "description": "La administración de identidad habilita la resolución de identidad.",
+    "businessObjectIds": [],
+    "valueStreamIds": [],
+    "regulatoryMappingIds": [],
+    "status": "validated"
+  }
+]

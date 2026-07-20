@@ -1,0 +1,136 @@
+{
+  "id": "RAIA-OVD-007",
+  "slug": "fondo-bienestar",
+  "nameEs": "Fondo de Pensiones para el Bienestar",
+  "description": "Identificación, validación, aviso y transferencia de recursos inactivos al fiduciario del Fondo.",
+  "purpose": "Modelar el traspaso legal y ordenado de los saldos inactivos y las reclamaciones de devolución.",
+  "level": "value-stream",
+  "theme": "fondo-bienestar",
+  "orientation": "left-to-right",
+  "nodes": [
+    {
+      "id": "node-worker",
+      "diagramId": "RAIA-OVD-007",
+      "nodeType": "actor",
+      "referenceId": "ACT-WORKER",
+      "label": "Trabajador / Ahorrador",
+      "status": "normal"
+    },
+    {
+      "id": "node-afore",
+      "diagramId": "RAIA-OVD-007",
+      "nodeType": "organization",
+      "referenceId": "ACT-AFORE",
+      "label": "AFORE / PENSIONISSSTE",
+      "status": "normal"
+    },
+    {
+      "id": "node-banxico",
+      "diagramId": "RAIA-OVD-007",
+      "nodeType": "authority",
+      "referenceId": "ACT-BANXICO",
+      "label": "Fiduciario (Banco de México)",
+      "status": "normal"
+    },
+    {
+      "id": "node-trustee",
+      "diagramId": "RAIA-OVD-007",
+      "nodeType": "actor",
+      "referenceId": "ACT-FPB-TRUSTEE",
+      "label": "Comité Técnico FPB",
+      "status": "normal"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-ovd007-01",
+      "diagramId": "RAIA-OVD-007",
+      "sourceNodeId": "node-afore",
+      "targetNodeId": "node-banxico",
+      "edgeType": "fund-transfer",
+      "description": "Traspasa recursos inactivos no reclamados por el titular de 70 o 75 años.",
+      "businessObjectIds": [],
+      "businessEventIds": [],
+      "regulatoryMappingIds": [],
+      "status": "proposed"
+    },
+    {
+      "id": "edge-ovd007-02",
+      "diagramId": "RAIA-OVD-007",
+      "sourceNodeId": "node-trustee",
+      "targetNodeId": "node-banxico",
+      "edgeType": "governance",
+      "description": "Dicta reglas y asignación de rendimientos al Fondo.",
+      "businessObjectIds": [],
+      "businessEventIds": [],
+      "regulatoryMappingIds": [],
+      "status": "proposed"
+    },
+    {
+      "id": "edge-ovd007-03",
+      "diagramId": "RAIA-OVD-007",
+      "sourceNodeId": "node-worker",
+      "targetNodeId": "node-afore",
+      "edgeType": "value-flow",
+      "description": "Reclama la devolución de sus recursos traspasados al Fondo.",
+      "businessObjectIds": [],
+      "businessEventIds": [],
+      "regulatoryMappingIds": [],
+      "status": "proposed"
+    },
+    {
+      "id": "edge-ovd007-04",
+      "diagramId": "RAIA-OVD-007",
+      "sourceNodeId": "node-banxico",
+      "targetNodeId": "node-afore",
+      "edgeType": "fund-transfer",
+      "description": "Devuelve los recursos reclamados a la AFORE para su pago final.",
+      "businessObjectIds": [],
+      "businessEventIds": [],
+      "regulatoryMappingIds": [],
+      "status": "proposed"
+    }
+  ],
+  "groups": [],
+  "phases": [
+    {
+      "id": "phase-identificacion",
+      "diagramId": "RAIA-OVD-007",
+      "name": "Identificación de Recursos",
+      "description": "Identificación de cuentas inactivas según edad límite.",
+      "order": 1
+    },
+    {
+      "id": "phase-aviso",
+      "diagramId": "RAIA-OVD-007",
+      "name": "Aviso y Notificación",
+      "description": "Envío de aviso previo al trabajador titular.",
+      "order": 2
+    },
+    {
+      "id": "phase-transferencia",
+      "diagramId": "RAIA-OVD-007",
+      "name": "Transferencia fiduciaria",
+      "description": "Dispersión líquida a la cuenta del fideicomiso en BANXICO.",
+      "order": 3
+    },
+    {
+      "id": "phase-reclamacion",
+      "diagramId": "RAIA-OVD-007",
+      "name": "Reclamación y Devolución",
+      "description": "Trámite de ventanilla única de devolución a beneficiarios.",
+      "order": 4
+    }
+  ],
+  "status": "proposed",
+  "confidence": "high",
+  "assumptions": [
+    "Los recursos transferidos no pierden la imprescriptibilidad del derecho de reclamación."
+  ],
+  "unresolvedQuestions": [
+    "Plazos exactos de conciliación de intereses acumulados entre AFORE y BANXICO."
+  ],
+  "version": "0.1.0",
+  "createdAt": "2026-07-20T00:00:00Z",
+  "updatedAt": "2026-07-20T00:00:00Z"
+}

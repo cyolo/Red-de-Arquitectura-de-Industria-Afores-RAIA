@@ -1,0 +1,134 @@
+{
+  "id": "RAIA-OVD-004",
+  "slug": "recaudacion-individualizacion",
+  "nameEs": "Recaudación e Individualización de Aportaciones",
+  "description": "Flujo transaccional de determinación, conciliación e individualización de recursos a subcuentas.",
+  "purpose": "Asegurar la correcta dispersión de las cuotas tripartitas bimestrales a las subcuentas del trabajador.",
+  "level": "value-stream",
+  "theme": "contributions",
+  "orientation": "left-to-right",
+  "nodes": [
+    {
+      "id": "node-employer",
+      "diagramId": "RAIA-OVD-004",
+      "nodeType": "actor",
+      "referenceId": "ACT-EMPLOYER",
+      "label": "Patrón / Empleador",
+      "phaseId": "phase-determinacion",
+      "status": "normal"
+    },
+    {
+      "id": "node-procesar",
+      "diagramId": "RAIA-OVD-004",
+      "nodeType": "industry-service",
+      "referenceId": "ACT-OPERATOR",
+      "label": "PROCESAR",
+      "phaseId": "phase-recepcion-info",
+      "status": "normal"
+    },
+    {
+      "id": "node-bank",
+      "diagramId": "RAIA-OVD-004",
+      "nodeType": "external-system",
+      "label": "Portal de Recaudación (SUA/SIRI)",
+      "phaseId": "phase-recepcion-recursos",
+      "status": "normal"
+    },
+    {
+      "id": "node-sd-089",
+      "diagramId": "RAIA-OVD-004",
+      "nodeType": "service-domain",
+      "referenceId": "RAIA-SD-089",
+      "label": "Individualización de Aportación",
+      "phaseId": "phase-individualizacion",
+      "status": "normal"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-ovd004-01",
+      "diagramId": "RAIA-OVD-004",
+      "sourceNodeId": "node-employer",
+      "targetNodeId": "node-bank",
+      "edgeType": "fund-transfer",
+      "description": "El patrón deposita las cuotas tripartitas de ley en bancos recaudadores.",
+      "businessObjectIds": [],
+      "businessEventIds": [],
+      "regulatoryMappingIds": [],
+      "status": "proposed"
+    },
+    {
+      "id": "edge-ovd004-02",
+      "diagramId": "RAIA-OVD-004",
+      "sourceNodeId": "node-bank",
+      "targetNodeId": "node-procesar",
+      "edgeType": "information-flow",
+      "description": "Los bancos reportan transacciones e importes de recaudación.",
+      "businessObjectIds": [],
+      "businessEventIds": [],
+      "regulatoryMappingIds": [],
+      "status": "proposed"
+    },
+    {
+      "id": "edge-ovd004-03",
+      "diagramId": "RAIA-OVD-004",
+      "sourceNodeId": "node-procesar",
+      "targetNodeId": "node-sd-089",
+      "edgeType": "value-flow",
+      "description": "PROCESAR dispersa los lotes validados de aportaciones a la AFORE.",
+      "businessObjectIds": [],
+      "businessEventIds": [],
+      "regulatoryMappingIds": [],
+      "status": "proposed"
+    }
+  ],
+  "groups": [],
+  "phases": [
+    {
+      "id": "phase-determinacion",
+      "diagramId": "RAIA-OVD-004",
+      "name": "Determinación",
+      "description": "Cálculo de aportaciones obrero-patronales.",
+      "order": 1
+    },
+    {
+      "id": "phase-recepcion-info",
+      "diagramId": "RAIA-OVD-004",
+      "name": "Recepción de Información",
+      "description": "Captura de archivos magnéticos individuales.",
+      "order": 2
+    },
+    {
+      "id": "phase-recepcion-recursos",
+      "diagramId": "RAIA-OVD-004",
+      "name": "Recepción de Recursos",
+      "description": "Transferencia de fondos líquidos en banco recaudador.",
+      "order": 3
+    },
+    {
+      "id": "phase-conciliacion",
+      "diagramId": "RAIA-OVD-004",
+      "name": "Conciliación",
+      "description": "Cruce de recursos económicos con expedientes lógicos.",
+      "order": 4
+    },
+    {
+      "id": "phase-individualizacion",
+      "diagramId": "RAIA-OVD-004",
+      "name": "Individualización",
+      "description": "Dispersión de recursos a las subcuentas correspondientes.",
+      "order": 5
+    }
+  ],
+  "status": "proposed",
+  "confidence": "high",
+  "assumptions": [
+    "PROCESAR unifica el catálogo del IMSS e ISSSTE para dispersión en banco de México."
+  ],
+  "unresolvedQuestions": [
+    "Definir el flujo de aportaciones extraordinarias no deducibles."
+  ],
+  "version": "0.1.0",
+  "createdAt": "2026-07-20T00:00:00Z",
+  "updatedAt": "2026-07-20T00:00:00Z"
+}

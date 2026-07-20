@@ -1,0 +1,11 @@
+[
+  {
+    "id": "GAP-SNP-0001",
+    "gapType": "missing-relation",
+    "title": "Verificación biométrica sin control asociado",
+    "description": "El snippet Verificación biométrica no define un control obligatorio para cotejo en RENAPO.",
+    "severity": "P2",
+    "recommendation": "Asociar control en el Service Domain de Identidad.",
+    "status": "open"
+  }
+]

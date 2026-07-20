@@ -1,0 +1,14 @@
+[
+  {
+    "id": "SLOT-SD-0001",
+    "snippetId": "RAIA-SNP-0001",
+    "slotName": "Resolver Identidad",
+    "description": "Dominio de servicio responsable de normalizar la identidad.",
+    "responsibilityRole": "validator",
+    "requiredCapabilityTypes": ["raia-core"],
+    "requiredOperationTypes": ["validate"],
+    "required": true,
+    "minimumBindings": 1,
+    "maximumBindings": 1
+  }
+]

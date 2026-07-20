@@ -3,6 +3,9 @@ import Link from "next/link";
 import { ArrowLeft, BarChart3, AlertTriangle, ShieldCheck, CheckCircle2, Circle, AlertCircle, LayoutDashboard, Link2, Sparkles, BookOpen } from "lucide-react";
 import { getArchitectureMetrics } from "../../domain/repositories/portalRepository";
 import { getServiceDomains } from "../../domain/repositories/landscapeRepository";
+import { getControlRecords } from "../../domain/repositories/controlRecordRepository";
+import { getCrossModelRelations } from "../../domain/repositories/referenceModelRepository";
+import { getScenarioSnippets, getSnippetInvocations } from "../../domain/repositories/scenarioSnippetRepository";
 
 export const metadata = {
   title: "RAIA Architecture Dashboard",
@@ -11,14 +14,6 @@ export const metadata = {
 
 export default async function DashboardPage() {
   const metrics = getArchitectureMetrics();
-  const sds = getServiceDomains();
-
-  const reviewedCount = sds.filter(sd => sd.regulatoryCoverage === "reviewed").length;
-  const mappedCount = sds.filter(sd => sd.regulatoryCoverage === "mapped").length;
-  const partialCount = sds.filter(sd => sd.regulatoryCoverage === "partial").length;
-  const unmappedCount = sds.filter(sd => sd.regulatoryCoverage === "unmapped" || !sd.regulatoryCoverage).length;
-
-  const coveragePct = sds.length > 0 ? Math.round(((reviewedCount + mappedCount) / sds.length) * 100) : 0;
 
   // Calculate completeness percentage based on active/validated status
   const totalDomains = metrics.serviceDomains;
@@ -34,9 +29,13 @@ export default async function DashboardPage() {
     { id: "service-domains-total", label: "Service Domains", value: metrics.serviceDomains, color: "text-emerald-600 border-emerald-100 bg-emerald-50/50" },
     { id: "relations-total", label: "Relaciones Lógicas", value: metrics.relations, color: "text-indigo-600 border-indigo-100 bg-indigo-50/50" },
     { id: "scenarios-total", label: "Escenarios del SAR", value: metrics.scenarios, color: "text-purple-600 border-purple-100 bg-purple-50/50" },
-    { id: "regulations-total", label: "Regulaciones Mapeadas", value: metrics.regulations, color: "text-amber-600 border-amber-100 bg-amber-50/50" },
+    { id: "regulations-total", label: "Fuentes Regulatorias", value: metrics.sourcesCount, color: "text-amber-600 border-amber-100 bg-amber-50/50" },
     { id: "controls-total", label: "Controles Arquitectónicos", value: metrics.controls, color: "text-pink-600 border-pink-100 bg-pink-50/50" },
-    { id: "business-objects-total", label: "Objetos de Negocio", value: metrics.businessObjects, color: "text-slate-700 border-slate-200 bg-slate-50/50" },
+    { id: "business-objects-total", label: "Objetos de Negocio", value: metrics.businessObjects, color: "text-slate-705 border-slate-200 bg-slate-50/50" },
+    { id: "control-records-total", label: "Control Records", value: getControlRecords().length, color: "text-sky-600 border-sky-100 bg-sky-50/50" },
+    { id: "cross-model-relations-total", label: "Relaciones de Trazabilidad", value: getCrossModelRelations().length, color: "text-orange-600 border-orange-100 bg-orange-50/50" },
+    { id: "scenario-snippets-total", label: "Scenario Snippets", value: getScenarioSnippets().length, color: "text-teal-600 border-teal-100 bg-teal-50/50" },
+    { id: "snippet-invocations-total", label: "Invocaciones de Snippets", value: getSnippetInvocations().length, color: "text-violet-600 border-violet-100 bg-violet-50/50" },
   ];
 
   return (
@@ -62,7 +61,7 @@ export default async function DashboardPage() {
                 RAIA Architecture Dashboard
               </h1>
               <p className="text-[10px] text-slate-400 font-semibold uppercase tracking-wider mt-0.5">
-                Vigencia del Baseline Regulatorio: {metrics.lastUpdatedAt} &bull; Último Análisis: {metrics.lastUpdatedAt}
+                Vigencia del Baseline Regulatorio: {metrics.lastUpdatedAt} &bull; Baseline Versión: {metrics.baselineVersion}
               </p>
             </div>
           </div>
@@ -105,7 +104,7 @@ export default async function DashboardPage() {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           {/* Status Distribution */}
           <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm flex flex-col justify-between">
             <div>
@@ -142,60 +141,25 @@ export default async function DashboardPage() {
             </div>
           </div>
 
-          {/* Maturity Level */}
-          <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm flex flex-col justify-between">
-            <div>
-              <h3 className="text-xs font-extrabold text-slate-400 uppercase tracking-wider border-b border-slate-100 pb-2">
-                Madurez de los Dominios
-              </h3>
-              <div className="mt-4 space-y-3">
-                {[
-                  { label: "Adopted (Adoptado)", count: metrics.byMaturity.adopted || 0, color: "bg-indigo-600" },
-                  { label: "Validated (Validado)", count: metrics.byMaturity.validated || 0, color: "bg-teal-500" },
-                  { label: "Defined (Definido)", count: metrics.byMaturity.defined || 0, color: "bg-blue-400" },
-                  { label: "Conceptual (Borrador)", count: metrics.byMaturity.conceptual || 0, color: "bg-slate-300" },
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-center justify-between text-xs font-medium">
-                    <div className="flex items-center gap-2 text-slate-600">
-                      <div className={`w-2.5 h-2.5 rounded-sm ${item.color}`} />
-                      {item.label}
-                    </div>
-                    <span className="text-slate-800 font-bold">{item.count}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="mt-6 pt-4 border-t border-slate-100">
-              <div className="flex items-center justify-between text-xs font-semibold text-slate-500 mb-1.5">
-                <span>Completitud de Atributos</span>
-                <span className="text-slate-700 font-extrabold">{fieldCompleteness}%</span>
-              </div>
-              <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
-                <div className="bg-indigo-600 h-full" style={{ width: `${fieldCompleteness}%` }}></div>
-              </div>
-            </div>
-          </div>
-
           {/* Cobertura Regulatoria Card */}
           <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm flex flex-col justify-between">
             <div>
               <h3 className="text-xs font-extrabold text-slate-400 uppercase tracking-wider border-b border-slate-100 pb-2">
-                Cobertura Regulatoria
+                Mapeo Regulatorio
               </h3>
-              <div className="mt-4 space-y-3">
+              <div className="mt-4 space-y-2.5">
                 {[
-                  { label: "Validado (Verde)", count: reviewedCount, color: "bg-green-500" },
-                  { label: "Mapeado (Azul)", count: mappedCount, color: "bg-blue-500" },
-                  { label: "Parcial (Ámbar)", count: partialCount, color: "bg-amber-500" },
-                  { label: "Sin Mapeo (Rojo)", count: unmappedCount, color: "bg-red-500" },
+                  { label: "Fuentes Regulatorias", count: metrics.sourcesCount, color: "text-slate-600 font-medium" },
+                  { label: "Mapeos Regulatorios", count: metrics.mappingsCount, color: "text-slate-600 font-medium" },
+                  { label: "Service Domains Mapeados", count: metrics.mappedSdsCount, color: "text-slate-600 font-medium" },
+                  { label: "Service Domains Revisados", count: metrics.reviewedSdsCount, color: "text-slate-600 font-medium" },
+                  { label: "Fuentes Pendientes", count: metrics.pendingSourcesCount, color: "text-amber-600 font-semibold" },
+                  { label: "Fuentes Superadas", count: metrics.supersededSourcesCount, color: "text-slate-500 font-medium" },
+                  { label: "Mapeos Pendientes", count: metrics.pendingMappingsCount, color: "text-amber-600 font-semibold" },
                 ].map((item, idx) => (
-                  <div key={idx} className="flex items-center justify-between text-xs font-medium">
-                    <div className="flex items-center gap-2 text-slate-600">
-                      <div className={`w-2.5 h-2.5 rounded-full ${item.color}`} />
-                      {item.label}
-                    </div>
-                    <span className="text-slate-800 font-bold">{item.count}</span>
+                  <div key={idx} className="flex items-center justify-between text-xs">
+                    <span className={item.color}>{item.label}</span>
+                    <span className="text-slate-850 font-bold">{item.count}</span>
                   </div>
                 ))}
               </div>
@@ -203,11 +167,11 @@ export default async function DashboardPage() {
 
             <div className="mt-6 pt-4 border-t border-slate-100">
               <div className="flex items-center justify-between text-xs font-semibold text-slate-500 mb-1.5">
-                <span>Porcentaje de Cobertura</span>
-                <span className="text-slate-700 font-extrabold">{coveragePct}%</span>
+                <span>Cobertura Regulatoria</span>
+                <span className="text-slate-700 font-extrabold">{metrics.mappingCoveragePct}%</span>
               </div>
               <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
-                <div className="bg-sky-500 h-full" style={{ width: `${coveragePct}%` }}></div>
+                <div className="bg-sky-500 h-full" style={{ width: `${metrics.mappingCoveragePct}%` }}></div>
               </div>
             </div>
           </div>

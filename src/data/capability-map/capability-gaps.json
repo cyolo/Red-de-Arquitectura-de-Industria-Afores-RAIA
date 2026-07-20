@@ -1,0 +1,12 @@
+[
+  {
+    "id": "RAIA-CAPGAP-0001",
+    "gapType": "capability-without-realization",
+    "capabilityId": "RAIA-CAP-013-0002",
+    "title": "Observabilidad de infraestructura híbrida sin Service Domain",
+    "description": "No se identificó un Service Domain específico que realice la capacidad de Observabilidad.",
+    "severity": "P2",
+    "recommendation": "Evaluar creación de Service Domain Gestión de Telemetría.",
+    "status": "open"
+  }
+]

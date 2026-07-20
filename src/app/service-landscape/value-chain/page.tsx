@@ -3,6 +3,7 @@
 import React, { useMemo, useState, useEffect, Suspense, useRef } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
+import { z } from "zod";
 import { 
   Network, Layers, ShieldCheck, Grid, Eye, List, Search, HelpCircle, 
   X, ChevronDown, ChevronRight, Filter, ArrowRight, Shield, RefreshCw 
@@ -81,16 +82,35 @@ function ValueChainContent() {
   // Sync state from URL
   useEffect(() => {
     if (!isInitializedRef.current) {
-      const area = searchParams.get("area") || undefined;
-      const domain = searchParams.get("domain") || undefined;
-      const actor = searchParams.get("actor") || undefined;
-      const status = searchParams.get("status") || undefined;
-      const maturity = searchParams.get("maturity") || undefined;
-      const layer = searchParams.get("layer") || undefined;
-      const coverage = searchParams.get("coverage") || undefined;
-      const criticality = searchParams.get("criticality") || undefined;
-      const regime = searchParams.get("regime") || undefined;
-      const search = searchParams.get("search") || "";
+      const areaVal = searchParams.get("area");
+      const area = z.string().regex(/^RAIA-BA-\d{3}$/).safeParse(areaVal).data || undefined;
+
+      const domainVal = searchParams.get("domain");
+      const domain = z.string().regex(/^RAIA-BD-\d{3}$/).safeParse(domainVal).data || undefined;
+
+      const actorVal = searchParams.get("actor");
+      const actor = z.string().max(50).regex(/^[a-zA-Z0-9\-\s]*$/).safeParse(actorVal).data || undefined;
+
+      const statusVal = searchParams.get("status");
+      const status = z.enum(["draft", "proposed", "validated", "active", "deprecated"]).safeParse(statusVal).data || undefined;
+
+      const maturityVal = searchParams.get("maturity");
+      const maturity = z.enum(["conceptual", "defined", "validated", "adopted"]).safeParse(maturityVal).data || undefined;
+
+      const layerVal = searchParams.get("layer");
+      const layer = z.enum(["sector-governance", "industry-value-stream", "industry-shared-service", "enterprise-enabler"]).safeParse(layerVal).data || undefined;
+
+      const coverageVal = searchParams.get("coverage");
+      const coverage = z.enum(["reviewed", "partial", "unmapped", "not-applicable"]).safeParse(coverageVal).data || undefined;
+
+      const criticalityVal = searchParams.get("criticality");
+      const criticality = z.enum(["low", "medium", "high", "systemic"]).safeParse(criticalityVal).data || undefined;
+
+      const regimeVal = searchParams.get("regime");
+      const regime = z.string().max(20).regex(/^[a-zA-Z0-9\-\s]*$/).safeParse(regimeVal).data || undefined;
+
+      const searchVal = searchParams.get("search");
+      const search = z.string().max(100).regex(/^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑüÜ\-\s]*$/).safeParse(searchVal).data || "";
 
       setFilters({ area, domain, actor, status, maturity, layer, coverage, criticality, regime });
       if (search) setSearchQuery(search);
@@ -100,7 +120,8 @@ function ValueChainContent() {
   }, [searchParams, setFilters, setSearchQuery]);
 
   // Sync selectedId reactively
-  const urlSelectedId = searchParams.get("selected") || null;
+  const rawSelectedId = searchParams.get("selected");
+  const urlSelectedId = z.string().regex(/^RAIA-SD-\d{3}$/).safeParse(rawSelectedId).data || null;
   useEffect(() => {
     setSelectedId(urlSelectedId);
   }, [urlSelectedId, setSelectedId]);
@@ -146,7 +167,7 @@ function ValueChainContent() {
 
   // View mode resolution
   const viewParam = searchParams.get("view");
-  const viewMode = (viewParam === "overview" || viewParam === "matrix" || viewParam === "cobertura") ? viewParam : "explorer";
+  const viewMode = z.enum(["explorer", "overview", "matrix", "cobertura"]).safeParse(viewParam).data || "explorer";
 
   const setViewMode = (mode: "explorer" | "overview" | "matrix" | "cobertura") => {
     const params = new URLSearchParams(searchParams.toString());
@@ -317,6 +338,21 @@ function ValueChainContent() {
     if (activeFilters.regime) count++;
     return count;
   }, [activeFilters]);
+
+  const getMatrixAdvancedUrl = () => {
+    const params = new URLSearchParams();
+    if (activeFilters.area) params.set("area", activeFilters.area);
+    if (activeFilters.domain) params.set("domain", activeFilters.domain);
+    if (activeFilters.actor) params.set("actor", activeFilters.actor);
+    if (activeFilters.status) params.set("status", activeFilters.status);
+    if (activeFilters.maturity) params.set("maturity", activeFilters.maturity);
+    if (activeFilters.layer) params.set("layer", activeFilters.layer);
+    if (activeFilters.coverage) params.set("coverage", activeFilters.coverage);
+    if (activeFilters.criticality) params.set("criticality", activeFilters.criticality);
+    if (activeFilters.regime) params.set("regime", activeFilters.regime);
+    if (searchQuery) params.set("search", searchQuery);
+    return `/service-landscape/matrix?${params.toString()}`;
+  };
 
   // Render Business Area structure
   const renderBusinessArea = (areaId: string, forceVisible: boolean = false) => {
@@ -994,6 +1030,14 @@ function ValueChainContent() {
                     Utiliza las cabeceras para ordenar o los filtros del panel superior para aislar componentes de la arquitectura.
                   </p>
                 </div>
+                
+                <Link
+                  href={getMatrixAdvancedUrl()}
+                  data-testid="open-advanced-matrix-button"
+                  className="px-3 py-1.5 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs rounded-lg transition-colors flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 shadow-sm cursor-pointer animate-pulse"
+                >
+                  Abrir análisis matricial avanzado
+                </Link>
               </div>
 
               {/* Responsive table container */}

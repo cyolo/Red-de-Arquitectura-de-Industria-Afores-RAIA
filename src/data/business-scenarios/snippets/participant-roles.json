@@ -1,0 +1,24 @@
+[
+  {
+    "id": "ROL-PART-0001",
+    "snippetId": "RAIA-SNP-0001",
+    "roleName": "requester",
+    "description": "Trabajador u operador que solicita la resolución.",
+    "roleType": "requester",
+    "allowedParticipantTypeIds": ["ACT-TRABAJADOR", "ACT-AFORE"],
+    "required": true,
+    "minimumBindings": 1,
+    "maximumBindings": 1
+  },
+  {
+    "id": "ROL-PART-0002",
+    "snippetId": "RAIA-SNP-0001",
+    "roleName": "authority",
+    "description": "RENAPO / CONSAR como entidad validadora.",
+    "roleType": "authority",
+    "allowedParticipantTypeIds": ["ACT-CONSAR"],
+    "required": true,
+    "minimumBindings": 1,
+    "maximumBindings": 1
+  }
+]

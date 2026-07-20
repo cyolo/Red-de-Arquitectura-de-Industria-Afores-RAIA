@@ -1,0 +1,194 @@
+{
+  "id": "RAIA-OVD-001",
+  "slug": "ecosistema-sar",
+  "nameEs": "Ecosistema del Sistema de Ahorro para el Retiro",
+  "description": "Visión macro de los participantes, capacidades principales y servicios compartidos en el SAR.",
+  "purpose": "Mostrar las organizaciones principales, las grandes capacidades y los servicios compartidos de industria.",
+  "level": "industry",
+  "theme": "industry-ecosystem",
+  "orientation": "left-to-right",
+  "nodes": [
+    {
+      "id": "node-worker",
+      "diagramId": "RAIA-OVD-001",
+      "nodeType": "actor",
+      "referenceId": "ACT-WORKER",
+      "label": "Trabajador Titular",
+      "description": "Dueño legítimo de los fondos de ahorro para el retiro.",
+      "status": "normal",
+      "groupId": "group-participants"
+    },
+    {
+      "id": "node-employer",
+      "diagramId": "RAIA-OVD-001",
+      "nodeType": "actor",
+      "referenceId": "ACT-EMPLOYER",
+      "label": "Patrón / Empleador",
+      "description": "Sujeto obligado a realizar las aportaciones tripartitas de ley.",
+      "status": "normal",
+      "groupId": "group-participants"
+    },
+    {
+      "id": "node-afore",
+      "diagramId": "RAIA-OVD-001",
+      "nodeType": "organization",
+      "referenceId": "ACT-AFORE",
+      "label": "AFORE",
+      "description": "Administradora de Fondos para el Retiro privada encargada de resguardar e invertir recursos.",
+      "status": "normal",
+      "groupId": "group-participants"
+    },
+    {
+      "id": "node-procesar",
+      "diagramId": "RAIA-OVD-001",
+      "nodeType": "industry-service",
+      "referenceId": "ACT-OPERATOR",
+      "label": "Empresa Operadora PROCESAR",
+      "description": "Operadora de la Base de Datos Nacional SAR (BDNSAR).",
+      "status": "normal",
+      "groupId": "group-services"
+    },
+    {
+      "id": "node-consar",
+      "diagramId": "RAIA-OVD-001",
+      "nodeType": "authority",
+      "referenceId": "ACT-CONSAR",
+      "label": "CONSAR",
+      "description": "Comisión reguladora y supervisora del SAR.",
+      "status": "normal",
+      "groupId": "group-authorities"
+    },
+    {
+      "id": "node-imss",
+      "diagramId": "RAIA-OVD-001",
+      "nodeType": "authority",
+      "referenceId": "ACT-IMSS",
+      "label": "IMSS",
+      "description": "Instituto Mexicano del Seguro Social.",
+      "status": "normal",
+      "groupId": "group-authorities"
+    },
+    {
+      "id": "node-issste",
+      "diagramId": "RAIA-OVD-001",
+      "nodeType": "authority",
+      "referenceId": "ACT-ISSSTE",
+      "label": "ISSSTE",
+      "description": "Instituto de Seguridad y Servicios Sociales de los Trabajadores del Estado.",
+      "status": "normal",
+      "groupId": "group-authorities"
+    },
+    {
+      "id": "node-sd-afiliacion",
+      "diagramId": "RAIA-OVD-001",
+      "nodeType": "service-domain",
+      "referenceId": "RAIA-SD-020",
+      "label": "Registro de Cuenta",
+      "description": "Servicio de alta y control primario de la cuenta individual.",
+      "status": "normal"
+    },
+    {
+      "id": "node-sd-inversion",
+      "diagramId": "RAIA-OVD-001",
+      "nodeType": "service-domain",
+      "referenceId": "RAIA-SD-045",
+      "label": "Administración de Inversión",
+      "description": "Servicio de gestión de portafolios y asignación en SIEFORE.",
+      "status": "normal"
+    },
+    {
+      "id": "node-sd-retiros",
+      "diagramId": "RAIA-OVD-001",
+      "nodeType": "service-domain",
+      "referenceId": "RAIA-SD-090",
+      "label": "Tramitación de Retiros",
+      "description": "Operación de retiros totales o parciales por desempleo o matrimonio.",
+      "status": "normal"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-ovd001-01",
+      "diagramId": "RAIA-OVD-001",
+      "sourceNodeId": "node-worker",
+      "targetNodeId": "node-sd-afiliacion",
+      "edgeType": "value-flow",
+      "description": "Solicita registro de cuenta y resguardo de identidad.",
+      "businessObjectIds": ["bo-expediente"],
+      "businessEventIds": [],
+      "regulatoryMappingIds": [],
+      "status": "proposed"
+    },
+    {
+      "id": "edge-ovd001-02",
+      "diagramId": "RAIA-OVD-001",
+      "sourceNodeId": "node-employer",
+      "targetNodeId": "node-procesar",
+      "edgeType": "information-flow",
+      "description": "Transfiere recaudación bimestral obligatoria para dispersar.",
+      "businessObjectIds": [],
+      "businessEventIds": [],
+      "regulatoryMappingIds": [],
+      "status": "proposed"
+    },
+    {
+      "id": "edge-ovd001-03",
+      "diagramId": "RAIA-OVD-001",
+      "sourceNodeId": "node-consar",
+      "targetNodeId": "node-afore",
+      "edgeType": "supervision",
+      "description": "Supervisa cumplimiento operativo y comisiones vigentes.",
+      "businessObjectIds": [],
+      "businessEventIds": [],
+      "regulatoryMappingIds": [],
+      "status": "proposed"
+    },
+    {
+      "id": "edge-ovd001-04",
+      "diagramId": "RAIA-OVD-001",
+      "sourceNodeId": "node-procesar",
+      "targetNodeId": "node-sd-afiliacion",
+      "edgeType": "validation",
+      "description": "Valida CURP y datos en BDNSAR contra registros del IMSS.",
+      "businessObjectIds": [],
+      "businessEventIds": [],
+      "regulatoryMappingIds": [],
+      "status": "proposed"
+    }
+  ],
+  "groups": [
+    {
+      "id": "group-participants",
+      "diagramId": "RAIA-OVD-001",
+      "groupType": "participant",
+      "label": "Participantes del SAR",
+      "order": 1
+    },
+    {
+      "id": "group-services",
+      "diagramId": "RAIA-OVD-001",
+      "groupType": "landscape-layer",
+      "label": "Servicios de Industria",
+      "order": 2
+    },
+    {
+      "id": "group-authorities",
+      "diagramId": "RAIA-OVD-001",
+      "groupType": "business-area",
+      "label": "Institutos y Autoridades",
+      "order": 3
+    }
+  ],
+  "phases": [],
+  "status": "proposed",
+  "confidence": "high",
+  "assumptions": [
+    "La BDNSAR operada por PROCESAR es la base de datos central de referencia."
+  ],
+  "unresolvedQuestions": [
+    "Definir el flujo de datos exacto de unificación con el Fondo de Pensiones para el Bienestar."
+  ],
+  "version": "0.1.0",
+  "createdAt": "2026-07-20T00:00:00Z",
+  "updatedAt": "2026-07-20T00:00:00Z"
+}

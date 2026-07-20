@@ -1,2250 +1,1974 @@
-## Diagnóstico del Service Landscape
+# RAIA — EJECUCIÓN INTEGRAL DE ESPECIFICACIONES GHERKIN, EVIDENCIA VISUAL Y REPORTE DE AUDITORÍA
 
-La estructura funcional de RAIA es amplia —11 Business Areas, 34 Business Domains y 273 Service Domains—, pero su trazabilidad regulatoria todavía es preliminar. El catálogo central contiene únicamente tres referencias: LSAR, CUO y una entrada denominada “Circular Única de Sistemas Financieros en materia de Ciberseguridad”; la CUO permanece pendiente de validación y la referencia de ciberseguridad está marcada como oficial sin URL ni artículo verificable.
+## 1. Rol
 
-El metamodelo regulatorio actual tampoco permite demostrar vigencia: `articleOrSection` y `url` son opcionales y no existen campos para fecha de publicación, última reforma, entrada en vigor, derogación, aplicabilidad por régimen, interpretación, obligación afectada ni revisor jurídico. Además, cada Service Domain incorpora objetos regulatorios completos en lugar de referencias a un catálogo canónico.
+Actúa como un equipo senior compuesto por:
 
-El validador solo genera una advertencia cuando un Service Domain apunta a una regulación inexistente; no bloquea el build, no valida artículos, vigencia, URLs oficiales ni cobertura mínima.  El propio release describe el catálogo regulatorio como preliminar y registra únicamente 41 relaciones para 273 Service Domains. Varias relaciones se limitan a etiquetas como “Siguiente paso”, lo cual representa una secuencia operativa, no una dependencia arquitectónica estable.
+- QA Lead;
+- SDET senior;
+- especialista en Behavior-Driven Development;
+- especialista en Cucumber y Gherkin;
+- especialista en Playwright;
+- arquitecto de software;
+- arquitecto empresarial;
+- especialista en pruebas de integración;
+- especialista en accesibilidad WCAG 2.2 AA;
+- especialista en seguridad de aplicaciones web;
+- especialista en trazabilidad de arquitectura;
+- especialista en generación de evidencia auditable.
 
-La línea base también debe actualizarse contra cambios recientes: la LSAR reporta reforma al 14 de noviembre de 2025; la LSS y la LISSSTE al 15 de enero de 2026; el Reglamento de la LSAR tuvo reforma el 27 de septiembre de 2024; y la legislación de protección de datos personales fue sustituida en marzo de 2025 y reformada en noviembre del mismo año. ([Cámara de Diputados][1])
+Tu responsabilidad es implementar el harness de automatización necesario, ejecutar todas las especificaciones Gherkin existentes para los módulos de RAIA y entregar evidencia completa, reproducible y honesta.
 
-Las modificaciones operativas de CONSAR incorporan temas que deben quedar explícitos en el Landscape: ciberseguridad, geolocalización, autenticación, riesgo documental, notificaciones automatizadas y accesibilidad para personas vulnerables. Las disposiciones financieras agregan continuidad de negocio, recuperación de desastres, inversión sostenible, gobernanza, conflictos de interés y controles sobre activos alternativos. ([Diario Oficial de la Federación][2])
+No debes limitarte a validar la sintaxis de los archivos `.feature`.
 
-Copia íntegramente este prompt en Antigravity:
+Debes:
 
-````markdown
-# PROMPT MAESTRO PARA ANTIGRAVITY IA
+1. analizar cada escenario;
+2. determinar si es automatizable;
+3. implementar los step definitions necesarios;
+4. ejecutar todos los escenarios automatizables;
+5. clasificar los escenarios no automatizables o no implementados;
+6. capturar screenshots;
+7. conservar logs, traces y resultados;
+8. generar reportes por módulo;
+9. generar un reporte ejecutivo consolidado;
+10. publicar todo en el branch `dev-001`.
 
-# REMEDIACIÓN REGULATORIA, SEMÁNTICA Y ARQUITECTÓNICA
-# DEL RAIA SERVICE LANDSCAPE
+---
 
-## 1. Objetivo
+# 2. Repositorio y branch obligatorio
 
-Analiza y actualiza integralmente el módulo:
-
-# Service Landscape de RAIA
-
-Repositorio:
+Trabaja exclusivamente sobre:
 
 ```text
+Repositorio:
 https://github.com/cyolo/Red-de-Arquitectura-de-Industria-Afores-RAIA
-````
 
 Branch:
-
-```text
 dev-001
 ```
 
-Archivos principales:
+No trabajes sobre `main`.
 
-```text
-src/data/raia-landscape-0.1.0.json
-src/data/relations-0.1.0.json
-src/data/regulations-0.1.0.json
-src/domain/schemas/index.ts
-src/domain/types/
-src/domain/repositories/landscapeRepository.ts
-src/app/service-landscape/value-chain/page.tsx
-src/components/layout/DetailSidebar.tsx
-src/app/service-domains/[slug]/page.tsx
-src/app/dashboard/page.tsx
-scripts/validateData.js
-src/data/releases.json
+No crees otro branch.
+
+No realices merge.
+
+No uses `git push --force`.
+
+No elimines cambios preexistentes.
+
+---
+
+# 3. Preparación segura
+
+Antes de modificar o ejecutar:
+
+```bash
+git status --short
+git fetch origin
+git checkout dev-001
+git pull --ff-only origin dev-001
+git rev-parse HEAD
+node --version
+npm --version
 ```
 
-El objetivo es comparar los 11 Business Areas, 34 Business Domains y 273 Service Domains contra la regulación vigente aplicable al Sistema de Ahorro para el Retiro de México.
-
-La entrega deberá:
-
-1. identificar vacíos regulatorios;
-2. corregir responsabilidades mal clasificadas;
-3. detectar Service Domains duplicados o excesivamente amplios;
-4. distinguir actores, autoridades, organizaciones, objetos y servicios;
-5. incorporar capacidades regulatorias faltantes;
-6. mejorar la trazabilidad entre regulación, operaciones, controles y evidencias;
-7. reconstruir relaciones arquitectónicas insuficientes;
-8. actualizar esquemas, repositorios y validadores;
-9. incorporar visualización de cobertura regulatoria;
-10. generar una auditoría reproducible.
-
-No consideres a RAIA una norma oficial.
-
-RAIA debe presentarse como:
+Registra:
 
 ```text
-Arquitectura de referencia propuesta
+BASE_COMMIT_SHA
+fecha y hora
+sistema operativo
+versión de Node
+versión de npm
+versión de Playwright
+versión de Cucumber
+estado inicial del workspace
 ```
 
-No como:
+Si existen cambios locales:
+
+1. no los elimines;
+2. no ejecutes `git reset --hard`;
+3. registra los archivos;
+4. evita sobrescribirlos;
+5. indica el riesgo en el reporte.
+
+---
+
+# 4. Archivos Gherkin que deben existir
+
+Verifica que existan exactamente estos archivos:
 
 ```text
-estándar oficial
-modelo obligatorio
-interpretación jurídica definitiva
+tests/gherkin/modules/01-information-architecture.feature
+tests/gherkin/modules/02-control-record-model.feature
+tests/gherkin/modules/03-business-object-model.feature
+tests/gherkin/modules/04-industry-reference-model.feature
+tests/gherkin/modules/05-service-landscape-value-chain.feature
+tests/gherkin/modules/06-service-landscape-matrix.feature
+tests/gherkin/modules/07-service-landscape-overview-diagrams.feature
+tests/gherkin/modules/08-business-scenarios.feature
+tests/gherkin/modules/09-scenario-snippets.feature
+tests/gherkin/modules/10-business-capability-map.feature
+tests/gherkin/modules/11-capability-views.feature
+tests/gherkin/modules/12-metamodel-overview.feature
+tests/gherkin/modules/13-wireframes-overview.feature
+tests/gherkin/modules/14-architecture-dashboard.feature
+tests/gherkin/modules/15-regulatory-architecture.feature
+tests/gherkin/modules/16-raia-releases.feature
+tests/gherkin/modules/17-contribution-governance.feature
+```
+
+Si falta alguno:
+
+- no lo ocultes;
+- registra el módulo como `MISSING_FEATURE`;
+- declara `NO-GO`;
+- no inventes que fue ejecutado.
+
+Puedes corregir errores sintácticos menores de Gherkin, pero cualquier modificación debe quedar registrada en:
+
+```text
+docs/testing/gherkin-execution/<RUN_ID>/gherkin-change-log.md
+```
+
+No cambies el significado funcional de un escenario para hacerlo pasar.
+
+---
+
+# 5. Definición de “ejecutar todo”
+
+Todos los escenarios deberán terminar con una clasificación explícita.
+
+Estados permitidos:
+
+```text
+PASSED
+FAILED
+BLOCKED_NOT_IMPLEMENTED
+BLOCKED_MISSING_DEPENDENCY
+BLOCKED_AUTOMATION
+MANUAL_PENDING
+SKIPPED_BY_PRECONDITION
+INVALID_GHERKIN
+```
+
+No deberá quedar ningún escenario sin disposición.
+
+## PASSED
+
+El comportamiento esperado fue ejecutado y comprobado mediante assertions reales.
+
+## FAILED
+
+El comportamiento está implementado o debería estar disponible, pero el resultado observado no coincide con el esperado.
+
+## BLOCKED_NOT_IMPLEMENTED
+
+El escenario corresponde a un contrato objetivo o gap y la funcionalidad aún no existe.
+
+## BLOCKED_MISSING_DEPENDENCY
+
+La prueba no pudo ejecutarse por falta de módulo, catálogo, dato, servicio o dependencia.
+
+## BLOCKED_AUTOMATION
+
+Existe funcionalidad, pero no puede automatizarse de forma confiable con la infraestructura disponible.
+
+Debe explicarse la razón concreta.
+
+## MANUAL_PENDING
+
+El escenario necesita revisión humana, jurídica, operativa o editorial.
+
+## SKIPPED_BY_PRECONDITION
+
+La precondición declarada no se cumple.
+
+## INVALID_GHERKIN
+
+El escenario no puede ser interpretado por el parser.
+
+No conviertas escenarios bloqueados en `PASSED`.
+
+No excluyas los escenarios `@gap` del reporte.
+
+No reportes 100 % de aprobación si existen escenarios bloqueados o manuales.
+
+---
+
+# 6. Interpretación de tags
+
+Respeta los tags existentes.
+
+## `@as_is`
+
+Debe ejecutarse contra el comportamiento actual.
+
+Si falla, clasificar como:
+
+```text
+FAILED
+```
+
+## `@target_contract`
+
+Ejecutar cuando el comportamiento exista.
+
+Cuando todavía no exista:
+
+```text
+BLOCKED_NOT_IMPLEMENTED
+```
+
+## `@gap`
+
+Registrar como:
+
+```text
+BLOCKED_NOT_IMPLEMENTED
+```
+
+salvo que el gap ya haya sido corregido y pueda comprobarse.
+
+## `@manual_review`
+
+Registrar como:
+
+```text
+MANUAL_PENDING
+```
+
+Generar checklist y evidencia disponible.
+
+## `@accessibility`
+
+Ejecutar validaciones automáticas y pruebas de teclado.
+
+## `@security`
+
+Ejecutar únicamente pruebas seguras y no destructivas.
+
+## `@performance`
+
+Medir resultados reales.
+
+No inventar tiempos.
+
+## `@responsive`
+
+Ejecutar en los viewports definidos.
+
+---
+
+# 7. Prohibiciones absolutas
+
+Está prohibido:
+
+- modificar funcionalidad productiva para hacer pasar pruebas;
+- agregar DOM oculto para satisfacer conteos;
+- agregar datos ficticios a catálogos productivos;
+- usar assertions vacías;
+- usar `expect(true).toBe(true)`;
+- capturar errores y continuar como si hubiera pasado;
+- usar steps genéricos que acepten cualquier texto;
+- implementar `Then` sin comprobación;
+- marcar como pass un escenario no ejecutado;
+- ocultar fallos de consola;
+- ocultar referencias rotas;
+- editar screenshots;
+- reutilizar una captura como evidencia de varios escenarios diferentes;
+- inventar resultados regulatorios;
+- inventar revisiones jurídicas;
+- inventar tiempos de rendimiento;
+- borrar resultados anteriores;
+- eliminar pruebas existentes;
+- desactivar validadores para obtener verde.
+
+---
+
+# 8. Infraestructura de automatización
+
+Usa preferentemente:
+
+```text
+@cucumber/cucumber
+Playwright
+TypeScript
+Cucumber HTML Formatter
+JUnit XML
+JSON
+```
+
+Reutiliza las dependencias existentes cuando sea posible.
+
+Agrega únicamente dependencias de desarrollo.
+
+No agregues dependencias de runtime a la aplicación.
+
+Crear una estructura similar a:
+
+```text
+tests/gherkin/
+├── modules/
+├── step-definitions/
+│   ├── common.steps.ts
+│   ├── navigation.steps.ts
+│   ├── accessibility.steps.ts
+│   ├── security.steps.ts
+│   ├── information-architecture.steps.ts
+│   ├── control-record-model.steps.ts
+│   ├── business-object-model.steps.ts
+│   ├── industry-reference-model.steps.ts
+│   ├── service-landscape-value-chain.steps.ts
+│   ├── service-landscape-matrix.steps.ts
+│   ├── overview-diagrams.steps.ts
+│   ├── business-scenarios.steps.ts
+│   ├── scenario-snippets.steps.ts
+│   ├── capability-map.steps.ts
+│   ├── capability-views.steps.ts
+│   ├── metamodel.steps.ts
+│   ├── wireframes.steps.ts
+│   ├── dashboard.steps.ts
+│   ├── regulatory-architecture.steps.ts
+│   ├── releases.steps.ts
+│   └── contribution-governance.steps.ts
+├── support/
+│   ├── world.ts
+│   ├── hooks.ts
+│   ├── browser.ts
+│   ├── evidence.ts
+│   ├── classification.ts
+│   ├── console-monitor.ts
+│   ├── network-monitor.ts
+│   └── test-context.ts
+├── fixtures/
+├── helpers/
+└── cucumber.config.*
+```
+
+Crear también:
+
+```text
+scripts/runGherkinSuite.mjs
+scripts/generateGherkinExecutionReport.mjs
+scripts/captureGherkinReportScreenshots.mjs
+scripts/validateGherkinEvidence.mjs
 ```
 
 ---
 
-# 2. Principio rector
+# 9. Calidad de los step definitions
 
-La cadena de trazabilidad obligatoria será:
+Los step definitions deberán:
+
+- utilizar assertions reales;
+- localizar elementos por roles accesibles;
+- utilizar labels y nombres visibles;
+- utilizar IDs arquitectónicos reales;
+- comprobar URL;
+- comprobar datos;
+- comprobar conteos;
+- comprobar estados;
+- comprobar navegación;
+- comprobar relaciones;
+- comprobar ausencia de errores;
+- ser reutilizables sin convertirse en catch-all.
+
+Prioridad de selectores:
 
 ```text
-Fuente oficial vigente
-→ disposición o artículo
-→ obligación o facultad
-→ participante obligado
-→ responsabilidad arquitectónica
-→ Service Domain
-→ Service Operation
-→ Business Object
-→ Control
-→ Evidencia
-→ KPI
+getByRole
+getByLabel
+getByPlaceholder
+getByText
+IDs arquitectónicos visibles
+selectores semánticos estables
 ```
 
-No será suficiente asociar una ley completa a un Service Domain.
+Evitar:
 
-Cada mapeo deberá explicar:
+```text
+nth()
+índices de array
+selectores CSS dependientes de layout
+XPath frágil
+```
 
-* qué obligación o facultad se interpreta;
-* a quién aplica;
-* bajo qué régimen;
-* qué responsabilidad arquitectónica produce;
-* qué operación del Service Domain resulta afectada;
-* qué control debe existir;
-* qué evidencia debe conservarse.
+No agregar `data-testid` al código productivo durante esta ejecución.
+
+Cuando la interfaz no pueda automatizarse con semántica accesible, registra:
+
+```text
+BLOCKED_AUTOMATION
+```
+
+y crea un defecto de accesibilidad o testabilidad.
 
 ---
 
-# 3. Fuentes oficiales que deben verificarse
+# 10. Servidor de prueba
 
-Consulta únicamente fuentes oficiales y vigentes:
+Ejecuta preferentemente una compilación de producción:
 
-## Legislación primaria
-
-* Constitución Política de los Estados Unidos Mexicanos.
-* Ley de los Sistemas de Ahorro para el Retiro.
-* Reglamento de la Ley de los Sistemas de Ahorro para el Retiro.
-* Ley del Seguro Social.
-* Ley del Instituto de Seguridad y Servicios Sociales de los Trabajadores del Estado.
-* Ley del Instituto del Fondo Nacional de la Vivienda para los Trabajadores.
-* Ley Federal del Trabajo, cuando resulte aplicable.
-* Ley de Protección y Defensa al Usuario de Servicios Financieros.
-* Ley Federal de Protección de Datos Personales en Posesión de los Particulares vigente.
-* Ley General de Protección de Datos Personales en Posesión de Sujetos Obligados vigente.
-* Ley Federal de Presupuesto y Responsabilidad Hacendaria, únicamente para elementos relacionados con el Fondo de Pensiones para el Bienestar.
-
-## Regulación secundaria
-
-* Disposiciones de carácter general en materia de operaciones de los Sistemas de Ahorro para el Retiro.
-* Modificaciones vigentes de las disposiciones operativas.
-* Disposiciones de carácter general en materia financiera de los Sistemas de Ahorro para el Retiro.
-* Disposiciones que establecen el régimen de inversión aplicable a las SIEFORE.
-* Reglas, criterios, anexos y parámetros publicados por CONSAR.
-* Disposiciones sobre información que AFORE, SIEFORE, entidades receptoras y Empresas Operadoras deben entregar a CONSAR.
-* Regulación vigente sobre comisiones.
-* Regulación aplicable a publicidad, promoción y agentes promotores.
-* Criterios contables y de información financiera aplicables.
-* Reglas de operación del Fondo de Pensiones para el Bienestar.
-* Disposiciones vigentes sobre continuidad, recuperación de desastres, seguridad, autenticación, geolocalización, canales digitales y evidencia documental.
-
-## Repositorios oficiales
-
-Consultar:
-
-```text
-Cámara de Diputados
-Diario Oficial de la Federación
-CONSAR / SINOR
-IMSS
-ISSSTE
-INFONAVIT
-FOVISSSTE
-CONDUSEF
-Banco de México
-SHCP
+```bash
+npm ci
+npm run build
+npm run start
 ```
 
-No utilizar blogs, despachos jurídicos o agregadores como fuente primaria.
+Base URL:
+
+```text
+http://127.0.0.1:3000
+```
+
+Configura:
+
+```text
+locale: es-MX
+timezone: America/Mexico_City
+colorScheme: light
+reducedMotion: reduce
+```
+
+No reutilices un servidor desconocido sin verificar:
+
+- commit;
+- puerto;
+- health;
+- versión;
+- contenido servido.
+
+Cuando el repositorio use el `webServer` de Playwright, configura:
+
+```text
+reuseExistingServer: false
+```
+
+para la ejecución auditable.
 
 ---
 
-# 4. Clasificación de los hallazgos
+# 11. Estrategia de navegadores
 
-Clasifica cada hallazgo como:
-
-```text
-ALIGNED
-PARTIALLY_ALIGNED
-MISSING
-MISCLASSIFIED
-DUPLICATED
-OVERLAPPING
-OUTDATED
-UNVERIFIABLE
-NOT_APPLICABLE
-```
-
-Severidades:
+Ejecuta todos los escenarios automatizables al menos una vez en:
 
 ```text
-P0 — Contradicción regulatoria o modelo engañoso
-P1 — Responsabilidad importante ausente o mal clasificada
-P2 — Trazabilidad, semántica o relación insuficiente
-P3 — Nomenclatura, UX o documentación
+Chromium
 ```
 
-Crea:
+Ejecuta en Firefox y WebKit:
 
 ```text
-docs/audits/service-landscape-regulatory-audit.md
+@smoke
+@navigation
+@responsive
+@accessibility
 ```
 
-con:
+No multipliques innecesariamente todos los escenarios por los tres navegadores.
 
-| ID | Área | Dominio | Service Domain | Hallazgo | Clasificación | Severidad | Fuente | Recomendación |
-| -- | ---- | ------- | -------------- | -------- | ------------- | --------- | ------ | ------------- |
+El reporte debe distinguir:
+
+```text
+escenarios únicos
+ejecuciones por navegador
+```
+
+No inflar el número de escenarios sumando reintentos o navegadores.
 
 ---
 
-# 5. Hallazgo P0 — Catálogo regulatorio insuficiente
+# 12. Viewports
 
-El catálogo actual contiene únicamente tres referencias generales y no permite representar la regulación aplicable a todo el Landscape.
+## Desktop principal
 
-## Corrección
+```text
+1440 × 900
+```
 
-Sustituye el modelo actual por un catálogo canónico separado de los mapeos.
+## Desktop amplio para diagramas
+
+```text
+1920 × 1080
+```
+
+## Tablet
+
+```text
+768 × 1024
+```
+
+## Móvil
+
+```text
+390 × 844
+```
+
+Los escenarios `@responsive` deberán ejecutarse en los viewports aplicables.
+
+Los diagramas fullscreen deberán validarse en:
+
+```text
+1920 × 1080
+```
+
+---
+
+# 13. Evidencia visual obligatoria
+
+Todos los escenarios automatizados de interfaz deberán producir evidencia visual.
+
+## Escenario aprobado
+
+Capturar por lo menos:
+
+```text
+01-final-state.jpg
+```
+
+Debe mostrar el resultado final verificable.
+
+## Escenario complejo
+
+Capturar:
+
+```text
+01-initial-state.jpg
+02-action-result.jpg
+03-final-state.jpg
+```
+
+Aplica a:
+
+- diagramas;
+- matrices;
+- filtros;
+- fullscreen;
+- sidebars;
+- drill-down;
+- navegación cross-module;
+- simulaciones;
+- exportaciones;
+- estados y transiciones.
+
+## Escenario fallido
+
+Capturar obligatoriamente:
+
+```text
+01-before-failure.png
+02-failure-state.png
+03-full-page-failure.png
+```
+
+Además:
+
+- Playwright trace;
+- console log;
+- network log;
+- error stack;
+- URL;
+- viewport;
+- navegador;
+- timestamp.
+
+## Escenario bloqueado por funcionalidad inexistente
+
+Cuando exista una pantalla visible de módulo planeado o estado incompleto, captura:
+
+```text
+01-blocked-state.jpg
+```
+
+Debe mostrar la razón visual del bloqueo.
+
+## Escenario manual
+
+Captura la pantalla o documentación disponible cuando aporte evidencia.
+
+No fabriques capturas para revisión jurídica.
+
+---
+
+# 14. Nombres de screenshots
+
+Usa esta convención:
+
+```text
+<SCENARIO_ID>__<MODULE_SLUG>__<CHECKPOINT>__<BROWSER>__<VIEWPORT>.<ext>
+```
+
+Ejemplo:
+
+```text
+RAIA_BS_021__business-scenarios__03-final-state__chromium__1440x900.jpg
+```
+
+No utilices espacios.
+
+No sobrescribas evidencias.
+
+---
+
+# 15. Calidad y tamaño de screenshots
+
+Para escenarios aprobados:
+
+```text
+JPEG
+quality: 85
+```
+
+Para fallos, diagramas con texto pequeño y diferencias visuales:
+
+```text
+PNG
+```
+
+Evita capturas completamente blancas o negras.
+
+Antes de aceptar una captura valida:
+
+- ancho;
+- alto;
+- tamaño mayor que cero;
+- hash;
+- existencia;
+- correspondencia con el escenario.
+
+No capturar:
+
+- contraseñas;
+- tokens;
+- variables de entorno;
+- secretos;
+- datos personales reales;
+- cookies sensibles.
+
+Utiliza únicamente datos sintéticos o públicos del repositorio.
+
+---
+
+# 16. Screenshots de los reportes Gherkin
+
+Después de generar los reportes HTML:
+
+1. levanta el reporte localmente;
+2. ábrelo con Playwright;
+3. captura screenshots legibles.
 
 Crear:
 
 ```text
-src/data/regulatory/
-├── regulatory-sources.json
-├── regulatory-mappings.json
-├── regulatory-authorities.json
-├── regulatory-regimes.json
-├── regulatory-baseline.json
-└── regulatory-gaps.json
+test-results/gherkin-execution/<RUN_ID>/report-screenshots/
 ```
 
-No incrustes copias completas de una regulación dentro de cada Service Domain.
+Capturas obligatorias:
 
-Cada Service Domain deberá referenciar IDs canónicos.
+```text
+00-execution-summary.png
+01-scenario-status-distribution.png
+02-module-coverage.png
+03-failure-summary.png
+04-blocked-scenarios.png
+05-accessibility-summary.png
+06-security-summary.png
+07-cross-module-summary.png
+08-evidence-index.png
+```
+
+Además, una captura por módulo:
+
+```text
+module-01-information-architecture.png
+module-02-control-record-model.png
+module-03-business-object-model.png
+module-04-industry-reference-model.png
+module-05-service-landscape-value-chain.png
+module-06-service-landscape-matrix.png
+module-07-service-landscape-overview-diagrams.png
+module-08-business-scenarios.png
+module-09-scenario-snippets.png
+module-10-business-capability-map.png
+module-11-capability-views.png
+module-12-metamodel-overview.png
+module-13-wireframes-overview.png
+module-14-architecture-dashboard.png
+module-15-regulatory-architecture.png
+module-16-raia-releases.png
+module-17-contribution-governance.png
+```
+
+Las capturas deben mostrar:
+
+- nombre del módulo;
+- total;
+- passed;
+- failed;
+- blocked;
+- manual;
+- duración;
+- enlace o referencia a evidencias.
 
 ---
 
-# 6. Modelo canónico de fuente regulatoria
+# 17. Estructura de resultados
 
-Crear:
+Crear un identificador:
 
-```typescript
-export interface RegulatorySource {
-  id: string;
-
-  officialTitle: string;
-  shortName: string;
-
-  sourceType:
-    | "constitution"
-    | "law"
-    | "regulation"
-    | "general-provision"
-    | "circular"
-    | "operating-rule"
-    | "investment-rule"
-    | "official-criterion"
-    | "technical-annex"
-    | "official-guideline"
-    | "decree";
-
-  issuingAuthorityId: string;
-  jurisdiction: "MX";
-
-  officialIdentifier?: string;
-
-  publicationDate: string;
-  lastReformDate?: string;
-  effectiveFrom: string;
-  effectiveTo?: string;
-
-  officialUrl: string;
-  consultedAt: string;
-
-  status:
-    | "current"
-    | "partially-superseded"
-    | "superseded"
-    | "abrogated"
-    | "pending-verification";
-
-  supersedesIds: string[];
-  supersededByIds: string[];
-
-  applicableRegimeIds: string[];
-  applicableParticipantTypeIds: string[];
-
-  checksum?: string;
-  notes: string[];
-
-  validationStatus:
-    | "pending"
-    | "source-verified"
-    | "legally-reviewed";
-
-  reviewedBy?: string;
-  reviewedAt?: string;
-}
+```text
+RUN_ID = YYYYMMDD-HHMMSS-<SHORT_SHA>
 ```
 
-## Reglas
+Guardar resultados en:
 
-* `officialUrl` será obligatorio.
-* Una fuente no podrá marcarse `source-verified` sin URL oficial.
-* Una fuente no podrá marcarse `legally-reviewed` sin revisor y fecha.
-* Una fuente abrogada no podrá utilizarse como fundamento vigente.
-* Las modificaciones deberán relacionarse con el instrumento consolidado.
-* No usar nombres informales cuando exista título oficial.
-* No usar autoridad combinada como `CONSAR / CNBV` sin demostrar competencia conjunta en el instrumento.
+```text
+test-results/gherkin-execution/<RUN_ID>/
+├── reports/
+│   ├── cucumber-report.html
+│   ├── cucumber-report.json
+│   ├── cucumber-report.ndjson
+│   ├── cucumber-junit.xml
+│   ├── execution-summary.html
+│   └── module-summary.html
+├── screenshots/
+│   ├── 01-information-architecture/
+│   ├── 02-control-record-model/
+│   ├── 03-business-object-model/
+│   ├── 04-industry-reference-model/
+│   ├── 05-service-landscape-value-chain/
+│   ├── 06-service-landscape-matrix/
+│   ├── 07-service-landscape-overview-diagrams/
+│   ├── 08-business-scenarios/
+│   ├── 09-scenario-snippets/
+│   ├── 10-business-capability-map/
+│   ├── 11-capability-views/
+│   ├── 12-metamodel-overview/
+│   ├── 13-wireframes-overview/
+│   ├── 14-architecture-dashboard/
+│   ├── 15-regulatory-architecture/
+│   ├── 16-raia-releases/
+│   └── 17-contribution-governance/
+├── report-screenshots/
+├── traces/
+│   └── failures/
+├── videos/
+│   └── failures/
+├── logs/
+│   ├── application.log
+│   ├── cucumber.log
+│   ├── console-errors.json
+│   ├── network-errors.json
+│   └── execution-commands.log
+├── manifests/
+│   ├── execution-manifest.json
+│   ├── evidence-manifest.json
+│   ├── screenshot-manifest.json
+│   └── environment.json
+└── defects/
+    ├── defect-register.csv
+    └── defect-details.md
+```
+
+No borres ejecuciones anteriores.
 
 ---
 
-# 7. Revisar la referencia actual de ciberseguridad
-
-Audita la entrada actual:
-
-```text
-RAIA-REG-CUS
-Circular Única de Sistemas Financieros en materia de Ciberseguridad
-Autoridad: CONSAR / CNBV
-```
-
-No la conserves como oficial sin comprobar:
-
-* denominación exacta;
-* autoridad emisora;
-* fecha;
-* publicación en DOF;
-* alcance para AFORE, SIEFORE o Empresa Operadora;
-* artículos aplicables;
-* vigencia;
-* URL oficial.
-
-Cuando las obligaciones de seguridad provengan de las Disposiciones Operativas o Financieras de CONSAR, referencia esos instrumentos con precisión.
-
-Si no existe un instrumento oficial con el nombre actual:
-
-1. marcarlo como `UNVERIFIABLE`;
-2. deprecar el ID;
-3. migrar los mapeos;
-4. registrar la razón;
-5. no eliminar historial.
-
----
-
-# 8. Modelo de mapeo regulatorio
-
-Crear:
-
-```typescript
-export interface RegulatoryMapping {
-  id: string;
-
-  regulatorySourceId: string;
-  serviceDomainId: string;
-
-  serviceOperationIds: string[];
-  businessEventIds: string[];
-  businessObjectIds: string[];
-
-  article?: string;
-  section?: string;
-  paragraph?: string;
-  fraction?: string;
-  annex?: string;
-
-  obligationType:
-    | "obligation"
-    | "prohibition"
-    | "authorization"
-    | "supervisory-power"
-    | "reporting-duty"
-    | "control-requirement"
-    | "information-right"
-    | "retention-duty"
-    | "calculation-rule"
-    | "eligibility-rule"
-    | "governance-requirement";
-
-  applicability:
-    | "direct"
-    | "indirect"
-    | "contextual"
-    | "enabling";
-
-  applicableRegimeIds: string[];
-  obligatedParticipantIds: string[];
-  beneficiaryParticipantIds: string[];
-
-  regulatoryRequirement: string;
-  architecturalInterpretation: string;
-
-  controlIds: string[];
-  evidenceIds: string[];
-  kpiIds: string[];
-
-  confidence:
-    | "low"
-    | "medium"
-    | "high";
-
-  validationStatus:
-    | "pending"
-    | "architecture-reviewed"
-    | "operationally-reviewed"
-    | "legally-reviewed";
-
-  reviewedBy?: string;
-  reviewedAt?: string;
-
-  assumptions: string[];
-  unresolvedQuestions: string[];
-}
-```
-
-No copies textos extensos de las fuentes oficiales.
-
-Registra una síntesis y la referencia exacta.
-
----
-
-# 9. Hallazgo P0 — Mezcla de conceptos en la cadena de valor
-
-El Landscape actual mezcla al mismo nivel:
-
-* regulación sectorial;
-* procesos operativos de AFORE;
-* infraestructura compartida de industria;
-* capacidades tecnológicas internas;
-* arquitectura, innovación y conocimiento.
-
-Esto genera la impresión de que todos los elementos tienen la misma naturaleza regulatoria y operativa.
-
-## Nueva estructura visual y semántica
-
-Mantén los IDs existentes, pero clasifica las áreas mediante:
-
-```typescript
-export type LandscapeLayer =
-  | "sector-governance"
-  | "industry-value-stream"
-  | "industry-shared-service"
-  | "enterprise-enabler"
-  | "raia-governance-overlay";
-```
-
-Clasificación inicial que debe verificarse:
-
-```text
-Gobierno y Dirección del SAR
-→ sector-governance
-
-Riesgo, Cumplimiento y Supervisión
-→ revisar si requiere dividirse entre:
-   sector-governance
-   enterprise-enabler
-   investment-risk
-
-Identidad, Partes y Expediente
-Afiliación y Cuenta Individual
-Recaudación y Aportaciones
-Inversión y SIEFORE
-Retiros, Prestaciones y Pensiones
-Servicio, Canales y Experiencia
-→ industry-value-stream
-
-Servicios Compartidos de Industria
-→ industry-shared-service
-
-Capacidades Empresariales y Tecnología
-→ enterprise-enabler
-
-Evolución, Arquitectura, Innovación y Conocimiento
-→ raia-governance-overlay
-```
-
-No presentes:
-
-```text
-Tecnología corporativa
-Innovación interna
-Gobierno de RAIA
-```
-
-como si fueran procesos regulados equivalentes a:
-
-```text
-Registro
-Traspaso
-Recaudación
-Inversión
-Pensión
-```
-
----
-
-# 10. Actualizar las macroáreas de la interfaz
-
-Reemplaza la agrupación rígida:
-
-```text
-Front-Office
-Core
-Back-Office
-```
-
-por una vista con capas explícitas:
-
-```text
-1. Gobierno y Supervisión del SAR
-2. Experiencia y Relación con el Trabajador
-3. Operación de Cuenta Individual
-4. Recaudación y Aportaciones
-5. Inversión y Administración de Fondos
-6. Retiros, Prestaciones y Pensiones
-7. Servicios Compartidos de Industria
-8. Capacidades Empresariales Habilitadoras
-9. Gobierno y Evolución de RAIA
-```
-
-No cambies automáticamente los Business Area IDs.
-
-Agrega `landscapeLayer` al modelo y utiliza ese atributo para la visualización.
-
----
-
-# 11. Hallazgo P0 — Actores no canónicos
-
-Actualmente los actores se almacenan como strings libres.
-
-Esto permite:
-
-* omitir autoridades relevantes;
-* asignar responsabilidad al trabajador;
-* combinar organizaciones distintas;
-* usar variantes del mismo nombre;
-* confundir autoridad, participante y Service Domain.
+# 18. Manifiesto de ejecución
 
 Crear:
 
 ```text
-src/data/actors-0.2.0.json
+execution-manifest.json
 ```
 
-Modelo:
-
-```typescript
-export interface IndustryParticipant {
-  id: string;
-  name: string;
-
-  participantType:
-    | "worker"
-    | "beneficiary"
-    | "employer"
-    | "public-dependency"
-    | "afore"
-    | "public-pension-administrator"
-    | "siefore"
-    | "authority"
-    | "social-security-institute"
-    | "housing-institute"
-    | "industry-operator"
-    | "insurer"
-    | "custodian"
-    | "price-provider"
-    | "market-infrastructure"
-    | "fiduciary"
-    | "external-service-provider"
-    | "governance-body";
-
-  organizationType?: string;
-  authorityScope?: string[];
-
-  status: "active" | "historical" | "generic-role";
-  aliases: string[];
-}
-```
-
-Crear participantes canónicos, cuando proceda, para:
-
-```text
-Trabajador
-Beneficiario
-Patrón
-Dependencia o Entidad
-AFORE
-PENSIONISSSTE
-SIEFORE
-CONSAR
-SHCP
-IMSS
-ISSSTE
-INFONAVIT
-FOVISSSTE
-CONDUSEF
-Empresa Operadora de la BDNSAR
-Aseguradora
-Custodio
-Proveedor de Precios
-Mercado o plataforma de negociación
-Banco de México en su rol aplicable
-Fondo de Pensiones para el Bienestar
-```
-
-No conviertas a estas entidades en Service Domains.
-
----
-
-# 12. Hallazgo P0 — BDNSAR y Empresa Operadora
-
-Distingue formalmente:
-
-```text
-Empresa Operadora
-= participante u organización de industria
-
-BDNSAR
-= activo de información propiedad del Gobierno Federal
-
-Responsabilidad lógica de consulta o actualización
-= Service Domain
-```
-
-No utilizar indistintamente:
-
-```text
-BDNSAR
-Empresa Operadora
-Registro Maestro
-Base de Datos Nacional SAR
-```
-
-Crear o ajustar:
-
-```text
-IndustryParticipant
-InformationAsset
-ServiceDomain
-BusinessObject
-```
-
-La BDNSAR no deberá:
-
-* aprobar;
-* decidir;
-* autorizar;
-* enviar comandos por iniciativa propia;
-* aparecer como autoridad.
-
----
-
-# 13. Hallazgo P0 — Gobierno y Dirección del SAR
-
-Audita todos los Business Domains y Service Domains del área:
-
-```text
-Gobierno y Dirección del SAR
-```
-
-La estrategia, regulación y supervisión no deben quedar atribuidas únicamente a:
-
-```text
-AFORE
-Empresa Operadora
-Trabajador
-```
-
-Verifica la participación de:
-
-* CONSAR;
-* SHCP;
-* Junta de Gobierno de CONSAR;
-* Comité Consultivo y de Vigilancia;
-* Comité de Análisis de Riesgos;
-* otras autoridades con facultades expresas.
-
-Revisar la existencia y delimitación de capacidades para:
-
-```text
-Gestión del inventario normativo
-Gestión de cambio regulatorio
-Emisión y administración de criterios
-Autorización de AFORE
-Autorización de SIEFORE
-Autorización y supervisión de Empresas Operadoras
-Supervisión regulatoria
-Inspección y vigilancia
-Procedimiento sancionador
-Remediación regulatoria
-Gobierno de comisiones
-Gobierno de publicidad y promoción
-Gobierno de agentes promotores
-Gobierno corporativo de AFORE y SIEFORE
-Reservas, capital y suficiencia financiera
-Información regulatoria a CONSAR
-```
-
-Antes de crear un Service Domain nuevo:
-
-1. buscar responsabilidad equivalente;
-2. determinar si debe extenderse;
-3. determinar si debe dividirse;
-4. evitar duplicación;
-5. documentar la decisión.
-
----
-
-# 14. Riesgo, Cumplimiento y Supervisión
-
-No combines dentro de un único dominio:
-
-```text
-Supervisión de CONSAR
-Cumplimiento de una AFORE
-Riesgo financiero de una SIEFORE
-Ciberseguridad
-Continuidad de negocio
-Prevención de fraude
-```
-
-Revisar responsabilidades separadas para:
-
-* supervisión regulatoria;
-* cumplimiento normativo;
-* riesgo operativo;
-* riesgo financiero;
-* riesgo de mercado;
-* riesgo de crédito;
-* riesgo de contraparte;
-* riesgo de liquidez;
-* riesgo de concentración;
-* cumplimiento preoperación;
-* conflictos de interés;
-* prevención y detección de fraude;
-* riesgo documental;
-* seguridad de la información;
-* ciberseguridad;
-* continuidad de negocio;
-* recuperación de desastres;
-* gestión de terceros;
-* incidentes tecnológicos;
-* privacidad y protección de datos.
-
-No crear un único Service Domain denominado:
-
-```text
-Gestión Integral de Riesgos
-```
-
-si termina acumulando responsabilidades incompatibles.
-
----
-
-# 15. Identidad, Partes y Expediente
-
-Revisar cobertura para:
-
-```text
-Datos del Trabajador
-Resolución de Identidad
-Gestión de CURP
-Gestión de NSS
-Gestión de RFC
-Identidad Biométrica
-Prueba de Vida
-Autenticación
-Firma o manifestación de voluntad
-Consentimiento
-Expediente Electrónico
-Expediente de Identificación
-Beneficiarios
-Representación legal
-Actualización de datos
-Corrección de datos
-Riesgo documental
-Conservación documental
-Derechos de datos personales
-```
-
-Distinguir:
-
-```text
-identificación
-autenticación
-biometría
-consentimiento
-firma
-expediente
-protección de datos
-```
-
-No presentarlos como sinónimos.
-
-La certeza jurídica no deberá atribuirse exclusivamente a una firma digital.
-
----
-
-# 16. Afiliación y Cuenta Individual
-
-Auditar cobertura de:
-
-* registro;
-* traspaso;
-* recertificación o procesos equivalentes vigentes;
-* asignación;
-* reasignación;
-* localización;
-* unificación;
-* separación por asociación incorrecta;
-* administración de cuenta;
-* subcuentas;
-* movimientos;
-* saldos;
-* acciones de SIEFORE;
-* rendimientos;
-* estados de cuenta;
-* reclamaciones;
-* beneficiarios;
-* recursos de vivienda;
-* recursos SAR 92 cuando corresponda;
-* cuenta asignada;
-* cuenta registrada;
-* cuenta inactiva;
-* cuenta pensionada;
-* cuenta transferida.
-
-Evitar presentar:
-
-```text
-Libro Mayor
-```
-
-como término jurídico oficial.
-
-Cuando se conserve como patrón arquitectónico, etiquetarlo como:
-
-```text
-abstracción contable interna de RAIA
-```
-
-y relacionarlo con:
-
-```text
-registro de movimientos
-saldo por subcuenta
-posición de acciones
-trazabilidad de cuenta
-```
-
----
-
-# 17. Recaudación y Aportaciones
-
-La descripción actual no debe implicar que la AFORE cobra directamente todas las aportaciones.
-
-Modelar responsabilidades independientes para:
-
-```text
-Determinación de aportaciones
-Recepción de información de pago
-Recepción de recursos
-Conciliación de pago
-Identificación de aportación
-Individualización
-Aplicación por subcuenta
-Aclaración de diferencias
-Devolución o corrección
-Aportaciones obligatorias IMSS
-Aportaciones ISSSTE
-Ahorro solidario
-Aportaciones voluntarias
-Aportaciones complementarias
-Recursos de vivienda
-Cuota social y aportación estatal
-```
-
-Cada flujo deberá identificar:
-
-* régimen;
-* aportante;
-* entidad receptora;
-* Instituto;
-* Empresa Operadora;
-* AFORE o PENSIONISSSTE;
-* cuenta;
-* subcuenta;
-* evidencia;
-* conciliación.
-
-No usar una sola capacidad genérica para IMSS e ISSSTE cuando las reglas sean distintas.
-
----
-
-# 18. Inversión y SIEFORE
-
-Actualizar el propósito del área.
-
-No utilizar únicamente:
-
-```text
-Maximizar rendimiento
-```
-
-Utilizar un propósito similar a:
-
-> Administrar los recursos de los trabajadores buscando rendimientos ajustados por riesgo, dentro del régimen de inversión, los límites, la trayectoria generacional y los principios de seguridad, liquidez, diversificación y mejor interés del trabajador.
-
-Auditar cobertura para:
-
-```text
-Gobierno de SIEFORE
-Trayectoria generacional
-Asignación a SIEFORE
-Estrategia de inversión
-Construcción de portafolio
-Portafolio de referencia
-Asignación estratégica de activos
-Rebalanceo
-Liquidez
-Límites de inversión
-Cumplimiento preoperación
-Riesgo de mercado
-Riesgo de crédito
-Riesgo de contraparte
-Riesgo de liquidez
-Riesgo operativo de inversión
-Derivados
-Colaterales
-Reportos
-Préstamo de valores
-Mandatarios
-Custodia
-Mercados
-Contrapartes
-Confirmación
-Liquidación
-Conciliación
-Valuación de instrumentos
-Proveedor de precios
-Valuación de portafolio
-Valor de acción
-Instrumentos estructurados
-Activos alternativos
-FIBRAS
-CKD y CERPI cuando corresponda
-Inversión sostenible
-Taxonomía sostenible
-Divulgación de sostenibilidad
-Prospecto de inversión
-Folleto explicativo
-Comité de Inversión
-Comité de Riesgos Financieros
-Conflictos de interés
-Canal de denuncia
-Continuidad y recuperación de operaciones de inversión
-```
-
-Clasificar correctamente:
-
-```text
-Comité
-→ governance-body
-
-SIEFORE
-→ investment-vehicle
-
-Proveedor de Precios
-→ external-service-provider
-
-Custodio
-→ custodian
-
-Mercado
-→ market-infrastructure
-
-Portafolio
-→ business-object
-```
-
-No convertirlos en Service Domains.
-
----
-
-# 19. Retiros, Prestaciones y Pensiones
-
-Cambiar la expresión:
-
-```text
-traspasos al Fondo de Pensiones para el Bienestar
-```
-
-por una denominación regulatoriamente neutral como:
-
-```text
-transferencia de recursos al Fondo de Pensiones para el Bienestar
-```
-
-No confundir:
-
-```text
-traspaso de cuenta entre AFORE
-```
-
-con:
-
-```text
-transferencia de recursos a un fondo público
-```
-
-Auditar cobertura separada para:
-
-```text
-Retiro parcial por desempleo IMSS
-Retiro por desempleo ISSSTE
-Ayuda aplicable por matrimonio o unión civil
-Retiro de aportaciones voluntarias
-Retiro total
-Negativa de pensión
-Resolución o concesión de pensión
-Renta vitalicia
-Retiro programado
-Pensión garantizada
-Seguro de sobrevivencia
-Transferencia a aseguradora
-Disposición por beneficiarios
-Fallecimiento
-Recursos de vivienda
-Reintegro de recursos
-Semanas o años de cotización afectados
-Reclamaciones y aclaraciones
-```
-
-IMSS e ISSSTE deberán modelarse por separado cuando cambien:
-
-* elegibilidad;
-* cálculo;
-* participante;
-* documento;
-* resultado;
-* afectación de derechos;
-* evidencia.
-
----
-
-# 20. Fondo de Pensiones para el Bienestar
-
-Separar al menos estas responsabilidades:
-
-```text
-Identificación de recursos susceptibles de transferencia
-Validación del supuesto legal
-Aviso al trabajador o beneficiario
-Revalidación previa a transferencia
-Desinversión
-Instrucción de transferencia
-Recepción fiduciaria
-Conciliación
-Actualización de cuenta
-Actualización de registros de industria
-Reclamación posterior
-Devolución de recursos
-Determinación de complemento pensionario
-Solicitud de recursos al Fondo
-Entrega de recursos al Instituto
-Pago del complemento por el participante legalmente responsable
-Información y reporte
-```
-
-Distinguir:
-
-```text
-Fondo de Pensiones para el Bienestar
-Banco de México en su rol fiduciario
-IMSS
-ISSSTE
-AFORE
-PENSIONISSSTE
-Empresa Operadora
-trabajador o pensionado
-```
-
-No presentar al Fondo como Service Domain genérico.
-
-No hardcodear montos, edades o límites.
-
-Representarlos mediante:
-
-```text
-RegulatoryParameter
-RegulatoryRuleSnapshot
-EffectiveDate
-```
-
----
-
-# 21. Servicio, Canales y Experiencia
-
-Auditar capacidades para:
-
-* atención omnicanal;
-* solicitudes;
-* seguimiento;
-* aclaraciones;
-* quejas;
-* UNE;
-* CONDUSEF;
-* estados de cuenta;
-* notificaciones automatizadas;
-* información sobre avance de trámites;
-* accesibilidad;
-* atención de personas vulnerables;
-* educación financiera;
-* asesoría previsional;
-* transparencia de comisiones;
-* información de rendimientos;
-* consentimiento;
-* canales móviles;
-* canales web;
-* atención presencial;
-* protección contra prácticas comerciales indebidas.
-
-Incorporar las obligaciones de:
-
-```text
-accesibilidad
-información oportuna
-seguimiento
-notificaciones
-protección de datos
-```
-
-cuando estén sustentadas en fuente oficial.
-
----
-
-# 22. Servicios Compartidos de Industria
-
-Separar claramente:
-
-```text
-Empresa Operadora
-BDNSAR
-SIE o mecanismos de intercambio
-Data Mart pensionario
-RENAPO
-IMSS
-ISSSTE
-INFONAVIT
-FOVISSSTE
-entidades receptoras
-custodios
-proveedores de precios
-infraestructura de liquidación
-```
-
-Clasificar cada elemento como:
-
-* participante;
-* proveedor de servicio de industria;
-* sistema externo;
-* activo de información;
-* registro;
-* infraestructura financiera.
-
-No todos deben transformarse en Service Domains.
-
-Los Service Domains deberán representar responsabilidades lógicas como:
-
-```text
-Administración del Registro Nacional de Cuentas
-Intercambio de Información SAR
-Validación de Afiliación
-Intercambio con Institutos
-Intercambio de Recursos de Vivienda
-Administración de Data Mart Pensionario
-Conciliación de Industria
-Notificación de Industria
-```
-
----
-
-# 23. Capacidades Empresariales y Tecnología
-
-Esta área deberá presentarse como:
-
-```text
-enterprise-enabler
-```
-
-y no como parte indistinta de la cadena regulada.
-
-Auditar cobertura para:
-
-```text
-Gobierno de Datos
-Calidad de Datos
-Linaje
-Datos Maestros
-Privacidad
-Clasificación de Información
-Seguridad de la Información
-Gestión de Identidades y Accesos
-Ciberseguridad
-Gestión de Vulnerabilidades
-Monitoreo de Seguridad
-Respuesta a Incidentes
-Continuidad de Negocio
-Recuperación de Desastres
-Resiliencia Operativa
-Gestión de Proveedores
-Gestión de Servicios en Nube
-Observabilidad
-Gestión de Logs
-Conservación de Evidencia
-Gestión de Cambios
-Configuración
-Capacidad
-Disponibilidad
-Respaldo y Recuperación
-```
-
-No atribuir automáticamente regulación SAR directa a todas.
-
-Utilizar:
-
-```text
-applicability: enabling
-```
-
-cuando soporten una obligación regulatoria de otro dominio.
-
----
-
-# 24. Evolución, Arquitectura, Innovación y Conocimiento
-
-Clasificar esta área como:
-
-```text
-raia-governance-overlay
-```
-
-No presentarla como obligación operativa de una AFORE.
-
-Incluir:
-
-* gobierno del metamodelo;
-* administración del catálogo;
-* versionamiento;
-* arquitectura de referencia;
-* control de cambios;
-* gestión de contribuciones;
-* decisiones arquitectónicas;
-* conocimiento;
-* patrones;
-* investigación;
-* innovación;
-* gobierno de IA;
-* vigilancia regulatoria.
-
-Distinguir:
-
-```text
-capacidad RAIA
-```
-
-de:
-
-```text
-capacidad obligatoria del participante SAR
-```
-
----
-
-# 25. Relaciones del Landscape
-
-Actualmente existen relaciones genéricas y secuenciales.
-
-No utilizar:
-
-```text
-Siguiente paso
-```
-
-como significado arquitectónico.
-
-Los Business Scenarios representan secuencia.
-
-Las relaciones del Landscape deben representar dependencias estables.
-
-Crear:
-
-```typescript
-export interface LandscapeRelation {
-  id: string;
-
-  sourceServiceDomainId: string;
-  targetServiceDomainId: string;
-
-  relationType:
-    | "depends-on"
-    | "provides-information-to"
-    | "consumes-information-from"
-    | "validates"
-    | "authorizes"
-    | "reports-to"
-    | "supervises"
-    | "reconciles-with"
-    | "transfers-resources-to"
-    | "triggers-event-for"
-    | "governs"
-    | "enables";
-
-  sourceOperationIds: string[];
-  targetOperationIds: string[];
-
-  businessObjectIds: string[];
-  businessEventIds: string[];
-
-  interactionPattern:
-    | "request-response"
-    | "command"
-    | "business-event"
-    | "batch"
-    | "file-exchange"
-    | "regulatory-report"
-    | "fund-transfer"
-    | "manual-interaction";
-
-  regulatoryMappingIds: string[];
-
-  description: string;
-  preconditions: string[];
-  postconditions: string[];
-
-  status:
-    | "proposed"
-    | "validated"
-    | "deprecated";
-
-  validationStatus:
-    | "pending"
-    | "architecture-reviewed"
-    | "operationally-reviewed";
-}
-```
-
-## Reglas
-
-* No crear relaciones solo para incrementar el contador.
-* Cada relación deberá tener significado funcional.
-* Toda relación financiera deberá señalar objeto y conciliación.
-* Toda relación regulatoria deberá señalar mapeo regulatorio.
-* Toda relación de reporte deberá identificar autoridad y evidencia.
-* Una relación no sustituye un Business Scenario.
-* Los IDs `rel-flow*` deberán migrarse a identificadores RAIA tipados.
-
-Formato:
-
-```text
-RAIA-REL-0001
-```
-
----
-
-# 26. Service Operations
-
-Audita las operaciones de los 273 Service Domains.
-
-Una Service Operation debe:
-
-* iniciar con verbo;
-* tener resultado claro;
-* modificar o recuperar un objeto concreto;
-* pertenecer exclusivamente a la responsabilidad del Service Domain;
-* evitar detalles tecnológicos;
-* diferenciar command, query, validation, report y notification.
-
-Tipos sugeridos:
-
-```typescript
-type ServiceOperationType =
-  | "initiate"
-  | "register"
-  | "update"
-  | "retrieve"
-  | "validate"
-  | "evaluate"
-  | "calculate"
-  | "authorize"
-  | "execute"
-  | "reconcile"
-  | "notify"
-  | "report"
-  | "monitor"
-  | "control";
-```
-
-No utilizar `execute` como tipo universal.
-
----
-
-# 27. Lenguaje y semántica
-
-Detectar y corregir expresiones como:
-
-```text
-Garantizar absolutamente
-Maximizar rendimientos
-Controlar todo el proceso
-Realizar cualquier operación
-Gestionar integralmente
-Siguiente paso
-```
-
-Usar responsabilidades verificables:
-
-```text
-Administrar
-Registrar
-Validar
-Conciliar
-Determinar
-Notificar
-Supervisar
-Reportar
-Autorizar
-Ejecutar
-Conservar
-```
-
-Distinguir:
-
-```text
-obligación regulatoria
-responsabilidad arquitectónica
-objetivo de negocio
-resultado esperado
-```
-
----
-
-# 28. Actualizar el esquema de Service Domain
-
-Extender:
-
-```typescript
-export interface ServiceDomain {
-  // campos actuales
-
-  landscapeLayer: LandscapeLayer;
-
-  responsibilityStatement: string;
-  responsibilityBoundary: string;
-
-  participantIds: string[];
-  accountableParticipantIds: string[];
-
-  regulatoryMappingIds: string[];
-  regulatoryCoverage:
-    | "unmapped"
-    | "partial"
-    | "mapped"
-    | "reviewed";
-
-  applicableRegimeIds: string[];
-
-  regulatoryCriticality:
-    | "none"
-    | "low"
-    | "medium"
-    | "high"
-    | "systemic";
-
-  capabilityType:
-    | "regulated-core"
-    | "industry-shared"
-    | "enterprise-enabler"
-    | "raia-governance";
-
-  assumptions: string[];
-  unresolvedQuestions: string[];
-
-  operationalValidationStatus:
-    | "pending"
-    | "reviewed"
-    | "validated";
-
-  regulatoryValidationStatus:
-    | "pending"
-    | "partially-reviewed"
-    | "legally-reviewed";
-
-  lastRegulatoryReviewAt?: string;
+Debe incluir:
+
+```json
+{
+  "runId": "",
+  "repository": "cyolo/Red-de-Arquitectura-de-Industria-Afores-RAIA",
+  "branch": "dev-001",
+  "baseCommit": "",
+  "finalCommit": "",
+  "startedAt": "",
+  "finishedAt": "",
+  "environment": {},
+  "scenarioTotals": {
+    "total": 0,
+    "passed": 0,
+    "failed": 0,
+    "blockedNotImplemented": 0,
+    "blockedMissingDependency": 0,
+    "blockedAutomation": 0,
+    "manualPending": 0,
+    "skippedByPrecondition": 0,
+    "invalidGherkin": 0
+  },
+  "modules": [],
+  "commands": [],
+  "qualityGate": ""
 }
 ```
 
 ---
 
-# 29. Interfaz del Service Landscape
+# 19. Manifiesto de evidencia
 
-Conserva el nuevo estilo visual de RAIA:
+Por cada escenario registra:
 
-* fondo `slate-50`;
-* tarjetas blancas;
-* header oscuro;
-* Inter;
-* iconografía Lucide;
-* densidad ejecutiva;
-* turquesa como acento funcional;
-* bordes discretos;
-* accesibilidad y responsive.
-
-No rediseñes visualmente el portal desde cero.
-
-## Agregar filtros
-
-```text
-Capa del Landscape
-Régimen
-Autoridad
-Fuente regulatoria
-Cobertura regulatoria
-Criticidad regulatoria
-Tipo de capacidad
-Estado de revisión regulatoria
+```json
+{
+  "scenarioId": "RAIA_BS_001",
+  "moduleId": "RAIA-MOD-008",
+  "featureFile": "",
+  "rule": "",
+  "scenarioName": "",
+  "tags": [],
+  "classification": "as_is",
+  "executionStatus": "PASSED",
+  "browser": "chromium",
+  "viewport": "1440x900",
+  "durationMs": 0,
+  "url": "",
+  "screenshots": [
+    {
+      "path": "",
+      "checkpoint": "final-state",
+      "sha256": "",
+      "width": 1440,
+      "height": 900
+    }
+  ],
+  "tracePath": null,
+  "videoPath": null,
+  "consoleLogPath": "",
+  "networkLogPath": "",
+  "defectId": null,
+  "blockingReason": null
+}
 ```
 
-## Agregar vistas
-
-```text
-Explorador
-Panorama
-Matriz
-Cobertura Regulatoria
-```
-
-## Cobertura regulatoria
-
-Mostrar:
-
-```text
-Verde   — revisado
-Azul    — mapeado
-Ámbar   — parcial
-Rojo    — sin mapeo o fuente vencida
-Gris    — no aplicable
-```
-
-No depender únicamente del color.
-
-Agregar texto e icono.
+Todo escenario debe aparecer en el manifiesto, incluso cuando esté bloqueado o sea manual.
 
 ---
 
-# 30. Sidebar de Service Domain
+# 20. Attachments en el reporte Cucumber
 
-Actualizar la pestaña:
+Adjunta las evidencias al escenario correspondiente mediante Cucumber:
 
-```text
-Gobierno
-```
+- screenshots;
+- mensaje de estado;
+- URL;
+- navegador;
+- viewport;
+- console errors;
+- blocking reason;
+- defect ID.
 
-para mostrar:
-
-```text
-Actor responsable
-Participantes
-Capa del Landscape
-Tipo de capacidad
-Regímenes aplicables
-Criticidad regulatoria
-Cobertura
-Fuentes
-Artículos
-Obligaciones
-Controles
-Evidencias
-Fecha de revisión
-Estado de validación
-```
-
-Crear tabs:
+El reporte HTML debe permitir relacionar visualmente:
 
 ```text
-Resumen
-Gobierno
-Regulación
-Relaciones
-```
-
-No ocultar toda la regulación únicamente en la ficha completa.
-
----
-
-# 31. Ficha técnica
-
-En:
-
-```text
-/service-domains/[slug]
-```
-
-actualizar `Marco Regulatorio` para mostrar:
-
-* nombre oficial;
-* nombre corto;
-* autoridad;
-* tipo;
-* publicación;
-* última reforma;
-* entrada en vigor;
-* estado;
-* artículo o anexo;
-* obligación;
-* interpretación arquitectónica;
-* operación afectada;
-* control;
-* evidencia;
-* fecha de consulta;
-* estado de revisión;
-* acceso a fuente oficial.
-
-No utilizar únicamente:
-
-```text
-Nombre
-Autoridad
-Estatus
+Feature
+→ Regla
+→ Escenario
+→ Paso
+→ Estado
+→ Screenshot
+→ Defecto
 ```
 
 ---
 
-# 32. Dashboard regulatorio
+# 21. Console y network monitoring
 
-Agregar indicadores:
+Por escenario registra:
 
-```text
-Service Domains totales
-Service Domains regulados directamente
-Service Domains habilitadores
-Service Domains sin mapeo
-Mapeos pendientes
-Mapeos revisados
-Fuentes vigentes
-Fuentes superadas
-Fuentes sin URL
-Mapeos sin artículo
-Mapeos sin control
-Mapeos sin evidencia
-Cobertura por Business Area
-Cobertura por régimen
-Cobertura por autoridad
-```
+## Console
 
-Fórmulas:
+- errores;
+- warnings relevantes;
+- excepciones no controladas.
 
-```text
-Regulatory Mapping Coverage
-=
-Service Domains con mapeo válido
-/
-Service Domains que requieren mapeo
-```
+No marques automáticamente el escenario como fallido por warnings conocidos e irrelevantes.
 
-No incluir los dominios `not-applicable` en el denominador.
+Crea una allowlist explícita y documentada.
+
+## Network
+
+Registra:
+
+- 4xx;
+- 5xx;
+- requests fallidas;
+- recursos bloqueados;
+- timeouts.
+
+Una respuesta 404 esperada por un escenario negativo no deberá interpretarse automáticamente como fallo.
 
 ---
 
-# 33. Validadores
+# 22. Evidencia para pruebas no visuales
+
+Para validadores, schemas, repositorios y reglas sin interfaz:
+
+- conserva stdout;
+- conserva stderr;
+- conserva exit code;
+- genera tabla de resultados;
+- genera una página HTML;
+- captura screenshot de esa página.
+
+Ejemplo:
+
+```text
+RAIA_BOM_033__business-object-model__validator-result.png
+```
+
+No simules una pantalla de la aplicación para una prueba que no usa UI.
+
+---
+
+# 23. Reportes Markdown
 
 Crear:
 
 ```text
-scripts/validateRegulatorySources.js
-scripts/validateRegulatoryMappings.js
-scripts/validateLandscapeSemantics.js
-scripts/validateActorTaxonomy.js
-scripts/validateServiceDomainCoverage.js
-scripts/validateLandscapeRelations.js
-scripts/validateRegulatoryBaseline.js
-scripts/validateRegulatoryLanguage.js
+docs/testing/gherkin-execution/<RUN_ID>/
 ```
 
-Scripts npm:
+Archivos obligatorios:
+
+```text
+00-executive-summary.md
+01-environment-and-baseline.md
+02-execution-strategy.md
+03-scenario-disposition-summary.md
+04-module-results.md
+05-failure-analysis.md
+06-blocked-scenarios.md
+07-manual-review-register.md
+08-accessibility-report.md
+09-security-report.md
+10-performance-report.md
+11-responsive-report.md
+12-cross-module-integration-report.md
+13-console-and-network-report.md
+14-evidence-and-screenshot-index.md
+15-defect-register.md
+16-implementation-gap-register.md
+17-reproducibility-guide.md
+18-final-quality-gate.md
+gherkin-change-log.md
+```
+
+Crear además:
+
+```text
+docs/testing/gherkin-execution/<RUN_ID>/modules/
+```
+
+Con exactamente un reporte por módulo:
+
+```text
+01-information-architecture.md
+02-control-record-model.md
+03-business-object-model.md
+04-industry-reference-model.md
+05-service-landscape-value-chain.md
+06-service-landscape-matrix.md
+07-service-landscape-overview-diagrams.md
+08-business-scenarios.md
+09-scenario-snippets.md
+10-business-capability-map.md
+11-capability-views.md
+12-metamodel-overview.md
+13-wireframes-overview.md
+14-architecture-dashboard.md
+15-regulatory-architecture.md
+16-raia-releases.md
+17-contribution-governance.md
+```
+
+---
+
+# 24. Contenido de cada reporte de módulo
+
+Cada reporte deberá incluir:
+
+```markdown
+# Nombre del módulo
+
+## Identificación
+
+- Module ID:
+- Ruta:
+- Feature:
+- Estado actual:
+- Commit:
+
+## Resumen
+
+| Estado | Cantidad |
+|---|---:|
+| PASSED | |
+| FAILED | |
+| BLOCKED_NOT_IMPLEMENTED | |
+| BLOCKED_MISSING_DEPENDENCY | |
+| BLOCKED_AUTOMATION | |
+| MANUAL_PENDING | |
+| SKIPPED_BY_PRECONDITION | |
+| INVALID_GHERKIN | |
+
+## Reglas cubiertas
+
+## Escenarios ejecutados
+
+| ID | Escenario | Tags | Estado | Duración | Evidencia |
+|---|---|---|---|---:|---|
+
+## Fallos
+
+## Bloqueos
+
+## Hallazgos funcionales
+
+## Hallazgos de datos
+
+## Hallazgos de integración
+
+## Hallazgos visuales
+
+## Hallazgos de accesibilidad
+
+## Hallazgos de seguridad
+
+## Hallazgos de rendimiento
+
+## Screenshots
+
+## Defectos
+
+## Gaps
+
+## Recomendaciones
+
+## Resultado del módulo
+
+PASS / FAIL / BLOCKED / CONDITIONAL
+```
+
+No escribir conteos manualmente.
+
+Generarlos desde los resultados JSON.
+
+---
+
+# 25. Registro de defectos
+
+Cada fallo real deberá generar un defecto con ID:
+
+```text
+RAIA-DEF-0001
+RAIA-DEF-0002
+...
+```
+
+Campos:
+
+```text
+Defect ID
+Title
+Severity
+Priority
+Module
+Scenario ID
+Feature file
+Rule
+Browser
+Viewport
+Environment
+Base commit
+Steps to reproduce
+Expected result
+Actual result
+Screenshot paths
+Trace path
+Console errors
+Network errors
+Affected artifacts
+Suspected source files
+Probable root cause
+Workaround
+Reproducibility
+Status
+```
+
+Severidad:
+
+```text
+P0 — bloqueo total, corrupción o contradicción crítica
+P1 — comportamiento principal incorrecto
+P2 — defecto funcional secundario, UX o integración
+P3 — presentación, consistencia o mejora
+```
+
+No agrupes defectos no relacionados bajo un único ID.
+
+No declares causa raíz como definitiva sin evidencia.
+
+Usa:
+
+```text
+Probable root cause
+```
+
+cuando sea inferencia.
+
+---
+
+# 26. Evidencia de screenshots en los reportes
+
+En los Markdown utiliza enlaces relativos.
+
+Ejemplo:
+
+```markdown
+[Ver evidencia final](../../../test-results/gherkin-execution/<RUN_ID>/screenshots/08-business-scenarios/RAIA_BS_021__business-scenarios__03-final-state__chromium__1440x900.jpg)
+```
+
+No uses rutas locales como:
+
+```text
+C:\Users\
+/home/user/
+file://
+```
+
+Todos los links deben funcionar dentro de GitHub.
+
+---
+
+# 27. Accessibility
+
+Ejecuta:
+
+- axe-core;
+- navegación por teclado;
+- foco visible;
+- Enter;
+- Space;
+- Escape;
+- orden de tabulación;
+- headings;
+- labels;
+- roles;
+- nombres accesibles;
+- zoom al 200%;
+- reduced motion;
+- equivalencia textual del color;
+- alternativa tabular o estructurada en diagramas.
+
+Para cada violación registra:
+
+- regla;
+- impacto;
+- elemento;
+- módulo;
+- escenario;
+- evidencia;
+- recomendación.
+
+No marques accesibilidad como aprobada únicamente porque axe no encuentre errores.
+
+Las pruebas de teclado deben ejecutarse.
+
+---
+
+# 28. Seguridad
+
+Ejecuta pruebas no destructivas para:
+
+- contenido escapado;
+- parámetros URL inválidos;
+- intentos simples de XSS;
+- query strings maliciosas;
+- links externos;
+- `noopener`;
+- rutas locales en exportaciones;
+- exposición de secretos;
+- datos personales;
+- evaluación de código;
+- carga de JSON;
+- errores verbosos.
+
+No ejecutes:
+
+- ataques de denegación de servicio;
+- escaneo externo;
+- explotación destructiva;
+- modificación de repositorios;
+- extracción de secretos.
+
+---
+
+# 29. Rendimiento
+
+Para escenarios `@performance` registra:
+
+- tiempo de navegación;
+- tiempo de carga;
+- tiempo de interacción;
+- tiempo de filtros;
+- tiempo de cálculo;
+- cantidad de nodos;
+- cantidad de filas;
+- memoria cuando sea posible.
+
+Distingue:
+
+```text
+Observed
+Target
+Result
+```
+
+Ejemplo:
+
+```text
+Observed: 428 ms
+Target: 300 ms
+Result: FAILED
+```
+
+Cuando no exista target:
+
+```text
+Result: MEASURED_NO_TARGET
+```
+
+No inventes un threshold.
+
+---
+
+# 30. Responsive y regresión visual
+
+Para escenarios responsive captura la misma funcionalidad en:
+
+```text
+1440 × 900
+768 × 1024
+390 × 844
+```
+
+Verifica:
+
+- ausencia de overflow accidental;
+- contenido legible;
+- controles accesibles;
+- drawers;
+- sidebars;
+- tablas;
+- matrices;
+- diagramas;
+- fullscreen;
+- navegación.
+
+No aceptes una interfaz móvil que simplemente reduzca la escala hasta hacerla ilegible.
+
+---
+
+# 31. Screenshots específicos para diagramas
+
+Para:
+
+- sequence diagrams;
+- state machines;
+- lineage;
+- object maps;
+- capability maps;
+- overview diagrams;
+- reference model;
+- metamodel;
+
+captura:
+
+```text
+01-default-view
+02-element-selected
+03-detail-panel
+04-fit-to-content
+05-fullscreen
+```
+
+Cuando exista zoom:
+
+- comprueba que las etiquetas sigan legibles;
+- comprueba que no se corten nodos;
+- comprueba que las relaciones permanezcan conectadas;
+- comprueba que el fullscreen use el monitor completo.
+
+---
+
+# 32. Ejecución por módulos
+
+Ejecuta y reporta cada módulo individualmente.
+
+Scripts sugeridos:
 
 ```json
 {
   "scripts": {
-    "validate:regulatory-sources": "node scripts/validateRegulatorySources.js",
-    "validate:regulatory-mappings": "node scripts/validateRegulatoryMappings.js",
-    "validate:landscape-semantics": "node scripts/validateLandscapeSemantics.js",
-    "validate:actors": "node scripts/validateActorTaxonomy.js",
-    "validate:sd-coverage": "node scripts/validateServiceDomainCoverage.js",
-    "validate:landscape-relations": "node scripts/validateLandscapeRelations.js",
-    "validate:regulatory-baseline": "node scripts/validateRegulatoryBaseline.js"
+    "gherkin:validate": "node scripts/validateGherkin.mjs",
+    "gherkin:test": "node scripts/runGherkinSuite.mjs",
+    "gherkin:test:chromium": "node scripts/runGherkinSuite.mjs --browser=chromium",
+    "gherkin:test:cross-browser": "node scripts/runGherkinSuite.mjs --tags='@smoke or @navigation or @responsive or @accessibility'",
+    "gherkin:report": "node scripts/generateGherkinExecutionReport.mjs",
+    "gherkin:report:screenshots": "node scripts/captureGherkinReportScreenshots.mjs",
+    "gherkin:evidence:validate": "node scripts/validateGherkinEvidence.mjs",
+    "gherkin:audit": "npm run gherkin:validate && npm run gherkin:test && npm run gherkin:report && npm run gherkin:report:screenshots && npm run gherkin:evidence:validate"
   }
 }
 ```
 
-## Fallos bloqueantes
+Permite también:
 
-El build debe fallar cuando:
-
-* una fuente oficial no tenga URL;
-* una fuente vigente esté marcada como superada;
-* una fuente abrogada esté usada como fundamento actual;
-* un mapeo obligatorio no tenga artículo o sección;
-* un Service Domain regulado no tenga mapeo;
-* un actor no exista en el catálogo;
-* una autoridad sea modelada como Service Domain;
-* un objeto sea modelado como participante;
-* BDNSAR sea tratada como Empresa Operadora;
-* un mapeo no tenga interpretación;
-* una obligación no tenga control cuando éste sea necesario;
-* una relación apunte a IDs inexistentes;
-* existan relaciones genéricas `Siguiente paso`;
-* una fuente esté marcada `legally-reviewed` sin revisor.
-
-Las referencias desconocidas dejarán de ser simples warnings.
-
----
-
-# 34. Detección de contenido genérico
-
-Crear reglas para detectar:
-
-```text
-Garantizar la correcta operación y control de...
-Gestionar de forma integral...
-Procesar información...
-Ejecutar el proceso...
-Siguiente paso...
-```
-
-Detectar:
-
-* descripciones idénticas;
-* capacidades clonadas;
-* Focus Objects repetidos sin justificación;
-* controles iguales en dominios distintos;
-* evidencias genéricas;
-* regulaciones asignadas indiscriminadamente;
-* actores copiados a todos los Business Domains.
-
-Generar:
-
-```text
-docs/audits/service-domain-content-quality-report.md
+```bash
+npm run gherkin:test -- --module=08-business-scenarios
+npm run gherkin:test -- --scenario=RAIA_BS_021
 ```
 
 ---
 
-# 35. Migración
+# 33. Reintentos
+
+Configuración:
+
+```text
+Retries: 0 en primera ejecución
+Retries: 1 únicamente para confirmar un fallo potencialmente intermitente
+```
+
+El resultado final deberá indicar:
+
+```text
+passed-first-attempt
+passed-after-retry
+failed-after-retry
+```
+
+No ocultes pruebas flaky.
+
+Un escenario que pasa después de fallar deberá clasificarse adicionalmente como:
+
+```text
+FLAKY
+```
+
+y registrarse como hallazgo.
+
+---
+
+# 34. Ejecución obligatoria
+
+Ejecuta en este orden:
+
+```bash
+npm ci
+npm run gherkin:validate
+npm run validate:data
+npm run lint
+npm run typecheck
+npm test
+npm run build
+npm run gherkin:test:chromium
+npm run gherkin:test:cross-browser
+npm run gherkin:report
+npm run gherkin:report:screenshots
+npm run gherkin:evidence:validate
+git diff --check
+```
+
+Cuando exista Playwright E2E previo, ejecútalo también:
+
+```bash
+npx playwright test
+```
+
+Cuando un comando no exista:
+
+```text
+NOT_AVAILABLE
+```
+
+No simules su ejecución.
+
+Registra por comando:
+
+- inicio;
+- fin;
+- duración;
+- exit code;
+- stdout path;
+- stderr path;
+- resultado.
+
+---
+
+# 35. Ejecuciones parciales
+
+Aunque una suite falle, continúa con los demás módulos cuando sea técnicamente posible.
+
+No detengas toda la generación de evidencia por un único fallo.
+
+Al final, el Quality Gate reflejará el resultado real.
+
+La única razón para abortar completamente será:
+
+- repositorio inaccesible;
+- branch inexistente;
+- instalación imposible;
+- build totalmente bloqueado;
+- corrupción de Gherkin que impida identificar escenarios.
+
+Incluso en estos casos genera un reporte de interrupción.
+
+---
+
+# 36. Integridad del reporte
+
+Crear un validador que compruebe:
+
+- 17 archivos feature;
+- 17 reportes de módulo;
+- todos los scenario IDs en el manifiesto;
+- ningún scenario ID duplicado;
+- ningún escenario sin estado;
+- screenshots existentes;
+- hashes correctos;
+- links relativos válidos;
+- conteos consistentes;
+- defect IDs válidos;
+- HTML existente;
+- JSON válido;
+- JUnit válido;
+- screenshots de reportes existentes;
+- base commit registrado;
+- run ID consistente.
+
+El comando:
+
+```bash
+npm run gherkin:evidence:validate
+```
+
+debe fallar si existe inconsistencia.
+
+---
+
+# 37. Índice auditable
 
 Crear:
 
 ```text
-scripts/migrations/004-regulatory-service-landscape.ts
+docs/testing/gherkin-execution/LATEST.md
 ```
 
-Opciones:
+Debe apuntar a la última ejecución:
 
-```text
---dry-run
---write
---backup
---report
+```markdown
+# Latest Gherkin Execution
+
+- Run ID:
+- Branch:
+- Base commit:
+- Final commit:
+- Date:
+- Quality Gate:
+
+## Executive report
+
+## HTML report
+
+## Evidence manifest
+
+## Module reports
+
+## Screenshots
+
+## Defects
 ```
 
-La migración deberá:
+No elimines referencias a ejecuciones históricas.
 
-1. preservar los 273 IDs actuales;
-2. no renumerar;
-3. crear catálogo de actores;
-4. crear catálogo regulatorio;
-5. extraer regulaciones embebidas;
-6. crear mapeos;
-7. detectar duplicados;
-8. marcar referencias no verificables;
-9. migrar relaciones;
-10. generar gaps;
-11. actualizar schemas;
-12. actualizar repositorios.
+---
 
-No eliminar elementos.
+# 38. Control de tamaño
 
-Para responsabilidades sustituidas usar:
+Los resultados deben quedar disponibles en GitHub, pero no deben superar límites innecesarios.
+
+Reglas:
+
+- screenshots aprobados en JPEG quality 85;
+- screenshots de fallo en PNG;
+- videos únicamente para fallos;
+- traces únicamente para fallos;
+- no incluir browser binaries;
+- no incluir `node_modules`;
+- no incluir caches;
+- no incluir archivos duplicados;
+- no incluir screenshots idénticos.
+
+Genera un reporte:
 
 ```text
-status: deprecated
-replacementId
-deprecationReason
+artifact-size-report.md
+```
+
+Debe mostrar:
+
+| Categoría | Archivos | Tamaño |
+|---|---:|---:|
+
+Ningún archivo individual deberá superar 20 MB.
+
+Cuando un archivo exceda ese límite:
+
+1. comprímelo;
+2. divídelo;
+3. registra la decisión.
+
+No configures Git LFS sin autorización previa.
+
+---
+
+# 39. No corregir defectos en esta ejecución
+
+Esta tarea tiene como objetivo:
+
+```text
+ejecutar
+observar
+documentar
+capturar evidencia
+reportar
+```
+
+No corregir defectos funcionales encontrados.
+
+Puedes corregir únicamente:
+
+- infraestructura de pruebas;
+- steps;
+- configuración Cucumber;
+- generación de reportes;
+- rutas de evidencia;
+- errores sintácticos de Gherkin.
+
+No modifiques:
+
+- componentes productivos;
+- datos canónicos;
+- reglas de negocio;
+- schemas productivos;
+- estilos productivos;
+- navegación productiva.
+
+Cuando un defecto impida automatización, regístralo.
+
+Esto permitirá una auditoría posterior independiente.
+
+---
+
+# 40. Reporte ejecutivo
+
+El archivo:
+
+```text
+00-executive-summary.md
+```
+
+debe incluir:
+
+```markdown
+# RAIA GHERKIN EXECUTION — EXECUTIVE SUMMARY
+
+## Identificación
+
+- Run ID:
+- Branch:
+- Base commit:
+- Final commit:
+- Started:
+- Finished:
+- Duration:
+
+## Resultado general
+
+| Métrica | Resultado |
+|---|---:|
+| Features esperadas | 17 |
+| Features encontradas | |
+| Escenarios únicos | |
+| Ejecuciones de navegador | |
+| Passed | |
+| Failed | |
+| Blocked not implemented | |
+| Blocked missing dependency | |
+| Blocked automation | |
+| Manual pending | |
+| Skipped | |
+| Invalid Gherkin | |
+| Flaky | |
+| Screenshots | |
+| Defectos P0 | |
+| Defectos P1 | |
+| Defectos P2 | |
+| Defectos P3 | |
+
+## Resultado por módulo
+
+| Módulo | Passed | Failed | Blocked | Manual | Resultado |
+|---|---:|---:|---:|---:|---|
+
+## Principales hallazgos
+
+## Riesgos
+
+## Limitaciones
+
+## Quality Gate
+
+GO / CONDITIONAL GO / NO-GO
 ```
 
 ---
 
-# 36. Revisión de los 273 Service Domains
+# 41. Métricas honestas
 
-Genera una matriz individual:
+Calcula por separado:
 
-```text
-docs/audits/service-domain-regulatory-matrix.csv
-```
-
-Columnas:
+## Automation execution rate
 
 ```text
-Service Domain ID
-Business Area
-Business Domain
-Name
-Landscape Layer
-Capability Type
-Focus Object
-Accountable Participant
-Applicable Regimes
-Regulatory Criticality
-Regulatory Sources
-Articles
-Coverage Status
-Semantic Status
-Recommended Action
-Proposed Replacement or Split
-Reviewer
+Escenarios ejecutados automáticamente
+/
+Escenarios totales
 ```
 
-Acciones permitidas:
+## Pass rate automatizado
 
 ```text
-KEEP
-ENRICH
-RENAME
-MOVE
-SPLIT
-MERGE
-DEPRECATE
-CREATE_NEW
-MARK_NOT_APPLICABLE
+Passed
+/
+Passed + Failed
 ```
 
-No declares revisados los 273 Service Domains mediante un análisis agregado.
+## Effective readiness
 
-Cada uno debe tener resultado individual.
+```text
+Passed
+/
+Escenarios totales
+```
+
+## Blocked rate
+
+```text
+Todos los blocked
+/
+Escenarios totales
+```
+
+## Manual review rate
+
+```text
+Manual pending
+/
+Escenarios totales
+```
+
+No mezcles escenarios manuales o bloqueados en el pass rate.
 
 ---
 
-# 37. Service Domain gaps
-
-Crear:
-
-```text
-src/data/regulatory/regulatory-gaps.json
-```
-
-Modelo:
-
-```typescript
-interface RegulatoryCapabilityGap {
-  id: string;
-  title: string;
-  description: string;
-
-  sourceIds: string[];
-  articleReferences: string[];
-
-  impactedBusinessAreaIds: string[];
-  impactedBusinessDomainIds: string[];
-
-  existingCandidateServiceDomainIds: string[];
-
-  recommendation:
-    | "extend-existing"
-    | "split-existing"
-    | "create-new"
-    | "model-as-control"
-    | "model-as-actor"
-    | "model-as-business-object"
-    | "no-action";
-
-  severity: "P0" | "P1" | "P2" | "P3";
-  validationStatus: "pending" | "reviewed";
-}
-```
-
----
-
-# 38. Pruebas
-
-## Unitarias
-
-Probar:
-
-* esquema de fuente;
-* esquema de mapping;
-* actor taxonomy;
-* vigencia;
-* supersession;
-* cobertura;
-* relación;
-* cálculo de métricas;
-* filtros;
-* migración.
-
-## E2E
-
-Probar:
-
-1. abrir Value Chain;
-2. filtrar por autoridad;
-3. filtrar por régimen;
-4. filtrar por cobertura;
-5. seleccionar un Service Domain;
-6. abrir tab Regulación;
-7. revisar fuente;
-8. abrir vínculo oficial;
-9. validar artículo;
-10. abrir ficha;
-11. revisar controles;
-12. revisar evidencias;
-13. cambiar a vista de cobertura;
-14. comprobar leyenda;
-15. comprobar responsive;
-16. comprobar teclado;
-17. comprobar ausencia de errores.
-
-## Casos negativos
-
-* fuente sin URL;
-* fuente abrogada;
-* mapping sin artículo;
-* actor inexistente;
-* BDNSAR como actor;
-* autoridad como Service Domain;
-* relación `Siguiente paso`;
-* mapeo sin control;
-* mapeo con régimen incorrecto;
-* fuente duplicada;
-* revisión sin revisor.
-
-Todos deben fallar.
-
----
-
-# 39. Gobierno editorial
-
-Un Service Domain no puede pasar a:
-
-```text
-regulatoryValidationStatus: legally-reviewed
-```
-
-sin:
-
-* fuente oficial;
-* artículo;
-* interpretación;
-* revisión jurídica;
-* revisión operativa;
-* control;
-* evidencia;
-* fecha.
-
-Un Service Domain tecnológico podrá marcarse:
-
-```text
-regulatoryCoverage: not-applicable
-```
-
-únicamente cuando se documente la justificación.
-
-No marques automáticamente los 273 Service Domains como validados.
-
----
-
-# 40. Release
-
-No publiques automáticamente una nueva versión.
-
-Primero entrega:
-
-```text
-Regulatory Gap Analysis
-Migration Dry Run
-Semantic Review
-Coverage Report
-Unresolved Questions
-```
-
-Cuando la revisión sea aprobada, propone:
-
-```text
-RAIA Release 0.2.0
-```
-
-como cambio de contenido y metamodelo.
-
-La nueva release deberá documentar:
-
-* fuentes agregadas;
-* fuentes deprecadas;
-* Service Domains enriquecidos;
-* Service Domains movidos;
-* dominios divididos;
-* relaciones reconstruidas;
-* cambios de esquema;
-* cobertura alcanzada;
-* pendientes.
-
----
-
-# 41. Archivos esperados
-
-Crear:
-
-```text
-src/data/regulatory/regulatory-sources.json
-src/data/regulatory/regulatory-mappings.json
-src/data/regulatory/regulatory-authorities.json
-src/data/regulatory/regulatory-regimes.json
-src/data/regulatory/regulatory-baseline.json
-src/data/regulatory/regulatory-gaps.json
-src/data/actors-0.2.0.json
-
-src/domain/types/regulatoryTypes.ts
-src/domain/types/participantTypes.ts
-src/domain/schemas/regulatorySchemas.ts
-src/domain/schemas/participantSchemas.ts
-src/domain/repositories/regulatoryRepository.ts
-src/domain/repositories/participantRepository.ts
-
-docs/audits/service-landscape-regulatory-audit.md
-docs/audits/service-domain-regulatory-matrix.csv
-docs/audits/service-domain-content-quality-report.md
-docs/audits/regulatory-source-inventory.md
-docs/audits/regulatory-gap-register.md
-
-scripts/validateRegulatorySources.js
-scripts/validateRegulatoryMappings.js
-scripts/validateLandscapeSemantics.js
-scripts/validateActorTaxonomy.js
-scripts/validateServiceDomainCoverage.js
-scripts/validateLandscapeRelations.js
-scripts/validateRegulatoryBaseline.js
-scripts/migrations/004-regulatory-service-landscape.ts
-```
-
-Modificar:
-
-```text
-src/data/raia-landscape-0.1.0.json
-src/data/relations-0.1.0.json
-src/data/regulations-0.1.0.json
-src/domain/schemas/index.ts
-src/domain/types/
-src/domain/repositories/landscapeRepository.ts
-src/app/service-landscape/value-chain/page.tsx
-src/components/layout/DetailSidebar.tsx
-src/app/service-domains/[slug]/page.tsx
-src/app/dashboard/page.tsx
-src/data/releases.json
-package.json
-```
-
-No elimines el catálogo anterior sin migración y respaldo.
-
----
-
-# 42. Reportes requeridos
-
-Antigravity debe entregar:
-
-```text
-01-executive-summary.md
-02-regulatory-source-inventory.md
-03-business-area-gap-analysis.md
-04-business-domain-gap-analysis.md
-05-service-domain-regulatory-matrix.md
-06-participant-classification-report.md
-07-semantic-quality-report.md
-08-regulatory-coverage-report.md
-09-relation-quality-report.md
-10-migration-report.md
-11-test-results.md
-12-unresolved-regulatory-questions.md
-13-final-quality-gate.md
-```
-
-## Resumen ejecutivo
-
-| Categoría                   | Total |
-| --------------------------- | ----: |
-| Fuentes oficiales revisadas |       |
-| Fuentes actuales            |       |
-| Fuentes superadas           |       |
-| Service Domains revisados   |   273 |
-| Alineados                   |       |
-| Parciales                   |       |
-| Sin mapeo                   |       |
-| Mal clasificados            |       |
-| Duplicados                  |       |
-| Requieren split             |       |
-| Nuevos gaps                 |       |
-| Relaciones reconstruidas    |       |
-
----
-
-# 43. Quality Gate
+# 42. Quality Gate
 
 ## GO
 
-* 273 Service Domains revisados individualmente;
-* fuentes oficiales verificadas;
-* cero fuentes oficiales sin URL;
-* cero fuentes abrogadas usadas como vigentes;
-* cero actores confundidos con Service Domains;
-* BDNSAR correctamente clasificada;
-* todos los dominios regulados con mapping;
-* relaciones con semántica;
-* validadores exitosos;
-* build exitoso;
-* pruebas exitosas.
+Solo declara `GO` cuando:
+
+- existen las 17 features;
+- Gherkin válido;
+- todos los escenarios tienen disposición;
+- cero fallos P0;
+- cero fallos P1;
+- cero inconsistencias de evidencia;
+- cero links rotos;
+- todos los escenarios `@as_is` automatizables fueron ejecutados;
+- reportes completos;
+- screenshots completos;
+- manifiestos válidos;
+- build exitoso;
+- evidencias publicadas;
+- push exitoso.
 
 ## CONDITIONAL GO
 
-* cero P0;
-* pendientes P1 documentados;
-* revisión legal pendiente claramente visible;
-* ningún contenido pendiente presentado como validado.
+Declara `CONDITIONAL GO` cuando:
+
+- infraestructura y evidencia son completas;
+- existen escenarios `BLOCKED_NOT_IMPLEMENTED`;
+- existen revisiones manuales;
+- existen fallos P2 o P3;
+- no existen defectos críticos P0;
+- los bloqueos están documentados;
+- ningún bloqueo se presenta como pass.
 
 ## NO-GO
 
-* fuente no verificable presentada como oficial;
-* obligación regulatoria sin trazabilidad;
-* autoridad modelada como Service Domain;
-* mapeos genéricos;
-* dominios críticos sin fuente;
-* relaciones ficticias;
-* datos incompatibles;
-* build fallido.
+Declara `NO-GO` cuando:
+
+- falta una feature;
+- Gherkin inválido;
+- existen escenarios sin estado;
+- faltan screenshots obligatorios;
+- reportes inconsistentes;
+- defectos P0;
+- evidencia manipulada;
+- resultados no reproducibles;
+- build imposible;
+- branch incorrecto;
+- no puede identificarse el commit;
+- se modificó producción para hacer pasar pruebas.
 
 ---
 
-# 44. Formato final de respuesta
+# 43. Commit y publicación
+
+Antes de commit:
+
+```bash
+git status --short
+git diff --check
+npm run gherkin:evidence:validate
+```
+
+Agregar únicamente:
+
+```text
+tests/gherkin/step-definitions/
+tests/gherkin/support/
+tests/gherkin/helpers/
+tests/gherkin/fixtures/
+scripts/runGherkinSuite.mjs
+scripts/generateGherkinExecutionReport.mjs
+scripts/captureGherkinReportScreenshots.mjs
+scripts/validateGherkinEvidence.mjs
+test-results/gherkin-execution/<RUN_ID>/
+docs/testing/gherkin-execution/<RUN_ID>/
+docs/testing/gherkin-execution/LATEST.md
+cucumber.config.*
+package.json
+package-lock.json
+```
+
+No agregar:
+
+```text
+node_modules
+browser binaries
+cache
+.env
+secrets
+temporary files
+```
+
+Commit:
+
+```bash
+git commit -m "test(gherkin): execute RAIA specifications and publish audit evidence"
+```
+
+Después:
+
+```bash
+git rev-parse HEAD
+git push origin dev-001
+```
+
+Si el push falla:
+
+- no declares que fue publicado;
+- conserva el commit local;
+- registra el error exacto;
+- declara `NO-GO` para publicación.
+
+---
+
+# 44. Formato obligatorio de respuesta final
+
+Entrega:
 
 ```markdown
-# RAIA SERVICE LANDSCAPE REGULATORY REMEDIATION
+# RAIA GHERKIN EXECUTION AND AUDIT EVIDENCE
 
-## Commit analizado
+## Repositorio
 
-## Línea base regulatoria
+## Branch
 
-## Hallazgos
+## Run ID
+
+## Base commit
+
+## Final commit
+
+## Push
+
+SUCCESS / FAILED
+
+## Resumen general
+
+| Estado | Escenarios |
+|---|---:|
+| PASSED | |
+| FAILED | |
+| BLOCKED_NOT_IMPLEMENTED | |
+| BLOCKED_MISSING_DEPENDENCY | |
+| BLOCKED_AUTOMATION | |
+| MANUAL_PENDING | |
+| SKIPPED_BY_PRECONDITION | |
+| INVALID_GHERKIN | |
+| FLAKY | |
+
+## Resultado por módulo
+
+| Módulo | Passed | Failed | Blocked | Manual | Quality |
+|---|---:|---:|---:|---:|---|
+
+## Defectos
 
 | Severidad | Cantidad |
 |---|---:|
+| P0 | |
+| P1 | |
+| P2 | |
+| P3 | |
 
-## Cobertura anterior
+## Evidencias
 
-## Cobertura posterior
+- Cucumber HTML:
+- Cucumber JSON:
+- JUnit:
+- Executive report:
+- Evidence manifest:
+- Screenshot manifest:
+- Report screenshots:
+- Module reports:
+- Defect register:
 
-## Cambios por Business Area
+## Screenshots generados
 
-## Service Domains modificados
+## Traces generados
 
-| ID | Acción | Justificación |
-|---|---|---|
+## Videos generados
 
-## Nuevos Service Domains propuestos
+## Comandos ejecutados
 
-| ID | Nombre | Gap | Fuente |
-|---|---|---|---|
+| Comando | Exit code | Duración | Resultado |
+|---|---:|---:|---|
 
-## Elementos deprecados
+## Cambios realizados en código productivo
 
-## Fuentes regulatorias
+Debe indicar:
 
-## Relaciones reconstruidas
+Ninguno
 
-## Archivos creados
+## Cambios realizados en infraestructura de pruebas
 
-## Archivos modificados
+## Fallos preexistentes
 
-## Pruebas ejecutadas
-
-| Comando | Exit code |
-|---|---:|
+## Limitaciones
 
 ## Quality Gate
 
 GO / CONDITIONAL GO / NO-GO
 
-## Pendientes de validación jurídica
+## Siguiente paso recomendado
 
-## Pendientes de validación operativa
+Auditoría independiente de resultados, defectos, escenarios bloqueados y calidad de las evidencias.
 ```
 
 ---
 
 # 45. Instrucción final
 
-No midas la calidad del Service Landscape por:
+No busques una ejecución verde artificial.
+
+El objetivo es producir una evidencia que pueda ser auditada posteriormente.
+
+Cada escenario debe quedar relacionado con:
 
 ```text
-273 Service Domains
-41 relaciones
-cantidad de texto
-cantidad de regulaciones asociadas
+Feature
+→ Regla
+→ Scenario ID
+→ Steps
+→ Resultado
+→ Screenshot
+→ Logs
+→ Defecto o bloqueo
+→ Módulo
+→ Commit
 ```
-
-Mídela por:
-
-```text
-responsabilidad única
-+ actor correcto
-+ objeto foco claro
-+ fuente oficial vigente
-+ artículo preciso
-+ interpretación explícita
-+ control
-+ evidencia
-+ relación arquitectónica real
-```
-
-No agregues una regulación a todos los Service Domains para aumentar artificialmente la cobertura.
-
-No crees nuevos Service Domains cuando la responsabilidad ya exista.
-
-No presentes contenido generado automáticamente como validado.
 
 La secuencia obligatoria será:
 
 ```text
-Auditar
-→ clasificar
-→ verificar fuentes
-→ identificar gaps
-→ diseñar remediación
-→ ejecutar migración
-→ validar
-→ probar
-→ reportar
-→ solicitar revisión humana
+Sincronizar
+→ validar features
+→ construir infraestructura
+→ implementar steps reales
+→ compilar
+→ ejecutar
+→ capturar evidencia
+→ clasificar resultados
+→ generar defectos
+→ generar reportes
+→ validar integridad
+→ crear commit
+→ publicar en dev-001
+→ entregar enlaces y SHAs
 ```
 
-```
-```
+No declares finalizada la tarea únicamente porque Cucumber generó un reporte HTML.
 
-[1]: https://www.diputados.gob.mx/LeyesBiblio/ref/lsar.htm "https://www.diputados.gob.mx/LeyesBiblio/ref/lsar.htm"
-[2]: https://dof.gob.mx/nota_detalle_popup.php?codigo=5731119 "https://dof.gob.mx/nota_detalle_popup.php?codigo=5731119"
+El resultado obligatorio será:
+
+```text
+17 módulos procesados
++
+todos los escenarios clasificados
++
+ejecución real
++
+assertions verificables
++
+screenshots por escenario
++
+screenshots de reportes
++
+logs y traces
++
+defectos reproducibles
++
+reportes por módulo
++
+manifiesto auditable
++
+commit publicado en dev-001
+```

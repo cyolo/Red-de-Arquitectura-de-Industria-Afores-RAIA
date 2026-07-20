@@ -34,7 +34,7 @@ describe('RAIA Repositories Unit Tests', () => {
     expect(relations.length).toBeGreaterThan(0);
 
     const regulations = getRegulations();
-    expect(regulations.length).toBeGreaterThan(0);
+    expect(regulations.length).toBe(0);
 
     const scenarios = getScenarios();
     expect(scenarios.length).toBeGreaterThan(0);

@@ -258,7 +258,9 @@ export default function HomePage() {
                         {mod.roadmap && mod.roadmap.length > 0 && (
                           <div className="flex flex-col gap-0.5">
                             <span className="text-slate-400">Roadmap:</span>
-                            <span className="font-semibold text-slate-600 truncate">{mod.roadmap.join(" → ")}</span>
+                            <span className="font-semibold text-slate-600 truncate">
+                              {mod.roadmap.map((item: any) => typeof item === "object" ? item.title : item).join(" → ")}
+                            </span>
                           </div>
                         )}
                       </div>

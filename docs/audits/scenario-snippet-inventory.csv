@@ -1,0 +1,15 @@
+ID,Name,Category,Version,Status
+RAIA-SNP-0001,Resolución de identidad,identity,0.1.0,proposed
+RAIA-SNP-0002,Verificación biométrica,authentication,0.1.0,proposed
+RAIA-SNP-0003,Localización de Cuenta Individual,account-location,0.1.0,proposed
+RAIA-SNP-0004,Captura de consentimiento,consent,0.1.0,proposed
+RAIA-SNP-0005,Firma o manifestación de voluntad,signature,0.1.0,proposed
+RAIA-SNP-0006,Validación de expediente,validation,0.1.0,proposed
+RAIA-SNP-0007,Evaluación de elegibilidad,eligibility,0.1.0,proposed
+RAIA-SNP-0008,Registro de control y evidencia,evidence,0.1.0,proposed
+RAIA-SNP-0009,Notificación de resultado,notification,0.1.0,proposed
+RAIA-SNP-0010,Revisión manual de excepción,manual-review,0.1.0,proposed
+RAIA-SNP-0011,Consulta a servicio compartido de industria,industry-query,0.1.0,proposed
+RAIA-SNP-0012,Conciliación de información,reconciliation,0.1.0,proposed
+RAIA-SNP-0013,Confirmación de movimiento financiero,financial-confirmation,0.1.0,proposed
+RAIA-SNP-0014,Detección de solicitud duplicada,exception,0.1.0,proposed

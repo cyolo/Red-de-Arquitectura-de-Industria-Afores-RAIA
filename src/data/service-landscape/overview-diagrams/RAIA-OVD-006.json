@@ -1,0 +1,96 @@
+{
+  "id": "RAIA-OVD-006",
+  "slug": "retiros-pensiones",
+  "nameEs": "Retiros, Prestaciones y Pensiones",
+  "description": "Flujo operativo de atención de solicitudes de retiro (parcial y total) y trámites previsionales.",
+  "purpose": "Detallar el proceso de retiro parcial por desempleo/matrimonio o liquidación total por pensión ordinaria.",
+  "level": "value-stream",
+  "theme": "withdrawals-pensions",
+  "orientation": "left-to-right",
+  "nodes": [
+    {
+      "id": "node-worker",
+      "diagramId": "RAIA-OVD-006",
+      "nodeType": "actor",
+      "referenceId": "ACT-WORKER",
+      "label": "Trabajador",
+      "status": "normal"
+    },
+    {
+      "id": "node-imss",
+      "diagramId": "RAIA-OVD-006",
+      "nodeType": "authority",
+      "referenceId": "ACT-IMSS",
+      "label": "IMSS",
+      "status": "normal"
+    },
+    {
+      "id": "node-issste",
+      "diagramId": "RAIA-OVD-006",
+      "nodeType": "authority",
+      "referenceId": "ACT-ISSSTE",
+      "label": "ISSSTE",
+      "status": "normal"
+    },
+    {
+      "id": "node-sd-090",
+      "diagramId": "RAIA-OVD-006",
+      "nodeType": "service-domain",
+      "referenceId": "RAIA-SD-090",
+      "label": "Tramitación de Retiros",
+      "description": "Valida requisitos de derecho y procesa retiros.",
+      "status": "normal"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-ovd006-01",
+      "diagramId": "RAIA-OVD-006",
+      "sourceNodeId": "node-worker",
+      "targetNodeId": "node-sd-090",
+      "edgeType": "value-flow",
+      "description": "Solicita retiro parcial por desempleo o liquidación de saldo por dictamen de pensión.",
+      "businessObjectIds": [],
+      "businessEventIds": [],
+      "regulatoryMappingIds": [],
+      "status": "proposed"
+    },
+    {
+      "id": "edge-ovd006-02",
+      "diagramId": "RAIA-OVD-006",
+      "sourceNodeId": "node-imss",
+      "targetNodeId": "node-sd-090",
+      "edgeType": "authorization",
+      "description": "Emite resolución o dictamen de pensión o certificado de desempleo.",
+      "businessObjectIds": [],
+      "businessEventIds": [],
+      "regulatoryMappingIds": [],
+      "status": "proposed"
+    },
+    {
+      "id": "edge-ovd006-03",
+      "diagramId": "RAIA-OVD-006",
+      "sourceNodeId": "node-issste",
+      "targetNodeId": "node-sd-090",
+      "edgeType": "authorization",
+      "description": "Emite concesión de pensión para el régimen ISSSTE.",
+      "businessObjectIds": [],
+      "businessEventIds": [],
+      "regulatoryMappingIds": [],
+      "status": "proposed"
+    }
+  ],
+  "groups": [],
+  "phases": [],
+  "status": "proposed",
+  "confidence": "high",
+  "assumptions": [
+    "IMSS e ISSSTE emiten sus resoluciones de forma separada pero ambas se unifican en BDNSAR."
+  ],
+  "unresolvedQuestions": [
+    "Cómo se integrará la firma electrónica del ISSSTE con las AFOREs comerciales."
+  ],
+  "version": "0.1.0",
+  "createdAt": "2026-07-20T00:00:00Z",
+  "updatedAt": "2026-07-20T00:00:00Z"
+}

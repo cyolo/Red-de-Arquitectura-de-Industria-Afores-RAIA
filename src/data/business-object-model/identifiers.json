@@ -1,0 +1,15 @@
+[
+  {
+    "id": "ID-BO-0001-CURP",
+    "businessObjectId": "RAIA-BO-0001",
+    "name": "CURP Trabajador",
+    "description": "Clave de población única e inmutable.",
+    "identifierType": "natural-key",
+    "attributeIds": ["ATT-BO-0001-CURP"],
+    "globallyUnique": true,
+    "immutable": true,
+    "scope": "industry",
+    "validationRuleIds": [],
+    "status": "validated"
+  }
+]

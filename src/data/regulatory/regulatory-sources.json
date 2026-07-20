@@ -17,9 +17,7 @@
     "applicableRegimeIds": ["LSS97", "ISSSTE2007", "SAR92"],
     "applicableParticipantTypeIds": ["afore", "siefore", "authority", "industry-operator"],
     "notes": ["Ley fundamental del Sistema de Ahorro para el Retiro."],
-    "validationStatus": "legally-reviewed",
-    "reviewedBy": "Legal-Audit-Team",
-    "reviewedAt": "2026-07-20"
+    "validationStatus": "source-verified"
   },
   {
     "id": "RAIA-REG-LSS",
@@ -39,9 +37,7 @@
     "applicableRegimeIds": ["LSS73", "LSS97"],
     "applicableParticipantTypeIds": ["worker", "beneficiary", "employer", "social-security-institute", "afore"],
     "notes": ["Regula las prestaciones del régimen obligatorio y voluntario del IMSS."],
-    "validationStatus": "legally-reviewed",
-    "reviewedBy": "Legal-Audit-Team",
-    "reviewedAt": "2026-07-20"
+    "validationStatus": "source-verified"
   },
   {
     "id": "RAIA-REG-LISSSTE",
@@ -61,9 +57,7 @@
     "applicableRegimeIds": ["ISSSTE2007", "ISSSTE10T"],
     "applicableParticipantTypeIds": ["worker", "beneficiary", "public-dependency", "social-security-institute", "afore"],
     "notes": ["Regula las pensiones y prestaciones de los trabajadores del Estado."],
-    "validationStatus": "legally-reviewed",
-    "reviewedBy": "Legal-Audit-Team",
-    "reviewedAt": "2026-07-20"
+    "validationStatus": "source-verified"
   },
   {
     "id": "RAIA-REG-LINFONAVIT",
@@ -83,9 +77,7 @@
     "applicableRegimeIds": ["LSS97"],
     "applicableParticipantTypeIds": ["worker", "employer", "housing-institute", "afore"],
     "notes": ["Norma la subcuenta de vivienda administrada en SAR."],
-    "validationStatus": "legally-reviewed",
-    "reviewedBy": "Legal-Audit-Team",
-    "reviewedAt": "2026-07-20"
+    "validationStatus": "source-verified"
   },
   {
     "id": "RAIA-REG-LFPDPPP",
@@ -94,20 +86,38 @@
     "sourceType": "law",
     "issuingAuthorityId": "CONGRESOMX",
     "jurisdiction": "MX",
-    "publicationDate": "2010-07-05",
-    "lastReformDate": "2025-03-25",
-    "effectiveFrom": "2010-07-06",
+    "publicationDate": "2025-03-20",
+    "lastReformDate": "2025-11-14",
+    "effectiveFrom": "2025-03-21",
     "officialUrl": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf",
     "consultedAt": "2026-07-20",
     "status": "current",
-    "supersedesIds": [],
+    "supersedesIds": ["RAIA-REG-LFPDPPP-LEGACY"],
     "supersededByIds": [],
     "applicableRegimeIds": ["LSS97", "ISSSTE2007"],
     "applicableParticipantTypeIds": ["worker", "afore", "insurer", "external-service-provider"],
-    "notes": ["Aplica a la conservación y tratamiento de expedientes digitales de Afores."],
-    "validationStatus": "legally-reviewed",
-    "reviewedBy": "Legal-Audit-Team",
-    "reviewedAt": "2026-07-20"
+    "notes": ["Nueva ley de datos personales publicada en 2025, aplica al resguardo y tratamiento de expedientes del SAR."],
+    "validationStatus": "source-verified"
+  },
+  {
+    "id": "RAIA-REG-LFPDPPP-LEGACY",
+    "officialTitle": "Ley Federal de Protección de Datos Personales en Posesión de los Particulares (Histórica)",
+    "shortName": "LFPDPPP 2010",
+    "sourceType": "law",
+    "issuingAuthorityId": "CONGRESOMX",
+    "jurisdiction": "MX",
+    "publicationDate": "2010-07-05",
+    "effectiveFrom": "2010-07-06",
+    "effectiveTo": "2025-03-20",
+    "officialUrl": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf",
+    "consultedAt": "2026-07-20",
+    "status": "abrogated",
+    "supersedesIds": [],
+    "supersededByIds": ["RAIA-REG-LFPDPPP"],
+    "applicableRegimeIds": ["LSS97", "ISSSTE2007"],
+    "applicableParticipantTypeIds": ["worker", "afore", "insurer", "external-service-provider"],
+    "notes": ["Ley de 2010 abrogada el 20 de marzo de 2025."],
+    "validationStatus": "source-verified"
   },
   {
     "id": "RAIA-REG-CONSAR-OP",
@@ -127,9 +137,7 @@
     "applicableRegimeIds": ["LSS97", "ISSSTE2007"],
     "applicableParticipantTypeIds": ["afore", "industry-operator", "worker"],
     "notes": ["Regulación secundaria principal de procesos de Registro, Traspaso, Biometría y Geolocalización."],
-    "validationStatus": "legally-reviewed",
-    "reviewedBy": "Legal-Audit-Team",
-    "reviewedAt": "2026-07-20"
+    "validationStatus": "source-verified"
   },
   {
     "id": "RAIA-REG-CONSAR-FI",
@@ -149,9 +157,7 @@
     "applicableRegimeIds": ["LSS97", "ISSSTE2007"],
     "applicableParticipantTypeIds": ["siefore", "afore", "custodian", "price-provider", "market-infrastructure"],
     "notes": ["Norma valuaciones de activos, administración de riesgos y lineamientos ASG."],
-    "validationStatus": "legally-reviewed",
-    "reviewedBy": "Legal-Audit-Team",
-    "reviewedAt": "2026-07-20"
+    "validationStatus": "source-verified"
   },
   {
     "id": "RAIA-REG-FPB-RULES",
@@ -171,9 +177,7 @@
     "applicableRegimeIds": ["BIENESTAR"],
     "applicableParticipantTypeIds": ["afore", "worker", "social-security-institute", "fiduciary"],
     "notes": ["Gobierna la individualización y devolución de complementos de retiro."],
-    "validationStatus": "legally-reviewed",
-    "reviewedBy": "Legal-Audit-Team",
-    "reviewedAt": "2026-07-20"
+    "validationStatus": "source-verified"
   },
   {
     "id": "RAIA-REG-CUS",

@@ -13,11 +13,17 @@ export default function Header() {
 
   const primaryNav = [
     { label: "Overview", href: "/", active: pathname === "/" },
+    { label: "Reference Model", href: "/reference-model", active: pathname.startsWith("/reference-model") },
     { label: "Service Landscape", href: "/service-landscape/value-chain", active: pathname.startsWith("/service-landscape") || pathname.startsWith("/service-domains") },
+    { label: "Information Architecture", href: "/information-architecture", active: pathname.startsWith("/information-architecture") },
+    { label: "Control Records", href: "/control-record-model", active: pathname.startsWith("/control-record-model") },
+    { label: "Business Objects", href: "/business-object-model", active: pathname.startsWith("/business-object-model") },
     { label: "Scenarios", href: "/business-scenarios", active: pathname.startsWith("/business-scenarios") },
   ];
 
   const secondaryNav = [
+    { label: "Service Landscape — Overview Diagrams", href: "/service-landscape/overview-diagrams", icon: Layers },
+    { label: "Scenario Snippets", href: "/business-scenarios/snippets", icon: Compass },
     { label: "Metamodel Overview", href: "/metamodel", icon: BookOpen },
     { label: "Metodología", href: "/methodology", icon: Network },
     { label: "Dashboard", href: "/dashboard", icon: BarChart3 },

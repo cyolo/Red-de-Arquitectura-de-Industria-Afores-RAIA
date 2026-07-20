@@ -8,7 +8,7 @@
     "purpose": "Modelar el gobierno de datos, datos maestros y flujos semánticos de la industria.",
     "route": "/information-architecture",
     "category": "reference-architecture",
-    "status": "planned",
+    "status": "in-development",
     "icon": "Database",
     "order": 1,
     "version": "0.1.0",
@@ -16,14 +16,24 @@
     "validationStatus": "pending-industry-review",
     "roadmap": [
       {
-        "title": "Fase 1: Mapeo conceptual de entidades",
-        "status": "not-started",
-        "targetDate": "Q3 2026"
+        "title": "Fase 1 — Dominios y conceptos",
+        "status": "completed"
       },
       {
-        "title": "Fase 2: Diccionario canónico",
-        "status": "not-started",
-        "targetDate": "Q4 2026"
+        "title": "Fase 2 — Objetos canónicos",
+        "status": "completed"
+      },
+      {
+        "title": "Fase 3 — Ownership y linaje",
+        "status": "completed"
+      },
+      {
+        "title": "Fase 4 — Calidad, clasificación y lifecycle",
+        "status": "completed"
+      },
+      {
+        "title": "Fase 5 — Validación de industria",
+        "status": "not-started"
       }
     ],
     "dependencies": [
@@ -47,7 +57,7 @@
     "purpose": "Alinear las transiciones de estado lógicas del objeto de negocio enfocado por cada Service Domain.",
     "route": "/control-record-model",
     "category": "reference-architecture",
-    "status": "planned",
+    "status": "in-development",
     "icon": "FileSpreadsheet",
     "order": 2,
     "version": "0.1.0",
@@ -56,12 +66,12 @@
     "roadmap": [
       {
         "title": "Fase 1: Identificación de objetos focales",
-        "status": "not-started",
+        "status": "completed",
         "targetDate": "Q3 2026"
       },
       {
         "title": "Fase 2: Modelado de máquinas de estado",
-        "status": "not-started",
+        "status": "completed",
         "targetDate": "Q4 2026"
       }
     ],
@@ -85,7 +95,7 @@
     "purpose": "Definir las entidades canónicas que interactúan en la cadena de valor (Trabajador, Cuenta, Aportación, etc.).",
     "route": "/business-object-model",
     "category": "reference-architecture",
-    "status": "planned",
+    "status": "in-development",
     "icon": "Boxes",
     "order": 3,
     "version": "0.1.0",
@@ -94,12 +104,12 @@
     "roadmap": [
       {
         "title": "Fase 1: Catálogo inicial de 24 objetos núcleo",
-        "status": "not-started",
+        "status": "completed",
         "targetDate": "Q3 2026"
       },
       {
         "title": "Fase 2: Atributos y tipos de datos",
-        "status": "not-started",
+        "status": "completed",
         "targetDate": "Q1 2027"
       }
     ],
@@ -123,22 +133,29 @@
     "purpose": "Ofrecer un punto de entrada holístico que combine vistas funcionales, operativas y de integración.",
     "route": "/reference-model",
     "category": "reference-architecture",
-    "status": "planned",
+    "status": "in-development",
     "icon": "Layers",
     "order": 4,
     "version": "0.1.0",
     "ownerRole": "RAIA Maintainers",
     "validationStatus": "pending-industry-review",
     "roadmap": [
-      {
-        "title": "Fase 1: Mapeo conceptual inicial",
-        "status": "not-started",
-        "targetDate": "Q4 2026"
-      }
+      { "title": "Fase 1 — Modelo de composición", "status": "completed" },
+      { "title": "Fase 2 — Viewpoints iniciales", "status": "completed" },
+      { "title": "Fase 3 — Trazabilidad e impacto", "status": "completed" },
+      { "title": "Fase 4 — Integraciones", "status": "completed" },
+      { "title": "Fase 5 — Validación de industria", "status": "not-started" }
     ],
     "dependencies": [
+      "RAIA-MOD-001",
+      "RAIA-MOD-002",
+      "RAIA-MOD-003",
       "RAIA-MOD-005",
-      "RAIA-MOD-012"
+      "RAIA-MOD-007",
+      "RAIA-MOD-008",
+      "RAIA-MOD-012",
+      "RAIA-MOD-014",
+      "RAIA-MOD-015"
     ],
     "tags": [
       "marco-referencia",
@@ -199,7 +216,7 @@
     "purpose": "Facilitar el análisis matricial de coberturas y responsabilidades por roles y flujos.",
     "route": "/service-landscape/matrix",
     "category": "service-landscape",
-    "status": "planned",
+    "status": "in-development",
     "icon": "Grid",
     "order": 6,
     "version": "0.1.0",
@@ -207,9 +224,20 @@
     "validationStatus": "pending-industry-review",
     "roadmap": [
       {
-        "title": "Fase 1: Diseñar cuadrículas cruzadas",
-        "status": "not-started",
-        "targetDate": "Q4 2026"
+        "title": "Fase 1 — Motor matricial",
+        "status": "completed"
+      },
+      {
+        "title": "Fase 2 — UI y drill-down",
+        "status": "completed"
+      },
+      {
+        "title": "Fase 3 — Exportación y vistas guardadas",
+        "status": "completed"
+      },
+      {
+        "title": "Fase 4 — Validación de industria",
+        "status": "not-started"
       }
     ],
     "dependencies": [
@@ -232,7 +260,7 @@
     "purpose": "Consolidar vistas temáticas de ciclo de vida, recaudación, inversión y retiros.",
     "route": "/service-landscape/overview-diagrams",
     "category": "service-landscape",
-    "status": "planned",
+    "status": "in-development",
     "icon": "Workflow",
     "order": 7,
     "version": "0.1.0",
@@ -240,9 +268,20 @@
     "validationStatus": "pending-industry-review",
     "roadmap": [
       {
-        "title": "Fase 1: Diagramar flujos clave de negocio",
-        "status": "not-started",
-        "targetDate": "Q1 2027"
+        "title": "Fase 1 — Modelo y catálogo",
+        "status": "completed"
+      },
+      {
+        "title": "Fase 2 — Canvas y layouts",
+        "status": "completed"
+      },
+      {
+        "title": "Fase 3 — Integraciones y exportación",
+        "status": "completed"
+      },
+      {
+        "title": "Fase 4 — Validación de industria",
+        "status": "not-started"
       }
     ],
     "dependencies": [
@@ -303,7 +342,7 @@
     "purpose": "Definir patrones comunes de validación de identidad, firmas y capturas de consentimiento.",
     "route": "/business-scenarios/snippets",
     "category": "business-scenarios",
-    "status": "planned",
+    "status": "in-development",
     "icon": "Code",
     "order": 9,
     "version": "0.1.0",
@@ -311,13 +350,29 @@
     "validationStatus": "pending-industry-review",
     "roadmap": [
       {
-        "title": "Fase 1: Catálogo conceptual de firmas y consentimiento",
-        "status": "not-started",
-        "targetDate": "Q4 2026"
+        "title": "Fase 1 — Modelo de snippets y catálogo inicial",
+        "status": "completed"
+      },
+      {
+        "title": "Fase 2 — Resolver e invocaciones",
+        "status": "completed"
+      },
+      {
+        "title": "Fase 3 — Integración con escenarios",
+        "status": "completed"
+      },
+      {
+        "title": "Fase 4 — Versionamiento e impacto",
+        "status": "completed"
+      },
+      {
+        "title": "Fase 5 — Validación de industria",
+        "status": "not-started"
       }
     ],
     "dependencies": [
-      "RAIA-MOD-008"
+      "RAIA-MOD-008",
+      "RAIA-MOD-012"
     ],
     "tags": [
       "patrones",
@@ -336,7 +391,7 @@
     "purpose": "Mapear qué hace la industria independientemente de cómo o dónde se ejecutan los servicios.",
     "route": "/capability-map",
     "category": "capabilities",
-    "status": "planned",
+    "status": "in-development",
     "icon": "Map",
     "order": 10,
     "version": "0.1.0",
@@ -344,13 +399,31 @@
     "validationStatus": "pending-industry-review",
     "roadmap": [
       {
-        "title": "Fase 1: Taxonomía de capacidades L1/L2",
-        "status": "not-started",
-        "targetDate": "Q4 2026"
+        "title": "Fase 1 — Descubrimiento y taxonomía L1",
+        "status": "completed"
+      },
+      {
+        "title": "Fase 2 — Capacidades L2 y mappings",
+        "status": "completed"
+      },
+      {
+        "title": "Fase 3 — Heatmaps y assessments",
+        "status": "completed"
+      },
+      {
+        "title": "Fase 4 — Integraciones y análisis de impacto",
+        "status": "completed"
+      },
+      {
+        "title": "Fase 5 — Validación de industria",
+        "status": "not-started"
       }
     ],
     "dependencies": [
-      "RAIA-MOD-005"
+      "RAIA-MOD-004",
+      "RAIA-MOD-005",
+      "RAIA-MOD-012",
+      "RAIA-MOD-015"
     ],
     "tags": [
       "capacidades",

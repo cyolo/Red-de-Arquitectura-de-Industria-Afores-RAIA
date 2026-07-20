@@ -176,15 +176,16 @@ export interface ServiceDomain {
   participantIds?: string[];
   accountableParticipantIds?: string[];
   regulatoryMappingIds?: string[];
-  regulatoryCoverage?: "unmapped" | "partial" | "mapped" | "reviewed";
+  regulatoryCoverage?: "unmapped" | "partial" | "mapped" | "reviewed" | "not-applicable";
   applicableRegimeIds?: string[];
   regulatoryCriticality?: "none" | "low" | "medium" | "high" | "systemic";
   capabilityType?: "regulated-core" | "industry-shared" | "enterprise-enabler" | "raia-governance";
   assumptions?: string[];
   unresolvedQuestions?: string[];
   operationalValidationStatus?: "pending" | "reviewed" | "validated";
-  regulatoryValidationStatus?: "pending" | "partially-reviewed" | "legally-reviewed";
+  regulatoryValidationStatus?: "pending" | "partially-reviewed" | "legally-reviewed" | "architecture-reviewed";
   lastRegulatoryReviewAt?: string;
+  regulatoryNonApplicabilityReason?: string;
 
   tags: string[];
   createdAt: string;
@@ -205,10 +206,15 @@ export interface LandscapeRelation {
     | "transfers-to"
     | "shares-data-with"
     | "triggers";
-  label?: string;
-  description?: string;
+  label: string;
+  description: string;
   bidirectional?: boolean;
-}
+  businessObjectIds?: string[];
+  serviceOperationIds?: string[];
+  businessEventIds?: string[];
+  regulatoryMappingIds?: string[];
+  validationStatus?: "pending" | "reviewed";
+  assumptions?: string[];}
 
 export interface BusinessScenarioStep {
   stepNumber: number;
@@ -306,4 +312,10 @@ export interface ArchitectureArtifact {
 
 export * from "./regulatoryTypes";
 export * from "./participantTypes";
+export * from "./informationArchitectureTypes";
+export * from "./controlRecordTypes";
+export * from "./businessObjectTypes";
+export * from "./referenceModelTypes";
+export * from "./scenarioSnippetTypes";
+export * from "./capabilityTypes";
 

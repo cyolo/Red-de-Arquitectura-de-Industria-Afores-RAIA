@@ -28,6 +28,11 @@ export interface SequenceMessage {
   businessObjectIds?: string[];
   controlIds?: string[];
   evidenceIds?: string[];
+  origin?: "inline" | "snippet";
+  snippetId?: string;
+  snippetVersion?: string;
+  snippetStepId?: string;
+  snippetInvocationId?: string;
 }
 
 export interface ActivationSpan {

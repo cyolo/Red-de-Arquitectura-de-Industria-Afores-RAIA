@@ -1,0 +1,216 @@
+[
+  {
+    "id": "RAIA-RMV-001",
+    "slug": "ecosistema-sar",
+    "nameEs": "Ecosistema integral del SAR",
+    "description": "Visualización del mapa de participantes del Sistema de Ahorro para el Retiro.",
+    "purpose": "Comprender roles, autoridades y proveedores compartidos.",
+    "viewpointType": "ecosystem",
+    "layerIds": ["ecosystem"],
+    "rootArtifactRefs": [
+      { "artifactType": "participant", "artifactId": "ACT-AFORE" }
+    ],
+    "diagramConfigurationId": "diag-ecosystem",
+    "supportedDetailLevels": ["executive", "domain"],
+    "defaultDetailLevel": "executive",
+    "filterIds": [],
+    "status": "proposed",
+    "confidence": "medium",
+    "assumptions": [],
+    "unresolvedQuestions": [],
+    "version": "0.1.0"
+  },
+  {
+    "id": "RAIA-RMV-002",
+    "slug": "cadena-valor",
+    "nameEs": "Mapa integral de la cadena de valor",
+    "description": "Flujo principal de la cadena de valor previsional de la industria.",
+    "purpose": "Conectar áreas, dominios funcionales y escenarios de negocio.",
+    "viewpointType": "value-stream",
+    "layerIds": ["value-stream", "service-landscape"],
+    "rootArtifactRefs": [
+      { "artifactType": "business-area", "artifactId": "area-cuentas" }
+    ],
+    "diagramConfigurationId": "diag-value-chain",
+    "supportedDetailLevels": ["executive", "domain", "service"],
+    "defaultDetailLevel": "domain",
+    "filterIds": [],
+    "status": "proposed",
+    "confidence": "medium",
+    "assumptions": [],
+    "unresolvedQuestions": [],
+    "version": "0.1.0"
+  },
+  {
+    "id": "RAIA-RMV-003",
+    "slug": "ciclo-vida-cuenta",
+    "nameEs": "Ciclo de vida de la Cuenta Individual",
+    "description": "Trace de punta a punta de la Cuenta Individual.",
+    "purpose": "Alinear la administración de cuenta, recaudación, inversión y retiros.",
+    "viewpointType": "lifecycle",
+    "layerIds": ["service-landscape", "information", "control-state", "business-behavior"],
+    "rootArtifactRefs": [
+      { "artifactType": "business-object", "artifactId": "RAIA-BO-0005" }
+    ],
+    "diagramConfigurationId": "diag-lifecycle-account",
+    "supportedDetailLevels": ["domain", "service", "detailed"],
+    "defaultDetailLevel": "service",
+    "filterIds": [],
+    "status": "proposed",
+    "confidence": "high",
+    "assumptions": [],
+    "unresolvedQuestions": [],
+    "version": "0.1.0"
+  },
+  {
+    "id": "RAIA-RMV-004",
+    "slug": "recaudacion-individualizacion",
+    "nameEs": "Recaudación e individualización",
+    "description": "Flujo integral de recaudación e individualización bimestral.",
+    "purpose": "Visualizar la conciliación de lotes y abonos a cuentas.",
+    "viewpointType": "layered",
+    "layerIds": ["service-landscape", "information", "control-state", "regulation-control"],
+    "rootArtifactRefs": [
+      { "artifactType": "business-object", "artifactId": "RAIA-BO-0012" }
+    ],
+    "diagramConfigurationId": "diag-recaudacion",
+    "supportedDetailLevels": ["domain", "service", "detailed"],
+    "defaultDetailLevel": "service",
+    "filterIds": [],
+    "status": "proposed",
+    "confidence": "medium",
+    "assumptions": [],
+    "unresolvedQuestions": [],
+    "version": "0.1.0"
+  },
+  {
+    "id": "RAIA-RMV-005",
+    "slug": "administracion-inversiones",
+    "nameEs": "Administración de inversiones",
+    "description": "Vista de la estrategia, orden, ejecución y custodia.",
+    "purpose": "Modelar el régimen de inversión por límites y SIEFOREs.",
+    "viewpointType": "layered",
+    "layerIds": ["service-landscape", "information", "regulation-control"],
+    "rootArtifactRefs": [
+      { "artifactType": "business-object", "artifactId": "RAIA-BO-0016" }
+    ],
+    "diagramConfigurationId": "diag-inversiones",
+    "supportedDetailLevels": ["domain", "service"],
+    "defaultDetailLevel": "domain",
+    "filterIds": [],
+    "status": "proposed",
+    "confidence": "medium",
+    "assumptions": [],
+    "unresolvedQuestions": [],
+    "version": "0.1.0"
+  },
+  {
+    "id": "RAIA-RMV-006",
+    "slug": "retiros-pensiones",
+    "nameEs": "Retiros y pensiones",
+    "description": "Rutas de disposición total y parcial de recursos.",
+    "purpose": "Mapear negativas de pensión, renta vitalicia y retiros programados.",
+    "viewpointType": "lifecycle",
+    "layerIds": ["service-landscape", "information", "business-behavior"],
+    "rootArtifactRefs": [
+      { "artifactType": "business-object", "artifactId": "RAIA-BO-0021" }
+    ],
+    "diagramConfigurationId": "diag-retiros",
+    "supportedDetailLevels": ["domain", "service", "detailed"],
+    "defaultDetailLevel": "service",
+    "filterIds": [],
+    "status": "proposed",
+    "confidence": "medium",
+    "assumptions": [],
+    "unresolvedQuestions": [],
+    "version": "0.1.0"
+  },
+  {
+    "id": "RAIA-RMV-007",
+    "slug": "vista-informacion",
+    "nameEs": "Vista integral de información",
+    "nameEn": "Information Viewpoint",
+    "description": "Estructura de dominios, conceptos y linaje de datos.",
+    "purpose": "Alinear linajes e indicadores de calidad semántica.",
+    "viewpointType": "information",
+    "layerIds": ["information"],
+    "rootArtifactRefs": [
+      { "artifactType": "information-domain", "artifactId": "dom-cuentas" }
+    ],
+    "diagramConfigurationId": "diag-info-view",
+    "supportedDetailLevels": ["domain", "service", "detailed"],
+    "defaultDetailLevel": "service",
+    "filterIds": [],
+    "status": "proposed",
+    "confidence": "high",
+    "assumptions": [],
+    "unresolvedQuestions": [],
+    "version": "0.1.0"
+  },
+  {
+    "id": "RAIA-RMV-008",
+    "slug": "control-comportamiento",
+    "nameEs": "Control y comportamiento",
+    "nameEn": "Control and Behavior",
+    "description": "Colaboración lógica de Control Records y transacciones de escenarios.",
+    "purpose": "Comprender transiciones lógicas cruzadas de ciclo de vida.",
+    "viewpointType": "control-behavior",
+    "layerIds": ["control-state", "business-behavior"],
+    "rootArtifactRefs": [
+      { "artifactType": "control-record", "artifactId": "RAIA-CRM-001" }
+    ],
+    "diagramConfigurationId": "diag-control-behavior",
+    "supportedDetailLevels": ["service", "detailed"],
+    "defaultDetailLevel": "service",
+    "filterIds": [],
+    "status": "proposed",
+    "confidence": "high",
+    "assumptions": [],
+    "unresolvedQuestions": [],
+    "version": "0.1.0"
+  },
+  {
+    "id": "RAIA-RMV-009",
+    "slug": "arquitectura-regulatoria",
+    "nameEs": "Arquitectura regulatoria integral",
+    "nameEn": "Regulatory Viewpoint",
+    "description": "Mapeo de fuentes normativas oficiales a operaciones de servicio.",
+    "purpose": "Asegurar cumplimiento y trazabilidad de auditorías.",
+    "viewpointType": "regulatory",
+    "layerIds": ["regulation-control", "service-landscape"],
+    "rootArtifactRefs": [
+      { "artifactType": "regulatory-source", "artifactId": "CONSAR-CIRCULAR-01" }
+    ],
+    "diagramConfigurationId": "diag-regulatory",
+    "supportedDetailLevels": ["executive", "domain", "service"],
+    "defaultDetailLevel": "domain",
+    "filterIds": [],
+    "status": "proposed",
+    "confidence": "medium",
+    "assumptions": [],
+    "unresolvedQuestions": [],
+    "version": "0.1.0"
+  },
+  {
+    "id": "RAIA-RMV-010",
+    "slug": "impacto-trazabilidad",
+    "nameEs": "Impacto y trazabilidad",
+    "nameEn": "Impact Viewpoint",
+    "description": "Cálculo interactivo de trazabilidad upstream/downstream de cambios.",
+    "purpose": "Calcular afectación sistémica de modificaciones de objetos o reglas.",
+    "viewpointType": "impact",
+    "layerIds": ["ecosystem", "service-landscape", "information", "regulation-control"],
+    "rootArtifactRefs": [
+      { "artifactType": "business-object", "artifactId": "RAIA-BO-0005" }
+    ],
+    "diagramConfigurationId": "diag-impact",
+    "supportedDetailLevels": ["domain", "service", "detailed"],
+    "defaultDetailLevel": "service",
+    "filterIds": [],
+    "status": "proposed",
+    "confidence": "high",
+    "assumptions": [],
+    "unresolvedQuestions": [],
+    "version": "0.1.0"
+  }
+]
