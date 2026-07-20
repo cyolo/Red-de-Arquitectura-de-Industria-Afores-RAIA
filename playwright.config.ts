@@ -1,21 +1,29 @@
 import { defineConfig, devices } from '@playwright/test';
 
+const isCI = !!process.env.CI;
+
 export default defineConfig({
   testDir: './tests/e2e',
+  outputDir: 'test-results/outputs',
   fullyParallel: true,
-  forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 1 : undefined,
+  forbidOnly: isCI,
+  failOnFlakyTests: isCI,
+  retries: isCI ? 1 : 0,
+  workers: isCI ? 1 : 2, // Use 2 workers locally to avoid CPU saturation and timeouts
+  timeout: 60000, // Increase global test timeout to 60 seconds
+  
   reporter: [
-    ['html', { outputFolder: 'test-results/reports/html' }],
+    ['list'],
+    ['html', { outputFolder: 'test-results/reports/html', open: 'never' }],
     ['json', { outputFile: 'test-results/reports/results.json' }],
     ['junit', { outputFile: 'test-results/reports/results.xml' }]
   ],
+
   use: {
     baseURL: 'http://localhost:3000',
-    trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
+    trace: 'retain-on-failure',
   },
 
   projects: [
@@ -29,7 +37,7 @@ export default defineConfig({
     },
     {
       name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
+      use: { ...devices['Desktop Safari'], viewport: { width: 1440, height: 900 } }, // Set explicit desktop viewport size for webkit
     },
     {
       name: 'Mobile Chrome',
@@ -44,7 +52,7 @@ export default defineConfig({
   webServer: {
     command: 'npm run start',
     url: 'http://localhost:3000',
-    reuseExistingServer: !process.env.CI,
+    reuseExistingServer: !isCI,
     timeout: 120 * 1000,
   },
 });

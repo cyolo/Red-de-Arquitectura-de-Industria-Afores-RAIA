@@ -16,7 +16,12 @@
     "prebuild": "npm run validate:data && npm run validate:portal && npm run validate:scenarios && npm run validate:routes && npm run validate:sequence-diagrams && npm run validate:scenario-narratives && npm run typecheck && npm run test",
     "validate:sequence-diagrams": "node scripts/validateSequenceDiagrams.js",
     "validate:scenario-narratives": "node scripts/validateScenarioNarratives.js",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "test:unit": "vitest run --coverage",
+    "test:classify": "npx tsx scripts/classifyTestFailures.ts",
+    "test:report": "npx tsx scripts/generateTestReports.ts",
+    "test:gate": "npx tsx scripts/calculateQualityGate.ts",
+    "test:full": "npm run test:e2e && npm run test:unit && npm run test:classify && npm run test:report && npm run test:gate"
   },
   "dependencies": {
     "@xyflow/react": "^12.11.2",
