@@ -187,7 +187,7 @@ export default function BusinessScenariosClient() {
             </header>
 
             {/* Diagram content wrapper */}
-            <div className="flex-1 min-h-0 overflow-hidden p-4 flex flex-col justify-center" data-testid="scenario-sequence-diagram">
+            <div className="flex-1 min-h-0 overflow-hidden p-3 flex items-stretch" data-testid="scenario-sequence-diagram">
               {hasRenderableSequence ? (
                 <RaiaSequenceDiagram
                   sequence={detailedSequence!}

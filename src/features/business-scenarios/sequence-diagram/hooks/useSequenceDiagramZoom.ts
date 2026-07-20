@@ -28,7 +28,7 @@ export function useSequenceDiagramZoom({
     const g = svg.select("g.zoom-layer");
 
     const zoom = d3.zoom<SVGSVGElement, unknown>()
-      .scaleExtent([0.15, 5])
+      .scaleExtent([0.05, 5])
       .on("zoom", (event) => {
         g.attr("transform", event.transform);
       });
@@ -49,19 +49,29 @@ export function useSequenceDiagramZoom({
 
     if (wrapperWidth <= 0 || wrapperHeight <= 0) return;
 
-    // Calculamos qué escala necesitamos para que el diagrama completo quepa
-    const scaleRatio = Math.min(
-      wrapperWidth / safeWidth,
-      wrapperHeight / safeHeight,
+    const horizontalPadding = 24;
+    const topPadding = 24;
+    const bottomPadding = 24;
+
+    const availableWidth = Math.max(wrapperWidth - horizontalPadding * 2, 1);
+    const availableHeight = Math.max(wrapperHeight - topPadding - bottomPadding, 1);
+
+    // Calculate scale ratio to fit both dimensions
+    const rawScale = Math.min(
+      availableWidth / safeWidth,
+      availableHeight / safeHeight,
       1
     );
     
-    // Si estamos en fullscreen podemos reducir más el diagrama, pero no exageradamente
-    const minScale = isFullscreen ? 0.5 : 0.35;
-    const targetScale = Math.max(minScale, scaleRatio * 0.95);
+    // Support very wide/tall diagrams with scale bounds from 0.08
+    const targetScale = Math.max(0.08, rawScale * 0.96);
 
-    const targetX = (wrapperWidth - safeWidth * targetScale) / 2;
-    const targetY = Math.max((wrapperHeight - safeHeight * targetScale) / 2, 20);
+    // Center horizontally and set Y to fixed top padding
+    const targetX = Math.max(
+      horizontalPadding,
+      (wrapperWidth - safeWidth * targetScale) / 2
+    );
+    const targetY = topPadding;
 
     select(svgRef.current)
       .transition()
@@ -70,9 +80,26 @@ export function useSequenceDiagramZoom({
         zoomRef.current.transform as any,
         d3.zoomIdentity.translate(targetX, targetY).scale(targetScale)
       );
-  }, [svgRef, wrapperRef, safeWidth, safeHeight, isFullscreen]);
+  }, [svgRef, wrapperRef, safeWidth, safeHeight]);
 
-  // Observer para redimensionado
+  // Recalculate layout on mount and when dimensions or fullscreen mode changes
+  useEffect(() => {
+    let frameId1: number;
+    let frameId2: number;
+    
+    frameId1 = requestAnimationFrame(() => {
+      frameId2 = requestAnimationFrame(() => {
+        fitDiagramToViewport();
+      });
+    });
+
+    return () => {
+      cancelAnimationFrame(frameId1);
+      if (frameId2) cancelAnimationFrame(frameId2);
+    };
+  }, [fitDiagramToViewport, safeWidth, safeHeight, isFullscreen]);
+
+  // ResizeObserver for container resizing
   useEffect(() => {
     if (!wrapperRef.current) return;
     
@@ -108,7 +135,7 @@ export function useSequenceDiagramZoom({
         .duration(400)
         .call(
           zoomRef.current.transform as any,
-          d3.zoomIdentity.translate(targetX, 40).scale(1)
+          d3.zoomIdentity.translate(targetX, 24).scale(1)
         );
     }
   }, [svgRef, wrapperRef, safeWidth]);

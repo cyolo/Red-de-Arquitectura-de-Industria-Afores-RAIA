@@ -125,7 +125,7 @@ export default function RaiaSequenceDiagram({ sequence, activeStep, onStepClick 
         transition-all duration-300
         ${isFullscreen 
           ? "fixed inset-0 z-[100] m-0 rounded-none h-[100dvh]" 
-          : "min-h-[720px] h-[clamp(720px,78vh,1040px)] rounded-2xl"
+          : "h-full min-h-0 rounded-xl"
         }
       `}
       aria-labelledby={`sequence-title-${sequence.scenarioId}`}

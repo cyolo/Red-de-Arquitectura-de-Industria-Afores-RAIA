@@ -35,8 +35,6 @@ export function SequenceDiagramCanvas({
       ref={svgRef} 
       width="100%"
       height="100%"
-      viewBox={`0 0 ${Math.max(layout.width, 1)} ${Math.max(layout.height, 1)}`}
-      preserveAspectRatio="xMidYMid meet"
       role="img"
       aria-labelledby={`sequence-title-${sequenceId}`}
       aria-describedby={`sequence-description-${sequenceId}`}
