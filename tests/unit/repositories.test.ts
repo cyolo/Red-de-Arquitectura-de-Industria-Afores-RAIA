@@ -98,7 +98,7 @@ describe('RAIA Repositories Unit Tests', () => {
     scenarioNarrativeRepository.preloadData(mockBundle);
     const loaded = scenarioNarrativeRepository.getById("RAIA-BS-0001");
     expect(loaded).toBeDefined();
-    expect(loaded?.title).toBe("Mock Scenario");
+    expect((loaded as any)?.title).toBe("Mock Scenario");
 
     const all = scenarioNarrativeRepository.getAll();
     expect(all.length).toBe(1);

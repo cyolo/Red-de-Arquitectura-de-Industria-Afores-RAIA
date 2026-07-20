@@ -32,7 +32,7 @@ export default function Header() {
         <div className="flex items-center gap-3 min-w-0">
           <Link 
             href="/"
-            className="flex items-center gap-2 text-white hover:text-slate-200 transition-colors"
+            className="flex items-center gap-2 text-white hover:text-slate-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:rounded-lg focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
           >
             <div className="w-8 h-8 rounded-lg bg-raia-blue-inst flex items-center justify-center border border-slate-700 shadow-inner">
               <Network size={18} className="text-white" />
@@ -68,7 +68,7 @@ export default function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${
+              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 ${
                 item.active
                   ? "bg-slate-800 text-white"
                   : "text-slate-300 hover:text-white hover:bg-slate-800"
@@ -83,7 +83,7 @@ export default function Header() {
             <button
               onClick={() => setDropdownOpen(!dropdownOpen)}
               onBlur={() => setTimeout(() => setDropdownOpen(false), 200)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold text-slate-300 hover:text-white hover:bg-slate-800 transition-colors flex items-center gap-1 ${
+              className={`px-3 py-1.5 rounded-lg text-xs font-bold text-slate-300 hover:text-white hover:bg-slate-800 transition-colors flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 ${
                 dropdownOpen ? "bg-slate-800 text-white" : ""
               }`}
               aria-haspopup="true"
@@ -102,7 +102,7 @@ export default function Header() {
                     <Link
                       key={item.href}
                       href={item.href}
-                      className={`flex items-center gap-2.5 px-4 py-2 text-xs font-semibold transition-colors ${
+                      className={`flex items-center gap-2.5 px-4 py-2 text-xs font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 ${
                         isActive
                           ? "bg-slate-900 text-white border-l-2 border-raia-blue-inst"
                           : "text-slate-400 hover:text-white hover:bg-slate-900"
@@ -126,7 +126,7 @@ export default function Header() {
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-1.5 rounded-lg hover:bg-slate-800 text-slate-300 hover:text-white transition-colors"
+            className="p-1.5 rounded-lg hover:bg-slate-800 text-slate-300 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
             aria-label="Abrir menú"
           >
             {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}

@@ -1,6 +1,14 @@
 import { z } from "zod";
 import { PortalModule, PortalRelease, ArchitectureArtifact } from "../types";
 import { PortalModuleSchema, PortalReleaseSchema, ArchitectureArtifactSchema } from "../schemas";
+import {
+  getBusinessAreas,
+  getBusinessDomains,
+  getServiceDomains,
+  getRelations,
+  getRegulations,
+  getScenarios,
+} from "./landscapeRepository";
 
 import modulesData from "../../data/portal-modules.json";
 import releasesData from "../../data/releases.json";
@@ -28,16 +36,6 @@ export const getPortalModuleBySlug = (slug: string): PortalModule | undefined =>
 };
 
 export const getArchitectureMetrics = () => {
-  // Lazy imports to avoid circular dependency or load order issues
-  const {
-    getBusinessAreas,
-    getBusinessDomains,
-    getServiceDomains,
-    getRelations,
-    getRegulations,
-    getScenarios,
-  } = require("./landscapeRepository");
-
   const areas = getBusinessAreas();
   const domains = getBusinessDomains();
   const sds = getServiceDomains();

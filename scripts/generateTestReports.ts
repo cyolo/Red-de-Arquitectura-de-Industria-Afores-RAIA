@@ -258,7 +258,7 @@ Señala donde la documentación y la implementación sostenían expectativas dif
       case '12-accessibility-report.md':
         mdContent = `# 12 - Reporte de Accesibilidad (WCAG AA)
 
-Auditorías automatizadas de accesibilidad realizadas en todas las páginas web de RAIA usando `@axe-core/playwright`.
+Auditorías automatizadas de accesibilidad realizadas en todas las páginas web de RAIA usando '@axe-core/playwright'.
 
 ## Resumen de Violaciones
 
@@ -329,7 +329,7 @@ Validación del comportamiento responsive en múltiples viewports (Desktop, Tabl
 
 Análisis conceptual de las fallas originales de automatización.
 
-* **RAIA-RC-0001 (Selector de escenarios):** Se dependía de expresiones regulares de texto directo cuando las tarjetas ocultaban visualmente el ID. Corregido agregando atributos `data-scenario-id`.
+* **RAIA-RC-0001 (Selector de escenarios):** Se dependía de expresiones regulares de texto directo cuando las tarjetas ocultaban visualmente el ID. Corregido agregando atributos 'data-scenario-id'.
 * **RAIA-RC-0002 (Testids faltantes):** Faltaban contratos estables de testabilidad en selects de filtros e indicadores del dashboard.
 `;
         break;
@@ -352,10 +352,10 @@ Mapeo de requerimientos funcionales a código del test y sus resultados.
 
 | ID Requerimiento | Archivo de Prueba | Estado E2E |
 | :--- | :--- | :--- |
-| **REQ-BS-001** | `tests/e2e/business-scenarios/catalog.spec.ts` | **PASS** |
-| **REQ-VC-001** | `tests/e2e/value-chain/value-chain.spec.ts` | **PASS** |
-| **REQ-META-001** | `tests/e2e/metamodel/metamodel.spec.ts` | **PASS** |
-| **REQ-DASH-001** | `tests/e2e/dashboard/dashboard.spec.ts` | **PASS** |
+| **REQ-BS-001** | 'tests/e2e/business-scenarios/catalog.spec.ts' | **PASS** |
+| **REQ-VC-001** | 'tests/e2e/value-chain/value-chain.spec.ts' | **PASS** |
+| **REQ-META-001** | 'tests/e2e/metamodel/metamodel.spec.ts' | **PASS** |
+| **REQ-DASH-001** | 'tests/e2e/dashboard/dashboard.spec.ts' | **PASS** |
 `;
         break;
 
