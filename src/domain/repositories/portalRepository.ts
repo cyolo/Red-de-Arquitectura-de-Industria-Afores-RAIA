@@ -85,7 +85,11 @@ export const getArchitectureMetrics = () => {
   });
 
   // domains without regulation
-  const domainsWithoutRegulation = sds.filter((sd: any) => !sd.regulations || sd.regulations.length === 0).length;
+  const domainsWithoutRegulation = sds.filter((sd: any) => {
+    const hasLegacyRegs = sd.regulations && sd.regulations.length > 0;
+    const hasRegulatoryMappings = sd.regulatoryMappingIds && sd.regulatoryMappingIds.length > 0;
+    return !hasLegacyRegs && !hasRegulatoryMappings;
+  }).length;
 
   // domains without relations
   const relationIds = new Set<string>();

@@ -11,6 +11,10 @@ export interface LandscapeFilters {
   controlType?: string;
   authority?: string;
   regulation?: string;
+  layer?: string;
+  coverage?: string;
+  criticality?: string;
+  regime?: string;
 }
 
 interface LandscapeState {

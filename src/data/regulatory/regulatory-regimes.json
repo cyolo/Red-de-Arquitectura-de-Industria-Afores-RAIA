@@ -1,0 +1,8 @@
+[
+  { "id": "LSS73", "name": "Régimen Ley del Seguro Social 1973 (Reparto)", "status": "active" },
+  { "id": "LSS97", "name": "Régimen Ley del Seguro Social 1997 (Cuentas Individuales)", "status": "active" },
+  { "id": "ISSSTE2007", "name": "Régimen Ley del ISSSTE 2007 (Cuentas Individuales)", "status": "active" },
+  { "id": "ISSSTE10T", "name": "Régimen Ley del ISSSTE Décimo Transitorio", "status": "active" },
+  { "id": "SAR92", "name": "Sistema de Ahorro para el Retiro 1992-1997", "status": "historical" },
+  { "id": "BIENESTAR", "name": "Régimen Fondo de Pensiones para el Bienestar", "status": "active" }
+]

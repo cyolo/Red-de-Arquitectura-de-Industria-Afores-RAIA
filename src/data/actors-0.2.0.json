@@ -1,0 +1,126 @@
+[
+  {
+    "id": "ACT-WORKER",
+    "name": "Trabajador Titular de la Cuenta",
+    "participantType": "worker",
+    "status": "active",
+    "aliases": ["Trabajador", "Ahorrador", "Titular"]
+  },
+  {
+    "id": "ACT-BENEFICIARY",
+    "name": "Beneficiario Designado o Legal",
+    "participantType": "beneficiary",
+    "status": "active",
+    "aliases": ["Beneficiario", "Deudo"]
+  },
+  {
+    "id": "ACT-EMPLOYER",
+    "name": "Patrón o Sujeto Obligado",
+    "participantType": "employer",
+    "status": "active",
+    "aliases": ["Patrón", "Empleador"]
+  },
+  {
+    "id": "ACT-AFORE",
+    "name": "Administradora de Fondos para el Retiro (AFORE)",
+    "participantType": "afore",
+    "organizationType": "private-financial-entity",
+    "status": "active",
+    "aliases": ["Afore", "Administradora"]
+  },
+  {
+    "id": "ACT-PENSIONISSSTE",
+    "name": "PENSIONISSSTE",
+    "participantType": "public-pension-administrator",
+    "organizationType": "public-entity",
+    "status": "active",
+    "aliases": ["Pensionissste"]
+  },
+  {
+    "id": "ACT-SIEFORE",
+    "name": "Sociedad de Inversión Especializada de Fondos para el Retiro (SIEFORE)",
+    "participantType": "siefore",
+    "status": "active",
+    "aliases": ["Siefore", "Fondo de Inversión"]
+  },
+  {
+    "id": "ACT-CONSAR",
+    "name": "Comisión Nacional del Sistema de Ahorro para el Retiro (CONSAR)",
+    "participantType": "authority",
+    "authorityScope": ["regulatory", "supervisory"],
+    "status": "active",
+    "aliases": ["Consar", "Comisión"]
+  },
+  {
+    "id": "ACT-SHCP",
+    "name": "Secretaría de Hacienda y Crédito Público (SHCP)",
+    "participantType": "authority",
+    "authorityScope": ["budgetary", "policy"],
+    "status": "active",
+    "aliases": ["Hacienda", "Secretaría"]
+  },
+  {
+    "id": "ACT-IMSS",
+    "name": "Instituto Mexicano del Seguro Social (IMSS)",
+    "participantType": "social-security-institute",
+    "status": "active",
+    "aliases": ["Imss", "Instituto"]
+  },
+  {
+    "id": "ACT-ISSSTE",
+    "name": "Instituto de Seguridad y Servicios Sociales de los Trabajadores del Estado (ISSSTE)",
+    "participantType": "social-security-institute",
+    "status": "active",
+    "aliases": ["Issste"]
+  },
+  {
+    "id": "ACT-INFONAVIT",
+    "name": "Instituto del Fondo Nacional de la Vivienda para los Trabajadores (INFONAVIT)",
+    "participantType": "housing-institute",
+    "status": "active",
+    "aliases": ["Infonavit"]
+  },
+  {
+    "id": "ACT-FOVISSSTE",
+    "name": "Fondo de la Vivienda del ISSSTE (FOVISSSTE)",
+    "participantType": "housing-institute",
+    "status": "active",
+    "aliases": ["Fovissste"]
+  },
+  {
+    "id": "ACT-OPERATOR",
+    "name": "Empresa Operadora de la Base de Datos Nacional SAR (PROCESAR)",
+    "participantType": "industry-operator",
+    "status": "active",
+    "aliases": ["Empresa Operadora", "Procesar", "Operadora"]
+  },
+  {
+    "id": "ACT-CUSTODIAN",
+    "name": "Custodio de Valores de la Siefore",
+    "participantType": "custodian",
+    "status": "active",
+    "aliases": ["Custodio", "Sociedad de Custodia"]
+  },
+  {
+    "id": "ACT-PRICEPROVIDER",
+    "name": "Proveedor de Precios Autorizado",
+    "participantType": "price-provider",
+    "status": "active",
+    "aliases": ["Proveedor de Precios", "Valuadora"]
+  },
+  {
+    "id": "ACT-BANXICO",
+    "name": "Banco de México (Banxico)",
+    "participantType": "authority",
+    "authorityScope": ["monetary", "fiduciary-operations"],
+    "status": "active",
+    "aliases": ["Banxico", "Banco Central"]
+  },
+  {
+    "id": "ACT-FPB-TRUSTEE",
+    "name": "Comité Técnico del Fondo de Pensiones para el Bienestar",
+    "participantType": "governance-body",
+    "status": "active",
+    "aliases": ["Comité Técnico FPB", "Fondo de Pensiones"]
+  }
+]

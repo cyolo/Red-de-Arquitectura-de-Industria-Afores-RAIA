@@ -3,9 +3,11 @@
 import React, { useEffect, useMemo, useState, useRef } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { X, ArrowRight, ShieldCheck, Network, Layers, BookOpen, UserCheck, Shield } from "lucide-react";
+import { X, ArrowRight, ShieldCheck, Network, Layers, BookOpen, UserCheck, Shield, Scale } from "lucide-react";
 import { useLandscapeStore } from "../../features/service-landscape/store/useLandscapeStore";
 import { getServiceDomainById, getBusinessDomainById, getBusinessAreaById } from "../../domain/repositories/landscapeRepository";
+import { getRegulatoryMappingsForServiceDomain, getRegulatorySourceById } from "../../domain/repositories/regulatoryRepository";
+import { getIndustryParticipantById } from "../../domain/repositories/participantRepository";
 import LocalRelationGraph from "../diagram/LocalRelationGraph";
 
 export default function DetailSidebar() {
@@ -18,7 +20,7 @@ export default function DetailSidebar() {
   const isSidebarOpen = useLandscapeStore((state) => state.isSidebarOpen);
   const setSidebarOpen = useLandscapeStore((state) => state.setSidebarOpen);
 
-  const [activeTab, setActiveTab] = useState<"resumen" | "gobierno" | "relaciones">("resumen");
+  const [activeTab, setActiveTab] = useState<"resumen" | "gobierno" | "regulacion" | "relaciones">("resumen");
 
   // Close sidebar handler
   const handleClose = () => {
@@ -138,6 +140,18 @@ export default function DetailSidebar() {
                 </button>
                 <button
                   role="tab"
+                  aria-selected={activeTab === "regulacion"}
+                  onClick={() => setActiveTab("regulacion")}
+                  className={`flex-1 py-1 text-[10px] font-bold rounded transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${
+                    activeTab === "regulacion"
+                      ? "bg-slate-900 text-white shadow-xs"
+                      : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"
+                  }`}
+                >
+                  Regulación
+                </button>
+                <button
+                  role="tab"
                   aria-selected={activeTab === "relaciones"}
                   onClick={() => setActiveTab("relaciones")}
                   className={`flex-1 py-1 text-[10px] font-bold rounded transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${
@@ -197,21 +211,117 @@ export default function DetailSidebar() {
                       <UserCheck size={14} className="text-slate-400 mt-0.5 shrink-0" />
                       <div>
                         <span className="text-[10px] font-bold text-slate-600 block">Responsable (Accountable):</span>
-                        <span className="text-[10px] text-slate-600">{sdData.accountableActors.join(", ")}</span>
+                        <span className="text-[10px] text-slate-600">
+                          {sdData.accountableActors.map((id) => getIndustryParticipantById(id)?.name || id).join(", ")}
+                        </span>
                       </div>
                     </div>
                     <div className="flex items-start gap-2">
                       <Shield size={14} className="text-slate-400 mt-0.5 shrink-0" />
                       <div>
                         <span className="text-[10px] font-bold text-slate-600 block">Participantes:</span>
-                        <span className="text-[10px] text-slate-600">{sdData.participatingActors.join(", ")}</span>
+                        <span className="text-[10px] text-slate-600">
+                          {sdData.participatingActors.map((id) => getIndustryParticipantById(id)?.name || id).join(", ")}
+                        </span>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* TAB 3: Relaciones */}
+              {/* TAB 3: Regulación */}
+              <div 
+                role="tabpanel"
+                className={`space-y-5 ${activeTab === "regulacion" ? "block" : "hidden"}`}
+              >
+                <div>
+                  <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1">
+                    <Scale size={14} className="text-raia-turquoise" />
+                    Trazabilidad Regulatoria
+                  </h4>
+                  
+                  {/* Regulatory general metadata */}
+                  <div className="mt-3 p-3 bg-slate-50 border border-slate-200 rounded-md">
+                    <div className="flex justify-between items-center text-[9px] font-mono font-bold text-slate-500 uppercase">
+                      <span>Cobertura: <span className={`px-1 rounded ${
+                        sdData.regulatoryCoverage === "reviewed" ? "bg-green-100 text-green-800" :
+                        sdData.regulatoryCoverage === "mapped" ? "bg-blue-100 text-blue-800" :
+                        sdData.regulatoryCoverage === "partial" ? "bg-amber-100 text-amber-800" :
+                        "bg-red-100 text-red-800"
+                      }`}>{sdData.regulatoryCoverage || "Sin Mapear"}</span></span>
+                      <span>Criticidad: <span className="text-slate-800">{sdData.regulatoryCriticality || "Media"}</span></span>
+                    </div>
+                  </div>
+                  
+                  {/* Detailed mappings */}
+                  {(() => {
+                    const sdMappings = getRegulatoryMappingsForServiceDomain(sdData.id);
+                    if (sdMappings.length === 0) {
+                      return (
+                        <p className="text-xs text-slate-400 mt-4 text-center font-medium italic">
+                          No existen mapeos regulatorios vigentes consolidados para este dominio.
+                        </p>
+                      );
+                    }
+
+                    return (
+                      <div className="mt-4 space-y-4">
+                        {sdMappings.map((map) => {
+                          const src = getRegulatorySourceById(map.regulatorySourceId);
+                          return (
+                            <div key={map.id} className="border border-slate-200 rounded-lg p-3 bg-white space-y-2 shadow-xs">
+                              <div className="flex items-center justify-between gap-2">
+                                <span className="text-[9px] font-bold text-slate-700 bg-slate-100 border border-slate-200 px-1.5 rounded truncate max-w-[180px]">
+                                  {src?.shortName || map.regulatorySourceId}
+                                </span>
+                                <span className="text-[9px] font-mono font-bold text-emerald-600 bg-emerald-50 border border-emerald-250 px-1 rounded shrink-0">
+                                  {map.article || "Disposición"}
+                                </span>
+                              </div>
+                              
+                              <p className="text-[11px] text-slate-850 font-medium leading-relaxed">
+                                {map.regulatoryRequirement}
+                              </p>
+                              
+                              <div className="text-[10px] text-slate-500 bg-slate-50 p-2 rounded border border-slate-100 leading-normal">
+                                <span className="font-bold text-[9px] text-slate-400 block uppercase tracking-wider">Interpretación Arquitectónica</span>
+                                {map.architecturalInterpretation}
+                              </div>
+
+                              {/* Controls & Evidences lists */}
+                              {map.controlIds.length > 0 && (
+                                <div className="text-[9px] text-slate-500 font-mono">
+                                  <span className="font-bold block uppercase text-slate-400">Controles:</span>
+                                  <span className="text-slate-600 block">{map.controlIds.join(", ")}</span>
+                                </div>
+                              )}
+                              {map.evidenceIds.length > 0 && (
+                                <div className="text-[9px] text-slate-500 font-mono">
+                                  <span className="font-bold block uppercase text-slate-400">Evidencias:</span>
+                                  <span className="text-slate-600 block">{map.evidenceIds.join(", ")}</span>
+                                </div>
+                              )}
+                              
+                              {src?.officialUrl && (
+                                <a
+                                  href={src.officialUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-[9px] font-bold text-sky-600 hover:text-sky-800 block underline pt-1 cursor-pointer"
+                                >
+                                  Ver publicación en DOF/Diario Oficial
+                                </a>
+                              )}
+                            </div>
+                          );
+                        })}
+                      </div>
+                    );
+                  })()}
+                </div>
+              </div>
+
+              {/* TAB 4: Relaciones */}
               <div 
                 role="tabpanel"
                 className={`space-y-4 ${activeTab === "relaciones" ? "block" : "hidden"}`}

@@ -1,6 +1,6 @@
 [
   {
-    "id": "RAIA-REL-0001",
+    "id": "rel-001",
     "sourceId": "RAIA-SD-020",
     "targetId": "RAIA-SD-021",
     "type": "triggers",
@@ -8,7 +8,7 @@
     "description": "Inicia la resolución de identidad"
   },
   {
-    "id": "RAIA-REL-0002",
+    "id": "rel-002",
     "sourceId": "RAIA-SD-021",
     "targetId": "RAIA-SD-023",
     "type": "validates",
@@ -16,7 +16,7 @@
     "description": "Requiere validación biométrica para resolución"
   },
   {
-    "id": "RAIA-REL-0003",
+    "id": "rel-003",
     "sourceId": "RAIA-SD-023",
     "targetId": "RAIA-SD-031",
     "type": "provides-to",
@@ -24,7 +24,7 @@
     "description": "Provee evidencias biométricas para el expediente"
   },
   {
-    "id": "RAIA-REL-0004",
+    "id": "rel-004",
     "sourceId": "RAIA-SD-031",
     "targetId": "RAIA-SD-040",
     "type": "depends-on",
@@ -32,7 +32,7 @@
     "description": "El expediente electrónico es obligatorio para el registro"
   },
   {
-    "id": "RAIA-REL-0005",
+    "id": "rel-005",
     "sourceId": "RAIA-SD-040",
     "targetId": "RAIA-SD-046",
     "type": "triggers",
@@ -40,103 +40,91 @@
     "description": "Crea el libro mayor contable al registrar la cuenta"
   },
   {
-    "id": "RAIA-REL-0006",
+    "id": "rel-006",
     "sourceId": "RAIA-SD-047",
     "targetId": "RAIA-SD-048",
     "type": "triggers",
-    "label": "Desencadena flujo",
-    "description": "Flujo de control secuencial entre dominios de servicio."
+    "label": "Siguiente paso"
   },
   {
-    "id": "RAIA-REL-0007",
+    "id": "rel-007",
     "sourceId": "RAIA-SD-048",
     "targetId": "RAIA-SD-063",
     "type": "triggers",
-    "label": "Desencadena flujo",
-    "description": "Flujo de control secuencial entre dominios de servicio."
+    "label": "Siguiente paso"
   },
   {
-    "id": "RAIA-REL-0008",
+    "id": "rel-008",
     "sourceId": "RAIA-SD-063",
     "targetId": "RAIA-SD-061",
     "type": "triggers",
-    "label": "Desencadena flujo",
-    "description": "Flujo de control secuencial entre dominios de servicio."
+    "label": "Siguiente paso"
   },
   {
-    "id": "RAIA-REL-0009",
+    "id": "rel-009",
     "sourceId": "RAIA-SD-061",
     "targetId": "RAIA-SD-076",
     "type": "triggers",
-    "label": "Desencadena flujo",
-    "description": "Flujo de control secuencial entre dominios de servicio."
+    "label": "Siguiente paso"
   },
   {
-    "id": "RAIA-REL-0010",
+    "id": "rel-010",
     "sourceId": "RAIA-SD-076",
     "targetId": "RAIA-SD-077",
     "type": "triggers",
-    "label": "Desencadena flujo",
-    "description": "Flujo de control secuencial entre dominios de servicio."
+    "label": "Siguiente paso"
   },
   {
-    "id": "RAIA-REL-0011",
+    "id": "rel-011",
     "sourceId": "RAIA-SD-077",
     "targetId": "RAIA-SD-090",
     "type": "triggers",
-    "label": "Desencadena flujo",
-    "description": "Flujo de control secuencial entre dominios de servicio."
+    "label": "Siguiente paso"
   },
   {
-    "id": "RAIA-REL-0012",
+    "id": "rel-traspaso-020",
     "sourceId": "RAIA-SD-045",
     "targetId": "RAIA-SD-020",
     "type": "depends-on",
-    "label": "Consulta Datos del Trabajador",
-    "description": ""
+    "label": "Consulta Datos del Trabajador"
   },
   {
-    "id": "RAIA-REL-0013",
+    "id": "rel-traspaso-021",
     "sourceId": "RAIA-SD-045",
     "targetId": "RAIA-SD-021",
     "type": "depends-on",
-    "label": "Consulta Resolución de Identidad",
-    "description": ""
+    "label": "Consulta Resolución de Identidad"
   },
   {
-    "id": "RAIA-REL-0014",
+    "id": "rel-traspaso-023",
     "sourceId": "RAIA-SD-045",
     "targetId": "RAIA-SD-023",
     "type": "validates",
-    "label": "Valida Identidad Biométrica",
-    "description": ""
+    "label": "Valida Identidad Biométrica"
   },
   {
-    "id": "RAIA-REL-0015",
+    "id": "rel-traspaso-031",
     "sourceId": "RAIA-SD-045",
     "targetId": "RAIA-SD-031",
     "type": "shares-data-with",
-    "label": "Comparte Expediente Electrónico",
-    "description": ""
+    "label": "Comparte Expediente Electrónico"
   },
   {
-    "id": "RAIA-REL-0016",
+    "id": "rel-traspaso-040",
     "sourceId": "RAIA-SD-045",
     "targetId": "RAIA-SD-040",
     "type": "triggers",
-    "label": "Actualiza Registro en AFORE",
-    "description": ""
+    "label": "Actualiza Registro en AFORE"
   },
   {
-    "id": "RAIA-REL-0017",
+    "id": "rel-traspaso-046",
     "sourceId": "RAIA-SD-045",
     "targetId": "RAIA-SD-046",
     "type": "triggers",
-    "label": "Afecta Libro Mayor de Cuenta Individual",
-    "description": ""
+    "label": "Afecta Libro Mayor de Cuenta Individual"
   },
   {
-    "id": "RAIA-REL-0018",
+    "id": "rel-flow2-1",
     "sourceId": "RAIA-SD-089",
     "targetId": "RAIA-SD-090",
     "type": "triggers",
@@ -144,7 +132,7 @@
     "description": "Inicia recaudación"
   },
   {
-    "id": "RAIA-REL-0019",
+    "id": "rel-flow2-2",
     "sourceId": "RAIA-SD-090",
     "targetId": "RAIA-SD-105",
     "type": "triggers",
@@ -152,7 +140,7 @@
     "description": "Inicia conciliación"
   },
   {
-    "id": "RAIA-REL-0020",
+    "id": "rel-flow2-3",
     "sourceId": "RAIA-SD-105",
     "targetId": "RAIA-SD-103",
     "type": "triggers",
@@ -160,7 +148,7 @@
     "description": "Inicia individualización"
   },
   {
-    "id": "RAIA-REL-0021",
+    "id": "rel-flow2-4",
     "sourceId": "RAIA-SD-103",
     "targetId": "RAIA-SD-080",
     "type": "triggers",
@@ -168,7 +156,7 @@
     "description": "Registra movimientos de cuenta"
   },
   {
-    "id": "RAIA-REL-0022",
+    "id": "rel-flow2-5",
     "sourceId": "RAIA-SD-080",
     "targetId": "RAIA-SD-081",
     "type": "triggers",
@@ -176,7 +164,7 @@
     "description": "Compra acciones correspondientes"
   },
   {
-    "id": "RAIA-REL-0023",
+    "id": "rel-flow2-6",
     "sourceId": "RAIA-SD-081",
     "targetId": "RAIA-SD-110",
     "type": "provides-to",
@@ -184,147 +172,113 @@
     "description": "Canaliza a SIEFORE generacional"
   },
   {
-    "id": "RAIA-REL-0024",
+    "id": "rel-flow3-1",
     "sourceId": "RAIA-SD-111",
     "targetId": "RAIA-SD-112",
-    "type": "orchestrates",
-    "label": "",
-    "description": ""
+    "type": "orchestrates"
   },
   {
-    "id": "RAIA-REL-0025",
+    "id": "rel-flow3-2",
     "sourceId": "RAIA-SD-112",
     "targetId": "RAIA-SD-117",
-    "type": "triggers",
-    "label": "",
-    "description": ""
+    "type": "triggers"
   },
   {
-    "id": "RAIA-REL-0026",
+    "id": "rel-flow3-3",
     "sourceId": "RAIA-SD-117",
     "targetId": "RAIA-SD-119",
-    "type": "triggers",
-    "label": "",
-    "description": ""
+    "type": "triggers"
   },
   {
-    "id": "RAIA-REL-0027",
+    "id": "rel-flow3-4",
     "sourceId": "RAIA-SD-119",
     "targetId": "RAIA-SD-127",
-    "type": "triggers",
-    "label": "",
-    "description": ""
+    "type": "triggers"
   },
   {
-    "id": "RAIA-REL-0028",
+    "id": "rel-flow3-5",
     "sourceId": "RAIA-SD-127",
     "targetId": "RAIA-SD-082",
-    "type": "triggers",
-    "label": "",
-    "description": ""
+    "type": "triggers"
   },
   {
-    "id": "RAIA-REL-0029",
+    "id": "rel-flow4-1",
     "sourceId": "RAIA-SD-139",
     "targetId": "RAIA-SD-136",
-    "type": "validates",
-    "label": "",
-    "description": ""
+    "type": "validates"
   },
   {
-    "id": "RAIA-REL-0030",
+    "id": "rel-flow4-2",
     "sourceId": "RAIA-SD-136",
     "targetId": "RAIA-SD-147",
-    "type": "triggers",
-    "label": "",
-    "description": ""
+    "type": "triggers"
   },
   {
-    "id": "RAIA-REL-0031",
+    "id": "rel-flow4-3",
     "sourceId": "RAIA-SD-147",
     "targetId": "RAIA-SD-084",
-    "type": "triggers",
-    "label": "",
-    "description": ""
+    "type": "triggers"
   },
   {
-    "id": "RAIA-REL-0032",
+    "id": "rel-flow4-4",
     "sourceId": "RAIA-SD-084",
     "targetId": "RAIA-SD-085",
-    "type": "triggers",
-    "label": "",
-    "description": ""
+    "type": "triggers"
   },
   {
-    "id": "RAIA-REL-0033",
+    "id": "rel-flow5-1",
     "sourceId": "RAIA-SD-141",
     "targetId": "RAIA-SD-143",
-    "type": "triggers",
-    "label": "",
-    "description": ""
+    "type": "triggers"
   },
   {
-    "id": "RAIA-REL-0034",
+    "id": "rel-flow5-2",
     "sourceId": "RAIA-SD-143",
     "targetId": "RAIA-SD-142",
-    "type": "triggers",
-    "label": "",
-    "description": ""
+    "type": "triggers"
   },
   {
-    "id": "RAIA-REL-0035",
+    "id": "rel-flow5-3",
     "sourceId": "RAIA-SD-142",
     "targetId": "RAIA-SD-144",
-    "type": "triggers",
-    "label": "",
-    "description": ""
+    "type": "triggers"
   },
   {
-    "id": "RAIA-REL-0036",
+    "id": "rel-flow5-4",
     "sourceId": "RAIA-SD-142",
     "targetId": "RAIA-SD-145",
-    "type": "triggers",
-    "label": "",
-    "description": ""
+    "type": "triggers"
   },
   {
-    "id": "RAIA-REL-0037",
+    "id": "rel-flow6-1",
     "sourceId": "RAIA-SD-150",
     "targetId": "RAIA-SD-151",
-    "type": "triggers",
-    "label": "",
-    "description": ""
+    "type": "triggers"
   },
   {
-    "id": "RAIA-REL-0038",
+    "id": "rel-flow6-2",
     "sourceId": "RAIA-SD-151",
     "targetId": "RAIA-SD-152",
-    "type": "validates",
-    "label": "",
-    "description": ""
+    "type": "validates"
   },
   {
-    "id": "RAIA-REL-0039",
+    "id": "rel-flow6-3",
     "sourceId": "RAIA-SD-152",
     "targetId": "RAIA-SD-153",
-    "type": "triggers",
-    "label": "",
-    "description": ""
+    "type": "triggers"
   },
   {
-    "id": "RAIA-REL-0040",
+    "id": "rel-reg-1",
     "sourceId": "RAIA-SD-024",
     "targetId": "RAIA-SD-019",
     "type": "reports-to",
-    "label": "Reporta a",
-    "description": ""
+    "label": "Reporta a"
   },
   {
-    "id": "RAIA-REL-0041",
+    "id": "rel-reg-2",
     "sourceId": "RAIA-SD-019",
     "targetId": "RAIA-SD-025",
     "type": "depends-on",
-    "label": "Regulado por",
-    "description": ""
+    "label": "Regulado por"
   }
 ]

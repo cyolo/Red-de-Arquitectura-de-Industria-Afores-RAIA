@@ -1,743 +1,2250 @@
-El espacio marcado no proviene del contenido del escenario. La causa está en la combinación de cuatro decisiones de layout:
+## Diagnóstico del Service Landscape
 
-El contenedor central utiliza justify-center.
-El diagrama fuerza una altura mínima de 720px y una altura basada en 78vh, aunque el workspace ya controla el espacio disponible.
-El SVG aplica viewBox con preserveAspectRatio="xMidYMid meet", que centra verticalmente el contenido.
-D3 vuelve a escalar y centrar el grupo mediante targetY, generando un segundo ajuste sobre el realizado por el SVG.
+La estructura funcional de RAIA es amplia —11 Business Areas, 34 Business Domains y 273 Service Domains—, pero su trazabilidad regulatoria todavía es preliminar. El catálogo central contiene únicamente tres referencias: LSAR, CUO y una entrada denominada “Circular Única de Sistemas Financieros en materia de Ciberseguridad”; la CUO permanece pendiente de validación y la referencia de ciberseguridad está marcada como oficial sin URL ni artículo verificable.
 
-En otras palabras, el diagrama está siendo ajustado y centrado dos veces. El siguiente prompt corrige específicamente ese comportamiento.
+El metamodelo regulatorio actual tampoco permite demostrar vigencia: `articleOrSection` y `url` son opcionales y no existen campos para fecha de publicación, última reforma, entrada en vigor, derogación, aplicabilidad por régimen, interpretación, obligación afectada ni revisor jurídico. Además, cada Service Domain incorpora objetos regulatorios completos en lugar de referencias a un catálogo canónico.
 
-# CORRECCIÓN DEL ESPACIO VACÍO EN EL DIAGRAMA CENTRAL DE BUSINESS SCENARIOS
+El validador solo genera una advertencia cuando un Service Domain apunta a una regulación inexistente; no bloquea el build, no valida artículos, vigencia, URLs oficiales ni cobertura mínima.  El propio release describe el catálogo regulatorio como preliminar y registra únicamente 41 relaciones para 273 Service Domains. Varias relaciones se limitan a etiquetas como “Siguiente paso”, lo cual representa una secuencia operativa, no una dependencia arquitectónica estable.
 
-## Objetivo
+La línea base también debe actualizarse contra cambios recientes: la LSAR reporta reforma al 14 de noviembre de 2025; la LSS y la LISSSTE al 15 de enero de 2026; el Reglamento de la LSAR tuvo reforma el 27 de septiembre de 2024; y la legislación de protección de datos personales fue sustituida en marzo de 2025 y reformada en noviembre del mismo año. ([Cámara de Diputados][1])
 
-Corrige el desperdicio de espacio vertical que aparece sobre el diagrama de secuencia en la ruta:
+Las modificaciones operativas de CONSAR incorporan temas que deben quedar explícitos en el Landscape: ciberseguridad, geolocalización, autenticación, riesgo documental, notificaciones automatizadas y accesibilidad para personas vulnerables. Las disposiciones financieras agregan continuidad de negocio, recuperación de desastres, inversión sostenible, gobernanza, conflictos de interés y controles sobre activos alternativos. ([Diario Oficial de la Federación][2])
 
-```text
-http://localhost:3000/business-scenarios
+Copia íntegramente este prompt en Antigravity:
 
-Actualmente, al seleccionar cualquier escenario, el diagrama aparece demasiado abajo dentro del panel central y se genera una gran zona vacía entre el encabezado del escenario y el inicio del diagrama.
+````markdown
+# PROMPT MAESTRO PARA ANTIGRAVITY IA
 
-El resultado esperado es que:
+# REMEDIACIÓN REGULATORIA, SEMÁNTICA Y ARQUITECTÓNICA
+# DEL RAIA SERVICE LANDSCAPE
 
-el diagrama aproveche todo el viewport disponible;
-los participantes del diagrama comiencen cerca de la parte superior del canvas;
-el diagrama permanezca centrado horizontalmente;
-no exista una franja vacía desproporcionada arriba;
-no se recorte contenido;
-zoom, paneo, fit, reset y fullscreen continúen funcionando;
-no se modifique ninguna funcionalidad ni contenido de negocio.
-1. Repositorio
+## 1. Objetivo
+
+Analiza y actualiza integralmente el módulo:
+
+# Service Landscape de RAIA
 
 Repositorio:
 
+```text
 https://github.com/cyolo/Red-de-Arquitectura-de-Industria-Afores-RAIA
+````
 
-Rama:
+Branch:
 
+```text
 dev-001
-
-Antes de modificar:
-
-Confirma que estás en la rama dev-001.
-Registra el commit inicial.
-Verifica que el working tree esté limpio.
-Ejecuta build, typecheck, lint y pruebas existentes.
-Levanta la aplicación en http://localhost:3000/.
-Captura screenshots del problema actual.
-No modifiques la rama main.
-2. Alcance
-
-Corrige únicamente la presentación y ajuste del diagrama central de Business Scenarios.
-
-Archivos que debes inspeccionar como mínimo:
-
-src/components/layout/BusinessScenariosClient.tsx
-
-src/features/business-scenarios/sequence-diagram/components/
-├── RaiaSequenceDiagram.tsx
-├── SequenceDiagramCanvas.tsx
-└── SequenceDiagramToolbar.tsx
-
-src/features/business-scenarios/sequence-diagram/hooks/
-├── useSequenceDiagramZoom.ts
-├── useSequenceDiagramFullscreen.ts
-└── useSequenceDiagramKeyboard.ts
-
-src/features/business-scenarios/sequence-diagram/layout/
-└── sequenceLayoutEngine.ts
-
-src/features/business-scenarios/sequence-diagram/styles/
-└── sequenceDiagramTokens.ts
-
-No modifiques datos ni lógica de negocio.
-
-Considera protegidos:
-
-src/data/
-src/domain/
-3. Diagnóstico técnico que debes validar
-
-La implementación actual aplica varias capas de dimensionamiento y centrado simultáneamente.
-
-3.1 Contenedor padre
-
-En BusinessScenariosClient.tsx, el wrapper del diagrama utiliza una estructura equivalente a:
-
-<div className="flex-1 min-h-0 overflow-hidden p-4 flex flex-col justify-center">
-
-El uso de:
-
-justify-center
-
-puede centrar verticalmente el contenedor del diagrama, aunque el objetivo sea que ocupe todo el alto disponible.
-
-3.2 Altura fija del figure
-
-En RaiaSequenceDiagram.tsx, el modo normal utiliza una altura equivalente a:
-
-min-h-[720px] h-[clamp(720px,78vh,1040px)]
-
-El workspace principal ya controla el espacio vertical mediante flexbox.
-
-Forzar una altura mínima de 720px puede provocar:
-
-overflow;
-cálculo incorrecto del viewport;
-desalineación;
-espacio vertical desaprovechado;
-comportamiento diferente entre resoluciones.
-3.3 Escalado automático del SVG
-
-En SequenceDiagramCanvas.tsx, el SVG utiliza:
-
-viewBox={`0 0 ${layout.width} ${layout.height}`}
-preserveAspectRatio="xMidYMid meet"
-
-Esto realiza un primer ajuste automático y centra el contenido vertical y horizontalmente.
-
-3.4 Segundo ajuste mediante D3
-
-En useSequenceDiagramZoom.ts, D3 vuelve a calcular:
-
-targetScale
-targetX
-targetY
-
-El cálculo actual de targetY centra verticalmente el contenido:
-
-const targetY =
-  Math.max((wrapperHeight - safeHeight * targetScale) / 2, 20);
-
-Esto genera un segundo centrado sobre el que ya realiza el viewBox.
-
-También existe un mínimo de escala semejante a:
-
-const minScale = isFullscreen ? 0.5 : 0.35;
-
-Ese mínimo puede impedir que escenarios grandes se adapten correctamente al viewport.
-
-3.5 Hipótesis principal
-
-El espacio vacío es producido por:
-
-Altura fija
-+ justify-center
-+ preserveAspectRatio xMidYMid
-+ transformación fit de D3
-= doble escalado y doble centrado
-
-Verifica esta hipótesis con mediciones del DOM antes de implementar.
-
-4. Solución técnica objetivo
-
-Debe existir una sola autoridad responsable de ajustar el diagrama.
-
-La solución recomendada es:
-
-El SVG ocupa el viewport disponible y D3 administra el escalado y paneo del contenido.
-
-Evita que el viewBox y D3 intenten realizar simultáneamente el mismo ajuste.
-
-5. Cambio 1 — Corregir el contenedor central
-
-En BusinessScenariosClient.tsx, cambia el wrapper para que el diagrama ocupe todo el espacio disponible.
-
-Objetivo conceptual:
-
-<div
-  className="
-    flex-1
-    min-h-0
-    overflow-hidden
-    p-3
-    flex
-    items-stretch
-  "
-  data-testid="scenario-sequence-diagram"
->
-
-Elimina:
-
-justify-center
-
-No centres verticalmente el componente mediante flexbox.
-
-El panel debe permitir que el diagrama use:
-
-width: 100%
-height: 100%
-min-height: 0
-
-No cambies:
-
-el encabezado del escenario;
-el catálogo izquierdo;
-el panel derecho;
-tabs;
-selección de escenario;
-selección de pasos;
-narrativa;
-pasos estructurados.
-6. Cambio 2 — Eliminar la altura fija del diagram container
-
-En RaiaSequenceDiagram.tsx, reemplaza en modo normal:
-
-min-h-[720px] h-[clamp(720px,78vh,1040px)]
-
-por una estructura equivalente a:
-
-h-full min-h-0 w-full rounded-xl
-
-El resultado conceptual debe ser:
-
-className={`
-  relative
-  w-full
-  overflow-hidden
-  bg-[#f8fafc]
-  border
-  border-slate-200
-  shadow-inner
-  transition-all
-  duration-300
-  ${
-    isFullscreen
-      ? "fixed inset-0 z-[100] m-0 rounded-none h-[100dvh]"
-      : "h-full min-h-0 rounded-xl"
-  }
-`}
-
-El diagrama no debe imponer una altura superior a la que recibe del workspace.
-
-Mantén intacto el comportamiento fullscreen.
-
-7. Cambio 3 — Evitar el doble escalado
-Solución recomendada
-
-En SequenceDiagramCanvas.tsx, permite que las unidades del SVG correspondan al viewport real controlado por D3.
-
-Evalúa eliminar:
-
-viewBox={...}
-preserveAspectRatio="xMidYMid meet"
-
-Mantén:
-
-width="100%"
-height="100%"
-className="w-full h-full ..."
-
-El SVG debe ocupar el panel completo y el contenido debe permanecer dentro de:
-
-<g className="zoom-layer">
-
-De esta manera:
-
-SVG define el viewport;
-D3 define el transform;
-no existe doble ajuste;
-las unidades utilizadas por targetX y targetY corresponden al viewport visible.
-
-Antes de eliminar el viewBox, confirma que:
-
-marcadores;
-paths;
-textos;
-notas;
-activaciones;
-fragments;
-lifelines;
-eventos de teclado;
-eventos del mouse;
-
-continúan funcionando.
-
-Alternativa aceptable
-
-Si existe una razón técnica para conservar el viewBox, debes:
-
-cambiar el alineamiento a:
-preserveAspectRatio="xMidYMin meet"
-corregir los cálculos de D3 para utilizar coordenadas SVG reales;
-evitar aplicar un segundo factor de escalado sobre el escalado implícito del viewBox.
-
-No conserves xMidYMid meet si continúa produciendo espacio vacío arriba.
-
-La opción preferida sigue siendo una sola autoridad de escalado.
-
-8. Cambio 4 — Ajustar el algoritmo Fit to Viewport
-
-Refactoriza fitDiagramToViewport para que:
-
-use padding real;
-centre horizontalmente;
-alinee verticalmente arriba;
-permita escalas menores a 0.35 cuando sea necesario;
-no recorte el diagrama;
-no genere espacio excesivo arriba.
-
-Utiliza una fórmula equivalente a:
-
-const horizontalPadding = 24;
-const topPadding = 24;
-const bottomPadding = 24;
-
-const availableWidth = Math.max(
-  wrapperWidth - horizontalPadding * 2,
-  1
-);
-
-const availableHeight = Math.max(
-  wrapperHeight - topPadding - bottomPadding,
-  1
-);
-
-const rawScale = Math.min(
-  availableWidth / safeWidth,
-  availableHeight / safeHeight,
-  1
-);
-
-const targetScale = Math.max(
-  0.08,
-  rawScale * 0.96
-);
-
-const targetX = Math.max(
-  horizontalPadding,
-  (wrapperWidth - safeWidth * targetScale) / 2
-);
-
-const targetY = topPadding;
-
-Aplica:
-
-d3.zoomIdentity
-  .translate(targetX, targetY)
-  .scale(targetScale)
-Regla principal
-
-No utilices:
-
-(wrapperHeight - diagramHeight) / 2
-
-para el ajuste inicial.
-
-El diagrama debe estar:
-
-centrado horizontalmente;
-alineado arriba con un padding controlado.
-
-Puede existir espacio libre debajo cuando la proporción del diagrama sea muy horizontal.
-
-No debe existir un gran bloque vacío arriba.
-
-9. Cambio 5 — Recalcular Fit en el momento correcto
-
-El ajuste debe ejecutarse:
-
-al montar el diagrama;
-al cambiar de escenario;
-al cambiar las dimensiones del layout;
-al abrir o cerrar el catálogo izquierdo;
-al cambiar el ancho del panel derecho;
-al cambiar la resolución;
-al entrar en fullscreen;
-al salir de fullscreen.
-
-Mantén ResizeObserver, pero no dependas exclusivamente de que el observer dispare el primer ajuste.
-
-Agrega un efecto explícito semejante a:
-
-useEffect(() => {
-  const frame = requestAnimationFrame(() => {
-    fitDiagramToViewport();
-  });
-
-  return () => cancelAnimationFrame(frame);
-}, [
-  fitDiagramToViewport,
-  totalWidth,
-  totalHeight,
-  isFullscreen
-]);
-
-Cuando el DOM requiera dos ciclos para estabilizar el layout, utiliza de forma controlada un segundo requestAnimationFrame.
-
-No uses setTimeout arbitrarios.
-
-10. Cambio 6 — Reset y Fit deben ser coherentes
-
-Diferencia correctamente:
-
-Fit
-
-Debe:
-
-mostrar todo el diagrama;
-alinear arriba;
-centrar horizontalmente;
-usar padding.
-Reset
-
-Puede:
-
-volver a escala 100%;
-centrar horizontalmente;
-alinear arriba;
-conservar padding superior.
-
-No debe regresar el diagrama al centro vertical con un espacio vacío grande.
-
-Si el diagrama a escala 100% es mayor que el viewport, debe permitir paneo.
-
-No cambies los nombres ni iconos actuales de los controles sin necesidad.
-
-11. Comportamiento esperado
-
-Al seleccionar cualquier escenario:
-
-El encabezado del escenario permanece arriba.
-Debajo del encabezado debe comenzar inmediatamente el canvas.
-La toolbar del diagrama permanece en la esquina superior derecha.
-Los participantes deben aparecer cerca de la parte superior del canvas.
-No debe existir una franja vacía superior mayor al padding definido.
-El diagrama debe estar centrado horizontalmente.
-Deben poder verse todos los participantes mediante Fit.
-Los mensajes deben poder explorarse con paneo y zoom.
-Seleccionar un paso debe seguir actualizando el panel derecho.
-No debe existir un salto de layout al cambiar de escenario.
-12. Criterios visuales de aceptación
-
-En estado Fit:
-
-Espacio superior entre canvas y primer contenido:
-16px–40px
-
-No se acepta:
-
-Espacio superior mayor al 15% del alto visible del canvas
-
-salvo que exista una razón estructural dentro del propio diagrama.
-
-Los encabezados de participantes deben comenzar aproximadamente dentro del:
-
-primer 5%–12% del alto visible del canvas
-
-El canvas debe ocupar todo el espacio entre:
-
-header del escenario;
-parte inferior del viewport.
-
-No debe observarse el bloque vacío marcado en rojo en la evidencia proporcionada.
-
-13. No alterar funcionalidad
-
-No modifiques:
-
-catálogo de escenarios;
-orden de escenarios;
-nombres;
-IDs;
-descripción;
-número de pasos;
-datos de secuencia;
-participantes;
-mensajes;
-activaciones;
-notas;
-fragmentos;
-selección de paso;
-panel de Pasos y Flujo;
-Narrativa Arquitectónica;
-controles;
-lógica del dominio;
-JSON;
-tipos;
-repositorios;
-relaciones;
-semántica del diagrama.
-
-No elimines componentes para ocultar el problema.
-
-No reduzcas artificialmente la altura eliminando contenido.
-
-14. Accesibilidad
-
-Conserva:
-
-role="img";
-<title>;
-<desc>;
-foco del SVG;
-navegación por teclado;
-toolbar accesible;
-botones etiquetados;
-fullscreen accesible.
-
-Verifica:
-
-foco visible;
-Enter y Space;
-Escape en fullscreen;
-zoom con teclado;
-prefers-reduced-motion.
-
-Si eliminas el viewBox, confirma que esto no afecte la accesibilidad ni la navegación.
-
-15. Pruebas obligatorias
-
-Prueba al menos estos escenarios:
-
-Registro y Traspaso de Cuenta Individual
-Recaudación de Aportaciones e Inversión
-Localización de cuenta individual
-Asignación automática de cuentas
-Reasignación por desempeño
-Unificación de cuentas duplicadas
-Separación de cuentas IMSS/ISSSTE
-
-Incluye escenarios con:
-
-13 pasos;
-15 pasos;
-16 pasos;
-17 pasos;
-21 pasos;
-diferente cantidad de participantes;
-diferente proporción ancho/alto.
-
-Resoluciones:
-
-1920 × 1080
-1440 × 900
-1366 × 768
-1280 × 800
-1024 × 768
-768 × 1024
-390 × 844
-
-Estados:
-
-catálogo abierto;
-catálogo cerrado;
-tab Pasos y Flujo;
-tab Narrativa Arquitectónica;
-panel derecho con scroll;
-zoom in;
-zoom out;
-reset;
-fit;
-fullscreen;
-salida de fullscreen;
-cambio rápido entre escenarios.
-16. Medición antes y después
-
-Registra por escenario:
-
-wrapperWidth
-wrapperHeight
-layout.width
-layout.height
-targetScale
-targetX
-targetY
-boundingClientRect del primer participante
-distancia entre canvas top y primer participante
-
-Genera una tabla:
-
-Escenario	Resolución	Espacio superior antes	Espacio superior después	Escala Fit	Resultado
-
-El resultado debe demostrar que el espacio superior fue eliminado o reducido al padding definido.
-
-17. Screenshots
-
-Guarda las capturas anteriores en:
-
-docs/ux-refactor/business-scenarios-diagram/before/
-
-Guarda las capturas posteriores en:
-
-docs/ux-refactor/business-scenarios-diagram/after/
-
-Comparaciones:
-
-docs/ux-refactor/business-scenarios-diagram/comparison/
-
-Incluye:
-
-mismos escenarios;
-misma resolución;
-mismo paso activo;
-misma posición de paneles;
-before/after lado a lado.
-18. Validaciones técnicas
-
-Ejecuta los scripts reales existentes para:
-
-build
-typecheck
-lint
-tests
-validación de diagramas
-validación de datos
-
-Además verifica:
-
-cero errores nuevos de consola;
-cero warnings nuevos de React;
-cero contenido recortado;
-cero pérdida de interacción;
-cero scroll horizontal accidental;
-cero regresiones en fullscreen;
-cero regresiones en toolbar;
-cero regresiones en selección de pasos.
-19. Definition of Done
-
-La tarea estará completa cuando:
-
- Se identificó la causa real.
- Se eliminó justify-center del wrapper cuando era responsable.
- El figure utiliza el alto disponible.
- Se eliminó la altura fija innecesaria.
- Existe una sola autoridad de escalado.
- El diagrama está centrado horizontalmente.
- El diagrama está alineado arriba.
- El espacio superior se limita a 16px–40px.
- Fit funciona.
- Reset funciona.
- Zoom funciona.
- Paneo funciona.
- Fullscreen funciona.
- Cambio de escenario recalcula correctamente.
- Colapsar el catálogo recalcula correctamente.
- Todos los escenarios fueron probados.
- Todas las resoluciones fueron probadas.
- No se modificaron datos.
- No se modificó lógica de negocio.
- No se perdió contenido.
- Build aprobado.
- Typecheck aprobado.
- Lint aprobado.
- Pruebas aprobadas.
- Screenshots before/after generados.
- Métricas documentadas.
-20. Entregables
+```
+
+Archivos principales:
+
+```text
+src/data/raia-landscape-0.1.0.json
+src/data/relations-0.1.0.json
+src/data/regulations-0.1.0.json
+src/domain/schemas/index.ts
+src/domain/types/
+src/domain/repositories/landscapeRepository.ts
+src/app/service-landscape/value-chain/page.tsx
+src/components/layout/DetailSidebar.tsx
+src/app/service-domains/[slug]/page.tsx
+src/app/dashboard/page.tsx
+scripts/validateData.js
+src/data/releases.json
+```
+
+El objetivo es comparar los 11 Business Areas, 34 Business Domains y 273 Service Domains contra la regulación vigente aplicable al Sistema de Ahorro para el Retiro de México.
+
+La entrega deberá:
+
+1. identificar vacíos regulatorios;
+2. corregir responsabilidades mal clasificadas;
+3. detectar Service Domains duplicados o excesivamente amplios;
+4. distinguir actores, autoridades, organizaciones, objetos y servicios;
+5. incorporar capacidades regulatorias faltantes;
+6. mejorar la trazabilidad entre regulación, operaciones, controles y evidencias;
+7. reconstruir relaciones arquitectónicas insuficientes;
+8. actualizar esquemas, repositorios y validadores;
+9. incorporar visualización de cobertura regulatoria;
+10. generar una auditoría reproducible.
+
+No consideres a RAIA una norma oficial.
+
+RAIA debe presentarse como:
+
+```text
+Arquitectura de referencia propuesta
+```
+
+No como:
+
+```text
+estándar oficial
+modelo obligatorio
+interpretación jurídica definitiva
+```
+
+---
+
+# 2. Principio rector
+
+La cadena de trazabilidad obligatoria será:
+
+```text
+Fuente oficial vigente
+→ disposición o artículo
+→ obligación o facultad
+→ participante obligado
+→ responsabilidad arquitectónica
+→ Service Domain
+→ Service Operation
+→ Business Object
+→ Control
+→ Evidencia
+→ KPI
+```
+
+No será suficiente asociar una ley completa a un Service Domain.
+
+Cada mapeo deberá explicar:
+
+* qué obligación o facultad se interpreta;
+* a quién aplica;
+* bajo qué régimen;
+* qué responsabilidad arquitectónica produce;
+* qué operación del Service Domain resulta afectada;
+* qué control debe existir;
+* qué evidencia debe conservarse.
+
+---
+
+# 3. Fuentes oficiales que deben verificarse
+
+Consulta únicamente fuentes oficiales y vigentes:
+
+## Legislación primaria
+
+* Constitución Política de los Estados Unidos Mexicanos.
+* Ley de los Sistemas de Ahorro para el Retiro.
+* Reglamento de la Ley de los Sistemas de Ahorro para el Retiro.
+* Ley del Seguro Social.
+* Ley del Instituto de Seguridad y Servicios Sociales de los Trabajadores del Estado.
+* Ley del Instituto del Fondo Nacional de la Vivienda para los Trabajadores.
+* Ley Federal del Trabajo, cuando resulte aplicable.
+* Ley de Protección y Defensa al Usuario de Servicios Financieros.
+* Ley Federal de Protección de Datos Personales en Posesión de los Particulares vigente.
+* Ley General de Protección de Datos Personales en Posesión de Sujetos Obligados vigente.
+* Ley Federal de Presupuesto y Responsabilidad Hacendaria, únicamente para elementos relacionados con el Fondo de Pensiones para el Bienestar.
+
+## Regulación secundaria
+
+* Disposiciones de carácter general en materia de operaciones de los Sistemas de Ahorro para el Retiro.
+* Modificaciones vigentes de las disposiciones operativas.
+* Disposiciones de carácter general en materia financiera de los Sistemas de Ahorro para el Retiro.
+* Disposiciones que establecen el régimen de inversión aplicable a las SIEFORE.
+* Reglas, criterios, anexos y parámetros publicados por CONSAR.
+* Disposiciones sobre información que AFORE, SIEFORE, entidades receptoras y Empresas Operadoras deben entregar a CONSAR.
+* Regulación vigente sobre comisiones.
+* Regulación aplicable a publicidad, promoción y agentes promotores.
+* Criterios contables y de información financiera aplicables.
+* Reglas de operación del Fondo de Pensiones para el Bienestar.
+* Disposiciones vigentes sobre continuidad, recuperación de desastres, seguridad, autenticación, geolocalización, canales digitales y evidencia documental.
+
+## Repositorios oficiales
+
+Consultar:
+
+```text
+Cámara de Diputados
+Diario Oficial de la Federación
+CONSAR / SINOR
+IMSS
+ISSSTE
+INFONAVIT
+FOVISSSTE
+CONDUSEF
+Banco de México
+SHCP
+```
+
+No utilizar blogs, despachos jurídicos o agregadores como fuente primaria.
+
+---
+
+# 4. Clasificación de los hallazgos
+
+Clasifica cada hallazgo como:
+
+```text
+ALIGNED
+PARTIALLY_ALIGNED
+MISSING
+MISCLASSIFIED
+DUPLICATED
+OVERLAPPING
+OUTDATED
+UNVERIFIABLE
+NOT_APPLICABLE
+```
+
+Severidades:
+
+```text
+P0 — Contradicción regulatoria o modelo engañoso
+P1 — Responsabilidad importante ausente o mal clasificada
+P2 — Trazabilidad, semántica o relación insuficiente
+P3 — Nomenclatura, UX o documentación
+```
 
 Crea:
 
-docs/
-└── ux-refactor/
-    └── business-scenarios-diagram/
-        ├── 00-root-cause.md
-        ├── 01-implementation-summary.md
-        ├── 02-before-after-metrics.md
-        ├── 03-functional-regression.md
-        ├── 04-accessibility-results.md
-        ├── 05-known-limitations.md
-        ├── before/
-        ├── after/
-        └── comparison/
+```text
+docs/audits/service-landscape-regulatory-audit.md
+```
 
-En 00-root-cause.md explica:
+con:
 
-cuál capa generaba el espacio;
-cómo interactuaban flexbox, SVG y D3;
-cuál sistema quedó como autoridad;
-por qué la corrección es estable.
-21. Respuesta final
+| ID | Área | Dominio | Service Domain | Hallazgo | Clasificación | Severidad | Fuente | Recomendación |
+| -- | ---- | ------- | -------------- | -------- | ------------- | --------- | ------ | ------------- |
 
-Al concluir responde con:
+---
 
-Corrección del diagrama central completada
-Causa raíz
-Contenedor:
-Altura:
-SVG:
-D3:
-Conclusión:
-Solución implementada
-Cambios de layout:
-Cambios de SVG:
-Cambios de zoom:
-Cambios de Fit:
-Cambios de Reset:
-Métricas
-Escenario	Antes	Después	Resultado
-Archivos modificados
+# 5. Hallazgo P0 — Catálogo regulatorio insuficiente
 
-Lista cada archivo y justificación.
+El catálogo actual contiene únicamente tres referencias generales y no permite representar la regulación aplicable a todo el Landscape.
 
-Integridad funcional
+## Corrección
 
-Confirma:
+Sustituye el modelo actual por un catálogo canónico separado de los mapeos.
 
-escenarios preservados;
-pasos preservados;
-participantes preservados;
-mensajes preservados;
-narrativa preservada;
-panel derecho preservado;
-toolbar preservada;
-zoom preservado;
-fullscreen preservado;
-datos y dominio sin cambios.
-Pruebas
+Crear:
 
-Lista:
+```text
+src/data/regulatory/
+├── regulatory-sources.json
+├── regulatory-mappings.json
+├── regulatory-authorities.json
+├── regulatory-regimes.json
+├── regulatory-baseline.json
+└── regulatory-gaps.json
+```
 
-comandos;
-resultado;
-errores encontrados;
-correcciones.
-Evidencia
+No incrustes copias completas de una regulación dentro de cada Service Domain.
 
-Indica la ubicación de:
+Cada Service Domain deberá referenciar IDs canónicos.
 
-docs/ux-refactor/business-scenarios-diagram/before/
-docs/ux-refactor/business-scenarios-diagram/after/
-docs/ux-refactor/business-scenarios-diagram/comparison/
-Riesgos residuales
+---
 
-Lista únicamente riesgos reales pendientes.
+# 6. Modelo canónico de fuente regulatoria
 
-22. Instrucción final
+Crear:
 
-Comienza ahora la corrección.
+```typescript
+export interface RegulatorySource {
+  id: string;
 
-No rediseñes toda la pantalla.
+  officialTitle: string;
+  shortName: string;
 
-No cambies contenido de negocio.
+  sourceType:
+    | "constitution"
+    | "law"
+    | "regulation"
+    | "general-provision"
+    | "circular"
+    | "operating-rule"
+    | "investment-rule"
+    | "official-criterion"
+    | "technical-annex"
+    | "official-guideline"
+    | "decree";
 
-No ocultes el espacio mediante márgenes negativos o posiciones absolutas arbitrarias.
+  issuingAuthorityId: string;
+  jurisdiction: "MX";
 
-Corrige la relación estructural entre:
+  officialIdentifier?: string;
 
-workspace
-figure
-SVG viewport
-D3 transform
+  publicationDate: string;
+  lastReformDate?: string;
+  effectiveFrom: string;
+  effectiveTo?: string;
 
-El resultado debe ser estable para todos los escenarios, resoluciones y cambios de tamaño.
+  officialUrl: string;
+  consultedAt: string;
+
+  status:
+    | "current"
+    | "partially-superseded"
+    | "superseded"
+    | "abrogated"
+    | "pending-verification";
+
+  supersedesIds: string[];
+  supersededByIds: string[];
+
+  applicableRegimeIds: string[];
+  applicableParticipantTypeIds: string[];
+
+  checksum?: string;
+  notes: string[];
+
+  validationStatus:
+    | "pending"
+    | "source-verified"
+    | "legally-reviewed";
+
+  reviewedBy?: string;
+  reviewedAt?: string;
+}
+```
+
+## Reglas
+
+* `officialUrl` será obligatorio.
+* Una fuente no podrá marcarse `source-verified` sin URL oficial.
+* Una fuente no podrá marcarse `legally-reviewed` sin revisor y fecha.
+* Una fuente abrogada no podrá utilizarse como fundamento vigente.
+* Las modificaciones deberán relacionarse con el instrumento consolidado.
+* No usar nombres informales cuando exista título oficial.
+* No usar autoridad combinada como `CONSAR / CNBV` sin demostrar competencia conjunta en el instrumento.
+
+---
+
+# 7. Revisar la referencia actual de ciberseguridad
+
+Audita la entrada actual:
+
+```text
+RAIA-REG-CUS
+Circular Única de Sistemas Financieros en materia de Ciberseguridad
+Autoridad: CONSAR / CNBV
+```
+
+No la conserves como oficial sin comprobar:
+
+* denominación exacta;
+* autoridad emisora;
+* fecha;
+* publicación en DOF;
+* alcance para AFORE, SIEFORE o Empresa Operadora;
+* artículos aplicables;
+* vigencia;
+* URL oficial.
+
+Cuando las obligaciones de seguridad provengan de las Disposiciones Operativas o Financieras de CONSAR, referencia esos instrumentos con precisión.
+
+Si no existe un instrumento oficial con el nombre actual:
+
+1. marcarlo como `UNVERIFIABLE`;
+2. deprecar el ID;
+3. migrar los mapeos;
+4. registrar la razón;
+5. no eliminar historial.
+
+---
+
+# 8. Modelo de mapeo regulatorio
+
+Crear:
+
+```typescript
+export interface RegulatoryMapping {
+  id: string;
+
+  regulatorySourceId: string;
+  serviceDomainId: string;
+
+  serviceOperationIds: string[];
+  businessEventIds: string[];
+  businessObjectIds: string[];
+
+  article?: string;
+  section?: string;
+  paragraph?: string;
+  fraction?: string;
+  annex?: string;
+
+  obligationType:
+    | "obligation"
+    | "prohibition"
+    | "authorization"
+    | "supervisory-power"
+    | "reporting-duty"
+    | "control-requirement"
+    | "information-right"
+    | "retention-duty"
+    | "calculation-rule"
+    | "eligibility-rule"
+    | "governance-requirement";
+
+  applicability:
+    | "direct"
+    | "indirect"
+    | "contextual"
+    | "enabling";
+
+  applicableRegimeIds: string[];
+  obligatedParticipantIds: string[];
+  beneficiaryParticipantIds: string[];
+
+  regulatoryRequirement: string;
+  architecturalInterpretation: string;
+
+  controlIds: string[];
+  evidenceIds: string[];
+  kpiIds: string[];
+
+  confidence:
+    | "low"
+    | "medium"
+    | "high";
+
+  validationStatus:
+    | "pending"
+    | "architecture-reviewed"
+    | "operationally-reviewed"
+    | "legally-reviewed";
+
+  reviewedBy?: string;
+  reviewedAt?: string;
+
+  assumptions: string[];
+  unresolvedQuestions: string[];
+}
+```
+
+No copies textos extensos de las fuentes oficiales.
+
+Registra una síntesis y la referencia exacta.
+
+---
+
+# 9. Hallazgo P0 — Mezcla de conceptos en la cadena de valor
+
+El Landscape actual mezcla al mismo nivel:
+
+* regulación sectorial;
+* procesos operativos de AFORE;
+* infraestructura compartida de industria;
+* capacidades tecnológicas internas;
+* arquitectura, innovación y conocimiento.
+
+Esto genera la impresión de que todos los elementos tienen la misma naturaleza regulatoria y operativa.
+
+## Nueva estructura visual y semántica
+
+Mantén los IDs existentes, pero clasifica las áreas mediante:
+
+```typescript
+export type LandscapeLayer =
+  | "sector-governance"
+  | "industry-value-stream"
+  | "industry-shared-service"
+  | "enterprise-enabler"
+  | "raia-governance-overlay";
+```
+
+Clasificación inicial que debe verificarse:
+
+```text
+Gobierno y Dirección del SAR
+→ sector-governance
+
+Riesgo, Cumplimiento y Supervisión
+→ revisar si requiere dividirse entre:
+   sector-governance
+   enterprise-enabler
+   investment-risk
+
+Identidad, Partes y Expediente
+Afiliación y Cuenta Individual
+Recaudación y Aportaciones
+Inversión y SIEFORE
+Retiros, Prestaciones y Pensiones
+Servicio, Canales y Experiencia
+→ industry-value-stream
+
+Servicios Compartidos de Industria
+→ industry-shared-service
+
+Capacidades Empresariales y Tecnología
+→ enterprise-enabler
+
+Evolución, Arquitectura, Innovación y Conocimiento
+→ raia-governance-overlay
+```
+
+No presentes:
+
+```text
+Tecnología corporativa
+Innovación interna
+Gobierno de RAIA
+```
+
+como si fueran procesos regulados equivalentes a:
+
+```text
+Registro
+Traspaso
+Recaudación
+Inversión
+Pensión
+```
+
+---
+
+# 10. Actualizar las macroáreas de la interfaz
+
+Reemplaza la agrupación rígida:
+
+```text
+Front-Office
+Core
+Back-Office
+```
+
+por una vista con capas explícitas:
+
+```text
+1. Gobierno y Supervisión del SAR
+2. Experiencia y Relación con el Trabajador
+3. Operación de Cuenta Individual
+4. Recaudación y Aportaciones
+5. Inversión y Administración de Fondos
+6. Retiros, Prestaciones y Pensiones
+7. Servicios Compartidos de Industria
+8. Capacidades Empresariales Habilitadoras
+9. Gobierno y Evolución de RAIA
+```
+
+No cambies automáticamente los Business Area IDs.
+
+Agrega `landscapeLayer` al modelo y utiliza ese atributo para la visualización.
+
+---
+
+# 11. Hallazgo P0 — Actores no canónicos
+
+Actualmente los actores se almacenan como strings libres.
+
+Esto permite:
+
+* omitir autoridades relevantes;
+* asignar responsabilidad al trabajador;
+* combinar organizaciones distintas;
+* usar variantes del mismo nombre;
+* confundir autoridad, participante y Service Domain.
+
+Crear:
+
+```text
+src/data/actors-0.2.0.json
+```
+
+Modelo:
+
+```typescript
+export interface IndustryParticipant {
+  id: string;
+  name: string;
+
+  participantType:
+    | "worker"
+    | "beneficiary"
+    | "employer"
+    | "public-dependency"
+    | "afore"
+    | "public-pension-administrator"
+    | "siefore"
+    | "authority"
+    | "social-security-institute"
+    | "housing-institute"
+    | "industry-operator"
+    | "insurer"
+    | "custodian"
+    | "price-provider"
+    | "market-infrastructure"
+    | "fiduciary"
+    | "external-service-provider"
+    | "governance-body";
+
+  organizationType?: string;
+  authorityScope?: string[];
+
+  status: "active" | "historical" | "generic-role";
+  aliases: string[];
+}
+```
+
+Crear participantes canónicos, cuando proceda, para:
+
+```text
+Trabajador
+Beneficiario
+Patrón
+Dependencia o Entidad
+AFORE
+PENSIONISSSTE
+SIEFORE
+CONSAR
+SHCP
+IMSS
+ISSSTE
+INFONAVIT
+FOVISSSTE
+CONDUSEF
+Empresa Operadora de la BDNSAR
+Aseguradora
+Custodio
+Proveedor de Precios
+Mercado o plataforma de negociación
+Banco de México en su rol aplicable
+Fondo de Pensiones para el Bienestar
+```
+
+No conviertas a estas entidades en Service Domains.
+
+---
+
+# 12. Hallazgo P0 — BDNSAR y Empresa Operadora
+
+Distingue formalmente:
+
+```text
+Empresa Operadora
+= participante u organización de industria
+
+BDNSAR
+= activo de información propiedad del Gobierno Federal
+
+Responsabilidad lógica de consulta o actualización
+= Service Domain
+```
+
+No utilizar indistintamente:
+
+```text
+BDNSAR
+Empresa Operadora
+Registro Maestro
+Base de Datos Nacional SAR
+```
+
+Crear o ajustar:
+
+```text
+IndustryParticipant
+InformationAsset
+ServiceDomain
+BusinessObject
+```
+
+La BDNSAR no deberá:
+
+* aprobar;
+* decidir;
+* autorizar;
+* enviar comandos por iniciativa propia;
+* aparecer como autoridad.
+
+---
+
+# 13. Hallazgo P0 — Gobierno y Dirección del SAR
+
+Audita todos los Business Domains y Service Domains del área:
+
+```text
+Gobierno y Dirección del SAR
+```
+
+La estrategia, regulación y supervisión no deben quedar atribuidas únicamente a:
+
+```text
+AFORE
+Empresa Operadora
+Trabajador
+```
+
+Verifica la participación de:
+
+* CONSAR;
+* SHCP;
+* Junta de Gobierno de CONSAR;
+* Comité Consultivo y de Vigilancia;
+* Comité de Análisis de Riesgos;
+* otras autoridades con facultades expresas.
+
+Revisar la existencia y delimitación de capacidades para:
+
+```text
+Gestión del inventario normativo
+Gestión de cambio regulatorio
+Emisión y administración de criterios
+Autorización de AFORE
+Autorización de SIEFORE
+Autorización y supervisión de Empresas Operadoras
+Supervisión regulatoria
+Inspección y vigilancia
+Procedimiento sancionador
+Remediación regulatoria
+Gobierno de comisiones
+Gobierno de publicidad y promoción
+Gobierno de agentes promotores
+Gobierno corporativo de AFORE y SIEFORE
+Reservas, capital y suficiencia financiera
+Información regulatoria a CONSAR
+```
+
+Antes de crear un Service Domain nuevo:
+
+1. buscar responsabilidad equivalente;
+2. determinar si debe extenderse;
+3. determinar si debe dividirse;
+4. evitar duplicación;
+5. documentar la decisión.
+
+---
+
+# 14. Riesgo, Cumplimiento y Supervisión
+
+No combines dentro de un único dominio:
+
+```text
+Supervisión de CONSAR
+Cumplimiento de una AFORE
+Riesgo financiero de una SIEFORE
+Ciberseguridad
+Continuidad de negocio
+Prevención de fraude
+```
+
+Revisar responsabilidades separadas para:
+
+* supervisión regulatoria;
+* cumplimiento normativo;
+* riesgo operativo;
+* riesgo financiero;
+* riesgo de mercado;
+* riesgo de crédito;
+* riesgo de contraparte;
+* riesgo de liquidez;
+* riesgo de concentración;
+* cumplimiento preoperación;
+* conflictos de interés;
+* prevención y detección de fraude;
+* riesgo documental;
+* seguridad de la información;
+* ciberseguridad;
+* continuidad de negocio;
+* recuperación de desastres;
+* gestión de terceros;
+* incidentes tecnológicos;
+* privacidad y protección de datos.
+
+No crear un único Service Domain denominado:
+
+```text
+Gestión Integral de Riesgos
+```
+
+si termina acumulando responsabilidades incompatibles.
+
+---
+
+# 15. Identidad, Partes y Expediente
+
+Revisar cobertura para:
+
+```text
+Datos del Trabajador
+Resolución de Identidad
+Gestión de CURP
+Gestión de NSS
+Gestión de RFC
+Identidad Biométrica
+Prueba de Vida
+Autenticación
+Firma o manifestación de voluntad
+Consentimiento
+Expediente Electrónico
+Expediente de Identificación
+Beneficiarios
+Representación legal
+Actualización de datos
+Corrección de datos
+Riesgo documental
+Conservación documental
+Derechos de datos personales
+```
+
+Distinguir:
+
+```text
+identificación
+autenticación
+biometría
+consentimiento
+firma
+expediente
+protección de datos
+```
+
+No presentarlos como sinónimos.
+
+La certeza jurídica no deberá atribuirse exclusivamente a una firma digital.
+
+---
+
+# 16. Afiliación y Cuenta Individual
+
+Auditar cobertura de:
+
+* registro;
+* traspaso;
+* recertificación o procesos equivalentes vigentes;
+* asignación;
+* reasignación;
+* localización;
+* unificación;
+* separación por asociación incorrecta;
+* administración de cuenta;
+* subcuentas;
+* movimientos;
+* saldos;
+* acciones de SIEFORE;
+* rendimientos;
+* estados de cuenta;
+* reclamaciones;
+* beneficiarios;
+* recursos de vivienda;
+* recursos SAR 92 cuando corresponda;
+* cuenta asignada;
+* cuenta registrada;
+* cuenta inactiva;
+* cuenta pensionada;
+* cuenta transferida.
+
+Evitar presentar:
+
+```text
+Libro Mayor
+```
+
+como término jurídico oficial.
+
+Cuando se conserve como patrón arquitectónico, etiquetarlo como:
+
+```text
+abstracción contable interna de RAIA
+```
+
+y relacionarlo con:
+
+```text
+registro de movimientos
+saldo por subcuenta
+posición de acciones
+trazabilidad de cuenta
+```
+
+---
+
+# 17. Recaudación y Aportaciones
+
+La descripción actual no debe implicar que la AFORE cobra directamente todas las aportaciones.
+
+Modelar responsabilidades independientes para:
+
+```text
+Determinación de aportaciones
+Recepción de información de pago
+Recepción de recursos
+Conciliación de pago
+Identificación de aportación
+Individualización
+Aplicación por subcuenta
+Aclaración de diferencias
+Devolución o corrección
+Aportaciones obligatorias IMSS
+Aportaciones ISSSTE
+Ahorro solidario
+Aportaciones voluntarias
+Aportaciones complementarias
+Recursos de vivienda
+Cuota social y aportación estatal
+```
+
+Cada flujo deberá identificar:
+
+* régimen;
+* aportante;
+* entidad receptora;
+* Instituto;
+* Empresa Operadora;
+* AFORE o PENSIONISSSTE;
+* cuenta;
+* subcuenta;
+* evidencia;
+* conciliación.
+
+No usar una sola capacidad genérica para IMSS e ISSSTE cuando las reglas sean distintas.
+
+---
+
+# 18. Inversión y SIEFORE
+
+Actualizar el propósito del área.
+
+No utilizar únicamente:
+
+```text
+Maximizar rendimiento
+```
+
+Utilizar un propósito similar a:
+
+> Administrar los recursos de los trabajadores buscando rendimientos ajustados por riesgo, dentro del régimen de inversión, los límites, la trayectoria generacional y los principios de seguridad, liquidez, diversificación y mejor interés del trabajador.
+
+Auditar cobertura para:
+
+```text
+Gobierno de SIEFORE
+Trayectoria generacional
+Asignación a SIEFORE
+Estrategia de inversión
+Construcción de portafolio
+Portafolio de referencia
+Asignación estratégica de activos
+Rebalanceo
+Liquidez
+Límites de inversión
+Cumplimiento preoperación
+Riesgo de mercado
+Riesgo de crédito
+Riesgo de contraparte
+Riesgo de liquidez
+Riesgo operativo de inversión
+Derivados
+Colaterales
+Reportos
+Préstamo de valores
+Mandatarios
+Custodia
+Mercados
+Contrapartes
+Confirmación
+Liquidación
+Conciliación
+Valuación de instrumentos
+Proveedor de precios
+Valuación de portafolio
+Valor de acción
+Instrumentos estructurados
+Activos alternativos
+FIBRAS
+CKD y CERPI cuando corresponda
+Inversión sostenible
+Taxonomía sostenible
+Divulgación de sostenibilidad
+Prospecto de inversión
+Folleto explicativo
+Comité de Inversión
+Comité de Riesgos Financieros
+Conflictos de interés
+Canal de denuncia
+Continuidad y recuperación de operaciones de inversión
+```
+
+Clasificar correctamente:
+
+```text
+Comité
+→ governance-body
+
+SIEFORE
+→ investment-vehicle
+
+Proveedor de Precios
+→ external-service-provider
+
+Custodio
+→ custodian
+
+Mercado
+→ market-infrastructure
+
+Portafolio
+→ business-object
+```
+
+No convertirlos en Service Domains.
+
+---
+
+# 19. Retiros, Prestaciones y Pensiones
+
+Cambiar la expresión:
+
+```text
+traspasos al Fondo de Pensiones para el Bienestar
+```
+
+por una denominación regulatoriamente neutral como:
+
+```text
+transferencia de recursos al Fondo de Pensiones para el Bienestar
+```
+
+No confundir:
+
+```text
+traspaso de cuenta entre AFORE
+```
+
+con:
+
+```text
+transferencia de recursos a un fondo público
+```
+
+Auditar cobertura separada para:
+
+```text
+Retiro parcial por desempleo IMSS
+Retiro por desempleo ISSSTE
+Ayuda aplicable por matrimonio o unión civil
+Retiro de aportaciones voluntarias
+Retiro total
+Negativa de pensión
+Resolución o concesión de pensión
+Renta vitalicia
+Retiro programado
+Pensión garantizada
+Seguro de sobrevivencia
+Transferencia a aseguradora
+Disposición por beneficiarios
+Fallecimiento
+Recursos de vivienda
+Reintegro de recursos
+Semanas o años de cotización afectados
+Reclamaciones y aclaraciones
+```
+
+IMSS e ISSSTE deberán modelarse por separado cuando cambien:
+
+* elegibilidad;
+* cálculo;
+* participante;
+* documento;
+* resultado;
+* afectación de derechos;
+* evidencia.
+
+---
+
+# 20. Fondo de Pensiones para el Bienestar
+
+Separar al menos estas responsabilidades:
+
+```text
+Identificación de recursos susceptibles de transferencia
+Validación del supuesto legal
+Aviso al trabajador o beneficiario
+Revalidación previa a transferencia
+Desinversión
+Instrucción de transferencia
+Recepción fiduciaria
+Conciliación
+Actualización de cuenta
+Actualización de registros de industria
+Reclamación posterior
+Devolución de recursos
+Determinación de complemento pensionario
+Solicitud de recursos al Fondo
+Entrega de recursos al Instituto
+Pago del complemento por el participante legalmente responsable
+Información y reporte
+```
+
+Distinguir:
+
+```text
+Fondo de Pensiones para el Bienestar
+Banco de México en su rol fiduciario
+IMSS
+ISSSTE
+AFORE
+PENSIONISSSTE
+Empresa Operadora
+trabajador o pensionado
+```
+
+No presentar al Fondo como Service Domain genérico.
+
+No hardcodear montos, edades o límites.
+
+Representarlos mediante:
+
+```text
+RegulatoryParameter
+RegulatoryRuleSnapshot
+EffectiveDate
+```
+
+---
+
+# 21. Servicio, Canales y Experiencia
+
+Auditar capacidades para:
+
+* atención omnicanal;
+* solicitudes;
+* seguimiento;
+* aclaraciones;
+* quejas;
+* UNE;
+* CONDUSEF;
+* estados de cuenta;
+* notificaciones automatizadas;
+* información sobre avance de trámites;
+* accesibilidad;
+* atención de personas vulnerables;
+* educación financiera;
+* asesoría previsional;
+* transparencia de comisiones;
+* información de rendimientos;
+* consentimiento;
+* canales móviles;
+* canales web;
+* atención presencial;
+* protección contra prácticas comerciales indebidas.
+
+Incorporar las obligaciones de:
+
+```text
+accesibilidad
+información oportuna
+seguimiento
+notificaciones
+protección de datos
+```
+
+cuando estén sustentadas en fuente oficial.
+
+---
+
+# 22. Servicios Compartidos de Industria
+
+Separar claramente:
+
+```text
+Empresa Operadora
+BDNSAR
+SIE o mecanismos de intercambio
+Data Mart pensionario
+RENAPO
+IMSS
+ISSSTE
+INFONAVIT
+FOVISSSTE
+entidades receptoras
+custodios
+proveedores de precios
+infraestructura de liquidación
+```
+
+Clasificar cada elemento como:
+
+* participante;
+* proveedor de servicio de industria;
+* sistema externo;
+* activo de información;
+* registro;
+* infraestructura financiera.
+
+No todos deben transformarse en Service Domains.
+
+Los Service Domains deberán representar responsabilidades lógicas como:
+
+```text
+Administración del Registro Nacional de Cuentas
+Intercambio de Información SAR
+Validación de Afiliación
+Intercambio con Institutos
+Intercambio de Recursos de Vivienda
+Administración de Data Mart Pensionario
+Conciliación de Industria
+Notificación de Industria
+```
+
+---
+
+# 23. Capacidades Empresariales y Tecnología
+
+Esta área deberá presentarse como:
+
+```text
+enterprise-enabler
+```
+
+y no como parte indistinta de la cadena regulada.
+
+Auditar cobertura para:
+
+```text
+Gobierno de Datos
+Calidad de Datos
+Linaje
+Datos Maestros
+Privacidad
+Clasificación de Información
+Seguridad de la Información
+Gestión de Identidades y Accesos
+Ciberseguridad
+Gestión de Vulnerabilidades
+Monitoreo de Seguridad
+Respuesta a Incidentes
+Continuidad de Negocio
+Recuperación de Desastres
+Resiliencia Operativa
+Gestión de Proveedores
+Gestión de Servicios en Nube
+Observabilidad
+Gestión de Logs
+Conservación de Evidencia
+Gestión de Cambios
+Configuración
+Capacidad
+Disponibilidad
+Respaldo y Recuperación
+```
+
+No atribuir automáticamente regulación SAR directa a todas.
+
+Utilizar:
+
+```text
+applicability: enabling
+```
+
+cuando soporten una obligación regulatoria de otro dominio.
+
+---
+
+# 24. Evolución, Arquitectura, Innovación y Conocimiento
+
+Clasificar esta área como:
+
+```text
+raia-governance-overlay
+```
+
+No presentarla como obligación operativa de una AFORE.
+
+Incluir:
+
+* gobierno del metamodelo;
+* administración del catálogo;
+* versionamiento;
+* arquitectura de referencia;
+* control de cambios;
+* gestión de contribuciones;
+* decisiones arquitectónicas;
+* conocimiento;
+* patrones;
+* investigación;
+* innovación;
+* gobierno de IA;
+* vigilancia regulatoria.
+
+Distinguir:
+
+```text
+capacidad RAIA
+```
+
+de:
+
+```text
+capacidad obligatoria del participante SAR
+```
+
+---
+
+# 25. Relaciones del Landscape
+
+Actualmente existen relaciones genéricas y secuenciales.
+
+No utilizar:
+
+```text
+Siguiente paso
+```
+
+como significado arquitectónico.
+
+Los Business Scenarios representan secuencia.
+
+Las relaciones del Landscape deben representar dependencias estables.
+
+Crear:
+
+```typescript
+export interface LandscapeRelation {
+  id: string;
+
+  sourceServiceDomainId: string;
+  targetServiceDomainId: string;
+
+  relationType:
+    | "depends-on"
+    | "provides-information-to"
+    | "consumes-information-from"
+    | "validates"
+    | "authorizes"
+    | "reports-to"
+    | "supervises"
+    | "reconciles-with"
+    | "transfers-resources-to"
+    | "triggers-event-for"
+    | "governs"
+    | "enables";
+
+  sourceOperationIds: string[];
+  targetOperationIds: string[];
+
+  businessObjectIds: string[];
+  businessEventIds: string[];
+
+  interactionPattern:
+    | "request-response"
+    | "command"
+    | "business-event"
+    | "batch"
+    | "file-exchange"
+    | "regulatory-report"
+    | "fund-transfer"
+    | "manual-interaction";
+
+  regulatoryMappingIds: string[];
+
+  description: string;
+  preconditions: string[];
+  postconditions: string[];
+
+  status:
+    | "proposed"
+    | "validated"
+    | "deprecated";
+
+  validationStatus:
+    | "pending"
+    | "architecture-reviewed"
+    | "operationally-reviewed";
+}
+```
+
+## Reglas
+
+* No crear relaciones solo para incrementar el contador.
+* Cada relación deberá tener significado funcional.
+* Toda relación financiera deberá señalar objeto y conciliación.
+* Toda relación regulatoria deberá señalar mapeo regulatorio.
+* Toda relación de reporte deberá identificar autoridad y evidencia.
+* Una relación no sustituye un Business Scenario.
+* Los IDs `rel-flow*` deberán migrarse a identificadores RAIA tipados.
+
+Formato:
+
+```text
+RAIA-REL-0001
+```
+
+---
+
+# 26. Service Operations
+
+Audita las operaciones de los 273 Service Domains.
+
+Una Service Operation debe:
+
+* iniciar con verbo;
+* tener resultado claro;
+* modificar o recuperar un objeto concreto;
+* pertenecer exclusivamente a la responsabilidad del Service Domain;
+* evitar detalles tecnológicos;
+* diferenciar command, query, validation, report y notification.
+
+Tipos sugeridos:
+
+```typescript
+type ServiceOperationType =
+  | "initiate"
+  | "register"
+  | "update"
+  | "retrieve"
+  | "validate"
+  | "evaluate"
+  | "calculate"
+  | "authorize"
+  | "execute"
+  | "reconcile"
+  | "notify"
+  | "report"
+  | "monitor"
+  | "control";
+```
+
+No utilizar `execute` como tipo universal.
+
+---
+
+# 27. Lenguaje y semántica
+
+Detectar y corregir expresiones como:
+
+```text
+Garantizar absolutamente
+Maximizar rendimientos
+Controlar todo el proceso
+Realizar cualquier operación
+Gestionar integralmente
+Siguiente paso
+```
+
+Usar responsabilidades verificables:
+
+```text
+Administrar
+Registrar
+Validar
+Conciliar
+Determinar
+Notificar
+Supervisar
+Reportar
+Autorizar
+Ejecutar
+Conservar
+```
+
+Distinguir:
+
+```text
+obligación regulatoria
+responsabilidad arquitectónica
+objetivo de negocio
+resultado esperado
+```
+
+---
+
+# 28. Actualizar el esquema de Service Domain
+
+Extender:
+
+```typescript
+export interface ServiceDomain {
+  // campos actuales
+
+  landscapeLayer: LandscapeLayer;
+
+  responsibilityStatement: string;
+  responsibilityBoundary: string;
+
+  participantIds: string[];
+  accountableParticipantIds: string[];
+
+  regulatoryMappingIds: string[];
+  regulatoryCoverage:
+    | "unmapped"
+    | "partial"
+    | "mapped"
+    | "reviewed";
+
+  applicableRegimeIds: string[];
+
+  regulatoryCriticality:
+    | "none"
+    | "low"
+    | "medium"
+    | "high"
+    | "systemic";
+
+  capabilityType:
+    | "regulated-core"
+    | "industry-shared"
+    | "enterprise-enabler"
+    | "raia-governance";
+
+  assumptions: string[];
+  unresolvedQuestions: string[];
+
+  operationalValidationStatus:
+    | "pending"
+    | "reviewed"
+    | "validated";
+
+  regulatoryValidationStatus:
+    | "pending"
+    | "partially-reviewed"
+    | "legally-reviewed";
+
+  lastRegulatoryReviewAt?: string;
+}
+```
+
+---
+
+# 29. Interfaz del Service Landscape
+
+Conserva el nuevo estilo visual de RAIA:
+
+* fondo `slate-50`;
+* tarjetas blancas;
+* header oscuro;
+* Inter;
+* iconografía Lucide;
+* densidad ejecutiva;
+* turquesa como acento funcional;
+* bordes discretos;
+* accesibilidad y responsive.
+
+No rediseñes visualmente el portal desde cero.
+
+## Agregar filtros
+
+```text
+Capa del Landscape
+Régimen
+Autoridad
+Fuente regulatoria
+Cobertura regulatoria
+Criticidad regulatoria
+Tipo de capacidad
+Estado de revisión regulatoria
+```
+
+## Agregar vistas
+
+```text
+Explorador
+Panorama
+Matriz
+Cobertura Regulatoria
+```
+
+## Cobertura regulatoria
+
+Mostrar:
+
+```text
+Verde   — revisado
+Azul    — mapeado
+Ámbar   — parcial
+Rojo    — sin mapeo o fuente vencida
+Gris    — no aplicable
+```
+
+No depender únicamente del color.
+
+Agregar texto e icono.
+
+---
+
+# 30. Sidebar de Service Domain
+
+Actualizar la pestaña:
+
+```text
+Gobierno
+```
+
+para mostrar:
+
+```text
+Actor responsable
+Participantes
+Capa del Landscape
+Tipo de capacidad
+Regímenes aplicables
+Criticidad regulatoria
+Cobertura
+Fuentes
+Artículos
+Obligaciones
+Controles
+Evidencias
+Fecha de revisión
+Estado de validación
+```
+
+Crear tabs:
+
+```text
+Resumen
+Gobierno
+Regulación
+Relaciones
+```
+
+No ocultar toda la regulación únicamente en la ficha completa.
+
+---
+
+# 31. Ficha técnica
+
+En:
+
+```text
+/service-domains/[slug]
+```
+
+actualizar `Marco Regulatorio` para mostrar:
+
+* nombre oficial;
+* nombre corto;
+* autoridad;
+* tipo;
+* publicación;
+* última reforma;
+* entrada en vigor;
+* estado;
+* artículo o anexo;
+* obligación;
+* interpretación arquitectónica;
+* operación afectada;
+* control;
+* evidencia;
+* fecha de consulta;
+* estado de revisión;
+* acceso a fuente oficial.
+
+No utilizar únicamente:
+
+```text
+Nombre
+Autoridad
+Estatus
+```
+
+---
+
+# 32. Dashboard regulatorio
+
+Agregar indicadores:
+
+```text
+Service Domains totales
+Service Domains regulados directamente
+Service Domains habilitadores
+Service Domains sin mapeo
+Mapeos pendientes
+Mapeos revisados
+Fuentes vigentes
+Fuentes superadas
+Fuentes sin URL
+Mapeos sin artículo
+Mapeos sin control
+Mapeos sin evidencia
+Cobertura por Business Area
+Cobertura por régimen
+Cobertura por autoridad
+```
+
+Fórmulas:
+
+```text
+Regulatory Mapping Coverage
+=
+Service Domains con mapeo válido
+/
+Service Domains que requieren mapeo
+```
+
+No incluir los dominios `not-applicable` en el denominador.
+
+---
+
+# 33. Validadores
+
+Crear:
+
+```text
+scripts/validateRegulatorySources.js
+scripts/validateRegulatoryMappings.js
+scripts/validateLandscapeSemantics.js
+scripts/validateActorTaxonomy.js
+scripts/validateServiceDomainCoverage.js
+scripts/validateLandscapeRelations.js
+scripts/validateRegulatoryBaseline.js
+scripts/validateRegulatoryLanguage.js
+```
+
+Scripts npm:
+
+```json
+{
+  "scripts": {
+    "validate:regulatory-sources": "node scripts/validateRegulatorySources.js",
+    "validate:regulatory-mappings": "node scripts/validateRegulatoryMappings.js",
+    "validate:landscape-semantics": "node scripts/validateLandscapeSemantics.js",
+    "validate:actors": "node scripts/validateActorTaxonomy.js",
+    "validate:sd-coverage": "node scripts/validateServiceDomainCoverage.js",
+    "validate:landscape-relations": "node scripts/validateLandscapeRelations.js",
+    "validate:regulatory-baseline": "node scripts/validateRegulatoryBaseline.js"
+  }
+}
+```
+
+## Fallos bloqueantes
+
+El build debe fallar cuando:
+
+* una fuente oficial no tenga URL;
+* una fuente vigente esté marcada como superada;
+* una fuente abrogada esté usada como fundamento actual;
+* un mapeo obligatorio no tenga artículo o sección;
+* un Service Domain regulado no tenga mapeo;
+* un actor no exista en el catálogo;
+* una autoridad sea modelada como Service Domain;
+* un objeto sea modelado como participante;
+* BDNSAR sea tratada como Empresa Operadora;
+* un mapeo no tenga interpretación;
+* una obligación no tenga control cuando éste sea necesario;
+* una relación apunte a IDs inexistentes;
+* existan relaciones genéricas `Siguiente paso`;
+* una fuente esté marcada `legally-reviewed` sin revisor.
+
+Las referencias desconocidas dejarán de ser simples warnings.
+
+---
+
+# 34. Detección de contenido genérico
+
+Crear reglas para detectar:
+
+```text
+Garantizar la correcta operación y control de...
+Gestionar de forma integral...
+Procesar información...
+Ejecutar el proceso...
+Siguiente paso...
+```
+
+Detectar:
+
+* descripciones idénticas;
+* capacidades clonadas;
+* Focus Objects repetidos sin justificación;
+* controles iguales en dominios distintos;
+* evidencias genéricas;
+* regulaciones asignadas indiscriminadamente;
+* actores copiados a todos los Business Domains.
+
+Generar:
+
+```text
+docs/audits/service-domain-content-quality-report.md
+```
+
+---
+
+# 35. Migración
+
+Crear:
+
+```text
+scripts/migrations/004-regulatory-service-landscape.ts
+```
+
+Opciones:
+
+```text
+--dry-run
+--write
+--backup
+--report
+```
+
+La migración deberá:
+
+1. preservar los 273 IDs actuales;
+2. no renumerar;
+3. crear catálogo de actores;
+4. crear catálogo regulatorio;
+5. extraer regulaciones embebidas;
+6. crear mapeos;
+7. detectar duplicados;
+8. marcar referencias no verificables;
+9. migrar relaciones;
+10. generar gaps;
+11. actualizar schemas;
+12. actualizar repositorios.
+
+No eliminar elementos.
+
+Para responsabilidades sustituidas usar:
+
+```text
+status: deprecated
+replacementId
+deprecationReason
+```
+
+---
+
+# 36. Revisión de los 273 Service Domains
+
+Genera una matriz individual:
+
+```text
+docs/audits/service-domain-regulatory-matrix.csv
+```
+
+Columnas:
+
+```text
+Service Domain ID
+Business Area
+Business Domain
+Name
+Landscape Layer
+Capability Type
+Focus Object
+Accountable Participant
+Applicable Regimes
+Regulatory Criticality
+Regulatory Sources
+Articles
+Coverage Status
+Semantic Status
+Recommended Action
+Proposed Replacement or Split
+Reviewer
+```
+
+Acciones permitidas:
+
+```text
+KEEP
+ENRICH
+RENAME
+MOVE
+SPLIT
+MERGE
+DEPRECATE
+CREATE_NEW
+MARK_NOT_APPLICABLE
+```
+
+No declares revisados los 273 Service Domains mediante un análisis agregado.
+
+Cada uno debe tener resultado individual.
+
+---
+
+# 37. Service Domain gaps
+
+Crear:
+
+```text
+src/data/regulatory/regulatory-gaps.json
+```
+
+Modelo:
+
+```typescript
+interface RegulatoryCapabilityGap {
+  id: string;
+  title: string;
+  description: string;
+
+  sourceIds: string[];
+  articleReferences: string[];
+
+  impactedBusinessAreaIds: string[];
+  impactedBusinessDomainIds: string[];
+
+  existingCandidateServiceDomainIds: string[];
+
+  recommendation:
+    | "extend-existing"
+    | "split-existing"
+    | "create-new"
+    | "model-as-control"
+    | "model-as-actor"
+    | "model-as-business-object"
+    | "no-action";
+
+  severity: "P0" | "P1" | "P2" | "P3";
+  validationStatus: "pending" | "reviewed";
+}
+```
+
+---
+
+# 38. Pruebas
+
+## Unitarias
+
+Probar:
+
+* esquema de fuente;
+* esquema de mapping;
+* actor taxonomy;
+* vigencia;
+* supersession;
+* cobertura;
+* relación;
+* cálculo de métricas;
+* filtros;
+* migración.
+
+## E2E
+
+Probar:
+
+1. abrir Value Chain;
+2. filtrar por autoridad;
+3. filtrar por régimen;
+4. filtrar por cobertura;
+5. seleccionar un Service Domain;
+6. abrir tab Regulación;
+7. revisar fuente;
+8. abrir vínculo oficial;
+9. validar artículo;
+10. abrir ficha;
+11. revisar controles;
+12. revisar evidencias;
+13. cambiar a vista de cobertura;
+14. comprobar leyenda;
+15. comprobar responsive;
+16. comprobar teclado;
+17. comprobar ausencia de errores.
+
+## Casos negativos
+
+* fuente sin URL;
+* fuente abrogada;
+* mapping sin artículo;
+* actor inexistente;
+* BDNSAR como actor;
+* autoridad como Service Domain;
+* relación `Siguiente paso`;
+* mapeo sin control;
+* mapeo con régimen incorrecto;
+* fuente duplicada;
+* revisión sin revisor.
+
+Todos deben fallar.
+
+---
+
+# 39. Gobierno editorial
+
+Un Service Domain no puede pasar a:
+
+```text
+regulatoryValidationStatus: legally-reviewed
+```
+
+sin:
+
+* fuente oficial;
+* artículo;
+* interpretación;
+* revisión jurídica;
+* revisión operativa;
+* control;
+* evidencia;
+* fecha.
+
+Un Service Domain tecnológico podrá marcarse:
+
+```text
+regulatoryCoverage: not-applicable
+```
+
+únicamente cuando se documente la justificación.
+
+No marques automáticamente los 273 Service Domains como validados.
+
+---
+
+# 40. Release
+
+No publiques automáticamente una nueva versión.
+
+Primero entrega:
+
+```text
+Regulatory Gap Analysis
+Migration Dry Run
+Semantic Review
+Coverage Report
+Unresolved Questions
+```
+
+Cuando la revisión sea aprobada, propone:
+
+```text
+RAIA Release 0.2.0
+```
+
+como cambio de contenido y metamodelo.
+
+La nueva release deberá documentar:
+
+* fuentes agregadas;
+* fuentes deprecadas;
+* Service Domains enriquecidos;
+* Service Domains movidos;
+* dominios divididos;
+* relaciones reconstruidas;
+* cambios de esquema;
+* cobertura alcanzada;
+* pendientes.
+
+---
+
+# 41. Archivos esperados
+
+Crear:
+
+```text
+src/data/regulatory/regulatory-sources.json
+src/data/regulatory/regulatory-mappings.json
+src/data/regulatory/regulatory-authorities.json
+src/data/regulatory/regulatory-regimes.json
+src/data/regulatory/regulatory-baseline.json
+src/data/regulatory/regulatory-gaps.json
+src/data/actors-0.2.0.json
+
+src/domain/types/regulatoryTypes.ts
+src/domain/types/participantTypes.ts
+src/domain/schemas/regulatorySchemas.ts
+src/domain/schemas/participantSchemas.ts
+src/domain/repositories/regulatoryRepository.ts
+src/domain/repositories/participantRepository.ts
+
+docs/audits/service-landscape-regulatory-audit.md
+docs/audits/service-domain-regulatory-matrix.csv
+docs/audits/service-domain-content-quality-report.md
+docs/audits/regulatory-source-inventory.md
+docs/audits/regulatory-gap-register.md
+
+scripts/validateRegulatorySources.js
+scripts/validateRegulatoryMappings.js
+scripts/validateLandscapeSemantics.js
+scripts/validateActorTaxonomy.js
+scripts/validateServiceDomainCoverage.js
+scripts/validateLandscapeRelations.js
+scripts/validateRegulatoryBaseline.js
+scripts/migrations/004-regulatory-service-landscape.ts
+```
+
+Modificar:
+
+```text
+src/data/raia-landscape-0.1.0.json
+src/data/relations-0.1.0.json
+src/data/regulations-0.1.0.json
+src/domain/schemas/index.ts
+src/domain/types/
+src/domain/repositories/landscapeRepository.ts
+src/app/service-landscape/value-chain/page.tsx
+src/components/layout/DetailSidebar.tsx
+src/app/service-domains/[slug]/page.tsx
+src/app/dashboard/page.tsx
+src/data/releases.json
+package.json
+```
+
+No elimines el catálogo anterior sin migración y respaldo.
+
+---
+
+# 42. Reportes requeridos
+
+Antigravity debe entregar:
+
+```text
+01-executive-summary.md
+02-regulatory-source-inventory.md
+03-business-area-gap-analysis.md
+04-business-domain-gap-analysis.md
+05-service-domain-regulatory-matrix.md
+06-participant-classification-report.md
+07-semantic-quality-report.md
+08-regulatory-coverage-report.md
+09-relation-quality-report.md
+10-migration-report.md
+11-test-results.md
+12-unresolved-regulatory-questions.md
+13-final-quality-gate.md
+```
+
+## Resumen ejecutivo
+
+| Categoría                   | Total |
+| --------------------------- | ----: |
+| Fuentes oficiales revisadas |       |
+| Fuentes actuales            |       |
+| Fuentes superadas           |       |
+| Service Domains revisados   |   273 |
+| Alineados                   |       |
+| Parciales                   |       |
+| Sin mapeo                   |       |
+| Mal clasificados            |       |
+| Duplicados                  |       |
+| Requieren split             |       |
+| Nuevos gaps                 |       |
+| Relaciones reconstruidas    |       |
+
+---
+
+# 43. Quality Gate
+
+## GO
+
+* 273 Service Domains revisados individualmente;
+* fuentes oficiales verificadas;
+* cero fuentes oficiales sin URL;
+* cero fuentes abrogadas usadas como vigentes;
+* cero actores confundidos con Service Domains;
+* BDNSAR correctamente clasificada;
+* todos los dominios regulados con mapping;
+* relaciones con semántica;
+* validadores exitosos;
+* build exitoso;
+* pruebas exitosas.
+
+## CONDITIONAL GO
+
+* cero P0;
+* pendientes P1 documentados;
+* revisión legal pendiente claramente visible;
+* ningún contenido pendiente presentado como validado.
+
+## NO-GO
+
+* fuente no verificable presentada como oficial;
+* obligación regulatoria sin trazabilidad;
+* autoridad modelada como Service Domain;
+* mapeos genéricos;
+* dominios críticos sin fuente;
+* relaciones ficticias;
+* datos incompatibles;
+* build fallido.
+
+---
+
+# 44. Formato final de respuesta
+
+```markdown
+# RAIA SERVICE LANDSCAPE REGULATORY REMEDIATION
+
+## Commit analizado
+
+## Línea base regulatoria
+
+## Hallazgos
+
+| Severidad | Cantidad |
+|---|---:|
+
+## Cobertura anterior
+
+## Cobertura posterior
+
+## Cambios por Business Area
+
+## Service Domains modificados
+
+| ID | Acción | Justificación |
+|---|---|---|
+
+## Nuevos Service Domains propuestos
+
+| ID | Nombre | Gap | Fuente |
+|---|---|---|---|
+
+## Elementos deprecados
+
+## Fuentes regulatorias
+
+## Relaciones reconstruidas
+
+## Archivos creados
+
+## Archivos modificados
+
+## Pruebas ejecutadas
+
+| Comando | Exit code |
+|---|---:|
+
+## Quality Gate
+
+GO / CONDITIONAL GO / NO-GO
+
+## Pendientes de validación jurídica
+
+## Pendientes de validación operativa
+```
+
+---
+
+# 45. Instrucción final
+
+No midas la calidad del Service Landscape por:
+
+```text
+273 Service Domains
+41 relaciones
+cantidad de texto
+cantidad de regulaciones asociadas
+```
+
+Mídela por:
+
+```text
+responsabilidad única
++ actor correcto
++ objeto foco claro
++ fuente oficial vigente
++ artículo preciso
++ interpretación explícita
++ control
++ evidencia
++ relación arquitectónica real
+```
+
+No agregues una regulación a todos los Service Domains para aumentar artificialmente la cobertura.
+
+No crees nuevos Service Domains cuando la responsabilidad ya exista.
+
+No presentes contenido generado automáticamente como validado.
+
+La secuencia obligatoria será:
+
+```text
+Auditar
+→ clasificar
+→ verificar fuentes
+→ identificar gaps
+→ diseñar remediación
+→ ejecutar migración
+→ validar
+→ probar
+→ reportar
+→ solicitar revisión humana
+```
+
+```
+```
+
+[1]: https://www.diputados.gob.mx/LeyesBiblio/ref/lsar.htm "https://www.diputados.gob.mx/LeyesBiblio/ref/lsar.htm"
+[2]: https://dof.gob.mx/nota_detalle_popup.php?codigo=5731119 "https://dof.gob.mx/nota_detalle_popup.php?codigo=5731119"

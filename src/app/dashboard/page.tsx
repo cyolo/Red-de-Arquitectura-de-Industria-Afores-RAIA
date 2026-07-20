@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { ArrowLeft, BarChart3, AlertTriangle, ShieldCheck, CheckCircle2, Circle, AlertCircle, LayoutDashboard, Link2, Sparkles, BookOpen } from "lucide-react";
 import { getArchitectureMetrics } from "../../domain/repositories/portalRepository";
+import { getServiceDomains } from "../../domain/repositories/landscapeRepository";
 
 export const metadata = {
   title: "RAIA Architecture Dashboard",
@@ -10,6 +11,14 @@ export const metadata = {
 
 export default async function DashboardPage() {
   const metrics = getArchitectureMetrics();
+  const sds = getServiceDomains();
+
+  const reviewedCount = sds.filter(sd => sd.regulatoryCoverage === "reviewed").length;
+  const mappedCount = sds.filter(sd => sd.regulatoryCoverage === "mapped").length;
+  const partialCount = sds.filter(sd => sd.regulatoryCoverage === "partial").length;
+  const unmappedCount = sds.filter(sd => sd.regulatoryCoverage === "unmapped" || !sd.regulatoryCoverage).length;
+
+  const coveragePct = sds.length > 0 ? Math.round(((reviewedCount + mappedCount) / sds.length) * 100) : 0;
 
   // Calculate completeness percentage based on active/validated status
   const totalDomains = metrics.serviceDomains;
@@ -96,7 +105,7 @@ export default async function DashboardPage() {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           {/* Status Distribution */}
           <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm flex flex-col justify-between">
             <div>
@@ -164,6 +173,41 @@ export default async function DashboardPage() {
               </div>
               <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
                 <div className="bg-indigo-600 h-full" style={{ width: `${fieldCompleteness}%` }}></div>
+              </div>
+            </div>
+          </div>
+
+          {/* Cobertura Regulatoria Card */}
+          <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm flex flex-col justify-between">
+            <div>
+              <h3 className="text-xs font-extrabold text-slate-400 uppercase tracking-wider border-b border-slate-100 pb-2">
+                Cobertura Regulatoria
+              </h3>
+              <div className="mt-4 space-y-3">
+                {[
+                  { label: "Validado (Verde)", count: reviewedCount, color: "bg-green-500" },
+                  { label: "Mapeado (Azul)", count: mappedCount, color: "bg-blue-500" },
+                  { label: "Parcial (Ámbar)", count: partialCount, color: "bg-amber-500" },
+                  { label: "Sin Mapeo (Rojo)", count: unmappedCount, color: "bg-red-500" },
+                ].map((item, idx) => (
+                  <div key={idx} className="flex items-center justify-between text-xs font-medium">
+                    <div className="flex items-center gap-2 text-slate-600">
+                      <div className={`w-2.5 h-2.5 rounded-full ${item.color}`} />
+                      {item.label}
+                    </div>
+                    <span className="text-slate-800 font-bold">{item.count}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-6 pt-4 border-t border-slate-100">
+              <div className="flex items-center justify-between text-xs font-semibold text-slate-500 mb-1.5">
+                <span>Porcentaje de Cobertura</span>
+                <span className="text-slate-700 font-extrabold">{coveragePct}%</span>
+              </div>
+              <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                <div className="bg-sky-500 h-full" style={{ width: `${coveragePct}%` }}></div>
               </div>
             </div>
           </div>

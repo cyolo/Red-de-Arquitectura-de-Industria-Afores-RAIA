@@ -1,0 +1,11 @@
+[
+  { "id": "CONSAR", "name": "Comisión Nacional del Sistema de Ahorro para el Retiro", "scope": ["MX"] },
+  { "id": "SHCP", "name": "Secretaría de Hacienda y Crédito Público", "scope": ["MX"] },
+  { "id": "BANXICO", "name": "Banco de México", "scope": ["MX"] },
+  { "id": "IMSS", "name": "Instituto Mexicano del Seguro Social", "scope": ["MX"] },
+  { "id": "ISSSTE", "name": "Instituto de Seguridad y Servicios Sociales de los Trabajadores del Estado", "scope": ["MX"] },
+  { "id": "INFONAVIT", "name": "Instituto del Fondo Nacional de la Vivienda para los Trabajadores", "scope": ["MX"] },
+  { "id": "CONDUSEF", "name": "Comisión Nacional para la Protección y Defensa de los Usuarios de Servicios Financieros", "scope": ["MX"] },
+  { "id": "CONGRESOMX", "name": "Congreso de la Unión", "scope": ["MX"] },
+  { "id": "FPB", "name": "Fondo de Pensiones para el Bienestar", "scope": ["MX"] }
+]

@@ -1,0 +1,41 @@
+[
+  {
+    "id": "RAIA-GAP-001",
+    "title": "Transferencia de Recursos al Fondo de Pensiones para el Bienestar",
+    "description": "Falta de soporte explícito en el Landscape para la identificación de saldos inactivos y la desinversión/transferencia hacia el fideicomiso público fiduciario.",
+    "sourceIds": ["RAIA-REG-LSAR", "RAIA-REG-FPB-RULES"],
+    "articleReferences": ["Art. 37-A", "Regla 4"],
+    "impactedBusinessAreaIds": ["RAIA-BA-007"],
+    "impactedBusinessDomainIds": ["RAIA-BD-021"],
+    "existingCandidateServiceDomainIds": ["RAIA-SD-204"],
+    "recommendation": "extend-existing",
+    "severity": "P0",
+    "validationStatus": "reviewed"
+  },
+  {
+    "id": "RAIA-GAP-002",
+    "title": "Geolocalización Transaccional en Canales Digitales y Conciliación",
+    "description": "Ausencia de metadatos y controles de georreferenciación mandatorios por circular de CONSAR para prevenir fraudes en operaciones no presenciales.",
+    "sourceIds": ["RAIA-REG-CONSAR-OP"],
+    "articleReferences": ["Anexo de Seguridad Canales"],
+    "impactedBusinessAreaIds": ["RAIA-BA-003", "RAIA-BA-008"],
+    "impactedBusinessDomainIds": ["RAIA-BD-009", "RAIA-BD-024"],
+    "existingCandidateServiceDomainIds": ["RAIA-SD-076", "RAIA-SD-154"],
+    "recommendation": "extend-existing",
+    "severity": "P1",
+    "validationStatus": "reviewed"
+  },
+  {
+    "id": "RAIA-GAP-003",
+    "title": "Autenticación Biométrica y Firma de Consentimiento Desacopladas",
+    "description": "Fusión del enrolamiento biométrico de CONSAR con la firma digital local del expediente. Requiere separación lógica.",
+    "sourceIds": ["RAIA-REG-CONSAR-OP"],
+    "articleReferences": ["Art. 22"],
+    "impactedBusinessAreaIds": ["RAIA-BA-003"],
+    "impactedBusinessDomainIds": ["RAIA-BD-009"],
+    "existingCandidateServiceDomainIds": ["RAIA-SD-076"],
+    "recommendation": "split-existing",
+    "severity": "P1",
+    "validationStatus": "reviewed"
+  }
+]

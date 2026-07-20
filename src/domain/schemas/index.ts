@@ -114,6 +114,14 @@ export const KPISchema = z.object({
   frequency: z.string().optional(),
 });
 
+export const LandscapeLayerSchema = z.enum([
+  "sector-governance",
+  "industry-value-stream",
+  "industry-shared-service",
+  "enterprise-enabler",
+  "raia-governance-overlay",
+]);
+
 export const ServiceDomainSchema = z.object({
   id: z.string().regex(/^RAIA-SD-\d{3}$/),
   slug: z.string(),
@@ -151,6 +159,24 @@ export const ServiceDomainSchema = z.object({
   maturity: z.enum(["conceptual", "defined", "validated", "adopted"]).optional(),
   version: z.string(),
   status: LifecycleStatusSchema,
+  
+  // Extended regulatory fields
+  landscapeLayer: LandscapeLayerSchema.optional(),
+  responsibilityStatement: z.string().optional(),
+  responsibilityBoundary: z.string().optional(),
+  participantIds: z.array(z.string()).optional(),
+  accountableParticipantIds: z.array(z.string()).optional(),
+  regulatoryMappingIds: z.array(z.string()).optional(),
+  regulatoryCoverage: z.enum(["unmapped", "partial", "mapped", "reviewed"]).optional(),
+  applicableRegimeIds: z.array(z.string()).optional(),
+  regulatoryCriticality: z.enum(["none", "low", "medium", "high", "systemic"]).optional(),
+  capabilityType: z.enum(["regulated-core", "industry-shared", "enterprise-enabler", "raia-governance"]).optional(),
+  assumptions: z.array(z.string()).optional(),
+  unresolvedQuestions: z.array(z.string()).optional(),
+  operationalValidationStatus: z.enum(["pending", "reviewed", "validated"]).optional(),
+  regulatoryValidationStatus: z.enum(["pending", "partially-reviewed", "legally-reviewed"]).optional(),
+  lastRegulatoryReviewAt: z.string().optional(),
+
   tags: z.array(z.string()),
   createdAt: z.string(),
   updatedAt: z.string(),
@@ -278,4 +304,7 @@ export const ArchitectureArtifactSchema = z.object({
   createdAt: z.string(),
   updatedAt: z.string(),
 });
+
+export * from "./regulatorySchemas";
+export * from "./participantSchemas";
 

@@ -113,6 +113,13 @@ export interface KPI {
   frequency?: string;
 }
 
+export type LandscapeLayer =
+  | "sector-governance"
+  | "industry-value-stream"
+  | "industry-shared-service"
+  | "enterprise-enabler"
+  | "raia-governance-overlay";
+
 export interface ServiceDomain {
   id: string;
   slug: string;
@@ -161,6 +168,23 @@ export interface ServiceDomain {
   maturity?: "conceptual" | "defined" | "validated" | "adopted";
   version: string;
   status: LifecycleStatus;
+
+  // Extended regulatory fields
+  landscapeLayer?: LandscapeLayer;
+  responsibilityStatement?: string;
+  responsibilityBoundary?: string;
+  participantIds?: string[];
+  accountableParticipantIds?: string[];
+  regulatoryMappingIds?: string[];
+  regulatoryCoverage?: "unmapped" | "partial" | "mapped" | "reviewed";
+  applicableRegimeIds?: string[];
+  regulatoryCriticality?: "none" | "low" | "medium" | "high" | "systemic";
+  capabilityType?: "regulated-core" | "industry-shared" | "enterprise-enabler" | "raia-governance";
+  assumptions?: string[];
+  unresolvedQuestions?: string[];
+  operationalValidationStatus?: "pending" | "reviewed" | "validated";
+  regulatoryValidationStatus?: "pending" | "partially-reviewed" | "legally-reviewed";
+  lastRegulatoryReviewAt?: string;
 
   tags: string[];
   createdAt: string;
@@ -279,4 +303,7 @@ export interface ArchitectureArtifact {
   createdAt: string;
   updatedAt: string;
 }
+
+export * from "./regulatoryTypes";
+export * from "./participantTypes";
 

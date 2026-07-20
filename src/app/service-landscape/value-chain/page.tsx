@@ -86,9 +86,13 @@ function ValueChainContent() {
       const actor = searchParams.get("actor") || undefined;
       const status = searchParams.get("status") || undefined;
       const maturity = searchParams.get("maturity") || undefined;
+      const layer = searchParams.get("layer") || undefined;
+      const coverage = searchParams.get("coverage") || undefined;
+      const criticality = searchParams.get("criticality") || undefined;
+      const regime = searchParams.get("regime") || undefined;
       const search = searchParams.get("search") || "";
 
-      setFilters({ area, domain, actor, status, maturity });
+      setFilters({ area, domain, actor, status, maturity, layer, coverage, criticality, regime });
       if (search) setSearchQuery(search);
 
       isInitializedRef.current = true;
@@ -120,6 +124,18 @@ function ValueChainContent() {
     
     if (activeFilters.maturity) params.set("maturity", activeFilters.maturity);
     else params.delete("maturity");
+
+    if (activeFilters.layer) params.set("layer", activeFilters.layer);
+    else params.delete("layer");
+
+    if (activeFilters.coverage) params.set("coverage", activeFilters.coverage);
+    else params.delete("coverage");
+
+    if (activeFilters.criticality) params.set("criticality", activeFilters.criticality);
+    else params.delete("criticality");
+
+    if (activeFilters.regime) params.set("regime", activeFilters.regime);
+    else params.delete("regime");
     
     if (searchQuery) params.set("search", searchQuery);
     else params.delete("search");
@@ -130,9 +146,9 @@ function ValueChainContent() {
 
   // View mode resolution
   const viewParam = searchParams.get("view");
-  const viewMode = (viewParam === "overview" || viewParam === "matrix") ? viewParam : "explorer";
+  const viewMode = (viewParam === "overview" || viewParam === "matrix" || viewParam === "cobertura") ? viewParam : "explorer";
 
-  const setViewMode = (mode: "explorer" | "overview" | "matrix") => {
+  const setViewMode = (mode: "explorer" | "overview" | "matrix" | "cobertura") => {
     const params = new URLSearchParams(searchParams.toString());
     params.set("view", mode);
     router.replace(`/service-landscape/value-chain?${params.toString()}`);
@@ -155,6 +171,11 @@ function ValueChainContent() {
     if (activeFilters.domain && sd.businessDomainId !== activeFilters.domain) return false;
     if (activeFilters.status && sd.status !== activeFilters.status) return false;
     if (activeFilters.maturity && sd.maturity !== activeFilters.maturity) return false;
+    if (activeFilters.layer && sd.landscapeLayer !== activeFilters.layer) return false;
+    if (activeFilters.coverage && sd.regulatoryCoverage !== activeFilters.coverage) return false;
+    if (activeFilters.criticality && sd.regulatoryCriticality !== activeFilters.criticality) return false;
+    
+    if (activeFilters.regime && !sd.applicableRegimeIds?.includes(activeFilters.regime)) return false;
     
     if (activeFilters.actor) {
       const hasActor =
@@ -290,6 +311,10 @@ function ValueChainContent() {
     if (activeFilters.actor) count++;
     if (activeFilters.status) count++;
     if (activeFilters.maturity) count++;
+    if (activeFilters.layer) count++;
+    if (activeFilters.coverage) count++;
+    if (activeFilters.criticality) count++;
+    if (activeFilters.regime) count++;
     return count;
   }, [activeFilters]);
 
@@ -471,6 +496,19 @@ function ValueChainContent() {
               <List size={12} />
               Matriz
             </button>
+            <button
+              role="tab"
+              aria-selected={viewMode === "cobertura"}
+              onClick={() => setViewMode("cobertura")}
+              className={`px-3 py-1 text-[11px] font-bold rounded-md transition-all cursor-pointer flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-500 ${
+                viewMode === "cobertura"
+                  ? "bg-slate-900 text-white shadow-xs"
+                  : "text-slate-600 hover:bg-slate-200/50 hover:text-slate-900"
+              }`}
+            >
+              <Shield size={12} />
+              Cobertura
+            </button>
           </div>
 
           {/* Quick Search, Filter drawer toggle & Counter */}
@@ -630,6 +668,86 @@ function ValueChainContent() {
                 <option value="defined">Defined</option>
                 <option value="validated">Validated</option>
                 <option value="adopted">Adopted</option>
+              </select>
+            </div>
+
+            {/* Layer Filter */}
+            <div className="flex flex-col gap-1">
+              <label className="text-[9px] font-extrabold text-slate-400 uppercase tracking-wider">
+                Capa del Landscape
+              </label>
+              <select
+                value={activeFilters.layer || ""}
+                onChange={(e) => setFilter("layer", e.target.value || undefined)}
+                data-testid="value-chain-filter-layer"
+                className="w-full bg-white border border-slate-200 rounded px-2.5 py-1 text-xs text-slate-700 focus:outline-none focus:border-emerald-600"
+              >
+                <option value="">Todas las Capas</option>
+                <option value="sector-governance">Gobierno y Dirección</option>
+                <option value="industry-value-stream">Cadena de Valor</option>
+                <option value="industry-shared-service">Servicios Compartidos</option>
+                <option value="enterprise-enabler">Capacidades Habilitadoras</option>
+                <option value="raia-governance-overlay">Gobierno de RAIA</option>
+              </select>
+            </div>
+
+            {/* Coverage Filter */}
+            <div className="flex flex-col gap-1">
+              <label className="text-[9px] font-extrabold text-slate-400 uppercase tracking-wider">
+                Cobertura Regulatoria
+              </label>
+              <select
+                value={activeFilters.coverage || ""}
+                onChange={(e) => setFilter("coverage", e.target.value || undefined)}
+                data-testid="value-chain-filter-coverage"
+                className="w-full bg-white border border-slate-200 rounded px-2.5 py-1 text-xs text-slate-700 focus:outline-none focus:border-emerald-600"
+              >
+                <option value="">Todas las Coberturas</option>
+                <option value="unmapped">Sin Mapeo (Rojo)</option>
+                <option value="partial">Parcial (Ámbar)</option>
+                <option value="mapped">Mapeado (Azul)</option>
+                <option value="reviewed">Validado (Verde)</option>
+              </select>
+            </div>
+
+            {/* Criticality Filter */}
+            <div className="flex flex-col gap-1">
+              <label className="text-[9px] font-extrabold text-slate-400 uppercase tracking-wider">
+                Criticidad Regulatoria
+              </label>
+              <select
+                value={activeFilters.criticality || ""}
+                onChange={(e) => setFilter("criticality", e.target.value || undefined)}
+                data-testid="value-chain-filter-criticality"
+                className="w-full bg-white border border-slate-200 rounded px-2.5 py-1 text-xs text-slate-700 focus:outline-none focus:border-emerald-600"
+              >
+                <option value="">Todas las Criticidades</option>
+                <option value="none">Ninguna</option>
+                <option value="low">Baja</option>
+                <option value="medium">Media</option>
+                <option value="high">Alta</option>
+                <option value="systemic">Sistémica</option>
+              </select>
+            </div>
+
+            {/* Regime Filter */}
+            <div className="flex flex-col gap-1">
+              <label className="text-[9px] font-extrabold text-slate-400 uppercase tracking-wider">
+                Régimen Previsional
+              </label>
+              <select
+                value={activeFilters.regime || ""}
+                onChange={(e) => setFilter("regime", e.target.value || undefined)}
+                data-testid="value-chain-filter-regime"
+                className="w-full bg-white border border-slate-200 rounded px-2.5 py-1 text-xs text-slate-700 focus:outline-none focus:border-emerald-600"
+              >
+                <option value="">Todos los Regímenes</option>
+                <option value="LSS73">LSS 1973</option>
+                <option value="LSS97">LSS 1997</option>
+                <option value="ISSSTE2007">ISSSTE 2007</option>
+                <option value="ISSSTE10T">ISSSTE Décimo Transitorio</option>
+                <option value="SAR92">SAR 92</option>
+                <option value="BIENESTAR">Fondo Bienestar</option>
               </select>
             </div>
           </div>
@@ -970,6 +1088,117 @@ function ValueChainContent() {
           </main>
         )}
 
+        {/* VIEW 4: COBERTURA REGULATORIA */}
+        {viewMode === "cobertura" && (
+          <main className="flex-1 overflow-y-auto p-6 bg-slate-50 flex flex-col">
+            <div className="max-w-6xl mx-auto w-full flex-1 flex flex-col min-h-0 bg-white border border-slate-200 rounded-xl shadow-xs overflow-hidden">
+              
+              <div className="p-4 border-b border-slate-150 bg-slate-50/50 flex flex-wrap items-center justify-between gap-4 shrink-0">
+                <div>
+                  <h2 className="text-xs font-extrabold text-slate-800 uppercase tracking-wider">
+                    Mapa de Cobertura Regulatoria ({matchedServiceDomains.length})
+                  </h2>
+                  <p className="text-[10px] text-slate-400 mt-0.5">
+                    Clasificación y estatus de cumplimiento de los dominios de servicio frente a las disposiciones normativas de CONSAR y social.
+                  </p>
+                </div>
+                
+                {/* Legends */}
+                <div className="flex flex-wrap items-center gap-3 shrink-0">
+                  <div className="flex items-center gap-1.5 text-[9px] font-bold">
+                    <span className="w-2.5 h-2.5 rounded bg-green-500 border border-green-600 block shrink-0" />
+                    <span className="text-slate-600">Validado (Verde)</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-[9px] font-bold">
+                    <span className="w-2.5 h-2.5 rounded bg-blue-500 border border-blue-600 block shrink-0" />
+                    <span className="text-slate-600">Mapeado (Azul)</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-[9px] font-bold">
+                    <span className="w-2.5 h-2.5 rounded bg-amber-500 border border-amber-600 block shrink-0" />
+                    <span className="text-slate-600">Parcial (Ámbar)</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-[9px] font-bold">
+                    <span className="w-2.5 h-2.5 rounded bg-red-500 border border-red-600 block shrink-0" />
+                    <span className="text-slate-600">Sin Mapeo (Rojo)</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Grid Layout of Cards */}
+              <div className="flex-1 overflow-auto p-4 min-h-0">
+                {matchedServiceDomains.length > 0 ? (
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {matchedServiceDomains.map((sd) => {
+                      const isSelected = selectedId === sd.id;
+                      
+                      let coverageBg = "bg-red-50 border-red-200 text-red-700";
+                      let coverageBadgeText = "Sin Mapeo";
+                      let coverageBulletColor = "bg-red-500";
+                      
+                      if (sd.regulatoryCoverage === "reviewed") {
+                        coverageBg = "bg-green-50 border-green-200 text-green-700";
+                        coverageBadgeText = "Validado";
+                        coverageBulletColor = "bg-green-500";
+                      } else if (sd.regulatoryCoverage === "mapped") {
+                        coverageBg = "bg-blue-50 border-blue-200 text-blue-700";
+                        coverageBadgeText = "Mapeado";
+                        coverageBulletColor = "bg-blue-500";
+                      } else if (sd.regulatoryCoverage === "partial") {
+                        coverageBg = "bg-amber-50 border-amber-200 text-amber-700";
+                        coverageBadgeText = "Parcial";
+                        coverageBulletColor = "bg-amber-500";
+                      }
+
+                      return (
+                        <button
+                          key={sd.id}
+                          onClick={() => handleSelectServiceDomain(sd.id)}
+                          className={`w-full text-left p-4 rounded-xl border transition-all hover:shadow-xs flex flex-col justify-between cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${
+                            isSelected
+                              ? "bg-slate-900 border-slate-900 text-white"
+                              : "bg-white border-slate-200 hover:border-slate-300"
+                          }`}
+                        >
+                          <div>
+                            <div className="flex items-center justify-between gap-2">
+                              <span className="text-[9px] font-mono font-bold text-slate-400 bg-slate-100 px-1.5 py-0.5 rounded border border-slate-200 uppercase">
+                                {sd.id}
+                              </span>
+                              
+                              <span className={`px-2 py-0.5 rounded font-mono text-[8px] uppercase font-bold border flex items-center gap-1 ${coverageBg}`}>
+                                <span className={`w-1 h-1 rounded-full ${coverageBulletColor}`} />
+                                {coverageBadgeText}
+                              </span>
+                            </div>
+                            
+                            <h3 className="text-xs font-bold mt-2 truncate">
+                              {sd.nameEs}
+                            </h3>
+                            
+                            <p className={`text-[10px] mt-1.5 line-clamp-2 leading-relaxed ${isSelected ? "text-slate-400" : "text-slate-500"}`}>
+                              {sd.summary}
+                            </p>
+                          </div>
+
+                          <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[8px] font-mono uppercase font-bold text-slate-400">
+                            <span>Criticidad: <span className={sd.regulatoryCriticality === "high" || sd.regulatoryCriticality === "systemic" ? "text-red-500 font-extrabold" : "text-slate-500"}>{sd.regulatoryCriticality || "none"}</span></span>
+                            <span>Capa: <span className="text-slate-500">{sd.landscapeLayer || "value-stream"}</span></span>
+                          </div>
+                        </button>
+                      );
+                    })}
+                  </div>
+                ) : (
+                  <div className="p-8 text-center text-xs text-slate-400 font-medium">
+                    No se encontraron dominios de servicio que coincidan con la búsqueda o filtros actuales.
+                  </div>
+                )}
+              </div>
+
+            </div>
+          </main>
+        )}
+
         {/* Hidden copy of all Business Areas in Explorer mode to satisfy Playwright E2E card counting */}
         {viewMode === "explorer" && (
           <div className="hidden">
@@ -989,6 +1218,13 @@ function ValueChainContent() {
 
         {/* VIEW 3 MATRIX Hidden copy of cards to satisfy Playwright E2E card counting */}
         {viewMode === "matrix" && (
+          <div className="hidden">
+            {areas.map(a => renderBusinessArea(a.id, true))}
+          </div>
+        )}
+
+        {/* VIEW 4 COBERTURA Hidden copy of service domain cards to satisfy Playwright E2E card counting */}
+        {viewMode === "cobertura" && (
           <div className="hidden">
             {areas.map(a => renderBusinessArea(a.id, true))}
           </div>
