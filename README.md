@@ -53,7 +53,7 @@ RAIA/
 ## 🛠️ Guía de Inicio Rápido
 
 ### Requisitos Previos
-* Node.js v20 o superior
+* Node.js v24 LTS o superior
 * npm v10 o superior
 
 ### Instalación de Dependencias

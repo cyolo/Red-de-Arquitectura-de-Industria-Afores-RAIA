@@ -1,0 +1,10 @@
+# Global owners
+*       @cyolo/raia-maintainers
+
+# Security specific paths
+/next.config.ts                     @cyolo/raia-security-reviewers
+/playwright.config.ts               @cyolo/raia-security-reviewers
+/vitest.config.ts                   @cyolo/raia-security-reviewers
+/.github/workflows/                 @cyolo/raia-security-reviewers
+/scripts/calculateQualityGate.ts    @cyolo/raia-security-reviewers
+/src/domain/schemas/                @cyolo/raia-security-reviewers

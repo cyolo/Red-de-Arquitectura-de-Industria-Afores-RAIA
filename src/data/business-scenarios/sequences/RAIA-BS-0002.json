@@ -1,0 +1,323 @@
+{
+  "scenarioId": "RAIA-BS-0002",
+  "version": "0.2.0",
+  "title": "Recaudación de Aportaciones e Inversión",
+  "description": "Recaudación de Aportaciones e Inversión",
+  "status": "proposed",
+  "regulatoryValidationStatus": "pending",
+  "participants": [
+    {
+      "instanceId": "sd-patron-o-dependencia",
+      "participantType": "service-domain",
+      "label": "Patrón o dependencia",
+      "order": 1
+    },
+    {
+      "instanceId": "sd-entidad-recaudadora",
+      "participantType": "service-domain",
+      "label": "Entidad Recaudadora",
+      "order": 2
+    },
+    {
+      "instanceId": "sd-determinacion-de-apo",
+      "participantType": "service-domain",
+      "label": "Determinación de Aportaciones",
+      "order": 3
+    },
+    {
+      "instanceId": "sd-recaudacion-de-aport",
+      "participantType": "service-domain",
+      "label": "Recaudación de Aportaciones",
+      "order": 4
+    },
+    {
+      "instanceId": "sd-conciliacion-de-reca",
+      "participantType": "service-domain",
+      "label": "Conciliación de Recaudación",
+      "order": 5
+    },
+    {
+      "instanceId": "sd-individualizacion-de",
+      "participantType": "service-domain",
+      "label": "Individualización de Aportaciones",
+      "order": 6
+    },
+    {
+      "instanceId": "sd-administracion-de-su",
+      "participantType": "service-domain",
+      "label": "Administración de Subcuentas",
+      "order": 7
+    },
+    {
+      "instanceId": "sd-libro-mayor",
+      "participantType": "service-domain",
+      "label": "Libro Mayor",
+      "order": 8
+    },
+    {
+      "instanceId": "sd-asignacion-de-accion",
+      "participantType": "service-domain",
+      "label": "Asignación de Acciones",
+      "order": 9
+    },
+    {
+      "instanceId": "sd-asignacion-a-siefore",
+      "participantType": "service-domain",
+      "label": "Asignación a SIEFORE",
+      "order": 10
+    },
+    {
+      "instanceId": "sd-gestion-de-liquidez",
+      "participantType": "service-domain",
+      "label": "Gestión de Liquidez",
+      "order": 11
+    },
+    {
+      "instanceId": "sd-portafolio-de-invers",
+      "participantType": "service-domain",
+      "label": "Portafolio de Inversión",
+      "order": 12
+    },
+    {
+      "instanceId": "sd-patr-n",
+      "participantType": "service-domain",
+      "label": "patr n",
+      "order": 13
+    },
+    {
+      "instanceId": "sd-determinacion",
+      "participantType": "service-domain",
+      "label": "Determinación",
+      "order": 14
+    },
+    {
+      "instanceId": "sd-recaudaci-n",
+      "participantType": "service-domain",
+      "label": "recaudaci n",
+      "order": 15
+    },
+    {
+      "instanceId": "sd-conciliacion",
+      "participantType": "service-domain",
+      "label": "Conciliación",
+      "order": 16
+    },
+    {
+      "instanceId": "sd-portafolio",
+      "participantType": "service-domain",
+      "label": "portafolio",
+      "order": 17
+    }
+  ],
+  "messages": [
+    {
+      "id": "RAIA-BS-0002-MSG-01",
+      "scenarioStepId": "RAIA-BS-0002-STEP-01",
+      "sequence": 1,
+      "sourceParticipantInstanceId": "sd-patr-n",
+      "targetParticipantInstanceId": "sd-determinacion-de-apo",
+      "label": "Presentar información de cotización.",
+      "messageType": "synchronous-command",
+      "description": "Presentar información de cotización."
+    },
+    {
+      "id": "RAIA-BS-0002-MSG-02",
+      "scenarioStepId": "RAIA-BS-0002-STEP-02",
+      "sequence": 2,
+      "sourceParticipantInstanceId": "sd-determinacion",
+      "targetParticipantInstanceId": "sd-recaudaci-n",
+      "label": "Generar instrucción de aportación.",
+      "messageType": "synchronous-command",
+      "description": "Generar instrucción de aportación."
+    },
+    {
+      "id": "RAIA-BS-0002-MSG-03",
+      "scenarioStepId": "RAIA-BS-0002-STEP-03",
+      "sequence": 3,
+      "sourceParticipantInstanceId": "sd-patr-n",
+      "targetParticipantInstanceId": "sd-entidad-recaudadora",
+      "label": "Enterar recursos.",
+      "messageType": "synchronous-command",
+      "description": "Enterar recursos."
+    },
+    {
+      "id": "RAIA-BS-0002-MSG-04",
+      "scenarioStepId": "RAIA-BS-0002-STEP-04",
+      "sequence": 4,
+      "sourceParticipantInstanceId": "sd-entidad-recaudadora",
+      "targetParticipantInstanceId": "sd-recaudaci-n",
+      "label": "Entregar recursos e información.",
+      "messageType": "response",
+      "description": "Entregar recursos e información."
+    },
+    {
+      "id": "RAIA-BS-0002-MSG-05",
+      "scenarioStepId": "RAIA-BS-0002-STEP-05",
+      "sequence": 5,
+      "sourceParticipantInstanceId": "sd-recaudaci-n",
+      "targetParticipantInstanceId": "sd-conciliacion",
+      "label": "Registrar lote recibido.",
+      "messageType": "synchronous-command",
+      "description": "Registrar lote recibido."
+    },
+    {
+      "id": "RAIA-BS-0002-MSG-06",
+      "scenarioStepId": "RAIA-BS-0002-STEP-06",
+      "sequence": 6,
+      "sourceParticipantInstanceId": "sd-conciliacion",
+      "targetParticipantInstanceId": "sd-entidad-recaudadora",
+      "label": "Confirmar o solicitar corrección.",
+      "messageType": "response",
+      "description": "Confirmar o solicitar corrección."
+    },
+    {
+      "id": "RAIA-BS-0002-MSG-07",
+      "scenarioStepId": "RAIA-BS-0002-STEP-07",
+      "sequence": 7,
+      "sourceParticipantInstanceId": "sd-conciliacion",
+      "targetParticipantInstanceId": "sd-individualizacion-de",
+      "label": "Liberar lote conciliado.",
+      "messageType": "synchronous-command",
+      "description": "Liberar lote conciliado."
+    },
+    {
+      "id": "RAIA-BS-0002-MSG-08",
+      "scenarioStepId": "RAIA-BS-0002-STEP-08",
+      "sequence": 8,
+      "sourceParticipantInstanceId": "sd-individualizacion-de",
+      "targetParticipantInstanceId": "sd-administracion-de-su",
+      "label": "Distribuir aportaciones.",
+      "messageType": "synchronous-command",
+      "description": "Distribuir aportaciones."
+    },
+    {
+      "id": "RAIA-BS-0002-MSG-09",
+      "scenarioStepId": "RAIA-BS-0002-STEP-09",
+      "sequence": 9,
+      "sourceParticipantInstanceId": "sd-administracion-de-su",
+      "targetParticipantInstanceId": "sd-libro-mayor",
+      "label": "Registrar movimientos.",
+      "messageType": "synchronous-command",
+      "description": "Registrar movimientos."
+    },
+    {
+      "id": "RAIA-BS-0002-MSG-10",
+      "scenarioStepId": "RAIA-BS-0002-STEP-10",
+      "sequence": 10,
+      "sourceParticipantInstanceId": "sd-libro-mayor",
+      "targetParticipantInstanceId": "sd-asignacion-de-accion",
+      "label": "Solicitar asignación.",
+      "messageType": "synchronous-command",
+      "description": "Solicitar asignación."
+    },
+    {
+      "id": "RAIA-BS-0002-MSG-11",
+      "scenarioStepId": "RAIA-BS-0002-STEP-11",
+      "sequence": 11,
+      "sourceParticipantInstanceId": "sd-asignacion-de-accion",
+      "targetParticipantInstanceId": "sd-asignacion-a-siefore",
+      "label": "Determinar fondo.",
+      "messageType": "synchronous-command",
+      "description": "Determinar fondo."
+    },
+    {
+      "id": "RAIA-BS-0002-MSG-12",
+      "scenarioStepId": "RAIA-BS-0002-STEP-12",
+      "sequence": 12,
+      "sourceParticipantInstanceId": "sd-asignacion-a-siefore",
+      "targetParticipantInstanceId": "sd-gestion-de-liquidez",
+      "label": "Informar recursos disponibles.",
+      "messageType": "response",
+      "description": "Informar recursos disponibles."
+    },
+    {
+      "id": "RAIA-BS-0002-MSG-13",
+      "scenarioStepId": "RAIA-BS-0002-STEP-13",
+      "sequence": 13,
+      "sourceParticipantInstanceId": "sd-gestion-de-liquidez",
+      "targetParticipantInstanceId": "sd-portafolio",
+      "label": "Integrar recursos al proceso de inversión.",
+      "messageType": "synchronous-command",
+      "description": "Integrar recursos al proceso de inversión."
+    },
+    {
+      "id": "RAIA-BS-0002-MSG-14",
+      "scenarioStepId": "RAIA-BS-0002-STEP-14",
+      "sequence": 14,
+      "sourceParticipantInstanceId": "sd-portafolio",
+      "targetParticipantInstanceId": "sd-libro-mayor",
+      "label": "Confirmar posición y acciones.",
+      "messageType": "response",
+      "description": "Confirmar posición y acciones."
+    },
+    {
+      "id": "RAIA-BS-0002-MSG-15",
+      "scenarioStepId": "RAIA-BS-0002-STEP-15",
+      "sequence": 15,
+      "sourceParticipantInstanceId": "sd-libro-mayor",
+      "targetParticipantInstanceId": "sd-individualizacion-de",
+      "label": "Confirmar acreditación.",
+      "messageType": "response",
+      "description": "Confirmar acreditación."
+    }
+  ],
+  "activations": [],
+  "notes": [
+    {
+      "id": "note-control-1",
+      "participantInstanceIds": [
+        "p-patr-n"
+      ],
+      "placement": "left",
+      "text": "Control: identidad y consentimiento verificables.",
+      "noteType": "control",
+      "afterSequence": 1
+    },
+    {
+      "id": "note-evidence-1",
+      "participantInstanceIds": [
+        "p-individualizaci"
+      ],
+      "placement": "right",
+      "text": "Evidencia: expediente, folio y acuses.",
+      "noteType": "evidence",
+      "afterSequence": 15
+    }
+  ],
+  "fragments": [
+    {
+      "id": "frag-1",
+      "fragmentType": "alt",
+      "label": "Condiciones de Negocio",
+      "startSequence": 13,
+      "endSequence": 15,
+      "branches": [
+        {
+          "id": "branch-0",
+          "label": "Lote conciliado",
+          "startSequence": 14,
+          "endSequence": 15
+        },
+        {
+          "id": "branch-1",
+          "label": "Pago no identificado",
+          "startSequence": 14,
+          "endSequence": 15
+        },
+        {
+          "id": "branch-2",
+          "label": "Diferencia de monto",
+          "startSequence": 14,
+          "endSequence": 15
+        },
+        {
+          "id": "branch-3",
+          "label": "Trabajador no localizado",
+          "startSequence": 14,
+          "endSequence": 15
+        }
+      ]
+    }
+  ],
+  "modelingStatus": "partially-modeled"
+}

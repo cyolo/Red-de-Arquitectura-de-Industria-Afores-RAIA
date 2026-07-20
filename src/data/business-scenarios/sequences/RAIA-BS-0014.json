@@ -1,0 +1,329 @@
+{
+  "scenarioId": "RAIA-BS-0014",
+  "version": "0.2.0",
+  "title": "Elección de modalidad de pensión",
+  "description": "Elección de modalidad de pensión",
+  "status": "proposed",
+  "regulatoryValidationStatus": "pending",
+  "participants": [
+    {
+      "instanceId": "actor-worker",
+      "participantType": "actor",
+      "label": "Trabajador",
+      "order": 1
+    },
+    {
+      "instanceId": "sd-gestion-de-solicitud",
+      "participantType": "service-domain",
+      "label": "Gestión de Solicitudes Pensionarias",
+      "order": 2
+    },
+    {
+      "instanceId": "sd-resolucion-de-pensio",
+      "participantType": "service-domain",
+      "label": "Resolución de Pensión",
+      "order": 3
+    },
+    {
+      "instanceId": "sd-elegibilidad-pension",
+      "participantType": "service-domain",
+      "label": "Elegibilidad Pensionaria",
+      "order": 4
+    },
+    {
+      "instanceId": "sd-proyeccion-pensionar",
+      "participantType": "service-domain",
+      "label": "Proyección Pensionaria",
+      "order": 5
+    },
+    {
+      "instanceId": "sd-retiro-programado",
+      "participantType": "service-domain",
+      "label": "Retiro Programado",
+      "order": 6
+    },
+    {
+      "instanceId": "sd-renta-vitalicia",
+      "participantType": "service-domain",
+      "label": "Renta Vitalicia",
+      "order": 7
+    },
+    {
+      "instanceId": "sd-pension-garantizada",
+      "participantType": "service-domain",
+      "label": "Pensión Garantizada",
+      "order": 8
+    },
+    {
+      "instanceId": "org-insurer",
+      "participantType": "insurer",
+      "label": "Aseguradoras",
+      "order": 9
+    },
+    {
+      "instanceId": "sd-gestion-de-consentim",
+      "participantType": "service-domain",
+      "label": "Gestión de Consentimiento",
+      "order": 10
+    },
+    {
+      "instanceId": "sd-firma-electronica",
+      "participantType": "service-domain",
+      "label": "Firma Electrónica",
+      "order": 11
+    },
+    {
+      "instanceId": "sd-expediente-electroni",
+      "participantType": "service-domain",
+      "label": "Expediente Electrónico",
+      "order": 12
+    },
+    {
+      "instanceId": "sd-notificaciones",
+      "participantType": "service-domain",
+      "label": "Notificaciones",
+      "order": 13
+    },
+    {
+      "instanceId": "sd-resolucion",
+      "participantType": "service-domain",
+      "label": "Resolución",
+      "order": 14
+    },
+    {
+      "instanceId": "sd-elegibilidad",
+      "participantType": "service-domain",
+      "label": "elegibilidad",
+      "order": 15
+    },
+    {
+      "instanceId": "sd-proyeccion",
+      "participantType": "service-domain",
+      "label": "Proyección",
+      "order": 16
+    },
+    {
+      "instanceId": "sd-expediente",
+      "participantType": "service-domain",
+      "label": "expediente",
+      "order": 17
+    },
+    {
+      "instanceId": "sd-modalidad-de-pension",
+      "participantType": "service-domain",
+      "label": "Modalidad de Pensión",
+      "order": 18
+    }
+  ],
+  "messages": [
+    {
+      "id": "RAIA-BS-0014-MSG-01",
+      "scenarioStepId": "RAIA-BS-0014-STEP-01",
+      "sequence": 1,
+      "sourceParticipantInstanceId": "sd-gestion-de-solicitud",
+      "targetParticipantInstanceId": "sd-resolucion-de-pensio",
+      "label": "Recuperar resolución.",
+      "messageType": "synchronous-command",
+      "description": "Recuperar resolución."
+    },
+    {
+      "id": "RAIA-BS-0014-MSG-02",
+      "scenarioStepId": "RAIA-BS-0014-STEP-02",
+      "sequence": 2,
+      "sourceParticipantInstanceId": "sd-resolucion",
+      "targetParticipantInstanceId": "sd-elegibilidad",
+      "label": "Confirmar condiciones.",
+      "messageType": "response",
+      "description": "Confirmar condiciones."
+    },
+    {
+      "id": "RAIA-BS-0014-MSG-03",
+      "scenarioStepId": "RAIA-BS-0014-STEP-03",
+      "sequence": 3,
+      "sourceParticipantInstanceId": "sd-elegibilidad",
+      "targetParticipantInstanceId": "sd-proyeccion",
+      "label": "Solicitar alternativas.",
+      "messageType": "synchronous-command",
+      "description": "Solicitar alternativas."
+    },
+    {
+      "id": "RAIA-BS-0014-MSG-04",
+      "scenarioStepId": "RAIA-BS-0014-STEP-04",
+      "sequence": 4,
+      "sourceParticipantInstanceId": "sd-proyeccion",
+      "targetParticipantInstanceId": "sd-retiro-programado",
+      "label": "Calcular alternativa.",
+      "messageType": "synchronous-command",
+      "description": "Calcular alternativa."
+    },
+    {
+      "id": "RAIA-BS-0014-MSG-05",
+      "scenarioStepId": "RAIA-BS-0014-STEP-05",
+      "sequence": 5,
+      "sourceParticipantInstanceId": "sd-proyeccion",
+      "targetParticipantInstanceId": "sd-renta-vitalicia",
+      "label": "Solicitar alternativa.",
+      "messageType": "synchronous-command",
+      "description": "Solicitar alternativa."
+    },
+    {
+      "id": "RAIA-BS-0014-MSG-06",
+      "scenarioStepId": "RAIA-BS-0014-STEP-06",
+      "sequence": 6,
+      "sourceParticipantInstanceId": "sd-renta-vitalicia",
+      "targetParticipantInstanceId": "org-insurer",
+      "label": "Obtener ofertas o condiciones.",
+      "messageType": "synchronous-command",
+      "description": "Obtener ofertas o condiciones."
+    },
+    {
+      "id": "RAIA-BS-0014-MSG-07",
+      "scenarioStepId": "RAIA-BS-0014-STEP-07",
+      "sequence": 7,
+      "sourceParticipantInstanceId": "sd-proyeccion",
+      "targetParticipantInstanceId": "sd-pension-garantizada",
+      "label": "Evaluar procedencia.",
+      "messageType": "synchronous-command",
+      "description": "Evaluar procedencia."
+    },
+    {
+      "id": "RAIA-BS-0014-MSG-08",
+      "scenarioStepId": "RAIA-BS-0014-STEP-08",
+      "sequence": 8,
+      "sourceParticipantInstanceId": "sd-proyeccion",
+      "targetParticipantInstanceId": "sd-gestion-de-solicitud",
+      "label": "Entregar alternativas.",
+      "messageType": "response",
+      "description": "Entregar alternativas."
+    },
+    {
+      "id": "RAIA-BS-0014-MSG-09",
+      "scenarioStepId": "RAIA-BS-0014-STEP-09",
+      "sequence": 9,
+      "sourceParticipantInstanceId": "sd-gestion-de-solicitud",
+      "targetParticipantInstanceId": "actor-worker",
+      "label": "Presentar modalidades.",
+      "messageType": "synchronous-command",
+      "description": "Presentar modalidades."
+    },
+    {
+      "id": "RAIA-BS-0014-MSG-10",
+      "scenarioStepId": "RAIA-BS-0014-STEP-10",
+      "sequence": 10,
+      "sourceParticipantInstanceId": "actor-worker",
+      "targetParticipantInstanceId": "sd-gestion-de-consentim",
+      "label": "Seleccionar modalidad.",
+      "messageType": "synchronous-command",
+      "description": "Seleccionar modalidad."
+    },
+    {
+      "id": "RAIA-BS-0014-MSG-11",
+      "scenarioStepId": "RAIA-BS-0014-STEP-11",
+      "sequence": 11,
+      "sourceParticipantInstanceId": "sd-gestion-de-consentim",
+      "targetParticipantInstanceId": "sd-firma-electronica",
+      "label": "Formalizar elección.",
+      "messageType": "synchronous-command",
+      "description": "Formalizar elección."
+    },
+    {
+      "id": "RAIA-BS-0014-MSG-12",
+      "scenarioStepId": "RAIA-BS-0014-STEP-12",
+      "sequence": 12,
+      "sourceParticipantInstanceId": "sd-firma-electronica",
+      "targetParticipantInstanceId": "sd-expediente",
+      "label": "Conservar evidencia.",
+      "messageType": "synchronous-command",
+      "description": "Conservar evidencia."
+    },
+    {
+      "id": "RAIA-BS-0014-MSG-13",
+      "scenarioStepId": "RAIA-BS-0014-STEP-13",
+      "sequence": 13,
+      "sourceParticipantInstanceId": "sd-gestion-de-solicitud",
+      "targetParticipantInstanceId": "sd-modalidad-de-pension",
+      "label": "Iniciar ejecución.",
+      "messageType": "synchronous-command",
+      "description": "Iniciar ejecución."
+    },
+    {
+      "id": "RAIA-BS-0014-MSG-14",
+      "scenarioStepId": "RAIA-BS-0014-STEP-14",
+      "sequence": 14,
+      "sourceParticipantInstanceId": "sd-gestion-de-solicitud",
+      "targetParticipantInstanceId": "sd-notificaciones",
+      "label": "Confirmar elección.",
+      "messageType": "response",
+      "description": "Confirmar elección."
+    },
+    {
+      "id": "RAIA-BS-0014-MSG-15",
+      "scenarioStepId": "RAIA-BS-0014-STEP-15",
+      "sequence": 15,
+      "sourceParticipantInstanceId": "sd-notificaciones",
+      "targetParticipantInstanceId": "actor-worker",
+      "label": "Entregar acuse.",
+      "messageType": "response",
+      "description": "Entregar acuse."
+    }
+  ],
+  "activations": [],
+  "notes": [
+    {
+      "id": "note-control-1",
+      "participantInstanceIds": [
+        "p-gesti-n-de-soli"
+      ],
+      "placement": "left",
+      "text": "Control: identidad y consentimiento verificables.",
+      "noteType": "control",
+      "afterSequence": 1
+    },
+    {
+      "id": "note-evidence-1",
+      "participantInstanceIds": [
+        "p-trabajador"
+      ],
+      "placement": "right",
+      "text": "Evidencia: expediente, folio y acuses.",
+      "noteType": "evidence",
+      "afterSequence": 15
+    }
+  ],
+  "fragments": [
+    {
+      "id": "frag-1",
+      "fragmentType": "alt",
+      "label": "Condiciones de Negocio",
+      "startSequence": 13,
+      "endSequence": 15,
+      "branches": [
+        {
+          "id": "branch-0",
+          "label": "Renta vitalicia",
+          "startSequence": 14,
+          "endSequence": 15
+        },
+        {
+          "id": "branch-1",
+          "label": "Retiro programado",
+          "startSequence": 14,
+          "endSequence": 15
+        },
+        {
+          "id": "branch-2",
+          "label": "Pensión garantizada",
+          "startSequence": 14,
+          "endSequence": 15
+        },
+        {
+          "id": "branch-3",
+          "label": "Elección no válida",
+          "startSequence": 14,
+          "endSequence": 15
+        }
+      ]
+    }
+  ],
+  "modelingStatus": "partially-modeled"
+}

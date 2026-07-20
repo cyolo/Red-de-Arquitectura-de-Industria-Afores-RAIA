@@ -1,0 +1,38 @@
+[
+  {
+    "id": "REL-BO-0001",
+    "sourceBusinessObjectId": "RAIA-BO-0001",
+    "targetBusinessObjectId": "RAIA-BO-0005",
+    "relationshipType": "contains",
+    "name": "Titular de Cuenta",
+    "description": "Un trabajador posee exactamente una cuenta individual en el SAR.",
+    "sourceRoleName": "Titular",
+    "targetRoleName": "Cuenta",
+    "sourceMinimumCardinality": 1,
+    "sourceMaximumCardinality": 1,
+    "targetMinimumCardinality": 1,
+    "targetMaximumCardinality": 1,
+    "bidirectional": true,
+    "lifecycleDependency": "composition",
+    "regulatoryMappingIds": [],
+    "status": "validated"
+  },
+  {
+    "id": "REL-BO-0002",
+    "sourceBusinessObjectId": "RAIA-BO-0005",
+    "targetBusinessObjectId": "RAIA-BO-0006",
+    "relationshipType": "contains",
+    "name": "Subcuentas de Cuenta",
+    "description": "Una cuenta individual agrupa una o más subcuentas previsionales.",
+    "sourceRoleName": "Cuenta Padre",
+    "targetRoleName": "Subcuentas",
+    "sourceMinimumCardinality": 1,
+    "sourceMaximumCardinality": 1,
+    "targetMinimumCardinality": 1,
+    "targetMaximumCardinality": "many",
+    "bidirectional": true,
+    "lifecycleDependency": "composition",
+    "regulatoryMappingIds": [],
+    "status": "validated"
+  }
+]

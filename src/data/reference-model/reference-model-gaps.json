@@ -1,0 +1,13 @@
+[
+  {
+    "id": "GAP-RM-0001",
+    "gapType": "missing-relation",
+    "sourceArtifact": { "artifactType": "regulatory-source", "artifactId": "CONSAR-CIRCULAR-01" },
+    "expectedTargetType": "control",
+    "title": "Obligación regulatoria sin control asociado",
+    "description": "La obligación de conciliación bimestral de la circular CONSAR no está asociada a ningún control de auditoría interno.",
+    "severity": "P1",
+    "recommendation": "Definir control de conciliación de arqueo en el Service Domain Recaudación.",
+    "status": "open"
+  }
+]

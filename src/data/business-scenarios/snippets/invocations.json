@@ -1,0 +1,24 @@
+[
+  {
+    "id": "INV-SNP-0001",
+    "businessScenarioId": "RAIA-BS-0002",
+    "snippetId": "RAIA-SNP-0001",
+    "snippetVersion": "0.1.0",
+    "order": 1,
+    "participantBindings": [
+      { "roleId": "ROL-PART-0001", "participantIds": ["ACT-AFORE"] },
+      { "roleId": "ROL-PART-0002", "participantIds": ["ACT-CONSAR"] }
+    ],
+    "serviceDomainBindings": [
+      { "slotId": "SLOT-SD-0001", "serviceDomainIds": ["RAIA-SD-030"] }
+    ],
+    "businessObjectBindings": [
+      { "slotId": "SLOT-BO-0001", "businessObjectIds": ["RAIA-BO-0002"] },
+      { "slotId": "SLOT-BO-0002", "businessObjectIds": ["RAIA-BO-0002"] }
+    ],
+    "controlBindings": [],
+    "evidenceBindings": [],
+    "parameterValues": {},
+    "status": "validated"
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "RULE-RM-001",
+    "name": "Service Domain maps to Business Objects",
+    "description": "Busca objetos de negocio asociados a un Service Domain.",
+    "sourceArtifactType": "service-domain",
+    "targetArtifactType": "business-object",
+    "relationType": "creates",
+    "repositoryFunction": "getBusinessObjectsForServiceDomain",
+    "maximumDepth": 1,
+    "maximumResults": 10,
+    "enabled": true
+  },
+  {
+    "id": "RULE-RM-002",
+    "name": "Business Object maps to Control Records",
+    "description": "Busca Control Records asociados a un objeto focal.",
+    "sourceArtifactType": "business-object",
+    "targetArtifactType": "control-record",
+    "relationType": "manages-state-of",
+    "repositoryFunction": "getControlRecordsForBusinessObject",
+    "maximumDepth": 1,
+    "maximumResults": 5,
+    "enabled": true
+  }
+]

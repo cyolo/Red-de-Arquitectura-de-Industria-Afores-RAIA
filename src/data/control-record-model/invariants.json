@@ -1,0 +1,16 @@
+[
+  {
+    "id": "RAIA-CRI-001",
+    "controlRecordId": "RAIA-CRM-001",
+    "name": "Consistencia de Saldos Contables",
+    "description": "El saldo acumulado de la cuenta individual debe corresponder exactamente con el saldo de las subcuentas.",
+    "invariantType": "financial-balance",
+    "appliesToStateIds": ["RAIA-CRS-001-02"],
+    "businessObjectIds": ["RAIA-BO-004"],
+    "attributeIds": ["MontoRetiro"],
+    "regulatoryMappingIds": [],
+    "controlIds": [],
+    "severity": "critical",
+    "status": "validated"
+  }
+]

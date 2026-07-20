@@ -1,0 +1,44 @@
+[
+  {
+    "id": "RAIA-CRM-001",
+    "slug": "cuenta-individual",
+    "nameEs": "Ciclo de Vida de Cuenta Individual",
+    "serviceDomainId": "RAIA-SD-030"
+  },
+  {
+    "id": "RAIA-CRM-002",
+    "slug": "verificacion-identidad",
+    "nameEs": "Caso de Verificación de Identidad",
+    "serviceDomainId": "RAIA-SD-020"
+  },
+  {
+    "id": "RAIA-CRM-004",
+    "slug": "solicitud-traspaso",
+    "nameEs": "Solicitud de Traspaso",
+    "serviceDomainId": "RAIA-SD-025"
+  },
+  {
+    "id": "RAIA-CRM-008",
+    "slug": "orden-inversion",
+    "nameEs": "Orden de Inversión",
+    "serviceDomainId": "RAIA-SD-118"
+  },
+  {
+    "id": "RAIA-CRM-010",
+    "slug": "caso-liquidacion",
+    "nameEs": "Caso de Liquidación",
+    "serviceDomainId": "RAIA-SD-120"
+  },
+  {
+    "id": "RAIA-CRM-012",
+    "slug": "solicitud-retiro",
+    "nameEs": "Solicitud de Retiro",
+    "serviceDomainId": "RAIA-SD-135"
+  },
+  {
+    "id": "RAIA-CRM-014",
+    "slug": "reporte-regulatorio",
+    "nameEs": "Obligación de Reporte Regulatorio",
+    "serviceDomainId": "RAIA-SD-250"
+  }
+]

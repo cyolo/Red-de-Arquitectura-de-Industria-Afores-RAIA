@@ -1,0 +1,2150 @@
+# PROMPT MAESTRO PARA ANTIGRAVITY IA
+
+# Construcción del RAIA Architecture Overview Portal
+
+## 1. Rol que debes asumir
+
+Actúa como un equipo multidisciplinario compuesto por:
+
+* arquitecto empresarial senior;
+* arquitecto de solución;
+* arquitecto de información;
+* arquitecto de datos;
+* arquitecto de integración;
+* diseñador de producto digital;
+* especialista UX/UI;
+* desarrollador full-stack senior;
+* especialista en Next.js, React y TypeScript;
+* especialista en accesibilidad;
+* ingeniero de calidad;
+* especialista en seguridad de aplicaciones;
+* responsable de gobierno de contenido arquitectónico.
+
+Tu responsabilidad es **inspeccionar, extender, programar, probar y documentar** el repositorio existente de:
+
+# **RAIA — Red de Arquitectura de Industria Afores**
+
+Repositorio:
+
+```text
+https://github.com/cyolo/Red-de-Arquitectura-de-Industria-Afores-RAIA
+```
+
+La entrega deberá construir el:
+
+# **RAIA Architecture Overview Portal**
+
+Inspirado conceptualmente en:
+
+```text
+https://bian.org/servicelandscape-14-0-0/index.html
+```
+
+No entregues únicamente un diseño, wireframe, propuesta o pseudocódigo.
+
+Debes modificar el proyecto real y dejarlo:
+
+* ejecutable;
+* navegable;
+* probado;
+* documentado;
+* extensible;
+* alineado con el metamodelo RAIA;
+* preparado para incorporar progresivamente todos los activos arquitectónicos.
+
+---
+
+# 2. Contexto actual del proyecto
+
+RAIA busca convertirse en una arquitectura de referencia neutral para la industria mexicana de Administradoras de Fondos para el Retiro y para el ecosistema del Sistema de Ahorro para el Retiro.
+
+Actualmente el repositorio ya cuenta con una primera implementación de:
+
+* página inicial;
+* Service Landscape;
+* Value Chain View inicial;
+* Áreas de Negocio;
+* Dominios de Negocio;
+* Service Domains;
+* fichas técnicas;
+* búsqueda;
+* filtros básicos;
+* relaciones locales;
+* archivos JSON;
+* tipos TypeScript;
+* esquemas Zod;
+* metodología inicial.
+
+No reemplaces estos activos sin analizar su funcionamiento.
+
+La prioridad es reutilizar y evolucionar lo existente.
+
+---
+
+# 3. Distinción de versiones
+
+No debes presentar RAIA como una versión oficial de BIAN.
+
+Utiliza un modelo de versionamiento independiente:
+
+```text
+RAIA Release: 0.1.0
+Portal Schema Version: 1.0.0
+Regulatory Baseline: 2026-07-12
+BIAN Inspiration Baseline: Service Landscape 14.0
+```
+
+En la interfaz debe aparecer:
+
+```text
+RAIA Architecture Overview Portal
+Release 0.1.0
+```
+
+Y como referencia secundaria:
+
+```text
+Inspirado en patrones de navegación y clasificación de BIAN Service Landscape 14.0
+```
+
+No utilizar como título principal:
+
+```text
+RAIA V14.0
+```
+
+La versión de RAIA debe evolucionar de manera independiente.
+
+---
+
+# 4. Restricciones de propiedad intelectual
+
+BIAN debe utilizarse únicamente como inspiración para:
+
+* estructura del portal;
+* organización de activos;
+* navegación;
+* clasificación;
+* separación entre modelos y vistas;
+* enfoque de Service Landscape;
+* conceptos arquitectónicos generales;
+* experiencia de exploración.
+
+No debes:
+
+* copiar código fuente de BIAN;
+* reutilizar imágenes;
+* reutilizar diagramas;
+* descargar recursos visuales;
+* copiar textos completos;
+* copiar identidad gráfica;
+* copiar logotipos;
+* reproducir exactamente su interfaz;
+* afirmar que RAIA pertenece a BIAN;
+* presentar RAIA como estándar avalado por BIAN;
+* presentar RAIA como portal oficial de CONSAR;
+* reutilizar contenido bancario no aplicable a AFORE.
+
+Todo contenido funcional, regulatorio y arquitectónico deberá ser original y específico de la industria AFORE.
+
+---
+
+# 5. Visión del producto
+
+El Architecture Overview Portal será la puerta de entrada central a todos los activos de RAIA.
+
+Debe permitir que diferentes audiencias naveguen desde una vista general hacia contenidos especializados.
+
+Audiencias principales:
+
+* arquitectos empresariales;
+* arquitectos de solución;
+* especialistas de negocio;
+* especialistas operativos;
+* responsables de AFORE;
+* especialistas de SIEFORE;
+* especialistas en pensiones;
+* riesgo;
+* cumplimiento;
+* auditoría;
+* regulación;
+* datos;
+* seguridad;
+* ingeniería;
+* proveedores;
+* investigadores;
+* autoridades;
+* ejecutivos.
+
+El portal debe responder:
+
+* ¿Qué es RAIA?
+* ¿Qué modelos contiene?
+* ¿Qué versión está vigente?
+* ¿Qué Service Domains existen?
+* ¿Qué capacidades empresariales representa?
+* ¿Qué escenarios de negocio documenta?
+* ¿Qué objetos de negocio administra?
+* ¿Qué regulación se relaciona con cada dominio?
+* ¿Qué vistas están disponibles?
+* ¿Qué activos se encuentran validados?
+* ¿Qué contenidos continúan en construcción?
+* ¿Cómo puede contribuir la comunidad?
+* ¿Qué cambió entre releases?
+
+---
+
+# 6. Principio arquitectónico central
+
+RAIA debe manejar:
+
+> **Un repositorio canónico de conocimiento y múltiples vistas derivadas.**
+
+No deben mantenerse copias diferentes de la misma entidad para cada vista.
+
+Ejemplo:
+
+```text
+Service Domain canónico
+    ├── Value Chain View
+    ├── Matrix View
+    ├── Capability View
+    ├── Regulation View
+    ├── Actor View
+    ├── Business Scenario View
+    └── Interaction View
+```
+
+Las vistas reorganizan, filtran o relacionan el contenido.
+
+No duplican su definición.
+
+---
+
+# 7. Objetivo de esta entrega
+
+Construir un portal funcional que:
+
+1. sustituya la página inicial actual por un Architecture Overview Portal;
+2. conserve acceso al Service Landscape existente;
+3. organice todos los futuros activos RAIA;
+4. muestre el estado de cada módulo;
+5. permita navegar por categorías;
+6. permita búsqueda global;
+7. muestre estadísticas del repositorio;
+8. muestre información de versión y vigencia;
+9. permita consultar cambios recientes;
+10. diferencie contenido activo, validado, propuesto y planeado;
+11. no contenga enlaces rotos;
+12. permita incorporar nuevos módulos desde configuración;
+13. sea responsive y accesible;
+14. sea original en su diseño;
+15. establezca la arquitectura base del portal completo.
+
+---
+
+# 8. Estructura funcional del portal
+
+El portal deberá organizarse en las siguientes áreas.
+
+---
+
+## 8.1 Arquitectura de Información
+
+Nombre del módulo:
+
+```text
+RAIA Information Architecture
+```
+
+Propósito:
+
+Representar la estructura semántica de la información de la industria AFORE.
+
+Debe preparar acceso a:
+
+* dominios de información;
+* objetos de negocio;
+* relaciones semánticas;
+* datos maestros;
+* datos transaccionales;
+* datos regulatorios;
+* datos analíticos;
+* fuentes autoritativas;
+* ownership;
+* stewardship;
+* calidad;
+* linaje;
+* privacidad;
+* retención;
+* intercambio de información.
+
+Ruta:
+
+```text
+/information-architecture
+```
+
+Estado inicial recomendado:
+
+```text
+planned
+```
+
+La página debe existir y explicar:
+
+* propósito;
+* alcance;
+* modelo esperado;
+* dependencias;
+* estado;
+* próximos entregables.
+
+No debe ser un enlace muerto.
+
+---
+
+## 8.2 Control Record Model
+
+Nombre:
+
+```text
+RAIA Control Record Model Overview
+```
+
+Propósito:
+
+Definir cómo cada Service Domain administra el ciclo de vida de su objeto o registro principal de control.
+
+Debe contemplar:
+
+* Focus Object;
+* Control Record;
+* estados;
+* ciclo de vida;
+* operaciones;
+* transiciones;
+* eventos;
+* controles;
+* evidencias;
+* ownership;
+* trazabilidad;
+* excepciones.
+
+Ruta:
+
+```text
+/control-record-model
+```
+
+Estado inicial:
+
+```text
+planned
+```
+
+Debe aclarar que un Control Record es un concepto lógico y no equivale automáticamente a:
+
+* una tabla;
+* una API;
+* un expediente físico;
+* una instancia de software;
+* una base de datos.
+
+---
+
+## 8.3 Business Object Model
+
+Nombre:
+
+```text
+RAIA Business Object Model
+```
+
+Propósito:
+
+Catalogar y relacionar los objetos de negocio principales de la industria.
+
+Objetos iniciales esperados:
+
+* Trabajador;
+* Beneficiario;
+* Patrón;
+* Dependencia;
+* Cuenta Individual;
+* Subcuenta;
+* Expediente Electrónico;
+* Aportación;
+* Movimiento;
+* Solicitud;
+* Traspaso;
+* Retiro;
+* Resolución de Pensión;
+* SIEFORE;
+* Portafolio;
+* Instrumento;
+* Acción;
+* Rendimiento;
+* Comisión;
+* Reclamación;
+* Reporte Regulatorio;
+* Evidencia;
+* Control;
+* Participante SAR.
+
+Ruta:
+
+```text
+/business-object-model
+```
+
+Estado inicial:
+
+```text
+planned
+```
+
+Debe quedar preparado para mostrar:
+
+* catálogo;
+* búsqueda;
+* relaciones;
+* jerarquías;
+* ownership;
+* Service Domains relacionados;
+* eventos;
+* regulación;
+* fuente autoritativa.
+
+---
+
+## 8.4 Industry Architecture Reference Model
+
+Nombre:
+
+```text
+RAIA Industry Architecture Reference Model
+```
+
+Propósito:
+
+Mostrar una visión integral de la arquitectura de referencia del Sistema de Ahorro para el Retiro.
+
+Debe contemplar futuras vistas:
+
+* actores;
+* capacidades;
+* value streams;
+* dominios;
+* información;
+* aplicaciones lógicas;
+* integración;
+* seguridad;
+* tecnología;
+* operación;
+* regulación;
+* gobierno.
+
+Ruta:
+
+```text
+/reference-model
+```
+
+Estado inicial:
+
+```text
+planned
+```
+
+---
+
+## 8.5 Service Domain Landscape
+
+Nombre:
+
+```text
+RAIA Service Domain Landscape
+```
+
+Este módulo debe conectar con la implementación existente.
+
+Subvistas:
+
+### Value Chain View
+
+Ruta existente:
+
+```text
+/service-landscape/value-chain
+```
+
+Estado:
+
+```text
+available
+```
+
+Descripción:
+
+Organiza Áreas de Negocio, Dominios de Negocio y Service Domains de acuerdo con la cadena de valor del SAR.
+
+### Matrix View
+
+Ruta:
+
+```text
+/service-landscape/matrix
+```
+
+Estado inicial:
+
+```text
+planned
+```
+
+Propósito:
+
+Mostrar Service Domains en una matriz configurable.
+
+Dimensiones futuras:
+
+* Área de Negocio × Dominio de Negocio;
+* Actor × Service Domain;
+* Value Stream × Service Domain;
+* Regulación × Service Domain;
+* Objeto de Negocio × Service Domain;
+* Estado × Madurez.
+
+### Overview Diagrams
+
+Ruta:
+
+```text
+/service-landscape/overview-diagrams
+```
+
+Estado inicial:
+
+```text
+planned
+```
+
+Propósito:
+
+Agrupar diagramas ejecutivos y temáticos.
+
+Vistas futuras:
+
+* panorama completo;
+* ciclo de vida de la cuenta;
+* ecosistema institucional;
+* recaudación;
+* inversión;
+* retiros;
+* pensiones;
+* servicio;
+* regulación;
+* tecnología;
+* seguridad.
+
+---
+
+## 8.6 Business Scenarios
+
+Nombre:
+
+```text
+RAIA Business Scenarios
+```
+
+Ruta principal:
+
+```text
+/business-scenarios
+```
+
+Debe organizar escenarios por categoría.
+
+Categorías iniciales:
+
+### Identidad y expediente
+
+* registro de identidad;
+* validación biométrica;
+* actualización de expediente;
+* corrección de datos;
+* gestión de beneficiarios.
+
+### Afiliación y cuenta
+
+* localización de cuenta;
+* registro en AFORE;
+* asignación;
+* reasignación;
+* traspaso;
+* unificación;
+* separación;
+* regularización.
+
+### Recaudación y aportaciones
+
+* recepción de aportaciones;
+* conciliación;
+* individualización;
+* pago no identificado;
+* ahorro voluntario;
+* corrección de aportaciones.
+
+### Inversión y SIEFORE
+
+* asignación a SIEFORE;
+* construcción de portafolio;
+* operación de inversión;
+* valuación;
+* cumplimiento de límites;
+* asignación de rendimientos.
+
+### Retiros
+
+* retiro por desempleo;
+* ayuda para matrimonio;
+* retiro de ahorro voluntario;
+* disposición total.
+
+### Pensiones
+
+* validación de elegibilidad;
+* resolución de pensión;
+* elección de modalidad;
+* retiro programado;
+* renta vitalicia;
+* pensión garantizada.
+
+### Fallecimiento y beneficiarios
+
+* notificación de fallecimiento;
+* validación de beneficiarios;
+* distribución de recursos;
+* prestación de sobrevivencia.
+
+### Servicio y protección al usuario
+
+* solicitud;
+* aclaración;
+* queja;
+* reclamación;
+* UNE;
+* interacción con CONDUSEF.
+
+### Supervisión y regulación
+
+* entrega de información;
+* requerimiento regulatorio;
+* inspección;
+* programa correctivo;
+* sanción;
+* seguimiento de hallazgos.
+
+### Fondo de Pensiones para el Bienestar
+
+* identificación;
+* transferencia;
+* conciliación;
+* complemento;
+* reintegro;
+* preservación de derechos.
+
+Estado inicial del módulo:
+
+```text
+planned
+```
+
+La página deberá existir y presentar el catálogo de categorías aunque todavía no estén implementados los diagramas.
+
+---
+
+## 8.7 Scenario Snippets
+
+Nombre:
+
+```text
+Reusable Scenario Snippets
+```
+
+Ruta:
+
+```text
+/business-scenarios/snippets
+```
+
+Propósito:
+
+Definir fragmentos reutilizables de interacción.
+
+Snippets iniciales:
+
+* validar identidad;
+* autenticar trabajador;
+* capturar consentimiento;
+* validar elegibilidad;
+* registrar solicitud;
+* generar folio;
+* emitir acuse;
+* notificar resultado;
+* conciliar recursos;
+* transferir recursos;
+* registrar evidencia;
+* reportar a autoridad;
+* atender excepción;
+* proteger datos personales;
+* conservar trazabilidad.
+
+Estado inicial:
+
+```text
+planned
+```
+
+---
+
+## 8.8 Business Capability Map
+
+Nombre:
+
+```text
+RAIA Business Capability Map
+```
+
+Ruta:
+
+```text
+/capability-map
+```
+
+Subvistas:
+
+### Top-Level View
+
+```text
+/capability-map/top-level
+```
+
+### Capability Views
+
+```text
+/capability-map/views
+```
+
+Vistas futuras:
+
+* capacidades por Área de Negocio;
+* capacidades por participante;
+* capacidades por value stream;
+* capacidades reguladas;
+* capacidades diferenciadoras;
+* capacidades compartidas;
+* capacidades tecnológicas;
+* capacidades de datos;
+* capacidades de seguridad;
+* capacidades de supervisión.
+
+Estado inicial:
+
+```text
+planned
+```
+
+---
+
+## 8.9 Metamodel Overview
+
+Nombre:
+
+```text
+RAIA Metamodel Overview
+```
+
+Ruta:
+
+```text
+/metamodel
+```
+
+Debe explicar y relacionar:
+
+```text
+Architecture Repository
+→ Architecture Artifact
+→ Business Area
+→ Business Domain
+→ Service Domain
+→ Service Operation
+→ Control Record
+→ Business Object
+→ Business Event
+→ Business Scenario
+→ Actor
+→ Regulation
+→ Obligation
+→ Control
+→ Evidence
+→ NFR
+→ KPI
+→ Capability
+→ Value Stream
+→ View
+→ Release
+```
+
+Estado inicial:
+
+```text
+available
+```
+
+Debe construirse una primera página funcional con:
+
+* definiciones;
+* diagrama conceptual;
+* cardinalidades;
+* navegación hacia entidades existentes;
+* reglas del modelo;
+* distinción entre entidad y vista.
+
+---
+
+## 8.10 Wireframes Overview
+
+Nombre:
+
+```text
+RAIA Architecture Wireframes
+```
+
+Ruta:
+
+```text
+/wireframes
+```
+
+Propósito:
+
+Mostrar patrones de interacción y arquitecturas iniciales reutilizables.
+
+Wireframes futuros:
+
+* registro;
+* traspaso;
+* recaudación;
+* cuenta individual;
+* retiro;
+* pensión;
+* conciliación;
+* reporte regulatorio;
+* identidad;
+* integración con institutos.
+
+Estado inicial:
+
+```text
+planned
+```
+
+---
+
+## 8.11 Dashboard
+
+Nombre:
+
+```text
+RAIA Architecture Dashboard
+```
+
+Ruta:
+
+```text
+/dashboard
+```
+
+El dashboard debe ser funcional desde esta entrega.
+
+Debe mostrar:
+
+* número de Áreas de Negocio;
+* número de Dominios de Negocio;
+* número de Service Domains;
+* número de relaciones;
+* número de escenarios;
+* número de regulaciones;
+* número de controles;
+* número de objetos de negocio;
+* contenido por estado;
+* contenido por madurez;
+* fecha del baseline regulatorio;
+* última actualización;
+* dominios sin regulación;
+* dominios sin relaciones;
+* dominios pendientes de validación;
+* cobertura de campos;
+* enlaces rápidos.
+
+No inventes indicadores.
+
+Calcula todo a partir de los archivos de datos existentes.
+
+---
+
+## 8.12 Regulatory Architecture
+
+Este módulo es una ampliación específica de RAIA.
+
+Nombre:
+
+```text
+RAIA Regulatory Architecture
+```
+
+Ruta:
+
+```text
+/regulatory-architecture
+```
+
+Debe preparar futuras vistas de:
+
+* leyes;
+* reglamentos;
+* disposiciones;
+* circulares;
+* manuales;
+* anexos;
+* obligaciones;
+* autoridades;
+* artículos;
+* vigencia;
+* Service Domains impactados;
+* controles;
+* evidencias;
+* cambios regulatorios.
+
+Estado inicial:
+
+```text
+planned
+```
+
+Debe incluir el disclaimer:
+
+> El contenido de RAIA es una interpretación arquitectónica de fuentes regulatorias y no sustituye la consulta de publicaciones oficiales ni la asesoría jurídica especializada.
+
+---
+
+## 8.13 Contribution and Governance
+
+Nombre:
+
+```text
+Contribuir a RAIA
+```
+
+Ruta:
+
+```text
+/contribute
+```
+
+Debe explicar:
+
+* quién puede contribuir;
+* tipos de contribución;
+* proceso editorial;
+* revisión arquitectónica;
+* revisión operativa;
+* validación regulatoria;
+* estados de contenido;
+* creación de issues;
+* pull requests;
+* propuesta de nuevos dominios;
+* modificación de dominios existentes;
+* deprecación;
+* versionamiento;
+* código de conducta;
+* licencia.
+
+Estados editoriales:
+
+```text
+draft
+proposed
+validated
+active
+deprecated
+```
+
+---
+
+## 8.14 Releases
+
+Nombre:
+
+```text
+RAIA Releases
+```
+
+Ruta:
+
+```text
+/releases
+```
+
+Debe mostrar:
+
+* versión;
+* fecha;
+* estado;
+* baseline regulatorio;
+* cambios;
+* elementos agregados;
+* elementos modificados;
+* elementos deprecados;
+* breaking changes;
+* notas de migración.
+
+Crear contenido inicial para:
+
+```text
+RAIA 0.1.0
+```
+
+---
+
+# 9. Mapeo conceptual BIAN → RAIA
+
+Utiliza el siguiente mapeo para organizar el portal:
+
+| Concepto de inspiración                       | Módulo RAIA                                 |
+| --------------------------------------------- | ------------------------------------------- |
+| Information Architecture                      | RAIA Information Architecture               |
+| Control Record Model                          | RAIA Control Record Model                   |
+| Business Object Model                         | RAIA Business Object Model                  |
+| Banking Industry Architecture Reference Model | AFORE Industry Architecture Reference Model |
+| Service Domain Landscape                      | RAIA Service Domain Landscape               |
+| Value Chain View                              | RAIA Value Chain View                       |
+| Matrix View                                   | RAIA Matrix View                            |
+| Overview Diagrams                             | RAIA Overview Diagrams                      |
+| Business Scenarios                            | RAIA Business Scenarios                     |
+| Scenario Snippets                             | RAIA Reusable Scenario Snippets             |
+| Business Capability Map                       | RAIA Business Capability Map                |
+| MetaModel Overview                            | RAIA Metamodel Overview                     |
+| Wireframes Overview                           | RAIA Architecture Wireframes                |
+| Dashboard                                     | RAIA Architecture Dashboard                 |
+| Contribution                                  | Contribuir a RAIA                           |
+| No equivalente central                        | RAIA Regulatory Architecture                |
+
+Este mapeo es conceptual.
+
+No copies contenido bancario.
+
+---
+
+# 10. Arquitectura de información del portal
+
+La página principal debe organizarse en secciones.
+
+## Sección 1 — Hero
+
+Contenido:
+
+```text
+RAIA Architecture Overview Portal
+```
+
+Subtítulo:
+
+```text
+Arquitectura de referencia para la industria mexicana de ahorro para el retiro
+```
+
+Descripción:
+
+```text
+Explore las capacidades, dominios, objetos, escenarios, regulaciones e interacciones que conforman el ecosistema del Sistema de Ahorro para el Retiro.
+```
+
+Mostrar badges:
+
+```text
+RAIA Release 0.1.0
+Regulatory Baseline: 12 July 2026
+Reference Architecture
+```
+
+Acciones:
+
+* Explorar Service Landscape;
+* Buscar en RAIA;
+* Conocer metodología;
+* Consultar release.
+
+---
+
+## Sección 2 — Arquitectura de referencia
+
+Tarjetas:
+
+* Information Architecture;
+* Control Record Model;
+* Business Object Model;
+* Industry Reference Model;
+* Metamodel.
+
+---
+
+## Sección 3 — Service Landscape
+
+Tarjetas:
+
+* Value Chain View;
+* Matrix View;
+* Overview Diagrams.
+
+La tarjeta Value Chain debe mostrarse como disponible.
+
+---
+
+## Sección 4 — Escenarios y capacidades
+
+Tarjetas:
+
+* Business Scenarios;
+* Scenario Snippets;
+* Capability Map;
+* Capability Views;
+* Wireframes.
+
+---
+
+## Sección 5 — Regulación y gobierno
+
+Tarjetas:
+
+* Regulatory Architecture;
+* Architecture Dashboard;
+* Releases;
+* Contribuir a RAIA.
+
+---
+
+## Sección 6 — Estadísticas
+
+Obtener dinámicamente:
+
+* áreas;
+* dominios;
+* Service Domains;
+* relaciones;
+* escenarios;
+* regulaciones;
+* controles.
+
+---
+
+## Sección 7 — Estado del contenido
+
+Mostrar distribución:
+
+* active;
+* validated;
+* proposed;
+* draft;
+* deprecated.
+
+---
+
+## Sección 8 — Cambios recientes
+
+Mostrar los últimos cambios disponibles en un archivo de releases o changelog estructurado.
+
+---
+
+## Sección 9 — Disclaimer
+
+Texto:
+
+> RAIA es una arquitectura de referencia propuesta. No sustituye leyes, reglamentos, disposiciones, criterios, manuales, publicaciones oficiales ni asesoría legal, actuarial, financiera, operativa o regulatoria especializada.
+
+---
+
+# 11. Diseño visual
+
+El portal debe ser original.
+
+No copies la apariencia exacta de BIAN.
+
+## Principios
+
+* institucional;
+* ejecutivo;
+* sobrio;
+* moderno;
+* modular;
+* navegable;
+* informativo;
+* accesible;
+* con densidad controlada;
+* adecuado para arquitectura empresarial.
+
+## Paleta RAIA existente
+
+Reutiliza las variables del proyecto:
+
+```text
+--raia-blue-inst
+--raia-blue-deep
+--raia-turquoise
+--raia-green-inst
+--raia-gold
+--raia-sand
+--raia-warning
+--raia-error
+```
+
+## Tarjetas de módulos
+
+Cada tarjeta debe incluir:
+
+* icono;
+* nombre;
+* descripción;
+* estado;
+* versión cuando aplique;
+* número de artefactos;
+* acción;
+* etiqueta de disponibilidad.
+
+Estados visuales:
+
+```text
+Available
+In Development
+Planned
+Deprecated
+```
+
+No deshabilites enlaces sin explicación.
+
+Los módulos no desarrollados deben abrir una página informativa funcional.
+
+---
+
+# 12. Modelo de datos del portal
+
+Crea tipos y esquemas Zod.
+
+## PortalModule
+
+```typescript
+export type PortalModuleStatus =
+  | "available"
+  | "in-development"
+  | "planned"
+  | "deprecated";
+
+export interface PortalModule {
+  id: string;
+  slug: string;
+  name: string;
+  shortName?: string;
+  description: string;
+  purpose: string;
+  route: string;
+  category:
+    | "reference-architecture"
+    | "service-landscape"
+    | "business-scenarios"
+    | "capabilities"
+    | "regulation"
+    | "governance";
+  status: PortalModuleStatus;
+  icon: string;
+  order: number;
+  version?: string;
+  artifactType?: string;
+  countSource?: string;
+  dependencies?: string[];
+  tags: string[];
+  createdAt: string;
+  updatedAt: string;
+}
+```
+
+## PortalRelease
+
+```typescript
+export interface PortalRelease {
+  version: string;
+  name: string;
+  releaseDate: string;
+  status: "draft" | "published" | "deprecated";
+  regulatoryBaselineDate: string;
+  bianReferenceBaseline?: string;
+  summary: string;
+  added: string[];
+  changed: string[];
+  deprecated: string[];
+  removed: string[];
+  breakingChanges: string[];
+}
+```
+
+## ArchitectureArtifact
+
+```typescript
+export interface ArchitectureArtifact {
+  id: string;
+  name: string;
+  description: string;
+  type:
+    | "view"
+    | "model"
+    | "catalog"
+    | "diagram"
+    | "scenario"
+    | "reference"
+    | "report";
+  route: string;
+  status: "draft" | "proposed" | "validated" | "active" | "deprecated";
+  version: string;
+  ownerRole?: string;
+  sourceIds: string[];
+  tags: string[];
+  createdAt: string;
+  updatedAt: string;
+}
+```
+
+---
+
+# 13. Archivos de datos
+
+Crear:
+
+```text
+src/data/portal-modules.json
+src/data/releases.json
+src/data/architecture-artifacts.json
+```
+
+Todos deben validarse con Zod.
+
+No hardcodees las tarjetas dentro de la página.
+
+La página principal debe generarse desde `portal-modules.json`.
+
+---
+
+# 14. Estructura de rutas
+
+Implementa:
+
+```text
+/
+```
+
+Debe mostrar el Architecture Overview Portal.
+
+```text
+/architecture-overview
+```
+
+Debe mostrar el mismo portal o redirigir canónicamente a `/`.
+
+```text
+/information-architecture
+/control-record-model
+/business-object-model
+/reference-model
+/metamodel
+```
+
+```text
+/service-landscape/value-chain
+/service-landscape/matrix
+/service-landscape/overview-diagrams
+```
+
+```text
+/business-scenarios
+/business-scenarios/snippets
+```
+
+```text
+/capability-map
+/capability-map/top-level
+/capability-map/views
+```
+
+```text
+/wireframes
+/dashboard
+/regulatory-architecture
+/releases
+/contribute
+/methodology
+```
+
+No deben existir enlaces rotos.
+
+---
+
+# 15. Páginas de módulos planeados
+
+Crea un componente reutilizable:
+
+```text
+PlannedModulePage
+```
+
+Debe recibir:
+
+* módulo;
+* descripción;
+* propósito;
+* alcance;
+* dependencias;
+* artefactos previstos;
+* estado;
+* roadmap;
+* enlace de regreso;
+* enlace para contribuir.
+
+No mostrar únicamente:
+
+```text
+Coming soon
+```
+
+La página debe aportar contexto útil.
+
+---
+
+# 16. Navegación global
+
+Actualizar el header.
+
+Debe incluir:
+
+* marca RAIA;
+* Architecture Overview;
+* Service Landscape;
+* Scenarios;
+* Capability Map;
+* Regulatory Architecture;
+* Dashboard;
+* Methodology;
+* búsqueda;
+* selector de menú móvil.
+
+En escritorio puede utilizarse navegación horizontal.
+
+En móvil debe utilizarse un menú accesible.
+
+No saturar el header.
+
+Agrupa elementos secundarios en menús.
+
+---
+
+# 17. Búsqueda global
+
+Extiende el buscador actual.
+
+Debe buscar en:
+
+* módulos;
+* Áreas de Negocio;
+* Dominios de Negocio;
+* Service Domains;
+* capacidades;
+* objetos de negocio;
+* operaciones;
+* eventos;
+* escenarios;
+* regulaciones;
+* controles;
+* releases;
+* artefactos.
+
+Agrupa resultados por tipo.
+
+Ejemplo:
+
+```text
+Modules
+Service Domains
+Business Objects
+Scenarios
+Regulations
+Releases
+```
+
+Mantener:
+
+```text
+Ctrl + K
+Cmd + K
+```
+
+Agregar:
+
+* roles ARIA;
+* navegación completa por teclado;
+* `aria-live`;
+* botón accesible de cierre;
+* buscador visible en móvil.
+
+---
+
+# 18. Dashboard
+
+El dashboard debe consumir los repositorios existentes.
+
+No dupliques lógica.
+
+Crear un servicio:
+
+```typescript
+getArchitectureMetrics()
+```
+
+Debe calcular:
+
+```typescript
+{
+  businessAreas: number;
+  businessDomains: number;
+  serviceDomains: number;
+  relations: number;
+  scenarios: number;
+  regulations: number;
+  controls: number;
+  businessObjects: number;
+  byStatus: Record<string, number>;
+  byMaturity: Record<string, number>;
+  domainsWithoutRegulation: number;
+  domainsWithoutRelations: number;
+  domainsPendingValidation: number;
+  lastUpdatedAt: string;
+}
+```
+
+Debe incluir enlaces desde cada indicador hacia una vista filtrada.
+
+---
+
+# 19. Metamodel Page
+
+Construye una página inicial funcional del metamodelo.
+
+Debe incluir:
+
+## Conceptos
+
+* Architecture Repository;
+* Portal Module;
+* Architecture Artifact;
+* Business Area;
+* Business Domain;
+* Service Domain;
+* Service Operation;
+* Business Object;
+* Control Record;
+* Business Event;
+* Business Scenario;
+* Actor;
+* Regulation;
+* Control;
+* Evidence;
+* NFR;
+* KPI;
+* Capability;
+* Value Stream;
+* View;
+* Release.
+
+## Diagrama
+
+Crear un diagrama original mediante React Flow o SVG accesible.
+
+Debe mostrar como mínimo:
+
+```text
+Business Area
+  → Business Domain
+    → Service Domain
+      → Service Operation
+      → Business Event
+      → Business Object
+      → Regulation
+      → Control
+      → Evidence
+      → KPI
+```
+
+Y:
+
+```text
+Business Scenario
+  → Scenario Step
+    → Service Domain interaction
+```
+
+## Reglas
+
+* las entidades son canónicas;
+* las vistas son proyecciones;
+* los IDs son estables;
+* los nombres pueden evolucionar;
+* los cambios se versionan;
+* los elementos deprecados se conservan;
+* toda regulación debe tener fuente;
+* todo contenido activo debe haber sido validado.
+
+---
+
+# 20. Correcciones obligatorias al repositorio actual
+
+Durante esta implementación corrige:
+
+## 20.1 Retirar la palabra “oficial”
+
+Sustituir:
+
+```text
+El mapa oficial
+```
+
+Por:
+
+```text
+Arquitectura de referencia propuesta
+```
+
+## 20.2 Corregir versión
+
+Sustituir referencias visibles a:
+
+```text
+RAIA V14.0
+```
+
+Por:
+
+```text
+RAIA 0.1.0
+```
+
+Mostrar BIAN 14.0 únicamente como baseline de inspiración.
+
+## 20.3 Corregir términos
+
+Utilizar:
+
+```text
+Ley de los Sistemas de Ahorro para el Retiro
+```
+
+No:
+
+```text
+Ley del SAR
+```
+
+Utilizar:
+
+```text
+Empresa Operadora de la Base de Datos Nacional SAR
+```
+
+Cuando se hable del rol de industria.
+
+No utilizar un proveedor específico como nombre estructural del modelo.
+
+## 20.4 Corregir metodología
+
+Un Service Domain no es inmutable.
+
+Debe describirse como:
+
+> Unidad estable, versionada y evolutiva de responsabilidad funcional.
+
+Las Service Operations no deben definirse como REST o gRPC.
+
+Debe indicarse:
+
+> Operaciones lógicas independientes de su mecanismo de implementación.
+
+---
+
+# 21. Validación de datos
+
+Integra Zod realmente.
+
+No utilices:
+
+```typescript
+as unknown as
+```
+
+Para evitar validar datos.
+
+Utiliza:
+
+```typescript
+LandscapeDataSchema.parse(...)
+PortalModulesSchema.parse(...)
+PortalReleasesSchema.parse(...)
+```
+
+La aplicación debe fallar de forma controlada ante datos inválidos.
+
+---
+
+# 22. Build y automatización
+
+Actualizar scripts:
+
+```json
+{
+  "scripts": {
+    "dev": "next dev",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "validate:data": "node scripts/validateData.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "prebuild": "npm run validate:data && npm run lint && npm run typecheck && npm run test",
+    "build": "next build",
+    "start": "next start"
+  }
+}
+```
+
+Agregar CI en:
+
+```text
+.github/workflows/ci.yml
+```
+
+Debe ejecutar:
+
+```text
+npm ci
+npm run validate:data
+npm run lint
+npm run typecheck
+npm run test
+npm run build
+npm run test:e2e
+```
+
+---
+
+# 23. Seguridad
+
+Configura headers en `next.config.ts`.
+
+Incluir cuando sea compatible:
+
+* Content-Security-Policy;
+* X-Content-Type-Options;
+* Referrer-Policy;
+* Permissions-Policy;
+* frame-ancestors;
+* Strict-Transport-Security en producción.
+
+No agregar secretos.
+
+No usar `dangerouslySetInnerHTML`.
+
+Validar URLs externas.
+
+---
+
+# 24. Accesibilidad
+
+Cumplir WCAG 2.2 AA.
+
+Requisitos:
+
+* foco visible;
+* navegación por teclado;
+* skip link;
+* landmarks;
+* headings jerárquicos;
+* labels;
+* `aria-live`;
+* menús accesibles;
+* botones con nombres;
+* contraste;
+* estados no basados solo en color;
+* soporte a lectores de pantalla;
+* `prefers-reduced-motion`;
+* búsqueda móvil;
+* tarjetas navegables mediante teclado;
+* diagrama con representación textual alternativa.
+
+Evitar texto menor de 11 píxeles en información funcional esencial.
+
+---
+
+# 25. SEO y metadata
+
+Configurar:
+
+```text
+Title:
+RAIA Architecture Overview Portal
+
+Description:
+Portal de arquitectura de referencia para explorar capacidades, dominios, escenarios, objetos y regulación de la industria mexicana de ahorro para el retiro.
+
+Language:
+es-MX
+```
+
+Crear metadata específica por módulo.
+
+Agregar:
+
+* Open Graph;
+* canonical URL;
+* sitemap;
+* robots;
+* favicon propio de RAIA.
+
+No reutilizar activos de BIAN.
+
+---
+
+# 26. Pruebas obligatorias
+
+## Unitarias
+
+* validación de módulos;
+* agrupación por categoría;
+* métricas;
+* estados;
+* búsqueda;
+* releases;
+* rutas;
+* conteo de artefactos;
+* Zod.
+
+## Componentes
+
+* hero;
+* ModuleCard;
+* ModuleSection;
+* PlannedModulePage;
+* dashboard metrics;
+* global search;
+* navigation;
+* release summary;
+* status badge.
+
+## End-to-end
+
+1. abrir `/`;
+2. comprobar título;
+3. navegar a Value Chain;
+4. regresar al portal;
+5. abrir Dashboard;
+6. comprobar métricas;
+7. abrir Metamodel;
+8. abrir un módulo planeado;
+9. verificar que no sea 404;
+10. buscar “Traspaso de Cuenta”;
+11. navegar al resultado;
+12. usar menú móvil;
+13. navegar con teclado;
+14. validar ausencia de errores de consola.
+
+## Accesibilidad
+
+Ejecutar pruebas con Axe o equivalente.
+
+---
+
+# 27. Documentación
+
+Actualizar completamente:
+
+```text
+README.md
+```
+
+Debe incluir:
+
+* visión RAIA;
+* portal;
+* módulos;
+* estado;
+* instalación;
+* scripts;
+* rutas;
+* modelo;
+* versiones;
+* gobierno;
+* contribución;
+* pruebas;
+* seguridad;
+* disclaimer;
+* relación conceptual con BIAN.
+
+Crear:
+
+```text
+docs/portal-architecture.md
+docs/information-architecture.md
+docs/metamodel.md
+docs/module-catalog.md
+docs/versioning.md
+docs/content-governance.md
+docs/regulatory-traceability.md
+docs/visual-language.md
+```
+
+Crear ADR:
+
+```text
+docs/adr/003-architecture-overview-portal.md
+```
+
+La ADR debe explicar:
+
+* problema;
+* decisión;
+* alternativas;
+* consecuencias;
+* estructura de módulos;
+* repositorio canónico;
+* vistas derivadas;
+* estrategia de extensibilidad.
+
+---
+
+# 28. Gobierno de módulos
+
+Cada módulo debe tener:
+
+* owner;
+* status;
+* version;
+* dependencies;
+* last updated;
+* artifact count;
+* validation status;
+* roadmap.
+
+Los estados serán:
+
+```text
+available
+in-development
+planned
+deprecated
+```
+
+No mezclar estos estados con el ciclo editorial de contenidos:
+
+```text
+draft
+proposed
+validated
+active
+deprecated
+```
+
+El primero describe módulos del portal.
+
+El segundo describe elementos arquitectónicos.
+
+---
+
+# 29. Configuración inicial de módulos
+
+Crear como mínimo los siguientes registros:
+
+```text
+RAIA-MOD-001 Information Architecture
+RAIA-MOD-002 Control Record Model
+RAIA-MOD-003 Business Object Model
+RAIA-MOD-004 Industry Reference Model
+RAIA-MOD-005 Service Landscape — Value Chain
+RAIA-MOD-006 Service Landscape — Matrix
+RAIA-MOD-007 Service Landscape — Overview Diagrams
+RAIA-MOD-008 Business Scenarios
+RAIA-MOD-009 Scenario Snippets
+RAIA-MOD-010 Business Capability Map
+RAIA-MOD-011 Capability Views
+RAIA-MOD-012 Metamodel
+RAIA-MOD-013 Wireframes
+RAIA-MOD-014 Dashboard
+RAIA-MOD-015 Regulatory Architecture
+RAIA-MOD-016 Releases
+RAIA-MOD-017 Contribution and Governance
+```
+
+Estados iniciales:
+
+```text
+Value Chain: available
+Metamodel: available
+Dashboard: available
+Contribution: available
+Releases: available
+Resto: planned
+```
+
+---
+
+# 30. Criterios de aceptación funcional
+
+La entrega se considera terminada cuando:
+
+* `/` presenta el Architecture Overview Portal;
+* las tarjetas se generan desde JSON;
+* todos los módulos tienen ruta;
+* no existen enlaces muertos;
+* Value Chain permanece funcional;
+* Dashboard calcula métricas reales;
+* Metamodel cuenta con contenido funcional;
+* Releases muestra RAIA 0.1.0;
+* Contribution explica el gobierno;
+* búsqueda encuentra módulos y Service Domains;
+* navegación móvil funciona;
+* metadata está configurada;
+* Zod valida los nuevos archivos;
+* build ejecuta validaciones;
+* CI existe;
+* pruebas pasan;
+* README fue sustituido;
+* la interfaz no afirma que RAIA sea oficial;
+* RAIA utiliza versión independiente;
+* BIAN aparece únicamente como referencia de inspiración.
+
+---
+
+# 31. Criterios de aceptación visual
+
+En 1440 × 900:
+
+* hero legible;
+* módulos agrupados;
+* tarjetas compactas;
+* no hay saturación;
+* estados claramente visibles;
+* estadísticas accesibles;
+* navegación clara;
+* diseño institucional;
+* portal reconocible como RAIA;
+* no parece una copia de BIAN;
+* no parece un dashboard comercial genérico.
+
+En móvil:
+
+* menú funcional;
+* buscador visible;
+* tarjetas en una columna;
+* módulos navegables;
+* textos legibles;
+* no existe desbordamiento horizontal.
+
+---
+
+# 32. Entregables finales
+
+Al terminar proporciona:
+
+## Resumen
+
+Qué se construyó.
+
+## Arquitectura
+
+Cómo funciona el repositorio canónico y las vistas.
+
+## Rutas
+
+Listado de rutas.
+
+## Archivos modificados
+
+Listado exacto.
+
+## Datos
+
+Archivos y esquemas agregados.
+
+## Pruebas
+
+Comandos y resultados reales.
+
+## Build
+
+Resultado real.
+
+## Supuestos
+
+Supuestos realizados.
+
+## Pendientes
+
+Limitaciones restantes.
+
+## Próxima evolución
+
+La siguiente evolución recomendada deberá ser:
+
+```text
+RAIA Business Capability Map
+```
+
+O:
+
+```text
+RAIA Business Scenario Explorer
+```
+
+Selecciona una según el estado real del repositorio.
+
+---
+
+# 33. Instrucción final
+
+Construye el Architecture Overview Portal como el punto central de navegación de RAIA.
+
+No debe ser únicamente una página con enlaces.
+
+Debe convertirse en:
+
+> **El catálogo navegable, versionado y gobernado de los activos arquitectónicos de la industria mexicana de ahorro para el retiro.**
+
+La prioridad es:
+
+```text
+Repositorio canónico
+→ Módulos arquitectónicos
+→ Navegación
+→ Trazabilidad
+→ Versionamiento
+→ Gobierno
+→ Calidad
+→ Evolución
+```
+
+El resultado debe permitir comprender qué contiene RAIA, qué está disponible, qué está en desarrollo, cómo se relacionan sus modelos y cómo evolucionará la arquitectura de referencia.

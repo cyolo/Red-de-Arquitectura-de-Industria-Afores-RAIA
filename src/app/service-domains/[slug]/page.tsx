@@ -2,9 +2,12 @@
 
 import React, { use } from "react";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, useRouter } from "next/navigation";
 import { ArrowLeft, ShieldCheck, Printer, Network, Layers, ExternalLink, Activity, Scale, ShieldAlert, Award } from "lucide-react";
 import { getServiceDomainBySlug, getBusinessAreaById, getBusinessDomainById, getServiceDomainById } from "../../../domain/repositories/landscapeRepository";
+import { getRegulatoryMappingsForServiceDomain, getRegulatorySourceById } from "../../../domain/repositories/regulatoryRepository";
+import LocalRelationGraph from "../../../components/diagram/LocalRelationGraph";
+import { assertInternalRoute } from "../../../domain/schemas";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -12,6 +15,7 @@ interface Props {
 
 export default function ServiceDomainPage({ params }: Props) {
   const resolvedParams = use(params);
+  const router = useRouter();
   const sd = getServiceDomainBySlug(resolvedParams.slug);
 
   if (!sd) {
@@ -304,23 +308,52 @@ export default function ServiceDomainPage({ params }: Props) {
                 8. Marco Regulatorio
               </h2>
               <div className="mt-4 space-y-3.5">
-                {sd.regulations.map((reg) => (
-                  <div key={reg.id} className="p-3 border border-slate-200 rounded-lg text-xs bg-slate-50/20">
-                    <div className="flex items-center justify-between">
-                      <span className="text-[9px] font-mono text-slate-400">{reg.id}</span>
-                      {reg.mandatory && (
-                        <span className="px-1.5 py-0.5 rounded bg-red-50 text-red-600 border border-red-200 text-[8px] font-bold uppercase">
-                          Obligatorio
-                        </span>
-                      )}
-                    </div>
-                    <h4 className="font-bold text-slate-800 mt-1 leading-normal">{reg.name}</h4>
-                    <div className="flex items-center gap-4 mt-2 text-[10px] text-slate-500 font-medium">
-                      <span>Autoridad: {reg.authority}</span>
-                      <span>Estatus: {reg.validationStatus}</span>
-                    </div>
-                  </div>
-                ))}
+                {(() => {
+                  const mappings = getRegulatoryMappingsForServiceDomain(sd.id);
+                  if (mappings.length > 0) {
+                    return mappings.map((map) => {
+                      const src = getRegulatorySourceById(map.regulatorySourceId);
+                      return (
+                        <div key={map.id} className="p-3.5 border border-slate-200 rounded-lg text-xs bg-slate-50/40 space-y-2">
+                          <div className="flex items-center justify-between gap-2">
+                            <span className="text-[9px] font-bold text-slate-700 bg-slate-100 border border-slate-200 px-1.5 rounded truncate max-w-[180px]">
+                              {src?.shortName || map.regulatorySourceId}
+                            </span>
+                            <span className="text-[9px] font-mono font-bold text-emerald-600 bg-emerald-50 border border-emerald-250 px-1 rounded shrink-0">
+                              {map.article || "Disposición"}
+                            </span>
+                          </div>
+                          
+                          <p className="text-[11px] text-slate-800 font-medium leading-relaxed">
+                            {map.regulatoryRequirement}
+                          </p>
+                          
+                          <div className="text-[10px] text-slate-500 bg-slate-50/80 p-2 rounded border border-slate-100 leading-normal">
+                            <span className="font-bold text-[9px] text-slate-400 block uppercase tracking-wider">Interpretación Arquitectónica</span>
+                            {map.architecturalInterpretation}
+                          </div>
+                          
+                          {src?.officialUrl && (
+                            <a
+                              href={src.officialUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-[9px] font-bold text-sky-600 hover:text-sky-850 block underline pt-1 cursor-pointer"
+                            >
+                              Ver DOF/Diario Oficial
+                            </a>
+                          )}
+                        </div>
+                      );
+                    });
+                  }
+
+                  return (
+                    <p className="text-xs text-slate-400 font-medium italic text-center py-4 bg-slate-50 border border-slate-200 rounded-lg">
+                      No existen mapeos regulatorios vigentes consolidados para este dominio.
+                    </p>
+                  );
+                })()}
               </div>
             </div>
 
@@ -418,10 +451,32 @@ export default function ServiceDomainPage({ params }: Props) {
             </div>
           </div>
 
+          {/* Section: End-to-End Relations */}
+          <div className="mt-8 border-t border-slate-100 pt-8 print:hidden">
+            <h2 className="text-sm font-extrabold text-slate-800 border-b border-slate-100 pb-2 uppercase tracking-wide flex items-center gap-1.5">
+              <Network size={16} className="text-raia-turquoise" />
+              14. Relaciones de Extremo a Extremo
+            </h2>
+            <p className="text-[11px] text-slate-500 mt-2 leading-normal">
+              Visualiza el flujo de dependencias directo. Haz click en un nodo para navegar a su correspondiente ficha técnica.
+            </p>
+            <div className="mt-4">
+              <LocalRelationGraph 
+                selectedId={sd.id} 
+                onSelect={(id) => {
+                  const targetSd = getServiceDomainById(id);
+                  if (targetSd) {
+                    router.push(assertInternalRoute(`/service-domains/${targetSd.slug}`));
+                  }
+                }}
+              />
+            </div>
+          </div>
+
           {/* Section: Related Service Domains */}
           <div className="mt-8 border-t border-slate-100 pt-8 print:border-none">
             <h2 className="text-sm font-extrabold text-slate-800 border-b border-slate-100 pb-2 uppercase tracking-wide">
-              14. Dominios de Servicio Relacionados ({relatedDomains.length})
+              15. Dominios de Servicio Relacionados ({relatedDomains.length})
             </h2>
             {relatedDomains.length > 0 ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mt-4 print:hidden">

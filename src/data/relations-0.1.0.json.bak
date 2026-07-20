@@ -1,0 +1,330 @@
+[
+  {
+    "id": "RAIA-REL-0001",
+    "sourceId": "RAIA-SD-020",
+    "targetId": "RAIA-SD-021",
+    "type": "depends-on",
+    "label": "Datos de Trabajador",
+    "description": "La resolución de identidad depende de la disponibilidad de los datos demográficos básicos del trabajador."
+  },
+  {
+    "id": "RAIA-REL-0002",
+    "sourceId": "RAIA-SD-021",
+    "targetId": "RAIA-SD-023",
+    "type": "validates",
+    "label": "Validación de Identidad",
+    "description": "Compara los datos demográficos contra los biométricos para resolver la identidad."
+  },
+  {
+    "id": "RAIA-REL-0003",
+    "sourceId": "RAIA-SD-023",
+    "targetId": "RAIA-SD-031",
+    "type": "provides-to",
+    "label": "Expediente Electrónico",
+    "description": "Proporciona la firma biométrica validada al expediente electrónico único."
+  },
+  {
+    "id": "RAIA-REL-0004",
+    "sourceId": "RAIA-SD-031",
+    "targetId": "RAIA-SD-045",
+    "type": "depends-on",
+    "label": "Validación de Traspaso",
+    "description": "La solicitud de traspaso requiere la integración y validación previa del expediente digital del trabajador."
+  },
+  {
+    "id": "RAIA-REL-0005",
+    "sourceId": "RAIA-SD-045",
+    "targetId": "RAIA-SD-077",
+    "type": "triggers",
+    "label": "Afectación Operativa",
+    "description": "La liquidación y confirmación del traspaso desencadena la regularización y balance de saldos de la cuenta individual."
+  },
+  {
+    "id": "RAIA-REL-0006",
+    "sourceId": "RAIA-SD-045",
+    "targetId": "RAIA-SD-020",
+    "type": "depends-on",
+    "label": "Consulta de Datos",
+    "description": "Consulta y valida el estatus laboral y datos de cuenta del trabajador antes del traspaso."
+  },
+  {
+    "id": "RAIA-REL-0007",
+    "sourceId": "RAIA-SD-045",
+    "targetId": "RAIA-SD-021",
+    "type": "depends-on",
+    "label": "Certeza de Identidad",
+    "description": "Requiere la validación y resolución de identidad del trabajador solicitante."
+  },
+  {
+    "id": "RAIA-REL-0008",
+    "sourceId": "RAIA-SD-045",
+    "targetId": "RAIA-SD-023",
+    "type": "validates",
+    "label": "Firma de Traspaso",
+    "description": "Valida la autenticidad biométrica y la firma del consentimiento expreso de traspaso."
+  },
+  {
+    "id": "RAIA-REL-0009",
+    "sourceId": "RAIA-SD-045",
+    "targetId": "RAIA-SD-031",
+    "type": "shares-data-with",
+    "label": "Integridad de Documental",
+    "description": "Comparte los folios y documentos del trámite de traspaso con el expediente digital único."
+  },
+  {
+    "id": "RAIA-REL-0010",
+    "sourceId": "RAIA-SD-045",
+    "targetId": "RAIA-SD-077",
+    "type": "triggers",
+    "label": "Regularización de Saldos",
+    "description": "Inicia la regularización de la cuenta individual en el sistema receptor al confirmarse el traspaso."
+  },
+  {
+    "id": "RAIA-REL-0011",
+    "sourceId": "RAIA-SD-089",
+    "targetId": "RAIA-SD-090",
+    "type": "triggers",
+    "label": "Conciliación de Aportación",
+    "description": "La recepción de pagos de aportaciones patronales inicia el proceso de recaudación."
+  },
+  {
+    "id": "RAIA-REL-0012",
+    "sourceId": "RAIA-SD-090",
+    "targetId": "RAIA-SD-105",
+    "type": "orchestrates",
+    "label": "Cierre de Recaudación",
+    "description": "Orquesta y valida la conciliación de los recursos recaudados contra las aportaciones determinadas."
+  },
+  {
+    "id": "RAIA-REL-0013",
+    "sourceId": "RAIA-SD-105",
+    "targetId": "RAIA-SD-077",
+    "type": "triggers",
+    "label": "Aplicación de Aportación",
+    "description": "La conciliación de recursos aprobada desencadena la regularización y balance final de movimientos de cuenta."
+  },
+  {
+    "id": "RAIA-REL-0014",
+    "sourceId": "RAIA-SD-077",
+    "targetId": "RAIA-SD-112",
+    "type": "triggers",
+    "label": "Compra de Acciones",
+    "description": "La acreditación de saldos en la cuenta individual del trabajador detona la compra de acciones en las SIEFORE."
+  },
+  {
+    "id": "RAIA-REL-0015",
+    "sourceId": "RAIA-SD-112",
+    "targetId": "RAIA-SD-127",
+    "type": "provides-to",
+    "label": "Asignación de Activos",
+    "description": "Proporciona las asignaciones de activos resultantes al módulo de valuación de portafolio de la SIEFORE."
+  },
+  {
+    "id": "RAIA-REL-0016",
+    "sourceId": "RAIA-SD-111",
+    "targetId": "RAIA-SD-112",
+    "type": "orchestrates",
+    "label": "Alineación de Estrategia",
+    "description": "Orquesta la asignación y compra de portafolios conforme a los límites y trayectorias de inversión definidos."
+  },
+  {
+    "id": "RAIA-REL-0017",
+    "sourceId": "RAIA-SD-112",
+    "targetId": "RAIA-SD-125",
+    "type": "triggers",
+    "label": "Instrucción de Operación",
+    "description": "Detona el envío de instrucciones de mercado al confirmarse los rebalanceos del portafolio."
+  },
+  {
+    "id": "RAIA-REL-0018",
+    "sourceId": "RAIA-SD-125",
+    "targetId": "RAIA-SD-127",
+    "type": "triggers",
+    "label": "Operaciones Liquidadas",
+    "description": "El cierre de operaciones liquidadas detona la valuación actualizada de los portafolios de las SIEFORE."
+  },
+  {
+    "id": "RAIA-REL-0019",
+    "sourceId": "RAIA-SD-127",
+    "targetId": "RAIA-SD-129",
+    "type": "triggers",
+    "label": "Validación Normativa",
+    "description": "La valuación final del portafolio inicia la validación del cumplimiento de límites regulatorios financieros."
+  },
+  {
+    "id": "RAIA-REL-0020",
+    "sourceId": "RAIA-SD-139",
+    "targetId": "RAIA-SD-132",
+    "type": "validates",
+    "label": "Evaluación de Riesgo",
+    "description": "Valida el perfil del portafolio contra las políticas y límites de riesgo de mercado aprobados."
+  },
+  {
+    "id": "RAIA-REL-0021",
+    "sourceId": "RAIA-SD-132",
+    "targetId": "RAIA-SD-129",
+    "type": "triggers",
+    "label": "Cierre de Cumplimiento",
+    "description": "El reporte de riesgos analizados se envía para el cierre de auditoría y cumplimiento del régimen de inversión."
+  },
+  {
+    "id": "RAIA-REL-0022",
+    "sourceId": "RAIA-SD-129",
+    "targetId": "RAIA-SD-024",
+    "type": "triggers",
+    "label": "Reporte Regulatorio",
+    "description": "Inicia la compilación del reporte de cumplimiento del régimen de inversión para su envío a la autoridad."
+  },
+  {
+    "id": "RAIA-REL-0023",
+    "sourceId": "RAIA-SD-156",
+    "targetId": "RAIA-SD-154",
+    "type": "triggers",
+    "label": "Cuentas Elegibles",
+    "description": "La identificación de cuentas elegibles para el Fondo Bienestar inicia el proceso de desinversión y transferencia."
+  },
+  {
+    "id": "RAIA-REL-0024",
+    "sourceId": "RAIA-SD-154",
+    "targetId": "RAIA-SD-024",
+    "type": "triggers",
+    "label": "Notificación a CONSAR",
+    "description": "Notifica y reporta las transferencias de cuentas individuales no reclamadas a la autoridad."
+  },
+  {
+    "id": "RAIA-REL-0025",
+    "sourceId": "RAIA-SD-154",
+    "targetId": "RAIA-SD-077",
+    "type": "triggers",
+    "label": "Afectación de Saldos",
+    "description": "El traspaso de saldos al Fondo Bienestar detona la regularización a cero de la cuenta individual en el sistema."
+  },
+  {
+    "id": "RAIA-REL-0026",
+    "sourceId": "RAIA-SD-024",
+    "targetId": "RAIA-SD-019",
+    "type": "reports-to",
+    "label": "Reporte Operativo",
+    "description": "El envío de información regulatoria sustenta la supervisión preventiva de la autoridad."
+  },
+  {
+    "id": "RAIA-REL-0027",
+    "sourceId": "RAIA-SD-019",
+    "targetId": "RAIA-SD-025",
+    "type": "depends-on",
+    "label": "Auditoría en Sitio",
+    "description": "La supervisión preventiva orienta la atención y desahogo de visitas de inspección o requerimientos formales."
+  },
+  {
+    "id": "RAIA-REL-0028",
+    "sourceId": "RAIA-SD-039",
+    "targetId": "RAIA-SD-041",
+    "type": "depends-on",
+    "label": "Gobernanza de Ciberseguridad",
+    "description": "La gestión de vulnerabilidades y ciberseguridad soporta las políticas de seguridad de información corporativa."
+  },
+  {
+    "id": "RAIA-REL-0029",
+    "sourceId": "RAIA-SD-041",
+    "targetId": "RAIA-SD-220",
+    "type": "validates",
+    "label": "Políticas de Acceso",
+    "description": "Valida que las identidades y accesos del personal cumplan con los lineamientos de seguridad de información."
+  },
+  {
+    "id": "RAIA-REL-0030",
+    "sourceId": "RAIA-SD-220",
+    "targetId": "RAIA-SD-055",
+    "type": "triggers",
+    "label": "Auditoría de Derechos",
+    "description": "La actualización de identidades detona la revisión de derechos de acceso específicos a información de trabajadores."
+  },
+  {
+    "id": "RAIA-REL-0031",
+    "sourceId": "RAIA-SD-199",
+    "targetId": "RAIA-SD-024",
+    "type": "provides-to",
+    "label": "Datos Consolidados",
+    "description": "El intercambio de información sectorial provee datos consolidados para el reporte regulatorio de la Afore."
+  },
+  {
+    "id": "RAIA-REL-0032",
+    "sourceId": "RAIA-SD-215",
+    "targetId": "RAIA-SD-090",
+    "type": "depends-on",
+    "label": "Líneas de Pago",
+    "description": "La recaudación de aportaciones depende de la integración e intercambio seguro con bancos receptores."
+  },
+  {
+    "id": "RAIA-REL-0033",
+    "sourceId": "RAIA-SD-245",
+    "targetId": "RAIA-SD-029",
+    "type": "reports-to",
+    "label": "Riesgo de Portafolio",
+    "description": "El portafolio de proyectos empresariales reporta sus métricas para consolidar la gestión de riesgo corporativa."
+  },
+  {
+    "id": "RAIA-REL-0034",
+    "sourceId": "RAIA-SD-256",
+    "targetId": "RAIA-SD-007",
+    "type": "provides-to",
+    "label": "Insumos de Modelado",
+    "description": "La analítica proporciona insumos para la actualización del marco y reglas del negocio."
+  },
+  {
+    "id": "RAIA-REL-0035",
+    "sourceId": "RAIA-SD-258",
+    "targetId": "RAIA-SD-111",
+    "type": "provides-to",
+    "label": "Insumos de Inversión",
+    "description": "El análisis de modelos financieros proporciona simulaciones para la definición de la estrategia de inversión."
+  },
+  {
+    "id": "RAIA-REL-0036",
+    "sourceId": "RAIA-SD-266",
+    "targetId": "RAIA-SD-245",
+    "type": "orchestrates",
+    "label": "Alineación Estratégica",
+    "description": "El portafolio de innovación orquesta y alinea las iniciativas tecnológicas con la estrategia empresarial."
+  },
+  {
+    "id": "RAIA-REL-0037",
+    "sourceId": "RAIA-SD-268",
+    "targetId": "RAIA-SD-008",
+    "type": "validates",
+    "label": "Pilotos Regulatorios",
+    "description": "El sandbox valida el impacto operativo de propuestas normativas antes de la formalización del cambio regulatorio."
+  },
+  {
+    "id": "RAIA-REL-0038",
+    "sourceId": "RAIA-SD-109",
+    "targetId": "RAIA-SD-105",
+    "type": "validates",
+    "label": "Cierre de Diferencias",
+    "description": "Las aclaraciones validan y corrigen los registros que presentan inconsistencias en el proceso de conciliación."
+  },
+  {
+    "id": "RAIA-REL-0039",
+    "sourceId": "RAIA-SD-113",
+    "targetId": "RAIA-SD-112",
+    "type": "orchestrates",
+    "label": "Mandatos de Inversión",
+    "description": "Orquesta y alinea la construcción del portafolio con las restricciones y mandatos especiales autorizados."
+  },
+  {
+    "id": "RAIA-REL-0040",
+    "sourceId": "RAIA-SD-116",
+    "targetId": "RAIA-SD-111",
+    "type": "provides-to",
+    "label": "Portafolio Objetivo",
+    "description": "Proporciona la estructura del portafolio objetivo para orientar la definición de las trayectorias de inversión."
+  },
+  {
+    "id": "RAIA-REL-0041",
+    "sourceId": "RAIA-SD-128",
+    "targetId": "RAIA-SD-129",
+    "type": "validates",
+    "label": "Perfil de Riesgo",
+    "description": "Valida que la exposición de riesgo de la cartera se mantenga dentro de los límites autorizados del régimen de inversión."
+  }
+]

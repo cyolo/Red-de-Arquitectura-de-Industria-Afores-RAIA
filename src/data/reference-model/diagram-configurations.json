@@ -1,0 +1,20 @@
+[
+  {
+    "id": "diag-ecosystem",
+    "elkConfiguration": {
+      "elk.direction": "RIGHT",
+      "elk.spacing.nodeNode": "70",
+      "elk.layered.spacing.nodeNodeBetweenLayers": "110",
+      "elk.edgeRouting": "ORTHOGONAL"
+    }
+  },
+  {
+    "id": "diag-value-chain",
+    "elkConfiguration": {
+      "elk.direction": "RIGHT",
+      "elk.spacing.nodeNode": "55",
+      "elk.layered.spacing.nodeNodeBetweenLayers": "100",
+      "elk.edgeRouting": "ORTHOGONAL"
+    }
+  }
+]

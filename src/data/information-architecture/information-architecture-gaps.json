@@ -1,0 +1,20 @@
+[
+  {
+    "id": "GAP-IA-001",
+    "name": "Expediente Digital sin Propietario Asignado",
+    "description": "El objeto Expediente Digital de Identificación carece de un comité o propietario institucional formal en los metadatos.",
+    "severity": "medium",
+    "targetId": "RAIA-BO-002",
+    "targetType": "business-object",
+    "status": "proposed"
+  },
+  {
+    "id": "GAP-IA-002",
+    "name": "Duplicidad Semántica en Ahorrador / Trabajador",
+    "description": "Se detectó que el término 'Ahorrador' se utiliza como sinónimo no oficial de 'Trabajador' en varios Service Domains.",
+    "severity": "low",
+    "targetId": "RAIA-ICON-001",
+    "targetType": "information-concept",
+    "status": "proposed"
+  }
+]

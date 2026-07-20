@@ -1,0 +1,38 @@
+[
+  {
+    "id": "RAIA-DPRD-001",
+    "slug": "expediente-identificacion-api",
+    "name": "Expediente de Identificación Consolidado",
+    "description": "Producto de datos biométrico e identificatorio unificado para la verificación de identidad del ahorrador.",
+    "purpose": "Proveer autenticación segura y certificada en trámites sectoriales.",
+    "informationDomainId": "RAIA-IDOM-001",
+    "businessObjectIds": ["RAIA-BO-001", "RAIA-BO-002"],
+    "attributeIds": ["CURP", "NSS", "Nombre"],
+    "producerServiceDomainIds": ["RAIA-SD-021"],
+    "consumerServiceDomainIds": ["RAIA-SD-025", "RAIA-SD-141"],
+    "ownerRoleIds": ["information-owner"],
+    "stewardRoleIds": ["data-steward"],
+    "qualityRuleIds": ["RAIA-IQR-001"],
+    "classificationIds": ["RAIA-ICLAS-005"],
+    "serviceLevelExpectations": ["SLA de respuesta < 200ms", "Disponibilidad 99.9%"],
+    "status": "candidate"
+  },
+  {
+    "id": "RAIA-DPRD-002",
+    "slug": "estado-cuenta-periodico",
+    "name": "Estado de Cuenta y Saldos SAR",
+    "description": "Resumen cuatrimestral consolidado de saldos, aportaciones y plusvalías de las subcuentas.",
+    "purpose": "Comunicar al trabajador la evolución financiera de sus fondos.",
+    "informationDomainId": "RAIA-IDOM-003",
+    "businessObjectIds": ["RAIA-BO-004", "RAIA-BO-005"],
+    "attributeIds": ["MontoRetiro"],
+    "producerServiceDomainIds": ["RAIA-SD-030"],
+    "consumerServiceDomainIds": ["RAIA-SD-162"],
+    "ownerRoleIds": ["information-owner"],
+    "stewardRoleIds": ["data-steward"],
+    "qualityRuleIds": [],
+    "classificationIds": ["RAIA-ICLAS-004"],
+    "serviceLevelExpectations": ["Entrega física y digital en < 15 días posteriores al corte"],
+    "status": "candidate"
+  }
+]

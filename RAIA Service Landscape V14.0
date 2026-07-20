@@ -1,0 +1,471 @@
+RAIA Service Landscape V14.0 — Value Chain View
+Resumen ejecutivo: Este README describe la visión y requisitos para desarrollar RAIA (Red de Arquitectura de Industria Afores): un portal web interactivo inspirado en la arquitectura BIAN V14.0 adaptada al Sistema de Ahorro para el Retiro mexicano. RAIA modela las capacidades, dominios de negocio y Service Domains de toda la industria AFORE, interconectados conforme a un flujo de valor (cadena de valor). El portal debe mostrar tres niveles jerárquicos (Áreas de Negocio → Dominios de Negocio → Service Domains), permitir pan/zoom, filtros, búsqueda y un panel de detalles, con rutas navegables a cada entidad. Debe priorizar claridad, navegabilidad y trazabilidad de la estrategia a la operación, manteniendo independencias de implementación. RAIA será una arquitectura de referencia neutral (no reemplaza las leyes ni sistemas reales). El sitio debe compilar y ejecutarse, cumplir criterios funcionales, visuales, de accesibilidad y seguridad, con tests y exportación de datos.
+
+Objetivo del proyecto
+Construir un portal web «RAIA Service Landscape V14.0 — Value Chain View» que sirva como marco de referencia para la industria AFORE en México. El objetivo es documentar y visualizar las capacidades, dominios y Service Domains del SAR mexicano, mostrando sus interacciones, objetos de negocio, actores, regulaciones y controles, en línea con la estrategia de negocio. Se prioriza convertir el complejo ecosistema del SAR en una arquitectura comprensible, trazable y navegable, usando como guía la estructura de BIAN 14.0 adaptada al contexto local. El portal debe servir a arquitectos, reguladores, operadores y auditores para entender la red de responsabilidades de la industria.
+
+Alcance
+Vistas mínimas:
+Vista Cadena de Valor: Principal (pantalla «RAIA Service Landscape V14.0 — Value Chain View»), mostrando Áreas → Dominios → Service Domains con un layout en chevrons o gráficas de flujo.
+Ficha de Service Domain: Página detallada por /service-domains/[slug], con información completa (definición, capacidades, operaciones, eventos, objetos, regulación, NFRs, KPIs, relaciones, etc.).
+Ficha de Dominio de Negocio: /business-domains/[slug], listando los Service Domains asociados y su descripción.
+Ficha de Área de Negocio: /business-areas/[slug], listando sus dominios y breve descripción de la misión del área.
+Metodología: /methodology, explicación del metamodelo RAIA (definiciones de Área, Dominio, Service Domain, objetos de negocio, eventos, relación con regulaciones y controles).
+Funcionalidades mínimas: Pan/zoom interactivo del diagrama, selección de nodos, resaltado de relaciones, panel lateral de detalles, navegación por teclado, búsqueda difusa (Ctrl+K) en todo el modelo, filtros múltiples, minimapa, exportación a PNG/PDF/JSON, deep linking de selección, responsividad (mobile/tablet con versión alternativa accesible).
+Contenido inicial: Deben cargarse datos semilla incluyendo al menos 11 Áreas de Negocio propuestas (por ejemplo, “Gobierno del SAR”, “Cumplimiento”, “Identidad y Cuenta”, etc.), cada una con varios Dominios de Negocio, y los Service Domains básicos (~150 en total) definidos en JSON. Incluiremos un ejemplo completo de SD (“Traspaso de Cuenta” ID RAIA-SD-045) como demostración. El enfoque es capacidad por jerarquía, no inventario de trámites o sistemas particulares.
+Stack recomendado y reglas de repositorio
+Regla principal: Si existe un repositorio existente con tecnología definida, adaptar la solución a ese stack. No migrar ni reescribir todo sin razón.
+
+Stack sugerido (si se parte de cero): Next.js 15+ (App Router) con React y TypeScript en modo strict. Para UI: Tailwind CSS junto con shadcn/ui o componentes internos. Para visualización de grafo: bibliotecas como ELK.js/elkjs u otras (ej. @xyflow/react para layout). Estado de interfaz: Zustand o similar. Validación de datos con Zod. Búsqueda difusa con Fuse.js. Iconos con Lucide. Testing: Vitest (unitarios) y React Testing Library (componentes); Playwright (e2e). Formato: ESLint + Prettier.
+
+Scripts npm: Incluir en package.json scripts estándares. Ejemplo:
+
+jsonc
+Copiar
+{
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "validate:data": "ts-node scripts/validateData.ts",
+    "test": "vitest run",
+    "test:ui": "vitest --ui",
+    "test:e2e": "playwright test"
+  }
+}
+Configuraciones: Mantener que la aplicación consuma datos JSON desde /data para poder integrar en futuro APIs/CMS. No requiere backend ni base de datos en MVP. Usar buenas prácticas de seguridad (CSP, sanitización, no exponer secretos).
+
+Estructura de carpetas y archivos
+Se propone la siguiente estructura inicial (adaptar según convenciones actuales):
+
+ruby
+Copiar
+src/
+├─ app/
+│   ├─ page.tsx                           # página raíz redirige a /service-landscape/value-chain
+│   ├─ service-landscape/
+│   │   └─ value-chain/
+│   │       └─ page.tsx                  # Vista de cadena de valor principal
+│   ├─ service-domains/
+│   │   └─ [slug]/
+│   │       └─ page.tsx                  # Ficha de Service Domain
+│   ├─ business-domains/
+│   │   └─ [slug]/
+│   │       └─ page.tsx                  # Ficha de Dominio de Negocio
+│   ├─ business-areas/
+│   │   └─ [slug]/
+│   │       └─ page.tsx                  # Ficha de Área de Negocio
+│   └─ methodology/
+│       └─ page.tsx                      # Pág. metodología (metamodelo y estado)
+├─ components/                           # Componentes React reutilizables (layout, tarjetas, paneles, etc.)
+├─ features/service-landscape/           # Funcionalidad: gráficos, filtros, búsqueda
+│   ├─ Graph.tsx
+│   ├─ SearchBar.tsx
+│   ├─ Filters.tsx
+│   ├─ ...
+│   └─ serviceDomainPanel.tsx
+├─ domain/                               # Dominio del modelo de datos
+│   ├─ schemas.ts                        # Zod schemas para validar JSON
+│   ├─ types.ts                          # TypeScript interfaces (BusinessArea, BusinessDomain, ServiceDomain, etc.)
+│   └─ repositories.ts                   # Carga de datos JSON
+├─ data/                                 # Datos semilla
+│   ├─ raia-v14.0.json                   # Contiene BusinessAreas, BusinessDomains, ServiceDomains
+│   ├─ relations-v14.0.json              # Relaciones iniciales entre SDs (pendiente)
+│   ├─ regulations-v14.0.json            # Referencias regulatorias base (LCATs)
+│   └─ scenarios-v14.0.json              # (opcional) Business Scenarios initial
+├─ lib/                                  # Librerías auxiliares (por ej. funciones de layout, utilitarios)
+├─ styles/                               # CSS/Tailwind adicionales
+docs/
+├─ architecture.md                       # Descripción de arquitectura y decisiones
+├─ data-model.md                         # Esquema de datos y metamodelo
+├─ content-governance.md                 # Políticas de contenido, flujos de publicación
+├─ visual-language.md                    # Línea gráfica recomendada y paleta de colores
+├─ adr/                                  # Arquitectural Decision Records (ops)
+│   ├─ 001-Visualizacion.md
+│   └─ 002-DataStorage.md
+README.md (este archivo de prompt)          # Guía y requisitos
+Metamodelo y esquemas (resumido)
+La base de datos conceptual de RAIA define entidades clave: BusinessArea, BusinessDomain, ServiceDomain, BusinessObject, BusinessEvent, RegulationReference, ArchitectureControl, etc. Cada entidad incluirá un identificador único (ID) alfanumérico fijo (p.e. RAIA-BA-001, RAIA-BD-001, RAIA-SD-001, etc.), nombre, descripción y metadatos (estado, versión, tags).
+
+Ejemplo de tipado TS (resumido):
+
+ts
+Copiar
+interface BusinessArea {
+  id: string;          // "RAIA-BA-001"
+  slug: string;        // "gobierno-sar"
+  nameEs: string;      // Nombre en español
+  description: string;
+  colorToken: string;  // color asociado para visualización
+  order: number;
+  layoutZone: string;  // etiqueta de posición macro
+  tags: string[];
+}
+interface BusinessDomain {
+  id: string;            // "RAIA-BD-011"
+  slug: string;          // "traspaso-cuenta"
+  nameEs: string;
+  businessAreaId: string; // "RAIA-BA-004"
+  description: string;
+  order: number;
+  serviceDomainIds: string[];
+  tags: string[];
+}
+interface ServiceDomain {
+  id: string;            // "RAIA-SD-045"
+  slug: string;          // "traspaso-de-cuenta"
+  nameEs: string;
+  businessAreaId: string;// "RAIA-BA-004"
+  businessDomainId: string; // "RAIA-BD-011"
+  summary: string;
+  definition: string;
+  focusObject: { name: string; description: string };
+  capabilities: string[];
+  serviceOperations: { id: string; name: string; description: string; operationType: string }[];
+  businessEvents: { id: string; name: string; description: string; direction: string }[];
+  accountableActors: string[];
+  participatingActors: string[];
+  regulations: { id: string; name: string; authority: string; mandatory: boolean }[];
+  controls: { id: string; name: string; description: string; controlType: string }[];
+  evidences: string[];
+  nfrs: { category: string; statement: string }[];
+  kpis: { name: string; description: string }[];
+  relatedServiceDomainIds: string[];
+  valueStreams: string[];
+  version: string;
+  status: string;
+  tags: string[];
+}
+Cada JSON debe validarse con Zod según estos esquemas. Se crearán scripts de validación (npm run validate:data) que fallan el build si hay inconsistencias (IDs duplicados, slugs faltantes, relaciones inválidas, etc.).
+
+Datos semilla mínimos
+Los archivos JSON en /data deben incluir:
+
+Áreas de Negocio (RAIA-BA): Lista de ~11 áreas generales (p.e. “Gobierno y Dirección del SAR”, “Riesgo y Supervisión”, “Identidad y Cuenta”, “Recaudación”, “Inversión y SIEFORE”, “Retiros y Pensiones”, “Servicio y Canales”, “Compartidos de Industria”, “Infraestructura y Tecnología”, “Innovación y Conocimiento”, etc.), cada una con id, slug, nameEs, description, colorToken, order.
+
+Dominios de Negocio (RAIA-BD): Por cada Área, varios dominios coherentes (p.e. en “Afiliación y Cuenta”: “Localización de Cuenta”, “Registro en AFORE”, “Traspaso de Cuenta”, etc.), con id, slug, nameEs, businessAreaId, description, order, serviceDomainIds.
+
+Service Domains (RAIA-SD): Al menos 150 Service Domains, cada uno con los campos como en el metamodelo. Se incluirá el siguiente SD de ejemplo completo:
+
+jsonc
+Copiar
+{
+  "id": "RAIA-SD-045",
+  "slug": "traspaso-de-cuenta",
+  "businessAreaId": "RAIA-BA-004",
+  "businessDomainId": "RAIA-BD-011",
+  "nameEs": "Traspaso de Cuenta",
+  "nameEn": "Individual Account Transfer",
+  "aliases": ["Traspaso AFORE", "Transferencia de Cuenta Individual"],
+  "summary": "Gestiona el cambio de administración de una cuenta individual entre administradoras autorizadas.",
+  "definition": "Administra el ciclo de vida de una solicitud de traspaso, desde iniciación y consentimiento hasta validación, ejecución y confirmación de la transferencia de recursos.",
+  "focusObject": {
+    "name": "Solicitud de Traspaso",
+    "description": "Registro con intención, consentimiento y validaciones del trabajador que solicita cambiar de AFORE."
+  },
+  "capabilities": [
+    "Iniciar solicitud de traspaso",
+    "Validar identidad y consentimiento",
+    "Determinar elegibilidad",
+    "Coordinar AFORE receptora y transferente",
+    "Gestionar folios y acuses",
+    "Transferir información y recursos",
+    "Cancelar o rechazar solicitudes",
+    "Registrar evidencia de proceso"
+  ],
+  "serviceOperations": [
+    {
+      "id": "RAIA-SO-045-01",
+      "name": "Iniciar traspaso",
+      "description": "Registra una nueva solicitud de traspaso.",
+      "operationType": "initiate"
+    },
+    {
+      "id": "RAIA-SO-045-02",
+      "name": "Validar identidad",
+      "description": "Comprueba la identidad del trabajador mediante CURP/NSS/biometría.",
+      "operationType": "validate"
+    },
+    {
+      "id": "RAIA-SO-045-03",
+      "name": "Determinar elegibilidad",
+      "description": "Verifica que la cuenta cumple criterios legales para traspaso.",
+      "operationType": "validate"
+    },
+    {
+      "id": "RAIA-SO-045-04",
+      "name": "Ejecutar traspaso",
+      "description": "Coordina la transferencia de recursos y datos entre AFOREs.",
+      "operationType": "execute"
+    },
+    {
+      "id": "RAIA-SO-045-05",
+      "name": "Cancelar traspaso",
+      "description": "Cancela una solicitud de traspaso bajo condiciones permitidas.",
+      "operationType": "update"
+    }
+  ],
+  "businessEvents": [
+    {
+      "id": "RAIA-BE-045-01",
+      "name": "Traspaso solicitado",
+      "description": "Se ha registrado una nueva solicitud de traspaso.",
+      "direction": "produces"
+    },
+    {
+      "id": "RAIA-BE-045-02",
+      "name": "Identidad validada",
+      "description": "La identidad del trabajador fue validada correctamente.",
+      "direction": "consumes"
+    },
+    {
+      "id": "RAIA-BE-045-03",
+      "name": "Traspaso aprobado",
+      "description": "La solicitud de traspaso cumple los criterios necesarios.",
+      "direction": "produces"
+    },
+    {
+      "id": "RAIA-BE-045-04",
+      "name": "Recursos transferidos",
+      "description": "Los recursos de la cuenta fueron transferidos a la AFORE receptora.",
+      "direction": "produces"
+    }
+  ],
+  "businessObjects": [
+    { "id": "RAIA-BO-045-01", "name": "Solicitud de Traspaso", "role": "focus" },
+    { "id": "RAIA-BO-001", "name": "Trabajador", "role": "reference" },
+    { "id": "RAIA-BO-010", "name": "Cuenta Individual", "role": "input" },
+    { "id": "RAIA-BO-012", "name": "Expediente Electrónico", "role": "input" }
+  ],
+  "accountableActors": ["AFORE receptora"],
+  "participatingActors": ["Trabajador", "AFORE transferente", "Empresa Operadora", "CONSAR"],
+  "regulations": [
+    {
+      "id": "RAIA-REG-LSAR",
+      "name": "Ley de los Sistemas de Ahorro para el Retiro",
+      "authority": "DOF/Congreso",
+      "mandatory": true,
+      "validationStatus": "official"
+    },
+    {
+      "id": "RAIA-REG-CUO",
+      "name": "Reglas operativas SAR (CUO)",
+      "authority": "CONSAR",
+      "mandatory": true,
+      "validationStatus": "pending-validation"
+    }
+  ],
+  "controls": [
+    {
+      "id": "RAIA-CTL-045-01",
+      "name": "Validación de identidad",
+      "description": "Comprobar identidad del trabajador según protocolos (CURP, NSS, biometría).",
+      "controlType": "preventive"
+    },
+    {
+      "id": "RAIA-CTL-045-02",
+      "name": "Consentimiento documentado",
+      "description": "Conservar evidencia íntegra del consentimiento del trabajador.",
+      "controlType": "evidence"
+    },
+    {
+      "id": "RAIA-CTL-045-03",
+      "name": "Trazabilidad de acciones",
+      "description": "Registrar folios, fechas, actores y resultados en cada etapa.",
+      "controlType": "detective"
+    }
+  ],
+  "evidences": [
+    "Consentimiento firmado o electrónico",
+    "Registro biométrico",
+    "Firma/datos autenticados",
+    "Folio de solicitud SAR",
+    "Acuse de transferencia",
+    "Log auditoría"
+  ],
+  "nfrs": [
+    {
+      "category": "Trazabilidad",
+      "statement": "Toda operación registra actor, fecha y cambios de estado en un log."
+    },
+    {
+      "category": "No Repudio",
+      "statement": "Consentimientos y autorizaciones deben conservarse en forma verificable."
+    },
+    {
+      "category": "Privacidad",
+      "statement": "Los datos sensibles deben cifrarse en reposo y tránsitos seguros."
+    },
+    {
+      "category": "Integridad",
+      "statement": "La solicitud no puede modificarse sin registro y autorización."
+    }
+  ],
+  "kpis": [
+    {
+      "name": "Tiempo de resolución de traspaso",
+      "description": "Tiempo promedio desde iniciación hasta finalización del traspaso.",
+      "frequency": "mensual"
+    },
+    {
+      "name": "Tasa de rechazo",
+      "description": "Porcentaje de solicitudes de traspaso rechazadas.",
+      "frequency": "mensual"
+    },
+    {
+      "name": "Tasa de cancelación",
+      "description": "Porcentaje de solicitudes canceladas por el usuario.",
+      "frequency": "mensual"
+    }
+  ],
+  "relatedServiceDomainIds": [
+    "RAIA-SD-020", "RAIA-SD-021", "RAIA-SD-023",
+    "RAIA-SD-031", "RAIA-SD-040", "RAIA-SD-046"
+  ],
+  "valueStreams": ["Administrar ciclo de vida de cuenta individual"],
+  "maturity": "defined",
+  "version": "14.0.0",
+  "status": "proposed",
+  "tags": ["cuenta individual","traspaso","identidad","consentimiento"],
+  "createdAt": "2026-07-12",
+  "updatedAt": "2026-07-12"
+}
+Este ejemplo ilustra la estructura general. Debe incluirse bajo data/raia-v14.0.json. El portal poblará dinámicamente las vistas a partir de estos datos.
+
+Rutas y deep links
+Las rutas mínimas a implementar son:
+
+Ruta URL	Descripción
+/	Redirige a /service-landscape/value-chain o página de bienvenida.
+/service-landscape/value-chain	Vista principal: diagrama de la cadena de valor (Áreas → Dominios → SD).
+/service-domains/[slug]	Detalle del Service Domain seleccionado (panel completo).
+/business-domains/[slug]	Vista de Dominio de Negocio, lista sus Service Domains.
+/business-areas/[slug]	Vista de Área de Negocio, lista sus dominios.
+/methodology	Pág. Metodología: explica estructuras RAIA (metamodelo, trazabilidad).
+
+Estas rutas deben ser “deep linkeables” y permitir compartir selecciones. Ejemplo: /service-landscape/value-chain?selected=RAIA-SD-045&area=identidad, filtrando vista. El uso de slug legibles facilita indexación y compartibilidad.
+
+Criterios de aceptación funcional
+Compilación y rutas: La app debe compilar sin errores y las rutas listadas deben cargar contenido correspondiente.
+Contenido mínimo: Deben existir las 11 Áreas de Negocio definidas, cada una con sus Dominios de Negocio y al menos 150 Service Domains cargados desde JSON.
+Diagrama dinámico: Las tarjetas de Áreas, Dominios y SD se generan automáticamente desde datos. El layout no es hard-coded; debe calcularse (p.e. con ELK.js) de forma determinista.
+Interactividad:
+Pan/zoom fluidos (60fps en PCs modernos).
+Zoom semántico: mostrar más detalles al acercar (pasar de ver solo áreas a ver dominios y SDs).
+Selección: clicar un SD abre panel lateral con sus detalles.
+Resaltar ancestros (Área, Dominio) al seleccionar un SD.
+Mostrar relaciones directas (flechas) sólo al activar “mostrar relacionados” o en panel de SD.
+Mínimo busca difusa (Ctrl+K) y filtros (por Área, actor, estado, etc.) que actualizan vista y URL.
+Navegación:
+Teclado: tabulación para botones, flechas para moverse entre nodos, Enter para abrir panel.
+Botón “restablecer” limpia selección, filtros, zoom y centrar.
+Datos y panel:
+El panel de SD lateral debe mostrar todos los campos del metamodelo (ejemplo anterior) con labels claros.
+Los links a archivos de regulación (DOF, congresos, CONSAR) deben usarse para “más info”.
+Movilidad y accesibilidad:
+Vista alternativa para móvil: quizás lista jerárquica o visor simplificado.
+Cumple WCAG AA (contraste, ARIA, sin reliance solo en colores, focus visibles, etc.).
+Exportación:
+Botones para generar imagen PNG (alta resolución A3) con título, versión, leyenda y nota legal.
+Estilos de impresión para exportar a PDF (ocultar elementos UI, incluir títulos/fecha).
+Opción de descargar JSON: todo el landscape o la selección/filtrado actual.
+Criterios de aceptación visual
+Jerarquía clara: Los contenedores de Áreas, Dominios y SD están bien diferenciados (colores legibles, bordes).
+Etiquetas visibles: Nombres de Áreas y Dominios siempre legibles; SDs legibles en zoom cerrado.
+Consistencia: Tamaño y estilo uniforme para tarjetas similares.
+Contraste y color: Se usa la paleta definida (azules institucionales, verdes, dorados) con contraste WCAG-AA. El color no es único indicador de estado o tipo.
+Claridad: No hay textos o elementos sobrepuestos. El panel de detalles lateral es legible y no oculta elementos críticos.
+Profesionalismo: El diseño se siente como arquitectura empresarial (sobrio, limpio, iconografía discreta), no como dashboard comercial.
+Pruebas y comandos obligatorios
+Pruebas unitarias (Vitest): Validación de esquemas Zod con datos de muestra; funciones de búsqueda/filtro; utilitarios de layout; conversión de datos a nodos del grafo.
+
+Pruebas de componentes: Renderizado de tarjetas (Área, Dominio, SD), panel de detalles, búsqueda, filtros, leyenda. Casos como vista vacía (sin resultados), error de carga, selección nula.
+
+Pruebas end-to-end (Playwright): Flujo típico: abrir Value Chain View, buscar “Traspaso de Cuenta”, seleccionar SD, verificar panel abre y URL cambia; filtrar por Área, limpiar filtros; probar navegación por teclado (tab/enter); simular mobile (viewport pequeño). No deben aparecer errores en consola.
+
+Scripts (tabla comandos):
+
+Comando	Descripción
+npm install	Instala dependencias del proyecto.
+npm run dev	Inicia servidor de desarrollo local (Next.js).
+npm run build	Construye la aplicación para producción.
+npm start	Inicia la app en modo producción.
+npm run lint	Ejecuta ESLint para chequeo de estilo/código.
+npm run typecheck	Comprueba tipados TypeScript.
+npm run validate:data	Valida datos JSON según esquemas (Zod).
+npm run test	Ejecuta tests unitarios (Vitest).
+npm run test:ui	Ejecuta tests unitarios con reporte UI.
+npm run test:e2e	Ejecuta tests end-to-end (Playwright).
+
+Ejemplo de sección scripts en package.json:
+
+jsonc
+Copiar
+"scripts": {
+  "dev": "next dev",
+  "build": "next build",
+  "start": "next start",
+  "lint": "eslint . --ext .ts,.tsx",
+  "typecheck": "tsc --noEmit",
+  "validate:data": "ts-node scripts/validateData.ts",
+  "test": "vitest run",
+  "test:e2e": "playwright test"
+}
+Validación de datos
+Al iniciar la app (o al ejecutar npm run validate:data), debe validarse todo el contenido JSON con Zod. Se deben detectar y reportar errores como IDs o slugs duplicados, Service Domains sin Área asociada, referencias regulatorias inexistentes, ciclos de dependencia inválidos, etc. El script debe detener el build si hay inconsistencias críticas.
+
+Accesibilidad y seguridad
+La aplicación debe cumplir WCAG 2.2 Nivel AA: navegación por teclado, enfoque visible, roles ARIA, etiquetas en inputs, textos alternativos en iconos, alto contraste, no depender solo de color. Incluir página alternativa o lista accesible para el diagrama (por ejemplo, árbol de accesibilidad).
+
+En seguridad: aplicar CSP, sanitizar cualquier contenido dinámico, usar rel="noopener noreferrer" en enlaces externos, no exponer tokens/secretos, validar URLs externas. No usar dangerouslySetInnerHTML sin sanitización. No incluir librerías vulnerables.
+
+Exportación
+PNG: Botón genera imagen de alta resolución (al menos A3 300dpi), incluyendo encabezado (“RAIA Service Landscape V14.0”), versión, fecha y leyenda.
+PDF: Estilos de impresión orientados a A3/A4 horizontal: oculta UI de controles, muestra título y versión en encabezado, exporta el diagrama completo con colores.
+JSON: Permitir descargar JSON del landscape completo, o sólo la subvista filtrada/seleccionada. (E.g. “Download JSON”).
+Gobernanza de contenido y estados
+Definir estados de contenido para RAIA:
+
+Estado	Descripción
+draft	En elaboración (borrador, sin revisar).
+proposed	Propuesto para revisión (pendiente de aprobación).
+validated	Revisado por expertos de contenido o regulación.
+active	Publicado y vigente en esta versión RAIA.
+deprecated	Obsoleto (se mantiene por historial, no usar en nueva versión).
+
+El README debería documentar cómo actualizar contenido: al añadir un nuevo Service Domain, dominio o área, se debe asignar estado inicial draft y avanza según ciclos de revisión. Incluir roles: arquitecto(es) responsable de definir y aprobar contenido, revisor(es) expertos de negocio/regulación, editores técnicos.
+
+Roadmap de versiones RAIA
+El desarrollo de RAIA seguirá iteraciones incrementales. Versión inicial mínima (MVP) y siguientes:
+
+Release	Contenido principal entregado
+RAIA 0.1 – Fundación	Glosario (términos clave), actores, metamodelo básico, corpus regulatorio recopilado. (P.ej., primeras áreas, dominios y SDs en JSON).
+RAIA 0.2 – Modelo Operativo	Definición de value streams principales y modelo operativo general. (Mapeo de responsabilidades entre participantes).
+RAIA 0.3 – Service Landscape	Estructura de Áreas de Negocio, Dominios y ~150 Service Domains, con enlaces iniciales. Layout y navegación básica implementada.
+RAIA 0.4 – Objetos de Negocio	Modelo de datos (entidades RAIA), atributos clave, “Golden Source” por dato. Actualización de fichas SD con referencias a objetos de negocio.
+RAIA 0.5 – Escenarios de Negocio	Escenarios end-to-end (registros, traspasos, aportaciones, pensiones), definición de eventos/casos de uso.
+RAIA 0.6 – Arquitectura de Controles	Mapeo completo de regulaciones, controles y evidencias en cada dominio. Incorporación de NFRs críticos y KPIs.
+RAIA 0.7 – Interoperabilidad	Especificación de APIs lógicas, mensajes y eventos clave para interoperabilidad (contratos, no implementaciones).
+RAIA 1.0 – Portal público	Lanzamiento de versión pública: navegación finalizada, versióning, historial, buscador, exportaciones y estado de métricas.
+
+Este roadmap debe ajustarse según avance del proyecto y feedback de stakeholders.
+
+Supuestos y vacíos a validar
+Se asume que la información legal pública (Leyes, Reglamentos) es suficiente para la arquitectura de alto nivel, pero falta validar detalles operativos internos (manuales, layouts, calendarios, protocolos con IMSS/ISSSTE/INFONAVIT, etc.).
+El listado inicial de áreas, dominios y SD es propuesto; debe confirmarse con especialistas de AFORE, supervisión y servicio al cliente.
+El modelo de datos (esquemas TS/Zod) y nombres de campos deben validarse con arquitectos de datos del sector.
+Detalles de UI/UX pueden evolucionar, pero se prioriza robustez funcional (layout, accesibilidad).
+Se presupone uso de tecnologías web modernas; se verificará compatibilidad con infraestructuras de TI de participantes.
+Fuentes prioritarias (contexto y normatividad)
+Consultar siempre las fuentes oficiales en español para el contenido de RAIA:
+
+Leyes federales: Ley de los Sistemas de Ahorro para el Retiro (DOF 14 nov 2025), Ley del Seguro Social, Ley del ISSSTE, Ley INFONAVIT, disposiciones FOVISSSTE.
+Protección al usuario: Ley para la Transparencia y Ordenamiento de los Servicios Financieros (CONDUSEF), Ley de Protección al Ahorro (LPDUSF).
+Protección de datos: Ley Federal de Protección de Datos Personales (LFPDPPP, reformas 2020-2025).
+Regulación SAR: Reglamento de la LSAR, Disposiciones generales CONSAR (CUO, CUF, Régimen de Inversión, Circulares CONSAR recientes). Fuentes: Diario Oficial (DOF) y sitio SINOR/CONSAR.
+Operación SAR: Manuales operativos de la empresa operadora y proveedores (pendientes).
+Estandares: ISO 20022 para datos financieros (enlazado por BIAN V14.0), TOGAF 10 para proceso de arquitectura (gobierno/transición), ArchiMate 4 e ISO/IEC/IEEE 42010 para documentación NFRs.
+Inspiración BIAN: El Service Landscape 14.0 de BIAN (valor cadena, dominios de servicio) guía la estructura de RAIA. Se utilizará como referencia conceptual, no se copiará texto o logo propiedad de BIAN.
+Nota legal: RAIA utiliza el modelo y vocablo de BIAN V14.0 como inspiración, pero su contenido es original. No se incorpora material protegido de BIAN (texto, diagramas, logos). RAIA es un esfuerzo independiente para el sector SAR en México.

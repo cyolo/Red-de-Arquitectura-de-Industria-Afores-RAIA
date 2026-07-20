@@ -1,0 +1,12 @@
+[
+  {
+    "id": "GAP-BO-0001",
+    "gapType": "unmapped-object",
+    "businessObjectId": "RAIA-BO-0003",
+    "title": "Beneficiario sin Mapeo de Escenario",
+    "description": "El objeto de negocio Beneficiario no está mapeado como input ni output de ninguna operación de servicio o escenario en el baseline actual.",
+    "severity": "P2",
+    "recommendation": "Asociar en el escenario de Dictaminación de Retiro por Beneficiarios.",
+    "status": "open"
+  }
+]

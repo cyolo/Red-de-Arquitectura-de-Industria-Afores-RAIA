@@ -1,0 +1,21 @@
+{
+  "id": "RAIA-SNP-MAN-001",
+  "name": "RAIA Scenario Snippets Manifest",
+  "version": "0.1.0",
+  "activeSnippets": [
+    "RAIA-SNP-0001",
+    "RAIA-SNP-0002",
+    "RAIA-SNP-0003",
+    "RAIA-SNP-0004",
+    "RAIA-SNP-0005",
+    "RAIA-SNP-0006",
+    "RAIA-SNP-0007",
+    "RAIA-SNP-0008",
+    "RAIA-SNP-0009",
+    "RAIA-SNP-0010",
+    "RAIA-SNP-0011",
+    "RAIA-SNP-0012",
+    "RAIA-SNP-0013",
+    "RAIA-SNP-0014"
+  ]
+}

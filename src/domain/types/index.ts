@@ -113,6 +113,13 @@ export interface KPI {
   frequency?: string;
 }
 
+export type LandscapeLayer =
+  | "sector-governance"
+  | "industry-value-stream"
+  | "industry-shared-service"
+  | "enterprise-enabler"
+  | "raia-governance-overlay";
+
 export interface ServiceDomain {
   id: string;
   slug: string;
@@ -162,6 +169,24 @@ export interface ServiceDomain {
   version: string;
   status: LifecycleStatus;
 
+  // Extended regulatory fields
+  landscapeLayer?: LandscapeLayer;
+  responsibilityStatement?: string;
+  responsibilityBoundary?: string;
+  participantIds?: string[];
+  accountableParticipantIds?: string[];
+  regulatoryMappingIds?: string[];
+  regulatoryCoverage?: "unmapped" | "partial" | "mapped" | "reviewed" | "not-applicable";
+  applicableRegimeIds?: string[];
+  regulatoryCriticality?: "none" | "low" | "medium" | "high" | "systemic";
+  capabilityType?: "regulated-core" | "industry-shared" | "enterprise-enabler" | "raia-governance";
+  assumptions?: string[];
+  unresolvedQuestions?: string[];
+  operationalValidationStatus?: "pending" | "reviewed" | "validated";
+  regulatoryValidationStatus?: "pending" | "partially-reviewed" | "legally-reviewed" | "architecture-reviewed";
+  lastRegulatoryReviewAt?: string;
+  regulatoryNonApplicabilityReason?: string;
+
   tags: string[];
   createdAt: string;
   updatedAt: string;
@@ -181,10 +206,15 @@ export interface LandscapeRelation {
     | "transfers-to"
     | "shares-data-with"
     | "triggers";
-  label?: string;
-  description?: string;
+  label: string;
+  description: string;
   bidirectional?: boolean;
-}
+  businessObjectIds?: string[];
+  serviceOperationIds?: string[];
+  businessEventIds?: string[];
+  regulatoryMappingIds?: string[];
+  validationStatus?: "pending" | "reviewed";
+  assumptions?: string[];}
 
 export interface BusinessScenarioStep {
   stepNumber: number;
@@ -200,3 +230,92 @@ export interface BusinessScenario {
   description: string;
   steps: BusinessScenarioStep[];
 }
+
+export type PortalModuleStatus =
+  | "available"
+  | "in-development"
+  | "planned"
+  | "deprecated";
+
+export interface PortalModule {
+  id: string;
+  slug: string;
+  name: string;
+  shortName?: string;
+  description: string;
+  purpose: string;
+  route: string;
+  category:
+    | "reference-architecture"
+    | "service-landscape"
+    | "business-scenarios"
+    | "capabilities"
+    | "regulation"
+    | "governance";
+  status: PortalModuleStatus;
+  icon: string;
+  order: number;
+  version?: string;
+  artifactType?: string;
+  countSource?: string;
+  dependencies?: string[];
+  ownerRole?: string;
+  validationStatus?: string;
+  roadmap?: {
+    title: string;
+    status: "not-started" | "in-progress" | "completed" | "blocked";
+    targetDate?: string;
+    evidence?: string;
+  }[];
+  lastReviewedAt?: string;
+  tags: string[];
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface PortalRelease {
+  version: string;
+  name: string;
+  releaseDate: string;
+  status: "draft" | "published" | "deprecated";
+  regulatoryBaselineDate: string;
+  bianReferenceBaseline?: string;
+  summary: string;
+  added: string[];
+  changed: string[];
+  deprecated: string[];
+  removed: string[];
+  breakingChanges: string[];
+}
+
+export interface ArchitectureArtifact {
+  id: string;
+  name: string;
+  description: string;
+  type:
+    | "view"
+    | "model"
+    | "catalog"
+    | "diagram"
+    | "scenario"
+    | "reference"
+    | "report";
+  route: string;
+  status: "draft" | "proposed" | "validated" | "active" | "deprecated";
+  version: string;
+  ownerRole?: string;
+  sourceIds: string[];
+  tags: string[];
+  createdAt: string;
+  updatedAt: string;
+}
+
+export * from "./regulatoryTypes";
+export * from "./participantTypes";
+export * from "./informationArchitectureTypes";
+export * from "./controlRecordTypes";
+export * from "./businessObjectTypes";
+export * from "./referenceModelTypes";
+export * from "./scenarioSnippetTypes";
+export * from "./capabilityTypes";
+

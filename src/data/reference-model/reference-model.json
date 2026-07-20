@@ -1,0 +1,51 @@
+{
+  "id": "RAIA-RM-001",
+  "name": "RAIA Industry Reference Model",
+  "description": "Modelo integral de referencia de la arquitectura de la industria previsional mexicana.",
+  "purpose": "Alinear los viewpoints funcionales, transaccionales, de control y regulatorios del SAR.",
+  "version": "0.1.0",
+  "baselineDate": "2026-07-20",
+  "viewpointIds": [
+    "RAIA-RMV-001",
+    "RAIA-RMV-002",
+    "RAIA-RMV-003",
+    "RAIA-RMV-004",
+    "RAIA-RMV-005",
+    "RAIA-RMV-006",
+    "RAIA-RMV-007",
+    "RAIA-RMV-008",
+    "RAIA-RMV-009",
+    "RAIA-RMV-010"
+  ],
+  "layerIds": [
+    "ecosystem",
+    "strategy-governance",
+    "business-capability",
+    "value-stream",
+    "service-landscape",
+    "business-behavior",
+    "information",
+    "control-state",
+    "regulation-control",
+    "evidence-measurement"
+  ],
+  "moduleIds": [
+    "RAIA-MOD-001",
+    "RAIA-MOD-002",
+    "RAIA-MOD-003",
+    "RAIA-MOD-005",
+    "RAIA-MOD-007",
+    "RAIA-MOD-008",
+    "RAIA-MOD-012",
+    "RAIA-MOD-014",
+    "RAIA-MOD-015"
+  ],
+  "status": "proposed",
+  "validationStatus": "pending-industry-review",
+  "assumptions": [
+    "La trazabilidad asume la validez semántica de los catálogos en estado proposed."
+  ],
+  "unresolvedQuestions": [],
+  "createdAt": "2026-07-20T00:00:00Z",
+  "updatedAt": "2026-07-20T00:00:00Z"
+}

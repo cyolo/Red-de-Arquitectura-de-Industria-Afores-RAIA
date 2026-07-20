@@ -1,0 +1,214 @@
+{
+  "id": "RAIA-OVD-002",
+  "slug": "ciclo-vida-cuenta",
+  "nameEs": "Ciclo de Vida de la Cuenta Individual",
+  "description": "Fases y transiciones de la cuenta del trabajador desde su registro hasta el retiro o cierre.",
+  "purpose": "Analizar la vida operativa de la cuenta previsional a lo largo de la carrera laboral.",
+  "level": "value-stream",
+  "theme": "account-lifecycle",
+  "orientation": "left-to-right",
+  "nodes": [
+    {
+      "id": "node-identificacion",
+      "diagramId": "RAIA-OVD-002",
+      "nodeType": "phase",
+      "label": "Identificación de Identidad",
+      "phaseId": "phase-identificacion",
+      "status": "normal"
+    },
+    {
+      "id": "node-registro",
+      "diagramId": "RAIA-OVD-002",
+      "nodeType": "phase",
+      "label": "Registro de Cuenta",
+      "phaseId": "phase-registro",
+      "status": "normal"
+    },
+    {
+      "id": "node-aportaciones",
+      "diagramId": "RAIA-OVD-002",
+      "nodeType": "phase",
+      "label": "Recaudación e Individualización",
+      "phaseId": "phase-aportaciones",
+      "status": "normal"
+    },
+    {
+      "id": "node-inversion",
+      "diagramId": "RAIA-OVD-002",
+      "nodeType": "phase",
+      "label": "Administración de SIEFORE",
+      "phaseId": "phase-inversion",
+      "status": "normal"
+    },
+    {
+      "id": "node-retiros",
+      "diagramId": "RAIA-OVD-002",
+      "nodeType": "phase",
+      "label": "Retiros o Pensión",
+      "phaseId": "phase-retiros",
+      "status": "normal"
+    },
+    {
+      "id": "node-cierre",
+      "diagramId": "RAIA-OVD-002",
+      "nodeType": "phase",
+      "label": "Cierre o Liquidación",
+      "phaseId": "phase-cierre",
+      "status": "normal"
+    },
+    {
+      "id": "node-sd-020",
+      "diagramId": "RAIA-OVD-002",
+      "nodeType": "service-domain",
+      "referenceId": "RAIA-SD-020",
+      "label": "Registro de Cuenta",
+      "phaseId": "phase-registro",
+      "status": "normal"
+    },
+    {
+      "id": "node-sd-021",
+      "diagramId": "RAIA-OVD-002",
+      "nodeType": "service-domain",
+      "referenceId": "RAIA-SD-021",
+      "label": "Traspaso",
+      "phaseId": "phase-registro",
+      "status": "normal"
+    },
+    {
+      "id": "node-sd-045",
+      "diagramId": "RAIA-OVD-002",
+      "nodeType": "service-domain",
+      "referenceId": "RAIA-SD-045",
+      "label": "Administración de Inversión",
+      "phaseId": "phase-inversion",
+      "status": "normal"
+    },
+    {
+      "id": "node-sd-090",
+      "diagramId": "RAIA-OVD-002",
+      "nodeType": "service-domain",
+      "referenceId": "RAIA-SD-090",
+      "label": "Tramitación de Retiros",
+      "phaseId": "phase-retiros",
+      "status": "normal"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-ovd002-01",
+      "diagramId": "RAIA-OVD-002",
+      "sourceNodeId": "node-identificacion",
+      "targetNodeId": "node-registro",
+      "edgeType": "value-flow",
+      "description": "Se valida identidad del trabajador antes de abrir cuenta.",
+      "businessObjectIds": [],
+      "businessEventIds": [],
+      "regulatoryMappingIds": [],
+      "status": "proposed"
+    },
+    {
+      "id": "edge-ovd002-02",
+      "diagramId": "RAIA-OVD-002",
+      "sourceNodeId": "node-registro",
+      "targetNodeId": "node-aportaciones",
+      "edgeType": "value-flow",
+      "description": "Cuenta activa recibe flujos bimestrales del patrón.",
+      "businessObjectIds": [],
+      "businessEventIds": [],
+      "regulatoryMappingIds": [],
+      "status": "proposed"
+    },
+    {
+      "id": "edge-ovd002-03",
+      "diagramId": "RAIA-OVD-002",
+      "sourceNodeId": "node-aportaciones",
+      "targetNodeId": "node-inversion",
+      "edgeType": "value-flow",
+      "description": "Individualización de recursos se asigna a SIEFORE Generacional.",
+      "businessObjectIds": [],
+      "businessEventIds": [],
+      "regulatoryMappingIds": [],
+      "status": "proposed"
+    },
+    {
+      "id": "edge-ovd002-04",
+      "diagramId": "RAIA-OVD-002",
+      "sourceNodeId": "node-inversion",
+      "targetNodeId": "node-retiros",
+      "edgeType": "value-flow",
+      "description": "Generación de derechos de pensión por cesantía o vejez.",
+      "businessObjectIds": [],
+      "businessEventIds": [],
+      "regulatoryMappingIds": [],
+      "status": "proposed"
+    },
+    {
+      "id": "edge-ovd002-05",
+      "diagramId": "RAIA-OVD-002",
+      "sourceNodeId": "node-retiros",
+      "targetNodeId": "node-cierre",
+      "edgeType": "value-flow",
+      "description": "Liquidación total de saldos remanentes al IMSS/Fideicomiso.",
+      "businessObjectIds": [],
+      "businessEventIds": [],
+      "regulatoryMappingIds": [],
+      "status": "proposed"
+    }
+  ],
+  "groups": [],
+  "phases": [
+    {
+      "id": "phase-identificacion",
+      "diagramId": "RAIA-OVD-002",
+      "name": "Identificación",
+      "description": "Mecanismo de captura y validación biométrica del trabajador.",
+      "order": 1
+    },
+    {
+      "id": "phase-registro",
+      "diagramId": "RAIA-OVD-002",
+      "name": "Registro",
+      "description": "Apertura formal de la cuenta individual en la AFORE elegida.",
+      "order": 2
+    },
+    {
+      "id": "phase-aportaciones",
+      "diagramId": "RAIA-OVD-002",
+      "name": "Aportaciones",
+      "description": "Recepción y asignación de cuotas patronales e individuales.",
+      "order": 3
+    },
+    {
+      "id": "phase-inversion",
+      "diagramId": "RAIA-OVD-002",
+      "name": "Inversión",
+      "description": "Gestión activa de portafolios a través de SIEFORE.",
+      "order": 4
+    },
+    {
+      "id": "phase-retiros",
+      "diagramId": "RAIA-OVD-002",
+      "name": "Retiros",
+      "description": "Trámite de retiro voluntario o pensión definitiva.",
+      "order": 5
+    },
+    {
+      "id": "phase-cierre",
+      "diagramId": "RAIA-OVD-002",
+      "name": "Cierre",
+      "description": "Liquidación final por fallecimiento o traspaso total.",
+      "order": 6
+    }
+  ],
+  "status": "proposed",
+  "confidence": "high",
+  "assumptions": [
+    "La cuenta pasa por estas transiciones lógicas durante el ciclo laboral del trabajador."
+  ],
+  "unresolvedQuestions": [
+    "Determinar las variaciones del ciclo ante cuentas inactivas sin beneficiario."
+  ],
+  "version": "0.1.0",
+  "createdAt": "2026-07-20T00:00:00Z",
+  "updatedAt": "2026-07-20T00:00:00Z"
+}

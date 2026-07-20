@@ -1,0 +1,24 @@
+[
+  {
+    "id": "SLOT-BO-0001",
+    "snippetId": "RAIA-SNP-0001",
+    "slotName": "Identidad Solicitada",
+    "description": "Objeto que contiene los datos a resolver.",
+    "usageRole": "input",
+    "allowedBusinessObjectTypeIds": ["RAIA-BO-0002"],
+    "required": true,
+    "minimumBindings": 1,
+    "maximumBindings": 1
+  },
+  {
+    "id": "SLOT-BO-0002",
+    "snippetId": "RAIA-SNP-0001",
+    "slotName": "Identidad Resuelta",
+    "description": "Objeto resultante verificado.",
+    "usageRole": "output",
+    "allowedBusinessObjectTypeIds": ["RAIA-BO-0002"],
+    "required": true,
+    "minimumBindings": 1,
+    "maximumBindings": 1
+  }
+]

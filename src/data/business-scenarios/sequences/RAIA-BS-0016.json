@@ -1,0 +1,309 @@
+{
+  "scenarioId": "RAIA-BS-0016",
+  "version": "0.2.0",
+  "title": "Identificación de cuentas potencialmente elegibles",
+  "description": "Identificación de cuentas potencialmente elegibles",
+  "status": "proposed",
+  "regulatoryValidationStatus": "pending",
+  "participants": [
+    {
+      "instanceId": "authority-consar",
+      "participantType": "authority",
+      "label": "CONSAR",
+      "order": 1
+    },
+    {
+      "instanceId": "registry-bdnsar",
+      "participantType": "information-asset",
+      "label": "BDNSAR",
+      "order": 2
+    },
+    {
+      "instanceId": "sd-identificacion-de-cu",
+      "participantType": "service-domain",
+      "label": "Identificación de Cuentas Elegibles",
+      "order": 4
+    },
+    {
+      "instanceId": "actor-worker",
+      "participantType": "actor",
+      "label": "Datos del Trabajador",
+      "order": 5
+    },
+    {
+      "instanceId": "institute-imss",
+      "participantType": "social-security-institute",
+      "label": "IMSS",
+      "order": 6
+    },
+    {
+      "instanceId": "institute-issste",
+      "participantType": "social-security-institute",
+      "label": "ISSSTE",
+      "order": 7
+    },
+    {
+      "instanceId": "org-afore",
+      "participantType": "organization",
+      "label": "AFORE",
+      "order": 8
+    },
+    {
+      "instanceId": "trust-fund",
+      "participantType": "public-trust",
+      "label": "Fondo de Pensiones para el Bienestar",
+      "order": 9
+    },
+    {
+      "instanceId": "sd-supervision-regulato",
+      "participantType": "service-domain",
+      "label": "Supervisión Regulatoria",
+      "order": 10
+    },
+    {
+      "instanceId": "sd-notificaciones",
+      "participantType": "service-domain",
+      "label": "Notificaciones",
+      "order": 11
+    },
+    {
+      "instanceId": "sd-identificacion",
+      "participantType": "service-domain",
+      "label": "Identificación",
+      "order": 12
+    },
+    {
+      "instanceId": "sd-supervision",
+      "participantType": "service-domain",
+      "label": "Supervisión",
+      "order": 14
+    }
+  ],
+  "messages": [
+    {
+      "id": "RAIA-BS-0016-MSG-01",
+      "scenarioStepId": "RAIA-BS-0016-STEP-01",
+      "sequence": 1,
+      "sourceParticipantInstanceId": "authority-consar",
+      "targetParticipantInstanceId": "sd-identificacion-de-cu",
+      "label": "Iniciar ciclo.",
+      "messageType": "synchronous-command",
+      "description": "Iniciar ciclo."
+    },
+    {
+      "id": "RAIA-BS-0016-MSG-02",
+      "scenarioStepId": "RAIA-BS-0016-STEP-02",
+      "sequence": 2,
+      "sourceParticipantInstanceId": "sd-identificacion",
+      "targetParticipantInstanceId": "registry-bdnsar",
+      "label": "Solicitar universo candidato.",
+      "messageType": "synchronous-command",
+      "description": "Solicitar universo candidato."
+    },
+    {
+      "id": "RAIA-BS-0016-MSG-03",
+      "scenarioStepId": "RAIA-BS-0016-STEP-03",
+      "sequence": 3,
+      "sourceParticipantInstanceId": "registry-bdnsar",
+      "targetParticipantInstanceId": "registry-bdnsar",
+      "label": "Recuperar cuentas.",
+      "messageType": "synchronous-command",
+      "description": "Recuperar cuentas."
+    },
+    {
+      "id": "RAIA-BS-0016-MSG-04",
+      "scenarioStepId": "RAIA-BS-0016-STEP-04",
+      "sequence": 4,
+      "sourceParticipantInstanceId": "registry-bdnsar",
+      "targetParticipantInstanceId": "registry-bdnsar",
+      "label": "Entregar cuentas.",
+      "messageType": "response",
+      "description": "Entregar cuentas."
+    },
+    {
+      "id": "RAIA-BS-0016-MSG-05",
+      "scenarioStepId": "RAIA-BS-0016-STEP-05",
+      "sequence": 5,
+      "sourceParticipantInstanceId": "registry-bdnsar",
+      "targetParticipantInstanceId": "sd-identificacion",
+      "label": "Entregar universo.",
+      "messageType": "response",
+      "description": "Entregar universo."
+    },
+    {
+      "id": "RAIA-BS-0016-MSG-06",
+      "scenarioStepId": "RAIA-BS-0016-STEP-06",
+      "sequence": 6,
+      "sourceParticipantInstanceId": "sd-identificacion",
+      "targetParticipantInstanceId": "actor-worker",
+      "label": "Recuperar información.",
+      "messageType": "synchronous-command",
+      "description": "Recuperar información."
+    },
+    {
+      "id": "RAIA-BS-0016-MSG-07",
+      "scenarioStepId": "RAIA-BS-0016-STEP-07",
+      "sequence": 7,
+      "sourceParticipantInstanceId": "sd-identificacion",
+      "targetParticipantInstanceId": "institute-imss",
+      "label": "Consultar estado.",
+      "messageType": "synchronous-command",
+      "description": "Consultar estado."
+    },
+    {
+      "id": "RAIA-BS-0016-MSG-08",
+      "scenarioStepId": "RAIA-BS-0016-STEP-08",
+      "sequence": 8,
+      "sourceParticipantInstanceId": "sd-identificacion",
+      "targetParticipantInstanceId": "institute-issste",
+      "label": "Consultar estado.",
+      "messageType": "synchronous-command",
+      "description": "Consultar estado."
+    },
+    {
+      "id": "RAIA-BS-0016-MSG-09",
+      "scenarioStepId": "RAIA-BS-0016-STEP-09",
+      "sequence": 9,
+      "sourceParticipantInstanceId": "institute-imss",
+      "targetParticipantInstanceId": "sd-identificacion",
+      "label": "Entregar información.",
+      "messageType": "response",
+      "description": "Entregar información."
+    },
+    {
+      "id": "RAIA-BS-0016-MSG-10",
+      "scenarioStepId": "RAIA-BS-0016-STEP-10",
+      "sequence": 10,
+      "sourceParticipantInstanceId": "sd-identificacion",
+      "targetParticipantInstanceId": "org-afore",
+      "label": "Consultar situación de la cuenta.",
+      "messageType": "synchronous-command",
+      "description": "Consultar situación de la cuenta."
+    },
+    {
+      "id": "RAIA-BS-0016-MSG-11",
+      "scenarioStepId": "RAIA-BS-0016-STEP-11",
+      "sequence": 11,
+      "sourceParticipantInstanceId": "org-afore",
+      "targetParticipantInstanceId": "sd-identificacion",
+      "label": "Entregar estado y saldos.",
+      "messageType": "response",
+      "description": "Entregar estado y saldos."
+    },
+    {
+      "id": "RAIA-BS-0016-MSG-12",
+      "scenarioStepId": "RAIA-BS-0016-STEP-12",
+      "sequence": 12,
+      "sourceParticipantInstanceId": "sd-identificacion",
+      "targetParticipantInstanceId": "sd-identificacion",
+      "label": "Evaluar parámetros vigentes.",
+      "messageType": "synchronous-command",
+      "description": "Evaluar parámetros vigentes."
+    },
+    {
+      "id": "RAIA-BS-0016-MSG-13",
+      "scenarioStepId": "RAIA-BS-0016-STEP-13",
+      "sequence": 13,
+      "sourceParticipantInstanceId": "sd-identificacion",
+      "targetParticipantInstanceId": "sd-supervision-regulato",
+      "label": "Presentar lista controlada.",
+      "messageType": "synchronous-command",
+      "description": "Presentar lista controlada."
+    },
+    {
+      "id": "RAIA-BS-0016-MSG-14",
+      "scenarioStepId": "RAIA-BS-0016-STEP-14",
+      "sequence": 14,
+      "sourceParticipantInstanceId": "sd-supervision",
+      "targetParticipantInstanceId": "sd-identificacion",
+      "label": "Aprobar o solicitar revisión.",
+      "messageType": "synchronous-command",
+      "description": "Aprobar o solicitar revisión."
+    },
+    {
+      "id": "RAIA-BS-0016-MSG-15",
+      "scenarioStepId": "RAIA-BS-0016-STEP-15",
+      "sequence": 15,
+      "sourceParticipantInstanceId": "sd-identificacion",
+      "targetParticipantInstanceId": "trust-fund",
+      "label": "Informar cuentas potenciales.",
+      "messageType": "response",
+      "description": "Informar cuentas potenciales."
+    },
+    {
+      "id": "RAIA-BS-0016-MSG-16",
+      "scenarioStepId": "RAIA-BS-0016-STEP-16",
+      "sequence": 16,
+      "sourceParticipantInstanceId": "sd-identificacion",
+      "targetParticipantInstanceId": "sd-notificaciones",
+      "label": "Registrar comunicaciones.",
+      "messageType": "synchronous-command",
+      "description": "Registrar comunicaciones."
+    }
+  ],
+  "activations": [],
+  "notes": [
+    {
+      "id": "note-control-1",
+      "participantInstanceIds": [
+        "p-consar"
+      ],
+      "placement": "left",
+      "text": "Control: identidad y consentimiento verificables.",
+      "noteType": "control",
+      "afterSequence": 1
+    },
+    {
+      "id": "note-evidence-1",
+      "participantInstanceIds": [
+        "p-notificaciones"
+      ],
+      "placement": "right",
+      "text": "Evidencia: expediente, folio y acuses.",
+      "noteType": "evidence",
+      "afterSequence": 16
+    }
+  ],
+  "fragments": [
+    {
+      "id": "frag-1",
+      "fragmentType": "alt",
+      "label": "Condiciones de Negocio",
+      "startSequence": 14,
+      "endSequence": 16,
+      "branches": [
+        {
+          "id": "branch-0",
+          "label": "Cuenta potencialmente elegible",
+          "startSequence": 15,
+          "endSequence": 16
+        },
+        {
+          "id": "branch-1",
+          "label": "Cuenta excluida",
+          "startSequence": 15,
+          "endSequence": 16
+        },
+        {
+          "id": "branch-2",
+          "label": "Información incompleta",
+          "startSequence": 15,
+          "endSequence": 16
+        },
+        {
+          "id": "branch-3",
+          "label": "Cuenta reclamada",
+          "startSequence": 15,
+          "endSequence": 16
+        },
+        {
+          "id": "branch-4",
+          "label": "Proceso pensionario activo",
+          "startSequence": 15,
+          "endSequence": 16
+        }
+      ]
+    }
+  ],
+  "modelingStatus": "partially-modeled"
+}

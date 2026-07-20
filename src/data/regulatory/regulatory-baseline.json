@@ -1,0 +1,15 @@
+{
+  "baselineVersion": "0.2.0",
+  "auditDate": "2026-07-20",
+  "primaryBaselineReforms": {
+    "CPEUM": "2026-05-28",
+    "LSAR": "2025-11-14",
+    "LSS": "2026-01-15",
+    "LISSSTE": "2026-01-15",
+    "LINFONAVIT": "2025-11-14",
+    "LFPDPPP": "2025-03-20"
+  },
+  "validationChecksums": {
+    "consolidated-regulatory-db": "ef44bfdafb219ecfa2fcb3c060e0aa599e5ee4c922fe6e2e73dd6f65fe5bb014"
+  }
+}

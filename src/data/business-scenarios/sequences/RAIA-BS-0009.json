@@ -1,0 +1,323 @@
+{
+  "scenarioId": "RAIA-BS-0009",
+  "version": "0.2.0",
+  "title": "Construcción y rebalanceo de portafolio",
+  "description": "Construcción y rebalanceo de portafolio",
+  "status": "proposed",
+  "regulatoryValidationStatus": "pending",
+  "participants": [
+    {
+      "instanceId": "gov-committee",
+      "participantType": "governance-body",
+      "label": "Comité de Inversión",
+      "order": 1
+    },
+    {
+      "instanceId": "sd-estrategia-de-invers",
+      "participantType": "service-domain",
+      "label": "Estrategia de Inversión",
+      "order": 2
+    },
+    {
+      "instanceId": "sd-construccion-de-port",
+      "participantType": "service-domain",
+      "label": "Construcción de Portafolio",
+      "order": 3
+    },
+    {
+      "instanceId": "sd-gestion-de-benchmark",
+      "participantType": "service-domain",
+      "label": "Gestión de Benchmark",
+      "order": 4
+    },
+    {
+      "instanceId": "sd-gestion-de-liquidez",
+      "participantType": "service-domain",
+      "label": "Gestión de Liquidez",
+      "order": 5
+    },
+    {
+      "instanceId": "sd-gestion-de-limites",
+      "participantType": "service-domain",
+      "label": "Gestión de Límites",
+      "order": 6
+    },
+    {
+      "instanceId": "sd-riesgo-de-inversion",
+      "participantType": "service-domain",
+      "label": "Riesgo de Inversión",
+      "order": 7
+    },
+    {
+      "instanceId": "sd-cumplimiento-del-reg",
+      "participantType": "service-domain",
+      "label": "Cumplimiento del Régimen",
+      "order": 8
+    },
+    {
+      "instanceId": "sd-ejecucion-de-operaci",
+      "participantType": "service-domain",
+      "label": "Ejecución de Operaciones",
+      "order": 9
+    },
+    {
+      "instanceId": "sd-estrategia",
+      "participantType": "service-domain",
+      "label": "estrategia",
+      "order": 11
+    },
+    {
+      "instanceId": "sd-construccion",
+      "participantType": "service-domain",
+      "label": "Construcción",
+      "order": 12
+    },
+    {
+      "instanceId": "sd-benchmark",
+      "participantType": "service-domain",
+      "label": "benchmark",
+      "order": 13
+    },
+    {
+      "instanceId": "sd-liquidez",
+      "participantType": "service-domain",
+      "label": "liquidez",
+      "order": 14
+    },
+    {
+      "instanceId": "sd-l-mites",
+      "participantType": "service-domain",
+      "label": "l mites",
+      "order": 15
+    },
+    {
+      "instanceId": "sd-riesgo",
+      "participantType": "service-domain",
+      "label": "riesgo",
+      "order": 16
+    },
+    {
+      "instanceId": "sd-cumplimiento",
+      "participantType": "service-domain",
+      "label": "cumplimiento",
+      "order": 17
+    },
+    {
+      "instanceId": "sd-ejecucion",
+      "participantType": "service-domain",
+      "label": "Ejecución",
+      "order": 18
+    }
+  ],
+  "messages": [
+    {
+      "id": "RAIA-BS-0009-MSG-01",
+      "scenarioStepId": "RAIA-BS-0009-STEP-01",
+      "sequence": 1,
+      "sourceParticipantInstanceId": "gov-committee",
+      "targetParticipantInstanceId": "sd-estrategia-de-invers",
+      "label": "Solicitar propuesta.",
+      "messageType": "synchronous-command",
+      "description": "Solicitar propuesta."
+    },
+    {
+      "id": "RAIA-BS-0009-MSG-02",
+      "scenarioStepId": "RAIA-BS-0009-STEP-02",
+      "sequence": 2,
+      "sourceParticipantInstanceId": "sd-estrategia",
+      "targetParticipantInstanceId": "sd-construccion-de-port",
+      "label": "Entregar lineamientos.",
+      "messageType": "response",
+      "description": "Entregar lineamientos."
+    },
+    {
+      "id": "RAIA-BS-0009-MSG-03",
+      "scenarioStepId": "RAIA-BS-0009-STEP-03",
+      "sequence": 3,
+      "sourceParticipantInstanceId": "sd-construccion",
+      "targetParticipantInstanceId": "sd-gestion-de-benchmark",
+      "label": "Recuperar referencia.",
+      "messageType": "synchronous-command",
+      "description": "Recuperar referencia."
+    },
+    {
+      "id": "RAIA-BS-0009-MSG-04",
+      "scenarioStepId": "RAIA-BS-0009-STEP-04",
+      "sequence": 4,
+      "sourceParticipantInstanceId": "sd-construccion",
+      "targetParticipantInstanceId": "sd-gestion-de-liquidez",
+      "label": "Consultar necesidades.",
+      "messageType": "synchronous-command",
+      "description": "Consultar necesidades."
+    },
+    {
+      "id": "RAIA-BS-0009-MSG-05",
+      "scenarioStepId": "RAIA-BS-0009-STEP-05",
+      "sequence": 5,
+      "sourceParticipantInstanceId": "sd-construccion",
+      "targetParticipantInstanceId": "sd-gestion-de-limites",
+      "label": "Consultar restricciones.",
+      "messageType": "synchronous-command",
+      "description": "Consultar restricciones."
+    },
+    {
+      "id": "RAIA-BS-0009-MSG-06",
+      "scenarioStepId": "RAIA-BS-0009-STEP-06",
+      "sequence": 6,
+      "sourceParticipantInstanceId": "sd-benchmark",
+      "targetParticipantInstanceId": "sd-construccion",
+      "label": "Entregar referencia.",
+      "messageType": "response",
+      "description": "Entregar referencia."
+    },
+    {
+      "id": "RAIA-BS-0009-MSG-07",
+      "scenarioStepId": "RAIA-BS-0009-STEP-07",
+      "sequence": 7,
+      "sourceParticipantInstanceId": "sd-liquidez",
+      "targetParticipantInstanceId": "sd-construccion",
+      "label": "Entregar proyección.",
+      "messageType": "response",
+      "description": "Entregar proyección."
+    },
+    {
+      "id": "RAIA-BS-0009-MSG-08",
+      "scenarioStepId": "RAIA-BS-0009-STEP-08",
+      "sequence": 8,
+      "sourceParticipantInstanceId": "sd-l-mites",
+      "targetParticipantInstanceId": "sd-construccion",
+      "label": "Entregar restricciones.",
+      "messageType": "response",
+      "description": "Entregar restricciones."
+    },
+    {
+      "id": "RAIA-BS-0009-MSG-09",
+      "scenarioStepId": "RAIA-BS-0009-STEP-09",
+      "sequence": 9,
+      "sourceParticipantInstanceId": "sd-construccion",
+      "targetParticipantInstanceId": "sd-riesgo",
+      "label": "Evaluar portafolio objetivo.",
+      "messageType": "synchronous-command",
+      "description": "Evaluar portafolio objetivo."
+    },
+    {
+      "id": "RAIA-BS-0009-MSG-10",
+      "scenarioStepId": "RAIA-BS-0009-STEP-10",
+      "sequence": 10,
+      "sourceParticipantInstanceId": "sd-riesgo",
+      "targetParticipantInstanceId": "sd-cumplimiento",
+      "label": "Validar régimen.",
+      "messageType": "synchronous-command",
+      "description": "Validar régimen."
+    },
+    {
+      "id": "RAIA-BS-0009-MSG-11",
+      "scenarioStepId": "RAIA-BS-0009-STEP-11",
+      "sequence": 11,
+      "sourceParticipantInstanceId": "sd-cumplimiento",
+      "targetParticipantInstanceId": "sd-riesgo",
+      "label": "Confirmar resultado.",
+      "messageType": "response",
+      "description": "Confirmar resultado."
+    },
+    {
+      "id": "RAIA-BS-0009-MSG-12",
+      "scenarioStepId": "RAIA-BS-0009-STEP-12",
+      "sequence": 12,
+      "sourceParticipantInstanceId": "sd-riesgo",
+      "targetParticipantInstanceId": "sd-construccion",
+      "label": "Entregar evaluación.",
+      "messageType": "response",
+      "description": "Entregar evaluación."
+    },
+    {
+      "id": "RAIA-BS-0009-MSG-13",
+      "scenarioStepId": "RAIA-BS-0009-STEP-13",
+      "sequence": 13,
+      "sourceParticipantInstanceId": "sd-construccion",
+      "targetParticipantInstanceId": "gov-committee",
+      "label": "Presentar propuesta.",
+      "messageType": "synchronous-command",
+      "description": "Presentar propuesta."
+    },
+    {
+      "id": "RAIA-BS-0009-MSG-14",
+      "scenarioStepId": "RAIA-BS-0009-STEP-14",
+      "sequence": 14,
+      "sourceParticipantInstanceId": "gov-committee",
+      "targetParticipantInstanceId": "sd-construccion",
+      "label": "Aprobar o rechazar.",
+      "messageType": "synchronous-command",
+      "description": "Aprobar o rechazar."
+    },
+    {
+      "id": "RAIA-BS-0009-MSG-15",
+      "scenarioStepId": "RAIA-BS-0009-STEP-15",
+      "sequence": 15,
+      "sourceParticipantInstanceId": "sd-construccion",
+      "targetParticipantInstanceId": "sd-ejecucion",
+      "label": "Generar plan de rebalanceo.",
+      "messageType": "synchronous-command",
+      "description": "Generar plan de rebalanceo."
+    }
+  ],
+  "activations": [],
+  "notes": [
+    {
+      "id": "note-control-1",
+      "participantInstanceIds": [
+        "p-comit-"
+      ],
+      "placement": "left",
+      "text": "Control: identidad y consentimiento verificables.",
+      "noteType": "control",
+      "afterSequence": 1
+    },
+    {
+      "id": "note-evidence-1",
+      "participantInstanceIds": [
+        "p-ejecuci-n"
+      ],
+      "placement": "right",
+      "text": "Evidencia: expediente, folio y acuses.",
+      "noteType": "evidence",
+      "afterSequence": 15
+    }
+  ],
+  "fragments": [
+    {
+      "id": "frag-1",
+      "fragmentType": "alt",
+      "label": "Condiciones de Negocio",
+      "startSequence": 13,
+      "endSequence": 15,
+      "branches": [
+        {
+          "id": "branch-0",
+          "label": "Propuesta aprobada",
+          "startSequence": 14,
+          "endSequence": 15
+        },
+        {
+          "id": "branch-1",
+          "label": "Exceso de límite",
+          "startSequence": 14,
+          "endSequence": 15
+        },
+        {
+          "id": "branch-2",
+          "label": "Liquidez insuficiente",
+          "startSequence": 14,
+          "endSequence": 15
+        },
+        {
+          "id": "branch-3",
+          "label": "Rebalanceo de emergencia",
+          "startSequence": 14,
+          "endSequence": 15
+        }
+      ]
+    }
+  ],
+  "modelingStatus": "partially-modeled"
+}

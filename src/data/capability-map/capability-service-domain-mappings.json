@@ -1,0 +1,28 @@
+[
+  {
+    "id": "RAIA-CAPMAP-0001",
+    "capabilityId": "RAIA-CAP-001-0001",
+    "serviceDomainId": "RAIA-SD-001",
+    "realizationType": "primary-realization",
+    "serviceOperationIds": [],
+    "businessEventIds": [],
+    "businessObjectIds": [],
+    "description": "Mapeo primario de la capacidad a Administración de Identidad.",
+    "coverage": "full",
+    "confidence": "high",
+    "status": "proposed"
+  },
+  {
+    "id": "RAIA-CAPMAP-0002",
+    "capabilityId": "RAIA-CAP-002-0003",
+    "serviceDomainId": "RAIA-SD-030",
+    "realizationType": "primary-realization",
+    "serviceOperationIds": [],
+    "businessEventIds": [],
+    "businessObjectIds": [],
+    "description": "Mapeo primario del Service Domain Gestión de Datos del Trabajador.",
+    "coverage": "partial",
+    "confidence": "high",
+    "status": "proposed"
+  }
+]

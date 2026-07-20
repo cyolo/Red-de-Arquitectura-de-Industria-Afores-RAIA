@@ -1,0 +1,281 @@
+{
+  "scenarioId": "RAIA-BS-0017",
+  "version": "0.2.0",
+  "title": "Transferencia de recursos al Fondo",
+  "description": "Transferencia de recursos al Fondo",
+  "status": "proposed",
+  "regulatoryValidationStatus": "pending",
+  "participants": [
+    {
+      "instanceId": "sd-identificacion-de-cu",
+      "participantType": "service-domain",
+      "label": "Identificación de Cuentas Elegibles",
+      "order": 1
+    },
+    {
+      "instanceId": "org-afore",
+      "participantType": "organization",
+      "label": "AFORE",
+      "order": 2
+    },
+    {
+      "instanceId": "sd-administracion-de-cu",
+      "participantType": "service-domain",
+      "label": "Administración de Cuenta Individual",
+      "order": 3
+    },
+    {
+      "instanceId": "sd-desinversion-de-recu",
+      "participantType": "service-domain",
+      "label": "Desinversión de Recursos",
+      "order": 4
+    },
+    {
+      "instanceId": "trust-fund",
+      "participantType": "public-trust",
+      "label": "Transferencia al Fondo",
+      "order": 5
+    },
+    {
+      "instanceId": "ext-counterparty",
+      "participantType": "external-party",
+      "label": "Institución Financiera",
+      "order": 6
+    },
+    {
+      "instanceId": "registry-bdnsar",
+      "participantType": "information-asset",
+      "label": "BDNSAR",
+      "order": 8
+    },
+    {
+      "instanceId": "sd-conciliacion",
+      "participantType": "service-domain",
+      "label": "Conciliación",
+      "order": 9
+    },
+    {
+      "instanceId": "sd-informacion-regulato",
+      "participantType": "service-domain",
+      "label": "Información Regulatoria",
+      "order": 10
+    },
+    {
+      "instanceId": "sd-notificaciones",
+      "participantType": "service-domain",
+      "label": "Notificaciones",
+      "order": 11
+    },
+    {
+      "instanceId": "sd-identificacion",
+      "participantType": "service-domain",
+      "label": "Identificación",
+      "order": 12
+    },
+    {
+      "instanceId": "sd-desinversion",
+      "participantType": "service-domain",
+      "label": "Desinversión",
+      "order": 13
+    },
+    {
+      "instanceId": "sd-transferencia",
+      "participantType": "service-domain",
+      "label": "transferencia",
+      "order": 14
+    }
+  ],
+  "messages": [
+    {
+      "id": "RAIA-BS-0017-MSG-01",
+      "scenarioStepId": "RAIA-BS-0017-STEP-01",
+      "sequence": 1,
+      "sourceParticipantInstanceId": "sd-identificacion",
+      "targetParticipantInstanceId": "org-afore",
+      "label": "Emitir instrucción autorizada.",
+      "messageType": "synchronous-command",
+      "description": "Emitir instrucción autorizada."
+    },
+    {
+      "id": "RAIA-BS-0017-MSG-02",
+      "scenarioStepId": "RAIA-BS-0017-STEP-02",
+      "sequence": 2,
+      "sourceParticipantInstanceId": "org-afore",
+      "targetParticipantInstanceId": "sd-administracion-de-cu",
+      "label": "Validar estado actual.",
+      "messageType": "synchronous-command",
+      "description": "Validar estado actual."
+    },
+    {
+      "id": "RAIA-BS-0017-MSG-03",
+      "scenarioStepId": "RAIA-BS-0017-STEP-03",
+      "sequence": 3,
+      "sourceParticipantInstanceId": "sd-administracion-de-cu",
+      "targetParticipantInstanceId": "org-afore",
+      "label": "Confirmar condición.",
+      "messageType": "response",
+      "description": "Confirmar condición."
+    },
+    {
+      "id": "RAIA-BS-0017-MSG-04",
+      "scenarioStepId": "RAIA-BS-0017-STEP-04",
+      "sequence": 4,
+      "sourceParticipantInstanceId": "org-afore",
+      "targetParticipantInstanceId": "sd-administracion-de-cu",
+      "label": "Determinar saldo elegible.",
+      "messageType": "synchronous-command",
+      "description": "Determinar saldo elegible."
+    },
+    {
+      "id": "RAIA-BS-0017-MSG-05",
+      "scenarioStepId": "RAIA-BS-0017-STEP-05",
+      "sequence": 5,
+      "sourceParticipantInstanceId": "org-afore",
+      "targetParticipantInstanceId": "sd-desinversion",
+      "label": "Solicitar liberación de recursos.",
+      "messageType": "synchronous-command",
+      "description": "Solicitar liberación de recursos."
+    },
+    {
+      "id": "RAIA-BS-0017-MSG-06",
+      "scenarioStepId": "RAIA-BS-0017-STEP-06",
+      "sequence": 6,
+      "sourceParticipantInstanceId": "sd-desinversion",
+      "targetParticipantInstanceId": "trust-fund",
+      "label": "Entregar monto.",
+      "messageType": "response",
+      "description": "Entregar monto."
+    },
+    {
+      "id": "RAIA-BS-0017-MSG-07",
+      "scenarioStepId": "RAIA-BS-0017-STEP-07",
+      "sequence": 7,
+      "sourceParticipantInstanceId": "sd-transferencia",
+      "targetParticipantInstanceId": "ext-counterparty",
+      "label": "Instruir liquidación.",
+      "messageType": "synchronous-command",
+      "description": "Instruir liquidación."
+    },
+    {
+      "id": "RAIA-BS-0017-MSG-08",
+      "scenarioStepId": "RAIA-BS-0017-STEP-08",
+      "sequence": 8,
+      "sourceParticipantInstanceId": "ext-counterparty",
+      "targetParticipantInstanceId": "trust-fund",
+      "label": "Transferir recursos.",
+      "messageType": "synchronous-command",
+      "description": "Transferir recursos."
+    },
+    {
+      "id": "RAIA-BS-0017-MSG-09",
+      "scenarioStepId": "RAIA-BS-0017-STEP-09",
+      "sequence": 9,
+      "sourceParticipantInstanceId": "trust-fund",
+      "targetParticipantInstanceId": "sd-transferencia",
+      "label": "Confirmar recepción.",
+      "messageType": "response",
+      "description": "Confirmar recepción."
+    },
+    {
+      "id": "RAIA-BS-0017-MSG-10",
+      "scenarioStepId": "RAIA-BS-0017-STEP-10",
+      "sequence": 10,
+      "sourceParticipantInstanceId": "sd-transferencia",
+      "targetParticipantInstanceId": "sd-administracion-de-cu",
+      "label": "Registrar disposición.",
+      "messageType": "synchronous-command",
+      "description": "Registrar disposición."
+    },
+    {
+      "id": "RAIA-BS-0017-MSG-11",
+      "scenarioStepId": "RAIA-BS-0017-STEP-11",
+      "sequence": 11,
+      "sourceParticipantInstanceId": "sd-transferencia",
+      "targetParticipantInstanceId": "registry-bdnsar",
+      "label": "Actualizar estado.",
+      "messageType": "synchronous-command",
+      "description": "Actualizar estado."
+    },
+    {
+      "id": "RAIA-BS-0017-MSG-12",
+      "scenarioStepId": "RAIA-BS-0017-STEP-12",
+      "sequence": 12,
+      "sourceParticipantInstanceId": "sd-transferencia",
+      "targetParticipantInstanceId": "sd-conciliacion",
+      "label": "Conciliar monto.",
+      "messageType": "synchronous-command",
+      "description": "Conciliar monto."
+    },
+    {
+      "id": "RAIA-BS-0017-MSG-13",
+      "scenarioStepId": "RAIA-BS-0017-STEP-13",
+      "sequence": 13,
+      "sourceParticipantInstanceId": "sd-conciliacion",
+      "targetParticipantInstanceId": "sd-transferencia",
+      "label": "Confirmar cierre.",
+      "messageType": "response",
+      "description": "Confirmar cierre."
+    },
+    {
+      "id": "RAIA-BS-0017-MSG-14",
+      "scenarioStepId": "RAIA-BS-0017-STEP-14",
+      "sequence": 14,
+      "sourceParticipantInstanceId": "sd-transferencia",
+      "targetParticipantInstanceId": "sd-informacion-regulato",
+      "label": "Reportar operación.",
+      "messageType": "synchronous-command",
+      "description": "Reportar operación."
+    },
+    {
+      "id": "RAIA-BS-0017-MSG-15",
+      "scenarioStepId": "RAIA-BS-0017-STEP-15",
+      "sequence": 15,
+      "sourceParticipantInstanceId": "sd-transferencia",
+      "targetParticipantInstanceId": "sd-notificaciones",
+      "label": "Emitir comunicación.",
+      "messageType": "synchronous-command",
+      "description": "Emitir comunicación."
+    }
+  ],
+  "activations": [],
+  "notes": [
+    {
+      "id": "note-control-1",
+      "participantInstanceIds": [
+        "p-identificaci-n"
+      ],
+      "placement": "left",
+      "text": "Control: identidad y consentimiento verificables.",
+      "noteType": "control",
+      "afterSequence": 1
+    },
+    {
+      "id": "note-evidence-1",
+      "participantInstanceIds": [
+        "p-notificaciones"
+      ],
+      "placement": "right",
+      "text": "Evidencia: expediente, folio y acuses.",
+      "noteType": "evidence",
+      "afterSequence": 15
+    }
+  ],
+  "fragments": [
+    {
+      "id": "frag-1",
+      "fragmentType": "alt",
+      "label": "Excepciones",
+      "startSequence": 14,
+      "endSequence": 15,
+      "branches": [
+        {
+          "id": "branch-0",
+          "label": "Fallo de conexión",
+          "startSequence": 15,
+          "endSequence": 15
+        }
+      ]
+    }
+  ],
+  "modelingStatus": "partially-modeled"
+}

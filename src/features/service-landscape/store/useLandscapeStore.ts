@@ -11,6 +11,10 @@ export interface LandscapeFilters {
   controlType?: string;
   authority?: string;
   regulation?: string;
+  layer?: string;
+  coverage?: string;
+  criticality?: string;
+  regime?: string;
 }
 
 interface LandscapeState {
@@ -20,6 +24,7 @@ interface LandscapeState {
   showRelated: boolean;
   isSidebarOpen: boolean;
   zoomLevel: number;
+  isSearchOpen: boolean;
   
   setSelectedId: (id: string | null) => void;
   setFilter: (key: keyof LandscapeFilters, value: string | undefined) => void;
@@ -29,6 +34,7 @@ interface LandscapeState {
   setShowRelated: (show: boolean) => void;
   setSidebarOpen: (isOpen: boolean) => void;
   setZoomLevel: (zoom: number) => void;
+  setSearchOpen: (isOpen: boolean) => void;
   resetAll: () => void;
 }
 
@@ -39,6 +45,7 @@ export const useLandscapeStore = create<LandscapeState>((set) => ({
   showRelated: false,
   isSidebarOpen: false,
   zoomLevel: 1,
+  isSearchOpen: false,
 
   setSelectedId: (id) => set({ selectedId: id, isSidebarOpen: !!id }),
   setFilter: (key, value) =>
@@ -54,6 +61,7 @@ export const useLandscapeStore = create<LandscapeState>((set) => ({
   setShowRelated: (show) => set({ showRelated: show }),
   setSidebarOpen: (isOpen) => set({ isSidebarOpen: isOpen }),
   setZoomLevel: (zoom) => set({ zoomLevel: zoom }),
+  setSearchOpen: (isOpen) => set({ isSearchOpen: isOpen }),
   resetAll: () =>
     set({
       selectedId: null,
@@ -62,5 +70,6 @@ export const useLandscapeStore = create<LandscapeState>((set) => ({
       showRelated: false,
       isSidebarOpen: false,
       zoomLevel: 1,
+      isSearchOpen: false,
     }),
 }));

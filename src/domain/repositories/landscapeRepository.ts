@@ -2,15 +2,13 @@ import { BusinessArea, BusinessDomain, ServiceDomain, LandscapeRelation, Busines
 import { z } from "zod";
 import { LandscapeDataSchema, LandscapeRelationSchema, RegulationReferenceSchema, BusinessScenarioSchema } from "../schemas";
 
-import raiaData from "../../data/raia-v14.0.json";
-import relationsData from "../../data/relations-v14.0.json";
-import regulationsData from "../../data/regulations-v14.0.json";
-import scenariosData from "../../data/scenarios-v14.0.json";
+import raiaData from "../../data/raia-landscape-0.1.0.json";
+import relationsData from "../../data/relations-0.1.0.json";
+import scenariosData from "../../data/scenarios-0.1.0.json";
 
 // Validate all static data files upon loading
 const validatedLandscape = LandscapeDataSchema.parse(raiaData);
 const validatedRelations = z.array(LandscapeRelationSchema).parse(relationsData);
-const validatedRegulations = z.array(RegulationReferenceSchema).parse(regulationsData);
 const validatedScenarios = z.array(BusinessScenarioSchema).parse(scenariosData);
 
 export const getBusinessAreas = (): BusinessArea[] => {
@@ -29,8 +27,11 @@ export const getRelations = (): LandscapeRelation[] => {
   return validatedRelations as unknown as LandscapeRelation[];
 };
 
+/**
+ * @deprecated Use getRegulatorySources from regulatoryRepository instead
+ */
 export const getRegulations = (): RegulationReference[] => {
-  return validatedRegulations as unknown as RegulationReference[];
+  return [];
 };
 
 export const getScenarios = (): BusinessScenario[] => {
@@ -59,4 +60,18 @@ export const getBusinessAreaById = (id: string): BusinessArea | undefined => {
 
 export const getBusinessAreaBySlug = (slug: string): BusinessArea | undefined => {
   return getBusinessAreas().find((ba) => ba.slug === slug);
+};
+
+export const getScenarioById = (id: string): BusinessScenario | undefined => {
+  return getScenarios().find((s) => s.id === id);
+};
+
+export const getServiceOperationById = (id: string): any | undefined => {
+  for (const sd of getServiceDomains()) {
+    if (sd.serviceOperations) {
+      const op = (sd.serviceOperations as any[]).find((o) => o.id === id);
+      if (op) return op;
+    }
+  }
+  return undefined;
 };

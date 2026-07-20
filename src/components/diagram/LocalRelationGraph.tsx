@@ -15,9 +15,10 @@ import { useLandscapeStore } from "../../features/service-landscape/store/useLan
 
 interface Props {
   selectedId: string;
+  onSelect?: (id: string) => void;
 }
 
-export default function LocalRelationGraph({ selectedId }: Props) {
+export default function LocalRelationGraph({ selectedId, onSelect }: Props) {
   const setSelectedId = useLandscapeStore((state) => state.setSelectedId);
   const [nodes, setNodes, onNodesChange] = useNodesState<any>([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState<any>([]);
@@ -183,7 +184,11 @@ export default function LocalRelationGraph({ selectedId }: Props) {
 
   const onNodeClick = (_: any, node: any) => {
     if (node.id !== selectedId) {
-      setSelectedId(node.id);
+      if (onSelect) {
+        onSelect(node.id);
+      } else {
+        setSelectedId(node.id);
+      }
     }
   };
 

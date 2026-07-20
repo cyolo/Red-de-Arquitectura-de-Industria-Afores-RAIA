@@ -1,0 +1,233 @@
+{
+  "generatedAt": "2026-07-20T03:25:00-06:00",
+  "baseCommit": "ce89a2af49dc29260883f7f63fe702c722559179",
+  "branch": "dev-001",
+  "language": "es",
+  "modules": [
+    {
+      "moduleId": "RAIA-MOD-001",
+      "moduleName": "Information Architecture",
+      "route": "/information-architecture",
+      "featureFile": "tests/gherkin/modules/01-information-architecture.feature",
+      "scenarioCount": 41,
+      "scenarioIds": ["RAIA_IA_001", "RAIA_IA_002", "RAIA_IA_003", "RAIA_IA_004", "RAIA_IA_005", "RAIA_IA_006", "RAIA_IA_007", "RAIA_IA_008", "RAIA_IA_009"],
+      "sourceFilesReviewed": [
+        "src/app/information-architecture/page.tsx",
+        "src/domain/repositories/informationArchitectureRepository.ts",
+        "src/domain/schemas/informationArchitectureSchemas.ts"
+      ],
+      "currentStatus": "in-development",
+      "gapCount": 3
+    },
+    {
+      "moduleId": "RAIA-MOD-002",
+      "moduleName": "Control Record Model",
+      "route": "/control-record-model",
+      "featureFile": "tests/gherkin/modules/02-control-record-model.feature",
+      "scenarioCount": 41,
+      "scenarioIds": ["RAIA_CRM_001", "RAIA_CRM_002", "RAIA_CRM_003", "RAIA_CRM_004", "RAIA_CRM_005", "RAIA_CRM_006", "RAIA_CRM_007", "RAIA_CRM_008", "RAIA_CRM_009"],
+      "sourceFilesReviewed": [
+        "src/app/control-record-model/page.tsx",
+        "src/domain/repositories/controlRecordRepository.ts"
+      ],
+      "currentStatus": "in-development",
+      "gapCount": 2
+    },
+    {
+      "moduleId": "RAIA-MOD-003",
+      "moduleName": "Business Object Model",
+      "route": "/business-object-model",
+      "featureFile": "tests/gherkin/modules/03-business-object-model.feature",
+      "scenarioCount": 41,
+      "scenarioIds": ["RAIA_BOM_001", "RAIA_BOM_002", "RAIA_BOM_003", "RAIA_BOM_004", "RAIA_BOM_005", "RAIA_BOM_006", "RAIA_BOM_007", "RAIA_BOM_008"],
+      "sourceFilesReviewed": [
+        "src/app/business-object-model/page.tsx",
+        "src/domain/repositories/landscapeRepository.ts"
+      ],
+      "currentStatus": "in-development",
+      "gapCount": 2
+    },
+    {
+      "moduleId": "RAIA-MOD-004",
+      "moduleName": "RAIA Industry Reference Model",
+      "route": "/reference-model",
+      "featureFile": "tests/gherkin/modules/04-industry-reference-model.feature",
+      "scenarioCount": 40,
+      "scenarioIds": ["RAIA_IRM_001", "RAIA_IRM_002", "RAIA_IRM_003", "RAIA_IRM_004", "RAIA_IRM_005", "RAIA_IRM_006", "RAIA_IRM_007", "RAIA_IRM_008"],
+      "sourceFilesReviewed": [
+        "src/app/reference-model/page.tsx"
+      ],
+      "currentStatus": "in-development",
+      "gapCount": 2
+    },
+    {
+      "moduleId": "RAIA-MOD-005",
+      "moduleName": "Service Landscape — Value Chain",
+      "route": "/service-landscape/value-chain",
+      "featureFile": "tests/gherkin/modules/05-service-landscape-value-chain.feature",
+      "scenarioCount": 44,
+      "scenarioIds": ["RAIA_SLVC_001", "RAIA_SLVC_002", "RAIA_SLVC_003", "RAIA_SLVC_004", "RAIA_SLVC_005", "RAIA_SLVC_006", "RAIA_SLVC_007", "RAIA_SLVC_008"],
+      "sourceFilesReviewed": [
+        "src/app/service-landscape/value-chain/page.tsx"
+      ],
+      "currentStatus": "in-development",
+      "gapCount": 1
+    },
+    {
+      "moduleId": "RAIA-MOD-006",
+      "moduleName": "Service Landscape — Matrix",
+      "route": "/service-landscape/matrix",
+      "featureFile": "tests/gherkin/modules/06-service-landscape-matrix.feature",
+      "scenarioCount": 42,
+      "scenarioIds": ["RAIA_SLMX_001", "RAIA_SLMX_002", "RAIA_SLMX_003", "RAIA_SLMX_004", "RAIA_SLMX_005", "RAIA_SLMX_006", "RAIA_SLMX_007", "RAIA_SLMX_008"],
+      "sourceFilesReviewed": [
+        "src/app/service-landscape/matrix/page.tsx"
+      ],
+      "currentStatus": "in-development",
+      "gapCount": 1
+    },
+    {
+      "moduleId": "RAIA-MOD-007",
+      "moduleName": "Service Landscape — Overview Diagrams",
+      "route": "/service-landscape/overview-diagrams",
+      "featureFile": "tests/gherkin/modules/07-service-landscape-overview-diagrams.feature",
+      "scenarioCount": 42,
+      "scenarioIds": ["RAIA_SLOD_001", "RAIA_SLOD_002", "RAIA_SLOD_003", "RAIA_SLOD_004", "RAIA_SLOD_005", "RAIA_SLOD_006", "RAIA_SLOD_007", "RAIA_SLOD_008"],
+      "sourceFilesReviewed": [
+        "src/app/service-landscape/overview-diagrams/page.tsx"
+      ],
+      "currentStatus": "in-development",
+      "gapCount": 2
+    },
+    {
+      "moduleId": "RAIA-MOD-008",
+      "moduleName": "Business Scenarios",
+      "route": "/business-scenarios",
+      "featureFile": "tests/gherkin/modules/08-business-scenarios.feature",
+      "scenarioCount": 41,
+      "scenarioIds": ["RAIA_BS_001", "RAIA_BS_002", "RAIA_BS_003", "RAIA_BS_004", "RAIA_BS_005", "RAIA_BS_006", "RAIA_BS_007", "RAIA_BS_008"],
+      "sourceFilesReviewed": [
+        "src/app/business-scenarios/page.tsx"
+      ],
+      "currentStatus": "in-development",
+      "gapCount": 2
+    },
+    {
+      "moduleId": "RAIA-MOD-009",
+      "moduleName": "Scenario Snippets",
+      "route": "/business-scenarios/snippets",
+      "featureFile": "tests/gherkin/modules/09-scenario-snippets.feature",
+      "scenarioCount": 30,
+      "scenarioIds": ["RAIA_SNP_001", "RAIA_SNP_002", "RAIA_SNP_003", "RAIA_SNP_004", "RAIA_SNP_005", "RAIA_SNP_006"],
+      "sourceFilesReviewed": [
+        "src/app/business-scenarios/snippets/page.tsx"
+      ],
+      "currentStatus": "in-development",
+      "gapCount": 2
+    },
+    {
+      "moduleId": "RAIA-MOD-010",
+      "moduleName": "Business Capability Map",
+      "route": "/capability-map",
+      "featureFile": "tests/gherkin/modules/10-business-capability-map.feature",
+      "scenarioCount": 41,
+      "scenarioIds": ["RAIA_BCM_001", "RAIA_BCM_002", "RAIA_BCM_003", "RAIA_BCM_004", "RAIA_BCM_005", "RAIA_BCM_006", "RAIA_BCM_007", "RAIA_BCM_008"],
+      "sourceFilesReviewed": [
+        "src/app/capability-map/page.tsx"
+      ],
+      "currentStatus": "in-development",
+      "gapCount": 2
+    },
+    {
+      "moduleId": "RAIA-MOD-011",
+      "moduleName": "Capability Views",
+      "route": "/capability-map/views",
+      "featureFile": "tests/gherkin/modules/11-capability-views.feature",
+      "scenarioCount": 30,
+      "scenarioIds": ["RAIA_CVW_001", "RAIA_CVW_002", "RAIA_CVW_003", "RAIA_CVW_004", "RAIA_CVW_005", "RAIA_CVW_006"],
+      "sourceFilesReviewed": [
+        "src/app/capability-map/views/page.tsx"
+      ],
+      "currentStatus": "planned",
+      "gapCount": 2
+    },
+    {
+      "moduleId": "RAIA-MOD-012",
+      "moduleName": "Metamodel Overview",
+      "route": "/metamodel",
+      "featureFile": "tests/gherkin/modules/12-metamodel-overview.feature",
+      "scenarioCount": 30,
+      "scenarioIds": ["RAIA_MMO_001", "RAIA_MMO_002", "RAIA_MMO_003", "RAIA_MMO_004", "RAIA_MMO_005", "RAIA_MMO_006"],
+      "sourceFilesReviewed": [
+        "src/app/metamodel/page.tsx"
+      ],
+      "currentStatus": "in-development",
+      "gapCount": 2
+    },
+    {
+      "moduleId": "RAIA-MOD-013",
+      "moduleName": "Wireframes Overview",
+      "route": "/wireframes",
+      "featureFile": "tests/gherkin/modules/13-wireframes-overview.feature",
+      "scenarioCount": 30,
+      "scenarioIds": ["RAIA_WFO_001", "RAIA_WFO_002", "RAIA_WFO_003", "RAIA_WFO_004", "RAIA_WFO_005", "RAIA_WFO_006"],
+      "sourceFilesReviewed": [
+        "src/app/wireframes/page.tsx"
+      ],
+      "currentStatus": "planned",
+      "gapCount": 2
+    },
+    {
+      "moduleId": "RAIA-MOD-014",
+      "moduleName": "Architecture Dashboard",
+      "route": "/dashboard",
+      "featureFile": "tests/gherkin/modules/14-architecture-dashboard.feature",
+      "scenarioCount": 30,
+      "scenarioIds": ["RAIA_DASH_001", "RAIA_DASH_002", "RAIA_DASH_003", "RAIA_DASH_004", "RAIA_DASH_005", "RAIA_DASH_006"],
+      "sourceFilesReviewed": [
+        "src/app/dashboard/page.tsx"
+      ],
+      "currentStatus": "in-development",
+      "gapCount": 1
+    },
+    {
+      "moduleId": "RAIA-MOD-015",
+      "moduleName": "Regulatory Architecture",
+      "route": "/regulatory-architecture",
+      "featureFile": "tests/gherkin/modules/15-regulatory-architecture.feature",
+      "scenarioCount": 41,
+      "scenarioIds": ["RAIA_REG_001", "RAIA_REG_002", "RAIA_REG_003", "RAIA_REG_004", "RAIA_REG_005", "RAIA_REG_006", "RAIA_REG_007", "RAIA_REG_008"],
+      "sourceFilesReviewed": [
+        "src/app/regulatory-architecture/page.tsx"
+      ],
+      "currentStatus": "planned",
+      "gapCount": 2
+    },
+    {
+      "moduleId": "RAIA-MOD-016",
+      "moduleName": "RAIA Releases",
+      "route": "/releases",
+      "featureFile": "tests/gherkin/modules/16-raia-releases.feature",
+      "scenarioCount": 30,
+      "scenarioIds": ["RAIA_REL_001", "RAIA_REL_002", "RAIA_REL_003", "RAIA_REL_004", "RAIA_REL_005", "RAIA_REL_006"],
+      "sourceFilesReviewed": [
+        "src/app/releases/page.tsx"
+      ],
+      "currentStatus": "in-development",
+      "gapCount": 2
+    },
+    {
+      "moduleId": "RAIA-MOD-017",
+      "moduleName": "Contribution and Governance",
+      "route": "/contribute",
+      "featureFile": "tests/gherkin/modules/17-contribution-governance.feature",
+      "scenarioCount": 30,
+      "scenarioIds": ["RAIA_GOV_001", "RAIA_GOV_002", "RAIA_GOV_003", "RAIA_GOV_004", "RAIA_GOV_005", "RAIA_GOV_006"],
+      "sourceFilesReviewed": [
+        "src/app/contribute/page.tsx"
+      ],
+      "currentStatus": "in-development",
+      "gapCount": 2
+    }
+  ]
+}

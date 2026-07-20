@@ -1,0 +1,1974 @@
+# RAIA — EJECUCIÓN INTEGRAL DE ESPECIFICACIONES GHERKIN, EVIDENCIA VISUAL Y REPORTE DE AUDITORÍA
+
+## 1. Rol
+
+Actúa como un equipo senior compuesto por:
+
+- QA Lead;
+- SDET senior;
+- especialista en Behavior-Driven Development;
+- especialista en Cucumber y Gherkin;
+- especialista en Playwright;
+- arquitecto de software;
+- arquitecto empresarial;
+- especialista en pruebas de integración;
+- especialista en accesibilidad WCAG 2.2 AA;
+- especialista en seguridad de aplicaciones web;
+- especialista en trazabilidad de arquitectura;
+- especialista en generación de evidencia auditable.
+
+Tu responsabilidad es implementar el harness de automatización necesario, ejecutar todas las especificaciones Gherkin existentes para los módulos de RAIA y entregar evidencia completa, reproducible y honesta.
+
+No debes limitarte a validar la sintaxis de los archivos `.feature`.
+
+Debes:
+
+1. analizar cada escenario;
+2. determinar si es automatizable;
+3. implementar los step definitions necesarios;
+4. ejecutar todos los escenarios automatizables;
+5. clasificar los escenarios no automatizables o no implementados;
+6. capturar screenshots;
+7. conservar logs, traces y resultados;
+8. generar reportes por módulo;
+9. generar un reporte ejecutivo consolidado;
+10. publicar todo en el branch `dev-001`.
+
+---
+
+# 2. Repositorio y branch obligatorio
+
+Trabaja exclusivamente sobre:
+
+```text
+Repositorio:
+https://github.com/cyolo/Red-de-Arquitectura-de-Industria-Afores-RAIA
+
+Branch:
+dev-001
+```
+
+No trabajes sobre `main`.
+
+No crees otro branch.
+
+No realices merge.
+
+No uses `git push --force`.
+
+No elimines cambios preexistentes.
+
+---
+
+# 3. Preparación segura
+
+Antes de modificar o ejecutar:
+
+```bash
+git status --short
+git fetch origin
+git checkout dev-001
+git pull --ff-only origin dev-001
+git rev-parse HEAD
+node --version
+npm --version
+```
+
+Registra:
+
+```text
+BASE_COMMIT_SHA
+fecha y hora
+sistema operativo
+versión de Node
+versión de npm
+versión de Playwright
+versión de Cucumber
+estado inicial del workspace
+```
+
+Si existen cambios locales:
+
+1. no los elimines;
+2. no ejecutes `git reset --hard`;
+3. registra los archivos;
+4. evita sobrescribirlos;
+5. indica el riesgo en el reporte.
+
+---
+
+# 4. Archivos Gherkin que deben existir
+
+Verifica que existan exactamente estos archivos:
+
+```text
+tests/gherkin/modules/01-information-architecture.feature
+tests/gherkin/modules/02-control-record-model.feature
+tests/gherkin/modules/03-business-object-model.feature
+tests/gherkin/modules/04-industry-reference-model.feature
+tests/gherkin/modules/05-service-landscape-value-chain.feature
+tests/gherkin/modules/06-service-landscape-matrix.feature
+tests/gherkin/modules/07-service-landscape-overview-diagrams.feature
+tests/gherkin/modules/08-business-scenarios.feature
+tests/gherkin/modules/09-scenario-snippets.feature
+tests/gherkin/modules/10-business-capability-map.feature
+tests/gherkin/modules/11-capability-views.feature
+tests/gherkin/modules/12-metamodel-overview.feature
+tests/gherkin/modules/13-wireframes-overview.feature
+tests/gherkin/modules/14-architecture-dashboard.feature
+tests/gherkin/modules/15-regulatory-architecture.feature
+tests/gherkin/modules/16-raia-releases.feature
+tests/gherkin/modules/17-contribution-governance.feature
+```
+
+Si falta alguno:
+
+- no lo ocultes;
+- registra el módulo como `MISSING_FEATURE`;
+- declara `NO-GO`;
+- no inventes que fue ejecutado.
+
+Puedes corregir errores sintácticos menores de Gherkin, pero cualquier modificación debe quedar registrada en:
+
+```text
+docs/testing/gherkin-execution/<RUN_ID>/gherkin-change-log.md
+```
+
+No cambies el significado funcional de un escenario para hacerlo pasar.
+
+---
+
+# 5. Definición de “ejecutar todo”
+
+Todos los escenarios deberán terminar con una clasificación explícita.
+
+Estados permitidos:
+
+```text
+PASSED
+FAILED
+BLOCKED_NOT_IMPLEMENTED
+BLOCKED_MISSING_DEPENDENCY
+BLOCKED_AUTOMATION
+MANUAL_PENDING
+SKIPPED_BY_PRECONDITION
+INVALID_GHERKIN
+```
+
+No deberá quedar ningún escenario sin disposición.
+
+## PASSED
+
+El comportamiento esperado fue ejecutado y comprobado mediante assertions reales.
+
+## FAILED
+
+El comportamiento está implementado o debería estar disponible, pero el resultado observado no coincide con el esperado.
+
+## BLOCKED_NOT_IMPLEMENTED
+
+El escenario corresponde a un contrato objetivo o gap y la funcionalidad aún no existe.
+
+## BLOCKED_MISSING_DEPENDENCY
+
+La prueba no pudo ejecutarse por falta de módulo, catálogo, dato, servicio o dependencia.
+
+## BLOCKED_AUTOMATION
+
+Existe funcionalidad, pero no puede automatizarse de forma confiable con la infraestructura disponible.
+
+Debe explicarse la razón concreta.
+
+## MANUAL_PENDING
+
+El escenario necesita revisión humana, jurídica, operativa o editorial.
+
+## SKIPPED_BY_PRECONDITION
+
+La precondición declarada no se cumple.
+
+## INVALID_GHERKIN
+
+El escenario no puede ser interpretado por el parser.
+
+No conviertas escenarios bloqueados en `PASSED`.
+
+No excluyas los escenarios `@gap` del reporte.
+
+No reportes 100 % de aprobación si existen escenarios bloqueados o manuales.
+
+---
+
+# 6. Interpretación de tags
+
+Respeta los tags existentes.
+
+## `@as_is`
+
+Debe ejecutarse contra el comportamiento actual.
+
+Si falla, clasificar como:
+
+```text
+FAILED
+```
+
+## `@target_contract`
+
+Ejecutar cuando el comportamiento exista.
+
+Cuando todavía no exista:
+
+```text
+BLOCKED_NOT_IMPLEMENTED
+```
+
+## `@gap`
+
+Registrar como:
+
+```text
+BLOCKED_NOT_IMPLEMENTED
+```
+
+salvo que el gap ya haya sido corregido y pueda comprobarse.
+
+## `@manual_review`
+
+Registrar como:
+
+```text
+MANUAL_PENDING
+```
+
+Generar checklist y evidencia disponible.
+
+## `@accessibility`
+
+Ejecutar validaciones automáticas y pruebas de teclado.
+
+## `@security`
+
+Ejecutar únicamente pruebas seguras y no destructivas.
+
+## `@performance`
+
+Medir resultados reales.
+
+No inventar tiempos.
+
+## `@responsive`
+
+Ejecutar en los viewports definidos.
+
+---
+
+# 7. Prohibiciones absolutas
+
+Está prohibido:
+
+- modificar funcionalidad productiva para hacer pasar pruebas;
+- agregar DOM oculto para satisfacer conteos;
+- agregar datos ficticios a catálogos productivos;
+- usar assertions vacías;
+- usar `expect(true).toBe(true)`;
+- capturar errores y continuar como si hubiera pasado;
+- usar steps genéricos que acepten cualquier texto;
+- implementar `Then` sin comprobación;
+- marcar como pass un escenario no ejecutado;
+- ocultar fallos de consola;
+- ocultar referencias rotas;
+- editar screenshots;
+- reutilizar una captura como evidencia de varios escenarios diferentes;
+- inventar resultados regulatorios;
+- inventar revisiones jurídicas;
+- inventar tiempos de rendimiento;
+- borrar resultados anteriores;
+- eliminar pruebas existentes;
+- desactivar validadores para obtener verde.
+
+---
+
+# 8. Infraestructura de automatización
+
+Usa preferentemente:
+
+```text
+@cucumber/cucumber
+Playwright
+TypeScript
+Cucumber HTML Formatter
+JUnit XML
+JSON
+```
+
+Reutiliza las dependencias existentes cuando sea posible.
+
+Agrega únicamente dependencias de desarrollo.
+
+No agregues dependencias de runtime a la aplicación.
+
+Crear una estructura similar a:
+
+```text
+tests/gherkin/
+├── modules/
+├── step-definitions/
+│   ├── common.steps.ts
+│   ├── navigation.steps.ts
+│   ├── accessibility.steps.ts
+│   ├── security.steps.ts
+│   ├── information-architecture.steps.ts
+│   ├── control-record-model.steps.ts
+│   ├── business-object-model.steps.ts
+│   ├── industry-reference-model.steps.ts
+│   ├── service-landscape-value-chain.steps.ts
+│   ├── service-landscape-matrix.steps.ts
+│   ├── overview-diagrams.steps.ts
+│   ├── business-scenarios.steps.ts
+│   ├── scenario-snippets.steps.ts
+│   ├── capability-map.steps.ts
+│   ├── capability-views.steps.ts
+│   ├── metamodel.steps.ts
+│   ├── wireframes.steps.ts
+│   ├── dashboard.steps.ts
+│   ├── regulatory-architecture.steps.ts
+│   ├── releases.steps.ts
+│   └── contribution-governance.steps.ts
+├── support/
+│   ├── world.ts
+│   ├── hooks.ts
+│   ├── browser.ts
+│   ├── evidence.ts
+│   ├── classification.ts
+│   ├── console-monitor.ts
+│   ├── network-monitor.ts
+│   └── test-context.ts
+├── fixtures/
+├── helpers/
+└── cucumber.config.*
+```
+
+Crear también:
+
+```text
+scripts/runGherkinSuite.mjs
+scripts/generateGherkinExecutionReport.mjs
+scripts/captureGherkinReportScreenshots.mjs
+scripts/validateGherkinEvidence.mjs
+```
+
+---
+
+# 9. Calidad de los step definitions
+
+Los step definitions deberán:
+
+- utilizar assertions reales;
+- localizar elementos por roles accesibles;
+- utilizar labels y nombres visibles;
+- utilizar IDs arquitectónicos reales;
+- comprobar URL;
+- comprobar datos;
+- comprobar conteos;
+- comprobar estados;
+- comprobar navegación;
+- comprobar relaciones;
+- comprobar ausencia de errores;
+- ser reutilizables sin convertirse en catch-all.
+
+Prioridad de selectores:
+
+```text
+getByRole
+getByLabel
+getByPlaceholder
+getByText
+IDs arquitectónicos visibles
+selectores semánticos estables
+```
+
+Evitar:
+
+```text
+nth()
+índices de array
+selectores CSS dependientes de layout
+XPath frágil
+```
+
+No agregar `data-testid` al código productivo durante esta ejecución.
+
+Cuando la interfaz no pueda automatizarse con semántica accesible, registra:
+
+```text
+BLOCKED_AUTOMATION
+```
+
+y crea un defecto de accesibilidad o testabilidad.
+
+---
+
+# 10. Servidor de prueba
+
+Ejecuta preferentemente una compilación de producción:
+
+```bash
+npm ci
+npm run build
+npm run start
+```
+
+Base URL:
+
+```text
+http://127.0.0.1:3000
+```
+
+Configura:
+
+```text
+locale: es-MX
+timezone: America/Mexico_City
+colorScheme: light
+reducedMotion: reduce
+```
+
+No reutilices un servidor desconocido sin verificar:
+
+- commit;
+- puerto;
+- health;
+- versión;
+- contenido servido.
+
+Cuando el repositorio use el `webServer` de Playwright, configura:
+
+```text
+reuseExistingServer: false
+```
+
+para la ejecución auditable.
+
+---
+
+# 11. Estrategia de navegadores
+
+Ejecuta todos los escenarios automatizables al menos una vez en:
+
+```text
+Chromium
+```
+
+Ejecuta en Firefox y WebKit:
+
+```text
+@smoke
+@navigation
+@responsive
+@accessibility
+```
+
+No multipliques innecesariamente todos los escenarios por los tres navegadores.
+
+El reporte debe distinguir:
+
+```text
+escenarios únicos
+ejecuciones por navegador
+```
+
+No inflar el número de escenarios sumando reintentos o navegadores.
+
+---
+
+# 12. Viewports
+
+## Desktop principal
+
+```text
+1440 × 900
+```
+
+## Desktop amplio para diagramas
+
+```text
+1920 × 1080
+```
+
+## Tablet
+
+```text
+768 × 1024
+```
+
+## Móvil
+
+```text
+390 × 844
+```
+
+Los escenarios `@responsive` deberán ejecutarse en los viewports aplicables.
+
+Los diagramas fullscreen deberán validarse en:
+
+```text
+1920 × 1080
+```
+
+---
+
+# 13. Evidencia visual obligatoria
+
+Todos los escenarios automatizados de interfaz deberán producir evidencia visual.
+
+## Escenario aprobado
+
+Capturar por lo menos:
+
+```text
+01-final-state.jpg
+```
+
+Debe mostrar el resultado final verificable.
+
+## Escenario complejo
+
+Capturar:
+
+```text
+01-initial-state.jpg
+02-action-result.jpg
+03-final-state.jpg
+```
+
+Aplica a:
+
+- diagramas;
+- matrices;
+- filtros;
+- fullscreen;
+- sidebars;
+- drill-down;
+- navegación cross-module;
+- simulaciones;
+- exportaciones;
+- estados y transiciones.
+
+## Escenario fallido
+
+Capturar obligatoriamente:
+
+```text
+01-before-failure.png
+02-failure-state.png
+03-full-page-failure.png
+```
+
+Además:
+
+- Playwright trace;
+- console log;
+- network log;
+- error stack;
+- URL;
+- viewport;
+- navegador;
+- timestamp.
+
+## Escenario bloqueado por funcionalidad inexistente
+
+Cuando exista una pantalla visible de módulo planeado o estado incompleto, captura:
+
+```text
+01-blocked-state.jpg
+```
+
+Debe mostrar la razón visual del bloqueo.
+
+## Escenario manual
+
+Captura la pantalla o documentación disponible cuando aporte evidencia.
+
+No fabriques capturas para revisión jurídica.
+
+---
+
+# 14. Nombres de screenshots
+
+Usa esta convención:
+
+```text
+<SCENARIO_ID>__<MODULE_SLUG>__<CHECKPOINT>__<BROWSER>__<VIEWPORT>.<ext>
+```
+
+Ejemplo:
+
+```text
+RAIA_BS_021__business-scenarios__03-final-state__chromium__1440x900.jpg
+```
+
+No utilices espacios.
+
+No sobrescribas evidencias.
+
+---
+
+# 15. Calidad y tamaño de screenshots
+
+Para escenarios aprobados:
+
+```text
+JPEG
+quality: 85
+```
+
+Para fallos, diagramas con texto pequeño y diferencias visuales:
+
+```text
+PNG
+```
+
+Evita capturas completamente blancas o negras.
+
+Antes de aceptar una captura valida:
+
+- ancho;
+- alto;
+- tamaño mayor que cero;
+- hash;
+- existencia;
+- correspondencia con el escenario.
+
+No capturar:
+
+- contraseñas;
+- tokens;
+- variables de entorno;
+- secretos;
+- datos personales reales;
+- cookies sensibles.
+
+Utiliza únicamente datos sintéticos o públicos del repositorio.
+
+---
+
+# 16. Screenshots de los reportes Gherkin
+
+Después de generar los reportes HTML:
+
+1. levanta el reporte localmente;
+2. ábrelo con Playwright;
+3. captura screenshots legibles.
+
+Crear:
+
+```text
+test-results/gherkin-execution/<RUN_ID>/report-screenshots/
+```
+
+Capturas obligatorias:
+
+```text
+00-execution-summary.png
+01-scenario-status-distribution.png
+02-module-coverage.png
+03-failure-summary.png
+04-blocked-scenarios.png
+05-accessibility-summary.png
+06-security-summary.png
+07-cross-module-summary.png
+08-evidence-index.png
+```
+
+Además, una captura por módulo:
+
+```text
+module-01-information-architecture.png
+module-02-control-record-model.png
+module-03-business-object-model.png
+module-04-industry-reference-model.png
+module-05-service-landscape-value-chain.png
+module-06-service-landscape-matrix.png
+module-07-service-landscape-overview-diagrams.png
+module-08-business-scenarios.png
+module-09-scenario-snippets.png
+module-10-business-capability-map.png
+module-11-capability-views.png
+module-12-metamodel-overview.png
+module-13-wireframes-overview.png
+module-14-architecture-dashboard.png
+module-15-regulatory-architecture.png
+module-16-raia-releases.png
+module-17-contribution-governance.png
+```
+
+Las capturas deben mostrar:
+
+- nombre del módulo;
+- total;
+- passed;
+- failed;
+- blocked;
+- manual;
+- duración;
+- enlace o referencia a evidencias.
+
+---
+
+# 17. Estructura de resultados
+
+Crear un identificador:
+
+```text
+RUN_ID = YYYYMMDD-HHMMSS-<SHORT_SHA>
+```
+
+Guardar resultados en:
+
+```text
+test-results/gherkin-execution/<RUN_ID>/
+├── reports/
+│   ├── cucumber-report.html
+│   ├── cucumber-report.json
+│   ├── cucumber-report.ndjson
+│   ├── cucumber-junit.xml
+│   ├── execution-summary.html
+│   └── module-summary.html
+├── screenshots/
+│   ├── 01-information-architecture/
+│   ├── 02-control-record-model/
+│   ├── 03-business-object-model/
+│   ├── 04-industry-reference-model/
+│   ├── 05-service-landscape-value-chain/
+│   ├── 06-service-landscape-matrix/
+│   ├── 07-service-landscape-overview-diagrams/
+│   ├── 08-business-scenarios/
+│   ├── 09-scenario-snippets/
+│   ├── 10-business-capability-map/
+│   ├── 11-capability-views/
+│   ├── 12-metamodel-overview/
+│   ├── 13-wireframes-overview/
+│   ├── 14-architecture-dashboard/
+│   ├── 15-regulatory-architecture/
+│   ├── 16-raia-releases/
+│   └── 17-contribution-governance/
+├── report-screenshots/
+├── traces/
+│   └── failures/
+├── videos/
+│   └── failures/
+├── logs/
+│   ├── application.log
+│   ├── cucumber.log
+│   ├── console-errors.json
+│   ├── network-errors.json
+│   └── execution-commands.log
+├── manifests/
+│   ├── execution-manifest.json
+│   ├── evidence-manifest.json
+│   ├── screenshot-manifest.json
+│   └── environment.json
+└── defects/
+    ├── defect-register.csv
+    └── defect-details.md
+```
+
+No borres ejecuciones anteriores.
+
+---
+
+# 18. Manifiesto de ejecución
+
+Crear:
+
+```text
+execution-manifest.json
+```
+
+Debe incluir:
+
+```json
+{
+  "runId": "",
+  "repository": "cyolo/Red-de-Arquitectura-de-Industria-Afores-RAIA",
+  "branch": "dev-001",
+  "baseCommit": "",
+  "finalCommit": "",
+  "startedAt": "",
+  "finishedAt": "",
+  "environment": {},
+  "scenarioTotals": {
+    "total": 0,
+    "passed": 0,
+    "failed": 0,
+    "blockedNotImplemented": 0,
+    "blockedMissingDependency": 0,
+    "blockedAutomation": 0,
+    "manualPending": 0,
+    "skippedByPrecondition": 0,
+    "invalidGherkin": 0
+  },
+  "modules": [],
+  "commands": [],
+  "qualityGate": ""
+}
+```
+
+---
+
+# 19. Manifiesto de evidencia
+
+Por cada escenario registra:
+
+```json
+{
+  "scenarioId": "RAIA_BS_001",
+  "moduleId": "RAIA-MOD-008",
+  "featureFile": "",
+  "rule": "",
+  "scenarioName": "",
+  "tags": [],
+  "classification": "as_is",
+  "executionStatus": "PASSED",
+  "browser": "chromium",
+  "viewport": "1440x900",
+  "durationMs": 0,
+  "url": "",
+  "screenshots": [
+    {
+      "path": "",
+      "checkpoint": "final-state",
+      "sha256": "",
+      "width": 1440,
+      "height": 900
+    }
+  ],
+  "tracePath": null,
+  "videoPath": null,
+  "consoleLogPath": "",
+  "networkLogPath": "",
+  "defectId": null,
+  "blockingReason": null
+}
+```
+
+Todo escenario debe aparecer en el manifiesto, incluso cuando esté bloqueado o sea manual.
+
+---
+
+# 20. Attachments en el reporte Cucumber
+
+Adjunta las evidencias al escenario correspondiente mediante Cucumber:
+
+- screenshots;
+- mensaje de estado;
+- URL;
+- navegador;
+- viewport;
+- console errors;
+- blocking reason;
+- defect ID.
+
+El reporte HTML debe permitir relacionar visualmente:
+
+```text
+Feature
+→ Regla
+→ Escenario
+→ Paso
+→ Estado
+→ Screenshot
+→ Defecto
+```
+
+---
+
+# 21. Console y network monitoring
+
+Por escenario registra:
+
+## Console
+
+- errores;
+- warnings relevantes;
+- excepciones no controladas.
+
+No marques automáticamente el escenario como fallido por warnings conocidos e irrelevantes.
+
+Crea una allowlist explícita y documentada.
+
+## Network
+
+Registra:
+
+- 4xx;
+- 5xx;
+- requests fallidas;
+- recursos bloqueados;
+- timeouts.
+
+Una respuesta 404 esperada por un escenario negativo no deberá interpretarse automáticamente como fallo.
+
+---
+
+# 22. Evidencia para pruebas no visuales
+
+Para validadores, schemas, repositorios y reglas sin interfaz:
+
+- conserva stdout;
+- conserva stderr;
+- conserva exit code;
+- genera tabla de resultados;
+- genera una página HTML;
+- captura screenshot de esa página.
+
+Ejemplo:
+
+```text
+RAIA_BOM_033__business-object-model__validator-result.png
+```
+
+No simules una pantalla de la aplicación para una prueba que no usa UI.
+
+---
+
+# 23. Reportes Markdown
+
+Crear:
+
+```text
+docs/testing/gherkin-execution/<RUN_ID>/
+```
+
+Archivos obligatorios:
+
+```text
+00-executive-summary.md
+01-environment-and-baseline.md
+02-execution-strategy.md
+03-scenario-disposition-summary.md
+04-module-results.md
+05-failure-analysis.md
+06-blocked-scenarios.md
+07-manual-review-register.md
+08-accessibility-report.md
+09-security-report.md
+10-performance-report.md
+11-responsive-report.md
+12-cross-module-integration-report.md
+13-console-and-network-report.md
+14-evidence-and-screenshot-index.md
+15-defect-register.md
+16-implementation-gap-register.md
+17-reproducibility-guide.md
+18-final-quality-gate.md
+gherkin-change-log.md
+```
+
+Crear además:
+
+```text
+docs/testing/gherkin-execution/<RUN_ID>/modules/
+```
+
+Con exactamente un reporte por módulo:
+
+```text
+01-information-architecture.md
+02-control-record-model.md
+03-business-object-model.md
+04-industry-reference-model.md
+05-service-landscape-value-chain.md
+06-service-landscape-matrix.md
+07-service-landscape-overview-diagrams.md
+08-business-scenarios.md
+09-scenario-snippets.md
+10-business-capability-map.md
+11-capability-views.md
+12-metamodel-overview.md
+13-wireframes-overview.md
+14-architecture-dashboard.md
+15-regulatory-architecture.md
+16-raia-releases.md
+17-contribution-governance.md
+```
+
+---
+
+# 24. Contenido de cada reporte de módulo
+
+Cada reporte deberá incluir:
+
+```markdown
+# Nombre del módulo
+
+## Identificación
+
+- Module ID:
+- Ruta:
+- Feature:
+- Estado actual:
+- Commit:
+
+## Resumen
+
+| Estado | Cantidad |
+|---|---:|
+| PASSED | |
+| FAILED | |
+| BLOCKED_NOT_IMPLEMENTED | |
+| BLOCKED_MISSING_DEPENDENCY | |
+| BLOCKED_AUTOMATION | |
+| MANUAL_PENDING | |
+| SKIPPED_BY_PRECONDITION | |
+| INVALID_GHERKIN | |
+
+## Reglas cubiertas
+
+## Escenarios ejecutados
+
+| ID | Escenario | Tags | Estado | Duración | Evidencia |
+|---|---|---|---|---:|---|
+
+## Fallos
+
+## Bloqueos
+
+## Hallazgos funcionales
+
+## Hallazgos de datos
+
+## Hallazgos de integración
+
+## Hallazgos visuales
+
+## Hallazgos de accesibilidad
+
+## Hallazgos de seguridad
+
+## Hallazgos de rendimiento
+
+## Screenshots
+
+## Defectos
+
+## Gaps
+
+## Recomendaciones
+
+## Resultado del módulo
+
+PASS / FAIL / BLOCKED / CONDITIONAL
+```
+
+No escribir conteos manualmente.
+
+Generarlos desde los resultados JSON.
+
+---
+
+# 25. Registro de defectos
+
+Cada fallo real deberá generar un defecto con ID:
+
+```text
+RAIA-DEF-0001
+RAIA-DEF-0002
+...
+```
+
+Campos:
+
+```text
+Defect ID
+Title
+Severity
+Priority
+Module
+Scenario ID
+Feature file
+Rule
+Browser
+Viewport
+Environment
+Base commit
+Steps to reproduce
+Expected result
+Actual result
+Screenshot paths
+Trace path
+Console errors
+Network errors
+Affected artifacts
+Suspected source files
+Probable root cause
+Workaround
+Reproducibility
+Status
+```
+
+Severidad:
+
+```text
+P0 — bloqueo total, corrupción o contradicción crítica
+P1 — comportamiento principal incorrecto
+P2 — defecto funcional secundario, UX o integración
+P3 — presentación, consistencia o mejora
+```
+
+No agrupes defectos no relacionados bajo un único ID.
+
+No declares causa raíz como definitiva sin evidencia.
+
+Usa:
+
+```text
+Probable root cause
+```
+
+cuando sea inferencia.
+
+---
+
+# 26. Evidencia de screenshots en los reportes
+
+En los Markdown utiliza enlaces relativos.
+
+Ejemplo:
+
+```markdown
+[Ver evidencia final](../../../test-results/gherkin-execution/<RUN_ID>/screenshots/08-business-scenarios/RAIA_BS_021__business-scenarios__03-final-state__chromium__1440x900.jpg)
+```
+
+No uses rutas locales como:
+
+```text
+C:\Users\
+/home/user/
+file://
+```
+
+Todos los links deben funcionar dentro de GitHub.
+
+---
+
+# 27. Accessibility
+
+Ejecuta:
+
+- axe-core;
+- navegación por teclado;
+- foco visible;
+- Enter;
+- Space;
+- Escape;
+- orden de tabulación;
+- headings;
+- labels;
+- roles;
+- nombres accesibles;
+- zoom al 200%;
+- reduced motion;
+- equivalencia textual del color;
+- alternativa tabular o estructurada en diagramas.
+
+Para cada violación registra:
+
+- regla;
+- impacto;
+- elemento;
+- módulo;
+- escenario;
+- evidencia;
+- recomendación.
+
+No marques accesibilidad como aprobada únicamente porque axe no encuentre errores.
+
+Las pruebas de teclado deben ejecutarse.
+
+---
+
+# 28. Seguridad
+
+Ejecuta pruebas no destructivas para:
+
+- contenido escapado;
+- parámetros URL inválidos;
+- intentos simples de XSS;
+- query strings maliciosas;
+- links externos;
+- `noopener`;
+- rutas locales en exportaciones;
+- exposición de secretos;
+- datos personales;
+- evaluación de código;
+- carga de JSON;
+- errores verbosos.
+
+No ejecutes:
+
+- ataques de denegación de servicio;
+- escaneo externo;
+- explotación destructiva;
+- modificación de repositorios;
+- extracción de secretos.
+
+---
+
+# 29. Rendimiento
+
+Para escenarios `@performance` registra:
+
+- tiempo de navegación;
+- tiempo de carga;
+- tiempo de interacción;
+- tiempo de filtros;
+- tiempo de cálculo;
+- cantidad de nodos;
+- cantidad de filas;
+- memoria cuando sea posible.
+
+Distingue:
+
+```text
+Observed
+Target
+Result
+```
+
+Ejemplo:
+
+```text
+Observed: 428 ms
+Target: 300 ms
+Result: FAILED
+```
+
+Cuando no exista target:
+
+```text
+Result: MEASURED_NO_TARGET
+```
+
+No inventes un threshold.
+
+---
+
+# 30. Responsive y regresión visual
+
+Para escenarios responsive captura la misma funcionalidad en:
+
+```text
+1440 × 900
+768 × 1024
+390 × 844
+```
+
+Verifica:
+
+- ausencia de overflow accidental;
+- contenido legible;
+- controles accesibles;
+- drawers;
+- sidebars;
+- tablas;
+- matrices;
+- diagramas;
+- fullscreen;
+- navegación.
+
+No aceptes una interfaz móvil que simplemente reduzca la escala hasta hacerla ilegible.
+
+---
+
+# 31. Screenshots específicos para diagramas
+
+Para:
+
+- sequence diagrams;
+- state machines;
+- lineage;
+- object maps;
+- capability maps;
+- overview diagrams;
+- reference model;
+- metamodel;
+
+captura:
+
+```text
+01-default-view
+02-element-selected
+03-detail-panel
+04-fit-to-content
+05-fullscreen
+```
+
+Cuando exista zoom:
+
+- comprueba que las etiquetas sigan legibles;
+- comprueba que no se corten nodos;
+- comprueba que las relaciones permanezcan conectadas;
+- comprueba que el fullscreen use el monitor completo.
+
+---
+
+# 32. Ejecución por módulos
+
+Ejecuta y reporta cada módulo individualmente.
+
+Scripts sugeridos:
+
+```json
+{
+  "scripts": {
+    "gherkin:validate": "node scripts/validateGherkin.mjs",
+    "gherkin:test": "node scripts/runGherkinSuite.mjs",
+    "gherkin:test:chromium": "node scripts/runGherkinSuite.mjs --browser=chromium",
+    "gherkin:test:cross-browser": "node scripts/runGherkinSuite.mjs --tags='@smoke or @navigation or @responsive or @accessibility'",
+    "gherkin:report": "node scripts/generateGherkinExecutionReport.mjs",
+    "gherkin:report:screenshots": "node scripts/captureGherkinReportScreenshots.mjs",
+    "gherkin:evidence:validate": "node scripts/validateGherkinEvidence.mjs",
+    "gherkin:audit": "npm run gherkin:validate && npm run gherkin:test && npm run gherkin:report && npm run gherkin:report:screenshots && npm run gherkin:evidence:validate"
+  }
+}
+```
+
+Permite también:
+
+```bash
+npm run gherkin:test -- --module=08-business-scenarios
+npm run gherkin:test -- --scenario=RAIA_BS_021
+```
+
+---
+
+# 33. Reintentos
+
+Configuración:
+
+```text
+Retries: 0 en primera ejecución
+Retries: 1 únicamente para confirmar un fallo potencialmente intermitente
+```
+
+El resultado final deberá indicar:
+
+```text
+passed-first-attempt
+passed-after-retry
+failed-after-retry
+```
+
+No ocultes pruebas flaky.
+
+Un escenario que pasa después de fallar deberá clasificarse adicionalmente como:
+
+```text
+FLAKY
+```
+
+y registrarse como hallazgo.
+
+---
+
+# 34. Ejecución obligatoria
+
+Ejecuta en este orden:
+
+```bash
+npm ci
+npm run gherkin:validate
+npm run validate:data
+npm run lint
+npm run typecheck
+npm test
+npm run build
+npm run gherkin:test:chromium
+npm run gherkin:test:cross-browser
+npm run gherkin:report
+npm run gherkin:report:screenshots
+npm run gherkin:evidence:validate
+git diff --check
+```
+
+Cuando exista Playwright E2E previo, ejecútalo también:
+
+```bash
+npx playwright test
+```
+
+Cuando un comando no exista:
+
+```text
+NOT_AVAILABLE
+```
+
+No simules su ejecución.
+
+Registra por comando:
+
+- inicio;
+- fin;
+- duración;
+- exit code;
+- stdout path;
+- stderr path;
+- resultado.
+
+---
+
+# 35. Ejecuciones parciales
+
+Aunque una suite falle, continúa con los demás módulos cuando sea técnicamente posible.
+
+No detengas toda la generación de evidencia por un único fallo.
+
+Al final, el Quality Gate reflejará el resultado real.
+
+La única razón para abortar completamente será:
+
+- repositorio inaccesible;
+- branch inexistente;
+- instalación imposible;
+- build totalmente bloqueado;
+- corrupción de Gherkin que impida identificar escenarios.
+
+Incluso en estos casos genera un reporte de interrupción.
+
+---
+
+# 36. Integridad del reporte
+
+Crear un validador que compruebe:
+
+- 17 archivos feature;
+- 17 reportes de módulo;
+- todos los scenario IDs en el manifiesto;
+- ningún scenario ID duplicado;
+- ningún escenario sin estado;
+- screenshots existentes;
+- hashes correctos;
+- links relativos válidos;
+- conteos consistentes;
+- defect IDs válidos;
+- HTML existente;
+- JSON válido;
+- JUnit válido;
+- screenshots de reportes existentes;
+- base commit registrado;
+- run ID consistente.
+
+El comando:
+
+```bash
+npm run gherkin:evidence:validate
+```
+
+debe fallar si existe inconsistencia.
+
+---
+
+# 37. Índice auditable
+
+Crear:
+
+```text
+docs/testing/gherkin-execution/LATEST.md
+```
+
+Debe apuntar a la última ejecución:
+
+```markdown
+# Latest Gherkin Execution
+
+- Run ID:
+- Branch:
+- Base commit:
+- Final commit:
+- Date:
+- Quality Gate:
+
+## Executive report
+
+## HTML report
+
+## Evidence manifest
+
+## Module reports
+
+## Screenshots
+
+## Defects
+```
+
+No elimines referencias a ejecuciones históricas.
+
+---
+
+# 38. Control de tamaño
+
+Los resultados deben quedar disponibles en GitHub, pero no deben superar límites innecesarios.
+
+Reglas:
+
+- screenshots aprobados en JPEG quality 85;
+- screenshots de fallo en PNG;
+- videos únicamente para fallos;
+- traces únicamente para fallos;
+- no incluir browser binaries;
+- no incluir `node_modules`;
+- no incluir caches;
+- no incluir archivos duplicados;
+- no incluir screenshots idénticos.
+
+Genera un reporte:
+
+```text
+artifact-size-report.md
+```
+
+Debe mostrar:
+
+| Categoría | Archivos | Tamaño |
+|---|---:|---:|
+
+Ningún archivo individual deberá superar 20 MB.
+
+Cuando un archivo exceda ese límite:
+
+1. comprímelo;
+2. divídelo;
+3. registra la decisión.
+
+No configures Git LFS sin autorización previa.
+
+---
+
+# 39. No corregir defectos en esta ejecución
+
+Esta tarea tiene como objetivo:
+
+```text
+ejecutar
+observar
+documentar
+capturar evidencia
+reportar
+```
+
+No corregir defectos funcionales encontrados.
+
+Puedes corregir únicamente:
+
+- infraestructura de pruebas;
+- steps;
+- configuración Cucumber;
+- generación de reportes;
+- rutas de evidencia;
+- errores sintácticos de Gherkin.
+
+No modifiques:
+
+- componentes productivos;
+- datos canónicos;
+- reglas de negocio;
+- schemas productivos;
+- estilos productivos;
+- navegación productiva.
+
+Cuando un defecto impida automatización, regístralo.
+
+Esto permitirá una auditoría posterior independiente.
+
+---
+
+# 40. Reporte ejecutivo
+
+El archivo:
+
+```text
+00-executive-summary.md
+```
+
+debe incluir:
+
+```markdown
+# RAIA GHERKIN EXECUTION — EXECUTIVE SUMMARY
+
+## Identificación
+
+- Run ID:
+- Branch:
+- Base commit:
+- Final commit:
+- Started:
+- Finished:
+- Duration:
+
+## Resultado general
+
+| Métrica | Resultado |
+|---|---:|
+| Features esperadas | 17 |
+| Features encontradas | |
+| Escenarios únicos | |
+| Ejecuciones de navegador | |
+| Passed | |
+| Failed | |
+| Blocked not implemented | |
+| Blocked missing dependency | |
+| Blocked automation | |
+| Manual pending | |
+| Skipped | |
+| Invalid Gherkin | |
+| Flaky | |
+| Screenshots | |
+| Defectos P0 | |
+| Defectos P1 | |
+| Defectos P2 | |
+| Defectos P3 | |
+
+## Resultado por módulo
+
+| Módulo | Passed | Failed | Blocked | Manual | Resultado |
+|---|---:|---:|---:|---:|---|
+
+## Principales hallazgos
+
+## Riesgos
+
+## Limitaciones
+
+## Quality Gate
+
+GO / CONDITIONAL GO / NO-GO
+```
+
+---
+
+# 41. Métricas honestas
+
+Calcula por separado:
+
+## Automation execution rate
+
+```text
+Escenarios ejecutados automáticamente
+/
+Escenarios totales
+```
+
+## Pass rate automatizado
+
+```text
+Passed
+/
+Passed + Failed
+```
+
+## Effective readiness
+
+```text
+Passed
+/
+Escenarios totales
+```
+
+## Blocked rate
+
+```text
+Todos los blocked
+/
+Escenarios totales
+```
+
+## Manual review rate
+
+```text
+Manual pending
+/
+Escenarios totales
+```
+
+No mezcles escenarios manuales o bloqueados en el pass rate.
+
+---
+
+# 42. Quality Gate
+
+## GO
+
+Solo declara `GO` cuando:
+
+- existen las 17 features;
+- Gherkin válido;
+- todos los escenarios tienen disposición;
+- cero fallos P0;
+- cero fallos P1;
+- cero inconsistencias de evidencia;
+- cero links rotos;
+- todos los escenarios `@as_is` automatizables fueron ejecutados;
+- reportes completos;
+- screenshots completos;
+- manifiestos válidos;
+- build exitoso;
+- evidencias publicadas;
+- push exitoso.
+
+## CONDITIONAL GO
+
+Declara `CONDITIONAL GO` cuando:
+
+- infraestructura y evidencia son completas;
+- existen escenarios `BLOCKED_NOT_IMPLEMENTED`;
+- existen revisiones manuales;
+- existen fallos P2 o P3;
+- no existen defectos críticos P0;
+- los bloqueos están documentados;
+- ningún bloqueo se presenta como pass.
+
+## NO-GO
+
+Declara `NO-GO` cuando:
+
+- falta una feature;
+- Gherkin inválido;
+- existen escenarios sin estado;
+- faltan screenshots obligatorios;
+- reportes inconsistentes;
+- defectos P0;
+- evidencia manipulada;
+- resultados no reproducibles;
+- build imposible;
+- branch incorrecto;
+- no puede identificarse el commit;
+- se modificó producción para hacer pasar pruebas.
+
+---
+
+# 43. Commit y publicación
+
+Antes de commit:
+
+```bash
+git status --short
+git diff --check
+npm run gherkin:evidence:validate
+```
+
+Agregar únicamente:
+
+```text
+tests/gherkin/step-definitions/
+tests/gherkin/support/
+tests/gherkin/helpers/
+tests/gherkin/fixtures/
+scripts/runGherkinSuite.mjs
+scripts/generateGherkinExecutionReport.mjs
+scripts/captureGherkinReportScreenshots.mjs
+scripts/validateGherkinEvidence.mjs
+test-results/gherkin-execution/<RUN_ID>/
+docs/testing/gherkin-execution/<RUN_ID>/
+docs/testing/gherkin-execution/LATEST.md
+cucumber.config.*
+package.json
+package-lock.json
+```
+
+No agregar:
+
+```text
+node_modules
+browser binaries
+cache
+.env
+secrets
+temporary files
+```
+
+Commit:
+
+```bash
+git commit -m "test(gherkin): execute RAIA specifications and publish audit evidence"
+```
+
+Después:
+
+```bash
+git rev-parse HEAD
+git push origin dev-001
+```
+
+Si el push falla:
+
+- no declares que fue publicado;
+- conserva el commit local;
+- registra el error exacto;
+- declara `NO-GO` para publicación.
+
+---
+
+# 44. Formato obligatorio de respuesta final
+
+Entrega:
+
+```markdown
+# RAIA GHERKIN EXECUTION AND AUDIT EVIDENCE
+
+## Repositorio
+
+## Branch
+
+## Run ID
+
+## Base commit
+
+## Final commit
+
+## Push
+
+SUCCESS / FAILED
+
+## Resumen general
+
+| Estado | Escenarios |
+|---|---:|
+| PASSED | |
+| FAILED | |
+| BLOCKED_NOT_IMPLEMENTED | |
+| BLOCKED_MISSING_DEPENDENCY | |
+| BLOCKED_AUTOMATION | |
+| MANUAL_PENDING | |
+| SKIPPED_BY_PRECONDITION | |
+| INVALID_GHERKIN | |
+| FLAKY | |
+
+## Resultado por módulo
+
+| Módulo | Passed | Failed | Blocked | Manual | Quality |
+|---|---:|---:|---:|---:|---|
+
+## Defectos
+
+| Severidad | Cantidad |
+|---|---:|
+| P0 | |
+| P1 | |
+| P2 | |
+| P3 | |
+
+## Evidencias
+
+- Cucumber HTML:
+- Cucumber JSON:
+- JUnit:
+- Executive report:
+- Evidence manifest:
+- Screenshot manifest:
+- Report screenshots:
+- Module reports:
+- Defect register:
+
+## Screenshots generados
+
+## Traces generados
+
+## Videos generados
+
+## Comandos ejecutados
+
+| Comando | Exit code | Duración | Resultado |
+|---|---:|---:|---|
+
+## Cambios realizados en código productivo
+
+Debe indicar:
+
+Ninguno
+
+## Cambios realizados en infraestructura de pruebas
+
+## Fallos preexistentes
+
+## Limitaciones
+
+## Quality Gate
+
+GO / CONDITIONAL GO / NO-GO
+
+## Siguiente paso recomendado
+
+Auditoría independiente de resultados, defectos, escenarios bloqueados y calidad de las evidencias.
+```
+
+---
+
+# 45. Instrucción final
+
+No busques una ejecución verde artificial.
+
+El objetivo es producir una evidencia que pueda ser auditada posteriormente.
+
+Cada escenario debe quedar relacionado con:
+
+```text
+Feature
+→ Regla
+→ Scenario ID
+→ Steps
+→ Resultado
+→ Screenshot
+→ Logs
+→ Defecto o bloqueo
+→ Módulo
+→ Commit
+```
+
+La secuencia obligatoria será:
+
+```text
+Sincronizar
+→ validar features
+→ construir infraestructura
+→ implementar steps reales
+→ compilar
+→ ejecutar
+→ capturar evidencia
+→ clasificar resultados
+→ generar defectos
+→ generar reportes
+→ validar integridad
+→ crear commit
+→ publicar en dev-001
+→ entregar enlaces y SHAs
+```
+
+No declares finalizada la tarea únicamente porque Cucumber generó un reporte HTML.
+
+El resultado obligatorio será:
+
+```text
+17 módulos procesados
++
+todos los escenarios clasificados
++
+ejecución real
++
+assertions verificables
++
+screenshots por escenario
++
+screenshots de reportes
++
+logs y traces
++
+defectos reproducibles
++
+reportes por módulo
++
+manifiesto auditable
++
+commit publicado en dev-001
+```

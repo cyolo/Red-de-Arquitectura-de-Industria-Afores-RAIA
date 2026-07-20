@@ -1,30 +1,44 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
-import { useRouter, usePathname } from "next/navigation";
-import { Network, RotateCcw, BookOpen, Layers } from "lucide-react";
-import { useLandscapeStore } from "../../features/service-landscape/store/useLandscapeStore";
-import GlobalSearch from "../search/GlobalSearch";
+import { usePathname } from "next/navigation";
+import { Network, Menu, X, ChevronDown, Layers, Compass, BookOpen, BarChart3, History, Users, ArrowUpRight } from "lucide-react";
+import GlobalSearchTrigger from "../portal/GlobalSearchTrigger";
 
 export default function Header() {
-  const router = useRouter();
   const pathname = usePathname();
-  const resetAll = useLandscapeStore((state) => state.resetAll);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  const handleReset = () => {
-    resetAll();
-    router.push("/service-landscape/value-chain");
-  };
+  const primaryNav = [
+    { label: "Overview", href: "/", active: pathname === "/" },
+    { label: "Reference Model", href: "/reference-model", active: pathname.startsWith("/reference-model") },
+    { label: "Service Landscape", href: "/service-landscape/value-chain", active: pathname.startsWith("/service-landscape") || pathname.startsWith("/service-domains") },
+    { label: "Information Architecture", href: "/information-architecture", active: pathname.startsWith("/information-architecture") },
+    { label: "Control Records", href: "/control-record-model", active: pathname.startsWith("/control-record-model") },
+    { label: "Business Objects", href: "/business-object-model", active: pathname.startsWith("/business-object-model") },
+    { label: "Scenarios", href: "/business-scenarios", active: pathname.startsWith("/business-scenarios") },
+  ];
+
+  const secondaryNav = [
+    { label: "Service Landscape — Overview Diagrams", href: "/service-landscape/overview-diagrams", icon: Layers },
+    { label: "Scenario Snippets", href: "/business-scenarios/snippets", icon: Compass },
+    { label: "Metamodel Overview", href: "/metamodel", icon: BookOpen },
+    { label: "Metodología", href: "/methodology", icon: Network },
+    { label: "Dashboard", href: "/dashboard", icon: BarChart3 },
+    { label: "Releases", href: "/releases", icon: History },
+    { label: "Contribuir", href: "/contribute", icon: Users },
+  ];
 
   return (
-    <header className="no-print bg-slate-900 text-white border-b border-slate-800 shadow-md">
+    <header className="no-print bg-slate-900 text-white border-b border-slate-800 shadow-md relative z-40">
       <div className="max-w-[1920px] mx-auto px-4 md:px-6 h-14 flex items-center justify-between gap-4">
         {/* Brand Logo and Title */}
         <div className="flex items-center gap-3 min-w-0">
           <Link 
-            href="/service-landscape/value-chain"
-            className="flex items-center gap-2 text-white hover:text-slate-200 transition-colors"
+            href="/"
+            className="flex items-center gap-2 text-white hover:text-slate-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:rounded-lg focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
           >
             <div className="w-8 h-8 rounded-lg bg-raia-blue-inst flex items-center justify-center border border-slate-700 shadow-inner">
               <Network size={18} className="text-white" />
@@ -32,64 +46,143 @@ export default function Header() {
             <div className="flex flex-col">
               <div className="flex items-center gap-1.5 leading-none">
                 <span className="font-extrabold text-sm tracking-tight">RAIA</span>
-                <span className="text-[10px] font-bold px-1 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700">
-                  V14.0
+                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">
+                  0.1.0
                 </span>
               </div>
-              <span className="text-[10px] text-slate-400 truncate hidden sm:inline max-w-[250px] md:max-w-[400px]">
-                Red de Arquitectura de Industria Afores
+              <span className="text-[9px] text-slate-400 truncate hidden sm:inline max-w-[200px]">
+                Red de Arquitectura de Industria
               </span>
             </div>
           </Link>
           
-          <div className="hidden lg:inline-flex items-center px-2.5 py-0.5 rounded-full text-[9px] font-semibold bg-blue-950 text-blue-300 border border-blue-900 uppercase">
-            Arquitectura de referencia de industria
+          <div className="hidden lg:inline-flex items-center px-2 py-0.5 rounded bg-blue-950/40 text-blue-300 border border-blue-900/60 text-[9px] font-bold uppercase tracking-wider">
+            Referencia
           </div>
         </div>
 
         {/* Global Search Component */}
-        <div className="flex-1 max-w-md hidden md:block">
+        <div className="flex-1 max-w-xs hidden md:block">
           <React.Suspense fallback={<div className="h-8 bg-slate-800 animate-pulse rounded border border-slate-700 w-full" />}>
-            <GlobalSearch />
+            <GlobalSearchTrigger />
           </React.Suspense>
         </div>
 
-        {/* Navigation Actions */}
-        <div className="flex items-center gap-1.5 md:gap-3">
-          <Link
-            href="/service-landscape/value-chain"
-            className={`flex items-center gap-1 px-3 py-1.5 rounded-md text-xs font-semibold transition-colors ${
-              pathname === "/service-landscape/value-chain"
-                ? "bg-slate-800 text-white"
-                : "text-slate-300 hover:text-white hover:bg-slate-800"
-            }`}
-          >
-            <Layers size={14} />
-            <span className="hidden sm:inline">Mapa de Valor</span>
-          </Link>
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center gap-1">
+          {primaryNav.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 ${
+                item.active
+                  ? "bg-slate-800 text-white"
+                  : "text-slate-300 hover:text-white hover:bg-slate-800"
+              }`}
+            >
+              {item.label}
+            </Link>
+          ))}
 
-          <Link
-            href="/methodology"
-            className={`flex items-center gap-1 px-3 py-1.5 rounded-md text-xs font-semibold transition-colors ${
-              pathname === "/methodology"
-                ? "bg-slate-800 text-white"
-                : "text-slate-300 hover:text-white hover:bg-slate-800"
-            }`}
-          >
-            <BookOpen size={14} />
-            <span className="hidden sm:inline">Metodología</span>
-          </Link>
+          {/* Dropdown for Secondary Navigation */}
+          <div className="relative">
+            <button
+              onClick={() => setDropdownOpen(!dropdownOpen)}
+              onBlur={() => setTimeout(() => setDropdownOpen(false), 200)}
+              className={`px-3 py-1.5 rounded-lg text-xs font-bold text-slate-300 hover:text-white hover:bg-slate-800 transition-colors flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 ${
+                dropdownOpen ? "bg-slate-800 text-white" : ""
+              }`}
+              aria-haspopup="true"
+              aria-expanded={dropdownOpen}
+            >
+              Más
+              <ChevronDown size={12} className={`transition-transform ${dropdownOpen ? "rotate-180" : ""}`} />
+            </button>
+
+            {dropdownOpen && (
+              <div className="absolute right-0 mt-1 w-52 bg-slate-950 border border-slate-800 rounded-xl shadow-xl py-1.5 text-left z-50">
+                {secondaryNav.map((item) => {
+                  const Icon = item.icon;
+                  const isActive = pathname === item.href;
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={`flex items-center gap-2.5 px-4 py-2 text-xs font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 ${
+                        isActive
+                          ? "bg-slate-900 text-white border-l-2 border-raia-blue-inst"
+                          : "text-slate-400 hover:text-white hover:bg-slate-900"
+                      }`}
+                    >
+                      <Icon size={14} className="opacity-80" />
+                      {item.label}
+                    </Link>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+        </nav>
+
+        {/* Mobile Actions: Menu and Search */}
+        <div className="flex items-center gap-2 md:hidden">
+          <React.Suspense fallback={<div className="w-8 h-8 bg-slate-800 animate-pulse rounded" />}>
+            <GlobalSearchTrigger />
+          </React.Suspense>
 
           <button
-            onClick={handleReset}
-            title="Restablecer filtros y vistas"
-            className="flex items-center gap-1 px-2.5 py-1.5 rounded-md text-xs font-semibold text-slate-300 hover:text-white hover:bg-slate-800 transition-colors border border-slate-700 hover:border-slate-600 bg-slate-900"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="p-1.5 rounded-lg hover:bg-slate-800 text-slate-300 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
+            aria-label="Abrir menú"
           >
-            <RotateCcw size={14} />
-            <span className="hidden sm:inline">Restablecer</span>
+            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </div>
+
+      {/* Mobile Menu Dropdown */}
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-slate-950 border-t border-slate-800 px-4 py-4 space-y-4 shadow-xl">
+          <div className="space-y-1.5">
+            <span className="text-[10px] font-extrabold text-slate-500 uppercase tracking-wider block px-2.5">
+              Navegación
+            </span>
+            {primaryNav.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`flex items-center justify-between px-3 py-2 rounded-lg text-xs font-bold transition-colors ${
+                  item.active ? "bg-slate-900 text-white" : "text-slate-400 hover:text-white hover:bg-slate-900"
+                }`}
+              >
+                {item.label}
+                {item.active && <div className="w-1.5 h-1.5 rounded-full bg-raia-blue-inst" />}
+              </Link>
+            ))}
+          </div>
+
+          <div className="space-y-1.5 pt-3 border-t border-slate-900">
+            <span className="text-[10px] font-extrabold text-slate-500 uppercase tracking-wider block px-2.5">
+              Módulos de Arquitectura
+            </span>
+            {secondaryNav.map((item) => {
+              const Icon = item.icon;
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-900 transition-colors"
+                >
+                  <Icon size={14} />
+                  {item.label}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      )}
     </header>
   );
 }

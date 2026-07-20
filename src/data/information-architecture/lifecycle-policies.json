@@ -1,0 +1,35 @@
+[
+  {
+    "id": "RAIA-ILCP-001",
+    "name": "Política General del Ciclo de Vida del Ahorrador",
+    "description": "Fases y reglas para gobernar la información del trabajador desde su enrolamiento hasta el retiro.",
+    "stages": [
+      {
+        "id": "stage-create",
+        "name": "create",
+        "description": "Captura inicial de datos biográficos en el Registro.",
+        "order": 1
+      },
+      {
+        "id": "stage-validate",
+        "name": "validate",
+        "description": "Verificación biométrica contra Renapo.",
+        "order": 2
+      },
+      {
+        "id": "stage-use",
+        "name": "use",
+        "description": "Consulta para recaudación, inversión y estados de cuenta.",
+        "order": 3
+      },
+      {
+        "id": "stage-archive",
+        "name": "archive",
+        "description": "Resguardo histórico posterior al retiro total.",
+        "order": 4
+      }
+    ],
+    "regulatoryMappingIds": [],
+    "status": "validated"
+  }
+]

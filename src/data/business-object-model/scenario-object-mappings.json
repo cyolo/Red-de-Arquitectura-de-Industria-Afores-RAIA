@@ -1,0 +1,9 @@
+[
+  {
+    "id": "MAP-SCEN-BO-0001",
+    "businessScenarioId": "RAIA-BS-0002",
+    "businessObjectId": "RAIA-BO-0005",
+    "usageRole": "created",
+    "status": "validated"
+  }
+]

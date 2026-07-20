@@ -1,0 +1,35 @@
+[
+  {
+    "id": "RAIA-ICLAS-001",
+    "name": "Pública",
+    "description": "Información pública general del SAR accesible para cualquier participante.",
+    "category": "confidentiality",
+    "level": 1,
+    "handlingRequirements": ["Uso general", "No requiere encriptación en reposo"],
+    "controlIds": [],
+    "regulatoryMappingIds": [],
+    "status": "validated"
+  },
+  {
+    "id": "RAIA-ICLAS-004",
+    "name": "Confidencial - Dato Personal",
+    "description": "Información del trabajador sujeta a la Ley General de Protección de Datos Personales.",
+    "category": "privacy",
+    "level": 3,
+    "handlingRequirements": ["Cifrado en reposo y tránsito", "Acceso restringido por rol de steward"],
+    "controlIds": ["RAIA-CTL-001"],
+    "regulatoryMappingIds": ["LGPDPPSO"],
+    "status": "validated"
+  },
+  {
+    "id": "RAIA-ICLAS-005",
+    "name": "Restringida - Dato Biométrico",
+    "description": "Firmas biométricas y huellas dactilares sujetas a los máximos estándares de seguridad.",
+    "category": "privacy",
+    "level": 4,
+    "handlingRequirements": ["Cifrado fuerte con llaves HSM", "No almacenar temporalmente en caché"],
+    "controlIds": [],
+    "regulatoryMappingIds": [],
+    "status": "validated"
+  }
+]

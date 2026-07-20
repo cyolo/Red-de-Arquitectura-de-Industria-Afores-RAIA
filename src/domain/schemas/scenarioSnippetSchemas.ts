@@ -1,0 +1,61 @@
+import { z } from "zod";
+
+export const scenarioSnippetCategorySchema = z.enum([
+  "identity",
+  "authentication",
+  "consent",
+  "signature",
+  "account-location",
+  "eligibility",
+  "validation",
+  "decision",
+  "evidence",
+  "notification",
+  "reconciliation",
+  "exception",
+  "manual-review",
+  "financial-confirmation",
+  "industry-query"
+]);
+
+export const scenarioSnippetSchema = z.object({
+  id: z.string(),
+  slug: z.string(),
+  nameEs: z.string(),
+  nameEn: z.string().optional(),
+  description: z.string(),
+  purpose: z.string(),
+  category: scenarioSnippetCategorySchema,
+  preconditions: z.array(z.string()),
+  postconditions: z.array(z.string()),
+  inputBusinessObjectSlotIds: z.array(z.string()),
+  outputBusinessObjectSlotIds: z.array(z.string()),
+  participantRoleIds: z.array(z.string()),
+  serviceDomainSlotIds: z.array(z.string()),
+  stepIds: z.array(z.string()),
+  decisionIds: z.array(z.string()),
+  exceptionIds: z.array(z.string()),
+  controlSlotIds: z.array(z.string()),
+  evidenceSlotIds: z.array(z.string()),
+  regulatoryMappingIds: z.array(z.string()),
+  variantIds: z.array(z.string()),
+  applicableRegimeIds: z.array(z.string()),
+  applicableScenarioTypeIds: z.array(z.string()),
+  status: z.enum(["draft", "proposed", "reviewed", "validated", "deprecated"]),
+  validationStatus: z.enum([
+    "pending-industry-review",
+    "architecture-reviewed",
+    "operationally-reviewed",
+    "legally-reviewed"
+  ]),
+  confidence: z.enum(["low", "medium", "high"]),
+  compatibility: z.enum(["backward-compatible", "conditionally-compatible", "breaking"]),
+  version: z.string(),
+  replacementSnippetId: z.string().optional(),
+  deprecationReason: z.string().optional(),
+  assumptions: z.array(z.string()),
+  unresolvedQuestions: z.array(z.string()),
+  createdAt: z.string(),
+  updatedAt: z.string(),
+  lastReviewedAt: z.string().optional()
+});

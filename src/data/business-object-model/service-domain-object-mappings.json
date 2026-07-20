@@ -1,0 +1,12 @@
+[
+  {
+    "id": "MAP-SD-BO-0001",
+    "serviceDomainId": "RAIA-SD-030",
+    "businessObjectId": "RAIA-BO-0005",
+    "usageRole": "focus",
+    "serviceOperationIds": [],
+    "businessEventIds": [],
+    "description": "Cuenta Individual es el objeto foco administrado por el dominio Cuenta Individual.",
+    "status": "validated"
+  }
+]

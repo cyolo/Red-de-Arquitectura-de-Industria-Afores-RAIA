@@ -1,0 +1,72 @@
+[
+  {
+    "id": "RAIA-IDOM-001",
+    "slug": "personas-e-identidad",
+    "nameEs": "Personas e Identidad",
+    "level": "canonical",
+    "order": 1
+  },
+  {
+    "id": "RAIA-IDOM-002",
+    "slug": "participantes-y-organizaciones",
+    "nameEs": "Participantes y Organizaciones",
+    "level": "canonical",
+    "order": 2
+  },
+  {
+    "id": "RAIA-IDOM-003",
+    "slug": "cuenta-individual",
+    "nameEs": "Cuenta Individual",
+    "level": "canonical",
+    "order": 3
+  },
+  {
+    "id": "RAIA-IDOM-004",
+    "slug": "afiliacion-y-solicitudes",
+    "nameEs": "Afiliación y Solicitudes",
+    "level": "canonical",
+    "order": 4
+  },
+  {
+    "id": "RAIA-IDOM-005",
+    "slug": "aportaciones-y-recaudacion",
+    "nameEs": "Aportaciones y Recaudación",
+    "level": "canonical",
+    "order": 5
+  },
+  {
+    "id": "RAIA-IDOM-006",
+    "slug": "inversion-y-siefore",
+    "nameEs": "Inversión y SIEFORE",
+    "level": "canonical",
+    "order": 6
+  },
+  {
+    "id": "RAIA-IDOM-007",
+    "slug": "retiros-y-prestaciones",
+    "nameEs": "Retiros y Prestaciones",
+    "level": "canonical",
+    "order": 7
+  },
+  {
+    "id": "RAIA-IDOM-008",
+    "slug": "pensiones",
+    "nameEs": "Pensiones",
+    "level": "canonical",
+    "order": 8
+  },
+  {
+    "id": "RAIA-IDOM-009",
+    "slug": "regulacion-control-y-evidencia",
+    "nameEs": "Regulación, Control y Evidencia",
+    "level": "canonical",
+    "order": 9
+  },
+  {
+    "id": "RAIA-IDOM-010",
+    "slug": "servicios-compartidos-de-industria",
+    "nameEs": "Servicios Compartidos de Industria",
+    "level": "canonical",
+    "order": 10
+  }
+]

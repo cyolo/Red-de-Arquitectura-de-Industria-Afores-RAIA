@@ -1,0 +1,315 @@
+{
+  "scenarioId": "RAIA-BS-0015",
+  "version": "0.2.0",
+  "title": "Transferencia de fondos para renta vitalicia",
+  "description": "Transferencia de fondos para renta vitalicia",
+  "status": "proposed",
+  "regulatoryValidationStatus": "pending",
+  "participants": [
+    {
+      "instanceId": "actor-worker",
+      "participantType": "actor",
+      "label": "Trabajador",
+      "order": 1
+    },
+    {
+      "instanceId": "sd-resolucion-de-pensio",
+      "participantType": "service-domain",
+      "label": "Resolución de Pensión",
+      "order": 2
+    },
+    {
+      "instanceId": "sd-gestion-de-renta-vit",
+      "participantType": "service-domain",
+      "label": "Gestión de Renta Vitalicia",
+      "order": 3
+    },
+    {
+      "instanceId": "sd-determinacion-de-rec",
+      "participantType": "service-domain",
+      "label": "Determinación de Recursos",
+      "order": 4
+    },
+    {
+      "instanceId": "sd-desinversion-de-recu",
+      "participantType": "service-domain",
+      "label": "Desinversión de Recursos",
+      "order": 5
+    },
+    {
+      "instanceId": "sd-transferencia-de-rec",
+      "participantType": "service-domain",
+      "label": "Transferencia de Recursos",
+      "order": 6
+    },
+    {
+      "instanceId": "ext-counterparty",
+      "participantType": "external-party",
+      "label": "Institución Financiera",
+      "order": 7
+    },
+    {
+      "instanceId": "sd-custodia",
+      "participantType": "service-domain",
+      "label": "Custodia",
+      "order": 8
+    },
+    {
+      "instanceId": "org-insurer",
+      "participantType": "insurer",
+      "label": "Aseguradora",
+      "order": 9
+    },
+    {
+      "instanceId": "sd-seguro-de-sobreviven",
+      "participantType": "service-domain",
+      "label": "Seguro de Sobrevivencia",
+      "order": 10
+    },
+    {
+      "instanceId": "sd-libro-mayor",
+      "participantType": "service-domain",
+      "label": "Libro Mayor",
+      "order": 11
+    },
+    {
+      "instanceId": "sd-conciliacion",
+      "participantType": "service-domain",
+      "label": "Conciliación",
+      "order": 12
+    },
+    {
+      "instanceId": "sd-notificaciones",
+      "participantType": "service-domain",
+      "label": "Notificaciones",
+      "order": 13
+    },
+    {
+      "instanceId": "sd-resolucion",
+      "participantType": "service-domain",
+      "label": "Resolución",
+      "order": 14
+    },
+    {
+      "instanceId": "sd-determinacion",
+      "participantType": "service-domain",
+      "label": "Determinación",
+      "order": 15
+    },
+    {
+      "instanceId": "sd-desinversion",
+      "participantType": "service-domain",
+      "label": "Desinversión",
+      "order": 16
+    },
+    {
+      "instanceId": "sd-transferencia",
+      "participantType": "service-domain",
+      "label": "transferencia",
+      "order": 17
+    }
+  ],
+  "messages": [
+    {
+      "id": "RAIA-BS-0015-MSG-01",
+      "scenarioStepId": "RAIA-BS-0015-STEP-01",
+      "sequence": 1,
+      "sourceParticipantInstanceId": "sd-resolucion",
+      "targetParticipantInstanceId": "sd-gestion-de-renta-vit",
+      "label": "Confirmar modalidad.",
+      "messageType": "response",
+      "description": "Confirmar modalidad."
+    },
+    {
+      "id": "RAIA-BS-0015-MSG-02",
+      "scenarioStepId": "RAIA-BS-0015-STEP-02",
+      "sequence": 2,
+      "sourceParticipantInstanceId": "sd-gestion-de-renta-vit",
+      "targetParticipantInstanceId": "sd-determinacion-de-rec",
+      "label": "Calcular monto.",
+      "messageType": "synchronous-command",
+      "description": "Calcular monto."
+    },
+    {
+      "id": "RAIA-BS-0015-MSG-03",
+      "scenarioStepId": "RAIA-BS-0015-STEP-03",
+      "sequence": 3,
+      "sourceParticipantInstanceId": "sd-determinacion",
+      "targetParticipantInstanceId": "sd-gestion-de-renta-vit",
+      "label": "Entregar monto.",
+      "messageType": "response",
+      "description": "Entregar monto."
+    },
+    {
+      "id": "RAIA-BS-0015-MSG-04",
+      "scenarioStepId": "RAIA-BS-0015-STEP-04",
+      "sequence": 4,
+      "sourceParticipantInstanceId": "sd-gestion-de-renta-vit",
+      "targetParticipantInstanceId": "org-insurer",
+      "label": "Confirmar contratación.",
+      "messageType": "response",
+      "description": "Confirmar contratación."
+    },
+    {
+      "id": "RAIA-BS-0015-MSG-05",
+      "scenarioStepId": "RAIA-BS-0015-STEP-05",
+      "sequence": 5,
+      "sourceParticipantInstanceId": "org-insurer",
+      "targetParticipantInstanceId": "sd-gestion-de-renta-vit",
+      "label": "Aceptar operación.",
+      "messageType": "synchronous-command",
+      "description": "Aceptar operación."
+    },
+    {
+      "id": "RAIA-BS-0015-MSG-06",
+      "scenarioStepId": "RAIA-BS-0015-STEP-06",
+      "sequence": 6,
+      "sourceParticipantInstanceId": "sd-gestion-de-renta-vit",
+      "targetParticipantInstanceId": "sd-desinversion",
+      "label": "Liberar recursos.",
+      "messageType": "synchronous-command",
+      "description": "Liberar recursos."
+    },
+    {
+      "id": "RAIA-BS-0015-MSG-07",
+      "scenarioStepId": "RAIA-BS-0015-STEP-07",
+      "sequence": 7,
+      "sourceParticipantInstanceId": "sd-desinversion",
+      "targetParticipantInstanceId": "sd-transferencia",
+      "label": "Entregar efectivo disponible.",
+      "messageType": "response",
+      "description": "Entregar efectivo disponible."
+    },
+    {
+      "id": "RAIA-BS-0015-MSG-08",
+      "scenarioStepId": "RAIA-BS-0015-STEP-08",
+      "sequence": 8,
+      "sourceParticipantInstanceId": "sd-transferencia",
+      "targetParticipantInstanceId": "ext-counterparty",
+      "label": "Instruir liquidación.",
+      "messageType": "synchronous-command",
+      "description": "Instruir liquidación."
+    },
+    {
+      "id": "RAIA-BS-0015-MSG-09",
+      "scenarioStepId": "RAIA-BS-0015-STEP-09",
+      "sequence": 9,
+      "sourceParticipantInstanceId": "ext-counterparty",
+      "targetParticipantInstanceId": "org-insurer",
+      "label": "Transferir recursos.",
+      "messageType": "synchronous-command",
+      "description": "Transferir recursos."
+    },
+    {
+      "id": "RAIA-BS-0015-MSG-10",
+      "scenarioStepId": "RAIA-BS-0015-STEP-10",
+      "sequence": 10,
+      "sourceParticipantInstanceId": "org-insurer",
+      "targetParticipantInstanceId": "sd-transferencia",
+      "label": "Confirmar recepción.",
+      "messageType": "response",
+      "description": "Confirmar recepción."
+    },
+    {
+      "id": "RAIA-BS-0015-MSG-11",
+      "scenarioStepId": "RAIA-BS-0015-STEP-11",
+      "sequence": 11,
+      "sourceParticipantInstanceId": "org-insurer",
+      "targetParticipantInstanceId": "sd-seguro-de-sobreviven",
+      "label": "Configurar cobertura.",
+      "messageType": "synchronous-command",
+      "description": "Configurar cobertura."
+    },
+    {
+      "id": "RAIA-BS-0015-MSG-12",
+      "scenarioStepId": "RAIA-BS-0015-STEP-12",
+      "sequence": 12,
+      "sourceParticipantInstanceId": "sd-transferencia",
+      "targetParticipantInstanceId": "sd-libro-mayor",
+      "label": "Registrar disposición.",
+      "messageType": "synchronous-command",
+      "description": "Registrar disposición."
+    },
+    {
+      "id": "RAIA-BS-0015-MSG-13",
+      "scenarioStepId": "RAIA-BS-0015-STEP-13",
+      "sequence": 13,
+      "sourceParticipantInstanceId": "sd-libro-mayor",
+      "targetParticipantInstanceId": "sd-conciliacion",
+      "label": "Conciliar saldo.",
+      "messageType": "synchronous-command",
+      "description": "Conciliar saldo."
+    },
+    {
+      "id": "RAIA-BS-0015-MSG-14",
+      "scenarioStepId": "RAIA-BS-0015-STEP-14",
+      "sequence": 14,
+      "sourceParticipantInstanceId": "sd-conciliacion",
+      "targetParticipantInstanceId": "sd-gestion-de-renta-vit",
+      "label": "Confirmar cierre.",
+      "messageType": "response",
+      "description": "Confirmar cierre."
+    },
+    {
+      "id": "RAIA-BS-0015-MSG-15",
+      "scenarioStepId": "RAIA-BS-0015-STEP-15",
+      "sequence": 15,
+      "sourceParticipantInstanceId": "sd-gestion-de-renta-vit",
+      "targetParticipantInstanceId": "sd-notificaciones",
+      "label": "Comunicar resultado.",
+      "messageType": "synchronous-command",
+      "description": "Comunicar resultado."
+    },
+    {
+      "id": "RAIA-BS-0015-MSG-16",
+      "scenarioStepId": "RAIA-BS-0015-STEP-16",
+      "sequence": 16,
+      "sourceParticipantInstanceId": "sd-notificaciones",
+      "targetParticipantInstanceId": "actor-worker",
+      "label": "Confirmar contratación.",
+      "messageType": "response",
+      "description": "Confirmar contratación."
+    }
+  ],
+  "activations": [],
+  "notes": [
+    {
+      "id": "note-control-1",
+      "participantInstanceIds": [
+        "p-resoluci-n"
+      ],
+      "placement": "left",
+      "text": "Control: identidad y consentimiento verificables.",
+      "noteType": "control",
+      "afterSequence": 1
+    },
+    {
+      "id": "note-evidence-1",
+      "participantInstanceIds": [
+        "p-trabajador"
+      ],
+      "placement": "right",
+      "text": "Evidencia: expediente, folio y acuses.",
+      "noteType": "evidence",
+      "afterSequence": 16
+    }
+  ],
+  "fragments": [
+    {
+      "id": "frag-1",
+      "fragmentType": "alt",
+      "label": "Excepciones",
+      "startSequence": 15,
+      "endSequence": 16,
+      "branches": [
+        {
+          "id": "branch-0",
+          "label": "Fallo de conexión",
+          "startSequence": 16,
+          "endSequence": 16
+        }
+      ]
+    }
+  ],
+  "modelingStatus": "partially-modeled"
+}

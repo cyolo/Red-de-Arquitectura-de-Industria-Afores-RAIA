@@ -52,7 +52,7 @@ export default function MethodologyPage() {
                 <h3 className="font-semibold text-sm">Service Domain</h3>
               </div>
               <p className="text-xs text-slate-500 mt-2 leading-relaxed">
-                Unidad fundamental e inmutable de responsabilidad funcional. Es independiente de organizaciones, tecnologías o implementaciones de software (ej. *Traspaso de Cuenta*).
+                Unidad estable, versionada y evolutiva de responsabilidad funcional. Es independiente de organizaciones, tecnologías o implementaciones de software (ej. *Traspaso de Cuenta*).
               </p>
             </div>
           </div>
@@ -77,10 +77,10 @@ export default function MethodologyPage() {
                 { level: "Área de Negocio", desc: "Macrosector de capacidades de negocio" },
                 { level: "Dominio de Negocio", desc: "Agrupación lógica de responsabilidades" },
                 { level: "Service Domain", desc: "Ficha funcional de responsabilidades puras" },
-                { level: "Service Operation", desc: "Operaciones REST/gRPC (initiate, register, retrieve, etc.)" },
+                { level: "Service Operation", desc: "Operaciones lógicas independientes de su mecanismo de implementación (initiate, register, retrieve, etc.)" },
                 { level: "Business Object", desc: "Modelo de datos del negocio" },
                 { level: "Evento de Negocio", desc: "Mensajería asíncrona reactiva (produces, consumes)" },
-                { level: "Regulación Asociada", desc: "Leyes (Ley SAR, Circulares CONSAR)" },
+                { level: "Regulación Asociada", desc: "Leyes (Ley de los Sistemas de Ahorro para el Retiro, Circulares de la CONSAR)" },
                 { level: "Control Arquitectónico", desc: "Mitigaciones preventivas/detectivas de seguridad" },
                 { level: "Evidencia Digital", desc: "Registros documentales, acuses firmados y bitácoras" },
                 { level: "Métrica (KPI)", desc: "Estadísticas e indicadores clave de desempeño (Tiempos, tasas)" }

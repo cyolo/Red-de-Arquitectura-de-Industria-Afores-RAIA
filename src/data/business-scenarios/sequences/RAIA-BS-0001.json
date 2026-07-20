@@ -1,0 +1,365 @@
+{
+  "scenarioId": "RAIA-BS-0001",
+  "version": "0.2.0",
+  "title": "Registro y Traspaso de Cuenta Individual",
+  "description": "Registro y Traspaso de Cuenta Individual",
+  "status": "proposed",
+  "regulatoryValidationStatus": "pending",
+  "participants": [
+    {
+      "instanceId": "actor-worker",
+      "participantType": "actor",
+      "label": "Trabajador",
+      "order": 1
+    },
+    {
+      "instanceId": "sd-gestion-de-solicitud",
+      "participantType": "service-domain",
+      "label": "Gestión de Solicitudes",
+      "order": 2
+    },
+    {
+      "instanceId": "sd-resolucion-de-identi",
+      "participantType": "service-domain",
+      "label": "Resolución de Identidad",
+      "order": 4
+    },
+    {
+      "instanceId": "sd-identidad-biometrica",
+      "participantType": "service-domain",
+      "label": "Identidad Biométrica",
+      "order": 5
+    },
+    {
+      "instanceId": "sd-expediente-electroni",
+      "participantType": "service-domain",
+      "label": "Expediente Electrónico",
+      "order": 6
+    },
+    {
+      "instanceId": "sd-gestion-de-consentim",
+      "participantType": "service-domain",
+      "label": "Gestión de Consentimiento",
+      "order": 7
+    },
+    {
+      "instanceId": "sd-localizacion-de-cuen",
+      "participantType": "service-domain",
+      "label": "Localización de Cuenta",
+      "order": 8
+    },
+    {
+      "instanceId": "sd-base-de-datos-nacion",
+      "participantType": "service-domain",
+      "label": "Base de Datos Nacional SAR",
+      "order": 9
+    },
+    {
+      "instanceId": "sd-traspaso-de-cuenta",
+      "participantType": "service-domain",
+      "label": "Traspaso de Cuenta",
+      "order": 10
+    },
+    {
+      "instanceId": "org-afore",
+      "participantType": "organization",
+      "label": "AFORE transferente",
+      "order": 11
+    },
+    {
+      "instanceId": "sd-libro-mayor-de-cuent",
+      "participantType": "service-domain",
+      "label": "Libro Mayor de Cuenta Individual",
+      "order": 13
+    },
+    {
+      "instanceId": "sd-notificaciones",
+      "participantType": "service-domain",
+      "label": "Notificaciones",
+      "order": 14
+    },
+    {
+      "instanceId": "registry-bdnsar",
+      "participantType": "information-asset",
+      "label": "BDNSAR",
+      "order": 15
+    },
+    {
+      "instanceId": "sd-libro-mayor",
+      "participantType": "service-domain",
+      "label": "libro mayor",
+      "order": 16
+    }
+  ],
+  "messages": [
+    {
+      "id": "RAIA-BS-0001-MSG-01",
+      "scenarioStepId": "RAIA-BS-0001-STEP-01",
+      "sequence": 1,
+      "sourceParticipantInstanceId": "actor-worker",
+      "targetParticipantInstanceId": "sd-gestion-de-solicitud",
+      "label": "Solicitar registro o traspaso.",
+      "messageType": "synchronous-command",
+      "description": "Solicitar registro o traspaso."
+    },
+    {
+      "id": "RAIA-BS-0001-MSG-02",
+      "scenarioStepId": "RAIA-BS-0001-STEP-02",
+      "sequence": 2,
+      "sourceParticipantInstanceId": "sd-gestion-de-solicitud",
+      "targetParticipantInstanceId": "actor-worker",
+      "label": "Recuperar datos.",
+      "messageType": "synchronous-command",
+      "description": "Recuperar datos."
+    },
+    {
+      "id": "RAIA-BS-0001-MSG-03",
+      "scenarioStepId": "RAIA-BS-0001-STEP-03",
+      "sequence": 3,
+      "sourceParticipantInstanceId": "actor-worker",
+      "targetParticipantInstanceId": "sd-gestion-de-solicitud",
+      "label": "Entregar datos disponibles.",
+      "messageType": "response",
+      "description": "Entregar datos disponibles."
+    },
+    {
+      "id": "RAIA-BS-0001-MSG-04",
+      "scenarioStepId": "RAIA-BS-0001-STEP-04",
+      "sequence": 4,
+      "sourceParticipantInstanceId": "sd-gestion-de-solicitud",
+      "targetParticipantInstanceId": "sd-resolucion-de-identi",
+      "label": "Validar identidad.",
+      "messageType": "synchronous-command",
+      "description": "Validar identidad."
+    },
+    {
+      "id": "RAIA-BS-0001-MSG-05",
+      "scenarioStepId": "RAIA-BS-0001-STEP-05",
+      "sequence": 5,
+      "sourceParticipantInstanceId": "sd-resolucion-de-identi",
+      "targetParticipantInstanceId": "sd-identidad-biometrica",
+      "label": "Validar biometría y prueba de vida.",
+      "messageType": "synchronous-command",
+      "description": "Validar biometría y prueba de vida."
+    },
+    {
+      "id": "RAIA-BS-0001-MSG-06",
+      "scenarioStepId": "RAIA-BS-0001-STEP-06",
+      "sequence": 6,
+      "sourceParticipantInstanceId": "sd-identidad-biometrica",
+      "targetParticipantInstanceId": "sd-resolucion-de-identi",
+      "label": "Confirmar resultado biométrico.",
+      "messageType": "response",
+      "description": "Confirmar resultado biométrico."
+    },
+    {
+      "id": "RAIA-BS-0001-MSG-07",
+      "scenarioStepId": "RAIA-BS-0001-STEP-07",
+      "sequence": 7,
+      "sourceParticipantInstanceId": "sd-gestion-de-solicitud",
+      "targetParticipantInstanceId": "sd-expediente-electroni",
+      "label": "Integrar expediente.",
+      "messageType": "synchronous-command",
+      "description": "Integrar expediente."
+    },
+    {
+      "id": "RAIA-BS-0001-MSG-08",
+      "scenarioStepId": "RAIA-BS-0001-STEP-08",
+      "sequence": 8,
+      "sourceParticipantInstanceId": "sd-gestion-de-solicitud",
+      "targetParticipantInstanceId": "sd-gestion-de-consentim",
+      "label": "Capturar consentimiento.",
+      "messageType": "synchronous-command",
+      "description": "Capturar consentimiento."
+    },
+    {
+      "id": "RAIA-BS-0001-MSG-09",
+      "scenarioStepId": "RAIA-BS-0001-STEP-09",
+      "sequence": 9,
+      "sourceParticipantInstanceId": "sd-gestion-de-solicitud",
+      "targetParticipantInstanceId": "sd-localizacion-de-cuen",
+      "label": "Consultar existencia de cuenta.",
+      "messageType": "synchronous-command",
+      "description": "Consultar existencia de cuenta."
+    },
+    {
+      "id": "RAIA-BS-0001-MSG-10",
+      "scenarioStepId": "RAIA-BS-0001-STEP-10",
+      "sequence": 10,
+      "sourceParticipantInstanceId": "sd-localizacion-de-cuen",
+      "targetParticipantInstanceId": "registry-bdnsar",
+      "label": "Buscar cuenta individual.",
+      "messageType": "synchronous-command",
+      "description": "Buscar cuenta individual."
+    },
+    {
+      "id": "RAIA-BS-0001-MSG-11",
+      "scenarioStepId": "RAIA-BS-0001-STEP-11",
+      "sequence": 11,
+      "sourceParticipantInstanceId": "registry-bdnsar",
+      "targetParticipantInstanceId": "sd-localizacion-de-cuen",
+      "label": "Entregar estado de cuenta.",
+      "messageType": "response",
+      "description": "Entregar estado de cuenta."
+    },
+    {
+      "id": "RAIA-BS-0001-MSG-12",
+      "scenarioStepId": "RAIA-BS-0001-STEP-12",
+      "sequence": 12,
+      "sourceParticipantInstanceId": "sd-localizacion-de-cuen",
+      "targetParticipantInstanceId": "sd-gestion-de-solicitud",
+      "label": "Informar resultado.",
+      "messageType": "response",
+      "description": "Informar resultado."
+    },
+    {
+      "id": "RAIA-BS-0001-MSG-13",
+      "scenarioStepId": "RAIA-BS-0001-STEP-13",
+      "sequence": 13,
+      "sourceParticipantInstanceId": "sd-gestion-de-solicitud",
+      "targetParticipantInstanceId": "sd-traspaso-de-cuenta",
+      "label": "Registrar solicitud.",
+      "messageType": "synchronous-command",
+      "description": "Registrar solicitud."
+    },
+    {
+      "id": "RAIA-BS-0001-MSG-14",
+      "scenarioStepId": "RAIA-BS-0001-STEP-14",
+      "sequence": 14,
+      "sourceParticipantInstanceId": "sd-traspaso-de-cuenta",
+      "targetParticipantInstanceId": "org-afore",
+      "label": "Solicitar información y saldos.",
+      "messageType": "synchronous-command",
+      "description": "Solicitar información y saldos."
+    },
+    {
+      "id": "RAIA-BS-0001-MSG-15",
+      "scenarioStepId": "RAIA-BS-0001-STEP-15",
+      "sequence": 15,
+      "sourceParticipantInstanceId": "org-afore",
+      "targetParticipantInstanceId": "sd-traspaso-de-cuenta",
+      "label": "Entregar información.",
+      "messageType": "response",
+      "description": "Entregar información."
+    },
+    {
+      "id": "RAIA-BS-0001-MSG-16",
+      "scenarioStepId": "RAIA-BS-0001-STEP-16",
+      "sequence": 16,
+      "sourceParticipantInstanceId": "sd-traspaso-de-cuenta",
+      "targetParticipantInstanceId": "org-afore",
+      "label": "Solicitar aceptación.",
+      "messageType": "synchronous-command",
+      "description": "Solicitar aceptación."
+    },
+    {
+      "id": "RAIA-BS-0001-MSG-17",
+      "scenarioStepId": "RAIA-BS-0001-STEP-17",
+      "sequence": 17,
+      "sourceParticipantInstanceId": "org-afore",
+      "targetParticipantInstanceId": "sd-traspaso-de-cuenta",
+      "label": "Confirmar aceptación.",
+      "messageType": "response",
+      "description": "Confirmar aceptación."
+    },
+    {
+      "id": "RAIA-BS-0001-MSG-18",
+      "scenarioStepId": "RAIA-BS-0001-STEP-18",
+      "sequence": 18,
+      "sourceParticipantInstanceId": "sd-traspaso-de-cuenta",
+      "targetParticipantInstanceId": "sd-libro-mayor",
+      "label": "Registrar transferencia.",
+      "messageType": "synchronous-command",
+      "description": "Registrar transferencia."
+    },
+    {
+      "id": "RAIA-BS-0001-MSG-19",
+      "scenarioStepId": "RAIA-BS-0001-STEP-19",
+      "sequence": 19,
+      "sourceParticipantInstanceId": "sd-libro-mayor",
+      "targetParticipantInstanceId": "sd-traspaso-de-cuenta",
+      "label": "Confirmar registro.",
+      "messageType": "response",
+      "description": "Confirmar registro."
+    },
+    {
+      "id": "RAIA-BS-0001-MSG-20",
+      "scenarioStepId": "RAIA-BS-0001-STEP-20",
+      "sequence": 20,
+      "sourceParticipantInstanceId": "sd-gestion-de-solicitud",
+      "targetParticipantInstanceId": "sd-notificaciones",
+      "label": "Emitir resultado.",
+      "messageType": "synchronous-command",
+      "description": "Emitir resultado."
+    },
+    {
+      "id": "RAIA-BS-0001-MSG-21",
+      "scenarioStepId": "RAIA-BS-0001-STEP-21",
+      "sequence": 21,
+      "sourceParticipantInstanceId": "sd-notificaciones",
+      "targetParticipantInstanceId": "actor-worker",
+      "label": "Notificar registro o traspaso.",
+      "messageType": "synchronous-command",
+      "description": "Notificar registro o traspaso."
+    }
+  ],
+  "activations": [],
+  "notes": [
+    {
+      "id": "note-control-1",
+      "participantInstanceIds": [
+        "p-trabajador"
+      ],
+      "placement": "left",
+      "text": "Control: identidad y consentimiento verificables.",
+      "noteType": "control",
+      "afterSequence": 1
+    },
+    {
+      "id": "note-evidence-1",
+      "participantInstanceIds": [
+        "p-trabajador"
+      ],
+      "placement": "right",
+      "text": "Evidencia: expediente, folio y acuses.",
+      "noteType": "evidence",
+      "afterSequence": 21
+    }
+  ],
+  "fragments": [
+    {
+      "id": "frag-1",
+      "fragmentType": "alt",
+      "label": "Condiciones de Negocio",
+      "startSequence": 19,
+      "endSequence": 21,
+      "branches": [
+        {
+          "id": "branch-0",
+          "label": "Cuenta no registrada",
+          "startSequence": 20,
+          "endSequence": 21
+        },
+        {
+          "id": "branch-1",
+          "label": "Cuenta registrada en otra AFORE",
+          "startSequence": 20,
+          "endSequence": 21
+        },
+        {
+          "id": "branch-2",
+          "label": "Múltiples cuentas",
+          "startSequence": 20,
+          "endSequence": 21
+        },
+        {
+          "id": "branch-3",
+          "label": "Cuenta no elegible",
+          "startSequence": 20,
+          "endSequence": 21
+        }
+      ]
+    }
+  ],
+  "modelingStatus": "partially-modeled"
+}

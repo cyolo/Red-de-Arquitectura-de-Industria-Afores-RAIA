@@ -14,7 +14,7 @@ export default function Footer() {
 
         {/* Copy note */}
         <p className="text-[10px] text-slate-500 shrink-0 font-medium">
-          RAIA V14.0 &copy; 2026. Todos los derechos reservados.
+          RAIA 0.1.0 &copy; 2026. Licencia: Código MIT, Modelos CC BY 4.0.
         </p>
       </div>
     </footer>

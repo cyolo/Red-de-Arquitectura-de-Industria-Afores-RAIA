@@ -1,0 +1,129 @@
+{
+  "id": "RAIA-OVD-003",
+  "slug": "afiliacion-traspasos",
+  "nameEs": "Afiliación, Registro, Asignación y Traspaso",
+  "description": "Procesos clave de control de identidad, localización y movilidad de las cuentas individuales.",
+  "purpose": "Separar claramente los conceptos de registro, asignación, localización y movilidad de cuentas.",
+  "level": "business-area",
+  "theme": "affiliation",
+  "orientation": "left-to-right",
+  "nodes": [
+    {
+      "id": "node-sd-020",
+      "diagramId": "RAIA-OVD-003",
+      "nodeType": "service-domain",
+      "referenceId": "RAIA-SD-020",
+      "label": "Registro de Cuenta",
+      "description": "Alta inicial de cuentas individuales a petición del trabajador.",
+      "status": "normal"
+    },
+    {
+      "id": "node-sd-021",
+      "diagramId": "RAIA-OVD-003",
+      "nodeType": "service-domain",
+      "referenceId": "RAIA-SD-021",
+      "label": "Traspaso de Cuenta",
+      "description": "Movilidad de saldo entre AFOREs elegidas por el trabajador.",
+      "status": "normal"
+    },
+    {
+      "id": "node-sd-023",
+      "diagramId": "RAIA-OVD-003",
+      "nodeType": "service-domain",
+      "referenceId": "RAIA-SD-023",
+      "label": "Asignación de Cuenta",
+      "description": "Mapeo de cuentas inactivas o no registradas a AFOREs de alto rendimiento.",
+      "status": "normal"
+    },
+    {
+      "id": "node-sd-031",
+      "diagramId": "RAIA-OVD-003",
+      "nodeType": "service-domain",
+      "referenceId": "RAIA-SD-031",
+      "label": "Localización de Cuenta",
+      "description": "Ubicación de cuentas individuales a través de CURP/NSS en BDNSAR.",
+      "status": "normal"
+    },
+    {
+      "id": "node-sd-040",
+      "diagramId": "RAIA-OVD-003",
+      "nodeType": "service-domain",
+      "referenceId": "RAIA-SD-040",
+      "label": "Unificación de Cuenta",
+      "description": "Fusión de cuentas duplicadas o saldos fragmentados (IMSS/ISSSTE).",
+      "status": "normal"
+    },
+    {
+      "id": "node-sd-046",
+      "diagramId": "RAIA-OVD-003",
+      "nodeType": "service-domain",
+      "referenceId": "RAIA-SD-046",
+      "label": "Separación de Cuentas",
+      "description": "Filtro y separación por asociación incorrecta de NSS o CURP.",
+      "status": "normal"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-ovd003-01",
+      "diagramId": "RAIA-OVD-003",
+      "sourceNodeId": "node-sd-031",
+      "targetNodeId": "node-sd-020",
+      "edgeType": "dependency",
+      "description": "Se debe localizar la cuenta en BDNSAR antes de registrar el alta.",
+      "businessObjectIds": [],
+      "businessEventIds": [],
+      "regulatoryMappingIds": [],
+      "status": "proposed"
+    },
+    {
+      "id": "edge-ovd003-02",
+      "diagramId": "RAIA-OVD-003",
+      "sourceNodeId": "node-sd-020",
+      "targetNodeId": "node-sd-021",
+      "edgeType": "value-flow",
+      "description": "Las cuentas registradas son elegibles para traspaso ordinario.",
+      "businessObjectIds": [],
+      "businessEventIds": [],
+      "regulatoryMappingIds": [],
+      "status": "proposed"
+    },
+    {
+      "id": "edge-ovd003-03",
+      "diagramId": "RAIA-OVD-003",
+      "sourceNodeId": "node-sd-023",
+      "targetNodeId": "node-sd-021",
+      "edgeType": "value-flow",
+      "description": "Cuentas asignadas se pueden traspasar tras cumplir el plazo de ley.",
+      "businessObjectIds": [],
+      "businessEventIds": [],
+      "regulatoryMappingIds": [],
+      "status": "proposed"
+    },
+    {
+      "id": "edge-ovd003-04",
+      "diagramId": "RAIA-OVD-003",
+      "sourceNodeId": "node-sd-040",
+      "targetNodeId": "node-sd-046",
+      "edgeType": "validation",
+      "description": "Unificaciones inválidas disparan el proceso de separación.",
+      "businessObjectIds": [],
+      "businessEventIds": [],
+      "regulatoryMappingIds": [],
+      "status": "proposed"
+    }
+  ],
+  "groups": [],
+  "phases": [],
+  "status": "proposed",
+  "confidence": "high",
+  "assumptions": [
+    "Las unificaciones y separaciones respetan las directrices de CURP de RENAPO."
+  ],
+  "unresolvedQuestions": [
+    "Cómo automatizar las alertas de traspasos no autorizados mediante biometría."
+  ],
+  "version": "0.1.0",
+  "createdAt": "2026-07-20T00:00:00Z",
+  "updatedAt": "2026-07-20T00:00:00Z"
+}

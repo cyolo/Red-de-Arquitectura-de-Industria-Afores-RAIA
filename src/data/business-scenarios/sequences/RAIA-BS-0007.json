@@ -1,0 +1,299 @@
+{
+  "scenarioId": "RAIA-BS-0007",
+  "version": "0.2.0",
+  "title": "Separación de cuentas IMSS/ISSSTE",
+  "description": "Separación de cuentas IMSS/ISSSTE",
+  "status": "proposed",
+  "regulatoryValidationStatus": "pending",
+  "participants": [
+    {
+      "instanceId": "actor-worker",
+      "participantType": "actor",
+      "label": "Trabajador",
+      "order": 1
+    },
+    {
+      "instanceId": "sd-gestion-de-solicitud",
+      "participantType": "service-domain",
+      "label": "Gestión de Solicitudes",
+      "order": 2
+    },
+    {
+      "instanceId": "sd-resolucion-de-identi",
+      "participantType": "service-domain",
+      "label": "Resolución de Identidad",
+      "order": 3
+    },
+    {
+      "instanceId": "sd-separacion-de-cuenta",
+      "participantType": "service-domain",
+      "label": "Separación de Cuentas",
+      "order": 4
+    },
+    {
+      "instanceId": "institute-imss",
+      "participantType": "social-security-institute",
+      "label": "IMSS",
+      "order": 5
+    },
+    {
+      "instanceId": "institute-issste",
+      "participantType": "social-security-institute",
+      "label": "ISSSTE",
+      "order": 6
+    },
+    {
+      "instanceId": "registry-bdnsar",
+      "participantType": "information-asset",
+      "label": "BDNSAR",
+      "order": 7
+    },
+    {
+      "instanceId": "sd-administracion-de-su",
+      "participantType": "service-domain",
+      "label": "Administración de Subcuentas",
+      "order": 8
+    },
+    {
+      "instanceId": "sd-conciliacion-de-cuen",
+      "participantType": "service-domain",
+      "label": "Conciliación de Cuenta",
+      "order": 9
+    },
+    {
+      "instanceId": "sd-libro-mayor",
+      "participantType": "service-domain",
+      "label": "Libro Mayor",
+      "order": 10
+    },
+    {
+      "instanceId": "sd-notificaciones",
+      "participantType": "service-domain",
+      "label": "Notificaciones",
+      "order": 11
+    },
+    {
+      "instanceId": "sd-separaci-n",
+      "participantType": "service-domain",
+      "label": "separaci n",
+      "order": 12
+    },
+    {
+      "instanceId": "sd-conciliacion",
+      "participantType": "service-domain",
+      "label": "Conciliación",
+      "order": 13
+    }
+  ],
+  "messages": [
+    {
+      "id": "RAIA-BS-0007-MSG-01",
+      "scenarioStepId": "RAIA-BS-0007-STEP-01",
+      "sequence": 1,
+      "sourceParticipantInstanceId": "actor-worker",
+      "targetParticipantInstanceId": "sd-gestion-de-solicitud",
+      "label": "Solicitar separación.",
+      "messageType": "synchronous-command",
+      "description": "Solicitar separación."
+    },
+    {
+      "id": "RAIA-BS-0007-MSG-02",
+      "scenarioStepId": "RAIA-BS-0007-STEP-02",
+      "sequence": 2,
+      "sourceParticipantInstanceId": "sd-gestion-de-solicitud",
+      "targetParticipantInstanceId": "sd-resolucion-de-identi",
+      "label": "Validar identidad.",
+      "messageType": "synchronous-command",
+      "description": "Validar identidad."
+    },
+    {
+      "id": "RAIA-BS-0007-MSG-03",
+      "scenarioStepId": "RAIA-BS-0007-STEP-03",
+      "sequence": 3,
+      "sourceParticipantInstanceId": "sd-gestion-de-solicitud",
+      "targetParticipantInstanceId": "sd-separacion-de-cuenta",
+      "label": "Registrar solicitud.",
+      "messageType": "synchronous-command",
+      "description": "Registrar solicitud."
+    },
+    {
+      "id": "RAIA-BS-0007-MSG-04",
+      "scenarioStepId": "RAIA-BS-0007-STEP-04",
+      "sequence": 4,
+      "sourceParticipantInstanceId": "sd-separaci-n",
+      "targetParticipantInstanceId": "registry-bdnsar",
+      "label": "Recuperar historial.",
+      "messageType": "synchronous-command",
+      "description": "Recuperar historial."
+    },
+    {
+      "id": "RAIA-BS-0007-MSG-05",
+      "scenarioStepId": "RAIA-BS-0007-STEP-05",
+      "sequence": 5,
+      "sourceParticipantInstanceId": "sd-separaci-n",
+      "targetParticipantInstanceId": "institute-imss",
+      "label": "Consultar cotizaciones.",
+      "messageType": "synchronous-command",
+      "description": "Consultar cotizaciones."
+    },
+    {
+      "id": "RAIA-BS-0007-MSG-06",
+      "scenarioStepId": "RAIA-BS-0007-STEP-06",
+      "sequence": 6,
+      "sourceParticipantInstanceId": "sd-separaci-n",
+      "targetParticipantInstanceId": "institute-issste",
+      "label": "Consultar cotizaciones.",
+      "messageType": "synchronous-command",
+      "description": "Consultar cotizaciones."
+    },
+    {
+      "id": "RAIA-BS-0007-MSG-07",
+      "scenarioStepId": "RAIA-BS-0007-STEP-07",
+      "sequence": 7,
+      "sourceParticipantInstanceId": "institute-imss",
+      "targetParticipantInstanceId": "sd-separaci-n",
+      "label": "Entregar información.",
+      "messageType": "response",
+      "description": "Entregar información."
+    },
+    {
+      "id": "RAIA-BS-0007-MSG-08",
+      "scenarioStepId": "RAIA-BS-0007-STEP-08",
+      "sequence": 8,
+      "sourceParticipantInstanceId": "institute-issste",
+      "targetParticipantInstanceId": "sd-separaci-n",
+      "label": "Entregar información.",
+      "messageType": "response",
+      "description": "Entregar información."
+    },
+    {
+      "id": "RAIA-BS-0007-MSG-09",
+      "scenarioStepId": "RAIA-BS-0007-STEP-09",
+      "sequence": 9,
+      "sourceParticipantInstanceId": "sd-separaci-n",
+      "targetParticipantInstanceId": "sd-administracion-de-su",
+      "label": "Clasificar recursos.",
+      "messageType": "synchronous-command",
+      "description": "Clasificar recursos."
+    },
+    {
+      "id": "RAIA-BS-0007-MSG-10",
+      "scenarioStepId": "RAIA-BS-0007-STEP-10",
+      "sequence": 10,
+      "sourceParticipantInstanceId": "sd-administracion-de-su",
+      "targetParticipantInstanceId": "sd-conciliacion",
+      "label": "Conciliar distribución.",
+      "messageType": "synchronous-command",
+      "description": "Conciliar distribución."
+    },
+    {
+      "id": "RAIA-BS-0007-MSG-11",
+      "scenarioStepId": "RAIA-BS-0007-STEP-11",
+      "sequence": 11,
+      "sourceParticipantInstanceId": "sd-conciliacion",
+      "targetParticipantInstanceId": "sd-separaci-n",
+      "label": "Confirmar propuesta.",
+      "messageType": "response",
+      "description": "Confirmar propuesta."
+    },
+    {
+      "id": "RAIA-BS-0007-MSG-12",
+      "scenarioStepId": "RAIA-BS-0007-STEP-12",
+      "sequence": 12,
+      "sourceParticipantInstanceId": "sd-separaci-n",
+      "targetParticipantInstanceId": "sd-libro-mayor",
+      "label": "Registrar cuentas resultantes.",
+      "messageType": "synchronous-command",
+      "description": "Registrar cuentas resultantes."
+    },
+    {
+      "id": "RAIA-BS-0007-MSG-13",
+      "scenarioStepId": "RAIA-BS-0007-STEP-13",
+      "sequence": 13,
+      "sourceParticipantInstanceId": "sd-separaci-n",
+      "targetParticipantInstanceId": "registry-bdnsar",
+      "label": "Actualizar registros.",
+      "messageType": "synchronous-command",
+      "description": "Actualizar registros."
+    },
+    {
+      "id": "RAIA-BS-0007-MSG-14",
+      "scenarioStepId": "RAIA-BS-0007-STEP-14",
+      "sequence": 14,
+      "sourceParticipantInstanceId": "sd-separaci-n",
+      "targetParticipantInstanceId": "sd-notificaciones",
+      "label": "Comunicar resolución.",
+      "messageType": "synchronous-command",
+      "description": "Comunicar resolución."
+    },
+    {
+      "id": "RAIA-BS-0007-MSG-15",
+      "scenarioStepId": "RAIA-BS-0007-STEP-15",
+      "sequence": 15,
+      "sourceParticipantInstanceId": "sd-notificaciones",
+      "targetParticipantInstanceId": "actor-worker",
+      "label": "Informar separación.",
+      "messageType": "response",
+      "description": "Informar separación."
+    }
+  ],
+  "activations": [],
+  "notes": [
+    {
+      "id": "note-control-1",
+      "participantInstanceIds": [
+        "p-trabajador"
+      ],
+      "placement": "left",
+      "text": "Control: identidad y consentimiento verificables.",
+      "noteType": "control",
+      "afterSequence": 1
+    },
+    {
+      "id": "note-evidence-1",
+      "participantInstanceIds": [
+        "p-trabajador"
+      ],
+      "placement": "right",
+      "text": "Evidencia: expediente, folio y acuses.",
+      "noteType": "evidence",
+      "afterSequence": 15
+    }
+  ],
+  "fragments": [
+    {
+      "id": "frag-1",
+      "fragmentType": "alt",
+      "label": "Condiciones de Negocio",
+      "startSequence": 13,
+      "endSequence": 15,
+      "branches": [
+        {
+          "id": "branch-0",
+          "label": "Separación procedente",
+          "startSequence": 14,
+          "endSequence": 15
+        },
+        {
+          "id": "branch-1",
+          "label": "Información insuficiente",
+          "startSequence": 14,
+          "endSequence": 15
+        },
+        {
+          "id": "branch-2",
+          "label": "Diferencia entre institutos",
+          "startSequence": 14,
+          "endSequence": 15
+        },
+        {
+          "id": "branch-3",
+          "label": "Revisión manual requerida",
+          "startSequence": 14,
+          "endSequence": 15
+        }
+      ]
+    }
+  ],
+  "modelingStatus": "partially-modeled"
+}

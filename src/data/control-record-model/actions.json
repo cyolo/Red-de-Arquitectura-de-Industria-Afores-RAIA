@@ -1,0 +1,14 @@
+[
+  {
+    "id": "RAIA-CRA-001",
+    "name": "Actualizar Saldos y Subcuentas",
+    "description": "Calcula los saldos acreditados a partir del detalle de aportación y genera la bitácora transaccional.",
+    "actionType": "calculate",
+    "serviceOperationId": "RAIA-SO-030-01",
+    "inputBusinessObjectIds": ["RAIA-BO-007"],
+    "outputBusinessObjectIds": ["RAIA-BO-004"],
+    "controlIds": [],
+    "evidenceIds": [],
+    "status": "validated"
+  }
+]

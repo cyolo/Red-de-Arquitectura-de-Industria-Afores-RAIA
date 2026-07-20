@@ -1,0 +1,343 @@
+{
+  "scenarioId": "RAIA-BS-0012",
+  "version": "0.2.0",
+  "title": "Retiro por desempleo IMSS/ISSSTE",
+  "description": "Retiro por desempleo IMSS/ISSSTE",
+  "status": "proposed",
+  "regulatoryValidationStatus": "pending",
+  "participants": [
+    {
+      "instanceId": "actor-worker",
+      "participantType": "actor",
+      "label": "Trabajador",
+      "order": 1
+    },
+    {
+      "instanceId": "sd-gestion-de-solicitud",
+      "participantType": "service-domain",
+      "label": "Gestión de Solicitudes",
+      "order": 2
+    },
+    {
+      "instanceId": "sd-autenticacion",
+      "participantType": "service-domain",
+      "label": "Autenticación",
+      "order": 3
+    },
+    {
+      "instanceId": "sd-expediente-electroni",
+      "participantType": "service-domain",
+      "label": "Expediente Electrónico",
+      "order": 4
+    },
+    {
+      "instanceId": "sd-validacion-de-elegib",
+      "participantType": "service-domain",
+      "label": "Validación de Elegibilidad",
+      "order": 5
+    },
+    {
+      "instanceId": "institute-imss",
+      "participantType": "social-security-institute",
+      "label": "IMSS",
+      "order": 6
+    },
+    {
+      "instanceId": "institute-issste",
+      "participantType": "social-security-institute",
+      "label": "ISSSTE",
+      "order": 7
+    },
+    {
+      "instanceId": "sd-cuenta-individual",
+      "participantType": "service-domain",
+      "label": "Cuenta Individual",
+      "order": 8
+    },
+    {
+      "instanceId": "sd-desinversion-de-recu",
+      "participantType": "service-domain",
+      "label": "Desinversión de Recursos",
+      "order": 9
+    },
+    {
+      "instanceId": "sd-gestion-de-pagos",
+      "participantType": "service-domain",
+      "label": "Gestión de Pagos",
+      "order": 10
+    },
+    {
+      "instanceId": "sd-libro-mayor",
+      "participantType": "service-domain",
+      "label": "Libro Mayor",
+      "order": 11
+    },
+    {
+      "instanceId": "sd-notificaciones",
+      "participantType": "service-domain",
+      "label": "Notificaciones",
+      "order": 12
+    },
+    {
+      "instanceId": "sd-expediente",
+      "participantType": "service-domain",
+      "label": "expediente",
+      "order": 13
+    },
+    {
+      "instanceId": "sd-validaci-n",
+      "participantType": "service-domain",
+      "label": "validaci n",
+      "order": 14
+    },
+    {
+      "instanceId": "sd-desinversion",
+      "participantType": "service-domain",
+      "label": "Desinversión",
+      "order": 16
+    },
+    {
+      "instanceId": "ext-counterparty",
+      "participantType": "external-party",
+      "label": "Institución Financiera",
+      "order": 17
+    }
+  ],
+  "messages": [
+    {
+      "id": "RAIA-BS-0012-MSG-01",
+      "scenarioStepId": "RAIA-BS-0012-STEP-01",
+      "sequence": 1,
+      "sourceParticipantInstanceId": "actor-worker",
+      "targetParticipantInstanceId": "sd-gestion-de-solicitud",
+      "label": "Solicitar retiro.",
+      "messageType": "synchronous-command",
+      "description": "Solicitar retiro."
+    },
+    {
+      "id": "RAIA-BS-0012-MSG-02",
+      "scenarioStepId": "RAIA-BS-0012-STEP-02",
+      "sequence": 2,
+      "sourceParticipantInstanceId": "sd-gestion-de-solicitud",
+      "targetParticipantInstanceId": "sd-autenticacion",
+      "label": "Validar identidad.",
+      "messageType": "synchronous-command",
+      "description": "Validar identidad."
+    },
+    {
+      "id": "RAIA-BS-0012-MSG-03",
+      "scenarioStepId": "RAIA-BS-0012-STEP-03",
+      "sequence": 3,
+      "sourceParticipantInstanceId": "sd-gestion-de-solicitud",
+      "targetParticipantInstanceId": "sd-expediente",
+      "label": "Recuperar evidencia.",
+      "messageType": "synchronous-command",
+      "description": "Recuperar evidencia."
+    },
+    {
+      "id": "RAIA-BS-0012-MSG-04",
+      "scenarioStepId": "RAIA-BS-0012-STEP-04",
+      "sequence": 4,
+      "sourceParticipantInstanceId": "sd-gestion-de-solicitud",
+      "targetParticipantInstanceId": "sd-validacion-de-elegib",
+      "label": "Evaluar solicitud.",
+      "messageType": "synchronous-command",
+      "description": "Evaluar solicitud."
+    },
+    {
+      "id": "RAIA-BS-0012-MSG-05",
+      "scenarioStepId": "RAIA-BS-0012-STEP-05",
+      "sequence": 5,
+      "sourceParticipantInstanceId": "sd-validaci-n",
+      "targetParticipantInstanceId": "institute-imss",
+      "label": "Consultar información cuando aplique.",
+      "messageType": "synchronous-command",
+      "description": "Consultar información cuando aplique."
+    },
+    {
+      "id": "RAIA-BS-0012-MSG-06",
+      "scenarioStepId": "RAIA-BS-0012-STEP-06",
+      "sequence": 6,
+      "sourceParticipantInstanceId": "sd-validaci-n",
+      "targetParticipantInstanceId": "institute-issste",
+      "label": "Consultar información cuando aplique.",
+      "messageType": "synchronous-command",
+      "description": "Consultar información cuando aplique."
+    },
+    {
+      "id": "RAIA-BS-0012-MSG-07",
+      "scenarioStepId": "RAIA-BS-0012-STEP-07",
+      "sequence": 7,
+      "sourceParticipantInstanceId": "institute-imss",
+      "targetParticipantInstanceId": "sd-validaci-n",
+      "label": "Entregar respuesta.",
+      "messageType": "response",
+      "description": "Entregar respuesta."
+    },
+    {
+      "id": "RAIA-BS-0012-MSG-08",
+      "scenarioStepId": "RAIA-BS-0012-STEP-08",
+      "sequence": 8,
+      "sourceParticipantInstanceId": "sd-validaci-n",
+      "targetParticipantInstanceId": "sd-cuenta-individual",
+      "label": "Consultar saldo disponible.",
+      "messageType": "synchronous-command",
+      "description": "Consultar saldo disponible."
+    },
+    {
+      "id": "RAIA-BS-0012-MSG-09",
+      "scenarioStepId": "RAIA-BS-0012-STEP-09",
+      "sequence": 9,
+      "sourceParticipantInstanceId": "sd-cuenta-individual",
+      "targetParticipantInstanceId": "sd-validaci-n",
+      "label": "Entregar saldo.",
+      "messageType": "response",
+      "description": "Entregar saldo."
+    },
+    {
+      "id": "RAIA-BS-0012-MSG-10",
+      "scenarioStepId": "RAIA-BS-0012-STEP-10",
+      "sequence": 10,
+      "sourceParticipantInstanceId": "sd-validaci-n",
+      "targetParticipantInstanceId": "sd-desinversion",
+      "label": "Solicitar recursos.",
+      "messageType": "synchronous-command",
+      "description": "Solicitar recursos."
+    },
+    {
+      "id": "RAIA-BS-0012-MSG-11",
+      "scenarioStepId": "RAIA-BS-0012-STEP-11",
+      "sequence": 11,
+      "sourceParticipantInstanceId": "sd-desinversion",
+      "targetParticipantInstanceId": "sd-gestion-de-pagos",
+      "label": "Entregar monto disponible.",
+      "messageType": "response",
+      "description": "Entregar monto disponible."
+    },
+    {
+      "id": "RAIA-BS-0012-MSG-12",
+      "scenarioStepId": "RAIA-BS-0012-STEP-12",
+      "sequence": 12,
+      "sourceParticipantInstanceId": "sd-gestion-de-pagos",
+      "targetParticipantInstanceId": "ext-counterparty",
+      "label": "Ejecutar pago.",
+      "messageType": "synchronous-command",
+      "description": "Ejecutar pago."
+    },
+    {
+      "id": "RAIA-BS-0012-MSG-13",
+      "scenarioStepId": "RAIA-BS-0012-STEP-13",
+      "sequence": 13,
+      "sourceParticipantInstanceId": "ext-counterparty",
+      "targetParticipantInstanceId": "sd-gestion-de-pagos",
+      "label": "Confirmar resultado.",
+      "messageType": "response",
+      "description": "Confirmar resultado."
+    },
+    {
+      "id": "RAIA-BS-0012-MSG-14",
+      "scenarioStepId": "RAIA-BS-0012-STEP-14",
+      "sequence": 14,
+      "sourceParticipantInstanceId": "sd-gestion-de-pagos",
+      "targetParticipantInstanceId": "sd-libro-mayor",
+      "label": "Registrar retiro.",
+      "messageType": "synchronous-command",
+      "description": "Registrar retiro."
+    },
+    {
+      "id": "RAIA-BS-0012-MSG-15",
+      "scenarioStepId": "RAIA-BS-0012-STEP-15",
+      "sequence": 15,
+      "sourceParticipantInstanceId": "sd-libro-mayor",
+      "targetParticipantInstanceId": "sd-gestion-de-solicitud",
+      "label": "Confirmar movimiento.",
+      "messageType": "response",
+      "description": "Confirmar movimiento."
+    },
+    {
+      "id": "RAIA-BS-0012-MSG-16",
+      "scenarioStepId": "RAIA-BS-0012-STEP-16",
+      "sequence": 16,
+      "sourceParticipantInstanceId": "sd-gestion-de-solicitud",
+      "targetParticipantInstanceId": "sd-notificaciones",
+      "label": "Comunicar resultado.",
+      "messageType": "synchronous-command",
+      "description": "Comunicar resultado."
+    },
+    {
+      "id": "RAIA-BS-0012-MSG-17",
+      "scenarioStepId": "RAIA-BS-0012-STEP-17",
+      "sequence": 17,
+      "sourceParticipantInstanceId": "sd-notificaciones",
+      "targetParticipantInstanceId": "actor-worker",
+      "label": "Notificar pago.",
+      "messageType": "synchronous-command",
+      "description": "Notificar pago."
+    }
+  ],
+  "activations": [],
+  "notes": [
+    {
+      "id": "note-control-1",
+      "participantInstanceIds": [
+        "p-trabajador"
+      ],
+      "placement": "left",
+      "text": "Control: identidad y consentimiento verificables.",
+      "noteType": "control",
+      "afterSequence": 1
+    },
+    {
+      "id": "note-evidence-1",
+      "participantInstanceIds": [
+        "p-trabajador"
+      ],
+      "placement": "right",
+      "text": "Evidencia: expediente, folio y acuses.",
+      "noteType": "evidence",
+      "afterSequence": 17
+    }
+  ],
+  "fragments": [
+    {
+      "id": "frag-1",
+      "fragmentType": "alt",
+      "label": "Condiciones de Negocio",
+      "startSequence": 15,
+      "endSequence": 17,
+      "branches": [
+        {
+          "id": "branch-0",
+          "label": "Solicitud elegible",
+          "startSequence": 16,
+          "endSequence": 17
+        },
+        {
+          "id": "branch-1",
+          "label": "No cumple condiciones",
+          "startSequence": 16,
+          "endSequence": 17
+        },
+        {
+          "id": "branch-2",
+          "label": "Información no disponible",
+          "startSequence": 16,
+          "endSequence": 17
+        },
+        {
+          "id": "branch-3",
+          "label": "Medio de pago inválido",
+          "startSequence": 16,
+          "endSequence": 17
+        },
+        {
+          "id": "branch-4",
+          "label": "Pago rechazado",
+          "startSequence": 16,
+          "endSequence": 17
+        }
+      ]
+    }
+  ],
+  "modelingStatus": "partially-modeled"
+}

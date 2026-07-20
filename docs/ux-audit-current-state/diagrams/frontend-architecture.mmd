@@ -1,0 +1,13 @@
+graph TD
+  RootLayout["Root Layout (layout.tsx)"] --> Header["Header.tsx"]
+  RootLayout --> Main["Main container (overflow-hidden)"]
+  RootLayout --> Footer["Footer.tsx"]
+  RootLayout --> GlobalSearchModal["GlobalSearchModal.tsx"]
+  
+  Main --> Pages["Pages (Next.js App Router)"]
+  Pages --> Components["Feature Components"]
+  Components --> UIComponents["UI Shared (React Flow, Lucide)"]
+  Components --> ZustandStore["Zustand Store (Zustand)"]
+  Components --> Repositories["Data Repositories (landscapeRepository, etc.)"]
+  Repositories --> Schemas["Zod Schemas (Zod)"]
+  Repositories --> Mocks["Static JSON Data (raia-landscape, relations, etc.)"]

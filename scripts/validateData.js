@@ -18,10 +18,10 @@ try {
   console.log("Starting data validation checks...");
 
   // Load files
-  const raia = loadJson("raia-v14.0.json");
-  const relations = loadJson("relations-v14.0.json");
-  const regulations = loadJson("regulations-v14.0.json");
-  const scenarios = loadJson("scenarios-v14.0.json");
+  const raia = loadJson("raia-landscape-0.1.0.json");
+  const relations = loadJson("relations-0.1.0.json");
+  const regulations = loadJson("regulations-0.1.0.json");
+  const scenarios = loadJson("scenarios-0.1.0.json");
 
   const { businessAreas, businessDomains, serviceDomains } = raia;
 

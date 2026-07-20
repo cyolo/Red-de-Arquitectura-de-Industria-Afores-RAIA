@@ -1,0 +1,257 @@
+{
+  "scenarioId": "RAIA-BS-0008",
+  "version": "0.2.0",
+  "title": "Asignación automática a SIEFORE Generacional",
+  "description": "Asignación automática a SIEFORE Generacional",
+  "status": "proposed",
+  "regulatoryValidationStatus": "pending",
+  "participants": [
+    {
+      "instanceId": "sd-cuenta-individual",
+      "participantType": "service-domain",
+      "label": "Cuenta Individual",
+      "order": 1
+    },
+    {
+      "instanceId": "actor-worker",
+      "participantType": "actor",
+      "label": "Datos del Trabajador",
+      "order": 2
+    },
+    {
+      "instanceId": "sd-asignacion-a-siefore",
+      "participantType": "service-domain",
+      "label": "Asignación a SIEFORE",
+      "order": 3
+    },
+    {
+      "instanceId": "registry-bdnsar",
+      "participantType": "information-asset",
+      "label": "Catálogo de SIEFORE",
+      "order": 4
+    },
+    {
+      "instanceId": "trust-fund",
+      "participantType": "public-trust",
+      "label": "Gestión Regulatoria de Fondos",
+      "order": 5
+    },
+    {
+      "instanceId": "sd-transferencia-entre-",
+      "participantType": "service-domain",
+      "label": "Transferencia entre SIEFORE",
+      "order": 6
+    },
+    {
+      "instanceId": "sd-asignacion-de-accion",
+      "participantType": "service-domain",
+      "label": "Asignación de Acciones",
+      "order": 7
+    },
+    {
+      "instanceId": "sd-libro-mayor",
+      "participantType": "service-domain",
+      "label": "Libro Mayor",
+      "order": 8
+    },
+    {
+      "instanceId": "sd-notificaciones",
+      "participantType": "service-domain",
+      "label": "Notificaciones",
+      "order": 9
+    },
+    {
+      "instanceId": "sd-asignacion",
+      "participantType": "service-domain",
+      "label": "Asignación",
+      "order": 10
+    },
+    {
+      "instanceId": "sd-transferencia",
+      "participantType": "service-domain",
+      "label": "transferencia",
+      "order": 12
+    }
+  ],
+  "messages": [
+    {
+      "id": "RAIA-BS-0008-MSG-01",
+      "scenarioStepId": "RAIA-BS-0008-STEP-01",
+      "sequence": 1,
+      "sourceParticipantInstanceId": "sd-cuenta-individual",
+      "targetParticipantInstanceId": "sd-asignacion-a-siefore",
+      "label": "Solicitar clasificación.",
+      "messageType": "synchronous-command",
+      "description": "Solicitar clasificación."
+    },
+    {
+      "id": "RAIA-BS-0008-MSG-02",
+      "scenarioStepId": "RAIA-BS-0008-STEP-02",
+      "sequence": 2,
+      "sourceParticipantInstanceId": "sd-asignacion",
+      "targetParticipantInstanceId": "actor-worker",
+      "label": "Recuperar datos relevantes.",
+      "messageType": "synchronous-command",
+      "description": "Recuperar datos relevantes."
+    },
+    {
+      "id": "RAIA-BS-0008-MSG-03",
+      "scenarioStepId": "RAIA-BS-0008-STEP-03",
+      "sequence": 3,
+      "sourceParticipantInstanceId": "sd-asignacion",
+      "targetParticipantInstanceId": "registry-bdnsar",
+      "label": "Consultar fondos vigentes.",
+      "messageType": "synchronous-command",
+      "description": "Consultar fondos vigentes."
+    },
+    {
+      "id": "RAIA-BS-0008-MSG-04",
+      "scenarioStepId": "RAIA-BS-0008-STEP-04",
+      "sequence": 4,
+      "sourceParticipantInstanceId": "registry-bdnsar",
+      "targetParticipantInstanceId": "trust-fund",
+      "label": "Validar reglas vigentes.",
+      "messageType": "synchronous-command",
+      "description": "Validar reglas vigentes."
+    },
+    {
+      "id": "RAIA-BS-0008-MSG-05",
+      "scenarioStepId": "RAIA-BS-0008-STEP-05",
+      "sequence": 5,
+      "sourceParticipantInstanceId": "trust-fund",
+      "targetParticipantInstanceId": "registry-bdnsar",
+      "label": "Confirmar parámetros.",
+      "messageType": "response",
+      "description": "Confirmar parámetros."
+    },
+    {
+      "id": "RAIA-BS-0008-MSG-06",
+      "scenarioStepId": "RAIA-BS-0008-STEP-06",
+      "sequence": 6,
+      "sourceParticipantInstanceId": "registry-bdnsar",
+      "targetParticipantInstanceId": "sd-asignacion",
+      "label": "Entregar SIEFORE aplicable.",
+      "messageType": "response",
+      "description": "Entregar SIEFORE aplicable."
+    },
+    {
+      "id": "RAIA-BS-0008-MSG-07",
+      "scenarioStepId": "RAIA-BS-0008-STEP-07",
+      "sequence": 7,
+      "sourceParticipantInstanceId": "sd-asignacion",
+      "targetParticipantInstanceId": "sd-cuenta-individual",
+      "label": "Consultar fondo actual.",
+      "messageType": "synchronous-command",
+      "description": "Consultar fondo actual."
+    },
+    {
+      "id": "RAIA-BS-0008-MSG-08",
+      "scenarioStepId": "RAIA-BS-0008-STEP-08",
+      "sequence": 8,
+      "sourceParticipantInstanceId": "sd-asignacion",
+      "targetParticipantInstanceId": "sd-transferencia-entre-",
+      "label": "Solicitar transferencia cuando corresponda.",
+      "messageType": "synchronous-command",
+      "description": "Solicitar transferencia cuando corresponda."
+    },
+    {
+      "id": "RAIA-BS-0008-MSG-09",
+      "scenarioStepId": "RAIA-BS-0008-STEP-09",
+      "sequence": 9,
+      "sourceParticipantInstanceId": "sd-transferencia",
+      "targetParticipantInstanceId": "sd-asignacion-de-accion",
+      "label": "Cancelar y asignar acciones.",
+      "messageType": "synchronous-command",
+      "description": "Cancelar y asignar acciones."
+    },
+    {
+      "id": "RAIA-BS-0008-MSG-10",
+      "scenarioStepId": "RAIA-BS-0008-STEP-10",
+      "sequence": 10,
+      "sourceParticipantInstanceId": "sd-asignacion-de-accion",
+      "targetParticipantInstanceId": "sd-libro-mayor",
+      "label": "Registrar movimientos.",
+      "messageType": "synchronous-command",
+      "description": "Registrar movimientos."
+    },
+    {
+      "id": "RAIA-BS-0008-MSG-11",
+      "scenarioStepId": "RAIA-BS-0008-STEP-11",
+      "sequence": 11,
+      "sourceParticipantInstanceId": "sd-libro-mayor",
+      "targetParticipantInstanceId": "sd-asignacion",
+      "label": "Confirmar registro.",
+      "messageType": "response",
+      "description": "Confirmar registro."
+    },
+    {
+      "id": "RAIA-BS-0008-MSG-12",
+      "scenarioStepId": "RAIA-BS-0008-STEP-12",
+      "sequence": 12,
+      "sourceParticipantInstanceId": "sd-asignacion",
+      "targetParticipantInstanceId": "sd-notificaciones",
+      "label": "Comunicar resultado.",
+      "messageType": "synchronous-command",
+      "description": "Comunicar resultado."
+    }
+  ],
+  "activations": [],
+  "notes": [
+    {
+      "id": "note-control-1",
+      "participantInstanceIds": [
+        "p-cuenta-individu"
+      ],
+      "placement": "left",
+      "text": "Control: identidad y consentimiento verificables.",
+      "noteType": "control",
+      "afterSequence": 1
+    },
+    {
+      "id": "note-evidence-1",
+      "participantInstanceIds": [
+        "p-notificaciones"
+      ],
+      "placement": "right",
+      "text": "Evidencia: expediente, folio y acuses.",
+      "noteType": "evidence",
+      "afterSequence": 12
+    }
+  ],
+  "fragments": [
+    {
+      "id": "frag-1",
+      "fragmentType": "alt",
+      "label": "Condiciones de Negocio",
+      "startSequence": 10,
+      "endSequence": 12,
+      "branches": [
+        {
+          "id": "branch-0",
+          "label": "Primera asignación",
+          "startSequence": 11,
+          "endSequence": 12
+        },
+        {
+          "id": "branch-1",
+          "label": "Transición generacional",
+          "startSequence": 11,
+          "endSequence": 12
+        },
+        {
+          "id": "branch-2",
+          "label": "Cambio permitido",
+          "startSequence": 11,
+          "endSequence": 12
+        },
+        {
+          "id": "branch-3",
+          "label": "Datos inconsistentes",
+          "startSequence": 11,
+          "endSequence": 12
+        }
+      ]
+    }
+  ],
+  "modelingStatus": "partially-modeled"
+}

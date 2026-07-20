@@ -1,0 +1,50 @@
+[
+  {
+    "id": "RAIA-CTR-001",
+    "name": "Solicitud de Individualización Recibida",
+    "description": "Comando para aplicar la primera aportación obrero-patronal recibida.",
+    "triggerType": "command",
+    "commandName": "individualizarAportacion",
+    "originatingParticipantIds": ["ACT-AFORE"],
+    "originatingServiceDomainIds": ["RAIA-SD-040"],
+    "status": "validated"
+  },
+  {
+    "id": "RAIA-CTR-002",
+    "name": "Aviso de Traspaso Sectorial",
+    "description": "Evento de negocio notificado por el procesador del SAR al concluir la transferencia de fondos.",
+    "triggerType": "business-event",
+    "businessEventId": "RAIA-BE-025-02",
+    "originatingParticipantIds": ["ACT-OPERATOR"],
+    "originatingServiceDomainIds": ["RAIA-SD-025"],
+    "status": "validated"
+  },
+  {
+    "id": "RAIA-CTR-003",
+    "name": "Solicitud de Liquidación Total",
+    "description": "Comando manual iniciado por dictamen de pensión o retiro.",
+    "triggerType": "manual-request",
+    "originatingParticipantIds": ["ACT-AFORE"],
+    "originatingServiceDomainIds": ["RAIA-SD-141"],
+    "status": "validated"
+  },
+  {
+    "id": "RAIA-CTR-004",
+    "name": "Resultados Biométricos Validados",
+    "description": "Notificación de confirmación de Renapo.",
+    "triggerType": "external-notification",
+    "originatingParticipantIds": ["ACT-OPERATOR"],
+    "originatingServiceDomainIds": ["RAIA-SD-020"],
+    "status": "validated"
+  },
+  {
+    "id": "RAIA-CTR-005",
+    "name": "Dictamen de Traspaso Aceptado",
+    "description": "Comando para autorizar el traspaso tras verificar vigencia de folios.",
+    "triggerType": "command",
+    "commandName": "autorizarTraspaso",
+    "originatingParticipantIds": ["ACT-OPERATOR"],
+    "originatingServiceDomainIds": ["RAIA-SD-025"],
+    "status": "validated"
+  }
+]

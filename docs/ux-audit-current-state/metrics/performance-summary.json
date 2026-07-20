@@ -1,0 +1,147 @@
+[
+  {
+    "route": "/",
+    "loadTimeMs": 393,
+    "status": "success"
+  },
+  {
+    "route": "/dashboard",
+    "loadTimeMs": 227,
+    "status": "success"
+  },
+  {
+    "route": "/metamodel",
+    "loadTimeMs": 228,
+    "status": "success"
+  },
+  {
+    "route": "/business-scenarios",
+    "loadTimeMs": 236,
+    "status": "success"
+  },
+  {
+    "route": "/service-landscape/value-chain",
+    "loadTimeMs": 290,
+    "status": "success"
+  },
+  {
+    "route": "/service-domains/politica-del-sistema-de-ahorro-para-el-retiro",
+    "loadTimeMs": 330,
+    "status": "success"
+  },
+  {
+    "route": "/releases",
+    "loadTimeMs": 202,
+    "status": "success"
+  },
+  {
+    "route": "/methodology",
+    "loadTimeMs": 206,
+    "status": "success"
+  },
+  {
+    "route": "/contribute",
+    "loadTimeMs": 248,
+    "status": "success"
+  },
+  {
+    "route": "/regulatory-architecture",
+    "loadTimeMs": 236,
+    "status": "success"
+  },
+  {
+    "route": "/reference-model",
+    "loadTimeMs": 231,
+    "status": "success"
+  },
+  {
+    "route": "/control-record-model",
+    "loadTimeMs": 253,
+    "status": "success"
+  },
+  {
+    "route": "/business-object-model",
+    "loadTimeMs": 215,
+    "status": "success"
+  },
+  {
+    "route": "/architecture-overview",
+    "loadTimeMs": 446,
+    "status": "success"
+  },
+  {
+    "route": "/information-architecture",
+    "loadTimeMs": 261,
+    "status": "success"
+  },
+  {
+    "route": "/wireframes",
+    "loadTimeMs": 324,
+    "status": "success"
+  },
+  {
+    "route": "/capability-map",
+    "loadTimeMs": 1904,
+    "status": "success"
+  },
+  {
+    "route": "/capability-map/views",
+    "loadTimeMs": 414,
+    "status": "success"
+  },
+  {
+    "route": "/business-scenarios/snippets",
+    "loadTimeMs": 1665,
+    "status": "success"
+  },
+  {
+    "route": "/service-landscape/matrix",
+    "loadTimeMs": 1772,
+    "status": "success"
+  },
+  {
+    "route": "/service-landscape/overview-diagrams",
+    "loadTimeMs": 1543,
+    "status": "success"
+  },
+  {
+    "route": "/business-areas/gobierno-y-direccion-del-sar",
+    "loadTimeMs": 1440,
+    "status": "success"
+  },
+  {
+    "route": "/business-areas/riesgo-cumplimiento-y-supervision",
+    "loadTimeMs": 280,
+    "status": "success"
+  },
+  {
+    "route": "/business-areas/identidad-partes-y-expediente",
+    "loadTimeMs": 324,
+    "status": "success"
+  },
+  {
+    "route": "/business-domains/estrategia-y-politica-del-sar",
+    "loadTimeMs": 1601,
+    "status": "success"
+  },
+  {
+    "route": "/business-domains/regulacion-y-autorizaciones",
+    "loadTimeMs": 292,
+    "status": "success"
+  },
+  {
+    "route": "/business-domains/gobierno-y-desempeno",
+    "loadTimeMs": 313,
+    "status": "success"
+  },
+  {
+    "route": "/service-domains/estrategia-de-industria",
+    "loadTimeMs": 450,
+    "status": "success"
+  },
+  {
+    "route": "/service-domains/planeacion-sectorial",
+    "loadTimeMs": 319,
+    "status": "success"
+  }
+]

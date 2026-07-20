@@ -1,0 +1,30 @@
+[
+  {
+    "id": "RAIA-IQR-001",
+    "name": "Estructura canónica de la CURP",
+    "description": "Valida que la CURP asociada al trabajador tenga exactamente 18 caracteres y coincida con el patrón de Renapo.",
+    "dimension": "validity",
+    "targetType": "attribute",
+    "targetId": "CURP",
+    "ruleStatement": "CURP match regex /^[A-Z]{4}\\d{6}[HM][A-Z]{5}[A-Z0-9]\\d$/",
+    "controlIds": ["RAIA-CTL-001"],
+    "evidenceIds": ["Acuse de Registro"],
+    "regulatoryMappingIds": ["RAIA-REG-LSAR"],
+    "severity": "critical",
+    "status": "validated"
+  },
+  {
+    "id": "RAIA-IQR-002",
+    "name": "Completitud del expediente de enrolamiento",
+    "description": "Valida que el expediente digital cuente con biometría dactilar y firma electrónica.",
+    "dimension": "completeness",
+    "targetType": "business-object",
+    "targetId": "RAIA-BO-002",
+    "ruleStatement": "Expediente digital has biometría AND Identificación digital",
+    "controlIds": [],
+    "evidenceIds": [],
+    "regulatoryMappingIds": [],
+    "severity": "high",
+    "status": "proposed"
+  }
+]

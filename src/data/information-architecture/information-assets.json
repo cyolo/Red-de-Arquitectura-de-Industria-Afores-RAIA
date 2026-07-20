@@ -1,0 +1,38 @@
+[
+  {
+    "id": "RAIA-IAST-001",
+    "slug": "bdnsar-identidad",
+    "name": "BDNSAR - Módulo de Identidad",
+    "description": "Base de datos centralizada de registros de identidad y enrolamiento biométrico de trabajadores.",
+    "assetType": "industry-registry",
+    "informationDomainIds": ["RAIA-IDOM-001"],
+    "businessObjectIds": ["RAIA-BO-001", "RAIA-BO-002"],
+    "accountableParticipantIds": ["ACT-OPERATOR"],
+    "stewardRoleIds": ["data-steward"],
+    "producerServiceDomainIds": ["RAIA-SD-190"],
+    "consumerServiceDomainIds": ["RAIA-SD-020", "RAIA-SD-021"],
+    "classificationIds": ["RAIA-ICLAS-005"],
+    "qualityRuleIds": [],
+    "retentionPolicyIds": [],
+    "regulatoryMappingIds": [],
+    "status": "validated"
+  },
+  {
+    "id": "RAIA-IAST-002",
+    "slug": "libro-mayor-saldos",
+    "name": "Libro Mayor de Saldos y Subcuentas",
+    "description": "Repositorio maestro consolidado de saldos e historial de movimientos del SAR por AFORE.",
+    "assetType": "master-data-set",
+    "informationDomainIds": ["RAIA-IDOM-003"],
+    "businessObjectIds": ["RAIA-BO-004", "RAIA-BO-005"],
+    "accountableParticipantIds": ["ACT-AFORE"],
+    "stewardRoleIds": ["data-steward"],
+    "producerServiceDomainIds": ["RAIA-SD-030"],
+    "consumerServiceDomainIds": ["RAIA-SD-135", "RAIA-SD-141"],
+    "classificationIds": ["RAIA-ICLAS-004"],
+    "qualityRuleIds": [],
+    "retentionPolicyIds": [],
+    "regulatoryMappingIds": [],
+    "status": "validated"
+  }
+]

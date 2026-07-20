@@ -1,0 +1,25 @@
+ID,Slug,NameEs,Type,Abstract,Criticality,Status,Version
+RAIA-BO-0001,trabajador,"Trabajador",party,No,systemic,proposed,0.1.0
+RAIA-BO-0002,identidad-trabajador,"Identidad del Trabajador",party,No,systemic,proposed,0.1.0
+RAIA-BO-0003,beneficiario,"Beneficiario",party,No,medium,proposed,0.1.0
+RAIA-BO-0004,participante-sar,"Participante del SAR",party,Yes,systemic,proposed,0.1.0
+RAIA-BO-0005,cuenta-individual,"Cuenta Individual",master,No,systemic,proposed,0.1.0
+RAIA-BO-0006,subcuenta,"Subcuenta",master,No,high,proposed,0.1.0
+RAIA-BO-0007,movimiento-cuenta,"Movimiento de Cuenta",transaction,No,high,proposed,0.1.0
+RAIA-BO-0008,posicion-siefore,"Posición de SIEFORE",position,No,high,proposed,0.1.0
+RAIA-BO-0009,solicitud-servicio-sar,"Solicitud de Servicio SAR",abstract,Yes,high,proposed,0.1.0
+RAIA-BO-0010,expediente-tramite,"Expediente de Trámite",case,No,high,proposed,0.1.0
+RAIA-BO-0011,resolucion-tramite,"Resolución de Trámite",abstract,Yes,high,proposed,0.1.0
+RAIA-BO-0012,aportacion,"Aportación",transaction,No,high,proposed,0.1.0
+RAIA-BO-0013,pago-aportaciones,"Pago de Aportaciones",financial,No,high,proposed,0.1.0
+RAIA-BO-0014,lote-recaudacion,"Lote de Recaudación",instruction,No,high,proposed,0.1.0
+RAIA-BO-0015,resultado-individualizacion,"Resultado de Individualización",decision,No,high,proposed,0.1.0
+RAIA-BO-0016,instrumento-financiero,"Instrumento Financiero",master,No,high,proposed,0.1.0
+RAIA-BO-0017,orden-inversion,"Orden de Inversión",instruction,No,high,proposed,0.1.0
+RAIA-BO-0018,operacion-inversion,"Operación de Inversión",transaction,No,high,proposed,0.1.0
+RAIA-BO-0019,posicion-portafolio,"Posición de Portafolio",position,No,high,proposed,0.1.0
+RAIA-BO-0020,precio-instrumento,"Precio de Instrumento",reference,No,high,proposed,0.1.0
+RAIA-BO-0021,solicitud-retiro,"Solicitud de Retiro",request,No,high,proposed,0.1.0
+RAIA-BO-0022,resolucion-pension,"Resolución de Pensión",decision,No,high,proposed,0.1.0
+RAIA-BO-0023,transferencia-recursos,"Transferencia de Recursos",financial,No,high,proposed,0.1.0
+RAIA-BO-0024,reporte-regulatorio,"Reporte Regulatorio",report,No,high,proposed,0.1.0

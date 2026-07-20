@@ -1,0 +1,11 @@
+ID,NameEs,Type,Status,Version
+RAIA-RMV-001,Ecosistema integral del SAR,ecosystem,proposed,0.1.0
+RAIA-RMV-002,Mapa integral de la cadena de valor,value-stream,proposed,0.1.0
+RAIA-RMV-003,Ciclo de vida de la Cuenta Individual,lifecycle,proposed,0.1.0
+RAIA-RMV-004,Recaudación e individualización,layered,proposed,0.1.0
+RAIA-RMV-005,Administración de inversiones,layered,proposed,0.1.0
+RAIA-RMV-006,Retiros y pensiones,lifecycle,proposed,0.1.0
+RAIA-RMV-007,Vista integral de información,information,proposed,0.1.0
+RAIA-RMV-008,Control y comportamiento,control-behavior,proposed,0.1.0
+RAIA-RMV-009,Arquitectura regulatoria integral,regulatory,proposed,0.1.0
+RAIA-RMV-010,Impacto y trazabilidad,impact,proposed,0.1.0
