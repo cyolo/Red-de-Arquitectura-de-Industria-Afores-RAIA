@@ -21,24 +21,34 @@ export function useSequenceDiagramFullscreen(
     const element = containerRef.current;
     if (!element) return;
 
-    if (element.requestFullscreen) {
+    if (isFullscreenSupported && element.requestFullscreen) {
       await element.requestFullscreen();
+    } else {
+      setIsFullscreen(true);
     }
-  }, [containerRef]);
+  }, [containerRef, isFullscreenSupported]);
 
   const exitFullscreen = useCallback(async () => {
-    if (document.fullscreenElement) {
-      await document.exitFullscreen();
+    if (isFullscreenSupported) {
+      if (document.fullscreenElement) {
+        await document.exitFullscreen();
+      }
+    } else {
+      setIsFullscreen(false);
     }
-  }, []);
+  }, [isFullscreenSupported]);
 
   const toggleFullscreen = useCallback(async () => {
-    if (document.fullscreenElement) {
-      await exitFullscreen();
+    if (isFullscreenSupported) {
+      if (document.fullscreenElement) {
+        await exitFullscreen();
+      } else {
+        await enterFullscreen();
+      }
     } else {
-      await enterFullscreen();
+      setIsFullscreen(prev => !prev);
     }
-  }, [enterFullscreen, exitFullscreen]);
+  }, [enterFullscreen, exitFullscreen, isFullscreenSupported]);
 
   useEffect(() => {
     const handleFullscreenChange = () => {

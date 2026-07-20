@@ -40,6 +40,9 @@ export function SequenceMessage({ message, isActive, isFaded, markerPrefix, onCl
   return (
     <g 
       data-testid="sequence-message"
+      data-message-id={message.id}
+      data-sequence={message.sequence}
+      data-active={isActive}
       onClick={onClick}
       className="cursor-pointer transition-opacity duration-200"
       style={{ opacity }}

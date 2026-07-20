@@ -1,0 +1,25 @@
+graph TD
+  subgraph Rutas y Páginas
+    R_Home["/"] --> P_Home["src/app/page.tsx"]
+    R_Landscape["/service-landscape/value-chain"] --> P_Landscape["src/app/service-landscape/value-chain/page.tsx"]
+    R_Scenarios["/business-scenarios"] --> P_Scenarios["src/app/business-scenarios/page.tsx"]
+    R_Metamodel["/metamodel"] --> P_Metamodel["src/app/metamodel/page.tsx"]
+    R_Dashboard["/dashboard"] --> P_Dashboard["src/app/dashboard/page.tsx"]
+    R_Releases["/releases"] --> P_Releases["src/app/releases/page.tsx"]
+    
+    R_BA_Detail["/business-areas/[slug]"] --> P_BA_Detail["src/app/business-areas/[slug]/page.tsx"]
+    R_BD_Detail["/business-domains/[slug]"] --> P_BD_Detail["src/app/business-domains/[slug]/page.tsx"]
+    R_SD_Detail["/service-domains/[slug]"] --> P_SD_Detail["src/app/service-domains/[slug]/page.tsx"]
+  end
+
+  subgraph Componentes de Feature
+    P_Landscape --> F_ValueChain["ValueChainViewClient.tsx"]
+    P_Scenarios --> F_Scenarios["BusinessScenariosClient.tsx"]
+    F_Scenarios --> C_SeqDiagram["RaiaSequenceDiagram.tsx"]
+    F_Scenarios --> C_Narrative["ScenarioArchitectureNarrative.tsx"]
+    F_Scenarios --> C_Workspace["ScenarioStepsWorkspace.tsx"]
+    
+    P_BA_Detail --> C_DetailSidebar["DetailSidebar.tsx"]
+    P_BD_Detail --> C_DetailSidebar
+    P_SD_Detail --> C_DetailSidebar
+  end

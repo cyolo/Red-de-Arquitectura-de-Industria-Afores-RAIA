@@ -139,6 +139,8 @@ export default function BusinessScenariosClient() {
                     key={scen.id}
                     onClick={() => selectScenario(scen.id)}
                     data-testid="scenario-card"
+                    data-scenario-id={scen.id}
+                    aria-pressed={selectedScenarioId === scen.id}
                     className={`w-full text-left p-4 rounded-2xl border transition-all flex flex-col justify-between text-xs ${
                       selectedScenarioId === scen.id
                         ? "bg-slate-900 text-white border-slate-800 shadow-md"
@@ -158,7 +160,7 @@ export default function BusinessScenariosClient() {
             </div>
 
             {/* Stepper & Visual Sequence Diagram */}
-            <div className="lg:col-span-8 bg-white rounded-3xl border border-slate-200 shadow-sm p-6 md:p-8 space-y-6" data-testid="scenario-detail">
+            <div className="lg:col-span-8 bg-white rounded-3xl border border-slate-200 shadow-sm p-6 md:p-8 space-y-6" data-testid="scenario-detail" data-selected-scenario-id={selectedScenario.id}>
               <div>
                 <div className="flex flex-wrap gap-2">
                   <span className="text-[10px] font-extrabold text-raia-blue-inst uppercase tracking-wider bg-blue-50 border border-blue-100 px-2 py-0.5 rounded">
@@ -200,14 +202,6 @@ export default function BusinessScenariosClient() {
                 )}
               </div>
 
-              {/* Structured Steps & Analysis Workspace */}
-              <ScenarioStepsWorkspace
-                sequence={detailedSequence}
-                stepNarratives={(narrative?.stepNarratives ?? []) as ScenarioStepNarrative[]}
-                activeStep={activeStep}
-                onStepChange={setActiveStep}
-              />
-
               {/* Narrative Context (General Architecture only) */}
               <div className="mt-16" data-testid="scenario-architecture-narrative">
                 {narrativeLoading ? (
@@ -225,6 +219,14 @@ export default function BusinessScenariosClient() {
                   )
                 )}
               </div>
+
+              {/* Structured Steps & Analysis Workspace */}
+              <ScenarioStepsWorkspace
+                sequence={detailedSequence}
+                stepNarratives={(narrative?.stepNarratives ?? []) as ScenarioStepNarrative[]}
+                activeStep={activeStep}
+                onStepChange={setActiveStep}
+              />
             </div>
           </div>
         )}

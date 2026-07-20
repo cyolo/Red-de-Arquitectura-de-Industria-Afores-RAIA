@@ -40,7 +40,7 @@ export default function DetailSidebar() {
   if (!isSidebarOpen || !selectedId) return null;
 
   return (
-    <div className="no-print fixed inset-y-0 right-0 z-40 w-96 bg-white border-l border-slate-200 shadow-2xl flex flex-col h-full transition-transform duration-300 transform translate-x-0">
+    <div className="no-print fixed inset-y-0 right-0 z-40 w-96 bg-white border-l border-slate-200 shadow-2xl flex flex-col h-full transition-transform duration-300 transform translate-x-0" data-testid="service-domain-detail-sidebar">
       
       {/* Sidebar Header */}
       <div className="px-5 py-4 border-b border-slate-100 flex items-center justify-between bg-slate-900 text-white">

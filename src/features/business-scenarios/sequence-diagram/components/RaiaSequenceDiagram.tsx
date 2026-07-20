@@ -90,7 +90,7 @@ export default function RaiaSequenceDiagram({ sequence, activeStep, onStepClick 
   }, [sequence]);
 
   // 2. Fullscreen Lifecycle
-  const { isFullscreen, toggleFullscreen, exitFullscreen } = useSequenceDiagramFullscreen(wrapperRef);
+  const { isFullscreen, toggleFullscreen, exitFullscreen, isFullscreenSupported } = useSequenceDiagramFullscreen(wrapperRef);
 
   // 3. Zooming and Panning Lifecycle
   const { zoomIn, zoomOut, fitDiagramToViewport, resetZoom } = useSequenceDiagramZoom({
@@ -118,6 +118,8 @@ export default function RaiaSequenceDiagram({ sequence, activeStep, onStepClick 
   return (
     <figure
       ref={wrapperRef}
+      data-testid="scenario-sequence-diagram-container"
+      data-fullscreen-mode={isFullscreen && !isFullscreenSupported ? "fallback" : undefined}
       className={`
         relative w-full overflow-hidden bg-[#f8fafc] border border-slate-200 shadow-inner
         transition-all duration-300

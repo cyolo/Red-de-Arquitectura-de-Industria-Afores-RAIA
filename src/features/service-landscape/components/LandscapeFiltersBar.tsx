@@ -56,12 +56,13 @@ export default function LandscapeFiltersBar({ matchedCount, totalCount }: Props)
           <span className="text-[10px] text-slate-500 font-semibold">
             Coincidencias:
           </span>
-          <span className="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 text-xs font-mono font-bold text-slate-800">
+          <span data-testid="value-chain-result-count" className="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 text-xs font-mono font-bold text-slate-800">
             {matchedCount} / {totalCount}
           </span>
           {hasActiveFilters && (
             <button
               onClick={clearFilters}
+              data-testid="value-chain-clear-filters"
               className="flex items-center gap-1 text-[10px] font-bold text-raia-error hover:text-red-700 transition-colors bg-red-50 hover:bg-red-100 px-2 py-0.5 rounded border border-red-200"
             >
               <X size={12} />
@@ -81,6 +82,7 @@ export default function LandscapeFiltersBar({ matchedCount, totalCount }: Props)
           <select
             value={activeFilters.area || ""}
             onChange={(e) => setFilter("area", e.target.value || undefined)}
+            data-testid="value-chain-filter-area"
             className="w-full bg-slate-50 border border-slate-200 rounded px-2.5 py-1 text-xs text-slate-700 focus:outline-none focus:border-raia-blue-inst"
           >
             <option value="">Todas las Áreas</option>
@@ -100,6 +102,7 @@ export default function LandscapeFiltersBar({ matchedCount, totalCount }: Props)
           <select
             value={activeFilters.domain || ""}
             onChange={(e) => setFilter("domain", e.target.value || undefined)}
+            data-testid="value-chain-filter-domain"
             className="w-full bg-slate-50 border border-slate-200 rounded px-2.5 py-1 text-xs text-slate-700 focus:outline-none focus:border-raia-blue-inst"
           >
             <option value="">Todos los Dominios</option>
@@ -121,6 +124,7 @@ export default function LandscapeFiltersBar({ matchedCount, totalCount }: Props)
           <select
             value={activeFilters.actor || ""}
             onChange={(e) => setFilter("actor", e.target.value || undefined)}
+            data-testid="value-chain-filter-actor"
             className="w-full bg-slate-50 border border-slate-200 rounded px-2.5 py-1 text-xs text-slate-700 focus:outline-none focus:border-raia-blue-inst"
           >
             <option value="">Todos los Actores</option>
@@ -140,6 +144,7 @@ export default function LandscapeFiltersBar({ matchedCount, totalCount }: Props)
           <select
             value={activeFilters.status || ""}
             onChange={(e) => setFilter("status", e.target.value || undefined)}
+            data-testid="value-chain-filter-status"
             className="w-full bg-slate-50 border border-slate-200 rounded px-2.5 py-1 text-xs text-slate-700 focus:outline-none focus:border-raia-blue-inst"
           >
             <option value="">Todos los Estatus</option>
@@ -159,6 +164,7 @@ export default function LandscapeFiltersBar({ matchedCount, totalCount }: Props)
           <select
             value={activeFilters.maturity || ""}
             onChange={(e) => setFilter("maturity", e.target.value || undefined)}
+            data-testid="value-chain-filter-maturity"
             className="w-full bg-slate-50 border border-slate-200 rounded px-2.5 py-1 text-xs text-slate-700 focus:outline-none focus:border-raia-blue-inst"
           >
             <option value="">Todas las Madureces</option>

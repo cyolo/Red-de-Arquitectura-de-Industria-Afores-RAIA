@@ -20,14 +20,14 @@ export default async function DashboardPage() {
   const fieldCompleteness = metrics.fieldCompleteness;
 
   const primaryStats = [
-    { label: "Áreas de Negocio", value: metrics.businessAreas, color: "text-blue-600 border-blue-100 bg-blue-50/50" },
-    { label: "Dominios de Negocio", value: metrics.businessDomains, color: "text-teal-600 border-teal-100 bg-teal-50/50" },
-    { label: "Service Domains", value: metrics.serviceDomains, color: "text-emerald-600 border-emerald-100 bg-emerald-50/50" },
-    { label: "Relaciones Lógicas", value: metrics.relations, color: "text-indigo-600 border-indigo-100 bg-indigo-50/50" },
-    { label: "Escenarios del SAR", value: metrics.scenarios, color: "text-purple-600 border-purple-100 bg-purple-50/50" },
-    { label: "Regulaciones Mapeadas", value: metrics.regulations, color: "text-amber-600 border-amber-100 bg-amber-50/50" },
-    { label: "Controles Arquitectónicos", value: metrics.controls, color: "text-pink-600 border-pink-100 bg-pink-50/50" },
-    { label: "Objetos de Negocio", value: metrics.businessObjects, color: "text-slate-700 border-slate-200 bg-slate-50/50" },
+    { id: "business-areas-total", label: "Áreas de Negocio", value: metrics.businessAreas, color: "text-blue-600 border-blue-100 bg-blue-50/50" },
+    { id: "business-domains-total", label: "Dominios de Negocio", value: metrics.businessDomains, color: "text-teal-600 border-teal-100 bg-teal-50/50" },
+    { id: "service-domains-total", label: "Service Domains", value: metrics.serviceDomains, color: "text-emerald-600 border-emerald-100 bg-emerald-50/50" },
+    { id: "relations-total", label: "Relaciones Lógicas", value: metrics.relations, color: "text-indigo-600 border-indigo-100 bg-indigo-50/50" },
+    { id: "scenarios-total", label: "Escenarios del SAR", value: metrics.scenarios, color: "text-purple-600 border-purple-100 bg-purple-50/50" },
+    { id: "regulations-total", label: "Regulaciones Mapeadas", value: metrics.regulations, color: "text-amber-600 border-amber-100 bg-amber-50/50" },
+    { id: "controls-total", label: "Controles Arquitectónicos", value: metrics.controls, color: "text-pink-600 border-pink-100 bg-pink-50/50" },
+    { id: "business-objects-total", label: "Objetos de Negocio", value: metrics.businessObjects, color: "text-slate-700 border-slate-200 bg-slate-50/50" },
   ];
 
   return (
@@ -79,7 +79,13 @@ export default async function DashboardPage() {
         {/* Stats Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           {primaryStats.map((stat, idx) => (
-            <div key={idx} className={`p-5 rounded-xl border flex flex-col justify-between ${stat.color} shadow-xs`}>
+            <div 
+              key={idx} 
+              data-testid="dashboard-metric"
+              data-metric-id={stat.id}
+              data-metric-value={stat.value}
+              className={`p-5 rounded-xl border flex flex-col justify-between ${stat.color} shadow-xs`}
+            >
               <span className="text-[10px] font-extrabold uppercase tracking-wider opacity-75">
                 {stat.label}
               </span>

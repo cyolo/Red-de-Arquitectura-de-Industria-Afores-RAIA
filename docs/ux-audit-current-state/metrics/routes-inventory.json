@@ -1,0 +1,263 @@
+[
+  {
+    "route": "/",
+    "title": "RAIA Architecture Overview Portal",
+    "isCore": true,
+    "scrollCategory": "excessive",
+    "scrollRatio": 4.84,
+    "interactiveElementsCount": 15,
+    "scrollableContainersCount": 7
+  },
+  {
+    "route": "/dashboard",
+    "title": "RAIA Architecture Dashboard",
+    "isCore": true,
+    "scrollCategory": "compact",
+    "scrollRatio": 1.1111111111111112,
+    "interactiveElementsCount": 11,
+    "scrollableContainersCount": 3
+  },
+  {
+    "route": "/metamodel",
+    "title": "RAIA Metamodel Overview",
+    "isCore": true,
+    "scrollCategory": "high",
+    "scrollRatio": 2.6933333333333334,
+    "interactiveElementsCount": 9,
+    "scrollableContainersCount": 3
+  },
+  {
+    "route": "/business-scenarios",
+    "title": "RAIA Business Scenarios",
+    "isCore": true,
+    "scrollCategory": "excessive",
+    "scrollRatio": 7.197777777777778,
+    "interactiveElementsCount": 20,
+    "scrollableContainersCount": 11
+  },
+  {
+    "route": "/service-landscape/value-chain",
+    "title": "RAIA Service Landscape 0.1.0 — Value Chain View",
+    "isCore": true,
+    "scrollCategory": "excessive",
+    "scrollRatio": 3.2066666666666666,
+    "interactiveElementsCount": 97,
+    "scrollableContainersCount": 151
+  },
+  {
+    "route": "/service-domains/politica-del-sistema-de-ahorro-para-el-retiro",
+    "title": "RAIA Service Landscape 0.1.0 — Value Chain View",
+    "isCore": true,
+    "scrollCategory": "high",
+    "scrollRatio": 2.9877777777777776,
+    "interactiveElementsCount": 12,
+    "scrollableContainersCount": 11
+  },
+  {
+    "route": "/releases",
+    "title": "RAIA Releases",
+    "isCore": false,
+    "scrollCategory": "compact",
+    "scrollRatio": 1.0622222222222222,
+    "interactiveElementsCount": 9,
+    "scrollableContainersCount": 3
+  },
+  {
+    "route": "/methodology",
+    "title": "RAIA Service Landscape 0.1.0 — Value Chain View",
+    "isCore": false,
+    "scrollCategory": "moderate",
+    "scrollRatio": 1.9655555555555555,
+    "interactiveElementsCount": 9,
+    "scrollableContainersCount": 3
+  },
+  {
+    "route": "/contribute",
+    "title": "Contribuir a RAIA - Gobierno de Contenidos",
+    "isCore": false,
+    "scrollCategory": "moderate",
+    "scrollRatio": 1.5755555555555556,
+    "interactiveElementsCount": 9,
+    "scrollableContainersCount": 3
+  },
+  {
+    "route": "/regulatory-architecture",
+    "title": "RAIA Regulatory Architecture - Planned",
+    "isCore": false,
+    "scrollCategory": "compact",
+    "scrollRatio": 1,
+    "interactiveElementsCount": 10,
+    "scrollableContainersCount": 3
+  },
+  {
+    "route": "/reference-model",
+    "title": "RAIA Industry Reference Model - Planned",
+    "isCore": false,
+    "scrollCategory": "compact",
+    "scrollRatio": 1,
+    "interactiveElementsCount": 10,
+    "scrollableContainersCount": 3
+  },
+  {
+    "route": "/control-record-model",
+    "title": "RAIA Control Record Model - Planned",
+    "isCore": false,
+    "scrollCategory": "compact",
+    "scrollRatio": 1,
+    "interactiveElementsCount": 10,
+    "scrollableContainersCount": 3
+  },
+  {
+    "route": "/business-object-model",
+    "title": "RAIA Business Object Model - Planned",
+    "isCore": false,
+    "scrollCategory": "compact",
+    "scrollRatio": 1,
+    "interactiveElementsCount": 10,
+    "scrollableContainersCount": 3
+  },
+  {
+    "route": "/architecture-overview",
+    "title": "RAIA Architecture Overview Portal",
+    "isCore": false,
+    "scrollCategory": "excessive",
+    "scrollRatio": 4.84,
+    "interactiveElementsCount": 15,
+    "scrollableContainersCount": 7
+  },
+  {
+    "route": "/information-architecture",
+    "title": "RAIA Information Architecture - Planned",
+    "isCore": false,
+    "scrollCategory": "compact",
+    "scrollRatio": 1,
+    "interactiveElementsCount": 10,
+    "scrollableContainersCount": 3
+  },
+  {
+    "route": "/wireframes",
+    "title": "RAIA Wireframes - Planned",
+    "isCore": false,
+    "scrollCategory": "compact",
+    "scrollRatio": 1,
+    "interactiveElementsCount": 10,
+    "scrollableContainersCount": 3
+  },
+  {
+    "route": "/capability-map",
+    "title": "RAIA Business Capability Map - Planned",
+    "isCore": false,
+    "scrollCategory": "compact",
+    "scrollRatio": 1,
+    "interactiveElementsCount": 10,
+    "scrollableContainersCount": 3
+  },
+  {
+    "route": "/capability-map/views",
+    "title": "RAIA Capability Views - Planned",
+    "isCore": false,
+    "scrollCategory": "compact",
+    "scrollRatio": 1,
+    "interactiveElementsCount": 10,
+    "scrollableContainersCount": 3
+  },
+  {
+    "route": "/business-scenarios/snippets",
+    "title": "RAIA Scenario Snippets - Planned",
+    "isCore": false,
+    "scrollCategory": "compact",
+    "scrollRatio": 1,
+    "interactiveElementsCount": 10,
+    "scrollableContainersCount": 3
+  },
+  {
+    "route": "/service-landscape/matrix",
+    "title": "RAIA Service Landscape Matrix - Planned",
+    "isCore": false,
+    "scrollCategory": "compact",
+    "scrollRatio": 1,
+    "interactiveElementsCount": 10,
+    "scrollableContainersCount": 3
+  },
+  {
+    "route": "/service-landscape/overview-diagrams",
+    "title": "RAIA Service Landscape Diagrams - Planned",
+    "isCore": false,
+    "scrollCategory": "compact",
+    "scrollRatio": 1,
+    "interactiveElementsCount": 10,
+    "scrollableContainersCount": 3
+  },
+  {
+    "route": "/business-areas/gobierno-y-direccion-del-sar",
+    "title": "RAIA Service Landscape 0.1.0 — Value Chain View",
+    "isCore": false,
+    "scrollCategory": "compact",
+    "scrollRatio": 1.09,
+    "interactiveElementsCount": 12,
+    "scrollableContainersCount": 3
+  },
+  {
+    "route": "/business-areas/riesgo-cumplimiento-y-supervision",
+    "title": "RAIA Service Landscape 0.1.0 — Value Chain View",
+    "isCore": false,
+    "scrollCategory": "compact",
+    "scrollRatio": 1.11,
+    "interactiveElementsCount": 12,
+    "scrollableContainersCount": 3
+  },
+  {
+    "route": "/business-areas/identidad-partes-y-expediente",
+    "title": "RAIA Service Landscape 0.1.0 — Value Chain View",
+    "isCore": false,
+    "scrollCategory": "compact",
+    "scrollRatio": 1.09,
+    "interactiveElementsCount": 12,
+    "scrollableContainersCount": 3
+  },
+  {
+    "route": "/business-domains/estrategia-y-politica-del-sar",
+    "title": "RAIA Service Landscape 0.1.0 — Value Chain View",
+    "isCore": false,
+    "scrollCategory": "moderate",
+    "scrollRatio": 1.511111111111111,
+    "interactiveElementsCount": 13,
+    "scrollableContainersCount": 3
+  },
+  {
+    "route": "/business-domains/regulacion-y-autorizaciones",
+    "title": "RAIA Service Landscape 0.1.0 — Value Chain View",
+    "isCore": false,
+    "scrollCategory": "moderate",
+    "scrollRatio": 1.511111111111111,
+    "interactiveElementsCount": 13,
+    "scrollableContainersCount": 3
+  },
+  {
+    "route": "/business-domains/gobierno-y-desempeno",
+    "title": "RAIA Service Landscape 0.1.0 — Value Chain View",
+    "isCore": false,
+    "scrollCategory": "moderate",
+    "scrollRatio": 1.511111111111111,
+    "interactiveElementsCount": 13,
+    "scrollableContainersCount": 3
+  },
+  {
+    "route": "/service-domains/estrategia-de-industria",
+    "title": "RAIA Service Landscape 0.1.0 — Value Chain View",
+    "isCore": false,
+    "scrollCategory": "high",
+    "scrollRatio": 2.9055555555555554,
+    "interactiveElementsCount": 12,
+    "scrollableContainersCount": 11
+  },
+  {
+    "route": "/service-domains/planeacion-sectorial",
+    "title": "RAIA Service Landscape 0.1.0 — Value Chain View",
+    "isCore": false,
+    "scrollCategory": "high",
+    "scrollRatio": 2.9055555555555554,
+    "interactiveElementsCount": 12,
+    "scrollableContainersCount": 11
+  }
+]

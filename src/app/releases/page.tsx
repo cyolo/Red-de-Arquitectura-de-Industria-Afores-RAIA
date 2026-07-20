@@ -38,7 +38,13 @@ export default async function ReleasesPage() {
         {/* Releases List */}
         <div className="space-y-8">
           {releases.map((rel, idx) => (
-            <div key={idx} className="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 shadow-sm space-y-6">
+            <div 
+              key={idx} 
+              data-testid="release-card"
+              data-release-version={rel.version}
+              data-release-status={rel.status}
+              className="bg-white rounded-2xl border border-slate-200 p-6 md:p-8 shadow-sm space-y-6"
+            >
               {/* Release Header */}
               <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 pb-4">
                 <div className="flex items-center gap-3">

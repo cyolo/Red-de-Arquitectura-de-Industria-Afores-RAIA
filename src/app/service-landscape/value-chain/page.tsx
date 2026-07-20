@@ -170,6 +170,8 @@ function ValueChainContent() {
                       <button
                         key={sd.id}
                         onClick={() => handleSelectServiceDomain(sd.id)}
+                        data-testid="service-domain-card"
+                        data-service-domain-id={sd.id}
                         className={`text-left px-2 py-1 rounded text-[10px] font-semibold border transition-all duration-200 cursor-pointer flex items-center gap-1 ${opacityClass} ${
                           isSelected
                             ? "bg-raia-green-inst border-emerald-800 text-white shadow-sm ring-1 ring-emerald-600 scale-[1.02]"
@@ -194,7 +196,7 @@ function ValueChainContent() {
   };
 
   return (
-    <div className="flex-1 flex flex-col min-h-0 bg-slate-50 overflow-hidden">
+    <div className="flex-1 flex flex-col min-h-0 bg-slate-50 overflow-hidden" data-testid="value-chain-page">
       
       {/* Top filter bar */}
       <div className="p-4 md:px-6 shrink-0">

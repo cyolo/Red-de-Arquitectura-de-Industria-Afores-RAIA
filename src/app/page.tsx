@@ -193,6 +193,9 @@ export default function HomePage() {
                     <Link
                       key={mod.id}
                       href={mod.route}
+                      data-testid="portal-module-card"
+                      data-module-id={mod.id}
+                      data-module-route={mod.route}
                       className="bg-white rounded-2xl border border-slate-200 shadow-xs p-5 hover:border-slate-300 hover:shadow-md transition-all flex flex-col justify-between group h-auto text-left"
                     >
                       <div className="space-y-4">

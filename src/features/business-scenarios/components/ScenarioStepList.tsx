@@ -72,7 +72,9 @@ export default function ScenarioStepList({
             onClick();
           }
         }}
-        data-testid={isDropdownItem ? "scenario-structured-step-option" : "scenario-structured-step"}
+        data-testid="scenario-structured-step"
+        data-step-sequence={message.sequence}
+        data-message-id={message.id}
         className={[
           "w-full border p-4 text-left transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-raia-turquoise focus-visible:z-10 relative",
           isDropdownItem 

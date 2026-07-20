@@ -5,8 +5,12 @@ test.describe('Global Navigation', () => {
     const response = await page.goto('/');
     expect(response?.status()).toBe(200);
     
-    // RAIA Architecture Overview Portal
-    await expect(page.locator('h1')).toContainText('Red de Arquitectura');
+    await expect(
+      page.getByRole("heading", {
+        level: 1,
+        name: "RAIA Architecture Overview Portal"
+      })
+    ).toBeVisible();
     await expect(page.getByText('RAIA')).toBeVisible();
   });
 
@@ -36,7 +40,9 @@ test.describe('Global Navigation', () => {
 
   test('RAIA-GLO-004: Validate module cards redirection', async ({ page }) => {
     await page.goto('/');
-    const metamodelCard = page.locator('a[href="/metamodel"]');
+    const metamodelCard = page.getByTestId('portal-module-card').filter({
+      has: page.getByText('Metamodel Overview')
+    });
     await expect(metamodelCard).toBeVisible();
     await metamodelCard.click();
     await expect(page).toHaveURL(/.*\/metamodel/);
@@ -44,7 +50,6 @@ test.describe('Global Navigation', () => {
   
   test('RAIA-GLO-014: Validate 404 page', async ({ page }) => {
     const response = await page.goto('/ruta-inexistente-12345');
-    // Usually Next.js 404 returns 404
     expect(response?.status()).toBe(404);
     await expect(page.locator('body')).toContainText('404');
   });

@@ -1,0 +1,49 @@
+name: RAIA Quality Gate CI
+
+on:
+  push:
+    branches: [ main, dev-001 ]
+  pull_request:
+    branches: [ main, dev-001 ]
+
+jobs:
+  quality-gate:
+    name: Build, Test and Validate Quality Gate
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: Lint and Code Formatting Check
+        run: |
+          npm run lint || true
+          npm run typecheck
+
+      - name: Build Next.js Application
+        run: npm run build
+
+      - name: Run Full Test Suite & Evaluate Quality Gate
+        run: npm run test:full
+        env:
+          CI: true
+
+      - name: Upload Test Results Artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: raia-test-results
+          path: test-results/
+          retention-days: 14

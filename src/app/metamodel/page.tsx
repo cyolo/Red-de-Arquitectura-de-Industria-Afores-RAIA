@@ -40,7 +40,7 @@ export default function MetamodelPage() {
         </Link>
 
         {/* Card Content */}
-        <div className="bg-white rounded-2xl border border-slate-200 p-8 shadow-md">
+        <div className="bg-white rounded-2xl border border-slate-200 p-8 shadow-md" data-testid="metamodel-overview">
           <div className="flex items-center gap-3 border-b border-slate-100 pb-4">
             <BookOpen size={24} className="text-raia-blue-inst" />
             <h1 className="text-2xl font-bold text-slate-800">RAIA Metamodel Overview</h1>
@@ -58,7 +58,7 @@ export default function MetamodelPage() {
 
           <div className="mt-6 border border-slate-200 rounded-xl bg-slate-50 p-6 flex flex-col gap-6">
             {/* Top-down boxes hierarchy */}
-            <div className="flex flex-col items-center gap-4">
+            <div className="flex flex-col items-center gap-4" data-testid="metamodel-hierarchy">
               <div className="bg-slate-900 text-white font-bold text-xs px-6 py-2.5 rounded-lg border border-slate-800 shadow-sm text-center w-64">
                 Business Area (BA)
                 <span className="block text-[9px] font-normal text-slate-400 mt-0.5">Contiene 1 o más Dominios</span>
@@ -78,7 +78,7 @@ export default function MetamodelPage() {
             </div>
 
             {/* Grid of connected elements to Service Domain */}
-            <div className="border-t border-slate-200 pt-6">
+            <div className="border-t border-slate-200 pt-6" data-testid="metamodel-service-domain">
               <span className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider block text-center mb-4">
                 Componentes de un Service Domain
               </span>
@@ -104,7 +104,7 @@ export default function MetamodelPage() {
 
           {/* Cardinalities and Rules */}
           <h2 className="text-lg font-bold text-slate-800 mt-10">Reglas y Cardinalidades</h2>
-          <div className="mt-4 space-y-4">
+          <div className="mt-4 space-y-4" data-testid="metamodel-governance-rules">
             <div className="p-4 rounded-lg bg-slate-50 border border-slate-200">
               <h3 className="text-xs font-bold text-slate-800">1. Entidades Canónicas vs Vistas</h3>
               <p className="text-xs text-slate-600 mt-1 leading-relaxed">
@@ -131,7 +131,7 @@ export default function MetamodelPage() {
           <h2 className="text-lg font-bold text-slate-800 mt-10 border-t border-slate-100 pt-6">
             Glosario del Metamodelo
           </h2>
-          <div className="mt-4 space-y-3.5">
+          <div className="mt-4 space-y-3.5" data-testid="metamodel-glossary">
             {concepts.map((c, idx) => (
               <div key={idx} className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4 pb-3 border-b border-slate-100 last:border-0">
                 <span className="text-xs font-extrabold text-raia-blue-inst shrink-0 sm:w-48">
