@@ -1,0 +1,743 @@
+El espacio marcado no proviene del contenido del escenario. La causa está en la combinación de cuatro decisiones de layout:
+
+El contenedor central utiliza justify-center.
+El diagrama fuerza una altura mínima de 720px y una altura basada en 78vh, aunque el workspace ya controla el espacio disponible.
+El SVG aplica viewBox con preserveAspectRatio="xMidYMid meet", que centra verticalmente el contenido.
+D3 vuelve a escalar y centrar el grupo mediante targetY, generando un segundo ajuste sobre el realizado por el SVG.
+
+En otras palabras, el diagrama está siendo ajustado y centrado dos veces. El siguiente prompt corrige específicamente ese comportamiento.
+
+# CORRECCIÓN DEL ESPACIO VACÍO EN EL DIAGRAMA CENTRAL DE BUSINESS SCENARIOS
+
+## Objetivo
+
+Corrige el desperdicio de espacio vertical que aparece sobre el diagrama de secuencia en la ruta:
+
+```text
+http://localhost:3000/business-scenarios
+
+Actualmente, al seleccionar cualquier escenario, el diagrama aparece demasiado abajo dentro del panel central y se genera una gran zona vacía entre el encabezado del escenario y el inicio del diagrama.
+
+El resultado esperado es que:
+
+el diagrama aproveche todo el viewport disponible;
+los participantes del diagrama comiencen cerca de la parte superior del canvas;
+el diagrama permanezca centrado horizontalmente;
+no exista una franja vacía desproporcionada arriba;
+no se recorte contenido;
+zoom, paneo, fit, reset y fullscreen continúen funcionando;
+no se modifique ninguna funcionalidad ni contenido de negocio.
+1. Repositorio
+
+Repositorio:
+
+https://github.com/cyolo/Red-de-Arquitectura-de-Industria-Afores-RAIA
+
+Rama:
+
+dev-001
+
+Antes de modificar:
+
+Confirma que estás en la rama dev-001.
+Registra el commit inicial.
+Verifica que el working tree esté limpio.
+Ejecuta build, typecheck, lint y pruebas existentes.
+Levanta la aplicación en http://localhost:3000/.
+Captura screenshots del problema actual.
+No modifiques la rama main.
+2. Alcance
+
+Corrige únicamente la presentación y ajuste del diagrama central de Business Scenarios.
+
+Archivos que debes inspeccionar como mínimo:
+
+src/components/layout/BusinessScenariosClient.tsx
+
+src/features/business-scenarios/sequence-diagram/components/
+├── RaiaSequenceDiagram.tsx
+├── SequenceDiagramCanvas.tsx
+└── SequenceDiagramToolbar.tsx
+
+src/features/business-scenarios/sequence-diagram/hooks/
+├── useSequenceDiagramZoom.ts
+├── useSequenceDiagramFullscreen.ts
+└── useSequenceDiagramKeyboard.ts
+
+src/features/business-scenarios/sequence-diagram/layout/
+└── sequenceLayoutEngine.ts
+
+src/features/business-scenarios/sequence-diagram/styles/
+└── sequenceDiagramTokens.ts
+
+No modifiques datos ni lógica de negocio.
+
+Considera protegidos:
+
+src/data/
+src/domain/
+3. Diagnóstico técnico que debes validar
+
+La implementación actual aplica varias capas de dimensionamiento y centrado simultáneamente.
+
+3.1 Contenedor padre
+
+En BusinessScenariosClient.tsx, el wrapper del diagrama utiliza una estructura equivalente a:
+
+<div className="flex-1 min-h-0 overflow-hidden p-4 flex flex-col justify-center">
+
+El uso de:
+
+justify-center
+
+puede centrar verticalmente el contenedor del diagrama, aunque el objetivo sea que ocupe todo el alto disponible.
+
+3.2 Altura fija del figure
+
+En RaiaSequenceDiagram.tsx, el modo normal utiliza una altura equivalente a:
+
+min-h-[720px] h-[clamp(720px,78vh,1040px)]
+
+El workspace principal ya controla el espacio vertical mediante flexbox.
+
+Forzar una altura mínima de 720px puede provocar:
+
+overflow;
+cálculo incorrecto del viewport;
+desalineación;
+espacio vertical desaprovechado;
+comportamiento diferente entre resoluciones.
+3.3 Escalado automático del SVG
+
+En SequenceDiagramCanvas.tsx, el SVG utiliza:
+
+viewBox={`0 0 ${layout.width} ${layout.height}`}
+preserveAspectRatio="xMidYMid meet"
+
+Esto realiza un primer ajuste automático y centra el contenido vertical y horizontalmente.
+
+3.4 Segundo ajuste mediante D3
+
+En useSequenceDiagramZoom.ts, D3 vuelve a calcular:
+
+targetScale
+targetX
+targetY
+
+El cálculo actual de targetY centra verticalmente el contenido:
+
+const targetY =
+  Math.max((wrapperHeight - safeHeight * targetScale) / 2, 20);
+
+Esto genera un segundo centrado sobre el que ya realiza el viewBox.
+
+También existe un mínimo de escala semejante a:
+
+const minScale = isFullscreen ? 0.5 : 0.35;
+
+Ese mínimo puede impedir que escenarios grandes se adapten correctamente al viewport.
+
+3.5 Hipótesis principal
+
+El espacio vacío es producido por:
+
+Altura fija
++ justify-center
++ preserveAspectRatio xMidYMid
++ transformación fit de D3
+= doble escalado y doble centrado
+
+Verifica esta hipótesis con mediciones del DOM antes de implementar.
+
+4. Solución técnica objetivo
+
+Debe existir una sola autoridad responsable de ajustar el diagrama.
+
+La solución recomendada es:
+
+El SVG ocupa el viewport disponible y D3 administra el escalado y paneo del contenido.
+
+Evita que el viewBox y D3 intenten realizar simultáneamente el mismo ajuste.
+
+5. Cambio 1 — Corregir el contenedor central
+
+En BusinessScenariosClient.tsx, cambia el wrapper para que el diagrama ocupe todo el espacio disponible.
+
+Objetivo conceptual:
+
+<div
+  className="
+    flex-1
+    min-h-0
+    overflow-hidden
+    p-3
+    flex
+    items-stretch
+  "
+  data-testid="scenario-sequence-diagram"
+>
+
+Elimina:
+
+justify-center
+
+No centres verticalmente el componente mediante flexbox.
+
+El panel debe permitir que el diagrama use:
+
+width: 100%
+height: 100%
+min-height: 0
+
+No cambies:
+
+el encabezado del escenario;
+el catálogo izquierdo;
+el panel derecho;
+tabs;
+selección de escenario;
+selección de pasos;
+narrativa;
+pasos estructurados.
+6. Cambio 2 — Eliminar la altura fija del diagram container
+
+En RaiaSequenceDiagram.tsx, reemplaza en modo normal:
+
+min-h-[720px] h-[clamp(720px,78vh,1040px)]
+
+por una estructura equivalente a:
+
+h-full min-h-0 w-full rounded-xl
+
+El resultado conceptual debe ser:
+
+className={`
+  relative
+  w-full
+  overflow-hidden
+  bg-[#f8fafc]
+  border
+  border-slate-200
+  shadow-inner
+  transition-all
+  duration-300
+  ${
+    isFullscreen
+      ? "fixed inset-0 z-[100] m-0 rounded-none h-[100dvh]"
+      : "h-full min-h-0 rounded-xl"
+  }
+`}
+
+El diagrama no debe imponer una altura superior a la que recibe del workspace.
+
+Mantén intacto el comportamiento fullscreen.
+
+7. Cambio 3 — Evitar el doble escalado
+Solución recomendada
+
+En SequenceDiagramCanvas.tsx, permite que las unidades del SVG correspondan al viewport real controlado por D3.
+
+Evalúa eliminar:
+
+viewBox={...}
+preserveAspectRatio="xMidYMid meet"
+
+Mantén:
+
+width="100%"
+height="100%"
+className="w-full h-full ..."
+
+El SVG debe ocupar el panel completo y el contenido debe permanecer dentro de:
+
+<g className="zoom-layer">
+
+De esta manera:
+
+SVG define el viewport;
+D3 define el transform;
+no existe doble ajuste;
+las unidades utilizadas por targetX y targetY corresponden al viewport visible.
+
+Antes de eliminar el viewBox, confirma que:
+
+marcadores;
+paths;
+textos;
+notas;
+activaciones;
+fragments;
+lifelines;
+eventos de teclado;
+eventos del mouse;
+
+continúan funcionando.
+
+Alternativa aceptable
+
+Si existe una razón técnica para conservar el viewBox, debes:
+
+cambiar el alineamiento a:
+preserveAspectRatio="xMidYMin meet"
+corregir los cálculos de D3 para utilizar coordenadas SVG reales;
+evitar aplicar un segundo factor de escalado sobre el escalado implícito del viewBox.
+
+No conserves xMidYMid meet si continúa produciendo espacio vacío arriba.
+
+La opción preferida sigue siendo una sola autoridad de escalado.
+
+8. Cambio 4 — Ajustar el algoritmo Fit to Viewport
+
+Refactoriza fitDiagramToViewport para que:
+
+use padding real;
+centre horizontalmente;
+alinee verticalmente arriba;
+permita escalas menores a 0.35 cuando sea necesario;
+no recorte el diagrama;
+no genere espacio excesivo arriba.
+
+Utiliza una fórmula equivalente a:
+
+const horizontalPadding = 24;
+const topPadding = 24;
+const bottomPadding = 24;
+
+const availableWidth = Math.max(
+  wrapperWidth - horizontalPadding * 2,
+  1
+);
+
+const availableHeight = Math.max(
+  wrapperHeight - topPadding - bottomPadding,
+  1
+);
+
+const rawScale = Math.min(
+  availableWidth / safeWidth,
+  availableHeight / safeHeight,
+  1
+);
+
+const targetScale = Math.max(
+  0.08,
+  rawScale * 0.96
+);
+
+const targetX = Math.max(
+  horizontalPadding,
+  (wrapperWidth - safeWidth * targetScale) / 2
+);
+
+const targetY = topPadding;
+
+Aplica:
+
+d3.zoomIdentity
+  .translate(targetX, targetY)
+  .scale(targetScale)
+Regla principal
+
+No utilices:
+
+(wrapperHeight - diagramHeight) / 2
+
+para el ajuste inicial.
+
+El diagrama debe estar:
+
+centrado horizontalmente;
+alineado arriba con un padding controlado.
+
+Puede existir espacio libre debajo cuando la proporción del diagrama sea muy horizontal.
+
+No debe existir un gran bloque vacío arriba.
+
+9. Cambio 5 — Recalcular Fit en el momento correcto
+
+El ajuste debe ejecutarse:
+
+al montar el diagrama;
+al cambiar de escenario;
+al cambiar las dimensiones del layout;
+al abrir o cerrar el catálogo izquierdo;
+al cambiar el ancho del panel derecho;
+al cambiar la resolución;
+al entrar en fullscreen;
+al salir de fullscreen.
+
+Mantén ResizeObserver, pero no dependas exclusivamente de que el observer dispare el primer ajuste.
+
+Agrega un efecto explícito semejante a:
+
+useEffect(() => {
+  const frame = requestAnimationFrame(() => {
+    fitDiagramToViewport();
+  });
+
+  return () => cancelAnimationFrame(frame);
+}, [
+  fitDiagramToViewport,
+  totalWidth,
+  totalHeight,
+  isFullscreen
+]);
+
+Cuando el DOM requiera dos ciclos para estabilizar el layout, utiliza de forma controlada un segundo requestAnimationFrame.
+
+No uses setTimeout arbitrarios.
+
+10. Cambio 6 — Reset y Fit deben ser coherentes
+
+Diferencia correctamente:
+
+Fit
+
+Debe:
+
+mostrar todo el diagrama;
+alinear arriba;
+centrar horizontalmente;
+usar padding.
+Reset
+
+Puede:
+
+volver a escala 100%;
+centrar horizontalmente;
+alinear arriba;
+conservar padding superior.
+
+No debe regresar el diagrama al centro vertical con un espacio vacío grande.
+
+Si el diagrama a escala 100% es mayor que el viewport, debe permitir paneo.
+
+No cambies los nombres ni iconos actuales de los controles sin necesidad.
+
+11. Comportamiento esperado
+
+Al seleccionar cualquier escenario:
+
+El encabezado del escenario permanece arriba.
+Debajo del encabezado debe comenzar inmediatamente el canvas.
+La toolbar del diagrama permanece en la esquina superior derecha.
+Los participantes deben aparecer cerca de la parte superior del canvas.
+No debe existir una franja vacía superior mayor al padding definido.
+El diagrama debe estar centrado horizontalmente.
+Deben poder verse todos los participantes mediante Fit.
+Los mensajes deben poder explorarse con paneo y zoom.
+Seleccionar un paso debe seguir actualizando el panel derecho.
+No debe existir un salto de layout al cambiar de escenario.
+12. Criterios visuales de aceptación
+
+En estado Fit:
+
+Espacio superior entre canvas y primer contenido:
+16px–40px
+
+No se acepta:
+
+Espacio superior mayor al 15% del alto visible del canvas
+
+salvo que exista una razón estructural dentro del propio diagrama.
+
+Los encabezados de participantes deben comenzar aproximadamente dentro del:
+
+primer 5%–12% del alto visible del canvas
+
+El canvas debe ocupar todo el espacio entre:
+
+header del escenario;
+parte inferior del viewport.
+
+No debe observarse el bloque vacío marcado en rojo en la evidencia proporcionada.
+
+13. No alterar funcionalidad
+
+No modifiques:
+
+catálogo de escenarios;
+orden de escenarios;
+nombres;
+IDs;
+descripción;
+número de pasos;
+datos de secuencia;
+participantes;
+mensajes;
+activaciones;
+notas;
+fragmentos;
+selección de paso;
+panel de Pasos y Flujo;
+Narrativa Arquitectónica;
+controles;
+lógica del dominio;
+JSON;
+tipos;
+repositorios;
+relaciones;
+semántica del diagrama.
+
+No elimines componentes para ocultar el problema.
+
+No reduzcas artificialmente la altura eliminando contenido.
+
+14. Accesibilidad
+
+Conserva:
+
+role="img";
+<title>;
+<desc>;
+foco del SVG;
+navegación por teclado;
+toolbar accesible;
+botones etiquetados;
+fullscreen accesible.
+
+Verifica:
+
+foco visible;
+Enter y Space;
+Escape en fullscreen;
+zoom con teclado;
+prefers-reduced-motion.
+
+Si eliminas el viewBox, confirma que esto no afecte la accesibilidad ni la navegación.
+
+15. Pruebas obligatorias
+
+Prueba al menos estos escenarios:
+
+Registro y Traspaso de Cuenta Individual
+Recaudación de Aportaciones e Inversión
+Localización de cuenta individual
+Asignación automática de cuentas
+Reasignación por desempeño
+Unificación de cuentas duplicadas
+Separación de cuentas IMSS/ISSSTE
+
+Incluye escenarios con:
+
+13 pasos;
+15 pasos;
+16 pasos;
+17 pasos;
+21 pasos;
+diferente cantidad de participantes;
+diferente proporción ancho/alto.
+
+Resoluciones:
+
+1920 × 1080
+1440 × 900
+1366 × 768
+1280 × 800
+1024 × 768
+768 × 1024
+390 × 844
+
+Estados:
+
+catálogo abierto;
+catálogo cerrado;
+tab Pasos y Flujo;
+tab Narrativa Arquitectónica;
+panel derecho con scroll;
+zoom in;
+zoom out;
+reset;
+fit;
+fullscreen;
+salida de fullscreen;
+cambio rápido entre escenarios.
+16. Medición antes y después
+
+Registra por escenario:
+
+wrapperWidth
+wrapperHeight
+layout.width
+layout.height
+targetScale
+targetX
+targetY
+boundingClientRect del primer participante
+distancia entre canvas top y primer participante
+
+Genera una tabla:
+
+Escenario	Resolución	Espacio superior antes	Espacio superior después	Escala Fit	Resultado
+
+El resultado debe demostrar que el espacio superior fue eliminado o reducido al padding definido.
+
+17. Screenshots
+
+Guarda las capturas anteriores en:
+
+docs/ux-refactor/business-scenarios-diagram/before/
+
+Guarda las capturas posteriores en:
+
+docs/ux-refactor/business-scenarios-diagram/after/
+
+Comparaciones:
+
+docs/ux-refactor/business-scenarios-diagram/comparison/
+
+Incluye:
+
+mismos escenarios;
+misma resolución;
+mismo paso activo;
+misma posición de paneles;
+before/after lado a lado.
+18. Validaciones técnicas
+
+Ejecuta los scripts reales existentes para:
+
+build
+typecheck
+lint
+tests
+validación de diagramas
+validación de datos
+
+Además verifica:
+
+cero errores nuevos de consola;
+cero warnings nuevos de React;
+cero contenido recortado;
+cero pérdida de interacción;
+cero scroll horizontal accidental;
+cero regresiones en fullscreen;
+cero regresiones en toolbar;
+cero regresiones en selección de pasos.
+19. Definition of Done
+
+La tarea estará completa cuando:
+
+ Se identificó la causa real.
+ Se eliminó justify-center del wrapper cuando era responsable.
+ El figure utiliza el alto disponible.
+ Se eliminó la altura fija innecesaria.
+ Existe una sola autoridad de escalado.
+ El diagrama está centrado horizontalmente.
+ El diagrama está alineado arriba.
+ El espacio superior se limita a 16px–40px.
+ Fit funciona.
+ Reset funciona.
+ Zoom funciona.
+ Paneo funciona.
+ Fullscreen funciona.
+ Cambio de escenario recalcula correctamente.
+ Colapsar el catálogo recalcula correctamente.
+ Todos los escenarios fueron probados.
+ Todas las resoluciones fueron probadas.
+ No se modificaron datos.
+ No se modificó lógica de negocio.
+ No se perdió contenido.
+ Build aprobado.
+ Typecheck aprobado.
+ Lint aprobado.
+ Pruebas aprobadas.
+ Screenshots before/after generados.
+ Métricas documentadas.
+20. Entregables
+
+Crea:
+
+docs/
+└── ux-refactor/
+    └── business-scenarios-diagram/
+        ├── 00-root-cause.md
+        ├── 01-implementation-summary.md
+        ├── 02-before-after-metrics.md
+        ├── 03-functional-regression.md
+        ├── 04-accessibility-results.md
+        ├── 05-known-limitations.md
+        ├── before/
+        ├── after/
+        └── comparison/
+
+En 00-root-cause.md explica:
+
+cuál capa generaba el espacio;
+cómo interactuaban flexbox, SVG y D3;
+cuál sistema quedó como autoridad;
+por qué la corrección es estable.
+21. Respuesta final
+
+Al concluir responde con:
+
+Corrección del diagrama central completada
+Causa raíz
+Contenedor:
+Altura:
+SVG:
+D3:
+Conclusión:
+Solución implementada
+Cambios de layout:
+Cambios de SVG:
+Cambios de zoom:
+Cambios de Fit:
+Cambios de Reset:
+Métricas
+Escenario	Antes	Después	Resultado
+Archivos modificados
+
+Lista cada archivo y justificación.
+
+Integridad funcional
+
+Confirma:
+
+escenarios preservados;
+pasos preservados;
+participantes preservados;
+mensajes preservados;
+narrativa preservada;
+panel derecho preservado;
+toolbar preservada;
+zoom preservado;
+fullscreen preservado;
+datos y dominio sin cambios.
+Pruebas
+
+Lista:
+
+comandos;
+resultado;
+errores encontrados;
+correcciones.
+Evidencia
+
+Indica la ubicación de:
+
+docs/ux-refactor/business-scenarios-diagram/before/
+docs/ux-refactor/business-scenarios-diagram/after/
+docs/ux-refactor/business-scenarios-diagram/comparison/
+Riesgos residuales
+
+Lista únicamente riesgos reales pendientes.
+
+22. Instrucción final
+
+Comienza ahora la corrección.
+
+No rediseñes toda la pantalla.
+
+No cambies contenido de negocio.
+
+No ocultes el espacio mediante márgenes negativos o posiciones absolutas arbitrarias.
+
+Corrige la relación estructural entre:
+
+workspace
+figure
+SVG viewport
+D3 transform
+
+El resultado debe ser estable para todos los escenarios, resoluciones y cambios de tamaño.

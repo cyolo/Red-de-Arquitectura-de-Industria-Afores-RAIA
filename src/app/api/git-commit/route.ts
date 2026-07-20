@@ -31,9 +31,9 @@ export async function GET() {
       }
     });
 
-    // 2. Stage files
-    console.log('Running git add...');
-    const addResult = execSync('git add src/ docs/ tools/', { cwd: workspacePath, encoding: 'utf8' });
+    // 2. Stage all files in the repository
+    console.log('Running git add -A...');
+    const addResult = execSync('git add -A', { cwd: workspacePath, encoding: 'utf8' });
     
     // 3. Commit files
     console.log('Running git commit...');

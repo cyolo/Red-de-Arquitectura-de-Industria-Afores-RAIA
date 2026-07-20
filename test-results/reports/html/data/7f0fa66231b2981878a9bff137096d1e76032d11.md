@@ -1,0 +1,1556 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: accessibility\accessibility.spec.ts >> RAIA Accessibility Audits (WCAG AA) >> Verify accessibility for route: /service-landscape/value-chain
+- Location: tests\e2e\accessibility\accessibility.spec.ts:15:9
+
+# Error details
+
+```
+Error: expect(received).toEqual(expected) // deep equality
+
+- Expected  -   1
++ Received  + 335
+
+- Array []
++ Array [
++   Object {
++     "description": "Ensure select element has an accessible name",
++     "help": "Select element must have an accessible name",
++     "helpUrl": "https://dequeuniversity.com/rules/axe/4.12/select-name?application=playwright",
++     "id": "select-name",
++     "impact": "critical",
++     "nodes": Array [
++       Object {
++         "all": Array [],
++         "any": Array [
++           Object {
++             "data": null,
++             "id": "implicit-label",
++             "impact": "critical",
++             "message": "Element does not have an implicit (wrapped) <label>",
++             "relatedNodes": Array [],
++           },
++           Object {
++             "data": null,
++             "id": "explicit-label",
++             "impact": "critical",
++             "message": "Element does not have an explicit <label>",
++             "relatedNodes": Array [],
++           },
++           Object {
++             "data": null,
++             "id": "aria-label",
++             "impact": "critical",
++             "message": "aria-label attribute does not exist or is empty",
++             "relatedNodes": Array [],
++           },
++           Object {
++             "data": null,
++             "id": "aria-labelledby",
++             "impact": "critical",
++             "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty",
++             "relatedNodes": Array [],
++           },
++           Object {
++             "data": Object {
++               "messageKey": "noAttr",
++             },
++             "id": "non-empty-title",
++             "impact": "critical",
++             "message": "Element has no title attribute",
++             "relatedNodes": Array [],
++           },
++           Object {
++             "data": null,
++             "id": "presentational-role",
++             "impact": "critical",
++             "message": "Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
++             "relatedNodes": Array [],
++           },
++         ],
++         "failureSummary": "Fix any of the following:
++   Element does not have an implicit (wrapped) <label>
++   Element does not have an explicit <label>
++   aria-label attribute does not exist or is empty
++   aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty
++   Element has no title attribute
++   Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
++         "html": "<select data-testid=\"value-chain-filter-area\" class=\"w-full bg-slate-50 border border-slate-200 rounded px-2.5 py-1 text-xs text-slate-700 focus:outline-none focus:border-raia-blue-inst\">",
++         "impact": "critical",
++         "none": Array [],
++         "target": Array [
++           "select[data-testid=\"value-chain-filter-area\"]",
++         ],
++       },
++       Object {
++         "all": Array [],
++         "any": Array [
++           Object {
++             "data": null,
++             "id": "implicit-label",
++             "impact": "critical",
++             "message": "Element does not have an implicit (wrapped) <label>",
++             "relatedNodes": Array [],
++           },
++           Object {
++             "data": null,
++             "id": "explicit-label",
++             "impact": "critical",
++             "message": "Element does not have an explicit <label>",
++             "relatedNodes": Array [],
++           },
++           Object {
++             "data": null,
++             "id": "aria-label",
++             "impact": "critical",
++             "message": "aria-label attribute does not exist or is empty",
++             "relatedNodes": Array [],
++           },
++           Object {
++             "data": null,
++             "id": "aria-labelledby",
++             "impact": "critical",
++             "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty",
++             "relatedNodes": Array [],
++           },
++           Object {
++             "data": Object {
++               "messageKey": "noAttr",
++             },
++             "id": "non-empty-title",
++             "impact": "critical",
++             "message": "Element has no title attribute",
++             "relatedNodes": Array [],
++           },
++           Object {
++             "data": null,
++             "id": "presentational-role",
++             "impact": "critical",
++             "message": "Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
++             "relatedNodes": Array [],
++           },
++         ],
++         "failureSummary": "Fix any of the following:
++   Element does not have an implicit (wrapped) <label>
++   Element does not have an explicit <label>
++   aria-label attribute does not exist or is empty
++   aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty
++   Element has no title attribute
++   Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
++         "html": "<select data-testid=\"value-chain-filter-domain\" class=\"w-full bg-slate-50 border border-slate-200 rounded px-2.5 py-1 text-xs text-slate-700 focus:outline-none focus:border-raia-blue-inst\">",
++         "impact": "critical",
++         "none": Array [],
++         "target": Array [
++           "select[data-testid=\"value-chain-filter-domain\"]",
++         ],
++       },
++       Object {
++         "all": Array [],
++         "any": Array [
++           Object {
++             "data": null,
++             "id": "implicit-label",
++             "impact": "critical",
++             "message": "Element does not have an implicit (wrapped) <label>",
++             "relatedNodes": Array [],
++           },
++           Object {
++             "data": null,
++             "id": "explicit-label",
++             "impact": "critical",
++             "message": "Element does not have an explicit <label>",
++             "relatedNodes": Array [],
++           },
++           Object {
++             "data": null,
++             "id": "aria-label",
++             "impact": "critical",
++             "message": "aria-label attribute does not exist or is empty",
++             "relatedNodes": Array [],
++           },
++           Object {
++             "data": null,
++             "id": "aria-labelledby",
++             "impact": "critical",
++             "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty",
++             "relatedNodes": Array [],
++           },
++           Object {
++             "data": Object {
++               "messageKey": "noAttr",
++             },
++             "id": "non-empty-title",
++             "impact": "critical",
++             "message": "Element has no title attribute",
++             "relatedNodes": Array [],
++           },
++           Object {
++             "data": null,
++             "id": "presentational-role",
++             "impact": "critical",
++             "message": "Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
++             "relatedNodes": Array [],
++           },
++         ],
++         "failureSummary": "Fix any of the following:
++   Element does not have an implicit (wrapped) <label>
++   Element does not have an explicit <label>
++   aria-label attribute does not exist or is empty
++   aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty
++   Element has no title attribute
++   Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
++         "html": "<select data-testid=\"value-chain-filter-actor\" class=\"w-full bg-slate-50 border border-slate-200 rounded px-2.5 py-1 text-xs text-slate-700 focus:outline-none focus:border-raia-blue-inst\">",
++         "impact": "critical",
++         "none": Array [],
++         "target": Array [
++           "select[data-testid=\"value-chain-filter-actor\"]",
++         ],
++       },
++       Object {
++         "all": Array [],
++         "any": Array [
++           Object {
++             "data": null,
++             "id": "implicit-label",
++             "impact": "critical",
++             "message": "Element does not have an implicit (wrapped) <label>",
++             "relatedNodes": Array [],
++           },
++           Object {
++             "data": null,
++             "id": "explicit-label",
++             "impact": "critical",
++             "message": "Element does not have an explicit <label>",
++             "relatedNodes": Array [],
++           },
++           Object {
++             "data": null,
++             "id": "aria-label",
++             "impact": "critical",
++             "message": "aria-label attribute does not exist or is empty",
++             "relatedNodes": Array [],
++           },
++           Object {
++             "data": null,
++             "id": "aria-labelledby",
++             "impact": "critical",
++             "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty",
++             "relatedNodes": Array [],
++           },
++           Object {
++             "data": Object {
++               "messageKey": "noAttr",
++             },
++             "id": "non-empty-title",
++             "impact": "critical",
++             "message": "Element has no title attribute",
++             "relatedNodes": Array [],
++           },
++           Object {
++             "data": null,
++             "id": "presentational-role",
++             "impact": "critical",
++             "message": "Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
++             "relatedNodes": Array [],
++           },
++         ],
++         "failureSummary": "Fix any of the following:
++   Element does not have an implicit (wrapped) <label>
++   Element does not have an explicit <label>
++   aria-label attribute does not exist or is empty
++   aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty
++   Element has no title attribute
++   Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
++         "html": "<select data-testid=\"value-chain-filter-status\" class=\"w-full bg-slate-50 border border-slate-200 rounded px-2.5 py-1 text-xs text-slate-700 focus:outline-none focus:border-raia-blue-inst\">",
++         "impact": "critical",
++         "none": Array [],
++         "target": Array [
++           "select[data-testid=\"value-chain-filter-status\"]",
++         ],
++       },
++       Object {
++         "all": Array [],
++         "any": Array [
++           Object {
++             "data": null,
++             "id": "implicit-label",
++             "impact": "critical",
++             "message": "Element does not have an implicit (wrapped) <label>",
++             "relatedNodes": Array [],
++           },
++           Object {
++             "data": null,
++             "id": "explicit-label",
++             "impact": "critical",
++             "message": "Element does not have an explicit <label>",
++             "relatedNodes": Array [],
++           },
++           Object {
++             "data": null,
++             "id": "aria-label",
++             "impact": "critical",
++             "message": "aria-label attribute does not exist or is empty",
++             "relatedNodes": Array [],
++           },
++           Object {
++             "data": null,
++             "id": "aria-labelledby",
++             "impact": "critical",
++             "message": "aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty",
++             "relatedNodes": Array [],
++           },
++           Object {
++             "data": Object {
++               "messageKey": "noAttr",
++             },
++             "id": "non-empty-title",
++             "impact": "critical",
++             "message": "Element has no title attribute",
++             "relatedNodes": Array [],
++           },
++           Object {
++             "data": null,
++             "id": "presentational-role",
++             "impact": "critical",
++             "message": "Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
++             "relatedNodes": Array [],
++           },
++         ],
++         "failureSummary": "Fix any of the following:
++   Element does not have an implicit (wrapped) <label>
++   Element does not have an explicit <label>
++   aria-label attribute does not exist or is empty
++   aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty
++   Element has no title attribute
++   Element's default semantics were not overridden with role=\"none\" or role=\"presentation\"",
++         "html": "<select data-testid=\"value-chain-filter-maturity\" class=\"w-full bg-slate-50 border border-slate-200 rounded px-2.5 py-1 text-xs text-slate-700 focus:outline-none focus:border-raia-blue-inst\">",
++         "impact": "critical",
++         "none": Array [],
++         "target": Array [
++           "select[data-testid=\"value-chain-filter-maturity\"]",
++         ],
++       },
++     ],
++     "tags": Array [
++       "cat.forms",
++       "wcag2a",
++       "wcag412",
++       "section508",
++       "section508.22.n",
++       "TTv5",
++       "TT5.c",
++       "EN-301-549",
++       "EN-9.4.1.2",
++       "ACT",
++       "RGAAv4",
++       "RGAA-11.1.1",
++     ],
++   },
++ ]
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - link "RAIA 0.1.0 Red de Arquitectura de Industria" [ref=e5] [cursor=pointer]:
+          - /url: /
+          - img [ref=e7]
+          - generic [ref=e12]:
+            - generic [ref=e13]:
+              - generic [ref=e14]: RAIA
+              - generic [ref=e15]: 0.1.0
+            - generic [ref=e16]: Red de Arquitectura de Industria
+        - generic [ref=e17]: Referencia
+      - button "Buscar en el portal (Presione Control + K)" [ref=e19]:
+        - generic [ref=e20]:
+          - img [ref=e21]
+          - generic [ref=e24]: Buscar en RAIA...
+        - generic [ref=e25]:
+          - generic [ref=e26]: Ctrl
+          - generic [ref=e27]: K
+      - navigation [ref=e28]:
+        - link "Overview" [ref=e29] [cursor=pointer]:
+          - /url: /
+        - link "Service Landscape" [ref=e30] [cursor=pointer]:
+          - /url: /service-landscape/value-chain
+        - link "Scenarios" [ref=e31] [cursor=pointer]:
+          - /url: /business-scenarios
+        - button "Más" [ref=e33]:
+          - text: Más
+          - img [ref=e34]
+  - main [ref=e36]:
+    - generic [ref=e37]:
+      - generic [ref=e39]:
+        - generic [ref=e40]:
+          - generic [ref=e41]:
+            - img [ref=e42]
+            - heading "Filtros y Búsqueda" [level=2] [ref=e44]
+          - generic [ref=e45]:
+            - generic [ref=e46]: "Coincidencias:"
+            - generic [ref=e47]: 273 / 273
+        - generic [ref=e48]:
+          - generic [ref=e49]:
+            - generic [ref=e50]: Área de Negocio
+            - combobox [ref=e51]:
+              - option "Todas las Áreas" [selected]
+              - option "RAIA-BA-001 - Gobierno y Dirección del SAR"
+              - option "RAIA-BA-002 - Riesgo, Cumplimiento y Supervisión"
+              - option "RAIA-BA-003 - Identidad, Partes y Expediente"
+              - option "RAIA-BA-004 - Afiliación y Cuenta Individual"
+              - option "RAIA-BA-005 - Recaudación y Aportaciones"
+              - option "RAIA-BA-006 - Inversión y SIEFORE"
+              - option "RAIA-BA-007 - Retiros, Prestaciones y Pensiones"
+              - option "RAIA-BA-008 - Servicio, Canales y Experiencia"
+              - option "RAIA-BA-009 - Servicios Compartidos de Industria"
+              - option "RAIA-BA-010 - Capacidades Empresariales y Tecnología"
+              - option "RAIA-BA-011 - Evolución, Arquitectura, Innovación y Conocimiento"
+          - generic [ref=e52]:
+            - generic [ref=e53]: Dominio de Negocio
+            - combobox [ref=e54]:
+              - option "Todos los Dominios" [selected]
+              - option "RAIA-BD-001 - Estrategia y Política del SAR"
+              - option "RAIA-BD-002 - Regulación y Autorizaciones"
+              - option "RAIA-BD-003 - Gobierno y Desempeño"
+              - option "RAIA-BD-004 - Supervisión y Control Regulatorio"
+              - option "RAIA-BD-005 - Riesgo y Cumplimiento"
+              - option "RAIA-BD-006 - Resiliencia y Aseguramiento"
+              - option "RAIA-BD-007 - Datos de Personas y Organizaciones"
+              - option "RAIA-BD-008 - Identidad, Autenticación y Consentimiento"
+              - option "RAIA-BD-009 - Expediente y Evidencia"
+              - option "RAIA-BD-010 - Incorporación y Afiliación"
+              - option "RAIA-BD-011 - Traspaso y Regularización"
+              - option "RAIA-BD-012 - Administración de Cuenta Individual"
+              - option "RAIA-BD-013 - Recaudación Obligatoria"
+              - option "RAIA-BD-014 - Ahorro Voluntario"
+              - option "RAIA-BD-015 - Individualización y Conciliación"
+              - option "RAIA-BD-016 - Diseño y Asignación de Fondos"
+              - option "RAIA-BD-017 - Operación de Inversiones"
+              - option "RAIA-BD-018 - Valuación, Riesgo y Desempeño"
+              - option "RAIA-BD-019 - Retiros, Parciales"
+              - option "RAIA-BD-020 - Pensión y Disposición Total"
+              - option "RAIA-BD-021 - Fallecimiento y Beneficiarios"
+              - option "RAIA-BD-022 - Fondo de Pensiones para el Bienestar"
+              - option "RAIA-BD-023 - Omnicanalidad"
+              - option "RAIA-BD-024 - Solicitudes, Casos y Reclamaciones"
+              - option "RAIA-BD-025 - Educación y Comercialización"
+              - option "RAIA-BD-026 - BDNSAR y Registros Maestros"
+              - option "RAIA-BD-027 - Orquestación e Intercambio"
+              - option "RAIA-BD-028 - Integración con Ecosistema Externo"
+              - option "RAIA-BD-029 - Datos, Seguridad y Privacidad"
+              - option "RAIA-BD-030 - Tecnología y Operación"
+              - option "RAIA-BD-031 - Capacidades Corporativas"
+              - option "RAIA-BD-032 - Arquitectura y Estándares"
+              - option "RAIA-BD-033 - Analítica, Modelos e Inteligencia Artificial"
+              - option "RAIA-BD-034 - Innovación y Gestión del Cambio"
+          - generic [ref=e55]:
+            - generic [ref=e56]: Rol del Actor
+            - combobox [ref=e57]:
+              - option "Todos los Actores" [selected]
+              - option "AFORE"
+              - option "AFORE receptora"
+              - option "AFORE transferente"
+              - option "CONSAR"
+              - option "Empresa Operadora"
+              - option "Trabajador"
+          - generic [ref=e58]:
+            - generic [ref=e59]: Estatus de Ciclo de Vida
+            - combobox [ref=e60]:
+              - option "Todos los Estatus" [selected]
+              - option "Draft"
+              - option "Proposed"
+              - option "Validated"
+              - option "Active"
+              - option "Deprecated"
+          - generic [ref=e61]:
+            - generic [ref=e62]: Nivel de Madurez
+            - combobox [ref=e63]:
+              - option "Todas las Madureces" [selected]
+              - option "Conceptual"
+              - option "Defined"
+              - option "Validated"
+              - option "Adopted"
+      - generic [ref=e65]:
+        - generic [ref=e66]:
+          - generic [ref=e67]:
+            - img [ref=e68]
+            - heading "Front-Office & Experiencia" [level=2] [ref=e73]
+          - generic [ref=e75]:
+            - generic [ref=e77]:
+              - generic [ref=e78]: RAIA-BA-008
+              - heading "Servicio, Canales y Experiencia" [level=3] [ref=e79]
+            - generic [ref=e80]:
+              - generic [ref=e81]:
+                - generic [ref=e82]:
+                  - generic [ref=e83]: Omnicanalidad
+                  - generic [ref=e84]: RAIA-BD-023
+                - generic [ref=e85]:
+                  - button "162 Atención Omnicanal" [ref=e86] [cursor=pointer]:
+                    - generic [ref=e87]: "162"
+                    - generic [ref=e88]: Atención Omnicanal
+                  - button "163 Autoservicio Digital" [ref=e89] [cursor=pointer]:
+                    - generic [ref=e90]: "163"
+                    - generic [ref=e91]: Autoservicio Digital
+                  - button "164 Aplicación Móvil" [ref=e92] [cursor=pointer]:
+                    - generic [ref=e93]: "164"
+                    - generic [ref=e94]: Aplicación Móvil
+                  - button "165 Portal Web" [ref=e95] [cursor=pointer]:
+                    - generic [ref=e96]: "165"
+                    - generic [ref=e97]: Portal Web
+                  - button "166 Centro de Contacto" [ref=e98] [cursor=pointer]:
+                    - generic [ref=e99]: "166"
+                    - generic [ref=e100]: Centro de Contacto
+                  - button "167 Atención en Sucursal" [ref=e101] [cursor=pointer]:
+                    - generic [ref=e102]: "167"
+                    - generic [ref=e103]: Atención en Sucursal
+                  - button "168 Correspondencia" [ref=e104] [cursor=pointer]:
+                    - generic [ref=e105]: "168"
+                    - generic [ref=e106]: Correspondencia
+                  - button "169 Notificaciones" [ref=e107] [cursor=pointer]:
+                    - generic [ref=e108]: "169"
+                    - generic [ref=e109]: Notificaciones
+                  - button "170 Gestión de Acceso a Canales" [ref=e110] [cursor=pointer]:
+                    - generic [ref=e111]: "170"
+                    - generic [ref=e112]: Gestión de Acceso a Canales
+                  - button "171 Historial de Interacciones" [ref=e113] [cursor=pointer]:
+                    - generic [ref=e114]: "171"
+                    - generic [ref=e115]: Historial de Interacciones
+              - generic [ref=e116]:
+                - generic [ref=e117]:
+                  - generic [ref=e118]: Solicitudes, Casos y Reclamaciones
+                  - generic [ref=e119]: RAIA-BD-024
+                - generic [ref=e120]:
+                  - button "172 Gestión de Solicitudes de Servicio" [ref=e121] [cursor=pointer]:
+                    - generic [ref=e122]: "172"
+                    - generic [ref=e123]: Gestión de Solicitudes de Servicio
+                  - button "173 Gestión de Casos" [ref=e124] [cursor=pointer]:
+                    - generic [ref=e125]: "173"
+                    - generic [ref=e126]: Gestión de Casos
+                  - button "174 Gestión de Aclaraciones" [ref=e127] [cursor=pointer]:
+                    - generic [ref=e128]: "174"
+                    - generic [ref=e129]: Gestión de Aclaraciones
+                  - button "175 Gestión de Quejas" [ref=e130] [cursor=pointer]:
+                    - generic [ref=e131]: "175"
+                    - generic [ref=e132]: Gestión de Quejas
+                  - button "176 Coordinación con UNE" [ref=e133] [cursor=pointer]:
+                    - generic [ref=e134]: "176"
+                    - generic [ref=e135]: Coordinación con UNE
+                  - button "177 Interacción con CONDUSEF" [ref=e136] [cursor=pointer]:
+                    - generic [ref=e137]: "177"
+                    - generic [ref=e138]: Interacción con CONDUSEF
+                  - button "178 Gestión de Niveles de Servicio" [ref=e139] [cursor=pointer]:
+                    - generic [ref=e140]: "178"
+                    - generic [ref=e141]: Gestión de Niveles de Servicio
+                  - button "179 Análisis de Causa Raíz" [ref=e142] [cursor=pointer]:
+                    - generic [ref=e143]: "179"
+                    - generic [ref=e144]: Análisis de Causa Raíz
+                  - button "180 Seguimiento de Compromisos" [ref=e145] [cursor=pointer]:
+                    - generic [ref=e146]: "180"
+                    - generic [ref=e147]: Seguimiento de Compromisos
+              - generic [ref=e148]:
+                - generic [ref=e149]:
+                  - generic [ref=e150]: Educación y Comercialización
+                  - generic [ref=e151]: RAIA-BD-025
+                - generic [ref=e152]:
+                  - button "181 Educación Financiera y Previsional" [ref=e153] [cursor=pointer]:
+                    - generic [ref=e154]: "181"
+                    - generic [ref=e155]: Educación Financiera y Previsional
+                  - button "182 Gobierno de Publicidad" [ref=e156] [cursor=pointer]:
+                    - generic [ref=e157]: "182"
+                    - generic [ref=e158]: Gobierno de Publicidad
+                  - button "183 Gestión de Asesores Previsionales" [ref=e159] [cursor=pointer]:
+                    - generic [ref=e160]: "183"
+                    - generic [ref=e161]: Gestión de Asesores Previsionales
+                  - button "184 Gestión de Campañas" [ref=e162] [cursor=pointer]:
+                    - generic [ref=e163]: "184"
+                    - generic [ref=e164]: Gestión de Campañas
+                  - button "185 Gestión de Prospectos" [ref=e165] [cursor=pointer]:
+                    - generic [ref=e166]: "185"
+                    - generic [ref=e167]: Gestión de Prospectos
+                  - button "186 Conocimiento del Trabajador" [ref=e168] [cursor=pointer]:
+                    - generic [ref=e169]: "186"
+                    - generic [ref=e170]: Conocimiento del Trabajador
+                  - button "187 Medición de Satisfacción" [ref=e171] [cursor=pointer]:
+                    - generic [ref=e172]: "187"
+                    - generic [ref=e173]: Medición de Satisfacción
+                  - button "188 Gestión de Retroalimentación" [ref=e174] [cursor=pointer]:
+                    - generic [ref=e175]: "188"
+                    - generic [ref=e176]: Gestión de Retroalimentación
+                  - button "189 Comparación de Servicios y Rendimientos" [ref=e177] [cursor=pointer]:
+                    - generic [ref=e178]: "189"
+                    - generic [ref=e179]: Comparación de Servicios y Rendimientos
+        - generic [ref=e180]:
+          - generic [ref=e181]:
+            - img [ref=e182]
+            - heading "Operación y Procesos Core" [level=2] [ref=e186]
+          - generic [ref=e187]:
+            - generic [ref=e188]:
+              - generic [ref=e190]:
+                - generic [ref=e191]: RAIA-BA-003
+                - heading "Identidad, Partes y Expediente" [level=3] [ref=e192]
+              - generic [ref=e193]:
+                - generic [ref=e194]:
+                  - generic [ref=e195]:
+                    - generic [ref=e196]: Datos de Personas y Organizaciones
+                    - generic [ref=e197]: RAIA-BD-007
+                  - generic [ref=e198]:
+                    - button "020 Datos del Trabajador" [ref=e199] [cursor=pointer]:
+                      - generic [ref=e200]: "020"
+                      - generic [ref=e201]: Datos del Trabajador
+                    - button "047 Datos de Beneficiarios" [ref=e202] [cursor=pointer]:
+                      - generic [ref=e203]: "047"
+                      - generic [ref=e204]: Datos de Beneficiarios
+                    - button "048 Datos del Patrón" [ref=e205] [cursor=pointer]:
+                      - generic [ref=e206]: "048"
+                      - generic [ref=e207]: Datos del Patrón
+                    - button "049 Datos de Dependencias Públicas" [ref=e208] [cursor=pointer]:
+                      - generic [ref=e209]: "049"
+                      - generic [ref=e210]: Datos de Dependencias Públicas
+                    - button "050 Directorio de Participantes del SAR" [ref=e211] [cursor=pointer]:
+                      - generic [ref=e212]: "050"
+                      - generic [ref=e213]: Directorio de Participantes del SAR
+                    - button "051 Gestión de Contacto y Domicilio" [ref=e214] [cursor=pointer]:
+                      - generic [ref=e215]: "051"
+                      - generic [ref=e216]: Gestión de Contacto y Domicilio
+                    - button "052 Gestión de Relaciones entre Partes" [ref=e217] [cursor=pointer]:
+                      - generic [ref=e218]: "052"
+                      - generic [ref=e219]: Gestión de Relaciones entre Partes
+                - generic [ref=e220]:
+                  - generic [ref=e221]:
+                    - generic [ref=e222]: Identidad, Autenticación y Consentimiento
+                    - generic [ref=e223]: RAIA-BD-008
+                  - generic [ref=e224]:
+                    - button "021 Resolución de Identidad" [ref=e225] [cursor=pointer]:
+                      - generic [ref=e226]: "021"
+                      - generic [ref=e227]: Resolución de Identidad
+                    - button "053 Gestión de CURP, NSS y RFC" [ref=e228] [cursor=pointer]:
+                      - generic [ref=e229]: "053"
+                      - generic [ref=e230]: Gestión de CURP, NSS y RFC
+                    - button "023 Identidad Biométrica" [ref=e231] [cursor=pointer]:
+                      - generic [ref=e232]: "023"
+                      - generic [ref=e233]: Identidad Biométrica
+                    - button "054 Autenticación del Trabajador" [ref=e234] [cursor=pointer]:
+                      - generic [ref=e235]: "054"
+                      - generic [ref=e236]: Autenticación del Trabajador
+                    - button "055 Gestión de Derechos de Acceso" [ref=e237] [cursor=pointer]:
+                      - generic [ref=e238]: "055"
+                      - generic [ref=e239]: Gestión de Derechos de Acceso
+                    - button "056 Gestión de Consentimiento" [ref=e240] [cursor=pointer]:
+                      - generic [ref=e241]: "056"
+                      - generic [ref=e242]: Gestión de Consentimiento
+                    - button "057 Prueba de Vida" [ref=e243] [cursor=pointer]:
+                      - generic [ref=e244]: "057"
+                      - generic [ref=e245]: Prueba de Vida
+                    - button "058 Gestión de Representación Legal" [ref=e246] [cursor=pointer]:
+                      - generic [ref=e247]: "058"
+                      - generic [ref=e248]: Gestión de Representación Legal
+                - generic [ref=e249]:
+                  - generic [ref=e250]:
+                    - generic [ref=e251]: Expediente y Evidencia
+                    - generic [ref=e252]: RAIA-BD-009
+                  - generic [ref=e253]:
+                    - button "031 Expediente Electrónico" [ref=e254] [cursor=pointer]:
+                      - generic [ref=e255]: "031"
+                      - generic [ref=e256]: Expediente Electrónico
+                    - button "059 Gestión Documental" [ref=e257] [cursor=pointer]:
+                      - generic [ref=e258]: "059"
+                      - generic [ref=e259]: Gestión Documental
+                    - button "060 Evidencia Digital" [ref=e260] [cursor=pointer]:
+                      - generic [ref=e261]: "060"
+                      - generic [ref=e262]: Evidencia Digital
+                    - button "061 Firma Electrónica y No Repudio" [ref=e263] [cursor=pointer]:
+                      - generic [ref=e264]: "061"
+                      - generic [ref=e265]: Firma Electrónica y No Repudio
+                    - button "062 Conservación de Registros" [ref=e266] [cursor=pointer]:
+                      - generic [ref=e267]: "062"
+                      - generic [ref=e268]: Conservación de Registros
+                    - button "063 Corrección de Datos" [ref=e269] [cursor=pointer]:
+                      - generic [ref=e270]: "063"
+                      - generic [ref=e271]: Corrección de Datos
+                    - button "064 Trazabilidad y Bitácora de Auditoría" [ref=e272] [cursor=pointer]:
+                      - generic [ref=e273]: "064"
+                      - generic [ref=e274]: Trazabilidad y Bitácora de Auditoría
+            - generic [ref=e275]:
+              - generic [ref=e276]:
+                - generic [ref=e278]:
+                  - generic [ref=e279]: RAIA-BA-004
+                  - heading "Afiliación y Cuenta Individual" [level=3] [ref=e280]
+                - generic [ref=e281]:
+                  - generic [ref=e282]:
+                    - generic [ref=e283]:
+                      - generic [ref=e284]: Incorporación y Afiliación
+                      - generic [ref=e285]: RAIA-BD-010
+                    - generic [ref=e286]:
+                      - button "065 Localización de Cuenta" [ref=e287] [cursor=pointer]:
+                        - generic [ref=e288]: "065"
+                        - generic [ref=e289]: Localización de Cuenta
+                      - button "040 Registro en AFORE" [ref=e290] [cursor=pointer]:
+                        - generic [ref=e291]: "040"
+                        - generic [ref=e292]: Registro en AFORE
+                      - button "066 Asignación de Cuenta" [ref=e293] [cursor=pointer]:
+                        - generic [ref=e294]: "066"
+                        - generic [ref=e295]: Asignación de Cuenta
+                      - button "067 Reasignación de Cuenta" [ref=e296] [cursor=pointer]:
+                        - generic [ref=e297]: "067"
+                        - generic [ref=e298]: Reasignación de Cuenta
+                      - button "068 Recertificación de Cuenta" [ref=e299] [cursor=pointer]:
+                        - generic [ref=e300]: "068"
+                        - generic [ref=e301]: Recertificación de Cuenta
+                      - button "069 Activación de Cuenta" [ref=e302] [cursor=pointer]:
+                        - generic [ref=e303]: "069"
+                        - generic [ref=e304]: Activación de Cuenta
+                      - button "070 Gestión de Afiliación" [ref=e305] [cursor=pointer]:
+                        - generic [ref=e306]: "070"
+                        - generic [ref=e307]: Gestión de Afiliación
+                  - generic [ref=e308]:
+                    - generic [ref=e309]:
+                      - generic [ref=e310]: Traspaso y Regularización
+                      - generic [ref=e311]: RAIA-BD-011
+                    - generic [ref=e312]:
+                      - button "045 Traspaso de Cuenta" [ref=e313] [cursor=pointer]:
+                        - generic [ref=e314]: "045"
+                        - generic [ref=e315]: Traspaso de Cuenta
+                      - button "071 Cancelación de Traspaso" [ref=e316] [cursor=pointer]:
+                        - generic [ref=e317]: "071"
+                        - generic [ref=e318]: Cancelación de Traspaso
+                      - button "072 Unificación de Cuentas" [ref=e319] [cursor=pointer]:
+                        - generic [ref=e320]: "072"
+                        - generic [ref=e321]: Unificación de Cuentas
+                      - button "073 Separación de Cuentas" [ref=e322] [cursor=pointer]:
+                        - generic [ref=e323]: "073"
+                        - generic [ref=e324]: Separación de Cuentas
+                      - button "074 Inactivación de Cuenta" [ref=e325] [cursor=pointer]:
+                        - generic [ref=e326]: "074"
+                        - generic [ref=e327]: Inactivación de Cuenta
+                      - button "075 Registro de Fallecimiento" [ref=e328] [cursor=pointer]:
+                        - generic [ref=e329]: "075"
+                        - generic [ref=e330]: Registro de Fallecimiento
+                      - button "076 Recuperación de Cuenta" [ref=e331] [cursor=pointer]:
+                        - generic [ref=e332]: "076"
+                        - generic [ref=e333]: Recuperación de Cuenta
+                      - button "077 Regularización de Cuenta" [ref=e334] [cursor=pointer]:
+                        - generic [ref=e335]: "077"
+                        - generic [ref=e336]: Regularización de Cuenta
+                  - generic [ref=e337]:
+                    - generic [ref=e338]:
+                      - generic [ref=e339]: Administración de Cuenta Individual
+                      - generic [ref=e340]: RAIA-BD-012
+                    - generic [ref=e341]:
+                      - button "046 Libro Mayor de Cuenta Individual" [ref=e342] [cursor=pointer]:
+                        - generic [ref=e343]: "046"
+                        - generic [ref=e344]: Libro Mayor de Cuenta Individual
+                      - button "078 Administración de Subcuentas" [ref=e345] [cursor=pointer]:
+                        - generic [ref=e346]: "078"
+                        - generic [ref=e347]: Administración de Subcuentas
+                      - button "079 Gestión de Saldos" [ref=e348] [cursor=pointer]:
+                        - generic [ref=e349]: "079"
+                        - generic [ref=e350]: Gestión de Saldos
+                      - button "080 Registro de Movimientos" [ref=e351] [cursor=pointer]:
+                        - generic [ref=e352]: "080"
+                        - generic [ref=e353]: Registro de Movimientos
+                      - button "081 Asignación de Acciones" [ref=e354] [cursor=pointer]:
+                        - generic [ref=e355]: "081"
+                        - generic [ref=e356]: Asignación de Acciones
+                      - button "082 Asignación de Rendimientos" [ref=e357] [cursor=pointer]:
+                        - generic [ref=e358]: "082"
+                        - generic [ref=e359]: Asignación de Rendimientos
+                      - button "083 Cálculo y Aplicación de Comisiones" [ref=e360] [cursor=pointer]:
+                        - generic [ref=e361]: "083"
+                        - generic [ref=e362]: Cálculo y Aplicación de Comisiones
+                      - button "084 Ajustes de Cuenta" [ref=e363] [cursor=pointer]:
+                        - generic [ref=e364]: "084"
+                        - generic [ref=e365]: Ajustes de Cuenta
+                      - button "085 Estado de Cuenta" [ref=e366] [cursor=pointer]:
+                        - generic [ref=e367]: "085"
+                        - generic [ref=e368]: Estado de Cuenta
+                      - button "086 Historial Transaccional" [ref=e369] [cursor=pointer]:
+                        - generic [ref=e370]: "086"
+                        - generic [ref=e371]: Historial Transaccional
+                      - button "087 Recursos SAR Legacy" [ref=e372] [cursor=pointer]:
+                        - generic [ref=e373]: "087"
+                        - generic [ref=e374]: Recursos SAR Legacy
+                      - button "088 Conciliación de Cuenta Individual" [ref=e375] [cursor=pointer]:
+                        - generic [ref=e376]: "088"
+                        - generic [ref=e377]: Conciliación de Cuenta Individual
+              - generic [ref=e378]:
+                - generic [ref=e380]:
+                  - generic [ref=e381]: RAIA-BA-005
+                  - heading "Recaudación y Aportaciones" [level=3] [ref=e382]
+                - generic [ref=e383]:
+                  - generic [ref=e384]:
+                    - generic [ref=e385]:
+                      - generic [ref=e386]: Recaudación Obligatoria
+                      - generic [ref=e387]: RAIA-BD-013
+                    - generic [ref=e388]:
+                      - button "089 Determinación de Aportaciones" [ref=e389] [cursor=pointer]:
+                        - generic [ref=e390]: "089"
+                        - generic [ref=e391]: Determinación de Aportaciones
+                      - button "090 Recaudación de Aportaciones Patronales" [ref=e392] [cursor=pointer]:
+                        - generic [ref=e393]: "090"
+                        - generic [ref=e394]: Recaudación de Aportaciones Patronales
+                      - button "091 Recaudación de Aportaciones Gubernamentales" [ref=e395] [cursor=pointer]:
+                        - generic [ref=e396]: "091"
+                        - generic [ref=e397]: Recaudación de Aportaciones Gubernamentales
+                      - button "092 Registro de Aportaciones de Vivienda" [ref=e398] [cursor=pointer]:
+                        - generic [ref=e399]: "092"
+                        - generic [ref=e400]: Registro de Aportaciones de Vivienda
+                      - button "093 Cuota Social" [ref=e401] [cursor=pointer]:
+                        - generic [ref=e402]: "093"
+                        - generic [ref=e403]: Cuota Social
+                      - button "094 Gestión de Aportaciones Omitidas" [ref=e404] [cursor=pointer]:
+                        - generic [ref=e405]: "094"
+                        - generic [ref=e406]: Gestión de Aportaciones Omitidas
+                      - button "095 Gestión de Morosidad de Aportaciones" [ref=e407] [cursor=pointer]:
+                        - generic [ref=e408]: "095"
+                        - generic [ref=e409]: Gestión de Morosidad de Aportaciones
+                  - generic [ref=e410]:
+                    - generic [ref=e411]:
+                      - generic [ref=e412]: Ahorro Voluntario
+                      - generic [ref=e413]: RAIA-BD-014
+                    - generic [ref=e414]:
+                      - button "096 Aportaciones Voluntarias" [ref=e415] [cursor=pointer]:
+                        - generic [ref=e416]: "096"
+                        - generic [ref=e417]: Aportaciones Voluntarias
+                      - button "097 Aportaciones Complementarias" [ref=e418] [cursor=pointer]:
+                        - generic [ref=e419]: "097"
+                        - generic [ref=e420]: Aportaciones Complementarias
+                      - button "098 Ahorro de Largo Plazo" [ref=e421] [cursor=pointer]:
+                        - generic [ref=e422]: "098"
+                        - generic [ref=e423]: Ahorro de Largo Plazo
+                      - button "099 Ahorro Solidario" [ref=e424] [cursor=pointer]:
+                        - generic [ref=e425]: "099"
+                        - generic [ref=e426]: Ahorro Solidario
+                      - button "100 Aportaciones de Trabajadores Independientes" [ref=e427] [cursor=pointer]:
+                        - generic [ref=e428]: "100"
+                        - generic [ref=e429]: Aportaciones de Trabajadores Independientes
+                      - button "101 Aportaciones Voluntarias vía Nómina" [ref=e430] [cursor=pointer]:
+                        - generic [ref=e431]: "101"
+                        - generic [ref=e432]: Aportaciones Voluntarias vía Nómina
+                      - button "102 Domiciliación de Ahorro Voluntario" [ref=e433] [cursor=pointer]:
+                        - generic [ref=e434]: "102"
+                        - generic [ref=e435]: Domiciliación de Ahorro Voluntario
+                  - generic [ref=e436]:
+                    - generic [ref=e437]:
+                      - generic [ref=e438]: Individualización y Conciliación
+                      - generic [ref=e439]: RAIA-BD-015
+                    - generic [ref=e440]:
+                      - button "103 Individualización de Aportaciones" [ref=e441] [cursor=pointer]:
+                        - generic [ref=e442]: "103"
+                        - generic [ref=e443]: Individualización de Aportaciones
+                      - button "104 Resolución de Pagos No Identificados" [ref=e444] [cursor=pointer]:
+                        - generic [ref=e445]: "104"
+                        - generic [ref=e446]: Resolución de Pagos No Identificados
+                      - button "105 Conciliación de Recaudación" [ref=e447] [cursor=pointer]:
+                        - generic [ref=e448]: "105"
+                        - generic [ref=e449]: Conciliación de Recaudación
+                      - button "106 Corrección de Aportaciones" [ref=e450] [cursor=pointer]:
+                        - generic [ref=e451]: "106"
+                        - generic [ref=e452]: Corrección de Aportaciones
+                      - button "107 Transferencia de Aportaciones" [ref=e453] [cursor=pointer]:
+                        - generic [ref=e454]: "107"
+                        - generic [ref=e455]: Transferencia de Aportaciones
+                      - button "108 Devolución de Aportaciones" [ref=e456] [cursor=pointer]:
+                        - generic [ref=e457]: "108"
+                        - generic [ref=e458]: Devolución de Aportaciones
+                      - button "109 Aclaración de Diferencias de Recaudación" [ref=e459] [cursor=pointer]:
+                        - generic [ref=e460]: "109"
+                        - generic [ref=e461]: Aclaración de Diferencias de Recaudación
+              - generic [ref=e462]:
+                - generic [ref=e464]:
+                  - generic [ref=e465]: RAIA-BA-006
+                  - heading "Inversión y SIEFORE" [level=3] [ref=e466]
+                - generic [ref=e467]:
+                  - generic [ref=e468]:
+                    - generic [ref=e469]:
+                      - generic [ref=e470]: Diseño y Asignación de Fondos
+                      - generic [ref=e471]: RAIA-BD-016
+                    - generic [ref=e472]:
+                      - button "110 Asignación a SIEFORE Generacional" [ref=e473] [cursor=pointer]:
+                        - generic [ref=e474]: "110"
+                        - generic [ref=e475]: Asignación a SIEFORE Generacional
+                      - button "111 Estrategia de Inversión" [ref=e476] [cursor=pointer]:
+                        - generic [ref=e477]: "111"
+                        - generic [ref=e478]: Estrategia de Inversión
+                      - button "112 Construcción de Portafolio" [ref=e479] [cursor=pointer]:
+                        - generic [ref=e480]: "112"
+                        - generic [ref=e481]: Construcción de Portafolio
+                      - button "113 Gestión de Mandatos de Inversión" [ref=e482] [cursor=pointer]:
+                        - generic [ref=e483]: "113"
+                        - generic [ref=e484]: Gestión de Mandatos de Inversión
+                      - button "114 Gestión de Benchmark" [ref=e485] [cursor=pointer]:
+                        - generic [ref=e486]: "114"
+                        - generic [ref=e487]: Gestión de Benchmark
+                      - button "115 Gestión de Clases de Activos" [ref=e488] [cursor=pointer]:
+                        - generic [ref=e489]: "115"
+                        - generic [ref=e490]: Gestión de Clases de Activos
+                      - button "116 Diseño de Portafolio Objetivo" [ref=e491] [cursor=pointer]:
+                        - generic [ref=e492]: "116"
+                        - generic [ref=e493]: Diseño de Portafolio Objetivo
+                  - generic [ref=e494]:
+                    - generic [ref=e495]:
+                      - generic [ref=e496]: Operación de Inversiones
+                      - generic [ref=e497]: RAIA-BD-017
+                    - generic [ref=e498]:
+                      - button "117 Ejecución de Operaciones" [ref=e499] [cursor=pointer]:
+                        - generic [ref=e500]: "117"
+                        - generic [ref=e501]: Ejecución de Operaciones
+                      - button "118 Custodia de Valores" [ref=e502] [cursor=pointer]:
+                        - generic [ref=e503]: "118"
+                        - generic [ref=e504]: Custodia de Valores
+                      - button "119 Liquidación de Operaciones" [ref=e505] [cursor=pointer]:
+                        - generic [ref=e506]: "119"
+                        - generic [ref=e507]: Liquidación de Operaciones
+                      - button "120 Acciones Corporativas" [ref=e508] [cursor=pointer]:
+                        - generic [ref=e509]: "120"
+                        - generic [ref=e510]: Acciones Corporativas
+                      - button "121 Administración de Derivados" [ref=e511] [cursor=pointer]:
+                        - generic [ref=e512]: "121"
+                        - generic [ref=e513]: Administración de Derivados
+                      - button "122 Gestión de Liquidez" [ref=e514] [cursor=pointer]:
+                        - generic [ref=e515]: "122"
+                        - generic [ref=e516]: Gestión de Liquidez
+                      - button "123 Préstamo de Valores" [ref=e517] [cursor=pointer]:
+                        - generic [ref=e518]: "123"
+                        - generic [ref=e519]: Préstamo de Valores
+                      - button "124 Gestión de Contrapartes" [ref=e520] [cursor=pointer]:
+                        - generic [ref=e521]: "124"
+                        - generic [ref=e522]: Gestión de Contrapartes
+                      - button "125 Gestión de Instrucciones de Inversión" [ref=e523] [cursor=pointer]:
+                        - generic [ref=e524]: "125"
+                        - generic [ref=e525]: Gestión de Instrucciones de Inversión
+                  - generic [ref=e526]:
+                    - generic [ref=e527]:
+                      - generic [ref=e528]: Valuación, Riesgo y Desempeño
+                      - generic [ref=e529]: RAIA-BD-018
+                    - generic [ref=e530]:
+                      - button "126 Valuación de Instrumentos" [ref=e531] [cursor=pointer]:
+                        - generic [ref=e532]: "126"
+                        - generic [ref=e533]: Valuación de Instrumentos
+                      - button "127 Valuación de Portafolio" [ref=e534] [cursor=pointer]:
+                        - generic [ref=e535]: "127"
+                        - generic [ref=e536]: Valuación de Portafolio
+                      - button "128 Riesgo de Inversión" [ref=e537] [cursor=pointer]:
+                        - generic [ref=e538]: "128"
+                        - generic [ref=e539]: Riesgo de Inversión
+                      - button "129 Cumplimiento del Régimen de Inversión" [ref=e540] [cursor=pointer]:
+                        - generic [ref=e541]: "129"
+                        - generic [ref=e542]: Cumplimiento del Régimen de Inversión
+                      - button "130 Medición de Desempeño" [ref=e543] [cursor=pointer]:
+                        - generic [ref=e544]: "130"
+                        - generic [ref=e545]: Medición de Desempeño
+                      - button "131 Gestión de Límites y Exposición" [ref=e546] [cursor=pointer]:
+                        - generic [ref=e547]: "131"
+                        - generic [ref=e548]: Gestión de Límites y Exposición
+                      - button "132 Riesgo de Mercado" [ref=e549] [cursor=pointer]:
+                        - generic [ref=e550]: "132"
+                        - generic [ref=e551]: Riesgo de Mercado
+                      - button "133 Riesgo de Crédito de Inversiones" [ref=e552] [cursor=pointer]:
+                        - generic [ref=e553]: "133"
+                        - generic [ref=e554]: Riesgo de Crédito de Inversiones
+                      - button "134 Atribución de Rendimientos" [ref=e555] [cursor=pointer]:
+                        - generic [ref=e556]: "134"
+                        - generic [ref=e557]: Atribución de Rendimientos
+            - generic [ref=e558]:
+              - generic [ref=e560]:
+                - generic [ref=e561]: RAIA-BA-007
+                - heading "Retiros, Prestaciones y Pensiones" [level=3] [ref=e562]
+              - generic [ref=e563]:
+                - generic [ref=e564]:
+                  - generic [ref=e565]:
+                    - generic [ref=e566]: Retiros, Parciales
+                    - generic [ref=e567]: RAIA-BD-019
+                  - generic [ref=e568]:
+                    - button "135 Retiro de Ahorro Voluntario" [ref=e569] [cursor=pointer]:
+                      - generic [ref=e570]: "135"
+                      - generic [ref=e571]: Retiro de Ahorro Voluntario
+                    - button "136 Retiro Parcial por Desempleo" [ref=e572] [cursor=pointer]:
+                      - generic [ref=e573]: "136"
+                      - generic [ref=e574]: Retiro Parcial por Desempleo
+                    - button "137 Ayuda para Gastos de Matrimonio" [ref=e575] [cursor=pointer]:
+                      - generic [ref=e576]: "137"
+                      - generic [ref=e577]: Ayuda para Gastos de Matrimonio
+                    - button "138 Retiros Parciales Especiales" [ref=e578] [cursor=pointer]:
+                      - generic [ref=e579]: "138"
+                      - generic [ref=e580]: Retiros Parciales Especiales
+                    - button "139 Validación de Elegibilidad de Retiro" [ref=e581] [cursor=pointer]:
+                      - generic [ref=e582]: "139"
+                      - generic [ref=e583]: Validación de Elegibilidad de Retiro
+                    - button "140 Reintegro de Semanas o Recursos" [ref=e584] [cursor=pointer]:
+                      - generic [ref=e585]: "140"
+                      - generic [ref=e586]: Reintegro de Semanas o Recursos
+                - generic [ref=e587]:
+                  - generic [ref=e588]:
+                    - generic [ref=e589]: Pensión y Disposición Total
+                    - generic [ref=e590]: RAIA-BD-020
+                  - generic [ref=e591]:
+                    - button "141 Coordinación de Elegibilidad Pensionaria" [ref=e592] [cursor=pointer]:
+                      - generic [ref=e593]: "141"
+                      - generic [ref=e594]: Coordinación de Elegibilidad Pensionaria
+                    - button "142 Elección de Régimen Pensionario" [ref=e595] [cursor=pointer]:
+                      - generic [ref=e596]: "142"
+                      - generic [ref=e597]: Elección de Régimen Pensionario
+                    - button "143 Resolución de Pensión" [ref=e598] [cursor=pointer]:
+                      - generic [ref=e599]: "143"
+                      - generic [ref=e600]: Resolución de Pensión
+                    - button "144 Retiro Programado" [ref=e601] [cursor=pointer]:
+                      - generic [ref=e602]: "144"
+                      - generic [ref=e603]: Retiro Programado
+                    - button "145 Transferencia a Renta Vitalicia" [ref=e604] [cursor=pointer]:
+                      - generic [ref=e605]: "145"
+                      - generic [ref=e606]: Transferencia a Renta Vitalicia
+                    - button "146 Pensión Garantizada" [ref=e607] [cursor=pointer]:
+                      - generic [ref=e608]: "146"
+                      - generic [ref=e609]: Pensión Garantizada
+                    - button "147 Disposición Total de Recursos" [ref=e610] [cursor=pointer]:
+                      - generic [ref=e611]: "147"
+                      - generic [ref=e612]: Disposición Total de Recursos
+                    - button "148 Recuperación de Recursos de Vivienda" [ref=e613] [cursor=pointer]:
+                      - generic [ref=e614]: "148"
+                      - generic [ref=e615]: Recuperación de Recursos de Vivienda
+                    - button "149 Seguimiento de Pago Pensionario" [ref=e616] [cursor=pointer]:
+                      - generic [ref=e617]: "149"
+                      - generic [ref=e618]: Seguimiento de Pago Pensionario
+                - generic [ref=e619]:
+                  - generic [ref=e620]:
+                    - generic [ref=e621]: Fallecimiento y Beneficiarios
+                    - generic [ref=e622]: RAIA-BD-021
+                  - generic [ref=e623]:
+                    - button "150 Notificación de Fallecimiento" [ref=e624] [cursor=pointer]:
+                      - generic [ref=e625]: "150"
+                      - generic [ref=e626]: Notificación de Fallecimiento
+                    - button "151 Validación de Beneficiarios" [ref=e627] [cursor=pointer]:
+                      - generic [ref=e628]: "151"
+                      - generic [ref=e629]: Validación de Beneficiarios
+                    - button "152 Prestaciones de Sobrevivencia" [ref=e630] [cursor=pointer]:
+                      - generic [ref=e631]: "152"
+                      - generic [ref=e632]: Prestaciones de Sobrevivencia
+                    - button "153 Distribución de Recursos a Beneficiarios" [ref=e633] [cursor=pointer]:
+                      - generic [ref=e634]: "153"
+                      - generic [ref=e635]: Distribución de Recursos a Beneficiarios
+                    - button "154 Gestión de Recursos No Reclamados" [ref=e636] [cursor=pointer]:
+                      - generic [ref=e637]: "154"
+                      - generic [ref=e638]: Gestión de Recursos No Reclamados
+                    - button "155 Resolución de Derechos de Beneficiarios" [ref=e639] [cursor=pointer]:
+                      - generic [ref=e640]: "155"
+                      - generic [ref=e641]: Resolución de Derechos de Beneficiarios
+                - generic [ref=e642]:
+                  - generic [ref=e643]:
+                    - generic [ref=e644]: Fondo de Pensiones para el Bienestar
+                    - generic [ref=e645]: RAIA-BD-022
+                  - generic [ref=e646]:
+                    - button "156 Identificación de Cuentas Elegibles" [ref=e647] [cursor=pointer]:
+                      - generic [ref=e648]: "156"
+                      - generic [ref=e649]: Identificación de Cuentas Elegibles
+                    - button "157 Transferencia de Recursos al Fondo" [ref=e650] [cursor=pointer]:
+                      - generic [ref=e651]: "157"
+                      - generic [ref=e652]: Transferencia de Recursos al Fondo
+                    - button "158 Coordinación de Complemento Pensionario" [ref=e653] [cursor=pointer]:
+                      - generic [ref=e654]: "158"
+                      - generic [ref=e655]: Coordinación de Complemento Pensionario
+                    - button "159 Reintegro de Recursos" [ref=e656] [cursor=pointer]:
+                      - generic [ref=e657]: "159"
+                      - generic [ref=e658]: Reintegro de Recursos
+                    - button "160 Trazabilidad de Derechos" [ref=e659] [cursor=pointer]:
+                      - generic [ref=e660]: "160"
+                      - generic [ref=e661]: Trazabilidad de Derechos
+                    - button "161 Conciliación con el Fondo" [ref=e662] [cursor=pointer]:
+                      - generic [ref=e663]: "161"
+                      - generic [ref=e664]: Conciliación con el Fondo
+        - generic [ref=e665]:
+          - generic [ref=e666]:
+            - img [ref=e667]
+            - heading "Gobierno, Soporte e Industria" [level=2] [ref=e670]
+          - generic [ref=e671]:
+            - generic [ref=e672]:
+              - generic [ref=e673]:
+                - generic [ref=e675]:
+                  - generic [ref=e676]: RAIA-BA-001
+                  - heading "Gobierno y Dirección del SAR" [level=3] [ref=e677]
+                - generic [ref=e678]:
+                  - generic [ref=e679]:
+                    - generic [ref=e680]:
+                      - generic [ref=e681]: Estrategia y Política del SAR
+                      - generic [ref=e682]: RAIA-BD-001
+                    - generic [ref=e683]:
+                      - button "001 Política del Sistema de Ahorro para el Retiro" [ref=e684] [cursor=pointer]:
+                        - generic [ref=e685]: "001"
+                        - generic [ref=e686]: Política del Sistema de Ahorro para el Retiro
+                      - button "002 Estrategia de Industria" [ref=e687] [cursor=pointer]:
+                        - generic [ref=e688]: "002"
+                        - generic [ref=e689]: Estrategia de Industria
+                      - button "003 Planeación Sectorial" [ref=e690] [cursor=pointer]:
+                        - generic [ref=e691]: "003"
+                        - generic [ref=e692]: Planeación Sectorial
+                      - button "004 Gestión de Capacidades de Industria" [ref=e693] [cursor=pointer]:
+                        - generic [ref=e694]: "004"
+                        - generic [ref=e695]: Gestión de Capacidades de Industria
+                      - button "005 Gestión del Modelo Operativo" [ref=e696] [cursor=pointer]:
+                        - generic [ref=e697]: "005"
+                        - generic [ref=e698]: Gestión del Modelo Operativo
+                      - button "006 Gestión de Resultados del SAR" [ref=e699] [cursor=pointer]:
+                        - generic [ref=e700]: "006"
+                        - generic [ref=e701]: Gestión de Resultados del SAR
+                  - generic [ref=e702]:
+                    - generic [ref=e703]:
+                      - generic [ref=e704]: Regulación y Autorizaciones
+                      - generic [ref=e705]: RAIA-BD-002
+                    - generic [ref=e706]:
+                      - button "007 Gestión del Marco Regulatorio" [ref=e707] [cursor=pointer]:
+                        - generic [ref=e708]: "007"
+                        - generic [ref=e709]: Gestión del Marco Regulatorio
+                      - button "008 Gestión del Cambio Regulatorio" [ref=e710] [cursor=pointer]:
+                        - generic [ref=e711]: "008"
+                        - generic [ref=e712]: Gestión del Cambio Regulatorio
+                      - button "009 Autorización de Participantes" [ref=e713] [cursor=pointer]:
+                        - generic [ref=e714]: "009"
+                        - generic [ref=e715]: Autorización de Participantes
+                      - button "010 Autorización de AFORE y SIEFORE" [ref=e716] [cursor=pointer]:
+                        - generic [ref=e717]: "010"
+                        - generic [ref=e718]: Autorización de AFORE y SIEFORE
+                      - button "011 Gestión Regulatoria de Comisiones" [ref=e719] [cursor=pointer]:
+                        - generic [ref=e720]: "011"
+                        - generic [ref=e721]: Gestión Regulatoria de Comisiones
+                      - button "012 Gestión de Criterios y Consultas Normativas" [ref=e722] [cursor=pointer]:
+                        - generic [ref=e723]: "012"
+                        - generic [ref=e724]: Gestión de Criterios y Consultas Normativas
+                  - generic [ref=e725]:
+                    - generic [ref=e726]:
+                      - generic [ref=e727]: Gobierno y Desempeño
+                      - generic [ref=e728]: RAIA-BD-003
+                    - generic [ref=e729]:
+                      - button "013 Gobierno Corporativo" [ref=e730] [cursor=pointer]:
+                        - generic [ref=e731]: "013"
+                        - generic [ref=e732]: Gobierno Corporativo
+                      - button "014 Gestión de Portafolio de Industria" [ref=e733] [cursor=pointer]:
+                        - generic [ref=e734]: "014"
+                        - generic [ref=e735]: Gestión de Portafolio de Industria
+                      - button "015 Gestión de Beneficios" [ref=e736] [cursor=pointer]:
+                        - generic [ref=e737]: "015"
+                        - generic [ref=e738]: Gestión de Beneficios
+                      - button "016 Métricas del Sistema" [ref=e739] [cursor=pointer]:
+                        - generic [ref=e740]: "016"
+                        - generic [ref=e741]: Métricas del Sistema
+                      - button "017 Transparencia Sectorial" [ref=e742] [cursor=pointer]:
+                        - generic [ref=e743]: "017"
+                        - generic [ref=e744]: Transparencia Sectorial
+                      - button "018 Gestión de Stakeholders del SAR" [ref=e745] [cursor=pointer]:
+                        - generic [ref=e746]: "018"
+                        - generic [ref=e747]: Gestión de Stakeholders del SAR
+              - generic [ref=e748]:
+                - generic [ref=e750]:
+                  - generic [ref=e751]: RAIA-BA-002
+                  - heading "Riesgo, Cumplimiento y Supervisión" [level=3] [ref=e752]
+                - generic [ref=e753]:
+                  - generic [ref=e754]:
+                    - generic [ref=e755]:
+                      - generic [ref=e756]: Supervisión y Control Regulatorio
+                      - generic [ref=e757]: RAIA-BD-004
+                    - generic [ref=e758]:
+                      - button "019 Supervisión Regulatoria" [ref=e759] [cursor=pointer]:
+                        - generic [ref=e760]: "019"
+                        - generic [ref=e761]: Supervisión Regulatoria
+                      - button "022 Inspección Regulatoria" [ref=e762] [cursor=pointer]:
+                        - generic [ref=e763]: "022"
+                        - generic [ref=e764]: Inspección Regulatoria
+                      - button "024 Información Regulatoria" [ref=e765] [cursor=pointer]:
+                        - generic [ref=e766]: "024"
+                        - generic [ref=e767]: Información Regulatoria
+                      - button "025 Atención de Requerimientos Regulatorios" [ref=e768] [cursor=pointer]:
+                        - generic [ref=e769]: "025"
+                        - generic [ref=e770]: Atención de Requerimientos Regulatorios
+                      - button "026 Programas Correctivos" [ref=e771] [cursor=pointer]:
+                        - generic [ref=e772]: "026"
+                        - generic [ref=e773]: Programas Correctivos
+                      - button "027 Gestión de Sanciones" [ref=e774] [cursor=pointer]:
+                        - generic [ref=e775]: "027"
+                        - generic [ref=e776]: Gestión de Sanciones
+                      - button "028 Seguimiento de Hallazgos" [ref=e777] [cursor=pointer]:
+                        - generic [ref=e778]: "028"
+                        - generic [ref=e779]: Seguimiento de Hallazgos
+                  - generic [ref=e780]:
+                    - generic [ref=e781]:
+                      - generic [ref=e782]: Riesgo y Cumplimiento
+                      - generic [ref=e783]: RAIA-BD-005
+                    - generic [ref=e784]:
+                      - button "029 Gestión de Riesgo Empresarial" [ref=e785] [cursor=pointer]:
+                        - generic [ref=e786]: "029"
+                        - generic [ref=e787]: Gestión de Riesgo Empresarial
+                      - button "030 Gestión de Riesgo Operacional" [ref=e788] [cursor=pointer]:
+                        - generic [ref=e789]: "030"
+                        - generic [ref=e790]: Gestión de Riesgo Operacional
+                      - button "032 Cumplimiento Normativo" [ref=e791] [cursor=pointer]:
+                        - generic [ref=e792]: "032"
+                        - generic [ref=e793]: Cumplimiento Normativo
+                      - button "033 Prevención de Lavado de Dinero y Financiamiento al Terrorismo" [ref=e794] [cursor=pointer]:
+                        - generic [ref=e795]: "033"
+                        - generic [ref=e796]: Prevención de Lavado de Dinero y Financiamiento al Terrorismo
+                      - button "034 Prevención y Gestión de Fraude" [ref=e797] [cursor=pointer]:
+                        - generic [ref=e798]: "034"
+                        - generic [ref=e799]: Prevención y Gestión de Fraude
+                      - button "035 Gestión de Riesgo de Terceros" [ref=e800] [cursor=pointer]:
+                        - generic [ref=e801]: "035"
+                        - generic [ref=e802]: Gestión de Riesgo de Terceros
+                      - button "036 Gestión de Conflictos de Interés" [ref=e803] [cursor=pointer]:
+                        - generic [ref=e804]: "036"
+                        - generic [ref=e805]: Gestión de Conflictos de Interés
+                  - generic [ref=e806]:
+                    - generic [ref=e807]:
+                      - generic [ref=e808]: Resiliencia y Aseguramiento
+                      - generic [ref=e809]: RAIA-BD-006
+                    - generic [ref=e810]:
+                      - button "037 Continuidad de Negocio" [ref=e811] [cursor=pointer]:
+                        - generic [ref=e812]: "037"
+                        - generic [ref=e813]: Continuidad de Negocio
+                      - button "038 Recuperación ante Desastres" [ref=e814] [cursor=pointer]:
+                        - generic [ref=e815]: "038"
+                        - generic [ref=e816]: Recuperación ante Desastres
+                      - button "039 Ciberseguridad" [ref=e817] [cursor=pointer]:
+                        - generic [ref=e818]: "039"
+                        - generic [ref=e819]: Ciberseguridad
+                      - button "041 Seguridad de la Información" [ref=e820] [cursor=pointer]:
+                        - generic [ref=e821]: "041"
+                        - generic [ref=e822]: Seguridad de la Información
+                      - button "042 Auditoría Interna" [ref=e823] [cursor=pointer]:
+                        - generic [ref=e824]: "042"
+                        - generic [ref=e825]: Auditoría Interna
+                      - button "043 Gestión de Incidentes Mayores" [ref=e826] [cursor=pointer]:
+                        - generic [ref=e827]: "043"
+                        - generic [ref=e828]: Gestión de Incidentes Mayores
+                      - button "044 Pruebas de Resiliencia Operacional" [ref=e829] [cursor=pointer]:
+                        - generic [ref=e830]: "044"
+                        - generic [ref=e831]: Pruebas de Resiliencia Operacional
+            - generic [ref=e832]:
+              - generic [ref=e834]:
+                - generic [ref=e835]: RAIA-BA-009
+                - heading "Servicios Compartidos de Industria" [level=3] [ref=e836]
+              - generic [ref=e837]:
+                - generic [ref=e838]:
+                  - generic [ref=e839]:
+                    - generic [ref=e840]: BDNSAR y Registros Maestros
+                    - generic [ref=e841]: RAIA-BD-026
+                  - generic [ref=e842]:
+                    - button "190 Base de Datos Nacional SAR" [ref=e843] [cursor=pointer]:
+                      - generic [ref=e844]: "190"
+                      - generic [ref=e845]: Base de Datos Nacional SAR
+                    - button "191 Registro Maestro de Cuentas" [ref=e846] [cursor=pointer]:
+                      - generic [ref=e847]: "191"
+                      - generic [ref=e848]: Registro Maestro de Cuentas
+                    - button "192 Registro Maestro de Trabajadores" [ref=e849] [cursor=pointer]:
+                      - generic [ref=e850]: "192"
+                      - generic [ref=e851]: Registro Maestro de Trabajadores
+                    - button "193 Registro Maestro de Participantes" [ref=e852] [cursor=pointer]:
+                      - generic [ref=e853]: "193"
+                      - generic [ref=e854]: Registro Maestro de Participantes
+                    - button "194 Datos de Referencia de Industria" [ref=e855] [cursor=pointer]:
+                      - generic [ref=e856]: "194"
+                      - generic [ref=e857]: Datos de Referencia de Industria
+                    - button "195 Calidad de Datos de Industria" [ref=e858] [cursor=pointer]:
+                      - generic [ref=e859]: "195"
+                      - generic [ref=e860]: Calidad de Datos de Industria
+                    - button "196 Calendario Operativo" [ref=e861] [cursor=pointer]:
+                      - generic [ref=e862]: "196"
+                      - generic [ref=e863]: Calendario Operativo
+                    - button "197 Catálogos de Industria" [ref=e864] [cursor=pointer]:
+                      - generic [ref=e865]: "197"
+                      - generic [ref=e866]: Catálogos de Industria
+                - generic [ref=e867]:
+                  - generic [ref=e868]:
+                    - generic [ref=e869]: Orquestación e Intercambio
+                    - generic [ref=e870]: RAIA-BD-027
+                  - generic [ref=e871]:
+                    - button "198 Orquestación Central de Procesos" [ref=e872] [cursor=pointer]:
+                      - generic [ref=e873]: "198"
+                      - generic [ref=e874]: Orquestación Central de Procesos
+                    - button "199 Intercambio de Información Regulatoria" [ref=e875] [cursor=pointer]:
+                      - generic [ref=e876]: "199"
+                      - generic [ref=e877]: Intercambio de Información Regulatoria
+                    - button "200 Coordinación de Transferencias de Recursos" [ref=e878] [cursor=pointer]:
+                      - generic [ref=e879]: "200"
+                      - generic [ref=e880]: Coordinación de Transferencias de Recursos
+                    - button "201 Compensación entre Participantes" [ref=e881] [cursor=pointer]:
+                      - generic [ref=e882]: "201"
+                      - generic [ref=e883]: Compensación entre Participantes
+                    - button "202 Hub de Eventos y Notificaciones" [ref=e884] [cursor=pointer]:
+                      - generic [ref=e885]: "202"
+                      - generic [ref=e886]: Hub de Eventos y Notificaciones
+                    - button "203 Validación de Identidad de Industria" [ref=e887] [cursor=pointer]:
+                      - generic [ref=e888]: "203"
+                      - generic [ref=e889]: Validación de Identidad de Industria
+                    - button "204 Validación Biométrica de Industria" [ref=e890] [cursor=pointer]:
+                      - generic [ref=e891]: "204"
+                      - generic [ref=e892]: Validación Biométrica de Industria
+                    - button "205 Gestión de Folios y Acuses" [ref=e893] [cursor=pointer]:
+                      - generic [ref=e894]: "205"
+                      - generic [ref=e895]: Gestión de Folios y Acuses
+                    - button "206 Monitoreo de Procesos de Industria" [ref=e896] [cursor=pointer]:
+                      - generic [ref=e897]: "206"
+                      - generic [ref=e898]: Monitoreo de Procesos de Industria
+                - generic [ref=e899]:
+                  - generic [ref=e900]:
+                    - generic [ref=e901]: Integración con Ecosistema Externo
+                    - generic [ref=e902]: RAIA-BD-028
+                  - generic [ref=e903]:
+                    - button "207 Integración con IMSS" [ref=e904] [cursor=pointer]:
+                      - generic [ref=e905]: "207"
+                      - generic [ref=e906]: Integración con IMSS
+                    - button "208 Integración con ISSSTE" [ref=e907] [cursor=pointer]:
+                      - generic [ref=e908]: "208"
+                      - generic [ref=e909]: Integración con ISSSTE
+                    - button "209 Integración con INFONAVIT" [ref=e910] [cursor=pointer]:
+                      - generic [ref=e911]: "209"
+                      - generic [ref=e912]: Integración con INFONAVIT
+                    - button "210 Integración con FOVISSSTE" [ref=e913] [cursor=pointer]:
+                      - generic [ref=e914]: "210"
+                      - generic [ref=e915]: Integración con FOVISSSTE
+                    - button "211 Integración con Instituciones Bancarias" [ref=e916] [cursor=pointer]:
+                      - generic [ref=e917]: "211"
+                      - generic [ref=e918]: Integración con Instituciones Bancarias
+                    - button "212 Integración con Aseguradoras" [ref=e919] [cursor=pointer]:
+                      - generic [ref=e920]: "212"
+                      - generic [ref=e921]: Integración con Aseguradoras
+                    - button "213 Integración con Custodios y Mercados" [ref=e922] [cursor=pointer]:
+                      - generic [ref=e923]: "213"
+                      - generic [ref=e924]: Integración con Custodios y Mercados
+                    - button "214 Integración con Autoridades Fiscales" [ref=e925] [cursor=pointer]:
+                      - generic [ref=e926]: "214"
+                      - generic [ref=e927]: Integración con Autoridades Fiscales
+                    - button "215 Integración con Entidades Recaudadoras" [ref=e928] [cursor=pointer]:
+                      - generic [ref=e929]: "215"
+                      - generic [ref=e930]: Integración con Entidades Recaudadoras
+            - generic [ref=e931]:
+              - generic [ref=e932]:
+                - generic [ref=e934]:
+                  - generic [ref=e935]: RAIA-BA-010
+                  - heading "Capacidades Empresariales y Tecnología" [level=3] [ref=e936]
+                - generic [ref=e937]:
+                  - generic [ref=e938]:
+                    - generic [ref=e939]:
+                      - generic [ref=e940]: Datos, Seguridad y Privacidad
+                      - generic [ref=e941]: RAIA-BD-029
+                    - generic [ref=e942]:
+                      - button "216 Gobierno de Datos" [ref=e943] [cursor=pointer]:
+                        - generic [ref=e944]: "216"
+                        - generic [ref=e945]: Gobierno de Datos
+                      - button "217 Metadatos y Linaje" [ref=e946] [cursor=pointer]:
+                        - generic [ref=e947]: "217"
+                        - generic [ref=e948]: Metadatos y Linaje
+                      - button "218 Calidad de Datos Empresarial" [ref=e949] [cursor=pointer]:
+                        - generic [ref=e950]: "218"
+                        - generic [ref=e951]: Calidad de Datos Empresarial
+                      - button "219 Privacidad y Protección de Datos" [ref=e952] [cursor=pointer]:
+                        - generic [ref=e953]: "219"
+                        - generic [ref=e954]: Privacidad y Protección de Datos
+                      - button "220 Gestión de Identidades y Accesos" [ref=e955] [cursor=pointer]:
+                        - generic [ref=e956]: "220"
+                        - generic [ref=e957]: Gestión de Identidades y Accesos
+                      - button "221 Criptografía y Gestión de Secretos" [ref=e958] [cursor=pointer]:
+                        - generic [ref=e959]: "221"
+                        - generic [ref=e960]: Criptografía y Gestión de Secretos
+                      - button "222 Inteligencia de Amenazas" [ref=e961] [cursor=pointer]:
+                        - generic [ref=e962]: "222"
+                        - generic [ref=e963]: Inteligencia de Amenazas
+                      - button "223 Desarrollo Seguro" [ref=e964] [cursor=pointer]:
+                        - generic [ref=e965]: "223"
+                        - generic [ref=e966]: Desarrollo Seguro
+                      - button "224 Gestión de Vulnerabilidades" [ref=e967] [cursor=pointer]:
+                        - generic [ref=e968]: "224"
+                        - generic [ref=e969]: Gestión de Vulnerabilidades
+                  - generic [ref=e970]:
+                    - generic [ref=e971]:
+                      - generic [ref=e972]: Tecnología y Operación
+                      - generic [ref=e973]: RAIA-BD-030
+                    - generic [ref=e974]:
+                      - button "225 Operaciones de Tecnología" [ref=e975] [cursor=pointer]:
+                        - generic [ref=e976]: "225"
+                        - generic [ref=e977]: Operaciones de Tecnología
+                      - button "226 Ingeniería de Plataformas" [ref=e978] [cursor=pointer]:
+                        - generic [ref=e979]: "226"
+                        - generic [ref=e980]: Ingeniería de Plataformas
+                      - button "227 Gestión de APIs" [ref=e981] [cursor=pointer]:
+                        - generic [ref=e982]: "227"
+                        - generic [ref=e983]: Gestión de APIs
+                      - button "228 Plataforma de Eventos" [ref=e984] [cursor=pointer]:
+                        - generic [ref=e985]: "228"
+                        - generic [ref=e986]: Plataforma de Eventos
+                      - button "229 Plataforma de Integración" [ref=e987] [cursor=pointer]:
+                        - generic [ref=e988]: "229"
+                        - generic [ref=e989]: Plataforma de Integración
+                      - button "230 Observabilidad" [ref=e990] [cursor=pointer]:
+                        - generic [ref=e991]: "230"
+                        - generic [ref=e992]: Observabilidad
+                      - button "231 Gestión de Servicios de TI" [ref=e993] [cursor=pointer]:
+                        - generic [ref=e994]: "231"
+                        - generic [ref=e995]: Gestión de Servicios de TI
+                      - button "232 Gestión de Configuración" [ref=e996] [cursor=pointer]:
+                        - generic [ref=e997]: "232"
+                        - generic [ref=e998]: Gestión de Configuración
+                      - button "233 Gestión de Capacidad" [ref=e999] [cursor=pointer]:
+                        - generic [ref=e1000]: "233"
+                        - generic [ref=e1001]: Gestión de Capacidad
+                      - button "234 Gestión de Ambientes" [ref=e1002] [cursor=pointer]:
+                        - generic [ref=e1003]: "234"
+                        - generic [ref=e1004]: Gestión de Ambientes
+                      - button "235 Automatización y CI/CD" [ref=e1005] [cursor=pointer]:
+                        - generic [ref=e1006]: "235"
+                        - generic [ref=e1007]: Automatización y CI/CD
+                      - button "236 Recuperación Tecnológica" [ref=e1008] [cursor=pointer]:
+                        - generic [ref=e1009]: "236"
+                        - generic [ref=e1010]: Recuperación Tecnológica
+                  - generic [ref=e1011]:
+                    - generic [ref=e1012]:
+                      - generic [ref=e1013]: Capacidades Corporativas
+                      - generic [ref=e1014]: RAIA-BD-031
+                    - generic [ref=e1015]:
+                      - button "237 Contabilidad Financiera" [ref=e1016] [cursor=pointer]:
+                        - generic [ref=e1017]: "237"
+                        - generic [ref=e1018]: Contabilidad Financiera
+                      - button "238 Gestión Financiera de Tecnología" [ref=e1019] [cursor=pointer]:
+                        - generic [ref=e1020]: "238"
+                        - generic [ref=e1021]: Gestión Financiera de Tecnología
+                      - button "239 Compras" [ref=e1022] [cursor=pointer]:
+                        - generic [ref=e1023]: "239"
+                        - generic [ref=e1024]: Compras
+                      - button "240 Gestión de Proveedores" [ref=e1025] [cursor=pointer]:
+                        - generic [ref=e1026]: "240"
+                        - generic [ref=e1027]: Gestión de Proveedores
+                      - button "241 Gestión de Capital Humano" [ref=e1028] [cursor=pointer]:
+                        - generic [ref=e1029]: "241"
+                        - generic [ref=e1030]: Gestión de Capital Humano
+                      - button "242 Servicios Jurídicos" [ref=e1031] [cursor=pointer]:
+                        - generic [ref=e1032]: "242"
+                        - generic [ref=e1033]: Servicios Jurídicos
+                      - button "243 Gestión de Registros" [ref=e1034] [cursor=pointer]:
+                        - generic [ref=e1035]: "243"
+                        - generic [ref=e1036]: Gestión de Registros
+                      - button "244 Arquitectura Empresarial" [ref=e1037] [cursor=pointer]:
+                        - generic [ref=e1038]: "244"
+                        - generic [ref=e1039]: Arquitectura Empresarial
+                      - button "245 Gestión de Portafolio Empresarial" [ref=e1040] [cursor=pointer]:
+                        - generic [ref=e1041]: "245"
+                        - generic [ref=e1042]: Gestión de Portafolio Empresarial
+                      - button "246 Gestión de Contratos" [ref=e1043] [cursor=pointer]:
+                        - generic [ref=e1044]: "246"
+                        - generic [ref=e1045]: Gestión de Contratos
+                      - button "247 Estrategia de Salida de Proveedores" [ref=e1046] [cursor=pointer]:
+                        - generic [ref=e1047]: "247"
+                        - generic [ref=e1048]: Estrategia de Salida de Proveedores
+              - generic [ref=e1049]:
+                - generic [ref=e1051]:
+                  - generic [ref=e1052]: RAIA-BA-011
+                  - heading "Evolución, Arquitectura, Innovación y Conocimiento" [level=3] [ref=e1053]
+                - generic [ref=e1054]:
+                  - generic [ref=e1055]:
+                    - generic [ref=e1056]:
+                      - generic [ref=e1057]: Arquitectura y Estándares
+                      - generic [ref=e1058]: RAIA-BD-032
+                    - generic [ref=e1059]:
+                      - button "248 Gobierno de Arquitectura Empresarial" [ref=e1060] [cursor=pointer]:
+                        - generic [ref=e1061]: "248"
+                        - generic [ref=e1062]: Gobierno de Arquitectura Empresarial
+                      - button "249 Estándares y Lineamientos" [ref=e1063] [cursor=pointer]:
+                        - generic [ref=e1064]: "249"
+                        - generic [ref=e1065]: Estándares y Lineamientos
+                      - button "250 Catálogo de Patrones" [ref=e1066] [cursor=pointer]:
+                        - generic [ref=e1067]: "250"
+                        - generic [ref=e1068]: Catálogo de Patrones
+                      - button "251 Autoridad de Diseño de Soluciones" [ref=e1069] [cursor=pointer]:
+                        - generic [ref=e1070]: "251"
+                        - generic [ref=e1071]: Autoridad de Diseño de Soluciones
+                      - button "252 Radar Tecnológico" [ref=e1072] [cursor=pointer]:
+                        - generic [ref=e1073]: "252"
+                        - generic [ref=e1074]: Radar Tecnológico
+                      - button "253 Gestión de Deuda Técnica" [ref=e1075] [cursor=pointer]:
+                        - generic [ref=e1076]: "253"
+                        - generic [ref=e1077]: Gestión de Deuda Técnica
+                      - button "254 Gestión de Excepciones Arquitectónicas" [ref=e1078] [cursor=pointer]:
+                        - generic [ref=e1079]: "254"
+                        - generic [ref=e1080]: Gestión de Excepciones Arquitectónicas
+                      - button "255 Arquitecturas de Referencia" [ref=e1081] [cursor=pointer]:
+                        - generic [ref=e1082]: "255"
+                        - generic [ref=e1083]: Arquitecturas de Referencia
+                  - generic [ref=e1084]:
+                    - generic [ref=e1085]:
+                      - generic [ref=e1086]: Analítica, Modelos e Inteligencia Artificial
+                      - generic [ref=e1087]: RAIA-BD-033
+                    - generic [ref=e1088]:
+                      - button "256 Analítica Regulatoria" [ref=e1089] [cursor=pointer]:
+                        - generic [ref=e1090]: "256"
+                        - generic [ref=e1091]: Analítica Regulatoria
+                      - button "257 Modelos Actuariales" [ref=e1092] [cursor=pointer]:
+                        - generic [ref=e1093]: "257"
+                        - generic [ref=e1094]: Modelos Actuariales
+                      - button "258 Modelos de Inversión" [ref=e1095] [cursor=pointer]:
+                        - generic [ref=e1096]: "258"
+                        - generic [ref=e1097]: Modelos de Inversión
+                      - button "259 Modelos de Comportamiento del Trabajador" [ref=e1098] [cursor=pointer]:
+                        - generic [ref=e1099]: "259"
+                        - generic [ref=e1100]: Modelos de Comportamiento del Trabajador
+                      - button "260 Modelos de Fraude" [ref=e1101] [cursor=pointer]:
+                        - generic [ref=e1102]: "260"
+                        - generic [ref=e1103]: Modelos de Fraude
+                      - button "261 Gobierno de Inteligencia Artificial" [ref=e1104] [cursor=pointer]:
+                        - generic [ref=e1105]: "261"
+                        - generic [ref=e1106]: Gobierno de Inteligencia Artificial
+                      - button "262 Plataforma de Ciencia de Datos" [ref=e1107] [cursor=pointer]:
+                        - generic [ref=e1108]: "262"
+                        - generic [ref=e1109]: Plataforma de Ciencia de Datos
+                      - button "263 Gestión del Ciclo de Vida de Modelos" [ref=e1110] [cursor=pointer]:
+                        - generic [ref=e1111]: "263"
+                        - generic [ref=e1112]: Gestión del Ciclo de Vida de Modelos
+                      - button "264 Monitoreo de Modelos" [ref=e1113] [cursor=pointer]:
+                        - generic [ref=e1114]: "264"
+                        - generic [ref=e1115]: Monitoreo de Modelos
+                  - generic [ref=e1116]:
+                    - generic [ref=e1117]:
+                      - generic [ref=e1118]: Innovación y Gestión del Cambio
+                      - generic [ref=e1119]: RAIA-BD-034
+                    - generic [ref=e1120]:
+                      - button "265 Diseño de Servicios" [ref=e1121] [cursor=pointer]:
+                        - generic [ref=e1122]: "265"
+                        - generic [ref=e1123]: Diseño de Servicios
+                      - button "266 Portafolio de Innovación" [ref=e1124] [cursor=pointer]:
+                        - generic [ref=e1125]: "266"
+                        - generic [ref=e1126]: Portafolio de Innovación
+                      - button "267 Investigación de Industria" [ref=e1127] [cursor=pointer]:
+                        - generic [ref=e1128]: "267"
+                        - generic [ref=e1129]: Investigación de Industria
+                      - button "268 Sandbox Regulatorio" [ref=e1130] [cursor=pointer]:
+                        - generic [ref=e1131]: "268"
+                        - generic [ref=e1132]: Sandbox Regulatorio
+                      - button "269 Gestión del Conocimiento" [ref=e1133] [cursor=pointer]:
+                        - generic [ref=e1134]: "269"
+                        - generic [ref=e1135]: Gestión del Conocimiento
+                      - button "270 Gestión del Cambio y Adopción" [ref=e1136] [cursor=pointer]:
+                        - generic [ref=e1137]: "270"
+                        - generic [ref=e1138]: Gestión del Cambio y Adopción
+                      - button "271 Capacitación y Certificación" [ref=e1139] [cursor=pointer]:
+                        - generic [ref=e1140]: "271"
+                        - generic [ref=e1141]: Capacitación y Certificación
+                      - button "272 Mejora Continua" [ref=e1142] [cursor=pointer]:
+                        - generic [ref=e1143]: "272"
+                        - generic [ref=e1144]: Mejora Continua
+                      - button "273 Gestión de Comunidad RAIA" [ref=e1145] [cursor=pointer]:
+                        - generic [ref=e1146]: "273"
+                        - generic [ref=e1147]: Gestión de Comunidad RAIA
+  - contentinfo [ref=e1148]:
+    - generic [ref=e1149]:
+      - paragraph [ref=e1150]: DisclaimerRAIA es una arquitectura de referencia y no sustituye las leyes, disposiciones, criterios, manuales ni publicaciones oficiales de las autoridades mexicanas.
+      - paragraph [ref=e1151]: "RAIA 0.1.0 © 2026. Licencia: Código MIT, Modelos CC BY 4.0."
+  - button "Open Next.js Dev Tools" [ref=e1157] [cursor=pointer]:
+    - generic [ref=e1160]:
+      - text: Compiling
+      - generic [ref=e1161]:
+        - generic [ref=e1162]: .
+        - generic [ref=e1163]: .
+        - generic [ref=e1164]: .
+  - alert [ref=e1165]
+```

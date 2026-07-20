@@ -1,0 +1,315 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: visual\visual.spec.ts >> RAIA Visual Regression Baseline Screenshots >> Business Scenario diagram fullscreen visual snapshot
+- Location: tests\e2e\visual\visual.spec.ts:63:7
+
+# Error details
+
+```
+Error: expect(page).toHaveScreenshot(expected) failed
+
+  14595 pixels (ratio 0.05 of all image pixels) are different.
+
+  Snapshot: business-scenario-fullscreen.png
+
+Call log:
+  - Expect "toHaveScreenshot(business-scenario-fullscreen.png)" with timeout 5000ms
+    - verifying given screenshot expectation
+  - taking page screenshot
+    - disabled all CSS animations
+  - waiting for fonts to load...
+  - fonts loaded
+  - 14595 pixels (ratio 0.05 of all image pixels) are different.
+  - waiting 100ms before taking screenshot
+  - taking page screenshot
+    - disabled all CSS animations
+  - waiting for fonts to load...
+  - fonts loaded
+  - captured a stable screenshot
+  - 14595 pixels (ratio 0.05 of all image pixels) are different.
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - link "Saltar al contenido principal" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "RAIA 0.1.0" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img [ref=e8]
+        - generic [ref=e14]:
+          - generic [ref=e15]: RAIA
+          - generic [ref=e16]: 0.1.0
+      - generic [ref=e17]:
+        - button "Buscar en el portal (Presione Control + K)" [ref=e18]:
+          - generic [ref=e19]:
+            - img [ref=e20]
+            - generic [ref=e23]: Buscar en RAIA...
+        - button "Abrir menú" [ref=e24]:
+          - img [ref=e25]
+  - main [ref=e26]:
+    - generic [ref=e28]:
+      - complementary [ref=e29]:
+        - generic [ref=e30]:
+          - generic [ref=e31]:
+            - img [ref=e32]
+            - heading "Escenarios (0.1.0)" [level=2] [ref=e35]
+          - button "Colapsar panel" [ref=e36] [cursor=pointer]:
+            - img [ref=e37]
+        - generic [ref=e40]:
+          - button "Registro y Traspaso de Cuenta Individual 21 pasos estructurados" [pressed] [ref=e41] [cursor=pointer]:
+            - generic [ref=e42]:
+              - generic [ref=e43]: Registro y Traspaso de Cuenta Individual
+              - img [ref=e44]
+            - generic [ref=e46]: 21 pasos estructurados
+          - button "Recaudación de Aportaciones e Inversión 15 pasos estructurados" [ref=e47] [cursor=pointer]:
+            - generic [ref=e48]:
+              - generic [ref=e49]: Recaudación de Aportaciones e Inversión
+              - img [ref=e50]
+            - generic [ref=e52]: 15 pasos estructurados
+          - button "Localización de cuenta individual 13 pasos estructurados" [ref=e53] [cursor=pointer]:
+            - generic [ref=e54]:
+              - generic [ref=e55]: Localización de cuenta individual
+              - img [ref=e56]
+            - generic [ref=e58]: 13 pasos estructurados
+          - button "Asignación automática de cuentas 15 pasos estructurados" [ref=e59] [cursor=pointer]:
+            - generic [ref=e60]:
+              - generic [ref=e61]: Asignación automática de cuentas
+              - img [ref=e62]
+            - generic [ref=e64]: 15 pasos estructurados
+          - button "Reasignación por desempeño 16 pasos estructurados" [ref=e65] [cursor=pointer]:
+            - generic [ref=e66]:
+              - generic [ref=e67]: Reasignación por desempeño
+              - img [ref=e68]
+            - generic [ref=e70]: 16 pasos estructurados
+          - button "Unificación de cuentas duplicadas 17 pasos estructurados" [ref=e71] [cursor=pointer]:
+            - generic [ref=e72]:
+              - generic [ref=e73]: Unificación de cuentas duplicadas
+              - img [ref=e74]
+            - generic [ref=e76]: 17 pasos estructurados
+          - button "Separación de cuentas IMSS/ISSSTE 15 pasos estructurados" [ref=e77] [cursor=pointer]:
+            - generic [ref=e78]:
+              - generic [ref=e79]: Separación de cuentas IMSS/ISSSTE
+              - img [ref=e80]
+            - generic [ref=e82]: 15 pasos estructurados
+          - button "Asignación automática a SIEFORE Generacional 12 pasos estructurados" [ref=e83] [cursor=pointer]:
+            - generic [ref=e84]:
+              - generic [ref=e85]: Asignación automática a SIEFORE Generacional
+              - img [ref=e86]
+            - generic [ref=e88]: 12 pasos estructurados
+          - button "Construcción y rebalanceo de portafolio 15 pasos estructurados" [ref=e89] [cursor=pointer]:
+            - generic [ref=e90]:
+              - generic [ref=e91]: Construcción y rebalanceo de portafolio
+              - img [ref=e92]
+            - generic [ref=e94]: 15 pasos estructurados
+          - button "Ejecución y liquidación de operaciones 16 pasos estructurados" [ref=e95] [cursor=pointer]:
+            - generic [ref=e96]:
+              - generic [ref=e97]: Ejecución y liquidación de operaciones
+              - img [ref=e98]
+            - generic [ref=e100]: 16 pasos estructurados
+          - button "Valuación de instrumentos financieros 12 pasos estructurados" [ref=e101] [cursor=pointer]:
+            - generic [ref=e102]:
+              - generic [ref=e103]: Valuación de instrumentos financieros
+              - img [ref=e104]
+            - generic [ref=e106]: 12 pasos estructurados
+          - button "Retiro por desempleo IMSS/ISSSTE 17 pasos estructurados" [ref=e107] [cursor=pointer]:
+            - generic [ref=e108]:
+              - generic [ref=e109]: Retiro por desempleo IMSS/ISSSTE
+              - img [ref=e110]
+            - generic [ref=e112]: 17 pasos estructurados
+          - button "Ayuda para gastos de matrimonio 14 pasos estructurados" [ref=e113] [cursor=pointer]:
+            - generic [ref=e114]:
+              - generic [ref=e115]: Ayuda para gastos de matrimonio
+              - img [ref=e116]
+            - generic [ref=e118]: 14 pasos estructurados
+          - button "Elección de modalidad de pensión 15 pasos estructurados" [ref=e119] [cursor=pointer]:
+            - generic [ref=e120]:
+              - generic [ref=e121]: Elección de modalidad de pensión
+              - img [ref=e122]
+            - generic [ref=e124]: 15 pasos estructurados
+          - button "Transferencia de fondos para renta vitalicia 16 pasos estructurados" [ref=e125] [cursor=pointer]:
+            - generic [ref=e126]:
+              - generic [ref=e127]: Transferencia de fondos para renta vitalicia
+              - img [ref=e128]
+            - generic [ref=e130]: 16 pasos estructurados
+          - button "Identificación de cuentas potencialmente elegibles para el Fondo 16 pasos estructurados" [ref=e131] [cursor=pointer]:
+            - generic [ref=e132]:
+              - generic [ref=e133]: Identificación de cuentas potencialmente elegibles para el Fondo
+              - img [ref=e134]
+            - generic [ref=e136]: 16 pasos estructurados
+          - button "Transferencia de recursos al Fondo 15 pasos estructurados" [ref=e137] [cursor=pointer]:
+            - generic [ref=e138]:
+              - generic [ref=e139]: Transferencia de recursos al Fondo
+              - img [ref=e140]
+            - generic [ref=e142]: 15 pasos estructurados
+          - button "Cálculo y gestión del complemento de pensión 17 pasos estructurados" [ref=e143] [cursor=pointer]:
+            - generic [ref=e144]:
+              - generic [ref=e145]: Cálculo y gestión del complemento de pensión
+              - img [ref=e146]
+            - generic [ref=e148]: 17 pasos estructurados
+      - generic [ref=e149]:
+        - generic [ref=e151]:
+          - link "Volver al Portal Principal" [ref=e152] [cursor=pointer]:
+            - /url: /
+            - img [ref=e153]
+          - generic [ref=e155]:
+            - generic [ref=e156]:
+              - generic [ref=e157]: "ID: RAIA-BS-0001"
+              - generic [ref=e158]: Proposed
+              - generic [ref=e159]: Pending Validation
+            - heading "Registro y Traspaso de Cuenta Individual" [level=1] [ref=e160]
+        - figure "Registro y Traspaso de Cuenta Individual" [ref=e162]:
+          - toolbar "Controles del diagrama de secuencia" [ref=e163]:
+            - button "Acercar (+)" [ref=e164]:
+              - img [ref=e165]
+            - button "Alejar (-)" [ref=e168]:
+              - img [ref=e169]
+            - button "Ajustar al contenido (0)" [ref=e173]:
+              - img [ref=e174]
+            - button "Restablecer vista (1)" [ref=e179]:
+              - img [ref=e180]
+            - button "Salir de pantalla completa (F o Esc)" [active] [pressed] [ref=e185]:
+              - img [ref=e186]
+          - img "Registro y Traspaso de Cuenta Individual" [ref=e192]:
+            - generic [ref=e193]:
+              - generic [ref=e196]: sd RAIA-BS-0001
+              - generic [ref=e197]:
+                - generic [ref=e200]: alt
+                - generic [ref=e201]: "[Condiciones de Negocio]"
+                - generic [ref=e203]: "[else Cuenta no registrada]"
+                - generic [ref=e205]: "[else Cuenta registrada en otra AFORE]"
+                - generic [ref=e207]: "[else Múltiples cuentas]"
+                - generic [ref=e209]: "[else Cuenta no elegible]"
+              - generic "Trabajador" [ref=e210]:
+                - generic [ref=e212]: Trabajador
+              - generic "Gestión de Solicitudes" [ref=e213]:
+                - generic [ref=e215]: Gestión de Solicitudes
+              - generic "Resolución de Identidad" [ref=e216]:
+                - generic [ref=e218]: Resolución de Identidad
+              - generic "Identidad Biométrica" [ref=e219]:
+                - generic [ref=e221]: Identidad Biométrica
+              - generic "Expediente Electrónico" [ref=e222]:
+                - generic [ref=e224]: Expediente Electrónico
+              - generic "Gestión de Consentimiento" [ref=e225]:
+                - generic [ref=e227]: Gestión de Consentimiento
+              - generic "Localización de Cuenta" [ref=e228]:
+                - generic [ref=e230]: Localización de Cuenta
+              - generic "Base de Datos Nacional SAR" [ref=e231]:
+                - generic [ref=e233]: Base de Datos Nacional SAR
+              - generic "Traspaso de Cuenta" [ref=e234]:
+                - generic [ref=e236]: Traspaso de Cuenta
+              - generic "AFORE transferente" [ref=e237]:
+                - generic [ref=e239]: AFORE transferente
+              - generic "Libro Mayor de Cuenta Individual" [ref=e240]:
+                - generic [ref=e242]: Libro Mayor de Cuenta Individual
+              - generic "Notificaciones" [ref=e243]:
+                - generic [ref=e245]: Notificaciones
+              - generic "BDNSAR" [ref=e246]:
+                - generic [ref=e248]: BDNSAR
+              - generic "libro mayor" [ref=e249]:
+                - generic [ref=e251]: libro mayor
+              - generic "[1] Solicitar registro o traspaso. Solicitar registro o traspaso." [ref=e252] [cursor=pointer]:
+                - generic [ref=e255]: "[1]"
+                - generic [ref=e256]: Solicitar registro o traspaso.
+              - generic "[2] Recuperar datos. Recuperar datos." [ref=e257] [cursor=pointer]:
+                - generic [ref=e259]: "[2]"
+                - generic [ref=e260]: Recuperar datos.
+              - generic "[3] Entregar datos disponibles. Entregar datos disponibles." [ref=e261] [cursor=pointer]:
+                - generic [ref=e263]: "[3]"
+                - generic [ref=e264]: Entregar datos disponibles.
+              - generic "[4] Validar identidad. Validar identidad." [ref=e265] [cursor=pointer]:
+                - generic [ref=e267]: "[4]"
+                - generic [ref=e268]: Validar identidad.
+              - generic "[5] Validar biometría y prueba de vida. Validar biometría y prueba de vida." [ref=e269] [cursor=pointer]:
+                - generic [ref=e271]: "[5]"
+                - generic [ref=e272]: Validar biometría y prueba de vida.
+              - generic "[6] Confirmar resultado biométrico. Confirmar resultado biométrico." [ref=e273] [cursor=pointer]:
+                - generic [ref=e275]: "[6]"
+                - generic [ref=e276]: Confirmar resultado biométrico.
+              - generic "[7] Integrar expediente. Integrar expediente." [ref=e277] [cursor=pointer]:
+                - generic [ref=e279]: "[7]"
+                - generic [ref=e280]: Integrar expediente.
+              - generic "[8] Capturar consentimiento. Capturar consentimiento." [ref=e281] [cursor=pointer]:
+                - generic [ref=e283]: "[8]"
+                - generic [ref=e284]: Capturar consentimiento.
+              - generic "[9] Consultar existencia de cuenta. Consultar existencia de cuenta." [ref=e285] [cursor=pointer]:
+                - generic [ref=e287]: "[9]"
+                - generic [ref=e288]: Consultar existencia de cuenta.
+              - generic "[10] Buscar cuenta individual. Buscar cuenta individual." [ref=e289] [cursor=pointer]:
+                - generic [ref=e291]: "[10]"
+                - generic [ref=e292]: Buscar cuenta individual.
+              - generic "[11] Entregar estado de cuenta. Entregar estado de cuenta." [ref=e293] [cursor=pointer]:
+                - generic [ref=e295]: "[11]"
+                - generic [ref=e296]: Entregar estado de cuenta.
+              - generic "[12] Informar resultado. Informar resultado." [ref=e297] [cursor=pointer]:
+                - generic [ref=e299]: "[12]"
+                - generic [ref=e300]: Informar resultado.
+              - generic "[13] Registrar solicitud. Registrar solicitud." [ref=e301] [cursor=pointer]:
+                - generic [ref=e303]: "[13]"
+                - generic [ref=e304]: Registrar solicitud.
+              - generic "[14] Solicitar información y saldos. Solicitar información y saldos." [ref=e305] [cursor=pointer]:
+                - generic [ref=e307]: "[14]"
+                - generic [ref=e308]: Solicitar información y saldos.
+              - generic "[15] Entregar información. Entregar información." [ref=e309] [cursor=pointer]:
+                - generic [ref=e311]: "[15]"
+                - generic [ref=e312]: Entregar información.
+              - generic "[16] Solicitar aceptación. Solicitar aceptación." [ref=e313] [cursor=pointer]:
+                - generic [ref=e315]: "[16]"
+                - generic [ref=e316]: Solicitar aceptación.
+              - generic "[17] Confirmar aceptación. Confirmar aceptación." [ref=e317] [cursor=pointer]:
+                - generic [ref=e319]: "[17]"
+                - generic [ref=e320]: Confirmar aceptación.
+              - generic "[18] Registrar transferencia. Registrar transferencia." [ref=e321] [cursor=pointer]:
+                - generic [ref=e323]: "[18]"
+                - generic [ref=e324]: Registrar transferencia.
+              - generic "[19] Confirmar registro. Confirmar registro." [ref=e325] [cursor=pointer]:
+                - generic [ref=e327]: "[19]"
+                - generic [ref=e328]: Confirmar registro.
+              - generic "[20] Emitir resultado. Emitir resultado." [ref=e329] [cursor=pointer]:
+                - generic [ref=e331]: "[20]"
+                - generic [ref=e332]: Emitir resultado.
+              - generic "[21] Notificar registro o traspaso. Notificar registro o traspaso." [ref=e333] [cursor=pointer]:
+                - generic [ref=e335]: "[21]"
+                - generic [ref=e336]: Notificar registro o traspaso.
+      - generic [ref=e337]:
+        - tablist "Secciones del escenario" [ref=e339]:
+          - tab "Pasos y Flujo" [selected] [ref=e340] [cursor=pointer]
+          - tab "Narrativa Arquitectónica" [ref=e341] [cursor=pointer]
+        - generic [ref=e342]:
+          - generic [ref=e343]:
+            - img [ref=e344]
+            - paragraph [ref=e346]: Proceso completo mediante el cual un trabajador solicita el traspaso de su cuenta individual a otra Afore, incluyendo validación biométrica, de expediente y actualización del libro mayor.
+          - region "Flujo y Pasos Estructurados (21)" [ref=e348]:
+            - heading "Flujo y Pasos Estructurados (21)" [level=2] [ref=e350]
+            - button "1 Solicitar registro o traspaso. Trabajador→Gestión de Solicitudes SYNCHRONOUS-COMMAND" [ref=e354] [cursor=pointer]:
+              - generic [ref=e355]:
+                - generic [ref=e356]:
+                  - generic [ref=e357]: "1"
+                  - generic [ref=e358]:
+                    - heading "Solicitar registro o traspaso." [level=3] [ref=e359]
+                    - paragraph [ref=e360]: Trabajador→Gestión de Solicitudes
+                    - generic [ref=e361]: SYNCHRONOUS-COMMAND
+                - img [ref=e363]
+  - contentinfo [ref=e365]:
+    - generic [ref=e366]:
+      - paragraph [ref=e367]: DisclaimerRAIA es una arquitectura de referencia y no sustituye las leyes, disposiciones, criterios, manuales ni publicaciones oficiales de las autoridades mexicanas.
+      - paragraph [ref=e368]: "RAIA 0.1.0 © 2026. Licencia: Código MIT, Modelos CC BY 4.0."
+  - button "Open Next.js Dev Tools" [ref=e374] [cursor=pointer]:
+    - generic [ref=e377]:
+      - text: Compiling
+      - generic [ref=e378]:
+        - generic [ref=e379]: .
+        - generic [ref=e380]: .
+        - generic [ref=e381]: .
+  - alert [ref=e382]
+```
